@@ -166,5 +166,7 @@ bindsym $mod+F5 exec playerctl previous
 bindsym $mod+F6 exec playerctl play-pause
 bindsym $mod+F7 exec playerctl next
 
+# startup
 exec --no-startup-id redshift
 exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
+exec_always xrandr --output DP-1 --off --output DVI-I-1 --primary --mode 1920x1080 -r 144 --pos 0x0 --rotate normal --output DVI-D-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --off
