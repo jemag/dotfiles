@@ -167,3 +167,4 @@ bindsym $mod+F6 exec playerctl play-pause
 bindsym $mod+F7 exec playerctl next
 
 exec --no-startup-id redshift
+exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
