@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Roboto 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,7 +166,47 @@ bindsym $mod+F5 exec playerctl previous
 bindsym $mod+F6 exec playerctl play-pause
 bindsym $mod+F7 exec playerctl next
 
+# i3-gaps
+gaps inner 10
+smart_gaps on
+smart_borders on
+
+# window
+
+new_window pixel 2
+new_float pixel 2
+hide_edge_borders none
+
+# colors
+
+set_from_resource       $background_i3wmthemer  background
+set_from_resource	$foreground_i3wmthemer	foreground
+set_from_resource	$color00_i3wmthemer	color0
+set_from_resource 	$color01_i3wmthemer     color1
+set_from_resource 	$color02_i3wmthemer 	color2
+set_from_resource 	$color03_i3wmthemer 	color3
+set_from_resource 	$color04_i3wmthemer 	color4
+set_from_resource 	$color05_i3wmthemer 	color5
+set_from_resource 	$color06_i3wmthemer	color6
+set_from_resource	$color07_i3wmthemer	color7
+set_from_resource	$color08_i3wmthemer	color8
+set_from_resource	$color09_i3wmthemer	color9
+set_from_resource	$color10_i3wmthemer	color10
+set_from_resource	$color11_i3wmthemer	color11
+set_from_resource	$color12_i3wmthemer	color12
+set_from_resource	$color13_i3wmthemer	color13
+set_from_resource	$color14_i3wmthemer	color14
+set_from_resource	$color15_i3wmthemer	color15
+
+client.background	$background_i3wmthemer
+
+client.focused         	#FFCF76	$background_i3wmthemer	#FFCF76	#FFCF76		#FFCF76
+client.unfocused       	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
+client.focused_inactive	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
+client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
+client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
+exec --no-startup-id compton
 exec --no-startup-id redshift
 exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
 exec_always xrandr --output DP-1 --off --output DVI-I-1 --primary --mode 1920x1080 -r 144 --pos 0x0 --rotate normal --output DVI-D-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --off
