@@ -106,3 +106,7 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+# ignore commands starting with white space in history
+setopt histignorespace
+# remove lines from history with this function
+histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
