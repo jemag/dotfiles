@@ -149,13 +149,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# colors
+
+set_from_resource       $background_i3wmthemer  background
+set_from_resource	$foreground_i3wmthemer	foreground
+set_from_resource	$secondary_i3wmthemer	secondary
+set_from_resource	$active_i3wmthemer	active
+set_from_resource	$color00_i3wmthemer	color0
+set_from_resource 	$color01_i3wmthemer     color1
+set_from_resource 	$color02_i3wmthemer 	color2
+set_from_resource 	$color03_i3wmthemer 	color3
+set_from_resource 	$color04_i3wmthemer 	color4
+set_from_resource 	$color05_i3wmthemer 	color5
+set_from_resource 	$color06_i3wmthemer	color6
+set_from_resource	$color07_i3wmthemer	color7
+set_from_resource	$color08_i3wmthemer	color8
+set_from_resource	$color09_i3wmthemer	color9
+set_from_resource	$color10_i3wmthemer	color10
+set_from_resource	$color11_i3wmthemer	color11
+set_from_resource	$color12_i3wmthemer	color12
+set_from_resource	$color13_i3wmthemer	color13
+set_from_resource	$color14_i3wmthemer	color14
+set_from_resource	$color15_i3wmthemer	color15
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	font pango:Roboto Bold 10
+	colors {
+		background $background_i3wmthemer
+		separator #757575
+		#			border		background		text
+		focused_workspace $color03_i3wmthemer $color03_i3wmthemer $color00_i3wmthemer
+		inactive_workspace $background_i3wmthemer $background_i3wmthemer $color15_i3wmthemer
+		urgent_workspace $color01_i3wmthemer $color01_i3wmthemer $color07_i3wmthemer
+	}
 }
 
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock --color '#1F1F1F'
 
 #AUDIO KEYBINDS
 bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume 0 -5%
@@ -177,26 +210,6 @@ new_window pixel 2
 new_float pixel 2
 hide_edge_borders none
 
-# colors
-
-set_from_resource       $background_i3wmthemer  background
-set_from_resource	$foreground_i3wmthemer	foreground
-set_from_resource	$color00_i3wmthemer	color0
-set_from_resource 	$color01_i3wmthemer     color1
-set_from_resource 	$color02_i3wmthemer 	color2
-set_from_resource 	$color03_i3wmthemer 	color3
-set_from_resource 	$color04_i3wmthemer 	color4
-set_from_resource 	$color05_i3wmthemer 	color5
-set_from_resource 	$color06_i3wmthemer	color6
-set_from_resource	$color07_i3wmthemer	color7
-set_from_resource	$color08_i3wmthemer	color8
-set_from_resource	$color09_i3wmthemer	color9
-set_from_resource	$color10_i3wmthemer	color10
-set_from_resource	$color11_i3wmthemer	color11
-set_from_resource	$color12_i3wmthemer	color12
-set_from_resource	$color13_i3wmthemer	color13
-set_from_resource	$color14_i3wmthemer	color14
-set_from_resource	$color15_i3wmthemer	color15
 
 client.background	$background_i3wmthemer
 
