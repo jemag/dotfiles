@@ -64,17 +64,18 @@ tray-position = left
 tray-maxsize = 16
 tray-transparent = false
 
-modules-left =
+modules-left = i3
 modules-center = xwindow
-modules-right = keyboard wlan eth volume battery calendar clock powermenu 
+modules-right = keyboard wired-network eth volume battery calendar clock powermenu 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
+bottom = true
 [bar/two]
 monitor = ${env:MONITOR:DVI-D-1}
 width = 100%
 height = 27
+bottom = true
 
 font-0 = fixed:pixelsize=10
 font-1 = FontAwesome:size=11
@@ -169,7 +170,7 @@ type = internal/date
 
 interval = 1.0
 
-date = %d/%m/%y
+date = %Y-%m-%d
 
 format = %{T1} <label>
 format-foreground = ${colors.green}
@@ -269,6 +270,7 @@ animation-charging-framerate = 750
 
 
 [module/i3]
+pin-workspaces= true
 type = internal/i3
 format = <label-state> <label-mode>
 
@@ -310,7 +312,7 @@ label-disconnected-foreground = ${colors.red}
 
 [module/wired-network]
 type = internal/network
-interface = enp4s0f2
+interface = enp6s0
 
 format-connected-prefix = " "
 format-disconnected-prefix = " "
