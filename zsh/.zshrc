@@ -110,3 +110,5 @@ zle -N zle-keymap-select
 setopt histignorespace
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
+# see dotfiles
+setopt globdots
