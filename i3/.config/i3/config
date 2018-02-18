@@ -93,55 +93,55 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # set workspace names
-set $terminal_workspace "1:Terminals"
-set $programming_workspace "2:Programming"
-set $web_workspace "3:Web"
-set $random "4:Random"
-set $random2 "5:Random2"
-set $web2_workspace "6:Web"
-set $debug_workspace "7:Debug"
-set $random3 "8:Random3"
-set $notes_workspace "9:Notes"
-set $music_workspace "10:Music"
+set $workspace1 "1:Terminals"
+set $workspace2 "2:Programming"
+set $workspace3 "3:Web"
+set $workspace4 "4:Random"
+set $workspace5 "5:Gaming"
+set $workspace6 "6:Web"
+set $workspace7 "7:Web"
+set $workspace8 "8:Debug"
+set $workspace9 "9:Notes"
+set $workspace10 "10:Music"
 
 # switch to workspace
-bindsym $mod+1 workspace $terminal_workspace
-bindsym $mod+2 workspace $programming_workspace
-bindsym $mod+3 workspace $web_workspace
-bindsym $mod+4 workspace $random
-bindsym $mod+5 workspace $random2
-bindsym $mod+6 workspace $web2_workspace
-bindsym $mod+7 workspace $debug_workspace
-bindsym $mod+8 workspace $random3
-bindsym $mod+9 workspace $notes_workspace
-bindsym $mod+0 workspace $music_workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # set monitors
 set $monitor_one DVI-I-1
 set $monitor_two DVI-D-1
 
 # bind workspaces to monitors
-workspace $terminal_workspace output $monitor_one
-workspace $programming_workspace output $monitor_one
-workspace $web_workspace output $monitor_one
-workspace $random output $monitor_one
-workspace $random2 output $monitor_one
-workspace $web2_workspace output $monitor_two
-workspace $debug_workspace output $monitor_two
-workspace $random3 output $monitor_two
-workspace $notes_workspace output $monitor_two
-workspace $music_workspace output $monitor_two
+workspace $workspace1 output $monitor_one
+workspace $workspace2 output $monitor_one
+workspace $workspace3 output $monitor_one
+workspace $workspace4 output $monitor_one
+workspace $workspace5 output $monitor_one
+workspace $workspace6 output $monitor_two
+workspace $workspace7 output $monitor_two
+workspace $workspace8 output $monitor_two
+workspace $workspace9 output $monitor_two
+workspace $workspace10 output $monitor_two
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $terminal_workspace
-bindsym $mod+Shift+2 move container to workspace $programming_workspace
-bindsym $mod+Shift+3 move container to workspace $web_workspace
-bindsym $mod+Shift+4 move container to workspace $random
-bindsym $mod+Shift+5 move container to workspace $random2
-bindsym $mod+Shift+6 move container to workspace $web2_workspace
-bindsym $mod+Shift+7 move container to workspace $debug_workspace
-bindsym $mod+Shift+8 move container to workspace $random3
-bindsym $mod+Shift+9 move container to workspace $notes_workspace
-bindsym $mod+Shift+0 move container to workspace $music_workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
