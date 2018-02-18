@@ -286,7 +286,7 @@ wrapping-scroll = true
 
 ;Setting workspace icons for i3
 ws-icon-0 = 1:Terminals;
-ws-icon-1 = 2:Programming;
+ws-icon-1 = 2:Programming;
 ws-icon-2 = 3:Web;
 ws-icon-3 = 4:Random;
 ws-icon-4 = 5:Gaming;
@@ -302,10 +302,10 @@ label-focused-foreground = ${colors.background}
 label-focused-background = ${colors.yellow}
 label-focused-padding = 1
 
-label-unfocused =  %name% %icon% 
+label-unfocused =  %index% %icon% 
 label-unfocused-padding = 1
 
-label-urgent =  %name% %icon%
+label-urgent =  %index% %icon%
 label-urgent-foreground = ${colors.background}
 label-urgent-background = ${colors.red}
 label-urgent-padding = 1
