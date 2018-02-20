@@ -70,7 +70,7 @@ tray-transparent = false
 
 modules-left = i3
 modules-center = xwindow
-modules-right = keyboard wired-network eth volume battery calendar clock powermenu 
+modules-right = keyboard volume battery calendar clock powermenu 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -96,7 +96,7 @@ foreground = ${colors.foreground}
 
 modules-left = i3
 modules-center = xwindow
-modules-right = keyboard wlan eth volume battery calendar clock powermenu 
+modules-right = keyboard wlan volume battery calendar clock powermenu 
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
