@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -la"
+alias la="ls -a"
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 PS1+='${VIMODE}'
