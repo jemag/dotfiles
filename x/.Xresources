@@ -33,7 +33,7 @@ rofi.hide-scrollbar:    true
 rofi.lines:             6
 
 ! ============
-!   Couleurs
+!   Colors
 ! ============
 *background: #1F1F1F
 *foreground: #ccd0d9
