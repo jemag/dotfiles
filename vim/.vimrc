@@ -28,5 +28,6 @@ Plug 'https://github.com/vim-scripts/ReplaceWithRegister'
 Plug 'https://github.com/christoomey/vim-titlecase'
 Plug 'https://github.com/christoomey/vim-sort-motion'
 Plug 'https://github.com/christoomey/vim-system-copy'
+Plug 'https://github.com/blueshirts/darcula'
 " Initialize plugin system
 call plug#end()
