@@ -113,3 +113,6 @@ setopt histignorespace
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # see dotfiles
 setopt globdots
+# export path
+path+=('/home/jemag/bin/')
+export PATH
