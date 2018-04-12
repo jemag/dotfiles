@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -la"
 alias la="ls -a"
+alias lh="ls -lh"
 alias ta="tmux attach -t"
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
