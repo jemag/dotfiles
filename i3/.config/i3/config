@@ -218,7 +218,7 @@ set_from_resource	$color15_i3wmthemer	color15
 #	}
 #}
 
-bindsym $mod+shift+x exec i3lock --color '#1F1F1F'
+bindsym $mod+shift+x exec i3lock -i ~/wallpapers/mars-plutot.png
 # vim anywhere
 bindsym $mod+Mod1+v exec ~/.vim-anywhere/bin/run
 
