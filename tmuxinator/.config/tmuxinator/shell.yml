@@ -46,7 +46,7 @@ windows:
   - zsh:
       layout: tiled
       panes:
-              - echo "Welcome Home"
-              - echo "Welcome Home"
-              - echo "Welcome Home"
-              - echo "Welcome Home"
+              - clear
+              - clear
+              - clear
+              - clear
