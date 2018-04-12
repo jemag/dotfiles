@@ -120,3 +120,5 @@ setopt globdots
 # export path
 path+=('/home/jemag/bin/')
 export PATH
+#tmuxinator completion
+source ~/.config/tmuxinator/tmuxinator.zsh
