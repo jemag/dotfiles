@@ -1,0 +1,16 @@
+\set QUIET 1
+
+\pset null '[null]'
+
+\timing
+
+\set HISTSIZE 2000
+
+\x auto
+
+\set VERBOSITY verbose
+
+\set QUIET 0
+
+\echo 'Welcome to PostgreSQL! \n'
+\echo 'Type \\q to exit. \n'
