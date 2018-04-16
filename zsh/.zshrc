@@ -5,6 +5,7 @@
 export ZSH=/home/jemag/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/default
 export CHROME_BIN=/usr/bin/chromium
+export EDITOR=/usr/bin/vim
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
