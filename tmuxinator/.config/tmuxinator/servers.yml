@@ -58,3 +58,8 @@ windows:
       panes:
               - ssh webogsl@srogslweb01.uqar.ca
               - ssh webogsl@srogslweb01.uqar.ca
+  - zsh: 
+      layout: tiled
+      panes: 
+              - clear
+              - clear
