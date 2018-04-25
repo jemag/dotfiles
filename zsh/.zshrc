@@ -123,3 +123,9 @@ path+=('/home/jemag/bin/')
 export PATH
 #tmuxinator completion
 source ~/.config/tmuxinator/tmuxinator.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
