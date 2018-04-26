@@ -19,7 +19,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+Plug 'ajh17/vimcompletesme'
+Plug 'https://github.com/ryanoasis/vim-devicons'
 call plug#end()
 
 
@@ -34,7 +36,13 @@ nnoremap R "_d
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 set incsearch
-set cindent
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=2
+ " when indenting with '>', use 4 spaces width
+set shiftwidth=2
+" On pressing tab, insert 4 spaces
+set expandtab
 inoremap jk <esc>
 syntax enable
 colorscheme darcula
@@ -50,20 +58,10 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber 
 augroup END
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_typescript_tsc_fname = ''
-
 " nerd tree
 map <leader>r :NERDTreeFind<cr>
-
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 
 " air-line
 let g:airline_powerline_fonts = 1
@@ -91,3 +89,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" webdevicons
+let g:Powerline_symbols = 'unicode'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
