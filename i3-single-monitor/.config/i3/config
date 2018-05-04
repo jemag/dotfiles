@@ -242,7 +242,7 @@ hide_edge_borders none
 
 client.background	$background_i3wmthemer
 
-client.focused         	#FFCF76	$background_i3wmthemer	#FFCF76	#FFCF76		#FFCF76
+client.focused         	$color05_i3wmthemer	#FFCF76	$color00_i3wmthemer	#FFCF76		#FFCF76
 client.unfocused       	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 client.focused_inactive	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
