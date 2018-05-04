@@ -119,6 +119,7 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # see dotfiles
 setopt globdots
 # export path
+path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
 export PATH
 #tmuxinator completion
