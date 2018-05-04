@@ -1,4 +1,4 @@
-" vim plug section
+" VIM PLUG SECTION
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -20,14 +20,27 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'w0rp/ale'
-Plug 'ajh17/vimcompletesme'
+Plug 'valloric/youcompleteme'
 Plug 'https://github.com/ryanoasis/vim-devicons'
+Plug 'mattn/emmet-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'https://github.com/jiangmiao/auto-pairs'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/Quramy/tsuquyomi'
+Plug 'https://github.com/drewtempelmeyer/palenight.vim'
+Plug 'https://github.com/reedes/vim-pencil'
+Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'https://github.com/tpope/vim-repeat'
+Plug 'majutsushi/tagbar'
+Plug 'https://github.com/airblade/vim-rooter'
 call plug#end()
 
 
+
+" load other buffers without saving current one
+set hidden
 " leader as spacebar
 let mapleader =" "
-set guifont=Menlo\ for\ Powerline
 set encoding=utf-8
 set noshowmode
 set ignorecase
@@ -36,8 +49,10 @@ nnoremap R "_d
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 set incsearch
-filetype plugin indent on
-" show existing tab with 4 spaces width
+set hlsearch
+nnoremap <esc> :noh<return><esc>
+filetype plugin indent on " show existing tab with 4 spaces width
+:nnoremap <C-z> <C-a>
 set tabstop=2
  " when indenting with '>', use 4 spaces width
 set shiftwidth=2
@@ -46,9 +61,6 @@ set expandtab
 inoremap jk <esc>
 syntax enable
 colorscheme darcula
-set background=dark
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
 set t_Co=256
 set number relativenumber 
 " show real line numbers in insert mode
@@ -57,6 +69,19 @@ augroup numbertoggle
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber 
 	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber 
 augroup END
+
+" youCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 5
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" tsuquyomi
+let g:tsuquyomi_single_quote_import = 1
+nnoremap <leader>I :TsuImport <CR>
+
+" fzf
+nnoremap <leader><C-n> :Files<CR>
+nnoremap <leader><Tab> :Buffers<CR>
+nnoremap <leader><C-f> :Ag<CR>
 
 " nerd tree
 map <leader>r :NERDTreeFind<cr>
@@ -67,6 +92,9 @@ let g:NERDTreeDirArrowCollapsible="~"
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 let g:airline_powerline_fonts = 1
+
+" tagbar
+nmap <leader>T :TagbarToggle<CR>
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -92,3 +120,7 @@ let g:airline_symbols.linenr = ''
 " webdevicons
 let g:Powerline_symbols = 'unicode'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
