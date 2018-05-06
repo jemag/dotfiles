@@ -33,6 +33,7 @@ Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'https://github.com/airblade/vim-rooter'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
 call plug#end()
 
 
