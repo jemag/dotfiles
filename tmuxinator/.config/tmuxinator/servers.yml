@@ -58,6 +58,11 @@ windows:
       panes:
               - ssh webogsl@srogslweb01.uqar.ca
               - ssh webogsl@srogslweb01.uqar.ca
+  - calcul:
+      layout: tiled
+      panes:
+              - ssh desjardinsa@206.167.183.172
+              - ssh desjardinsa@206.167.183.172
   - zsh: 
       layout: tiled
       panes: 
