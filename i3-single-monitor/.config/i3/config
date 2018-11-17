@@ -200,21 +200,6 @@ set_from_resource	$color13_i3wmthemer	color13
 set_from_resource	$color14_i3wmthemer	color14
 set_from_resource	$color15_i3wmthemer	color15
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#	font pango:Roboto Bold 10
-#	colors {
-#		background $background_i3wmthemer
-#		separator #757575
-#		#			border		background		text
-#		focused_workspace $color03_i3wmthemer $color03_i3wmthemer $color00_i3wmthemer
-#		inactive_workspace $background_i3wmthemer $background_i3wmthemer $color15_i3wmthemer
-#		urgent_workspace $color01_i3wmthemer $color01_i3wmthemer $color07_i3wmthemer
-#	}
-#}
-
 bindsym $mod+shift+x exec i3lock --color '#1F1F1F'
 # vim anywhere
 bindsym $mod+Mod1+v exec ~/.vim-anywhere/bin/run

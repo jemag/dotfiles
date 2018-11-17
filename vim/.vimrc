@@ -17,7 +17,8 @@ Plug 'https://github.com/vim-scripts/ReplaceWithRegister'
 Plug 'https://github.com/christoomey/vim-titlecase'
 Plug 'https://github.com/christoomey/vim-sort-motion'
 Plug 'https://github.com/christoomey/vim-system-copy'
-Plug 'https://github.com/blueshirts/darcula'
+" Plug 'https://github.com/blueshirts/darcula'
+Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
@@ -78,7 +79,9 @@ set shiftwidth=2
 set expandtab
 inoremap jk <esc>
 syntax enable
-colorscheme darcula
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='soft'
 set t_Co=256
 set number relativenumber 
 " show real line numbers in insert mode
