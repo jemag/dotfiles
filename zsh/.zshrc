@@ -118,7 +118,6 @@ setopt histignorespace
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # see dotfiles
-setopt GLOB_DOTS
 # export path
 path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
