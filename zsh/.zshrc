@@ -6,6 +6,7 @@ export ZSH=/home/jemag/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/default
 export CHROME_BIN=/usr/bin/chromium
 export EDITOR=/usr/bin/vim
+export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -117,10 +118,11 @@ setopt histignorespace
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # see dotfiles
-setopt globdots
+setopt GLOB_DOTS
 # export path
 path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
+path+=$GRAILS_HOME/bin
 export PATH
 #tmuxinator completion
 source ~/.config/tmuxinator/tmuxinator.zsh

@@ -34,6 +34,12 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'majutsushi/tagbar'
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-markdown'
+"'Plug 'https://github.com/shime/vim-livedown'
+Plug 'https://github.com/suan/vim-instant-markdown'
+Plug 'https://github.com/jtratner/vim-flavored-markdown'
+Plug 'https://github.com/nelstrom/vim-markdown-folding'
+Plug 'https://github.com/junegunn/goyo.vim'
 call plug#end()
 
 
@@ -46,6 +52,11 @@ set encoding=utf-8
 set noshowmode
 set ignorecase
 set smartcase
+" save more ex commands
+set history=200
+" ctrl p/n should act like up down for command line history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 nnoremap R "_d
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
@@ -125,3 +136,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+" instat_markdown_preview
+" use :InstantMarkdownPreview to start instead of automatic
+let g:instant_markdown_autostart = 0
