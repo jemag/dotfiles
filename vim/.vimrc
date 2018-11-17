@@ -1,4 +1,10 @@
 " VIM PLUG SECTION
+" check if vim plug is installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -19,13 +25,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'w0rp/ale'
-Plug 'valloric/youcompleteme'
+"Plug 'w0rp/ale'
+"Plug 'valloric/youcompleteme'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/jiangmiao/auto-pairs'
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
+"Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/Quramy/tsuquyomi'
 Plug 'https://github.com/drewtempelmeyer/palenight.vim'
 Plug 'https://github.com/reedes/vim-pencil'
