@@ -4,7 +4,7 @@
 
 URxvt*scrollBar:	false
 URxvt*letterSpace:  	-0.8
-URxvt*font: 		xft:Roboto Mono Nerd Font Complete:regular:size=12
+URxvt*font: 		xft:Fura Mono Nerd Font Complete:regular:size=11
 ! URxvt*boldFont:		xft:Menlo for Powerline:bold:size=12
 URxvt*cursorBlink:  true
 URxvt.iso14755:		false
