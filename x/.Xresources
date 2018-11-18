@@ -21,7 +21,7 @@ URxvt.keysym.C-equal:         resize-font:bigger
 URxvt.keysym.C-parenright:    resize-font:smaller
 URxvt*depth: 32
 ! hard contrast: *background: #1d2021
-URxvt*background: [90]#282828
+URxvt*background: [93]#282828
 ! =================
 ! rofi color scheme
 ! =================
