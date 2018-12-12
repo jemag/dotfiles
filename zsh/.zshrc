@@ -100,6 +100,7 @@ alias ll="ls -la"
 alias la="ls -a"
 alias lh="ls -lh"
 alias ta="tmux attach -t"
+alias k="kubectl"
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 PS1+='${VIMODE}'
@@ -131,3 +132,5 @@ export FZF_DEFAULT_OPS="--extended"
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+
+export PATH=$PATH:/home/jemag/bin
