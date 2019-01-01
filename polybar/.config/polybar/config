@@ -80,7 +80,7 @@ border-left = 5
 border-right = 5
 border-bottom = 5
 [bar/two]
-monitor = ${env:MONITOR:VGA1}
+monitor = ${env:MONITOR:VGA-2}
 width = 100%
 height = 27
 bottom = false

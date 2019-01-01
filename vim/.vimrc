@@ -47,6 +47,7 @@ Plug 'https://github.com/suan/vim-instant-markdown'
 Plug 'https://github.com/jtratner/vim-flavored-markdown'
 Plug 'https://github.com/nelstrom/vim-markdown-folding'
 Plug 'https://github.com/junegunn/goyo.vim'
+Plug 'https://github.com/tpope/vim-unimpaired'
 call plug#end()
 
 
