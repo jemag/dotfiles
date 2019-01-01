@@ -18,36 +18,8 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-[bar/single]
-width = 100%
-height = 27
-
-tray-position = right
-tray-maxsize = 16
-tray-transparent = false
-
-font-0 = fixed:pixelsize=10
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-3 = "Font Awesome 5 Brands:pixelsize=8;1"
-
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 1
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-modules-left = i3
-modules-center = xwindow
-modules-right = keyboard wlan eth volume battery calendar clock powermenu tray
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-[bar/one]
-monitor = ${env:MONITOR:LVDS1}
+[bar/main]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 
@@ -64,88 +36,17 @@ module-margin-right = 1
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-tray-position = left
-tray-maxsize = 16
-tray-transparent = false
-
 modules-left = i3
 modules-center = xwindow
-modules-right = keyboard volume battery calendar clock powermenu 
+modules-right = keyboard pulseaudio battery calendar clock powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 bottom = false
-border-top = 5
-border-left = 5
-border-right = 5
-border-bottom = 5
-[bar/two]
-monitor = ${env:MONITOR:VGA-2}
-width = 100%
-height = 27
-bottom = false
-border-top = 5
-border-left = 5
-border-right = 5
-border-bottom = 5
-
-font-0 = fixed:pixelsize=10
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-3 = "Font Awesome 5 Brands:pixelsize=8;1"
-
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 1
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-modules-left = i3
-modules-center = xwindow
-modules-right = keyboard wlan volume battery calendar clock powermenu 
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-[module/wlan]
-type = internal/network
-interface = net2
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = eth0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+border-top-size = 5
+border-left-size = 5
+border-right-size = 5
+border-bottom-size = 5
 
 [module/xwindow]
 type = internal/xwindow
@@ -192,18 +93,35 @@ format-prefix = " "
 
 label = %date%
 
-[module/volume]
-type = internal/volume
-master-mixer = Master
-mapped=true
+[module/pulseaudio]
+type = internal/pulseaudio
 
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
 format-volume-foreground = ${colors.blue}
-
 format-volume = %{T1} <label-volume>
-
 format-volume-prefix = " "
 format-muted-prefix = " "
 
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
 label-muted =  [muted]
 label-muted-foreground = ${colors.red}
 label-muted-font = 1
@@ -320,37 +238,3 @@ label-urgent-padding = 1
 
 label-visible =  %index% %icon%
 label-visible-padding = 1
-
-[module/wireless-network]
-type = internal/network
-interface = wlp3s0
-
-format-connected-prefix = " "
-format-disconnected-prefix = " "
-
-format-connected = <label-connected>
-
-format-disconnected = <label-disconnected>
-
-label-connected =  %essid%
-label-connected-foreground = ${colors.foreground-alt}
-
-label-disconnected =  [not connected]
-label-disconnected-foreground = ${colors.red}
-
-[module/wired-network]
-type = internal/network
-interface = enp6s0
-
-format-connected-prefix = " "
-format-disconnected-prefix = " "
-
-format-connected = <label-connected>
-
-format-disconnected = <label-disconnected>
-
-label-connected =  %local_ip%
-label-connected-foreground = ${colors.foreground-alt}
-
-label-disconnected =  [not plugged]
-label-disconnected-foreground = ${colors.red}
