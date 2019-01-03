@@ -100,7 +100,9 @@ alias ll="ls -la"
 alias la="ls -a"
 alias lh="ls -lh"
 alias ta="tmux attach -t"
+#kubernetes aliases
 alias k="kubectl"
+alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 PS1+='${VIMODE}'
