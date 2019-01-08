@@ -112,20 +112,20 @@ bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # set monitors
-set $monitor_one VGA-1
-set $monitor_two VGA-2
-
-# bind workspaces to monitors
-workspace $workspace1 output $monitor_one
-workspace $workspace2 output $monitor_one
-workspace $workspace3 output $monitor_one
-workspace $workspace4 output $monitor_one
-workspace $workspace5 output $monitor_one
-workspace $workspace6 output $monitor_two
-workspace $workspace7 output $monitor_two
-workspace $workspace8 output $monitor_two
-workspace $workspace9 output $monitor_two
-workspace $workspace10 output $monitor_two
+#set $monitor_one HDMI1
+#set $monitor_two VGA1
+#
+## bind workspaces to monitors
+#workspace $workspace1 output $monitor_one
+#workspace $workspace2 output $monitor_one
+#workspace $workspace3 output $monitor_one
+#workspace $workspace4 output $monitor_one
+#workspace $workspace5 output $monitor_one
+#workspace $workspace6 output $monitor_two
+#workspace $workspace7 output $monitor_two
+#workspace $workspace8 output $monitor_two
+#workspace $workspace9 output $monitor_two
+#workspace $workspace10 output $monitor_two
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -241,9 +241,8 @@ client.focused_inactive	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthem
 client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
-exec --no-startup-id redshift
-#exec_always xrandr --output VIRTUAL1 --off --output DP3 --off --output DP2 --off --output DP1 --off --output HDMI3 --off --output HDMI2  --off --output HDMI1 --off --output LVDS1 --primary --mode 1366x768 --pos 0x312 --rotate normal --output VGA1 --mode 1920x1080 --pos 1366x0 --rotate normal
-exec_always xrandr --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec --no-startup-id redshift-gtk
+#exec_always xrandr --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
 #intellij focus
