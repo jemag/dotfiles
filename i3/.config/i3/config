@@ -242,7 +242,8 @@ client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$colo
 client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
 exec --no-startup-id redshift-gtk
-#exec_always xrandr --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal --output VGA1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec VBoxClient --clipboard
+exec xmodmap /home/jemag/.Xmodmap
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
 #intellij focus
