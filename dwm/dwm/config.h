@@ -18,6 +18,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_norm,  col_vdark,  col_norm },
 	[SchemeSel]  = { col_full,  col_vdark,  col_full },
+	[SchemeTitle]  = { col_full, col_vdark,  col_full  },
 };
 
 /* tagging */
