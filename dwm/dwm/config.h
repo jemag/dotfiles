@@ -12,17 +12,30 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 6;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 7;        /* vertical padding for statusbar */
-static const char *fonts[]          = { "Fura Mono Nerd Font Complete:size=10" };
-static const char dmenufont[]       = "Fura Mono Nerd Font Complete:size=10";
-static const char col_vdark[]       = "#292d36";
-static const char col_dark[]        = "#3a404d";
-static const char col_norm[]        = "#8790a3";
-static const char col_full[]        = "#ffffff";
+static const char *fonts[]          = { "Fura Mono Nerd Font Complete:style=Retina:size=10" };
+static const char dmenufont[]       = "Fura Mono Nerd Font Complete:style=Retina:size=10";
+static const char black[]       = "#282828";
+static const char skin[]        = "ebdbb2";
+static const char darkgrey[]        = "#928374";
+static const char darkred[]        = "#cc241d";
+static const char red[]        = "#fb4934";
+static const char darkgreen[]        = "#98971a";
+static const char green[]        = "#b8bb26";
+static const char darkyellow[]        = "#d79921";
+static const char yellow[]        = "#fabd2f";
+static const char darkblue[]        = "#458588";
+static const char blue[]        = "#83a598";
+static const char darkmagenta[]        = "#b16286";
+static const char magenta[]        = "#d3869b";
+static const char darkcyan[]        = "#689d6a";
+static const char cyan[]        = "#8ec07c";
+static const char lightgrey[]        = "#a89984";
+static const char white[]        = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_norm,  col_vdark,  col_norm },
-	[SchemeSel]  = { col_full,  col_vdark,  col_full },
-	[SchemeTitle]  = { col_full, col_vdark,  col_full  },
+  [SchemeNorm] =	 { white, black, white },
+  [SchemeSel]  =	 { white, darkcyan, white },
+	[SchemeTitle]  = { white, darkcyan, white  },
 };
 
 /* tagging */
@@ -66,7 +79,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_vdark, "-nf", col_norm, "-sb", col_dark, "-sf", col_full, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", black, "-nf", white, "-sb", darkcyan, "-sf", white, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
 static Key keys[] = {
