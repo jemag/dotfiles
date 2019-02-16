@@ -15,7 +15,7 @@ static const int vertpadbar         = 7;        /* vertical padding for statusba
 static const char *fonts[]          = { "Fura Mono Nerd Font Complete:style=Retina:size=10" };
 static const char dmenufont[]       = "Fura Mono Nerd Font Complete:style=Retina:size=10";
 static const char black[]       = "#282828";
-static const char skin[]        = "ebdbb2";
+static const char skin[]        = "#ebdbb2";
 static const char darkgrey[]        = "#928374";
 static const char darkred[]        = "#cc241d";
 static const char red[]        = "#fb4934";
@@ -33,9 +33,9 @@ static const char lightgrey[]        = "#a89984";
 static const char white[]        = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-  [SchemeNorm] =	 { white, black, lightgrey },
+  [SchemeNorm] =	 { skin, black, lightgrey },
   [SchemeSel]  =	 { white, darkcyan, yellow },
-	[SchemeTitle]  = { white, darkcyan, yellow  },
+	[SchemeTitle]  = { skin, darkcyan, yellow  },
 };
 
 /* tagging */
