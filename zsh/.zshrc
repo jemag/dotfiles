@@ -124,6 +124,9 @@ path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
 path+=$GRAILS_HOME/bin
 export PATH
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+
 #tmuxinator completion
 source ~/.config/tmuxinator/tmuxinator.zsh
 

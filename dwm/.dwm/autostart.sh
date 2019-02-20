@@ -21,6 +21,7 @@ cpu(){
 }
 
 feh --bg-tile ~/wallpapers/dark-honeycomb.png
+wmname LG3D
 while true; do
      xsetroot -name "$(cpu) | $(mem) | $(dte)"
      sleep 5s    # Update time every ten seconds
