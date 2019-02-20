@@ -48,6 +48,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#custom stuff
 setxkbmap -option caps:super
-exec ~/bin/startdwm.sh
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+exec i3 -V >> ~/i3log-$(date + '%F-%k-%M-%S') 2>&1
