@@ -246,7 +246,7 @@ index-sort = true
 wrapping-scroll = true
 
 ;Setting workspace icons for i3
-ws-icon-0 = 1:Terminals;
+ws-icon-0 = 1;
 ws-icon-1 = 2:Programming;
 ws-icon-2 = 3:Web;
 ws-icon-3 = 4:Random;

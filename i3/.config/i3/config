@@ -88,7 +88,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # set workspace names
-set $workspace1 "1:Terminals"
+set $workspace1 "1"
 set $workspace2 "2:Programming"
 set $workspace3 "3:Web"
 set $workspace4 "4:Random"

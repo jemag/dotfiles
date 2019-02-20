@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=DWM
+Comment=Dynamic Window Manager
+Exec=/home/jemag/bin/startdwm.sh
+#TryExec=/home/jemag/bin/startdwm.sh
+Icon=dwm
+Type=XSession
