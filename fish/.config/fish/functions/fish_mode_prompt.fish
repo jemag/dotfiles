@@ -5,7 +5,7 @@ function fish_mode_prompt
             case default
                 prompt_segment blue black "N"
             case insert
-                prompt_segment green black "I"
+                prompt_segment cyan black "I"
             case replace_one
                 prompt_segment red black "R"
             case visual
