@@ -20,6 +20,7 @@ font pango:Roboto 8
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
+mouse_warping output
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -89,15 +90,15 @@ bindsym $mod+a focus parent
 
 # set workspace names
 set $workspace1 "1"
-set $workspace2 "2:Programming"
-set $workspace3 "3:Web"
-set $workspace4 "4:Random"
-set $workspace5 "5:Social"
-set $workspace6 "6:Web"
-set $workspace7 "7:Web"
-set $workspace8 "8:Debug"
-set $workspace9 "9:Notes"
-set $workspace10 "10:Music"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -243,8 +244,7 @@ client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$
 # startup
 exec --no-startup-id redshift-gtk
 exec VBoxClient --clipboard
-exec xmodmap /home/jemag/.Xmodmap
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-exec_always feh --bg-scale --no-xinerama ~/wallpapers/mars-plutot.jpg
+exec_always feh --bg-tile ~/wallpapers/dark-honeycomb.png
 #intellij focus
 for_window [class="^jetbrains-.+"][window_type=dialog] focus

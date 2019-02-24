@@ -26,7 +26,7 @@ URxvt*background: [93]#282828
 ! rofi color scheme
 ! =================
 #define hl_text #1F1F1F
-#define m_color #ffb52a
+#define m_color #689d6a
 
 rofi.color-enabled:		true
 rofi.separator-style: 	solid
