@@ -113,7 +113,7 @@ end
 
 
 function prompt_dir -d "Display the current directory"
-  prompt_segment 1C1C1C FFFFFF (prompt_pwd)
+  prompt_segment d79921 black (prompt_pwd)
 end
 
 
