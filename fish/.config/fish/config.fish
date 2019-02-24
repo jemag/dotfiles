@@ -2,4 +2,5 @@
 
 fish_vi_key_bindings
 set -g theme_display_user yes
+set -g fish_prompt_pwd_dir_length 0
 
