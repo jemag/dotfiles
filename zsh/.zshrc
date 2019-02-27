@@ -96,8 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll="ls -la"
-alias la="ls -a"
+alias ll="ls -l"
+alias la="ls -la"
 alias lh="ls -lh"
 alias ta="tmux attach -t"
 alias k="kubectl"
