@@ -43,6 +43,7 @@ modules-right = keyboard pulseaudio battery calendar clock powermenu
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 bottom = false
+border-color = #00000000
 border-top-size = 5
 border-left-size = 5
 border-right-size = 5
