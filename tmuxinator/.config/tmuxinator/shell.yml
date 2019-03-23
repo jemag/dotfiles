@@ -44,9 +44,8 @@ root: ~/
 
 windows:
   - zsh:
-      layout: 151e,122x30,0,0[123x6,0,0{85x6,0,0,0,37x6,86,0,1},123x24,0,7{85x24,0,7,2,37x24,86,7,3}]
+      layout: tiled
       panes:
-              - clear
               - clear
               - clear
               - clear
