@@ -3,5 +3,4 @@
 fish_vi_key_bindings
 set -g theme_display_user yes
 set -g fish_prompt_pwd_dir_length 0
-set PATH /home/jemag/bin $PATH
-
+set -gx PATH /home/jemag/bin /home/jemag/.gem/ruby/2.6.0/bin $PATH
