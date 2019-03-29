@@ -9,6 +9,20 @@ endif
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+
+let g:coc_global_extensions = [
+      \'coc-yaml',
+      \'coc-json',
+      \'coc-html',
+      \'coc-pyls',
+      \'coc-java',
+      \'coc-emmet',
+      \'coc-highlight',
+      \'coc-snippets',
+      \'coc-tsserver',
+      \'coc-css']
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
 " Make sure you use single quotes
 " Any valid git URL is allowed
 Plug 'https://github.com/tpope/vim-surround'
@@ -26,14 +40,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } 
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/leafgarland/typescript-vim'
-"Plug 'w0rp/ale'
-"Plug 'valloric/youcompleteme'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/jiangmiao/auto-pairs'
 "Plug 'https://github.com/ludovicchabant/vim-gutentags'
-Plug 'https://github.com/Quramy/tsuquyomi'
+"Plug 'https://github.com/Quramy/tsuquyomi'
 Plug 'https://github.com/drewtempelmeyer/palenight.vim'
 Plug 'https://github.com/reedes/vim-pencil'
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -43,7 +55,8 @@ Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-markdown'
 "'Plug 'https://github.com/shime/vim-livedown'
-Plug 'https://github.com/suan/vim-instant-markdown'
+"Plug 'https://github.com/suan/vim-instant-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'https://github.com/jtratner/vim-flavored-markdown'
 Plug 'https://github.com/nelstrom/vim-markdown-folding'
 Plug 'https://github.com/junegunn/goyo.vim'
@@ -93,8 +106,8 @@ augroup numbertoggle
 augroup END
 
 " youCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 5
-let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 5
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 " tsuquyomi
 let g:tsuquyomi_single_quote_import = 1
@@ -149,3 +162,75 @@ endif
 " instat_markdown_preview
 " use :InstantMarkdownPreview to start instead of automatic
 let g:instant_markdown_autostart = 0
+
+"COC.nvim settings
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> <C-q> :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
