@@ -66,6 +66,7 @@ Plug 'https://github.com/nelstrom/vim-markdown-folding'
 Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/luochen1990/rainbow'
 call plug#end()
 
 
@@ -241,3 +242,6 @@ nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
 " Tagbar
 nmap <leader>T :TagbarToggle<CR>
+
+" Rainbow parentheses
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
