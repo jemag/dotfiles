@@ -9,7 +9,8 @@
 ! ===================
 ! urxvt configuration
 ! ===================
-
+! urxvt extension
+Urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
 URxvt*scrollBar:	false
 URxvt*letterSpace:  	-0.8
 URxvt.font: 		xft:FuraMono Nerd Font Mono:regular:size=11
@@ -18,7 +19,9 @@ URxvt*cursorBlink:  true
 URxvt.iso14755:		false
 URxvt*utf8:			true
 URxvt.keysym.C-equal:         resize-font:bigger
-URxvt.keysym.C-parenright:    resize-font:smaller
+URxvt.keysym.C-minus:    resize-font:smaller
+URxvt.keysym.C-0:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
 URxvt*depth: 32
 ! hard contrast: *background: #1d2021
 URxvt*background: [93]#282828
