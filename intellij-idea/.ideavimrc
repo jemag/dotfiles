@@ -1,3 +1,17 @@
+set hidden
+set encoding=utf-8
+set noshowmode
+set ignorecase
+set smartcase
+" save more ex commands
+set history=200
+set incsearch
+set hlsearch
+ " when indenting with '>', use 2 spaces width
+set shiftwidth=2
+set tabstop=2
+" On pressing tab, insert spaces
+set expandtab
 " leader as spacebar
 let mapleader =" "
 " ctrl p/n should act like up down for command line history
