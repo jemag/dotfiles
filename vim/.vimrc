@@ -21,7 +21,7 @@ let g:coc_global_extensions = [
       \'coc-yaml',
       \'coc-json',
       \'coc-html',
-      \'coc-pyls',
+      \'coc-python',
       \'coc-java',
       \'coc-emmet',
       \'coc-highlight',
@@ -67,6 +67,8 @@ Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/luochen1990/rainbow'
+Plug 'https://github.com/andrewstuart/vim-kubernetes'
+Plug 'https://github.com/hashivim/vim-terraform'
 call plug#end()
 
 
@@ -195,7 +197,7 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -235,6 +237,13 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Integration with vim-airline
+" if you want to disable auto detect, comment out those two lines
+" let g:airline#extensions#disable_rtp_load = 1
+" let g:airline_extensions = ['branch', 'hunks', 'coc']
+
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 "Ale
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
@@ -245,3 +254,9 @@ nmap <leader>T :TagbarToggle<CR>
 
 " Rainbow parentheses
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
+
+"Terraform plugin
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_commentstring='//%s'
+let g:terraform_fmt_on_save=1
