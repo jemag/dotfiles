@@ -8,3 +8,4 @@ set -Ux EDITOR vim
 set -Ux JAVA_HOME /usr/lib/jvm/default
 alias k="kubectl"
 alias tf="terraform"
+alias jd="joplin --profile ~/.config/joplin-desktop"
