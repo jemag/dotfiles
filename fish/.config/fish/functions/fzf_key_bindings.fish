@@ -1,1 +1,1 @@
-/home/jemag/.fzf/shell/key-bindings.fish
+/home/jemag/.cache/dein/repos/github.com/junegunn/fzf/shell/key-bindings.fish
