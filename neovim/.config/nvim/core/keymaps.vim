@@ -32,6 +32,15 @@ nmap <leader>tm :tabmove
 "yank to end
 nnoremap Y y$
 
+" Navigate neovim + neovim terminal emulator with alt+direction
+tnoremap <c-h> <C-\><C-n><C-w>h
+tnoremap <c-j> <C-\><C-n><C-w>j
+tnoremap <c-k> <C-\><C-n><C-w>k
+tnoremap <c-l> <C-\><C-n><C-w>l
+
+" easily escape terminal
+tnoremap <C-o> <C-\><C-n><esc><cr>
+
 nmap <leader>1 <Plug>BufTabLine.Go(1)
 nmap <leader>2 <Plug>BufTabLine.Go(2)
 nmap <leader>3 <Plug>BufTabLine.Go(3)

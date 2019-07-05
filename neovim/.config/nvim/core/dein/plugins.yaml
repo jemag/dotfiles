@@ -5,6 +5,8 @@
 - repo: Shougo/dein.vim
 - repo: honza/vim-snippets
 - repo: christoomey/vim-tmux-navigator
+- repo: kassio/neoterm
+  hook_add: source $VIMPATH/core/plugins/neoterm.vim
 
 
 #}}}
