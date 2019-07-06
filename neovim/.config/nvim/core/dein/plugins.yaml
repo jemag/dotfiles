@@ -160,7 +160,7 @@
   hook_source: source  $VIMPATH/core/plugins/vim-go.vim
 
 - repo: tpope/vim-markdown
-  on_ft: [markdown, md, pandoc.markdown, rmd]
+  on_ft: [markdown, pandoc.markdown, rmd]
   hook_add: |
         let g:markdown_fenced_languages = [
           \ 'html',
@@ -172,17 +172,19 @@
           \]
 
 - repo: iamcco/markdown-preview.nvim
-  on_ft: [markdown, md, pandoc.markdown, rmd]
+  on_ft: [markdown, pandoc.markdown, rmd]
   build: 'cd app & yarn install'
 
 - repo: jtratner/vim-flavored-markdown
-  on_ft: [markdown, md, pandoc.markdown, rmd]
+  on_ft: [markdown, pandoc.markdown, rmd]
 
+- repo: nelstrom/vim-markdown-folding
+  on_ft: [markdown, pandoc.markdown, rmd]
 # }}}
 
 
 # Coding{{{
-- { repo: tyru/caw.vim, on_map: { nx: <Plug> }}
+- { repo: tpope/vim-commentary }
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
@@ -225,9 +227,20 @@
         call echodoc#enable()
         let g:echodoc#type = "virtual"
 
-- repo: w0rp/ale
-  hook_add: source  $VIMPATH/core/plugins/vim-ale.vim
+- repo: andrewstuart/vim-kubernetes
+  on_ft: yaml
 
+- repo:  hashivim/vim-terraform
+  on_path: .tf
+
+#- repo: w0rp/ale
+#  hook_add: source  $VIMPATH/core/plugins/vim-ale.vim
+#  on_ft: java
+# }}}
+
+# Writing {{{
+- repo: reedes/vim-pencil
+  on_ft: [markdown, text, tex]
 # }}}
 
 # TextObjectOperator{{{
