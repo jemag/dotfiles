@@ -13,7 +13,7 @@
 
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
-  merge: 0
+  merged: 0
   rev: release
   hook_add: source $VIMPATH/core/plugins/coc.vim
 # }}}

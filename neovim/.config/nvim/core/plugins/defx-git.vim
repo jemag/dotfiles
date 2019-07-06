@@ -1,10 +1,10 @@
 let g:defx_git#indicators = {
 	\ 'Modified'  : '•',
-	\ 'Staged'    : '✚',
-	\ 'Untracked' : 'ᵁ',
-	\ 'Renamed'   : '≫',
+	\ 'Staged'    : 'S',
+	\ 'Untracked' : 'U',
+	\ 'Renamed'   : 'R',
 	\ 'Unmerged'  : '≠',
-	\ 'Ignored'   : 'ⁱ',
-	\ 'Deleted'   : '✖',
-	\ 'Unknown'   : '⁇'
+	\ 'Ignored'   : 'I',
+	\ 'Deleted'   : 'D',
+	\ 'Unknown'   : '?'
 	\ }

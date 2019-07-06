@@ -1,6 +1,6 @@
 let s:menus = {}
 
-let s:menus.dein = { 'description': '⚔️  Plugin management' }
+let s:menus.dein = { 'description': ' Plugin management' }
 let s:menus.dein.command_candidates = [
   \   ['🐬 Dein: Plugins update       🔸', 'call dein#update()'],
   \   ['🐬 Dein: Plugins List         🔸', 'Denite dein'],
