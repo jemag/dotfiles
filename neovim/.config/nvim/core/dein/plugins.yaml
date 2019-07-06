@@ -160,7 +160,7 @@
   hook_source: source  $VIMPATH/core/plugins/vim-go.vim
 
 - repo: tpope/vim-markdown
-  on_ft: markdown
+  on_ft: [markdown, md, pandoc.markdown, rmd]
   hook_add: |
         let g:markdown_fenced_languages = [
           \ 'html',
@@ -170,6 +170,13 @@
           \ 'js=javascript',
           \ 'go',
           \]
+
+- repo: iamcco/markdown-preview.nvim
+  on_ft: [markdown, md, pandoc.markdown, rmd]
+  build: 'cd app & yarn install'
+
+- repo: jtratner/vim-flavored-markdown
+  on_ft: [markdown, md, pandoc.markdown, rmd]
 
 # }}}
 

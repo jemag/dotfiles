@@ -99,7 +99,7 @@ autocmd MyAutoCmd BufWritePost *
 
 if has('folding')
 	set foldenable
-	set foldmethod=syntax
+	set foldmethod=indent
 	set foldlevelstart=99
 	set foldtext=FoldText()
 endif
