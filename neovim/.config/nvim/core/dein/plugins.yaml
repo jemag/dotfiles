@@ -246,9 +246,5 @@
 # TextObjectOperator{{{
 - { repo: AndrewRadev/splitjoin.vim, on_map: { n: <Plug>Splitjoin }}
 - { repo: terryma/vim-expand-region, on_map: { x: <Plug> }}
-- repo: kana/vim-operator-replace
-  depends: vim-operator-user
-  on_map: { vnx: <Plug> }
 - repo: tpope/vim-surround
-
 # }}}

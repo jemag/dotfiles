@@ -16,24 +16,7 @@ set fillchars+=vert:\|  " add a bar for vertical splits
 if get(g:,'gruvbox_transp_bg',1)
  set fcs=eob:\           " hide ~
 endif
-if has('mac')
-	let g:clipboard = {
-		\   'name': 'macOS-clipboard',
-		\   'copy': {
-		\      '+': 'pbcopy',
-		\      '*': 'pbcopy',
-		\    },
-		\   'paste': {
-		\      '+': 'pbpaste',
-		\      '*': 'pbpaste',
-		\   },
-		\   'cache_enabled': 0,
-		\ }
-endif
 
-if has('clipboard')
-	set clipboard& clipboard+=unnamedplus
-endif
 set history=2000
 set number
 set timeout ttimeout

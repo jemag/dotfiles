@@ -273,10 +273,6 @@ if dein#tap('vim-sandwich')
      xmap as <Plug>(textobj-sandwich-query-a)
 endif
 
-if dein#tap('vim-operator-replace')
-	xmap p <Plug>(operator-replace)
-endif
-
 if dein#tap('vim-textobj-multiblock')
 	omap <silent> ab <Plug>(textobj-multiblock-a)
 	omap <silent> ib <Plug>(textobj-multiblock-i)
