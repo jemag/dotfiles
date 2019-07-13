@@ -7,6 +7,7 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: kassio/neoterm
   hook_add: source $VIMPATH/core/plugins/neoterm.vim
+  
 
 
 #}}}
@@ -65,28 +66,10 @@
       endfunction
 
 - repo: junegunn/vim-easy-align
-  on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
-
-# - repo: yuttie/comfortable-motion.vim
-#   on_func: comfortable_motion#flick
-#   hook_add: |
-#         let g:comfortable_motion_no_default_key_mappings = 1
-#         let g:comfortable_motion_impulse_multiplier = 1
 
 - {repo: simnalamburt/vim-mundo , on_map: { n: <Plug> } }
 
 - {repo: tpope/vim-repeat , on_map: .* }
-
-- repo: liuchengxu/vim-which-key
-  on_cmd: [Whichkey, Whichkey!]
-  hook_source: source  $VIMPATH/core/plugins/whichkey.vim
-  hook_post_source: |
-        call which_key#register('<Space>', 'g:which_key_map')
-        call which_key#register(';', 'g:which_key_localmap')
-        call which_key#register(']', 'g:which_key_rsbgmap')
-        call which_key#register('[', 'g:which_key_lsbgmap')
-# }}}
-
 
 # File manager{{{
 - repo: Shougo/defx.nvim
@@ -231,6 +214,7 @@
   on_ft: yaml
 
 - repo:  hashivim/vim-terraform
+  hook_add: source $VIMPATH/core/plugins/vim-terraform.vim
   on_path: .tf
 
 #- repo: w0rp/ale

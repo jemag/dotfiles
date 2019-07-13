@@ -83,7 +83,7 @@ endfunction
 
 function! Vimacslinemode()
   let nr = s:get_buffer_number()
-  let nmap = [ '⓿ ',  '❶ ',  '➋ ',  '❸ ', '❹ ','❺ ',  '❻ ',  '❼ ',  '❽ ',  '❾ ','➓ ','⓫ ','⓬ ','⓭ ','⓮ ','⓯ ','⓰ ','⓱ ','⓲ ','⓳ ','⓴ ']
+  let nmap = [ '0 ', '1 ',  '2 ',  '3 ',  '4 ', '5 ','6 ',  '7 ',  '8 ',  '9 ',  '10 ','11 ','12 ','13 ','14 ','15 ','16 ','17 ','18 ','19 ','20 ']
   if nr == 0
     return ''
   endif
@@ -158,7 +158,7 @@ function! spaceline#spaceline#CocStatusBar() abort
     let regstatus=substitute(status,"TSC","Ⓣ ","")
     let statusbar= split(regstatus)
     if &filetype ==? "go"
-        let gobar ="Ⓖ "
+        let gobar ="="Ⓖ "
         call add(statusbar,gobar)
     endif
     "return join(statusbar," ")

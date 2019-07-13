@@ -121,7 +121,7 @@ if dein#tap('vim-easygit')
 	nnoremap <silent> <localleader>gc :Gcommit<CR>
 	nnoremap <silent> <localleader>gb :Gblame<CR>
 	nnoremap <silent> <localleader>gB :Gbrowse<CR>
-	nnoremap <silent> <localleader>gS :Gstatus<CR>
+	nnoremap <silent> <localleader>gs :Gstatus<CR>
 	nnoremap <silent> <localleader>gp :Gpush<CR>
 endif
 
@@ -139,25 +139,6 @@ if dein#tap('accelerated-jk')
 	nmap <silent>j <Plug>(accelerated_jk_gj)
 	nmap <silent>k <Plug>(accelerated_jk_gk)
 endif
-
-if dein#tap('caw.vim')
-	function! InitCaw() abort
-		if !&l:modifiable
-			silent! nunmap <buffer> gc
-			silent! xunmap <buffer> gc
-			silent! nunmap <buffer> gcc
-			silent! xunmap <buffer> gcc
-		else
-			nmap <buffer> gc <Plug>(caw:prefix)
-			xmap <buffer> gc <Plug>(caw:prefix)
-			nmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-			xmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-		endif
-	endfunction
-	autocmd MyAutoCmd FileType * call InitCaw()
-	call InitCaw()
-endif
-
 
 if dein#tap('comfortable-motion.vim')
     nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
@@ -225,18 +206,12 @@ if dein#tap('ale')
         nmap ]a <Plug>(ale_previous_wrap)
 endif
 
-if dein#tap('vim-easymotion')
-        nmap <Leader><Leader>w <Plug>(easymotion-w)
-	    nmap <Leader><Leader>f <Plug>(easymotion-f)
-	    nmap <Leader><Leader>b <Plug>(easymotion-b)
-endif
-
-if dein#tap('vim-which-key')
-		nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-		nnoremap <silent> <localleader> :<c-u>WhichKey  ';'<CR>
-		nnoremap <silent>[              :<c-u>WhichKey  '['<CR>
-		nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
-endif
+" if dein#tap('vim-which-key')
+" 		nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+" 		nnoremap <silent> <localleader> :<c-u>WhichKey  ';'<CR>
+" 		nnoremap <silent>[              :<c-u>WhichKey  '['<CR>
+" 		nnoremap <silent>]              :<c-u>WhichKey  ']'<CR>
+" endif
 
 if dein#tap('vim-smartchr')
     inoremap <expr> , smartchr#one_of(', ', ',')
@@ -248,31 +223,6 @@ if dein#tap('vim-smartchr')
     augroup end
 endif
 
-if dein#tap('vim-niceblock')
-	xmap I  <Plug>(niceblock-I)
-	xmap A  <Plug>(niceblock-A)
-endif
-
-if dein#tap('vim-sandwich')
-     nmap <silent> sa <Plug>(operator-sandwich-add)
-     xmap <silent> sa <Plug>(operator-sandwich-add)
-     omap <silent> sa <Plug>(operator-sandwich-g@)
-     nmap <silent> sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-     xmap <silent> sd <Plug>(operator-sandwich-delete)
-     nmap <silent> sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-     xmap <silent> sr <Plug>(operator-sandwich-replace)
-     nmap <silent> sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-     nmap <silent> srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-     omap ib <Plug>(textobj-sandwich-auto-i)
-     xmap ib <Plug>(textobj-sandwich-auto-i)
-     omap ab <Plug>(textobj-sandwich-auto-a)
-     xmap ab <Plug>(textobj-sandwich-auto-a)
-     omap is <Plug>(textobj-sandwich-query-i)
-     xmap is <Plug>(textobj-sandwich-query-i)
-     omap as <Plug>(textobj-sandwich-query-a)
-     xmap as <Plug>(textobj-sandwich-query-a)
-endif
-
 if dein#tap('vim-textobj-multiblock')
 	omap <silent> ab <Plug>(textobj-multiblock-a)
 	omap <silent> ib <Plug>(textobj-multiblock-i)
@@ -282,15 +232,6 @@ endif
 
 if dein#tap('neoterm')
   " quickly toggle term
-  nnoremap <silent> <localleader>tv :vertical botright Ttoggle<cr><C-w>
-  nnoremap <silent> <localleader>th :botright Ttoggle<cr><C-w>
+  nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr><C-w>
+  nnoremap <silent> <leader>th :botright Ttoggle<cr><C-w>
 endif
-
-  " if dein#tap('vim-operator-surround')
-  "         map <silent>sa <Plug>(operator-surround-append)
-  "         map <silent>sd <Plug>(operator-surround-delete)
-  "         map <silent>sr <Plug>(operator-surround-replace)
-  "         nmap <silent>saa <Plug>(operator-surround-append)<Plug>(textobj-multiblock-i)
-  "         nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
-  "         nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
-  " endif
