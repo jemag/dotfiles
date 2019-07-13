@@ -169,6 +169,9 @@
 # Coding{{{
 - { repo: tpope/vim-commentary }
 
+- repo: leafgarland/typescript-vim
+  on_path: .ts
+
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
   hook_source: source  $VIMPATH/core/plugins/neoformat.vim
