@@ -4,9 +4,9 @@
 set t_Co=256
 
 " Enable true color
-"if has('termguicolors')
-"	set termguicolors
-"endif
+if has('termguicolors')
+	set termguicolors
+endif
 
 set background=dark
 

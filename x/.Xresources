@@ -1,20 +1,12 @@
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
-
 ! ===================
 ! urxvt configuration
 ! ===================
 ! urxvt extension
 Urxvt.perl-ext-common: default,tabbed,matcher,resize-font,-tabbed
 URxvt*scrollBar:	false
-URxvt*letterSpace:  	-0.8
-URxvt.font: 		xft:FuraMono Nerd Font Mono:regular:size=11
-URxvt.boldFont:		xft:FuraMono Nerd Font Mono:regular:size=11
+URxvt*letterSpace:	-0.8
+URxvt.font:		xft:FuraMono Nerd Font Mono:regular:size=10
+URxvt.boldFont:		xft:FuraMono Nerd Font Mono:regular:size=10
 URxvt*cursorBlink:  true
 URxvt.iso14755:		false
 URxvt*utf8:			true
@@ -24,7 +16,12 @@ URxvt.keysym.C-0:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
 URxvt*depth: 32
 ! hard contrast: *background: #1d2021
-URxvt*background: [93]#282828
+/* URxvt*background: [93]#282828 */
+! =================
+! st configuration
+! =================
+st.font:	FuraMono Nerd Font Mono:regular:size=10
+st.termname: st-256color
 ! =================
 ! rofi color scheme
 ! =================
@@ -32,7 +29,7 @@ URxvt*background: [93]#282828
 #define m_color #689d6a
 
 rofi.color-enabled:		true
-rofi.separator-style: 	solid
+rofi.separator-style:	solid
 rofi.color-normal:		argb:00000000, #a89984, argb:00000000,  m_color,  hl_text
 rofi.color-urgent:		argb:00000000, #F99157, argb:00000000,  #F99157,  hl_text
 rofi.color-active:		argb:00000000, #6699CC, argb:00000000,  #6699CC,  hl_text
@@ -44,6 +41,10 @@ rofi.hide-scrollbar:    true
 rofi.lines:             6
 
 
+! ===================
+! Colors
+! ===================
+*.cursorColor: #a89984
 *background: #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
