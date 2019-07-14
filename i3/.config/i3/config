@@ -8,7 +8,7 @@ focus_follows_mouse yes
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fura Mono Nerd Font Complete 9
+font pango:FuraMono Nerd Font Mono 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -26,7 +26,7 @@ mouse_warping output
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
