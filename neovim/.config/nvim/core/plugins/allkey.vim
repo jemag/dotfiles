@@ -54,7 +54,7 @@ if dein#tap('coc.nvim')
         nmap <silent> ]c <Plug>(coc-diagnostic-prev)
         nmap <silent> [c <Plug>(coc-diagnostic-next)
         " Remap for rename current word
-        nmap <leader>cn <Plug>(coc-rename)
+        nmap <leader>rn <Plug>(coc-rename)
         " Remap for format selected region
         vmap <leader>cf  <Plug>(coc-format-selected)
         nmap <leader>cf  <Plug>(coc-format-selected)

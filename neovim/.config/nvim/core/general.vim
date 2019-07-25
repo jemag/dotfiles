@@ -17,6 +17,10 @@ if get(g:,'gruvbox_transp_bg',1)
  set fcs=eob:\           " hide ~
 endif
 
+if has('clipboard')
+	set clipboard& clipboard+=unnamedplus
+endif
+
 set history=2000
 set number
 set timeout ttimeout

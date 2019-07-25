@@ -7,8 +7,8 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: kassio/neoterm
   hook_add: source $VIMPATH/core/plugins/neoterm.vim
-  
-
+- repo: airblade/vim-rooter
+- repo: wellle/targets.vim
 
 #}}}
 
@@ -122,6 +122,9 @@
 
 # Language{{{
 - { repo: honza/dockerfile.vim, on_ft: Dockerfile }
+- repo: mustache/vim-mustache-handlebars
+  on_ft: mustache
+  on_path: .tpl
 
 - { repo: Vimjas/vim-python-pep8-indent, on_ft: python }
 - repo: vim-python/python-syntax
