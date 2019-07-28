@@ -88,7 +88,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+z focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -116,7 +116,8 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
-bindsym $mod+b workspace back_and_forth
+# switch to previous workspace
+bindsym $mod+a workspace back_and_forth
 # set monitors
 set $monitor_one VGA-1
 set $monitor_two VGA-2
@@ -255,6 +256,9 @@ client.focused_inactive	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthem
 client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
+# switch to previous window
+exec --no-startup-id /home/jemag/.config/i3/i3-switch-window-script.sh
+bindsym $mod+Tab [con_mark=_prevFocus0] focus
 exec --no-startup-id redshift-gtk
 exec VBoxClient --clipboard
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
