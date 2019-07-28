@@ -73,6 +73,8 @@
     "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
     "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
+    //highlight
+    "highlight.disableLanguages": ["yaml", "json"],
     "languageserver": {
         }
 }
