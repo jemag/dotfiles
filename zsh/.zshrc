@@ -7,6 +7,7 @@ autoload -Uz _zplugin
 ###########
 # aliases
 ###########
+alias ls="ls --color"
 alias ll="ls -l"
 alias la="ls -la"
 alias lh="ls -lh"
