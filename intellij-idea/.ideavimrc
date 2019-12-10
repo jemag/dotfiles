@@ -13,43 +13,42 @@ set tabstop=2
 " On pressing tab, insert spaces
 set expandtab
 " leader as spacebar
-let mapleader =" "
-" ctrl p/n should act like up down for command line history
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-nnoremap R "_d
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-" Remove search highlighting
-nnoremap <esc> :noh<return><esc>
-filetype plugin indent on " show existing tab with spaces width
-nnoremap <C-z> <C-a>
-inoremap jk <esc>
-" Buffer
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
-" leader as spacebar
-let mapleader =" "
-" ctrl p/n should act like up down for command line history
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-nnoremap R "_d
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-" Remove search highlighting
-nnoremap <esc> :noh<return><esc>
-filetype plugin indent on " show existing tab with spaces width
-nnoremap <C-z> <C-a>
-inoremap jk <esc>
-" Buffer
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
+let mapleader =' '
+
+" Activate plugins
 set surround
 set commentary
+
+
+" ctrl p/n should act like up down for command line history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+nnoremap R "_d
+nnoremap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+" Remove search highlighting
+nnoremap <esc> :noh<return><esc>
+filetype plugin indent on " show existing tab with spaces width
+nnoremap <C-z> <C-a>
+inoremap jk <esc>
+" Buffer
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+
+nnoremap <silent> <leader>ff :action GotoFile<CR>
+nnoremap <silent> <leader>fr :action FindInPath<CR>
+nnoremap <leader>1 :action GoToTab1<CR>
+nnoremap <leader>2 :action GoToTab2<CR>
+nnoremap <leader>3 :action GoToTab3<CR>
+nnoremap <leader>4 :action GoToTab4<CR>
+nnoremap <leader>5 :action GoToTab5<CR>
+nnoremap <leader>6 :action GoToTab6<CR>
+nnoremap <leader>7 :action GoToTab7<CR>
+nnoremap <leader>8 :action GoToTab8<CR>
+nnoremap <leader>9 :action GoToTab9<CR>
 
 set number relativenumber
 " show real line numbers in insert mode
@@ -58,3 +57,15 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
+
+" Use the OS clipboard by default
+if has('clipboard')
+  if has('unnamedplus')
+    set clipboard=unnamed,unnamedplus
+  else
+    set clipboard=unnamed
+  endif
+endif
+
+" Enable native idea paste action for put operations
+set clipboard+=ideaput
