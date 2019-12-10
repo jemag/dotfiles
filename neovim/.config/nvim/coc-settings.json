@@ -42,8 +42,8 @@
     //git
     "git.enableGutters": true,
     "git.branchCharacter":"\uf408",
-    "git.addGlameToBufferVar": true,
-    "git.addGlameToVirtualText": false,
+    "git.addGBlameToBufferVar": true,
+    "git.addGBlameToVirtualText": false,
     "git.virtualTextPrefix": "\uf66b",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
@@ -74,7 +74,7 @@
     "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
     //highlight
-    "highlight.disableLanguages": ["yaml", "json"],
+    "highlight.disableLanguages": ["yaml", "json", "markdown"],
     "languageserver": {
         }
 }

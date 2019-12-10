@@ -106,7 +106,6 @@
 
 - repo: junegunn/fzf.vim
   depends: fzf
-  on_cmd: [Colors,Rg,Buffers]
   hook_add: source $VIMPATH/core/plugins/fzf.vim
 
 # }}}

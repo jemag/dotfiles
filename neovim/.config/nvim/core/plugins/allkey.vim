@@ -93,7 +93,9 @@ function! s:show_documentation()
 endfunction
 
 if dein#tap('fzf.vim')
-        nnoremap <silent> <leader>fc :Colors<CR>
+        nnoremap <silent> <leader>ft :BTags<CR>
+        nnoremap <silent> <leader>fc :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
+        nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
         nnoremap <silent> <leader>fb :Buffers<CR>
         nnoremap <silent> <leader>ff :call Fzf_dev()<CR>
         nnoremap <silent> <leader>fr :Rg<CR>
