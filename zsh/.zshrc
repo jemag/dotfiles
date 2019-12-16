@@ -50,12 +50,12 @@ zplugin light "zsh-users/zsh-completions"
 zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
 zplugin light "zsh-users/zsh-autosuggestions"
 zplugin snippet /home/jemag/lib/azure-cli/az.completion
-zplugin snippet /home/jemag/.config/zsh/plugins/fzf/key-bindings.zsh
 zplugin ice svn
 zplugin snippet OMZ::plugins/vi-mode
 # Syntax Highlighting (should always be at the end)
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zplugin light zdharma/fast-syntax-highlighting
+# zplugin snippet ~/.config/zsh/plugins/fzf/key-bindings.zsh
 
 
 #########
@@ -80,10 +80,6 @@ my-backward-delete-word() {
 zle -N my-backward-delete-word
 bindkey '^W' my-backward-delete-word
 bindkey -M menuselect '^[[Z' reverse-menu-complete
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 #########
@@ -108,18 +104,21 @@ path+=$GRAILS_HOME/bin
 # More on ripgrep https://github.com/BurntSushi/ripgrep
 # More on these tools https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html
 #
-# [ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
+[ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
+export FZF_DEFAULT_OPS="--extended"
 FD_OPTIONS="--follow --exclude .git --exclude node_modules"
-export FZF_DEFAULT_OPTS="
-    --no-mouse --height 50% -1 --reverse --multi --inline-info
-    --color=dark
-    --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
-    --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
-    "
-export FZF_COMPLETION_TRIGGER=''
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-export FZF_ALT_C_COMMAND='fd --type d $FD_OPTIONS'
+export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_OPTS="
+#     --no-mouse --height 50% -1 --reverse --multi --inline-info
+#     --color=dark
+#     --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+#     --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+#     "
+# export FZF_COMPLETION_TRIGGER=''
+# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+# export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+# export FZF_ALT_C_COMMAND='fd --type d $FD_OPTIONS'
 export JAVA_HOME=/usr/lib/jvm/default
 export CHROME_BIN=/usr/bin/chromium
 export EDITOR=nvim
