@@ -14,6 +14,7 @@ alias lh="ls -lh"
 alias ta="tmux attach -t"
 alias k="kubectl"
 alias vim="nvim"
+alias jd="joplin --profile ~/.config/joplin-desktop"
 
 ##########
 # generic options
@@ -129,3 +130,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 export PATH=$PATH:/home/jemag/bin
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
