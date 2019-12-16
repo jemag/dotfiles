@@ -128,6 +128,3 @@ export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 export PATH=$PATH:/home/jemag/bin
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
