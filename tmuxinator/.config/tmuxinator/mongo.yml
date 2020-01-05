@@ -50,17 +50,24 @@ windows:
               - mongo
               - mongo
               - mongo
-  - mongo_k8s:
-      layout: tiled
-      panes:
-              - mongo mongodb://13.71.166.151:27017/iwls -u adminiwls
-              - mongo mongodb://13.71.166.151:27017/iwls -u adminiwls
-              - mongo mongodb://13.71.166.151:27017/iwls -u adminiwls
-              - mongo mongodb://13.71.166.151:27017/iwls -u adminiwls
   - mongo_dev:
       layout: tiled
       panes:
-              - mongo 'mongodb://mongodb1.modip-dev.cloud-dfo-mpo.ca:27017,mongodb2.modip-dev.cloud-dfo-mpo.ca:27017,mongodb3.modip-dev.cloud-dfo-mpo.ca:27017/iwls?replicaSet=modip-dev' -u brassard-desjardinsa -p  --authenticationDatabase iwls --authenticationMechanism SCRAM-SHA-256
-              - mongo 'mongodb://mongodb1.modip-dev.cloud-dfo-mpo.ca:27017,mongodb2.modip-dev.cloud-dfo-mpo.ca:27017,mongodb3.modip-dev.cloud-dfo-mpo.ca:27017/iwls?replicaSet=modip-dev' -u brassard-desjardinsa -p  --authenticationDatabase iwls --authenticationMechanism SCRAM-SHA-256
-              - mongo 'mongodb://mongodb1.modip-dev.cloud-dfo-mpo.ca:27017,mongodb2.modip-dev.cloud-dfo-mpo.ca:27017,mongodb3.modip-dev.cloud-dfo-mpo.ca:27017/iwls?replicaSet=modip-dev' -u brassard-desjardinsa -p  --authenticationDatabase iwls --authenticationMechanism SCRAM-SHA-256
-              - mongo 'mongodb://mongodb1.modip-dev.cloud-dfo-mpo.ca:27017,mongodb2.modip-dev.cloud-dfo-mpo.ca:27017,mongodb3.modip-dev.cloud-dfo-mpo.ca:27017/iwls?replicaSet=modip-dev' -u brassard-desjardinsa -p  --authenticationDatabase iwls --authenticationMechanism SCRAM-SHA-256
+              - mongo mongodb://mongodb-arbiter-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-dev -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-dev -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-dev -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-dev-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-dev -u iwls-readwrite
+  - mongo_test:
+      layout: tiled
+      panes:
+              - mongo mongodb://mongodb-arbiter-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-test -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-test -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-test -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-test-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-test -u iwls-readwrite
+  - mongo_prod:
+      layout: tiled
+      panes:
+              - mongo mongodb://mongodb-arbiter-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-prod -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-prod -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-prod -u iwls-readwrite
+              - mongo mongodb://mongodb-arbiter-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm1.cloud-dfo-mpo.ca:27017,mongodb-data-prod-vm2.cloud-dfo-mpo.ca:27017/iwls?replicaSet=mongodb-prod -u iwls-readwrite

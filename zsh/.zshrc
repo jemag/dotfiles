@@ -15,6 +15,7 @@ alias ta="tmux attach -t"
 alias k="kubectl"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
+alias tf="terraform"
 
 ##########
 # generic options
@@ -94,6 +95,7 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # add to path
 path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
+path+=('/home/jemag/go/bin')
 path+=$GRAILS_HOME/bin
 
 # Source fzf
@@ -121,6 +123,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 # export FZF_ALT_C_COMMAND='fd --type d $FD_OPTIONS'
 export JAVA_HOME=/usr/lib/jvm/default
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
 export EDITOR=nvim
 export GRAILS_HOME=/home/jemag/bin/grails-2.4.4

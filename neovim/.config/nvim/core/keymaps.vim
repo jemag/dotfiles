@@ -10,8 +10,8 @@ filetype plugin indent on " show existing tab with spaces width
 nnoremap <C-z> <C-a>
 inoremap jk <esc>
 " Buffer
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
+nnoremap bn :bnext<CR>
+nnoremap bp :bprevious<CR>
 "switch windw
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
