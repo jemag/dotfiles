@@ -76,5 +76,5 @@
     //highlight
     "highlight.disableLanguages": ["yaml", "json", "markdown"],
     "languageserver": {
-        }
+    }
 }
