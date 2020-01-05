@@ -9,6 +9,10 @@
   hook_add: source $VIMPATH/core/plugins/neoterm.vim
 - repo: airblade/vim-rooter
 - repo: wellle/targets.vim
+- repo: vim-airline/vim-airline
+- repo: vim-airline/vim-airline-themes
+  hook_add: source $VIMPATH/core/plugins/airline.vim
+- repo: edkolev/tmuxline.vim
 
 #}}}
 
