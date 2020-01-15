@@ -150,6 +150,7 @@
 
 - repo: tpope/vim-markdown
   on_ft: [markdown, pandoc.markdown, rmd]
+  hook_source: source  $VIMPATH/core/plugins/vim-markdown.vim
   hook_add: |
         let g:markdown_fenced_languages = [
           \ 'html',

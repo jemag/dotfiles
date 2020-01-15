@@ -1,5 +1,6 @@
 " ctrl p/n should act like up down for command line history
 cnoremap <C-p> <Up>
+nnoremap ' `
 cnoremap <C-n> <Down>
 nnoremap R "_d
 nmap <S-Enter> O<Esc>
