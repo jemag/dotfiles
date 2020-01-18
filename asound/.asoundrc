@@ -4,19 +4,13 @@ pcm.usb
     card Snowball
 }
 
-pcm.intel
-{
-  type hw
-  card Generic
-}
-
 pcm.!default
 {
     type asym
     playback.pcm
     {
         type plug
-        slave.pcm "intel"
+        slave.pcm "dmix"
     }
     capture.pcm
     {
