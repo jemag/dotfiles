@@ -34,7 +34,7 @@ foreground = ${colors.foreground}
 
 modules-left = i3
 modules-center = xwindow
-modules-right = keyboard pulseaudio battery calendar clock powermenu
+modules-right = keyboard alsa battery calendar clock powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -121,6 +121,31 @@ format-foreground = ${colors.green}
 format-prefix = " "
 
 label = %date%
+
+[module/alsa]
+type = internal/alsa
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume-foreground = ${colors.blue}
+format-volume = %{T1} <label-volume>
+format-volume-prefix = " "
+format-muted-prefix = " "
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+label-muted =  [muted]
+label-muted-foreground = ${colors.red}
+label-muted-font = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
