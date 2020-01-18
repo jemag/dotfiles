@@ -123,6 +123,7 @@ bindkey -v '^?' backward-delete-char
 # keybinds
 #########
 bindkey '^f' autosuggest-accept
+bindkey -s '^x' 'fg\n'
 
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
