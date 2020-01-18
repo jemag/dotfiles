@@ -70,6 +70,13 @@ if has('conceal')
 	set conceallevel=3 concealcursor=niv
 endif
 
+" Highlight coloumn 80 of current split
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=80
+    autocmd WinLeave * set colorcolumn=0
+augroup END
+
 " FastFold
 " Credits: https://github.com/Shougo/shougo-s-github
 autocmd MyAutoCmd TextChangedI,TextChanged *
