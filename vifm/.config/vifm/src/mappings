@@ -1,0 +1,54 @@
+" =============================
+" KEY MAPPINGS
+" =============================
+
+" Vifm default mappings are entirely based on Vim. This is great!
+" Here are some additional mappings...
+
+" Basic mappings
+nnoremap e :edit<cr>
+nnoremap d :delete<cr>
+
+" Two-panel mappings
+nnoremap s :sync<cr>
+nnoremap y :copy<cr>
+nnoremap m :move<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" Open file in new instance of gvim
+nnoremap o :!gvim %f<cr>
+
+" Open file in the background using its default program
+nnoremap gb :file &<cr>l
+
+" Start terminal in current directory
+nnoremap t :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Yank current directory path into the clipboard
+nnoremap yd :!echo %d | xsel -ib %i<cr>
+
+" Yank current file path into the clipboard
+nnoremap yf :!echo %c:p | xsel -ib %i<cr>
+
+"switch window
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap R cw<c-u>
+nnoremap A cw
+
+" Toggle wrap setting on ,w key
+nnoremap ,w :set wrap!<cr>
+
+" Hide search highlights
+nnoremap <c-h> :nohl<cr>

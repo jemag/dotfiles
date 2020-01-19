@@ -1,0 +1,21 @@
+"#############################
+"########### VIFM ############
+"#############################
+
+" Theme
+colorscheme gruvbox.vifm
+
+" Settings
+source $VIFM/src/settings
+
+" Marks
+source $VIFM/src/marks
+
+" Commands
+source $VIFM/src/commands
+
+" Filetypes
+source $VIFM/src/filetypes
+
+" Mappings
+source $VIFM/src/mappings

@@ -22,6 +22,7 @@ alias k="kubectl"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
+alias vifm="vifmrun"
 
 ##########
 # generic options
