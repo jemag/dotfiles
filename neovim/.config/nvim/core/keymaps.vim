@@ -12,17 +12,25 @@ inoremap jk <esc>
 " Buffer
 nnoremap bn :bnext<CR>
 nnoremap bp :bprevious<CR>
-"switch windw
+"switch window
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+" CTRL-U in insert mode deletes a lot. Put an undo-point before it.
+inoremap <C-u> <C-g>u<C-u>
 
 "smart move
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+
+" My remapping of <C-^>. If there is no alternate file, and there's no count given, then switch
+" to next file. We use `bufloaded` to check for alternate buffer presence. This will ignore
+" deleted buffers, as intended. To get default behaviour, use `bufexists` in it's place.
+nnoremap <silent> <C-n> :<C-u>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>
 
 "tabline operation
 nmap <leader>tn :tabnew<cr>
