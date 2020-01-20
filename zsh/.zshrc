@@ -30,8 +30,9 @@ HISTFILE=~/.zsh/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1				# all search results returned will be unique
-setopt incappendhistory					            # add commmand to history as soon as it's entered
-setopt extendedhistory									# save command timestamp
+setopt INC_APPEND_HISTORY					            # add commmand to history as soon as it's entered
+# setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY									# save command timestamp
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS                        		# don't write duplicate entries in the history file
 setopt HIST_IGNORE_ALL_DUPS
@@ -39,7 +40,6 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE                        		# prefix commands you don't want stored with a space
 setopt NO_HUP											# don't kill jobs
 setopt NO_CHECK_JOBS
-setopt correct                                  		# spelling correction for commands
 setopt autocd
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 # Include hidden files in autocomplete:
