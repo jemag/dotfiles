@@ -22,6 +22,7 @@ alias k="kubectl"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
+alias vifm="vifmrun"
 
 ##########
 # generic options
@@ -123,6 +124,7 @@ bindkey -v '^?' backward-delete-char
 # keybinds
 #########
 bindkey '^f' autosuggest-accept
+bindkey -s '^x' 'fg\n'
 
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
