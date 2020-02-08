@@ -98,8 +98,8 @@ if dein#tap('fzf.vim')
         nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
         nnoremap <silent> <leader>fb :Buffers<CR>
         nnoremap <silent> <leader>ff :call Fzf_dev()<CR>
-        nnoremap <silent> <leader>fr :Rg<CR>
-        nnoremap <silent> <leader>fw :Rg <C-R><C-W><CR>
+        nnoremap <silent> <leader>fr :Find <CR>
+        nnoremap <silent> <leader>fw :Find <C-R><C-W><CR>
 endif
 
 if dein#tap('vim-easy-align')
