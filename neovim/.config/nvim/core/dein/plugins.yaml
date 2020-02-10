@@ -231,11 +231,6 @@
   hook_add: source $VIMPATH/core/plugins/vim-terraform.vim
   on_path: .tf
 
-#- repo: w0rp/ale
-#  hook_add: source  $VIMPATH/core/plugins/vim-ale.vim
-#  on_ft: java
-# }}}
-
 # Writing {{{
 - repo: reedes/vim-pencil
   on_ft: [markdown, text, tex]
