@@ -13,7 +13,10 @@
 - repo: vim-airline/vim-airline-themes
   hook_add: source $VIMPATH/core/plugins/airline.vim
 - repo: edkolev/tmuxline.vim
-
+- repo: blueyed/vim-diminactive
+  hook_add: source $VIMPATH/core/plugins/vim-diminactive.vim
+- repo: justinmk/vim-sneak
+  hook_add: source $VIMPATH/core/plugins/vim-sneak.vim
 #}}}
 
 # Core Plugins{{{
@@ -164,6 +167,7 @@
 - repo: iamcco/markdown-preview.nvim
   on_ft: [markdown, pandoc.markdown, rmd]
   build: 'cd app & yarn install'
+  hook_source: source  $VIMPATH/core/plugins/markdown-preview.vim
 
 - repo: jtratner/vim-flavored-markdown
   on_ft: [markdown, pandoc.markdown, rmd]

@@ -237,3 +237,8 @@ if dein#tap('neoterm')
   nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr><C-w>
   nnoremap <silent> <leader>th :botright Ttoggle<cr><C-w>
 endif
+
+if dein#tap('vim-sneak')
+  nmap s <Plug>Sneak_s
+  nmap S <Plug>Sneak_S
+endif

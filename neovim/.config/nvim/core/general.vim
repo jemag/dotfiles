@@ -70,13 +70,6 @@ if has('conceal')
 	set conceallevel=3 concealcursor=niv
 endif
 
-" Highlight coloumn 80 of current split
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set colorcolumn=80
-    autocmd WinLeave * set colorcolumn=0
-augroup END
-
 " Create file's directory before saving, if it doesn't exist.
 " Original: https://stackoverflow.com/a/4294176/151048
 augroup BWCCreateDir
