@@ -17,12 +17,14 @@ alias tp="tmuxinator-fzf-start.sh"
 alias ll="ls -l"
 alias la="ls -la"
 alias lh="ls -lh"
+alias lb="br -dsp"
 alias ta="tmux attach -t"
 alias k="kubectl"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
 alias vifm="vifmrun"
+alias g="git"
 
 ##########
 # generic options
