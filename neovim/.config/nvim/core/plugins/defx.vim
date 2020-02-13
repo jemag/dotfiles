@@ -109,6 +109,7 @@ if executable('lf')
 	let s:explorer = 'lf'
 elseif executable('ranger')
 	let s:explorer = 'ranger'
+elseif executable('vifm')
 endif
 
 " Open file-explorer split with tmux

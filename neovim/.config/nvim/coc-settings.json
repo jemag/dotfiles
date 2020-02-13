@@ -36,6 +36,8 @@
     //diagnostic
     "diagnostic.signOffset": 9999999,
 	"diagnostic.errorSign": "●",
+  "diagnostic.virtualText": true ,
+  "diagnostic.virtualTextPrefix": "COC: ",
 	"diagnostic.warningSign": "●",
     "diagnostic.displayByAle": false,
     "diagnostic.refreshOnInsertMode": true,

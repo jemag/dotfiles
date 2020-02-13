@@ -7,4 +7,5 @@ let g:vista_executive_for = {
   \ 'javascript.jsx': 'coc',
   \ 'java': 'coc',
   \ 'python': 'coc',
+  \ 'typescript': 'coc',
   \ }
