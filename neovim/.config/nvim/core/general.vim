@@ -84,6 +84,18 @@ fun! s:MkNonExDir(file, buf)
   endif
 endfun
 
+" Highlight all instances of word under cursor, when idle.
+set updatetime=10
+function! HighlightWordUnderCursor()
+    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
+        exec 'match' 'StatusLine' '/\V\<'.expand('<cword>').'\>/' 
+    else 
+        match none 
+    endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
 " FastFold
 " Credits: https://github.com/Shougo/shougo-s-github
 autocmd MyAutoCmd TextChangedI,TextChanged *
