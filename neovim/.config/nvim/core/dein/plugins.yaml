@@ -17,6 +17,10 @@
   hook_add: source $VIMPATH/core/plugins/vim-diminactive.vim
 - repo: justinmk/vim-sneak
   hook_add: source $VIMPATH/core/plugins/vim-sneak.vim
+- repo: MattesGroeger/vim-bookmarks
+- repo: yuki-ycino/fzf-preview.vim
+  hook_add: source $VIMPATH/core/plugins/fzf-preview.vim
+
 #}}}
 
 # Core Plugins{{{
