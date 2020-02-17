@@ -4,6 +4,7 @@ arandr
 autoconf
 automake
 base
+bat
 binutils
 bison
 broot
@@ -15,6 +16,7 @@ deluge
 dhcpcd
 docker
 dust
+exa
 fakeroot
 fd
 feh
