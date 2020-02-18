@@ -1,2 +1,4 @@
 " Commands used for project grep
 let g:fzf_preview_grep_cmd = 'rg --line-number --no-heading --ignore-case --hidden --glob "!.git/*" --color "always"'
+autocmd VimEnter * let g:fzf_preview_grep_command_options = fzf_preview#command#get_common_command_options() | let g:fzf_preview_grep_command_options = g:fzf_preview_grep_command_options . ' --nth=3'
+" nnoremap <leader>g :<C-u>FzfPreviewProjectGrep -fzf-args=g:fzf_preview_grep_command_options<CR>

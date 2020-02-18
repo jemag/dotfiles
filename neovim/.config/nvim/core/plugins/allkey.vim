@@ -100,7 +100,7 @@ if dein#tap('fzf-preview.vim')
         nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>
         nnoremap <silent> <leader>fd :FzfPreviewDirectoryFiles <CR>
         nnoremap <silent> <leader>fg :FzfPreviewGitStatus <CR>
-        nnoremap <silent> <leader>fr :FzfPreviewProjectGrep <CR>
+        nnoremap <silent> <leader>fr :<C-u>FzfPreviewProjectGrep -fzf-args=g:fzf_preview_grep_command_options<CR>
         nnoremap <silent> <leader>fm :FzfPreviewBookmarks <CR>
         nnoremap <silent> <leader>fq :FzfPreviewQuickFix <CR>
         " nnoremap <silent> <leader>ft :BTags<CR>
