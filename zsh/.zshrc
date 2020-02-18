@@ -11,7 +11,7 @@ zle -N down-line-or-beginning-search
 ###########
 # aliases
 ###########
-alias ls="ls --color"
+alias ls="exa"
 alias grep="grep --color"
 alias tp="tmuxinator-fzf-start.sh"
 alias ll="ls -l"
