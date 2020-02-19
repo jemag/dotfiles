@@ -1,0 +1,11 @@
+# ~/.tmuxinator/code.yml
+
+name: code
+root: ~/
+
+windows:
+  - zsh:
+      layout: even-horizontal
+      panes:
+              - clear
+              - clear
