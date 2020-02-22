@@ -162,6 +162,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS="--select-1 --exit-0"
 # export FZF_ALT_C_COMMAND='fd --type d $FD_OPTIONS'
 export JAVA_HOME=/usr/lib/jvm/default
+export TERMINAL=/usr/local/bin/st
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
