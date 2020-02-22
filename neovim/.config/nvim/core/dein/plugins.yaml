@@ -20,6 +20,8 @@
 - repo: MattesGroeger/vim-bookmarks
 - repo: yuki-ycino/fzf-preview.vim
   hook_add: source $VIMPATH/core/plugins/fzf-preview.vim
+- repo: camspiers/lens.vim
+  hook_add: source $VIMPATH/core/plugins/lens.vim
 
 #}}}
 
