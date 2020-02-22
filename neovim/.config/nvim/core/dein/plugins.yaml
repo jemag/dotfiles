@@ -126,9 +126,9 @@
 # Git Plugins{{{
 - { repo: tpope/vim-fugitive, on_path: .* }
 
-- repo: neoclide/vim-easygit
-  on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
-  hook_source: let g:easygit_enable_command = 1
+# - repo: neoclide/vim-easygit
+#   on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
+#   hook_source: let g:easygit_enable_command = 1
 
 # }}}
 

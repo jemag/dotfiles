@@ -135,6 +135,8 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 path+=/root/.gem/ruby/2.5.0/bin
 path+=('/home/jemag/bin/')
 path+=('/home/jemag/go/bin')
+path+=('/snap/bin/')
+path+=('/var/lib/snapd/snap/bin')
 path+=$GRAILS_HOME/bin
 
 # Source fzf
