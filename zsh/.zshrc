@@ -25,6 +25,7 @@ alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
 alias vifm="vifmrun"
 alias g="git"
+alias tmuxa="tmux attach -t"
 
 ##########
 # generic options
