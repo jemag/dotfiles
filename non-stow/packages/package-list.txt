@@ -3,6 +3,7 @@ alsa-utils
 arandr
 autoconf
 automake
+azure-cli
 base
 bat
 binutils
@@ -26,6 +27,7 @@ findutils
 firefox
 flameshot
 flex
+fontpreview
 fzf
 gawk
 gcc
@@ -50,6 +52,7 @@ jdk11-openjdk
 jetbrains-toolbox
 joplin
 keepassxc
+kubectl
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-giflib
@@ -112,6 +115,8 @@ python-pynvim
 python-ueberzug
 qbittorrent
 ranger
+rclone
+rclone-browser
 redshift
 ripgrep
 rofi
@@ -119,6 +124,8 @@ ruby
 samba
 seahorse
 sed
+snapd
+speedtest-cli
 spotify
 steam
 stow
