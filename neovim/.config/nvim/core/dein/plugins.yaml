@@ -7,14 +7,16 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: kassio/neoterm
   hook_add: source $VIMPATH/core/plugins/neoterm.vim
+- repo: voldikss/vim-floaterm
+  hook_add: source $VIMPATH/core/plugins/vim-floaterm.vim
 - repo: airblade/vim-rooter
 - repo: wellle/targets.vim
 - repo: vim-airline/vim-airline
 - repo: vim-airline/vim-airline-themes
   hook_add: source $VIMPATH/core/plugins/airline.vim
 - repo: edkolev/tmuxline.vim
-- repo: blueyed/vim-diminactive
-  hook_add: source $VIMPATH/core/plugins/vim-diminactive.vim
+# - repo: blueyed/vim-diminactive
+#   hook_add: source $VIMPATH/core/plugins/vim-diminactive.vim
 - repo: justinmk/vim-sneak
   hook_add: source $VIMPATH/core/plugins/vim-sneak.vim
 - repo: MattesGroeger/vim-bookmarks
@@ -97,20 +99,6 @@
 
 - repo: kristijanhusak/defx-icons
   on_source: defx.nvim
-
-- repo: scrooloose/nerdtree
-  on_map: { n: <Plug> }
-  trusted: 1
-  hook_post_source: source  $VIMPATH/core/plugins/nerdtree.vim
-
-- repo: tiagofumo/vim-nerdtree-syntax-highlight
-  hook_add: |
-    let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-    let g:NERDTreeDisableExactMatchHighlight = 1
-    let g:NERDTreeDisablePatternMatchHighlight = 1
-    let g:NERDTreeSyntaxEnabledExtensions = ['go', 'py', 'html', 'css', 'jsx', 'js', 'vim','json','md']
-
-- { repo: Xuyuanp/nerdtree-git-plugin, on_source: nerdtree }
 # }}}
 
 

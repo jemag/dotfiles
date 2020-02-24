@@ -27,8 +27,12 @@ inoremap <silent> <F11> <C-O>:set spell!<cr>
 "smart move
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 vnoremap j gj
 vnoremap k gk
+vnoremap gj j
+vnoremap gk k
 
 
 " My remapping of <C-^>. If there is no alternate file, and there's no count given, then switch

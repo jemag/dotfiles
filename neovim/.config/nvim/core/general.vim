@@ -24,7 +24,6 @@ if has('clipboard')
 endif
 
 " spelling
-set spell
 set spelllang=en,fr
 
 set history=2000

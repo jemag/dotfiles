@@ -95,7 +95,9 @@ endfunction
 if dein#tap('fzf-preview.vim')
         nnoremap <silent> <leader>ft :FzfPreviewBufferTags <CR>
         nnoremap <silent> <leader>fc :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
-        nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
+        " nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
+        nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+        nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
         nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
         nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>
         nnoremap <silent> <leader>fd :FzfPreviewDirectoryFiles <CR>
@@ -202,6 +204,10 @@ if dein#tap('splitjoin.vim')
         let g:splitjoin_split_mapping = ''
         nmap sj :SplitjoinJoin<CR>
         nmap sk :SplitjoinSplit<CR>
+endif
+
+if dein#tap('vim-floaterm')
+        " let g:floaterm_keymap_toggle = '<F10>'
 endif
 
 if dein#tap('vista.vim')
