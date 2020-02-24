@@ -95,12 +95,14 @@ endfunction
 if dein#tap('fzf-preview.vim')
         nnoremap <silent> <leader>ft :FzfPreviewBufferTags <CR>
         nnoremap <silent> <leader>fc :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
-        nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
+        " nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
+        nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
+        nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
         nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
         nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>
         nnoremap <silent> <leader>fd :FzfPreviewDirectoryFiles <CR>
         nnoremap <silent> <leader>fg :FzfPreviewGitStatus <CR>
-        nnoremap <silent> <leader>fr :<C-u>FzfPreviewProjectGrep -fzf-arg=--nth=3<CR>
+        nnoremap <silent> <leader>fr :<C-u>FzfPreviewProjectGrep -add-fzf-arg=--nth=3<CR>
         nnoremap <silent> <leader>fm :FzfPreviewBookmarks <CR>
         nnoremap <silent> <leader>fq :FzfPreviewQuickFix <CR>
         " nnoremap <silent> <leader>ft :BTags<CR>
@@ -204,6 +206,10 @@ if dein#tap('splitjoin.vim')
         nmap sk :SplitjoinSplit<CR>
 endif
 
+if dein#tap('vim-floaterm')
+        " let g:floaterm_keymap_toggle = '<F10>'
+endif
+
 if dein#tap('vista.vim')
         nnoremap <silent><localleader>v :Vista!!<CR>
         nnoremap <silent><leader>fv     :Vista finder coc<CR>
@@ -246,6 +252,9 @@ if dein#tap('neoterm')
   " quickly toggle term
   nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr><C-w>
   nnoremap <silent> <leader>th :botright Ttoggle<cr><C-w>
+
+  nnoremap <silent> <F9> :botright Ttoggle<cr><C-w>
+  tnoremap <silent> <F9> <C-\><C-n><esc><cr>:Ttoggle<CR><C-w>
 endif
 
 if dein#tap('vim-sneak')

@@ -23,6 +23,9 @@ if has('clipboard')
 	set clipboard& clipboard+=unnamedplus
 endif
 
+" spelling
+set spelllang=en,fr
+
 set history=2000
 set number
 set timeout ttimeout
