@@ -96,8 +96,8 @@ if dein#tap('fzf-preview.vim')
         nnoremap <silent> <leader>ft :FzfPreviewBufferTags <CR>
         nnoremap <silent> <leader>fc :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
         " nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
-        nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'"<CR>
-        nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+        nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query=""<CR>
+        nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="<C-r>=expand('<cword>')<CR>"<CR>
         nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
         nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>
         nnoremap <silent> <leader>fd :FzfPreviewDirectoryFiles <CR>
@@ -250,11 +250,11 @@ endif
 
 if dein#tap('neoterm')
   " quickly toggle term
-  nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr><C-w>
-  nnoremap <silent> <leader>th :botright Ttoggle<cr><C-w>
+  nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr>
+  nnoremap <silent> <leader>th :botright Ttoggle<cr>
 
-  nnoremap <silent> <F9> :botright Ttoggle<cr><C-w>
-  tnoremap <silent> <F9> <C-\><C-n><esc><cr>:Ttoggle<CR><C-w>
+  nnoremap <silent> <F9> :botright Ttoggle<cr>
+  tnoremap <silent> <F9> <C-\><C-n><esc><cr>:Ttoggle<CR>
 endif
 
 if dein#tap('vim-sneak')

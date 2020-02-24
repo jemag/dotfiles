@@ -6,6 +6,7 @@
     "suggest.snippetIndicator": " \uf28a",
     "suggest.triggerCompletionWait": 100,
     "suggest.echodocSupport": true,
+    "suggest.reloadPumOnInsertChar": true,
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",
@@ -36,7 +37,7 @@
     //diagnostic
     "diagnostic.signOffset": 9999999,
 	"diagnostic.errorSign": "●",
-  "diagnostic.virtualText": true ,
+  "diagnostic.virtualText": false ,
   "diagnostic.virtualTextPrefix": "COC: ",
 	"diagnostic.warningSign": "●",
     "diagnostic.displayByAle": false,

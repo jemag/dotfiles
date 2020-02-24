@@ -7,8 +7,8 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: kassio/neoterm
   hook_add: source $VIMPATH/core/plugins/neoterm.vim
-- repo: voldikss/vim-floaterm
-  hook_add: source $VIMPATH/core/plugins/vim-floaterm.vim
+# - repo: voldikss/vim-floaterm
+#   hook_add: source $VIMPATH/core/plugins/vim-floaterm.vim
 - repo: airblade/vim-rooter
 - repo: wellle/targets.vim
 - repo: vim-airline/vim-airline
@@ -26,7 +26,9 @@
   hook_add: source $VIMPATH/core/plugins/editorconfig-vim.vim
 - repo: camspiers/lens.vim
   hook_add: source $VIMPATH/core/plugins/lens.vim
-
+- repo: glacambre/firenvim
+  on_source: denite.nvim
+  hook_post_update: call firenvim#install()
 #}}}
 
 # Core Plugins{{{
