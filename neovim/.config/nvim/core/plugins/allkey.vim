@@ -252,6 +252,9 @@ if dein#tap('neoterm')
   " quickly toggle term
   nnoremap <silent> <leader>tv :vertical botright Ttoggle<cr><C-w>
   nnoremap <silent> <leader>th :botright Ttoggle<cr><C-w>
+
+  nnoremap <silent> <F9> :botright Ttoggle<cr><C-w>
+  tnoremap <silent> <F9> <C-\><C-n><esc><cr>:Ttoggle<CR><C-w>
 endif
 
 if dein#tap('vim-sneak')
