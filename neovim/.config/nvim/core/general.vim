@@ -38,6 +38,7 @@ set undodir=~/.tmp/undo
 set relativenumber
 set backspace=2
 set backspace=indent,eol,start
+set scrolloff=999
 " Tabs and Indents {{{
 " ----------------
 set expandtab
