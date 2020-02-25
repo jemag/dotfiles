@@ -3,8 +3,6 @@ cnoremap <C-p> <Up>
 nnoremap ' `
 cnoremap <C-n> <Down>
 nnoremap R "_d
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
 " Remove search highlighting
 nnoremap <esc> :noh<return><esc>
 filetype plugin indent on " show existing tab with spaces width

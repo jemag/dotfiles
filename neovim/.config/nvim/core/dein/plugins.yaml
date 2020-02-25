@@ -20,6 +20,7 @@
 - repo: justinmk/vim-sneak
   hook_add: source $VIMPATH/core/plugins/vim-sneak.vim
 - repo: MattesGroeger/vim-bookmarks
+  hook_add: source $VIMPATH/core/plugins/vim-bookmarks.vim
 - repo: yuki-ycino/fzf-preview.vim
   hook_add: source $VIMPATH/core/plugins/fzf-preview.vim
 - repo: editorconfig/editorconfig-vim
