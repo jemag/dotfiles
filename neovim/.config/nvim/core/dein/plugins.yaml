@@ -29,6 +29,7 @@
   hook_add: source $VIMPATH/core/plugins/lens.vim
 - repo: glacambre/firenvim
   hook_post_update: call firenvim#install()
+  hook_add: source $VIMPATH/core/plugins/firenvim.vim
 - repo: sheerun/vim-polyglot
 #}}}
 

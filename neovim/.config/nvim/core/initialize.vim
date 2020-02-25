@@ -47,9 +47,6 @@ if has('gui_running')
    set guioptions=Mc
 endi
 
-" if exists('g:started_by_firenvim')
-"   packadd firenvim
-" endif
 
 let g:loaded_2html_plugin      = 1
 let g:loaded_logiPat           = 1

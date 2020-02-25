@@ -102,7 +102,7 @@ if dein#tap('fzf-preview.vim')
         nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>
         nnoremap <silent> <leader>fd :FzfPreviewDirectoryFiles <CR>
         nnoremap <silent> <leader>fg :FzfPreviewGitStatus <CR>
-        nnoremap <silent> <leader>fr :<C-u>FzfPreviewProjectGrep -add-fzf-arg=--nth=3<CR>
+        nnoremap <silent> <leader>fr :<C-u>FzfPreviewProjectGrep -add-fzf-arg=--nth=3<Space>
         nnoremap <silent> <leader>fm :FzfPreviewmarks <CR>
         nnoremap <silent> <leader>fq :FzfPreviewQuickFix <CR>
         " nnoremap <silent> <leader>ft :BTags<CR>
