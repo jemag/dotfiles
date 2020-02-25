@@ -28,6 +28,7 @@
   hook_add: source $VIMPATH/core/plugins/lens.vim
 - repo: glacambre/firenvim
   hook_post_update: call firenvim#install()
+- repo: sheerun/vim-polyglot
 #}}}
 
 # Core Plugins{{{
@@ -178,9 +179,6 @@
 
 # Coding{{{
 - { repo: tpope/vim-commentary }
-
-- repo: leafgarland/typescript-vim
-  on_path: .ts
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
