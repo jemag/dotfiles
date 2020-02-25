@@ -32,7 +32,9 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
-
+" Add newline above or below
+nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 " My remapping of <C-^>. If there is no alternate file, and there's no count given, then switch
 " to next file. We use `bufloaded` to check for alternate buffer presence. This will ignore
 " deleted buffers, as intended. To get default behaviour, use `bufexists` in it's place.
