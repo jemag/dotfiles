@@ -27,7 +27,6 @@
 - repo: camspiers/lens.vim
   hook_add: source $VIMPATH/core/plugins/lens.vim
 - repo: glacambre/firenvim
-  on_source: denite.nvim
   hook_post_update: call firenvim#install()
 #}}}
 
