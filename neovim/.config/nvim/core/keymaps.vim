@@ -1,6 +1,6 @@
 " ctrl p/n should act like up down for command line history
 cnoremap <C-p> <Up>
-nnoremap ' `
+noremap <expr> ' printf('`%c zz',getchar())
 cnoremap <C-n> <Down>
 nnoremap R "_d
 " Remove search highlighting
