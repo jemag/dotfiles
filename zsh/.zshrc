@@ -11,7 +11,7 @@ zle -N down-line-or-beginning-search
 ###########
 # aliases
 ###########
-alias ls="exa"
+alias ls="exa -g"
 alias grep="grep --color"
 alias tp="tmuxinator-fzf-start.sh"
 alias ll="ls -l"
@@ -176,5 +176,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
