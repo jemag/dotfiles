@@ -43,10 +43,24 @@ root: ~/
 # post: tmux -CC attach -t psql
 
 windows:
-  - local:
+  - psql_dev:
       layout: tiled
       panes:
-              - psql postgres://octopi@localhost:5432/octopi -w
-              - psql postgres://octopi@localhost:5432/octopi -w
-              - psql postgres://octopi@localhost:5432/octopi -w
-              - psql postgres://octopi@localhost:5432/octopi -w
+              - psql postgres://admin@132.215.33.56:5432/mapapi-dev -w
+              - psql postgres://admin@132.215.33.56:5432/mapapi-dev -w
+              - psql postgres://admin@132.215.33.56:5432/mapapi-dev -w
+              - psql postgres://admin@132.215.33.56:5432/mapapi-dev -w
+  - psql_test:
+      layout: tiled
+      panes:
+              - psql postgres://admogsl@srogslbdt01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbdt01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbdt01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbdt01.uqar.ca:5432/mapapi
+  - psql_prod:
+      layout: tiled
+      panes:
+              - psql postgres://admogsl@srogslbd01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbd01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbd01.uqar.ca:5432/mapapi
+              - psql postgres://admogsl@srogslbd01.uqar.ca:5432/mapapi
