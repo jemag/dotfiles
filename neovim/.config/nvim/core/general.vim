@@ -2,7 +2,7 @@ set nobackup
 set noswapfile
 set autoread
 set autowrite
-set noconfirm
+set confirm
 set splitbelow
 set bsdir=buffer
 " enable mouse
