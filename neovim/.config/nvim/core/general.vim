@@ -38,7 +38,6 @@ set undodir=~/.tmp/undo
 set relativenumber
 set backspace=2
 set backspace=indent,eol,start
-set formatoptions-=cro " Do not automatically add comment on next line
 " Tabs and Indents {{{
 " ----------------
 set expandtab
@@ -47,7 +46,7 @@ set softtabstop=2
 set shiftwidth=2
 set smarttab
 set autoindent
-set smartindent
+set cindent
 set shiftround
 " }}}
 set hidden
