@@ -61,7 +61,7 @@ zplugin ice wait"0" blockf lucid
 zplugin light "zsh-users/zsh-completions"
 zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
 zplugin light "zsh-users/zsh-autosuggestions"
-zplugin snippet -f /home/jemag/lib/azure-cli/az.completion
+zplugin snippet /home/jemag/lib/azure-cli/az.completion
 zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
