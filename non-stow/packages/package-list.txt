@@ -1,3 +1,4 @@
+alacritty
 alsa-plugins
 alsa-utils
 arandr
@@ -8,6 +9,7 @@ base
 bat
 binutils
 bison
+bitwarden-bin
 broot
 chromium
 chromium-widevine
@@ -15,6 +17,7 @@ cronie
 ctags
 deluge
 dhcpcd
+discord
 docker
 dust
 exa
@@ -25,6 +28,7 @@ ffmpegthumbnailer
 file
 findutils
 firefox
+firefox-developer-edition
 flameshot
 flex
 fontpreview
@@ -33,11 +37,12 @@ gawk
 gcc
 gettext
 git
+glances
 gnome-calculator
 gnome-keyring
-gnomecast-git
 go-tools
 google-chrome
+gradle
 grep
 groff
 grub
@@ -87,12 +92,14 @@ m4
 make
 man-db
 man-pages
+maven
 mkinitcpio
 mkinitcpio-utils
 mpg123
 neovim-nightly
 nerd-fonts-complete
 net-tools
+nmap
 nodejs
 noto-fonts
 npm
@@ -110,6 +117,7 @@ pkgconf
 playerctl
 polybar
 poppler
+postgresql
 python-pip
 python-pynvim
 python-ueberzug
@@ -126,6 +134,7 @@ seahorse
 sed
 snapd
 speedtest-cli
+spicetify-cli
 spotify
 steam
 stow
