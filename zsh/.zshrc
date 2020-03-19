@@ -45,6 +45,7 @@ setopt HIST_IGNORE_SPACE                        		# prefix commands you don't wa
 setopt NO_HUP											# don't kill jobs
 setopt NO_CHECK_JOBS
 setopt autocd
+setopt IGNOREEOF
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
