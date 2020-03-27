@@ -26,6 +26,8 @@ alias tf="terraform"
 alias vifm="vifmrun"
 alias g="git"
 alias tmuxa="tmux attach -t"
+alias kcx="kubectx"
+alias kns="kubens"
 
 ##########
 # generic options
