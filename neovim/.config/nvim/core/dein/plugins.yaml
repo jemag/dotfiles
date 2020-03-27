@@ -153,7 +153,7 @@
   on_ft: go
   hook_source: source  $VIMPATH/core/plugins/vim-go.vim
 
-- repo: tpope/vim-markdown
+- repo: plasticboy/vim-markdown
   on_ft: [markdown, pandoc.markdown, rmd]
   hook_source: source  $VIMPATH/core/plugins/vim-markdown.vim
   hook_add: |
