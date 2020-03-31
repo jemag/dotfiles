@@ -72,6 +72,8 @@
     "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
     //python
     "python.autoComplete.addBrackets": true,
+    // explorer
+    "explorer.icon.enableNerdfont": true,
     // eslint
     "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
     "eslint.autoFix": true,

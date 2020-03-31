@@ -186,6 +186,18 @@ if dein#tap('vim-startify')
     nnoremap <silent> <leader>s :Startify<CR>
 endif
 
+if dein#tap('indentLine')
+  nnoremap <leader>ti :IndentLinesToggle<CR>
+endif
+
+if dein#tap('vifm.vim')
+  noremap <Leader>vn :Vifm .<CR>
+  noremap <Leader>vv :VsplitVifm<CR>
+  noremap <Leader>vs :SplitVifm<CR>
+  noremap <Leader>vd :DiffVifm<CR>
+  noremap <Leader>vt :TabVifm<CR>
+endif
+
 if dein#tap('vim-quickrun')
     nnoremap <silent> <localleader>r :QuickRun<CR>
 endif

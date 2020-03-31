@@ -31,6 +31,7 @@
   hook_post_update: call firenvim#install()
   hook_add: source $VIMPATH/core/plugins/firenvim.vim
 - repo: sheerun/vim-polyglot
+- repo: vifm/vifm.vim
 #}}}
 
 # Core Plugins{{{
