@@ -11,9 +11,11 @@ if has('vim_starting')
 	set encoding=UTF-8
 	scriptencoding UTF-8
 endif
-set laststatus=2
+set laststatus=0
+" show column with ctrl+g
+set noruler
 set showtabline=2
-set statusline=-        " hide file name in statusline
+" set statusline=-        " hide file name in statusline
 set fillchars+=vert:\|  " add a bar for vertical splits
 if get(g:,'gruvbox_transp_bg',1)
  set fcs=eob:\           " hide ~
@@ -93,7 +95,7 @@ function! HighlightWordUnderCursor()
     if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
         exec 'match' 'StatusLine' '/\V\<'.expand('<cword>').'\>/' 
     else 
-        match none 
+        match none
     endif
 endfunction
 
