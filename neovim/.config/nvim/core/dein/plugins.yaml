@@ -32,6 +32,7 @@
   hook_add: source $VIMPATH/core/plugins/firenvim.vim
 - repo: sheerun/vim-polyglot
 - repo: vifm/vifm.vim
+- repo: kyazdani42/nvim-tree.lua
 #}}}
 
 # Core Plugins{{{
