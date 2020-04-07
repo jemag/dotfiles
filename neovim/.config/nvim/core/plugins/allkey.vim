@@ -170,16 +170,17 @@ if dein#tap('goyo.vim')
 	nnoremap <Leader>G :Goyo<CR>
 endif
 
-if dein#tap('defx.nvim')
-        nnoremap <silent> <Leader>e
-                \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-        "nnoremap <silent> <LocalLeader>a
-				"\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
-endif
+" if dein#tap('defx.nvim')
+"         nnoremap <silent> <Leader>e
+"                 \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
+" endif
 
-if dein#tap('nerdtree')
-        "nerdtree
-        nnoremap <silent><localleader>e :NERDTreeToggle <CR>
+if dein#tap('nvim-tree.lua')
+        nnoremap <silent> <Leader>e
+                \ :<C-u>LuaTreeRefresh<CR>
+                \ :<C-u>LuaTreeToggle<CR>
+        nnoremap <silent> <Leader>lr :LuaTreeRefresh<CR>
+        nnoremap <silent> <Leader>ls :LuaTreeFindFile<CR>
 endif
 
 if dein#tap('vim-startify')

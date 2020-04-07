@@ -33,6 +33,7 @@
 - repo: sheerun/vim-polyglot
 - repo: vifm/vifm.vim
 - repo: kyazdani42/nvim-tree.lua
+  hook_add: source $VIMPATH/core/plugins/nvim-tree.vim
 #}}}
 
 # Core Plugins{{{
