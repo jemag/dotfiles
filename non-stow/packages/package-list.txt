@@ -10,16 +10,18 @@ bat
 binutils
 bison
 bitwarden-bin
+bitwarden-cli
 broot
 chromium
 chromium-widevine
 cronie
 ctags
-deluge
+deluge-gtk
 dhcpcd
 discord
 docker
 dust
+epub-thumbnailer-git
 exa
 fakeroot
 fd
@@ -140,6 +142,7 @@ steam
 stow
 sudo
 teams
+terraform
 texinfo
 tldr
 tmux
