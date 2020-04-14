@@ -29,6 +29,7 @@ alias tmuxa="tmux attach -t"
 alias kcx="kubectx"
 alias kns="kubens"
 alias kb="kubie"
+alias ..="cd .."
 
 ##########
 # generic options
