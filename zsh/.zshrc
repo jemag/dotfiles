@@ -30,6 +30,7 @@ alias kcx="kubectx"
 alias kns="kubens"
 alias kb="kubie"
 alias ..="cd .."
+alias cat="bat"
 
 ##########
 # generic options
