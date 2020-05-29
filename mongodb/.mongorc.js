@@ -3,7 +3,7 @@ DBQuery.prototype.unpretty = function () {
         this._prettyShell = false;
         return this;
 }
-EDITOR= "vim"
+EDITOR="nvim"
 
 stash={
   "save":
