@@ -89,6 +89,12 @@ fun! s:MkNonExDir(file, buf)
   endif
 endfun
 
+" Neovim highlight yank
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END
+
 " Highlight all instances of word under cursor, when idle.
 set updatetime=10
 function! HighlightWordUnderCursor()

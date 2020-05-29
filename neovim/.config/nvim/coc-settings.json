@@ -6,7 +6,6 @@
     "suggest.snippetIndicator": " \uf28a",
     "suggest.triggerCompletionWait": 100,
     "suggest.echodocSupport": true,
-    "suggest.reloadPumOnInsertChar": true,
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",
@@ -63,7 +62,7 @@
     //tslint
     "tslint.autoFixOnSave": true,
     //prettier
-    "coc.preferences.formatOnSaveFiletypes": ["css","markdown"],
+    "coc.preferences.formatOnSaveFiletypes": [],
     "prettier.statusItemText": "ⓟ ",
     "prettier.eslintIntegration": true,
     "prettier.tslintIntegration": true,
@@ -73,8 +72,9 @@
     //python
     "python.autoComplete.addBrackets": true,
     // explorer
-    "explorer.icon.enableNerdfont": true,
+    //"explorer.icon.enableNerdfont": true,
     // eslint
+    "eslint.enable": false,
     "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
     "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
