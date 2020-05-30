@@ -34,7 +34,7 @@ set timeout ttimeout
 set cmdheight=1         " Height of the command line
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=100
+set updatetime=50
 set undofile
 set undodir=~/.tmp/undo
 set relativenumber
@@ -96,7 +96,6 @@ augroup highlight_yank
 augroup END
 
 " Highlight all instances of word under cursor, when idle.
-set updatetime=10
 function! HighlightWordUnderCursor()
     if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
         exec 'match' 'StatusLine' '/\V\<'.expand('<cword>').'\>/' 
