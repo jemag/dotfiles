@@ -8,4 +8,4 @@ function! s:center(lines) abort
   return centered_lines
 endfunction
 
-nnoremap <silent> <leader>s :Startify<CR>
+" nnoremap <silent> <leader>s :Startify<CR>

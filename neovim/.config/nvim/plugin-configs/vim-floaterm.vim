@@ -1,2 +1,2 @@
-let g:floaterm_keymap_toggle = '<F10>'
-hi FloatermNF guibg=#282828
+nnoremap   <silent>   <F10>   :FloatermToggle<CR>
+tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermToggle<CR>

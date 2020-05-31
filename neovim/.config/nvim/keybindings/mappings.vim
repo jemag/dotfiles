@@ -7,9 +7,6 @@ nnoremap R "_d
 nnoremap <esc> :noh<return><esc>
 filetype plugin indent on " show existing tab with spaces width
 inoremap jk <esc>
-" Buffer
-nnoremap bn :bnext<CR>
-nnoremap bp :bprevious<CR>
 "switch window
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
@@ -35,6 +32,12 @@ vnoremap gk k
 " Better indentation
 vnoremap < <gv
 vnoremap > >gv
+
+" Use alt + hjkl to resize windows
+nnoremap <silent> <M-j>    :resize -2<CR>
+nnoremap <silent> <M-k>    :resize +2<CR>
+nnoremap <silent> <M-h>    :vertical resize -2<CR>
+nnoremap <silent> <M-l>    :vertical resize +2<CR>
 
 " Add newline above or below
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>

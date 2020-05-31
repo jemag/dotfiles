@@ -3,20 +3,16 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: liuchengxu/vim-which-key
+- repo: gruvbox-community/gruvbox
 - repo: honza/vim-snippets
 - repo: christoomey/vim-tmux-navigator
 - repo: kassio/neoterm
   hook_add: source $HOME/.config/nvim/plugin-configs/neoterm.vim
-# - repo: voldikss/vim-floaterm
-#   hook_add: source $HOME/.config/nvim/plugin-configs/vim-floaterm.vim
+- repo: voldikss/vim-floaterm
+  hook_add: source $HOME/.config/nvim/plugin-configs/vim-floaterm.vim
 - repo: airblade/vim-rooter
 - repo: wellle/targets.vim
-# - repo: vim-airline/vim-airline
-# - repo: vim-airline/vim-airline-themes
-#   hook_add: source $HOME/.config/nvim/plugin-configs/airline.vim
-- repo: edkolev/tmuxline.vim
-# - repo: blueyed/vim-diminactive
-#   hook_add: source $HOME/.config/nvim/plugin-configs/vim-diminactive.vim
 - repo: justinmk/vim-sneak
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-sneak.vim
 - repo: MattesGroeger/vim-bookmarks
@@ -75,18 +71,12 @@
       endfunction
 
 - repo: junegunn/vim-easy-align
+  hook_source: source $HOME/.config/nvim/plugin-configs/easy-align.vim
 
 - repo: simnalamburt/vim-mundo
   hook_source: source $HOME/.config/nvim/plugin-configs/vim-mundo.vim
 
 - repo: tpope/vim-repeat
-
-- repo: kristijanhusak/defx-git
-  on_source: defx.nvim
-  hook_source: source  $HOME/.config/nvim/plugin-configs/defx-git.vim
-
-- repo: kristijanhusak/defx-icons
-  on_source: defx.nvim
 # }}}
 
 
@@ -120,8 +110,6 @@
 - repo: vim-python/python-syntax
   on_ft: python
   hook_add: let g:python_highlight_all = 1
-
-- { repo: neoclide/vim-jsx-improve, on_ft: [javascript,jsx,javascript.jsx]}
 
 - { repo: cespare/vim-toml, on_ft: toml }
 - { repo: vim-scripts/xml.vim, on_ft: xml}
@@ -164,8 +152,9 @@
 # Coding{{{
 - { repo: tpope/vim-commentary }
 
-- repo: sbdchd/neoformat
-  hook_source: source  $HOME/.config/nvim/plugin-configs/neoformat.vim
+- repo: Chiel92/vim-autoformat
+  hook_source: source  $HOME/.config/nvim/plugin-configs/vim-autoformat.vim
+  on_cmd: Autoformat
 
 - repo: Yggdroot/indentLine
   on_ft: [python,html,yaml,css,vim,javascript,jsx,javascript.jsx,vue]

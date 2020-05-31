@@ -44,4 +44,3 @@ autocmd  User GoyoLeave nested call <SID>goyo_leave()
 " }}}
 
 " vim: set foldmethod=marker ts=2 sw=2 tw=80 noet :
-nnoremap <Leader>G :Goyo<CR>
