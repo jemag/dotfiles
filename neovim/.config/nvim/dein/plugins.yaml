@@ -46,27 +46,14 @@
 
 # Lazy Loading
 # ==========================================
-
-
-# Denite{{{
-- repo: Shougo/denite.nvim
-  depends: vim-devicons
-  hook_source: |
-        source  $HOME/.config/nvim/plugin-configs/denite.vim
-        source  $HOME/.config/nvim/plugin-configs/denite_menu.vim
-
-- { repo: chemzqm/denite-git, on_source: denite.nvim }
-
-- repo: raghur/fruzzy
-  on_source: denite.nvim
-  hook_source: let g:fruzzy#sortonempty = 0
-  hook_post_update: call fruzzy#install()
-
-# }}}
-
 # Interface{{{
 - repo: ryanoasis/vim-devicons
   hook_add: let g:webdevicons_enable_denite = 1
+
+- repo: norcalli/nvim-colorizer.lua
+  if: has('nvim-0.4')
+  on_ft: [ html,css,sass,scss,stylus,vim,javascript,javascriptreact,typescript,typescriptreact ]
+  hook_source: luafile $HOME/.config/nvim/plugin-configs/nvim-colorizer.vim
 
 - repo: ludovicchabant/vim-gutentags
   if: executable('ctags')
@@ -77,6 +64,7 @@
   hook_source: source $HOME/.config/nvim/plugin-configs/goyo.vim
 
 - repo: junegunn/Limelight.vim
+  hook_source: source $HOME/.config/nvim/plugin-configs/limelight.vim
 
 - repo: mhinz/vim-startify
   depends: vim-devicons
@@ -89,10 +77,9 @@
 - repo: junegunn/vim-easy-align
 
 - repo: simnalamburt/vim-mundo
-  on_map: { n: <Plug> }
   hook_source: source $HOME/.config/nvim/plugin-configs/vim-mundo.vim
 
-- {repo: tpope/vim-repeat , on_map: .* }
+- repo: tpope/vim-repeat
 
 - repo: kristijanhusak/defx-git
   on_source: defx.nvim
@@ -228,7 +215,7 @@
 # }}}
 
 # TextObjectOperator{{{
-- { repo: AndrewRadev/splitjoin.vim, on_map: { n: <Plug>Splitjoin }}
-- { repo: terryma/vim-expand-region, on_map: { x: <Plug> }}
+- repo: AndrewRadev/splitjoin.vim
+- repo: terryma/vim-expand-region
 - repo: tpope/vim-surround
 # }}}
