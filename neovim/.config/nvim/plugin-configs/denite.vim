@@ -132,3 +132,34 @@ function! s:denite_filter_settings() abort
 endfunction
 
 " vim: set ts=3 sw=2 tw=80 noet :
+nnoremap <silent><LocalLeader>m :<C-u>Denite menu<CR>
+
+noremap zl :<C-u>call <SID>my_denite_outline(&filetype)<CR>
+noremap zL :<C-u>call <SID>my_denite_decls(&filetype)<CR>
+noremap zT :<C-u>call <SID>my_denite_file_rec_goroot()<CR>
+
+nnoremap <silent> <LocalLeader>gl :<C-u>Denite gitlog:all<CR>
+nnoremap <silent> <LocalLeader>gh :<C-u>Denite gitbranch<CR>
+
+function! s:my_denite_outline(filetype) abort
+  execute 'Denite' a:filetype ==# 'go' ? "decls:'%:p'" : 'outline'
+endfunction
+function! s:my_denite_decls(filetype) abort
+  if a:filetype ==# 'go'
+    Denite decls
+  else
+    call denite#util#print_error('decls does not support filetypes except go')
+  endif
+endfunction
+
+function! s:my_denite_file_rec_goroot() abort
+  if !executable('go')
+    call denite#util#print_error('`go` executable not found')
+    return
+  endif
+  let out = system('go env | grep ''^GOROOT='' | cut -d\" -f2')
+  let goroot = substitute(out, '\n', '', '')
+  call denite#start(
+        \ [{'name': 'file/rec', 'args': [goroot]}],
+        \ {'input': '.go'})
+endfunction

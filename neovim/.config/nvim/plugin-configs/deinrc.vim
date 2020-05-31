@@ -9,7 +9,7 @@ let g:dein#auto_recache = 1
 
 let $CACHE = expand('~/.cache')
 let s:path = expand('$CACHE/dein')
-let s:plugins_path = expand('$VIMPATH/core/dein/plugins.yaml')
+let s:plugins_path = expand('$HOME/.config/nvim/dein/plugins.yaml')
 let s:user_plugins_path = expand('$VIMPATH/core/local/local_plugins.yaml')
 
 " Constants
@@ -95,7 +95,7 @@ if dein#load_state(s:path)
     endif
 endif
 
-let s:plugin_setting_dirname = expand('$VIMPATH/core/plugins/')
+let s:plugin_setting_dirname = expand('$HOME/.config/nvim/plugin-configs/')
 
 function! s:edit_plugin_setting(plugin_name)
   if !isdirectory(s:plugin_setting_dirname)

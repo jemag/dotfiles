@@ -9,3 +9,5 @@ let g:vista_executive_for = {
   \ 'python': 'coc',
   \ 'typescript': 'coc',
   \ }
+nnoremap <silent><localleader>v :Vista!!<CR>
+nnoremap <silent><leader>fv     :Vista finder coc<CR>

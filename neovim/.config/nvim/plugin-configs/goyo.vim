@@ -1,5 +1,6 @@
 " Goyo
 
+nnoremap <Leader>G :Goyo<CR>
 " s:goyo_enter() "{{{
 " Disable visual candy in Goyo mode
 function! s:goyo_enter()

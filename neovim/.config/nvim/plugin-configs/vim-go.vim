@@ -13,3 +13,11 @@ let g:go_highlight_generate_tags = 1
 "disable use K to run godoc
 let g:go_doc_keywordprg_enabled = 0
 let g:go_def_mapping_enabled = 0
+
+if dein#tap('vim-go')
+	 nnoremap <silent> <leader>gi :GoImpl<CR>
+	 nnoremap <silent> <Leader>gd :GoDescribe<CR>
+	 nnoremap <silent> <Leader>gc :GoCallees<CR>
+	 nnoremap <silent> <Leader>gC :GoCallers<CR>
+	 nnoremap <silent> <Leader>gs :GoCallstack<CR>
+endif

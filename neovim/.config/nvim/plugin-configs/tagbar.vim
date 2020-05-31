@@ -28,3 +28,4 @@ let g:tagbar_type_go = {
     \ 'ctagsbin' : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
     \ }
+nnoremap <silent><localleader>t :TagbarToggle<CR>
