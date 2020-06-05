@@ -11,15 +11,15 @@ let g:which_key_localmap = {}
 let g:which_key_sep = '→'
 
 " let g:which_key_map['/'] = [ ':Commentary'  , 'comment' ]
-let g:which_key_map['.'] = [ ':e $MYVIMRC',             'open init' ]
-let g:which_key_map[';'] = [ ':Commands',               'commands' ]
-let g:which_key_map[','] = [ 'Startify',                'start screen' ]
-let g:which_key_map['e'] = [ ':LuaTreeToggle',          'explorer' ]
-let g:which_key_map['f'] = [ ':Files',                  'search files' ]
-let g:which_key_map['h'] = [ '<C-W>s',                  'split below']
-let g:which_key_map['S'] = [ ':SSave',                  'save session' ]
-let g:which_key_map['T'] = [ ':Rg',                     'search text' ]
-let g:which_key_map['G'] = [ 'Goyo',                    'zen' ]
+let g:which_key_map['.'] = [ ':e $MYVIMRC',             'Open init' ]
+let g:which_key_map[';'] = [ ':Commands',               'Commands' ]
+let g:which_key_map[','] = [ 'Startify',                'Start screen' ]
+let g:which_key_map['e'] = [ ':LuaTreeToggle',          'Explorer' ]
+let g:which_key_map['f'] = [ ':Files',                  'Search files' ]
+let g:which_key_map['h'] = [ '<C-W>s',                  'Split below']
+let g:which_key_map['S'] = [ ':SSave',                  'Save session' ]
+let g:which_key_map['T'] = [ ':Rg',                     'Search text' ]
+let g:which_key_map['G'] = [ 'Goyo',                    'Zen' ]
 let g:which_key_map['1'] = [ '<Plug>BufTabLine.Go(1)',  'Buf 1']
 let g:which_key_map['2'] = [ '<Plug>BufTabLine.Go(2)',  'Buf 2']
 let g:which_key_map['3'] = [ '<Plug>BufTabLine.Go(3)',  'Buf 3']
@@ -31,136 +31,146 @@ let g:which_key_map['8'] = [ '<Plug>BufTabLine.Go(8)',  'Buf 8']
 let g:which_key_map['9'] = [ '<Plug>BufTabLine.Go(9)',  'Buf 9']
 let g:which_key_map['0'] = [ '<Plug>BufTabLine.Go(10)', 'Buf 10']
 
-let g:which_key_map.a = {
-      \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'    , 'explorer'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
-      \ 'v' : [':Vista!!'                , 'tag viewer'],
-      \ }
-
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
-      \ 'f' : ['bfirst'    , 'first-buffer']    ,
-      \ 'h' : ['Startify'  , 'home-buffer']     ,
-      \ 'l' : ['blast'     , 'last-buffer']     ,
-      \ 'n' : ['bnext'     , 'next-buffer']     ,
-      \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+      \ 'd' : ['bd'        , 'Delete-buffer']   ,
+      \ 'f' : ['bfirst'    , 'First-buffer']    ,
+      \ 'h' : ['Startify'  , 'Home-buffer']     ,
+      \ 'l' : ['blast'     , 'Last-buffer']     ,
+      \ 'n' : ['bnext'     , 'Next-buffer']     ,
+      \ 'p' : ['bprevious' , 'Previous-buffer'] ,
+      \ '?' : ['Buffers'   , 'Fzf-buffer']      ,
       \ }
 
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
-      \ ';' : [':Commands'              , 'commands'],
-      \ 'a' : [':Ag'                    , 'text Ag'],
-      \ 'b' : [':BLines'                , 'current buffer'],
-      \ 'B' : [':Buffers'               , 'open buffers'],
-      \ 'c' : [':Commits'               , 'commits'],
-      \ 'C' : [':BCommits'              , 'buffer commits'],
-      \ 'f' : [':Files'                 , 'files'],
-      \ 'g' : [':GFiles'                , 'git files'],
-      \ 'G' : [':GFiles?'               , 'modified git files'],
-      \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , 'command history'],
-      \ 'l' : [':Lines'                 , 'lines'] ,
-      \ 'm' : [':Marks'                 , 'marks'] ,
-      \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Helptags'              , 'help tags'] ,
-      \ 'P' : [':Tags'                  , 'project tags'],
-      \ 's' : [':CocList snippets'      , 'snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
-      \ 't' : [':Rg'                    , 'text Rg'],
-      \ 'T' : [':BTags'                 , 'buffer tags'],
-      \ 'w' : [':Windows'               , 'search windows'],
-      \ 'y' : [':Filetypes'             , 'file types'],
+      \ '/' : [':History/'              , 'History'],
+      \ ';' : [':Commands'              , 'Commands'],
+      \ 'a' : [':Ag'                    , 'Text Ag'],
+      \ 'b' : [':BLines'                , 'Current buffer'],
+      \ 'B' : [':Buffers'               , 'Open buffers'],
+      \ 'c' : [':Commits'               , 'Commits'],
+      \ 'C' : [':BCommits'              , 'Buffer commits'],
+      \ 'f' : [':Files'                 , 'Files'],
+      \ 'g' : [':GFiles'                , 'Git files'],
+      \ 'G' : [':GFiles?'               , 'Modified git files'],
+      \ 'h' : [':History'               , 'File history'],
+      \ 'H' : [':History:'              , 'Command history'],
+      \ 'l' : [':Lines'                 , 'Lines'] ,
+      \ 'm' : [':Marks'                 , 'Marks'] ,
+      \ 'M' : [':Maps'                  , 'Normal maps'] ,
+      \ 'p' : [':Helptags'              , 'Help tags'] ,
+      \ 'P' : [':Tags'                  , 'Project tags'],
+      \ 's' : [':CocList snippets'      , 'Snippets'],
+      \ 'S' : [':Colors'                , 'Color schemes'],
+      \ 't' : [':Rg'                    , 'Text Rg'],
+      \ 'T' : [':BTags'                 , 'Buffer tags'],
+      \ 'w' : [':Windows'               , 'Search windows'],
+      \ 'y' : [':Filetypes'             , 'File types'],
       \ 'z' : [':FZF'                   , 'FZF'],
       \ }
 
 " g is for git
-let g:which_key_localmap.g = {
-      \ 'name' : '+git' ,
-      \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'A' : [':Git add %'                        , 'add current'],
-      \ 'b' : [':Git blame'                        , 'blame'],
-      \ 'B' : [':GBrowse'                          , 'browse'],
-      \ 'c' : [':Git commit'                       , 'commit'],
-      \ 'd' : [':Git diff'                         , 'diff'],
-      \ 'D' : [':Gdiffsplit'                       , 'diff split'],
-      \ 'g' : [':GGrep'                            , 'git grep'],
-      \ 's' : [':Gstatus'                          , 'status'],
-      \ 'h' : [':GitGutterLineHighlightsToggle'    , 'highlight hunks'],
-      \ 'H' : ['<Plug>(GitGutterPreviewHunk)'      , 'preview hunk'],
-      \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
-      \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
-      \ 'l' : [':Git log'                          , 'log'],
-      \ 'p' : [':Git push'                         , 'push'],
-      \ 'P' : [':Git pull'                         , 'pull'],
-      \ 'r' : [':GRemove'                          , 'remove'],
-      \ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-      \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
-      \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
-      \ 'v' : [':GV'                               , 'view commits'],
-      \ 'V' : [':GV!'                              , 'view buffer commits'],
+let     g:which_key_localmap.g = {
+      \ 'name' : '+git',
+      \ 'a' : [':Git add .',                     'Add all'],
+      \ 'A' : [':Git add %',                     'Add current'],
+      \ 'b' : [':Git blame',                     'Blame'],
+      \ 'B' : [':GBrowse',                       'Browse'],
+      \ 'c' : [':Git commit',                    'Commit'],
+      \ 'd' : [':Git diff',                      'Diff'],
+      \ 'D' : [':Gdiffsplit',                    'Diff split'],
+      \ 'g' : [':GGrep',                         'Git grep'],
+      \ 's' : [':Gstatus',                       'Status'],
+      \ 'h' : [':GitGutterLineHighlightsToggle', 'Highlight hunks'],
+      \ 'i' : ['<Plug>(coc-git-chunkinfo)',      'Chunk info'],
+      \ 'j' : ['<Plug>(coc-git-nextchunk)',      'Next chunk'],
+      \ 'k' : ['<Plug>(coc-git-prevchunk)',      'Prev chunk'],
+      \ 'l' : [':Git log',                       'Log'],
+      \ 'p' : [':Git push',                      'Push'],
+      \ 'P' : [':Git pull',                      'Pull'],
+      \ 'r' : [':GRemove',                       'Remove'],
+      \ 'S' : [':CocCommand git.chunkStage',     'Stage chunk'],
+      \ 't' : [':GitGutterSignsToggle',          'Toggle signs'],
+      \ 'u' : [':CocCommand git.chunkUndo',      'Undo chunk'],
+      \ 'v' : [':GV',                            'View commits'],
+      \ 'V' : [':GV!',                           'View buffer commits'],
       \ }
 
+let g:which_key_map.f = {
+      \ 'name' : '+format' ,
+      \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
+      \ 'F' : ['<Plug>(coc-format)',          'Format'],
+      \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
+      \ }
+
+let g:which_key_localmap.t = {
+      \ 'name' : '+toggle',
+      \ 'i' : ['IndentLinesToggle',              'Show indent'],
+      \ 't' : ['TagbarToggle',                   'Tagbar'],
+      \ 'f' : [':FloatermToggle',                'Floaterm'],
+      \ 'e' : [ ':LuaTreeToggle',                'Explorer' ],
+      \ 'v' : [ ':Vista!!',                      'Vista bar' ],
+      \ 'c' : [':ColorizerToggle',               'Colorizer'],
+      \ 'n' : [':set number!',                   'Line numbers'],
+      \ 'r' : [':set number! norelativenumber!', 'Hybrid line numbers'],
+      \ 's' : [':let @/ = ""',                   'Remove search highlight'],
+  \ }
+
 " l is for language server protocol
+" TODO: Replace by 'c' for coc?
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'c' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-      \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-      \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-      \ 'O' : [':CocList outline'                    , 'outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
-      \ 'S' : [':CocList snippets'                   , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'v' : [':Vista!!'                            , 'tag viewer'],
-      \ 'z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+      \ '.' : [':CocConfig'                          , 'Config'],
+      \ ';' : ['<Plug>(coc-refactor)'                , 'Refactor'],
+      \ 'a' : ['<Plug>(coc-codeaction)'              , 'Line action'],
+      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'Selected action'],
+      \ 'b' : [':CocNext'                            , 'Next action'],
+      \ 'B' : [':CocPrev'                            , 'Prev action'],
+      \ 'c' : [':CocList commands'                   , 'Commands'],
+      \ 'd' : ['<Plug>(coc-definition)'              , 'Definition'],
+      \ 'D' : ['<Plug>(coc-declaration)'             , 'Declaration'],
+      \ 'e' : [':CocList extensions'                 , 'Extensions'],
+      \ 'f' : ['<Plug>(coc-format-selected)'         , 'Format selected'],
+      \ 'F' : ['<Plug>(coc-format)'                  , 'Format'],
+      \ 'h' : ['<Plug>(coc-float-hide)'              , 'Hide'],
+      \ 'i' : ['<Plug>(coc-implementation)'          , 'Implementation'],
+      \ 'I' : [':CocList diagnostics'                , 'Diagnostics'],
+      \ 'j' : ['<Plug>(coc-float-jump)'              , 'Float jump'],
+      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'Code lens'],
+      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'Next diagnostic'],
+      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'Next error'],
+      \ 'o' : ['<Plug>(coc-openlink)'                , 'Open link'],
+      \ 'O' : [':CocList outline'                    , 'Outline'],
+      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'Prev diagnostic'],
+      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'Prev error'],
+      \ 'q' : ['<Plug>(coc-fix-current)'             , 'Quickfix'],
+      \ 'R' : ['<Plug>(coc-rename)'                  , 'Rename'],
+      \ 'r' : ['<Plug>(coc-references)'              , 'References'],
+      \ 's' : [':CocList -I symbols'                 , 'References'],
+      \ 'S' : [':CocList snippets'                   , 'Snippets'],
+      \ 't' : ['<Plug>(coc-type-definition)'         , 'Type definition'],
+      \ 'u' : [':CocListResume'                      , 'Resume list'],
+      \ 'U' : [':CocUpdate'                          , 'Update CoC'],
+      \ 'v' : [':Vista!!'                            , 'Tag viewer'],
+      \ 'z' : [':CocDisable'                         , 'Disable CoC'],
+      \ 'Z' : [':CocEnable'                          , 'Enable CoC'],
       \ }
 " t is for terminal
 let g:which_key_map.t = {
-      \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
-      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'v' : [':FloatermNew vifm'                            , 'vifm'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
+      \ 'name' : '+terminal',
+      \ ';' : [':FloatermNew --wintype=popup --height=6', 'Terminal'],
+      \ 'f' : [':FloatermNew fzf',                        'Fzf'],
+      \ 'g' : [':FloatermNew lazygit',                    'Git'],
+      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
+      \ 'n' : [':FloatermNew node',                       'Node'],
+      \ 'p' : [':FloatermNew python',                     'Python'],
+      \ 'v' : [':FloatermNew vifm',                       'Vifm'],
+      \ 't' : [':FloatermToggle',                         'Toggle'],
+      \ 'y' : [':FloatermNew ytop',                       'Ytop'],
+      \ 's' : [':FloatermNew ncdu',                       'Ncdu'],
       \ }
 call which_key#register('<Space>', "g:which_key_map")
 call which_key#register('-', "g:which_key_localmap")

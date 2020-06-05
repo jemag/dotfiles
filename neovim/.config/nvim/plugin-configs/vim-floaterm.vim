@@ -1,2 +1,3 @@
-nnoremap   <silent>   <F10>   :FloatermToggle<CR>
-tnoremap   <silent>   <F10>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent>   <F9>   :FloatermToggle<CR>
+tnoremap <silent>   <F9>   <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <esc> <C-\><C-n>

@@ -8,7 +8,8 @@ let g:fzf_preview_floating_window_winblend = 0
 nnoremap <silent> <leader>ft :FzfPreviewBufferTags <CR>
 nnoremap <silent> <leader>fc :Commands<cr>|  " fuzzy find Vim commands (like Ctrl-Shift-P in Sublime/Atom/VSC)
 " nnoremap <silent> <leader>/ :BLines<cr>|    " fuzzy find lines in the current file
-nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query=""<CR>
+" nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query=""<CR>
+nnoremap <silent> <leader>f/     :<C-u>FzfPreviewLines<CR>
 nnoremap <silent> <leader>f*     :<C-u>FzfPreviewLines -add-fzf-arg=--no-sort -add-fzf-arg=--query="<C-r>=expand('<cword>')<CR>"<CR>
 nnoremap <silent> <leader>fb :FzfPreviewBuffers<CR>
 nnoremap <silent> <leader>ff :FzfPreviewProjectFiles <CR>

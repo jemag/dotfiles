@@ -1,5 +1,5 @@
 let g:vista_default_executive = 'ctags'
-let g:vista_fzf_preview = ['right:50%']
+let g:vista_fzf_preview = ['right:60%']
 
 let g:vista_executive_for = {
   \ 'go': 'ctags',
@@ -9,5 +9,4 @@ let g:vista_executive_for = {
   \ 'python': 'coc',
   \ 'typescript': 'coc',
   \ }
-nnoremap <silent><localleader>v :Vista!!<CR>
 nnoremap <silent><leader>fv     :Vista finder coc<CR>

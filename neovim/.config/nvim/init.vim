@@ -57,13 +57,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "---------------------------------------------------------------------------
 if s:is_sudo
-	set noswapfile
-	set nobackup
-	set nowritebackup
-	set noundofile
-	if has('nvim')
-		set shada="NONE"
-	else
-		set viminfo="NONE"
-	endif
+  set noswapfile
+  set nobackup
+  set nowritebackup
+  set noundofile
+  if has('nvim')
+    set shada="NONE"
+  else
+    set viminfo="NONE"
+  endif
 endif

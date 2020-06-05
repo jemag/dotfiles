@@ -3,12 +3,11 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: liuchengxu/vim-clap
 - repo: liuchengxu/vim-which-key
 - repo: gruvbox-community/gruvbox
 - repo: honza/vim-snippets
 - repo: christoomey/vim-tmux-navigator
-- repo: kassio/neoterm
-  hook_add: source $HOME/.config/nvim/plugin-configs/neoterm.vim
 - repo: voldikss/vim-floaterm
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-floaterm.vim
 - repo: airblade/vim-rooter
@@ -71,7 +70,6 @@
       endfunction
 
 - repo: junegunn/vim-easy-align
-  hook_source: source $HOME/.config/nvim/plugin-configs/easy-align.vim
 
 - repo: simnalamburt/vim-mundo
   hook_source: source $HOME/.config/nvim/plugin-configs/vim-mundo.vim
@@ -93,6 +91,8 @@
 
 # Git Plugins{{{
 - { repo: tpope/vim-fugitive, on_path: .* }
+- { repo: junegunn/gv.vim, on_path: .* }
+
 
 # - repo: neoclide/vim-easygit
 #   on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
