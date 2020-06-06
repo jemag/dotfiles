@@ -31,7 +31,11 @@ alias kns="kubens"
 alias kb="kubie"
 alias ..="cd .."
 alias cat="bat"
-
+tmuxpopup() {
+  LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
+}
+zle -N tmuxpopup
+bindkey '^[t' tmuxpopup
 ##########
 # generic options
 ##########
@@ -156,20 +160,17 @@ path+=$GRAILS_HOME/bin
 # More on these tools https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html
 #
 [ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
-export FZF_DEFAULT_OPS="--extended"
-FD_OPTIONS="--follow --exclude .git --exclude node_modules"
+export FZF_DEFAULT_OPS="
+--extended
+"
+FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
 export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_DEFAULT_OPTS="
-#     --no-mouse --height 50% -1 --reverse --multi --inline-info
-#     --color=dark
-#     --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
-#     --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
-#     "
-# export FZF_COMPLETION_TRIGGER=''
+export FZF_CTRL_T_OPTS="
+    --height 50% -1 --layout=reverse --multi --inline-info
+    --preview 'bat --style=numbers --color=always --line-range :500 {}'
+    "
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-# export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-# export FZF_ALT_C_COMMAND='fd --type d $FD_OPTIONS'
 export JAVA_HOME=/usr/lib/jvm/default
 export TERMINAL=/usr/local/bin/st
 export GOPATH=$HOME/go
