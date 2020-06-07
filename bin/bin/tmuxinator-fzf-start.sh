@@ -44,7 +44,7 @@ if [ -n "$SELECTED_PROJECTS" ]; then
 
     # If inside tmux then select session to switch, otherwise just attach
     if [ -n "$TMUX" ]; then
-        SESSION=$(tmux list-sessions -F "#S" | fzf --prompt="Session: " --reverse --height 50%)
+        SESSION=$(tmux list-sessions -F "#S" | fzf-tmux-popup --prompt="Session: " --reverse --height 50%)
         if [ -n "$SESSION" ]; then
             tmux switch-client -t "$SESSION"
         fi
