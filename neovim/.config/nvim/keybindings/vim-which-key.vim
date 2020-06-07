@@ -15,7 +15,6 @@ let g:which_key_map['.'] = [ ':e $MYVIMRC',             'Open init' ]
 let g:which_key_map[';'] = [ ':Commands',               'Commands' ]
 let g:which_key_map[','] = [ 'Startify',                'Start screen' ]
 let g:which_key_map['e'] = [ ':LuaTreeToggle',          'Explorer' ]
-let g:which_key_map['f'] = [ ':Files',                  'Search files' ]
 let g:which_key_map['h'] = [ '<C-W>s',                  'Split below']
 let g:which_key_map['S'] = [ ':SSave',                  'Save session' ]
 let g:which_key_map['T'] = [ ':Rg',                     'Search text' ]
@@ -82,9 +81,7 @@ let     g:which_key_localmap.g = {
       \ 'c' : [':Git commit',                    'Commit'],
       \ 'd' : [':Git diff',                      'Diff'],
       \ 'D' : [':Gdiffsplit',                    'Diff split'],
-      \ 'g' : [':GGrep',                         'Git grep'],
-      \ 's' : [':Gstatus',                       'Status'],
-      \ 'h' : [':GitGutterLineHighlightsToggle', 'Highlight hunks'],
+      \ 's' : [':Git',                       'Status'],
       \ 'i' : ['<Plug>(coc-git-chunkinfo)',      'Chunk info'],
       \ 'j' : ['<Plug>(coc-git-nextchunk)',      'Next chunk'],
       \ 'k' : ['<Plug>(coc-git-prevchunk)',      'Prev chunk'],
@@ -93,7 +90,6 @@ let     g:which_key_localmap.g = {
       \ 'P' : [':Git pull',                      'Pull'],
       \ 'r' : [':GRemove',                       'Remove'],
       \ 'S' : [':CocCommand git.chunkStage',     'Stage chunk'],
-      \ 't' : [':GitGutterSignsToggle',          'Toggle signs'],
       \ 'u' : [':CocCommand git.chunkUndo',      'Undo chunk'],
       \ 'v' : [':GV',                            'View commits'],
       \ 'V' : [':GV!',                           'View buffer commits'],
@@ -111,12 +107,13 @@ let g:which_key_localmap.t = {
       \ 'i' : ['IndentLinesToggle',              'Show indent'],
       \ 't' : ['TagbarToggle',                   'Tagbar'],
       \ 'f' : [':FloatermToggle',                'Floaterm'],
-      \ 'e' : [ ':LuaTreeToggle',                'Explorer' ],
-      \ 'v' : [ ':Vista!!',                      'Vista bar' ],
+      \ 'e' : [':LuaTreeToggle',                'Explorer' ],
+      \ 'v' : [':Vista!!',                      'Vista bar' ],
       \ 'c' : [':ColorizerToggle',               'Colorizer'],
       \ 'n' : [':set number!',                   'Line numbers'],
       \ 'r' : [':set number! norelativenumber!', 'Hybrid line numbers'],
       \ 's' : [':let @/ = ""',                   'Remove search highlight'],
+      \ 'm' : [':MundoToggle',                   'Mundo (local history)'],
   \ }
 
 " l is for language server protocol

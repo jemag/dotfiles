@@ -5,6 +5,7 @@ set autowrite
 set confirm
 set splitbelow
 set bsdir=buffer
+set nofoldenable
 " enable mouse
 set mouse=a
 if has('vim_starting')
