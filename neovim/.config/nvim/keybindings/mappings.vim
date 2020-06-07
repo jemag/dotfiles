@@ -18,7 +18,9 @@ inoremap <C-u> <C-g>u<C-u>
 " For toggling spelling
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
-
+" Cycle through buffers
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 "smart move
 nnoremap j gj
 nnoremap k gk
