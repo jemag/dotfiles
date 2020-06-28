@@ -3,6 +3,7 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: DanilaMihailov/beacon.nvim
 - repo: liuchengxu/vim-clap
 - repo: liuchengxu/vim-which-key
 - repo: gruvbox-community/gruvbox
