@@ -31,6 +31,8 @@ alias kns="kubens"
 alias kb="kubie"
 alias ..="cd .."
 alias cat="bat"
+alias ac="argocd"
+alias d="devour"
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
@@ -186,3 +188,4 @@ export PATH=$PATH:/home/jemag/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(direnv hook zsh)"
