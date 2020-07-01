@@ -3,7 +3,9 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: psliwka/vim-smoothie
 - repo: DanilaMihailov/beacon.nvim
+  hook_add: source $HOME/.config/nvim/plugin-configs/beacon.vim
 - repo: liuchengxu/vim-which-key
 - repo: gruvbox-community/gruvbox
 - repo: honza/vim-snippets
@@ -89,6 +91,11 @@
 
 # }}}
 
+# Database Plugins{{{
+- repo: tpope/vim-dadbod
+  on_cmd: [DB]
+ # }}}
+
 # Git Plugins{{{
 - { repo: tpope/vim-fugitive, on_path: .* }
 - { repo: junegunn/gv.vim, on_path: .* }
@@ -157,7 +164,6 @@
   on_cmd: Autoformat
 
 - repo: Yggdroot/indentLine
-  on_ft: [python,html,yaml,css,vim,javascript,jsx,javascript.jsx,vue]
   hook_source: source  $HOME/.config/nvim/plugin-configs/indentline.vim
 
 - repo: liuchengxu/vista.vim

@@ -6,6 +6,7 @@ set confirm
 set splitbelow
 set bsdir=buffer
 set nofoldenable
+set wildmode=full
 " enable mouse
 set mouse=a
 if has('vim_starting')
