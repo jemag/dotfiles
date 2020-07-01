@@ -5,6 +5,7 @@ arandr
 autoconf
 automake
 azure-cli
+azure-storage-explorer
 base
 bat
 binutils
@@ -36,6 +37,7 @@ flameshot
 flex
 fontpreview
 forticlient
+forticlientsslvpn
 freetube-bin
 fzf
 gawk
@@ -60,11 +62,15 @@ i3-gaps
 i3lock
 imagemagick
 jdk11-openjdk
+jdk8-openjdk
 jetbrains-toolbox
 joplin
+k9s
 keepassxc
 kind-bin
 kubectl
+kubectx
+kubie-bin
 lazydocker
 lazygit
 lib32-alsa-lib
@@ -105,6 +111,8 @@ man-pages
 maven
 mkinitcpio
 mkinitcpio-utils
+mongodb-bin
+mongodb-tools-bin
 mpg123
 ncdu
 neovim-nightly
@@ -122,6 +130,7 @@ nvidia-settings
 nvidia-utils
 ocl-icd
 openal
+openconnect
 pacman
 patch
 pavucontrol
@@ -130,6 +139,7 @@ playerctl
 polybar
 poppler
 postgresql
+postman-bin
 pulseaudio
 pulseaudio-alsa
 pulsemixer
@@ -153,6 +163,7 @@ spicetify-cli
 spotify
 steam
 stow
+studio-3t
 sudo
 teams
 terraform
