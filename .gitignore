@@ -4,4 +4,5 @@ joplin/.config/joplin-desktop/database.sqlite
 joplin/.config/joplin-desktop/log-database.txt
 joplin/.config/joplin-desktop/log.txt
 joplin/.config/joplin-desktop/resources/*
+joplin/.config/joplin-desktop/tmp
 br.fish
