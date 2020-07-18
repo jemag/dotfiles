@@ -8,6 +8,7 @@ azure-cli
 azure-storage-explorer
 base
 bat
+bind-tools
 binutils
 bison
 bitwarden-bin
@@ -40,6 +41,7 @@ forticlient
 forticlientsslvpn
 freetube-bin
 fzf
+gamemode
 gawk
 gcc
 gettext
@@ -52,12 +54,14 @@ google-chrome
 gradle
 grep
 groff
+gron-bin
 grub
 gst-plugins-base-libs
 gvim
 gzip
 helm
 htop
+httpie
 i3-gaps
 i3lock
 imagemagick
@@ -65,14 +69,17 @@ jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
 joplin
+jq
 k9s
 keepassxc
 kind-bin
+krew
 kubectl
 kubectx
 kubie-bin
 lazydocker
 lazygit
+lens-bin
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-giflib
@@ -99,6 +106,7 @@ lib32-sqlite
 lib32-v4l-utils
 lib32-vulkan-icd-loader
 libgnome-keyring
+libreoffice-fresh
 libtool
 libxslt
 linux
@@ -145,7 +153,6 @@ pulseaudio-alsa
 pulsemixer
 python-pip
 python-pynvim
-python-ueberzug
 qbittorrent
 ranger
 rclone
@@ -172,6 +179,7 @@ the_silver_searcher
 tldr
 tmux-git
 tree
+ueberzug
 vi
 vifm
 vlc
