@@ -7,6 +7,7 @@ set splitbelow
 set bsdir=buffer
 set nofoldenable
 set wildmode=full
+set inccommand=split
 " enable mouse
 set mouse=a
 if has('vim_starting')
@@ -104,5 +105,16 @@ function! HighlightWordUnderCursor()
     endif
 endfunction
 
-autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+" Background colors for active vs inactive windows
 
+" Call method on window enter
+augroup WindowManagement
+  autocmd!
+  autocmd WinEnter * call Handle_Win_Enter()
+augroup END
+
+" Change highlight group of active/inactive windows
+function! Handle_Win_Enter()
+  hi InactiveWindow guibg=#0D1B22
+  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+endfunction
