@@ -8,7 +8,7 @@ azure-cli
 azure-storage-explorer
 base
 bat
-bind-tools
+bind
 binutils
 bison
 bitwarden-bin
@@ -172,6 +172,7 @@ steam
 stow
 studio-3t
 sudo
+tcpdump
 teams
 terraform
 texinfo
@@ -187,6 +188,7 @@ w3m
 weechat
 which
 wine-staging
+wireshark-qt
 wttr
 xdo
 xorg-bdftopcf
