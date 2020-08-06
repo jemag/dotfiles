@@ -33,6 +33,10 @@
         "typeParameter": "\uf728",
         "default": "\uf29c"
     },
+    //java
+    "java.jdt.ls.vmargs": "-javaagent:/home/jemag/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar",
+    //highlight
+    "highlight.colors.enable": false,
     //diagnostic
     "diagnostic.signOffset": 9999999,
 	"diagnostic.errorSign": "●",
@@ -60,7 +64,7 @@
     //Snippet
     "coc.preferences.snippetStatusText": "Ⓢ ",
     //tslint
-    "tslint.autoFixOnSave": true,
+    "tslint.autoFixOnSave": false,
     //prettier
     "coc.preferences.formatOnSaveFiletypes": [],
     "prettier.statusItemText": "ⓟ ",

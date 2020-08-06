@@ -58,7 +58,7 @@ set hidden
 set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
-set completeopt =longest,menu
+set completeopt =longest,menuone,noinsert,noselect
 set completeopt-=preview
 set list
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
@@ -95,15 +95,6 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
 augroup END
-
-" Highlight all instances of word under cursor, when idle.
-function! HighlightWordUnderCursor()
-    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
-        exec 'match' 'StatusLine' '/\V\<'.expand('<cword>').'\>/' 
-    else 
-        match none
-    endif
-endfunction
 
 " Background colors for active vs inactive windows
 
