@@ -75,7 +75,7 @@ let g:which_key_map.s = {
       \ 'S' : [':Colors',                   'Color schemes'],
       \ 't' : [':Rg',                       'Text Rg'],
       \ 'T' : [':BTags',                    'Buffer tags'],
-      \ 'v' : [':Vista finder coc',         'Buffer tags'],
+      \ 'v' : [':Vista finder coc',         'Vista finder coc'],
       \ 'w' : [':Windows',                  'Search windows'],
       \ 'y' : [':Filetypes',                'File types'],
       \ 'z' : [':FZF',                      'FZF'],
@@ -106,17 +106,17 @@ let     g:which_key_localmap.g = {
 
 let g:which_key_map.g = {
       \ 'name' : '+go' ,
-      \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
-      \ 'F' : ['<Plug>(coc-format)',          'Format'],
-      \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
-      \ }
-let g:which_key_map.f = {
-      \ 'name' : '+format' ,
       \ 'd' : ['<Plug>(coc-definition)',      'Definition'],
       \ 'D' : ['<Plug>(coc-declaration)',     'Declaration'],
       \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
       \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
       \ 'r' : ['<Plug>(coc-references)',      'References'],
+      \ }
+let g:which_key_map.f = {
+      \ 'name' : '+format' ,
+      \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
+      \ 'F' : ['<Plug>(coc-format)',          'Format'],
+      \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
       \ }
 
 let g:which_key_map.v = {
