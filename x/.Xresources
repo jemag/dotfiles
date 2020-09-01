@@ -20,7 +20,7 @@ URxvt*depth: 32
 ! =================
 ! st configuration
 ! =================
-st.font:	FuraCode Nerd Font Mono:Retina:size=11
+st.font:	FuraCode Nerd Font Mono:Regular:size=11
 st.termname: st-256color
 ! =================
 ! rofi color scheme
