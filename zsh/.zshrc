@@ -189,3 +189,4 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
+source '/usr/share/nvm/init-nvm.sh'
