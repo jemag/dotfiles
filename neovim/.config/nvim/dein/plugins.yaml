@@ -3,8 +3,14 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: romainl/Apprentice
+- repo: drewtempelmeyer/palenight.vim
+- repo: heraldofsolace/nisha-vim
+- repo: ghifarit53/tokyonight-vim
 - repo: chuling/equinusocio-material.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/equinusocio-material.vim
+- repo: joshdick/onedark.vim
+  hook_add: source $HOME/.config/nvim/plugin-configs/onedark.vim
 - repo: psliwka/vim-smoothie
 - repo: DanilaMihailov/beacon.nvim
   hook_add: source $HOME/.config/nvim/plugin-configs/beacon.vim
@@ -36,7 +42,7 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/nvim-tree.vim
 - repo: nvim-treesitter/nvim-treesitter
   merged: 0
-  hook_add: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
 #}}}
 
 # Core Plugins{{{
