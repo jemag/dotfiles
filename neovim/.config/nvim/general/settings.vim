@@ -24,9 +24,9 @@ if get(g:,'gruvbox_transp_bg',1)
  set fcs=eob:\           " hide ~
 endif
 
-if has('clipboard')
-	set clipboard& clipboard+=unnamedplus
-endif
+" if has('clipboard')
+" 	set clipboard& clipboard+=unnamedplus
+" endif
 
 " spelling
 set spelllang=en,fr

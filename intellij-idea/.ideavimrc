@@ -62,13 +62,13 @@ augroup numbertoggle
 augroup END
 
 " Use the OS clipboard by default
-if has('clipboard')
-  if has('unnamedplus')
-    set clipboard=unnamed,unnamedplus
-  else
-    set clipboard=unnamed
-  endif
-endif
+" if has('clipboard')
+"   if has('unnamedplus')
+"     set clipboard=unnamed,unnamedplus
+"   else
+"     set clipboard=unnamed
+"   endif
+" endif
 
 " Enable native idea paste action for put operations
 set clipboard+=ideaput
