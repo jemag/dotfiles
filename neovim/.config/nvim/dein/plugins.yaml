@@ -3,6 +3,7 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: wincent/scalpel
 - repo: psliwka/vim-smoothie
 - repo: DanilaMihailov/beacon.nvim
   hook_add: source $HOME/.config/nvim/plugin-configs/beacon.vim

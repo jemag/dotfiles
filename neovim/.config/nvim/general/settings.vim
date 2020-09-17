@@ -58,8 +58,7 @@ set hidden
 set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
-set completeopt =longest,menuone,noinsert,noselect
-set completeopt-=preview
+set completeopt =menuone,noinsert,noselect,preview
 set list
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
@@ -93,8 +92,8 @@ endfun
 " Neovim highlight yank
 augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
-augroup END
+    autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=false}
+  augroup END
 
 " Background colors for active vs inactive windows
 
