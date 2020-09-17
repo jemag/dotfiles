@@ -42,9 +42,9 @@ flex
 fontpreview
 forticlient
 forticlientsslvpn
+foxitreader
 freetube-bin
 fzf
-gamemode
 gawk
 gcc
 gettext
@@ -173,6 +173,7 @@ snapd
 speedtest-cli
 spicetify-cli
 spotify
+starship-bin
 steam
 stow
 studio-3t
@@ -186,6 +187,7 @@ tldr
 tmux-git
 traceroute
 tree
+trivy-bin
 ttf-ms-fonts
 ueberzug
 vi
@@ -238,4 +240,5 @@ yay
 ytop-bin
 zathura
 zathura-pdf-mupdf
+zoom
 zsh
