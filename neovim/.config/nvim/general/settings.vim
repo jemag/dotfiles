@@ -105,6 +105,7 @@ augroup END
 
 " Change highlight group of active/inactive windows
 function! Handle_Win_Enter()
-  hi InactiveWindow guibg=#0D1B22
+  " hi InactiveWindow guibg=#0D1B22
+  hi InactiveWindow guibg=#1C1C1C
   setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 endfunction

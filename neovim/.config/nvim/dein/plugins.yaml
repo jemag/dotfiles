@@ -3,6 +3,8 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: Xuyuanp/scrollbar.nvim
+  hook_add: source $HOME/.config/nvim/plugin-configs/scrollbar.vim
 - repo: wincent/scalpel
 - repo: psliwka/vim-smoothie
 - repo: DanilaMihailov/beacon.nvim
@@ -18,8 +20,6 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-sneak.vim
 - repo: MattesGroeger/vim-bookmarks
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-bookmarks.vim
-- repo: yuki-ycino/fzf-preview.vim
-  hook_add: source $HOME/.config/nvim/plugin-configs/fzf-preview.vim
 - repo: editorconfig/editorconfig-vim
   hook_add: source $HOME/.config/nvim/plugin-configs/editorconfig-vim.vim
 - repo: camspiers/lens.vim
@@ -38,6 +38,7 @@
 #}}}
 
 # Themes {{{
+- repo: doums/darcula
 - repo: habamax/vim-gruvbit
 - repo: kyazdani42/blue-moon
 - repo: junegunn/vim-peekaboo

@@ -2,7 +2,7 @@
     "suggest.triggerAfterInsertEnter": false,
     "suggest.autoTrigger": "always",
     "suggest.enablePreselect": false,
-    "suggest.timeout": 1000,
+    "suggest.timeout": 5000,
     "suggest.noselect": true,
     "suggest.detailField":"preview",
     "suggest.snippetIndicator": " \uf28a",
