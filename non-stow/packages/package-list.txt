@@ -47,8 +47,10 @@ freetube-bin
 fzf
 gawk
 gcc
+gcolor2
 gettext
 git
+github-cli
 glances
 gnome-calculator
 gnome-keyring
@@ -82,6 +84,7 @@ kubectl
 kubectx
 kubeval-bin
 kubie-bin
+lab-bin
 lazydocker
 lazygit
 lens-bin
