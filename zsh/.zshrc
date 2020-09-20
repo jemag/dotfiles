@@ -174,11 +174,16 @@ export FZF_CTRL_T_OPTS="
     "
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export JAVA_HOME=/usr/lib/jvm/default
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
+export DIFFPROG="nvim -d"
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 export TERMINAL=/usr/local/bin/st
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
-export EDITOR=nvim
 export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
