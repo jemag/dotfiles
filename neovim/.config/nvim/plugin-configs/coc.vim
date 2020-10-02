@@ -2,7 +2,7 @@
 let g:coc_snippet_next = '<M-n>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
-let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml', 'coc-go', 'coc-angular', 'coc-tslint-plugin', 'coc-java', 'coc-highlight']
+let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-json','coc-python','coc-imselect','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml', 'coc-go', 'coc-angular', 'coc-tslint-plugin', 'coc-java', 'coc-highlight']
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 

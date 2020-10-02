@@ -175,9 +175,12 @@ let g:which_key_localmap.t = {
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
       \ ';' : [':FloatermNew --wintype=popup --height=6', 'Terminal'],
+      \ 'c' : [':FloatermNew! cd %:p:h',                  'Floaterm current directory'],
+      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
       \ 'f' : [':FloatermNew fzf',                        'Fzf'],
       \ 'g' : [':FloatermNew lazygit',                    'Git'],
-      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
+      \ 'h' : [':FloatermPrev',                           'Floaterm prev'],
+      \ 'l' : [':FloatermNext',                           'Floaterm next'],
       \ 'n' : [':FloatermNew node',                       'Node'],
       \ 'p' : [':FloatermNew python',                     'Python'],
       \ 'v' : [':FloatermNew vifm',                       'Vifm'],

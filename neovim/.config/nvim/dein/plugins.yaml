@@ -28,6 +28,7 @@
   hook_post_update: call firenvim#install()
   hook_add: source $HOME/.config/nvim/plugin-configs/firenvim.vim
 - repo: sheerun/vim-polyglot
+  merged: 0
 - repo: vifm/vifm.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/vifm.vim
 - repo: kyazdani42/nvim-tree.lua
@@ -41,7 +42,6 @@
 - repo: doums/darcula
 - repo: habamax/vim-gruvbit
 - repo: kyazdani42/blue-moon
-- repo: junegunn/vim-peekaboo
 - repo: romainl/Apprentice
 - repo: drewtempelmeyer/palenight.vim
 - repo: heraldofsolace/nisha-vim
