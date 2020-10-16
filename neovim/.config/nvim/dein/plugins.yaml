@@ -3,9 +3,13 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: Xuyuanp/scrollbar.nvim
+  hook_add: source $HOME/.config/nvim/plugin-configs/scrollbar.vim
+- repo: wincent/scalpel
+- repo: psliwka/vim-smoothie
 - repo: DanilaMihailov/beacon.nvim
+  hook_add: source $HOME/.config/nvim/plugin-configs/beacon.vim
 - repo: liuchengxu/vim-which-key
-- repo: gruvbox-community/gruvbox
 - repo: honza/vim-snippets
 - repo: christoomey/vim-tmux-navigator
 - repo: voldikss/vim-floaterm
@@ -16,8 +20,6 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-sneak.vim
 - repo: MattesGroeger/vim-bookmarks
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-bookmarks.vim
-- repo: yuki-ycino/fzf-preview.vim
-  hook_add: source $HOME/.config/nvim/plugin-configs/fzf-preview.vim
 - repo: editorconfig/editorconfig-vim
   hook_add: source $HOME/.config/nvim/plugin-configs/editorconfig-vim.vim
 - repo: camspiers/lens.vim
@@ -26,12 +28,32 @@
   hook_post_update: call firenvim#install()
   hook_add: source $HOME/.config/nvim/plugin-configs/firenvim.vim
 - repo: sheerun/vim-polyglot
+  merged: 0
 - repo: vifm/vifm.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/vifm.vim
 - repo: kyazdani42/nvim-tree.lua
   hook_add: source $HOME/.config/nvim/plugin-configs/nvim-tree.vim
+- repo: nvim-treesitter/nvim-treesitter
+  merged: 0
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
 #}}}
 
+# Themes {{{
+- repo: doums/darcula
+- repo: habamax/vim-gruvbit
+- repo: kyazdani42/blue-moon
+- repo: romainl/Apprentice
+- repo: drewtempelmeyer/palenight.vim
+- repo: heraldofsolace/nisha-vim
+- repo: ghifarit53/tokyonight-vim
+- repo: chuling/equinusocio-material.vim
+  hook_add: source $HOME/.config/nvim/plugin-configs/equinusocio-material.vim
+- repo: joshdick/onedark.vim
+  hook_add: source $HOME/.config/nvim/plugin-configs/onedark.vim
+- repo: gruvbox-community/gruvbox
+- repo: franbach/miramare
+- repo: chuling/ci_dark
+#}}}
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
   merged: 0
@@ -88,6 +110,11 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/fzf.vim
 
 # }}}
+
+# Database Plugins{{{
+- repo: tpope/vim-dadbod
+  on_cmd: [DB]
+ # }}}
 
 # Git Plugins{{{
 - { repo: tpope/vim-fugitive, on_path: .* }
@@ -157,7 +184,6 @@
   on_cmd: Autoformat
 
 - repo: Yggdroot/indentLine
-  on_ft: [python,html,yaml,css,vim,javascript,jsx,javascript.jsx,vue]
   hook_source: source  $HOME/.config/nvim/plugin-configs/indentline.vim
 
 - repo: liuchengxu/vista.vim

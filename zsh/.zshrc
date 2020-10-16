@@ -68,7 +68,7 @@ zplugin ice wait"2" lucid
 zplugin light "hlissner/zsh-autopair"
 zplugin ice wait"2" lucid
 zplugin light "changyuheng/zsh-interactive-cd"
-zplugin load "denysdovhan/spaceship-prompt"
+# zplugin load "denysdovhan/spaceship-prompt"
 zplugin ice wait"0" blockf lucid
 zplugin light "zsh-users/zsh-completions"
 zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
@@ -85,8 +85,8 @@ zplugin light zdharma/fast-syntax-highlighting
 #########
 # spaceship settings
 #########
-spaceship_vi_mode_enable()
-SPACESHIP_VI_MODE_SHOW=true
+# spaceship_vi_mode_enable()
+# SPACESHIP_VI_MODE_SHOW=true
 
 #########
 # vim mode settings
@@ -174,11 +174,16 @@ export FZF_CTRL_T_OPTS="
     "
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export JAVA_HOME=/usr/lib/jvm/default
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
+export DIFFPROG="nvim -d"
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 export TERMINAL=/usr/local/bin/st
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
-export EDITOR=nvim
 export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -186,6 +191,9 @@ export AWT_TOOLKIT=MToolkit
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export RPS1="$(vi_mode_prompt_info)"
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
+source '/usr/share/nvm/init-nvm.sh'
+eval "$(starship init zsh)"

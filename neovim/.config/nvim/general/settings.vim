@@ -6,6 +6,8 @@ set confirm
 set splitbelow
 set bsdir=buffer
 set nofoldenable
+set wildmode=full
+set inccommand=split
 " enable mouse
 set mouse=a
 if has('vim_starting')
@@ -22,9 +24,9 @@ if get(g:,'gruvbox_transp_bg',1)
  set fcs=eob:\           " hide ~
 endif
 
-if has('clipboard')
-	set clipboard& clipboard+=unnamedplus
-endif
+" if has('clipboard')
+" 	set clipboard& clipboard+=unnamedplus
+" endif
 
 " spelling
 set spelllang=en,fr
@@ -56,8 +58,7 @@ set hidden
 set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
-set completeopt =longest,menu
-set completeopt-=preview
+set completeopt =menuone,noinsert,noselect,preview
 set list
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
@@ -91,17 +92,20 @@ endfun
 " Neovim highlight yank
 augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+    autocmd TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=false}
+  augroup END
+
+" Background colors for active vs inactive windows
+
+" Call method on window enter
+augroup WindowManagement
+  autocmd!
+  autocmd WinEnter * call Handle_Win_Enter()
 augroup END
 
-" Highlight all instances of word under cursor, when idle.
-function! HighlightWordUnderCursor()
-    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
-        exec 'match' 'StatusLine' '/\V\<'.expand('<cword>').'\>/' 
-    else 
-        match none
-    endif
+" Change highlight group of active/inactive windows
+function! Handle_Win_Enter()
+  " hi InactiveWindow guibg=#0D1B22
+  hi InactiveWindow guibg=#1C1C1C
+  setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 endfunction
-
-autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
-

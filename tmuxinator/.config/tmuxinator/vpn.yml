@@ -1,11 +1,11 @@
 # ~/.tmuxinator/psql.yml
 
-name: config
+name: vpn
 root: ~/
 
 windows:
   - zsh:
       layout: even-horizontal
       panes:
-        - cd ~/dotfiles
-        - cd ~/dotfiles
+        - cd ~/Projects/DFO/forticlient-vpn
+        - cd ~/Projects/DFO/dfo-vpn

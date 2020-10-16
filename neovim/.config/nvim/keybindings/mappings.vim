@@ -49,11 +49,6 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 " deleted buffers, as intended. To get default behaviour, use `bufexists` in it's place.
 nnoremap <silent> <C-n> :<C-u>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>
 
-"tabline operation
-nmap <leader>tn :tabnew<cr>
-nmap <leader>te :tabedit
-nmap <leader>tm :tabmove
-
 "yank to end
 nnoremap Y y$
 
@@ -65,3 +60,15 @@ tnoremap <c-l> <C-\><C-n><C-w>l
 
 " easily escape terminal
 tnoremap <C-o> <C-\><C-n><esc><cr>
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P

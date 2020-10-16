@@ -27,18 +27,6 @@ let g:which_key_map['8'] = [ '<Plug>BufTabLine.Go(8)',  'Buf 8']
 let g:which_key_map['9'] = [ '<Plug>BufTabLine.Go(9)',  'Buf 9']
 let g:which_key_map['0'] = [ '<Plug>BufTabLine.Go(10)', 'Buf 10']
 
-let g:which_key_map.m = {
-      \ 'name' : '+bookmarks',
-      \ 'm' : [':BookmarkToggle',  'Toggle'],
-      \ 'i' : [':BookmarkAnnotate',  'Annotate'],
-      \ 'n' : [':BookmarkNext',      'Next bookmark'],
-      \ 'p' : [':BookmarkPrev',      'Prev bookmark'],
-      \ 'a' : [':BookmarkShowAll',   'Show all'],
-      \ 'c' : [':BookmarkClear',     'Clear'],
-      \ 'x' : [':BookmarkClearAll',  'Clear all'],
-      \ 'k' : [':BookmarkMoveUp',   'Move up'],
-      \ 'j' : [':BookmarkMoveDown', 'Move down'],
-      \ }
 let g:which_key_map.b = {
       \ 'name' : '+buffer',
       \ 'd' : ['bd',        'Delete-buffer']   ,
@@ -49,98 +37,6 @@ let g:which_key_map.b = {
       \ 'n' : ['bnext',     'Next-buffer']     ,
       \ 'p' : ['bprevious', 'Previous-buffer'] ,
       \ '?' : ['Buffers',   'Fzf-buffer']      ,
-      \ }
-
-let g:which_key_map.s = {
-      \ 'name' : '+search',
-      \ '/' : [':History/',                 'History'],
-      \ ';' : [':Commands',                 'Commands'],
-      \ 'a' : [':Ag',                       'Text Ag'],
-      \ 'b' : [':Buffers',                  'Open buffers'],
-      \ 'c' : [':Commits',                  'Commits'],
-      \ 'C' : [':BCommits',                 'Buffer commits'],
-      \ 'd' : [':FzfPreviewDirectoryFiles', 'Search directory'],
-      \ 'f' : [':Files',                    'Files'],
-      \ 'g' : [':FzfPreviewGitStatus',      'Git status'],
-      \ 'G' : [':GFiles?',                  'Modified git files'],
-      \ 'h' : [':History',                  'File history'],
-      \ 'H' : [':History:',                 'Command history'],
-      \ 'l' : [':BLines',                   'Buffer lines'] ,
-      \ 'L' : [':Lines',                    'Lines'] ,
-      \ 'm' : [':Marks',                    'Marks'] ,
-      \ 'M' : [':Maps',                     'Normal maps'] ,
-      \ 'p' : [':Helptags',                 'Help tags'] ,
-      \ 'P' : [':Tags',                     'Project tags'],
-      \ 's' : [':CocList snippets',         'Snippets'],
-      \ 'S' : [':Colors',                   'Color schemes'],
-      \ 't' : [':Rg',                       'Text Rg'],
-      \ 'T' : [':BTags',                    'Buffer tags'],
-      \ 'v' : [':Vista finder coc',         'Buffer tags'],
-      \ 'w' : [':Windows',                  'Search windows'],
-      \ 'y' : [':Filetypes',                'File types'],
-      \ 'z' : [':FZF',                      'FZF'],
-      \ }
-
-let     g:which_key_localmap.g = {
-      \ 'name' : '+git',
-      \ 'a' : [':Git add .',                     'Add all'],
-      \ 'A' : [':Git add %',                     'Add current'],
-      \ 'b' : [':Git blame',                     'Blame'],
-      \ 'B' : [':GBrowse',                       'Browse'],
-      \ 'c' : [':Git commit',                    'Commit'],
-      \ 'd' : [':Git diff',                      'Diff'],
-      \ 'D' : [':Gdiffsplit',                    'Diff split'],
-      \ 's' : [':Git',                       'Status'],
-      \ 'i' : ['<Plug>(coc-git-chunkinfo)',      'Chunk info'],
-      \ 'j' : ['<Plug>(coc-git-nextchunk)',      'Next chunk'],
-      \ 'k' : ['<Plug>(coc-git-prevchunk)',      'Prev chunk'],
-      \ 'l' : [':Git log',                       'Log'],
-      \ 'p' : [':Git push',                      'Push'],
-      \ 'P' : [':Git pull',                      'Pull'],
-      \ 'r' : [':GRemove',                       'Remove'],
-      \ 'S' : [':CocCommand git.chunkStage',     'Stage chunk'],
-      \ 'u' : [':CocCommand git.chunkUndo',      'Undo chunk'],
-      \ 'v' : [':GV',                            'View commits'],
-      \ 'V' : [':GV!',                           'View buffer commits'],
-      \ }
-
-let g:which_key_map.g = {
-      \ 'name' : '+go' ,
-      \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
-      \ 'F' : ['<Plug>(coc-format)',          'Format'],
-      \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
-      \ }
-let g:which_key_map.f = {
-      \ 'name' : '+format' ,
-      \ 'd' : ['<Plug>(coc-definition)',      'Definition'],
-      \ 'D' : ['<Plug>(coc-declaration)',     'Declaration'],
-      \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
-      \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
-      \ 'r' : ['<Plug>(coc-references)',      'References'],
-      \ }
-
-let g:which_key_map.v = {
-      \ 'name' : '+vifm',
-      \ 'n' : [':Vifm .',     'Normal'],
-      \ 'v' : [':VsplitVifm', 'Vsplit'],
-      \ 's' : [':SplitVifm',  'Split'],
-      \ 'd' : [':DiffVifm',   'Diff'],
-      \ 't' : [':TabVifm',    'Tab'],
-      \ }
-
-
-let g:which_key_localmap.t = {
-      \ 'name' : '+toggle',
-      \ 'i' : [':IndentLinesToggle',              'Show indent'],
-      \ 't' : ['TagbarToggle',                   'Tagbar'],
-      \ 'f' : [':FloatermToggle',                'Floaterm'],
-      \ 'e' : [':LuaTreeToggle',                 'Explorer' ],
-      \ 'v' : [':Vista!!',                       'Vista bar' ],
-      \ 'c' : [':ColorizerToggle',               'Colorizer'],
-      \ 'n' : [':set number!',                   'Line numbers'],
-      \ 'r' : [':set number! norelativenumber!', 'Hybrid line numbers'],
-      \ 's' : [':let @/ = ""',                   'Remove search highlight'],
-      \ 'm' : [':MundoToggle',                   'Mundo (local history)'],
       \ }
 
 let g:which_key_map.c = {
@@ -175,12 +71,116 @@ let g:which_key_map.c = {
       \ 'Z' : [':CocEnable',                        'Enable CoC'],
       \ }
 
+let g:which_key_map.f = {
+      \ 'name' : '+format' ,
+      \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
+      \ 'F' : ['<Plug>(coc-format)',          'Format'],
+      \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
+      \ }
+
+let     g:which_key_localmap.g = {
+      \ 'name' : '+git',
+      \ 'a' : [':Git add .',                 'Add all'],
+      \ 'A' : [':Git add %',                 'Add current'],
+      \ 'b' : [':Git blame',                 'Blame'],
+      \ 'B' : [':GBrowse',                   'Browse'],
+      \ 'c' : [':Git commit',                'Commit'],
+      \ 'd' : [':Git diff',                  'Diff'],
+      \ 'D' : [':Gdiffsplit',                'Diff split'],
+      \ 's' : [':Git',                       'Status'],
+      \ 'i' : ['<Plug>(coc-git-chunkinfo)',  'Chunk info'],
+      \ 'j' : ['<Plug>(coc-git-nextchunk)',  'Next chunk'],
+      \ 'k' : ['<Plug>(coc-git-prevchunk)',  'Prev chunk'],
+      \ 'l' : [':Git log',                   'Log'],
+      \ 'p' : [':Git push',                  'Push'],
+      \ 'P' : [':Git pull',                  'Pull'],
+      \ 'r' : [':GRemove',                   'Remove'],
+      \ 'S' : [':CocCommand git.chunkStage', 'Stage chunk'],
+      \ 'u' : [':CocCommand git.chunkUndo',  'Undo chunk'],
+      \ 'v' : [':GV',                        'View commits'],
+      \ 'V' : [':GV!',                       'View buffer commits'],
+      \ }
+
+let g:which_key_map.g = {
+      \ 'name' : '+go' ,
+      \ 'd' : ['<Plug>(coc-definition)',      'Definition'],
+      \ 'D' : ['<Plug>(coc-declaration)',     'Declaration'],
+      \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
+      \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
+      \ 'r' : ['<Plug>(coc-references)',      'References'],
+      \ }
+
+
+let g:which_key_map.m = {
+      \ 'name' : '+bookmarks',
+      \ 'm' : [':BookmarkToggle',  'Toggle'],
+      \ 'i' : [':BookmarkAnnotate',  'Annotate'],
+      \ 'n' : [':BookmarkNext',      'Next bookmark'],
+      \ 'p' : [':BookmarkPrev',      'Prev bookmark'],
+      \ 'a' : [':BookmarkShowAll',   'Show all'],
+      \ 'c' : [':BookmarkClear',     'Clear'],
+      \ 'x' : [':BookmarkClearAll',  'Clear all'],
+      \ 'k' : [':BookmarkMoveUp',   'Move up'],
+      \ 'j' : [':BookmarkMoveDown', 'Move down'],
+      \ }
+
+let g:which_key_map.r = {
+      \ 'name' : '+refactor',
+      \ 'r' : ['<Plug>(Scalpel)', 'Rename (substitute)'],
+      \ }
+
+let g:which_key_map.s = {
+      \ 'name' : '+search',
+      \ '/' : [':History/',                 'History'],
+      \ ';' : [':Commands',                 'Commands'],
+      \ 'a' : [':Ag',                       'Text Ag'],
+      \ 'b' : [':Buffers',                  'Open buffers'],
+      \ 'c' : [':Commits',                  'Commits'],
+      \ 'C' : [':BCommits',                 'Buffer commits'],
+      \ 'f' : [':Files',                    'Files'],
+      \ 'G' : [':GFiles?',                  'Modified git files'],
+      \ 'h' : [':History',                  'File history'],
+      \ 'H' : [':History:',                 'Command history'],
+      \ 'l' : [':BLines',                   'Buffer lines'] ,
+      \ 'L' : [':Lines',                    'Lines'] ,
+      \ 'm' : [':Marks',                    'Marks'] ,
+      \ 'M' : [':Maps',                     'Normal maps'] ,
+      \ 'p' : [':Helptags',                 'Help tags'] ,
+      \ 'P' : [':Tags',                     'Project tags'],
+      \ 's' : [':CocList snippets',         'Snippets'],
+      \ 'S' : [':Colors',                   'Color schemes'],
+      \ 't' : [':Rg',                       'Text Rg'],
+      \ 'T' : [':BTags',                    'Buffer tags'],
+      \ 'v' : [':Vista finder coc',         'Vista finder coc'],
+      \ 'w' : [':Windows',                  'Search windows'],
+      \ 'y' : [':Filetypes',                'File types'],
+      \ 'z' : [':FZF',                      'FZF'],
+      \ }
+
+let g:which_key_localmap.t = {
+      \ 'name' : '+toggle',
+      \ 'i' : [':IndentLinesToggle',              'Show indent'],
+      \ 't' : ['TagbarToggle',                   'Tagbar'],
+      \ 'f' : [':FloatermToggle',                'Floaterm'],
+      \ 'e' : [':LuaTreeToggle',                 'Explorer' ],
+      \ 'v' : [':Vista!!',                       'Vista bar' ],
+      \ 'c' : [':ColorizerToggle',               'Colorizer'],
+      \ 'n' : [':set number!',                   'Line numbers'],
+      \ 'r' : [':set number! norelativenumber!', 'Hybrid line numbers'],
+      \ 's' : [':let @/ = ""',                   'Remove search highlight'],
+      \ 'm' : [':MundoToggle',                   'Mundo (local history)'],
+      \ }
+
+
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
       \ ';' : [':FloatermNew --wintype=popup --height=6', 'Terminal'],
+      \ 'c' : [':FloatermNew! cd %:p:h',                  'Floaterm current directory'],
+      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
       \ 'f' : [':FloatermNew fzf',                        'Fzf'],
       \ 'g' : [':FloatermNew lazygit',                    'Git'],
-      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
+      \ 'h' : [':FloatermPrev',                           'Floaterm prev'],
+      \ 'l' : [':FloatermNext',                           'Floaterm next'],
       \ 'n' : [':FloatermNew node',                       'Node'],
       \ 'p' : [':FloatermNew python',                     'Python'],
       \ 'v' : [':FloatermNew vifm',                       'Vifm'],
@@ -188,5 +188,15 @@ let g:which_key_map.t = {
       \ 'y' : [':FloatermNew ytop',                       'Ytop'],
       \ 's' : [':FloatermNew ncdu',                       'Ncdu'],
       \ }
+
+let g:which_key_map.v = {
+      \ 'name' : '+vifm',
+      \ 'n' : [':Vifm .',     'Normal'],
+      \ 'v' : [':VsplitVifm', 'Vsplit'],
+      \ 's' : [':SplitVifm',  'Split'],
+      \ 'd' : [':DiffVifm',   'Diff'],
+      \ 't' : [':TabVifm',    'Tab'],
+      \ }
+
 call which_key#register('<Space>', "g:which_key_map")
 call which_key#register('-', "g:which_key_localmap")

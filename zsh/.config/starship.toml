@@ -1,0 +1,6 @@
+[kubernetes]
+disabled = false
+[terraform]
+disabled = true
+[java]
+disabled = true
