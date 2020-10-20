@@ -15,7 +15,6 @@ bitwarden-bin
 bitwarden-cli
 broot
 calibre
-calibre-common
 chromium
 chromium-widevine
 cronie
@@ -74,6 +73,7 @@ jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
 joplin
+jp
 jq
 k9s
 keepassxc
@@ -119,6 +119,7 @@ libtool
 libxslt
 linux
 linux-firmware
+luit
 lutris
 m4
 make
@@ -207,7 +208,6 @@ wttr
 xdo
 xorg-bdftopcf
 xorg-iceauth
-xorg-luit
 xorg-mkfontscale
 xorg-server
 xorg-sessreg
