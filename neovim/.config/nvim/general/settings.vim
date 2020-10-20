@@ -96,7 +96,6 @@ augroup highlight_yank
   augroup END
 
 " Background colors for active vs inactive windows
-
 " Call method on window enter
 augroup WindowManagement
   autocmd!

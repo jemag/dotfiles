@@ -8,7 +8,7 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-" set background=dark
+set background=dark
 
 " let g:gruvbox_filetype_hi_groups = 1
 " let g:gruvbox_plugin_hi_groups = 1
@@ -24,7 +24,7 @@ colorscheme  gruvbox
 
 " Vim Colors
 " ---------------------------------------------------------
-hi Whitespace ctermfg=96 guifg=#725972 guibg=NONE ctermbg=NONE
+" hi Whitespace ctermfg=96 guifg=#725972 guibg=NONE ctermbg=NONE
 hi VertSplit  ctermfg=Black  guifg=Black
 "hi Normal guibg=NONE ctermbg=NONE
 "hi LineNr ctermbg=NONE guibg=NONE
