@@ -33,6 +33,7 @@ alias ..="cd .."
 alias cat="bat"
 alias ac="argocd"
 alias d="devour"
+alias tg="terragrunt"
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
@@ -174,6 +175,7 @@ export FZF_CTRL_T_OPTS="
     "
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export JAVA_HOME=/usr/lib/jvm/default
+export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
@@ -190,6 +192,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
+export PATH=$PATH:/home/jemag/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export RPS1="$(vi_mode_prompt_info)"
 source /home/jemag/.config/broot/launcher/bash/br
