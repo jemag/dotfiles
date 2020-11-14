@@ -15,28 +15,32 @@ let g:which_key_map[';'] = [ ':Commands',               'Commands' ]
 let g:which_key_map[','] = [ 'Startify',                'Start screen' ]
 let g:which_key_map['e'] = [ ':LuaTreeToggle',          'Explorer' ]
 let g:which_key_map['S'] = [ ':SSave',                  'Save session' ]
+let g:which_key_map['L'] = [ ':SLoad',                  'Load session' ]
 let g:which_key_map['G'] = [ 'Goyo',                    'Zen' ]
-let g:which_key_map['1'] = [ '<Plug>BufTabLine.Go(1)',  'Buf 1']
-let g:which_key_map['2'] = [ '<Plug>BufTabLine.Go(2)',  'Buf 2']
-let g:which_key_map['3'] = [ '<Plug>BufTabLine.Go(3)',  'Buf 3']
-let g:which_key_map['4'] = [ '<Plug>BufTabLine.Go(4)',  'Buf 4']
-let g:which_key_map['5'] = [ '<Plug>BufTabLine.Go(5)',  'Buf 5']
-let g:which_key_map['6'] = [ '<Plug>BufTabLine.Go(6)',  'Buf 6']
-let g:which_key_map['7'] = [ '<Plug>BufTabLine.Go(7)',  'Buf 7']
-let g:which_key_map['8'] = [ '<Plug>BufTabLine.Go(8)',  'Buf 8']
-let g:which_key_map['9'] = [ '<Plug>BufTabLine.Go(9)',  'Buf 9']
-let g:which_key_map['0'] = [ '<Plug>BufTabLine.Go(10)', 'Buf 10']
+let g:which_key_map['1'] = [ ':BufferGoto 1',  'Buf 1']
+let g:which_key_map['2'] = [ ':BufferGoto 2',  'Buf 2']
+let g:which_key_map['3'] = [ ':BufferGoto 3',  'Buf 3']
+let g:which_key_map['4'] = [ ':BufferGoto 4',  'Buf 4']
+let g:which_key_map['5'] = [ ':BufferGoto 5',  'Buf 5']
+let g:which_key_map['6'] = [ ':BufferGoto 6',  'Buf 6']
+let g:which_key_map['7'] = [ ':BufferGoto 7',  'Buf 7']
+let g:which_key_map['8'] = [ ':BufferGoto 8',  'Buf 8']
+let g:which_key_map['9'] = [ ':BufferGoto 9',  'Buf 9']
+let g:which_key_map['0'] = [ ':BufferGoto 10', 'Buf 10']
 
 let g:which_key_map.b = {
       \ 'name' : '+buffer',
-      \ 'd' : ['bd',        'Delete-buffer']   ,
-      \ 'D' : [':Bonly',    'Delete all other buffers']   ,
-      \ 'f' : ['bfirst',    'First-buffer']    ,
-      \ 'h' : ['Startify',  'Home-buffer']     ,
-      \ 'l' : ['blast',     'Last-buffer']     ,
-      \ 'n' : ['bnext',     'Next-buffer']     ,
-      \ 'p' : ['bprevious', 'Previous-buffer'] ,
-      \ '?' : ['Buffers',   'Fzf-buffer']      ,
+      \ 'd' : ['bd',                  'Delete-buffer']   ,
+      \ 'D' : [':Bonly',              'Delete all other buffers']   ,
+      \ 'e' : ['blast',               'Last-buffer']     ,
+      \ 'f' : ['bfirst',              'First-buffer']    ,
+      \ 'h' : [':BufferMovePrevious', 'move prev'],
+      \ 'l' : [':BufferMoveNext',     'move next'],
+      \ 'S' : ['Startify',            'Startify']     ,
+      \ 'n' : ['bnext',               'Next-buffer']     ,
+      \ 'p' : ['bprevious',           'Previous-buffer'] ,
+      \ 's' : [':BufferPick',         'Magic buffer select'] ,
+      \ '?' : ['Buffers',             'Fzf-buffer']      ,
       \ }
 
 let g:which_key_map.c = {
@@ -174,19 +178,20 @@ let g:which_key_localmap.t = {
 
 let g:which_key_map.t = {
       \ 'name' : '+terminal',
-      \ ';' : [':FloatermNew --wintype=popup --height=6', 'Terminal'],
-      \ 'c' : [':FloatermNew! cd %:p:h',                  'Floaterm current directory'],
-      \ 'd' : [':FloatermNew lazydocker',                 'Docker'],
-      \ 'f' : [':FloatermNew fzf',                        'Fzf'],
-      \ 'g' : [':FloatermNew lazygit',                    'Git'],
-      \ 'h' : [':FloatermPrev',                           'Floaterm prev'],
-      \ 'l' : [':FloatermNext',                           'Floaterm next'],
-      \ 'n' : [':FloatermNew node',                       'Node'],
-      \ 'p' : [':FloatermNew python',                     'Python'],
-      \ 'v' : [':FloatermNew vifm',                       'Vifm'],
-      \ 't' : [':FloatermToggle',                         'Toggle'],
-      \ 'y' : [':FloatermNew ytop',                       'Ytop'],
-      \ 's' : [':FloatermNew ncdu',                       'Ncdu'],
+      \ ';' : [':FloatermNew',            'New Floaterm'],
+      \ 'c' : [':FloatermNew! cd %:p:h',  'Floaterm current directory'],
+      \ 'd' : [':FloatermNew lazydocker', 'Docker'],
+      \ 'f' : [':FloatermNew fzf',        'Fzf'],
+      \ 'g' : [':FloatermNew lazygit',    'Git'],
+      \ 'h' : [':FloatermPrev',           'Floaterm prev'],
+      \ 'k' : [':FloatermKill',           'Floaterm kill'],
+      \ 'l' : [':FloatermNext',           'Floaterm next'],
+      \ 'n' : [':FloatermNew node',       'Node'],
+      \ 'p' : [':FloatermNew python',     'Python'],
+      \ 'v' : [':FloatermNew vifm',       'Vifm'],
+      \ 't' : [':FloatermToggle',         'Toggle'],
+      \ 'y' : [':FloatermNew ytop',       'Ytop'],
+      \ 's' : [':FloatermNew ncdu',       'Ncdu'],
       \ }
 
 let g:which_key_map.v = {
@@ -198,5 +203,9 @@ let g:which_key_map.v = {
       \ 't' : [':TabVifm',    'Tab'],
       \ }
 
+let g:which_key_map.w = {
+      \ 'name' : '+window',
+      \ 'm' : [':MaximizerToggle',     'Toggle Maximizer'],
+      \ }
 call which_key#register('<Space>', "g:which_key_map")
 call which_key#register('-', "g:which_key_localmap")

@@ -3,6 +3,9 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo : romgrk/barbar.nvim
+  hook_add: source $HOME/.config/nvim/plugin-configs/barbar.vim
+- repo: szw/vim-maximizer
 - repo: Xuyuanp/scrollbar.nvim
   hook_add: source $HOME/.config/nvim/plugin-configs/scrollbar.vim
 - repo: wincent/scalpel
@@ -22,8 +25,8 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-bookmarks.vim
 - repo: editorconfig/editorconfig-vim
   hook_add: source $HOME/.config/nvim/plugin-configs/editorconfig-vim.vim
-- repo: camspiers/lens.vim
-  hook_add: source $HOME/.config/nvim/plugin-configs/lens.vim
+# - repo: camspiers/lens.vim
+#   hook_add: source $HOME/.config/nvim/plugin-configs/lens.vim
 - repo: glacambre/firenvim
   hook_post_update: call firenvim#install()
   hook_add: source $HOME/.config/nvim/plugin-configs/firenvim.vim
@@ -40,6 +43,7 @@
 
 # Themes {{{
 - repo: doums/darcula
+- repo: ChristianChiarulli/nvcode-color-schemes.vim
 - repo: habamax/vim-gruvbit
 - repo: kyazdani42/blue-moon
 - repo: romainl/Apprentice
@@ -48,8 +52,6 @@
 - repo: ghifarit53/tokyonight-vim
 - repo: chuling/equinusocio-material.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/equinusocio-material.vim
-- repo: joshdick/onedark.vim
-  hook_add: source $HOME/.config/nvim/plugin-configs/onedark.vim
 - repo: gruvbox-community/gruvbox
 - repo: franbach/miramare
 - repo: chuling/ci_dark
@@ -64,8 +66,7 @@
 # Lazy Loading
 # ==========================================
 # Interface{{{
-- repo: ryanoasis/vim-devicons
-  hook_add: let g:webdevicons_enable_denite = 1
+- repo: kyazdani42/nvim-web-devicons
 
 - repo: norcalli/nvim-colorizer.lua
   if: has('nvim-0.4')
@@ -84,12 +85,7 @@
   hook_source: source $HOME/.config/nvim/plugin-configs/limelight.vim
 
 - repo: mhinz/vim-startify
-  depends: vim-devicons
   hook_source: source  $HOME/.config/nvim/plugin-configs/startify.vim
-  hook_post_source: |
-      function! StartifyEntryFormat()
-        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
-      endfunction
 
 - repo: junegunn/vim-easy-align
 

@@ -19,8 +19,8 @@ inoremap <C-u> <C-g>u<C-u>
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
 " Cycle through buffers
-noremap <Tab> :bn<CR>
-noremap <S-Tab> :bp<CR>
+noremap <Tab> :BufferNext<CR>
+noremap <S-Tab> :BufferPrevious<CR>
 "smart move
 nnoremap j gj
 nnoremap k gk
@@ -31,6 +31,9 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
+" Only use count with normal j and k
+noremap <expr> j (v:count? 'j' : 'gj')
+noremap <expr> k (v:count? 'k' : 'gk')
 " Better indentation
 vnoremap < <gv
 vnoremap > >gv

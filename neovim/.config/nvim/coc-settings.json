@@ -1,72 +1,81 @@
 {
-    "suggest.triggerAfterInsertEnter": false,
-    "suggest.autoTrigger": "always",
-    "suggest.enablePreselect": false,
-    "suggest.timeout": 5000,
-    "suggest.noselect": true,
-    "suggest.detailField":"preview",
-    "suggest.snippetIndicator": " \uf28a",
-    "suggest.triggerCompletionWait": 100,
-    "suggest.echodocSupport": true,
-    "suggest.keepCompleteopt": false,
-    //java
-    "java.jdt.ls.vmargs": "-javaagent:/home/jemag/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar",
-    //highlight
-    "highlight.colors.enable": false,
-    //diagnostic
-    "diagnostic.signOffset": 9999999,
-	"diagnostic.errorSign": "●",
-  "diagnostic.virtualText": false ,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.autoTrigger": "always",
+  "suggest.enablePreselect": false,
+  "suggest.timeout": 5000,
+  "suggest.noselect": true,
+  "suggest.detailField": "preview",
+  "suggest.snippetIndicator": " \uf28a",
+  "suggest.triggerCompletionWait": 100,
+  "suggest.echodocSupport": true,
+  "suggest.keepCompleteopt": false,
+  "codeLens.enable": true,
+  //java
+  "java.jdt.ls.vmargs": "-javaagent:/home/jemag/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar",
+  "java.referencesCodeLens.enabled": true,
+  //highlight
+  "highlight.colors.enable": false,
+  //diagnostic
+  "diagnostic.signOffset": 9999999,
+  "diagnostic.errorSign": "●",
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextPrefix": "COC: ",
-	"diagnostic.warningSign": "●",
-    "diagnostic.displayByAle": false,
-    "diagnostic.refreshOnInsertMode": true,
-    //git
-    "git.enableGutters": true,
-    "git.branchCharacter":"\uf408",
-    "git.addGBlameToBufferVar": true,
-    "git.addGBlameToVirtualText": false,
-    "git.virtualTextPrefix": "\uf66b",
-    "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.removedSign.hlGroup": "GitGutterDelete",
-    "git.topRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text":"▎",
-    "git.changedSign.text":"▎",
-    "git.removedSign.text":"▏",
-    "git.topRemovedSign.text": "▔",
-    "git.changeRemovedSign.text": "▋",
-    //Snippet
-    "coc.preferences.snippetStatusText": "Ⓢ ",
-    //tslint
-    "tslint.autoFixOnSave": false,
-    //prettier
-    "coc.preferences.formatOnSaveFiletypes": [],
-    "prettier.statusItemText": "ⓟ ",
-    "prettier.eslintIntegration": true,
-    "prettier.tslintIntegration": true,
-    "prettier.stylelintIntegration": true,
-    //emmet
-    "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
-    //python
-    "python.autoComplete.addBrackets": true,
-    // explorer
-    //"explorer.icon.enableNerdfont": true,
-    // eslint
-    "eslint.enable": false,
-    "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
-    "eslint.autoFix": true,
-    "eslint.autoFixOnSave": true,
-    //highlight
-    "highlight.disableLanguages": ["yaml", "json", "markdown"],
-    "languageserver": {
-      "bash": {
-        "command": "bash-language-server",
-        "args": ["start"],
-        "filetypes": ["sh"],
-        "ignoredRootPaths": ["~"]
-      }
+  "diagnostic.warningSign": "●",
+  "diagnostic.displayByAle": false,
+  "diagnostic.refreshOnInsertMode": true,
+  //git
+  "git.enableGutters": true,
+  "git.branchCharacter": "\uf408",
+  "git.addGBlameToBufferVar": true,
+  "git.addGBlameToVirtualText": false,
+  "git.virtualTextPrefix": "\uf66b",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addedSign.text": "▎",
+  "git.changedSign.text": "▎",
+  "git.removedSign.text": "▏",
+  "git.topRemovedSign.text": "▔",
+  "git.changeRemovedSign.text": "▋",
+  //Snippet
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  //tslint
+  "tslint.autoFixOnSave": false,
+  //prettier
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "prettier.statusItemText": "ⓟ ",
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  //emmet
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  //python
+  "python.autoComplete.addBrackets": true,
+  // explorer
+  //"explorer.icon.enableNerdfont": true,
+  // eslint
+  "eslint.enable": false,
+  "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  //highlight
+  "highlight.disableLanguages": ["yaml", "json", "markdown"],
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     },
-    "java.errors.incompleteClasspath.severity": "ignore"
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
+    }
+  },
+  "java.errors.incompleteClasspath.severity": "ignore"
 }

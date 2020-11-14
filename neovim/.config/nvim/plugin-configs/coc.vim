@@ -2,7 +2,7 @@
 let g:coc_snippet_next = '<M-n>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
-let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-json','coc-python','coc-imselect','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml', 'coc-go', 'coc-angular', 'coc-tslint-plugin', 'coc-java', 'coc-highlight']
+let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-json','coc-python','coc-imselect','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml', 'coc-go', 'coc-angular', 'coc-tslint-plugin', 'coc-java', 'coc-highlight', 'coc-pairs']
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -38,10 +38,19 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction

@@ -14,4 +14,5 @@ let g:lua_tree_bindings = {
     \ 'rename':      'r'
     \ }
 
-let g:lua_tree_width = 40
+let g:lua_tree_width = 65
+let g:lua_tree_indent_markers = 1

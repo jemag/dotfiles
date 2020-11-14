@@ -6,6 +6,7 @@ set t_Co=256
 " Enable true color
 if has('termguicolors')
 	set termguicolors
+	hi LineNr ctermbg=NONE guibg=NONE
 endif
 
 set background=dark

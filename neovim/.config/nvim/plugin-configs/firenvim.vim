@@ -1,8 +1,7 @@
-au BufEnter github.com_*.txt set filetype=markdown
-au BufEnter ticktick.com_*.txt set filetype=markdown
-
-let g:firenvim_config = { 
+let g:firenvim_config = {
     \ 'globalSettings': {
+        \ '<C-w>': 'noop',
+        \ '<C-n>': 'default',
         \ 'alt': 'all',
     \  },
     \ 'localSettings': {
@@ -14,20 +13,28 @@ let g:firenvim_config = {
         \ },
     \ }
 \ }
+
 function! s:IsFirenvimActive(event) abort
   if !exists('*nvim_get_chan_info')
     return 0
   endif
   let l:ui = nvim_get_chan_info(a:event.chan)
-  return has_key(l:ui, 'client') && has_key(l:ui.client, "name") &&
-      \ l:ui.client.name is# "Firenvim"
+  return has_key(l:ui, 'client') && has_key(l:ui.client, 'name') &&
+      \ l:ui.client.name =~? 'Firenvim'
 endfunction
 
 function! OnUIEnter(event) abort
   if s:IsFirenvimActive(a:event)
     set laststatus=0
     set lines=10
-    set columns=80
+    set guifont=FuraCode\ Nerd\ Font\ Mono:h10
+    BarbarDisable
   endif
 endfunction
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+
+augroup firenvim
+    " Fire Neovim
+    au BufEnter github.com_*.txt set filetype=markdown
+    au BufEnter ticktick.com_*.txt set filetype=markdown
+augroup END
