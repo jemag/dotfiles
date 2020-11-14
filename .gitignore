@@ -5,4 +5,6 @@ joplin/.config/joplin-desktop/log-database.txt
 joplin/.config/joplin-desktop/log.txt
 joplin/.config/joplin-desktop/resources/*
 joplin/.config/joplin-desktop/tmp
+joplin/.config/joplin-desktop/log-clipper.txt
+joplin/.config/joplin-desktop/keymap-desktop.json
 br.fish

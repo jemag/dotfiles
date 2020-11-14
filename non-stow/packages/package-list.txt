@@ -56,6 +56,7 @@ gnome-keyring
 go-tools
 google-chrome
 gradle
+graphviz
 grep
 groff
 gron-bin
@@ -119,6 +120,8 @@ libtool
 libxslt
 linux
 linux-firmware
+lua51
+luarocks
 luit
 lutris
 m4
@@ -131,6 +134,7 @@ mkinitcpio-utils
 mongodb-bin
 mongodb-tools-bin
 mpg123
+mullvad-vpn-bin
 ncdu
 neovim-nightly
 neovim-remote
@@ -147,6 +151,9 @@ nvidia-utils
 ocl-icd
 openal
 openconnect
+openjdk11-doc
+openjdk11-src
+openresolv
 pacman
 patch
 pavucontrol
@@ -169,6 +176,7 @@ redshift
 ripgrep
 rofi
 ruby
+rust
 samba
 seahorse
 sed
@@ -177,6 +185,7 @@ snapd
 speedtest-cli
 spicetify-cli
 spotify
+spring-boot-cli
 starship-bin
 steam
 stow
@@ -194,6 +203,7 @@ tree
 trivy-bin
 ttf-ms-fonts
 ueberzug
+velero-bin
 vi
 vifm
 vlc
@@ -203,6 +213,7 @@ which
 wine-mono
 wine-staging
 winetricks
+wireguard-tools
 wireshark-qt
 wttr
 xdo
