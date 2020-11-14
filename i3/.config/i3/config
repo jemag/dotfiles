@@ -119,8 +119,8 @@ bindsym $mod+0 workspace $workspace10
 # switch to previous workspace
 bindsym $mod+a workspace back_and_forth
 # set monitors
-set $monitor_one VGA-1
-set $monitor_two VGA-2
+set $monitor_two DVI-I-1
+set $monitor_one DP-0
 #
 ## bind workspaces to monitors
 workspace $workspace1 output $monitor_one
@@ -221,13 +221,16 @@ bindsym $mod+shift+x exec i3lock -i ~/wallpapers/mars-plutot.png
 bindsym Print exec flameshot gui
 
 #AUDIO KEYBINDS
-bindsym $mod+F9 exec --no-startup-id amixer set Master playback 1-
-bindsym $mod+F10 exec --no-startup-id amixer set Master playback 1+
+bindsym $mod+F9 exec --no-startup-id amixer set Master playback 3-
+bindsym $mod+F10 exec --no-startup-id amixer set Master playback 3+
 bindsym $mod+F8 exec --no-startup-id amixer set Master toggle
 
 bindsym $mod+F5 exec playerctl previous
 bindsym $mod+F6 exec playerctl play-pause
 bindsym $mod+F7 exec playerctl next
+
+#TOGGLE POLYBAR
+bindsym $mod+t exec ~/dotfiles/polybar/.config/polybar/toggle-polybar.sh
 
 # GAP VARIABLES
 set $inner 16
@@ -259,9 +262,9 @@ client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$
 # startup
 # switch to previous window
 exec --no-startup-id /home/jemag/.config/i3/i3-switch-window-script.sh
+exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --mode 1920x1080 --rate 144 --pos 0x0 --rotate left --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 1080x0 --rotate normal --output DP-1 --off --output DVI-D-0 --off
+# exec --no-startup-id xrandr --output DVI-I-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --brightness 1 --output DP-1 --off --output DVI-D-0 --off
 bindsym $mod+Tab [con_mark=_prevFocus0] focus
-exec --no-startup-id redshift-gtk
-exec VBoxClient --clipboard
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec_always feh --bg-tile ~/wallpapers/dark-honeycomb.png
 #intellij focus
