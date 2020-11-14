@@ -78,7 +78,9 @@ bindsym $mod+e layout toggle split
 
 #SCRATCHPAD
 for_window [class="nixnote2"] move scratchpad
-bindsym $mod+u scratchpad show, resize set 1900 1000, move position center
+for_window [class="Gnome-calculator"] move scratchpad
+# bindsym $mod+u scratchpad show, resize set 1900 1000, move position center
+bindsym $mod+u scratchpad show, move position center
 bindsym $mod+Shift+u move scratchpad
 
 # toggle tiling / floating
