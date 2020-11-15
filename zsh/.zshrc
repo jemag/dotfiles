@@ -163,8 +163,8 @@ path+=$GRAILS_HOME/bin
 # More on these tools https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html
 #
 [ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
-export FZF_DEFAULT_OPS="
---extended
+export FZF_DEFAULT_OPTS="
+--extended --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
 "
 FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
 export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
