@@ -17,14 +17,17 @@ broot
 calibre
 chromium
 chromium-widevine
+code-minimap
 cronie
 ctags
+dasel
 deluge-gtk
 dhcpcd
 direnv
 discord
 docker
 dust
+efm-langserver
 epub-thumbnailer-git
 evince
 exa
@@ -54,7 +57,6 @@ glances
 gnome-calculator
 gnome-keyring
 go-tools
-google-chrome
 gradle
 graphviz
 grep
@@ -206,6 +208,7 @@ ueberzug
 velero-bin
 vi
 vifm
+vint
 vlc
 w3m
 weechat
