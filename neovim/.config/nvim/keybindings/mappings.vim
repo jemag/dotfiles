@@ -32,8 +32,8 @@ vnoremap gj j
 vnoremap gk k
 
 " Only use count with normal j and k
-noremap <expr> j (v:count? 'j' : 'gj')
-noremap <expr> k (v:count? 'k' : 'gk')
+" noremap <expr> j (v:count? 'j' : 'gj')
+" noremap <expr> k (v:count? 'k' : 'gk')
 " Better indentation
 vnoremap < <gv
 vnoremap > >gv

@@ -8,6 +8,7 @@ set bsdir=buffer
 set nofoldenable
 set wildmode=full
 set inccommand=split
+set textwidth=140
 " enable mouse
 set mouse=a
 if has('vim_starting')
@@ -59,8 +60,9 @@ set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
 set completeopt =menuone,noinsert,noselect,preview
-set list
-set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
+set nolist
+set showbreak=↪\ 
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 set ignorecase      " Search ignoring case
 set smartcase       " Keep case when searching with *
