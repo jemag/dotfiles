@@ -26,6 +26,7 @@ dhcpcd
 direnv
 discord
 docker
+dockle-bin
 dust
 efm-langserver
 epub-thumbnailer-git
@@ -37,8 +38,8 @@ feh
 ffmpegthumbnailer
 file
 findutils
-firefox
 firefox-developer-edition
+firefox-nightly
 flameshot
 flex
 fontpreview
@@ -52,6 +53,7 @@ gcc
 gcolor2
 gettext
 git
+git-delta-bin
 github-cli
 glances
 gnome-calculator
@@ -138,7 +140,6 @@ mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
 ncdu
-neovim-nightly
 neovim-remote
 nerd-fonts-complete
 net-tools
@@ -184,6 +185,8 @@ seahorse
 sed
 shellcheck
 snapd
+sonar-scanner
+sonarqube
 speedtest-cli
 spicetify-cli
 spotify

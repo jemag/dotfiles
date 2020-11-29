@@ -147,8 +147,6 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 
 # add to path
 path+=/root/.gem/ruby/2.5.0/bin
-path+=('/home/jemag/bin/')
-path+=('/home/jemag/go/bin')
 path+=('/snap/bin/')
 path+=('/var/lib/snapd/snap/bin')
 path+=$GRAILS_HOME/bin
@@ -190,11 +188,15 @@ export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
+export SONAR_SCANNER_HOME="/opt/sonar-scanner"
+export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
-export PATH=$PATH:/home/jemag/bin
+# export PATH=$PATH:/home/jemag/bin
 export PATH=$PATH:/home/jemag/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=${PATH%:/home/jemag/bin/}
 export RPS1="$(vi_mode_prompt_info)"
+typeset -U path
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
