@@ -10,6 +10,8 @@
   "suggest.echodocSupport": true,
   "suggest.keepCompleteopt": false,
   "codeLens.enable": true,
+  //javascript
+  "javascript.referencesCodeLens.enable": false,
   //java
   "java.jdt.ls.vmargs": "-javaagent:/home/jemag/.config/nvim/dependencies/lombok.jar -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar",
   "java.referencesCodeLens.enabled": true,
@@ -63,6 +65,12 @@
   "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
+  // yaml
+  "yaml.validate": false,
+  "yaml.completion": true ,
+  "yaml.schemas": {
+      "kubernetes": "/*.yaml"
+  } ,
   //highlight
   "highlight.disableLanguages": ["yaml", "json", "markdown"],
   "languageserver": {
@@ -81,7 +89,7 @@
       "args": [],
       // custom config path
       // "args": ["-c", "/path/to/your/config.yaml"],
-      "filetypes": ["vim", "eruby", "markdown", "yaml"]
+      "filetypes": ["vim", "eruby", "markdown"]
     }
   },
   "java.errors.incompleteClasspath.severity": "ignore"

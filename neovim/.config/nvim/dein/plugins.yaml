@@ -62,6 +62,10 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/coc.vim
 # }}}
 
+# Plugin Development{{{
+- repo: nvim-lua/plenary.nvim
+# }}}
+
 # Lazy Loading
 # ==========================================
 # Interface{{{
