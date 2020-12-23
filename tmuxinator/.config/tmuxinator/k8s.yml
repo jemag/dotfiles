@@ -52,7 +52,7 @@ windows:
                 - kubie ctx AKSDEV-admin
                 - kubie ns iwls
               - kubie_test:
-                - kubie ctx AKSTEST-admin
+                - kubie ctx akstest-admin
                 - kubie ns iwls
               - kubie_prod:
                 - kubie ctx AKSPROD-admin
