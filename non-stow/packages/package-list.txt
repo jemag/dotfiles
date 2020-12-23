@@ -20,7 +20,6 @@ chromium-widevine
 code-minimap
 cronie
 ctags
-dasel
 deluge-gtk
 dhcpcd
 direnv
@@ -120,6 +119,7 @@ lib32-v4l-utils
 lib32-vulkan-icd-loader
 libgnome-keyring
 libreoffice-fresh
+libreoffice-fresh-fr
 libtool
 libxslt
 linux
@@ -151,6 +151,7 @@ numlockx
 nvidia
 nvidia-settings
 nvidia-utils
+nvm
 ocl-icd
 openal
 openconnect
@@ -160,17 +161,18 @@ openresolv
 pacman
 patch
 pavucontrol
+picom
 pkgconf
 playerctl
 polybar
 poppler
 postgresql
-postman-bin
 pulseaudio
 pulseaudio-alsa
 pulsemixer
 python-pip
 python-pynvim
+qalculate-gtk
 qbittorrent
 ranger
 rclone
@@ -198,7 +200,6 @@ studio-3t
 sudo
 tcpdump
 teams
-terraform
 texinfo
 the_silver_searcher
 tldr
