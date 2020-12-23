@@ -3,6 +3,8 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: kevinhwang91/nvim-hlslens
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-hlslens.vim
 - repo : romgrk/barbar.nvim
   hook_add: source $HOME/.config/nvim/plugin-configs/barbar.vim
 - repo: szw/vim-maximizer
@@ -60,10 +62,10 @@
 - repo: chuling/ci_dark
 #}}}
 # Core Plugins{{{
-- repo: neoclide/coc.nvim
-  merged: 0
-  rev: release
-  hook_add: source $HOME/.config/nvim/plugin-configs/coc.vim
+# - repo: neoclide/coc.nvim
+#   merged: 0
+#   rev: release
+#   hook_add: source $HOME/.config/nvim/plugin-configs/coc.vim
 # }}}
 
 # Plugin Development{{{
@@ -131,6 +133,18 @@
 # }}}
 
 # Language{{{
+- repo: neovim/nvim-lspconfig
+  merged: 0
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-lspconfig.vim
+- repo: nvim-lua/completion-nvim
+  merged: 0
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/completion-nvim.vim
+- repo: tjdevries/nlua.nvim
+  merged: 0
+  on_ft: lua
+- repo: tjdevries/lsp_extensions.nvim
+  merged: 0
+
 - { repo: honza/dockerfile.vim, on_ft: Dockerfile }
 - repo: mustache/vim-mustache-handlebars
   on_ft: mustache
