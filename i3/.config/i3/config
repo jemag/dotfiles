@@ -79,6 +79,8 @@ bindsym $mod+e layout toggle split
 #SCRATCHPAD
 for_window [class="nixnote2"] move scratchpad
 for_window [class="Gnome-calculator"] move scratchpad
+# floating windows
+for_window [title="Qalculate!"] floating enable
 # bindsym $mod+u scratchpad show, resize set 1900 1000, move position center
 bindsym $mod+u scratchpad show, move position center
 bindsym $mod+Shift+u move scratchpad
@@ -90,7 +92,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+z focus parent
+# bindsym $mod+z focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -243,9 +245,13 @@ gaps inner $inner
 gaps outer $outer
 
 # TOGGLE GAPS
-bindsym $mod+g exec compton; gaps inner all set $inner; gaps outer all set $outer
-bindsym $mod+Shift+g exec pkill compton; gaps inner all set 0; gaps outer all set 0
+bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
+bindsym $mod+Shift+g gaps inner all set 0; gaps outer all set 0
 smart_borders on
+
+# TOGGLE PICOM
+bindsym $mod+z exec picom
+bindsym $mod+Shift+z exec pkill picom
 
 # window
 
