@@ -1,5 +1,5 @@
 let bufferline = {}
-let bufferline.icons = "numbers"
+let bufferline.icons = "both"
 " Enable/disable animations
 let bufferline.animation = v:true
 " Enable/disable close button

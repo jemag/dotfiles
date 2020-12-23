@@ -30,17 +30,18 @@ let g:which_key_map['0'] = [ ':BufferGoto 10', 'Buf 10']
 
 let g:which_key_map.b = {
       \ 'name' : '+buffer',
-      \ 'd' : ['bd',                  'Delete-buffer']   ,
-      \ 'D' : [':Bonly',              'Delete all other buffers']   ,
-      \ 'e' : ['blast',               'Last-buffer']     ,
-      \ 'f' : ['bfirst',              'First-buffer']    ,
-      \ 'h' : [':BufferMovePrevious', 'move prev'],
-      \ 'l' : [':BufferMoveNext',     'move next'],
-      \ 'S' : ['Startify',            'Startify']     ,
-      \ 'n' : ['bnext',               'Next-buffer']     ,
-      \ 'p' : ['bprevious',           'Previous-buffer'] ,
-      \ 's' : [':BufferPick',         'Magic buffer select'] ,
-      \ '?' : ['Buffers',             'Fzf-buffer']      ,
+      \ 'd' : ['bd',                        'Delete-buffer']   ,
+      \ 'D' : [':BufferCloseAllButCurrent', 'Delete all other buffers']   ,
+      \ 'e' : ['blast',                     'Last-buffer']     ,
+      \ 'f' : ['bfirst',                    'First-buffer']    ,
+      \ 'h' : [':BufferMovePrevious',       'move prev'],
+      \ 'l' : [':BufferMoveNext',           'move next'],
+      \ 'r' : [':BufferCloseBuffersRight',  'delete buffers to the right'],
+      \ 'S' : ['Startify',                  'Startify']     ,
+      \ 'n' : ['bnext',                     'Next-buffer']     ,
+      \ 'p' : ['bprevious',                 'Previous-buffer'] ,
+      \ 's' : [':BufferPick',               'Magic buffer select'] ,
+      \ '?' : ['Buffers',                   'Fzf-buffer']      ,
       \ }
 
 let g:which_key_map.c = {

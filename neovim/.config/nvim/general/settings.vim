@@ -15,7 +15,7 @@ if has('vim_starting')
 	set encoding=UTF-8
 	scriptencoding UTF-8
 endif
-set laststatus=0
+set laststatus=2
 " show column with ctrl+g
 set noruler
 set showtabline=2

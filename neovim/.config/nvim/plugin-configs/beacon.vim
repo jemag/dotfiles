@@ -4,3 +4,8 @@ augroup beacon_toggle
   autocmd CmdwinEnter,CmdlineEnter * let g:beacon_enable=0
   autocmd CmdwinLeave,CmdlineLeave * let g:beacon_enable=1
 augroup END
+let g:beacon_ignore_buffers = [
+      \ '\w*git*\w',
+      \  '\w*fugitive*\w',
+      \  '\w*defx*\w',
+      \]

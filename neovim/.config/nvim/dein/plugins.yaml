@@ -37,10 +37,14 @@
 - repo: nvim-treesitter/nvim-treesitter
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
+  hook_post_update: TSUpdate
+- repo: glepnir/galaxyline.nvim
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/galaxyline.vim
 #}}}
 
 # Themes {{{
 - repo: doums/darcula
+- repo: aonemd/kuroi.vim
 - repo: romgrk/doom-one.vim
 - repo: ChristianChiarulli/nvcode-color-schemes.vim
 - repo: habamax/vim-gruvbit
