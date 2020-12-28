@@ -30,7 +30,7 @@ let g:which_key_map['0'] = [ ':BufferGoto 10', 'Buf 10']
 
 let g:which_key_map.b = {
       \ 'name' : '+buffer',
-      \ 'd' : ['bd',                        'Delete-buffer']   ,
+      \ 'd' : [':BufferClose',              'Delete-buffer']   ,
       \ 'D' : [':BufferCloseAllButCurrent', 'Delete all other buffers']   ,
       \ 'e' : ['blast',                     'Last-buffer']     ,
       \ 'f' : ['bfirst',                    'First-buffer']    ,
