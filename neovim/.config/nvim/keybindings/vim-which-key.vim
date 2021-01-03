@@ -44,46 +44,46 @@ let g:which_key_map.b = {
       \ '?' : ['Buffers',                   'Fzf-buffer']      ,
       \ }
 
-let g:which_key_map.c = {
-      \ 'name' : '+coc',
-      \ '.' : [':CocConfig',                        'Config'],
-      \ ';' : ['<Plug>(coc-refactor)',              'Refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)',            'Line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)',   'Selected action'],
-      \ 'b' : [':CocNext',                          'Next action'],
-      \ 'B' : [':CocPrev',                          'Prev action'],
-      \ 'c' : [':CocList commands',                 'Commands'],
-      \ 'd' : [':CocList diagnostics',              'Diagnostics'],
-      \ 'e' : [':CocList extensions',               'Extensions'],
-      \ 'h' : ['<Plug>(coc-float-hide)',            'Hide'],
-      \ 'I' : [':CocList diagnostics',              'Diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)',            'Float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)',       'Code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)',       'Next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)', 'Next error'],
-      \ 'o' : ['<Plug>(coc-openlink)',              'Open link'],
-      \ 'O' : [':CocList outline',                  'Outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)',       'Prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)', 'Prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)',           'Quickfix'],
-      \ 'R' : ['<Plug>(coc-rename)',                'Rename'],
-      \ 's' : [':CocList -I symbols',               'Symbols'],
-      \ 'S' : [':CocList snippets',                 'Snippets'],
-      \ 'u' : [':CocListResume',                    'Resume list'],
-      \ 'U' : [':CocUpdate',                        'Update CoC'],
-      \ 'v' : [':Vista!!',                          'Tag viewer'],
-      \ 'z' : [':CocDisable',                       'Disable CoC'],
-      \ 'Z' : [':CocEnable',                        'Enable CoC'],
-      \ }
+" let g:which_key_map.c = {
+"       \ 'name' : '+coc',
+"       \ '.' : [':CocConfig',                        'Config'],
+"       \ ';' : ['<Plug>(coc-refactor)',              'Refactor'],
+"       \ 'a' : ['<Plug>(coc-codeaction)',            'Line action'],
+"       \ 'A' : ['<Plug>(coc-codeaction-selected)',   'Selected action'],
+"       \ 'b' : [':CocNext',                          'Next action'],
+"       \ 'B' : [':CocPrev',                          'Prev action'],
+"       \ 'c' : [':CocList commands',                 'Commands'],
+"       \ 'd' : [':CocList diagnostics',              'Diagnostics'],
+"       \ 'e' : [':CocList extensions',               'Extensions'],
+"       \ 'h' : ['<Plug>(coc-float-hide)',            'Hide'],
+"       \ 'I' : [':CocList diagnostics',              'Diagnostics'],
+"       \ 'j' : ['<Plug>(coc-float-jump)',            'Float jump'],
+"       \ 'l' : ['<Plug>(coc-codelens-action)',       'Code lens'],
+"       \ 'n' : ['<Plug>(coc-diagnostic-next)',       'Next diagnostic'],
+"       \ 'N' : ['<Plug>(coc-diagnostic-next-error)', 'Next error'],
+"       \ 'o' : ['<Plug>(coc-openlink)',              'Open link'],
+"       \ 'O' : [':CocList outline',                  'Outline'],
+"       \ 'p' : ['<Plug>(coc-diagnostic-prev)',       'Prev diagnostic'],
+"       \ 'P' : ['<Plug>(coc-diagnostic-prev-error)', 'Prev error'],
+"       \ 'q' : ['<Plug>(coc-fix-current)',           'Quickfix'],
+"       \ 'R' : ['<Plug>(coc-rename)',                'Rename'],
+"       \ 's' : [':CocList -I symbols',               'Symbols'],
+"       \ 'S' : [':CocList snippets',                 'Snippets'],
+"       \ 'u' : [':CocListResume',                    'Resume list'],
+"       \ 'U' : [':CocUpdate',                        'Update CoC'],
+"       \ 'v' : [':Vista!!',                          'Tag viewer'],
+"       \ 'z' : [':CocDisable',                       'Disable CoC'],
+"       \ 'Z' : [':CocEnable',                        'Enable CoC'],
+"       \ }
 
 let g:which_key_map.f = {
       \ 'name' : '+format' ,
       \ 'f' : ['<Plug>(coc-format-selected)', 'Format selected'],
-      \ 'F' : ['<Plug>(coc-format)',          'Format'],
+      \ 'F' :           'Format',
       \ 'e' : ['<Plug>(EasyAlign)',           'Easy align'],
       \ }
 
-let     g:which_key_localmap.g = {
+let g:which_key_localmap.g = {
       \ 'name' : '+git',
       \ 'a' : [':Git add .',                 'Add all'],
       \ 'A' : [':Git add %',                 'Add current'],
@@ -113,6 +113,23 @@ let g:which_key_map.g = {
       \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
       \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
       \ 'r' : ['<Plug>(coc-references)',      'References'],
+      \ }
+
+let g:which_key_map.l = {
+      \ 'name' : '+language' ,
+      \ 'd' :      'Definition',
+      \ 'D' :      'Declaration',
+      \ 'h' :      'Hover',
+      \ 'i' :      'Implementation',
+      \ 'l' :      'Show line diagnostics',
+      \ 'n' :      'Next diagnostic',
+      \ 'N' :      'Previous diagnostic',
+      \ 'r' :      'References',
+      \ 'R' :      'Rename',
+      \ 's' :      'Signature help',
+      \ 't' :      'Type definition',
+      \ 'w' :      'Document symbol',
+      \ 'W' :      'Workspace symbol',
       \ }
 
 

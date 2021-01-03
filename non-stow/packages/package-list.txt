@@ -1,4 +1,4 @@
-alacritty
+alacritty-git
 alsa-plugins
 alsa-utils
 arandr
@@ -17,6 +17,7 @@ broot
 calibre
 chromium
 chromium-widevine
+clang
 code-minimap
 cronie
 ctags
@@ -30,6 +31,7 @@ dust
 efm-langserver
 epub-thumbnailer-git
 evince
+evtest
 exa
 fakeroot
 fd
@@ -182,6 +184,7 @@ ripgrep
 rofi
 ruby
 rust
+rust-analyzer
 samba
 seahorse
 sed
@@ -200,6 +203,7 @@ studio-3t
 sudo
 tcpdump
 teams
+terraform-ls-bin
 texinfo
 the_silver_searcher
 tldr

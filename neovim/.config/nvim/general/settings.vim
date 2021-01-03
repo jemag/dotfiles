@@ -26,11 +26,13 @@ if get(g:,'gruvbox_transp_bg',1)
 endif
 
 " if has('clipboard')
-" 	set clipboard& clipboard+=unnamedplus
+"	set clipboard& clipboard+=unnamedplus
 " endif
 
 " spelling
 set spelllang=en,fr
+" enable embedded syntax highlighting
+let g:vimsyn_embed='lPr'
 
 set history=2000
 set number
@@ -59,9 +61,9 @@ set hidden
 set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
-set completeopt =menuone,noinsert,noselect,preview
+set completeopt =menuone,noinsert,noselect
 set nolist
-set showbreak=↪\ 
+set showbreak=↪\
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 set ignorecase      " Search ignoring case

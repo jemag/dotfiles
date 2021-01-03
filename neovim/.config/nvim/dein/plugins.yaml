@@ -40,8 +40,14 @@
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
   hook_post_update: TSUpdate
+# - repo: hoob3rt/lualine.nvim
+#   hook_post_source: source $HOME/.config/nvim/plugin-configs/lualine.vim
 - repo: glepnir/galaxyline.nvim
   hook_post_source: source $HOME/.config/nvim/plugin-configs/galaxyline.vim
+- repo: RRethy/vim-illuminate
+- repo: tweekmonster/startuptime.vim
+- repo: jiangmiao/auto-pairs
+- repo: gfanto/fzf-lsp.nvim
 #}}}
 
 # Themes {{{
