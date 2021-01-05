@@ -518,6 +518,7 @@ key_bindings:
   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
   - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
+  - { key: A,                           mode: Vi|~Search, action: ToggleViMode            }
   - { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   - { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
   - { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }
