@@ -1,5 +1,7 @@
 # zmodload zsh/zprof
 autoload bashcompinit && bashcompinit
+source '/usr/share/nvm/init-nvm.sh'
+nvm use node --silent
 source '/home/jemag/.config/zsh/plugins/zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 autoload -U up-line-or-beginning-search
@@ -49,6 +51,7 @@ alias lh="ls -lh"
 alias lb="br -dsp"
 alias ta="tmux attach -t"
 alias k="kubectl"
+alias kl="kube-linter"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
@@ -205,6 +208,7 @@ export FZF_CTRL_T_OPTS="
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export JAVA_HOME=/usr/lib/jvm/default
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
+export NODE_BIN="$(npm config get prefix)/bin"
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
@@ -224,6 +228,7 @@ export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
 export PATH=$PATH:$GOBIN
+export PATH=$PATH:$NODE_BIN
 export PATH=$PATH:/home/jemag/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=${PATH%:/home/jemag/bin/}
@@ -232,6 +237,5 @@ typeset -U path
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
-source '/usr/share/nvm/init-nvm.sh'
 eval "$(starship init zsh)"
 # zprof
