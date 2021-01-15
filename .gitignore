@@ -7,4 +7,4 @@ joplin/.config/joplin-desktop/resources/*
 joplin/.config/joplin-desktop/tmp
 joplin/.config/joplin-desktop/log-clipper.txt
 joplin/.config/joplin-desktop/keymap-desktop.json
-br.fish
+node_modules/

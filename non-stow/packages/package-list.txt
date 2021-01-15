@@ -29,6 +29,7 @@ docker
 dockle-bin
 dust
 efm-langserver
+element-desktop
 epub-thumbnailer-git
 evince
 evtest
@@ -79,6 +80,7 @@ jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
 joplin
+joplin-desktop
 jp
 jq
 k9s
@@ -86,6 +88,7 @@ keepassxc
 kind-bin
 kitty
 krew
+kube-linter-bin
 kubectl
 kubectx
 kubeval-bin
@@ -135,6 +138,7 @@ make
 man-db
 man-pages
 maven
+mkcert
 mkinitcpio
 mkinitcpio-utils
 mongodb-bin
@@ -142,9 +146,11 @@ mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
 ncdu
+neovim-git
 neovim-remote
 nerd-fonts-complete
 net-tools
+ninja
 nmap
 nodejs
 noto-fonts
@@ -265,5 +271,6 @@ yay
 ytop-bin
 zathura
 zathura-pdf-mupdf
+zeal-git
 zoom
 zsh

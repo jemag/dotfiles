@@ -1,3 +1,4 @@
+set exrc
 set nobackup
 set noswapfile
 set autoread
@@ -8,7 +9,9 @@ set bsdir=buffer
 set nofoldenable
 set wildmode=full
 set inccommand=split
-set textwidth=140
+set textwidth=0
+set nowrap
+set scrolloff=8
 " enable mouse
 set mouse=a
 if has('vim_starting')

@@ -44,6 +44,14 @@ let g:which_key_map.b = {
       \ '?' : ['Buffers',                   'Fzf-buffer']      ,
       \ }
 
+let g:which_key_map.d = {
+      \ 'name' : '+debug' ,
+      \ 'b' :      'Breakpoint',
+      \ 'B' :      'Conditional breakpoint',
+      \ 'l' :      'Repl run last',
+      \ 'p' :      'Breakpoint with log',
+      \ 'r' :      'Repl open',
+      \ }
 " let g:which_key_map.c = {
 "       \ 'name' : '+coc',
 "       \ '.' : [':CocConfig',                        'Config'],
@@ -106,14 +114,14 @@ let g:which_key_localmap.g = {
       \ 'V' : [':GV!',                       'View buffer commits'],
       \ }
 
-let g:which_key_map.g = {
-      \ 'name' : '+go' ,
-      \ 'd' : ['<Plug>(coc-definition)',      'Definition'],
-      \ 'D' : ['<Plug>(coc-declaration)',     'Declaration'],
-      \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
-      \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
-      \ 'r' : ['<Plug>(coc-references)',      'References'],
-      \ }
+" let g:which_key_map.g = {
+"       \ 'name' : '+go' ,
+"       \ 'd' : ['<Plug>(coc-definition)',      'Definition'],
+"       \ 'D' : ['<Plug>(coc-declaration)',     'Declaration'],
+"       \ 'y' : ['<Plug>(coc-type-definition)', 'Type definition'],
+"       \ 'i' : ['<Plug>(coc-implementation)',  'Implementation'],
+"       \ 'r' : ['<Plug>(coc-references)',      'References'],
+"       \ }
 
 let g:which_key_map.l = {
       \ 'name' : '+language' ,

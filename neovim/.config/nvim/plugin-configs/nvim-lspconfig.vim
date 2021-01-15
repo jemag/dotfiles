@@ -28,8 +28,6 @@ local map_keys = function()
   map('n', '<leader>lR',  '<cmd>lua vim.lsp.buf.rename()<CR>')
   -- Few language severs support these three
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  -- map('n','<leader>ai',  '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-  -- map('n','<leader>ao',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
   map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
@@ -45,88 +43,95 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 }
 )
 
+local configPath = vim.fn.stdpath("config")
+local languageServerPath = configPath.."/languageserver"
+vim.lsp.set_log_level("debug")
+
 -- common attach config
 local on_attach_common = function(client)
-    print("LSP STARTED")
+    print("lsp started")
     require'completion'.on_attach(client)
     require'illuminate'.on_attach(client)
     map_keys()
 end
 
+
 require'lspconfig'.tsserver.setup{
-  on_attach = function(client)
-  on_attach_common(client)
+  on_attach = on_attach_common,
+  cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
+}
+
+local angular_cmd = {"node", languageServerPath.."/node_modules/@angular/language-server/index.js", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath}
+require'lspconfig'.angularls.setup{
+  on_attach = on_attach_common,
+  cmd = angular_cmd,
+  on_new_config = function(new_config,new_root_dir)
+  new_config.cmd = angular_cmd
   end,
 }
 
 require'lspconfig'.bashls.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common
 }
 
 require'lspconfig'.terraformls.setup{
   on_attach = function(client)
   require'completion'.on_attach(client)
   map_keys()
+  print("lsp started")
   end,
 }
 
+if require'lspconfig'.jsonls then
 require'lspconfig'.jsonls.setup{
   on_attach = function(client)
+  print("lsp started")
   require'completion'.on_attach(client)
   map_keys()
   end,
+  cmd = {languageServerPath.."/node_modules/vscode-json-languageserver/bin/vscode-json-languageserver", "--stdio"}
 }
+end
 
 require'lspconfig'.gopls.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common
 }
 
 require'lspconfig'.clangd.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common
 }
 
 require'lspconfig'.rust_analyzer.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common
 }
 
 require'lspconfig'.vimls.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
-}
+  on_attach = on_attach_common,
+  cmd = {languageServerPath.."/node_modules/vim-language-server/bin/index.js", "--stdio"}
+  }
+
 
 require'lspconfig'.dockerls.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common,
+  cmd = {languageServerPath.."/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver", "--stdio"}
+
 }
 
 require'lspconfig'.html.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
-}
-
-require'lspconfig'.angularls.setup{
-  on_attach = function(client)
-  on_attach_common(client)
-  end,
+  on_attach = on_attach_common,
+  cmd = {languageServerPath.."/node_modules/vscode-html-languageserver-bin/htmlServerMain.js", "--stdio"}
 }
 
 require'lspconfig'.yamlls.setup{
   on_attach = function(client)
+  print("lsp started")
   require'completion'.on_attach(client)
   map_keys()
   end,
+  cmd = {languageServerPath.."/node_modules/yaml-language-server/bin/yaml-language-server", "--stdio"}
 }
+
+
 -- require'lspconfig'.jdtls.setup{ on_attach=require'completion'.on_attach }
 -- Configure handlers
 vim.lsp.handlers["textDocument/codeAction"] = require'fzf_lsp'.code_action_handler
@@ -139,4 +144,104 @@ vim.lsp.handlers["textDocument/documentSymbol"] = require'fzf_lsp'.document_symb
 vim.lsp.handlers["workspace/symbol"] = require'fzf_lsp'.workspace_symbol_handler
 vim.lsp.handlers["callHierarchy/incomingCalls"] = require'fzf_lsp'.incoming_calls_handler
 vim.lsp.handlers["callHierarchy/outgoingCalls"] = require'fzf_lsp'.outgoing_calls_handler
+
+local on_attach_java = function(client)
+    require('jdtls').setup_dap()
+    map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+    map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+    map("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+    map("v", "<leader>ue", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+    map("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+    map("v", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+end
+
+local dap = require('dap')
+--dap.configurations.java = {
+--  {
+--    type = 'java';
+--    request = 'attach';
+--    name = "Debug (Attach) - Remote";
+--    hostName = "127.0.0.1";
+--    port = 8080;
+--  },
+--}
+
+dap.defaults.fallback.external_terminal = {
+  command = '/usr/bin/alacritty';
+  args = {'-e'};
+}
+
+function start_jdt()
+    print("starting jdt")
+    require('jdtls').start_or_attach({
+    cmd = {'java-lsp.sh'},
+    init_options = {
+      bundles = {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")},
+    },
+    on_attach = function(client)
+    on_attach_common(client)
+    on_attach_java(client)
+    end
+    })
+
+end;
+
+local autocmds = {
+	lsp = {
+		{"FileType",     "java",   "lua start_jdt()"};
+	};
+}
+
+--TODO: move to utils lua module
+function nvim_create_augroups(definitions)
+	for group_name, definition in pairs(definitions) do
+		vim.api.nvim_command('augroup '..group_name)
+		vim.api.nvim_command('autocmd!')
+		for _, def in ipairs(definition) do
+			-- if type(def) == 'table' and type(def[#def]) == 'function' then
+			--	def[#def] = lua_callback(def[#def])
+			-- end
+			local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+			vim.api.nvim_command(command)
+		end
+		vim.api.nvim_command('augroup END')
+	end
+end
+
+nvim_create_augroups(autocmds)
+
+--TODO:  move to utils lua module
+local system_name
+if vim.fn.has("mac") == 1 then
+  system_name = "macOS"
+elseif vim.fn.has("unix") == 1 then
+  system_name = "Linux"
+elseif vim.fn.has('win32') == 1 then
+  system_name = "Windows"
+else
+  print("Unsupported system for sumneko")
+end
+
+local sumneko_root_path = "/home/jemag/dev/sumneko/lua-language-server"
+local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+require'lspconfig'.sumneko_lua.setup{
+  on_attach = on_attach_common,
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+  settings = {
+    Lua = {
+      diagnostics = {
+        enable = true,
+        globals = { "vim", "it", "describe" },
+      },
+    },
+    runtime = {version = "LuaJIT"},
+    workspace = {
+      -- Make the server aware of Neovim runtime files
+      library = {
+        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+      },
+    },
+  },
+}
 EOF
