@@ -67,9 +67,12 @@ grep
 groff
 gron-bin
 grub
+gruvbox-dark-gtk
+gruvbox-dark-icons-gtk
 gst-plugins-base-libs
 gvim
 gzip
+handlr-bin
 helm
 htop
 httpie
@@ -133,6 +136,7 @@ lua51
 luarocks
 luit
 lutris
+lxappearance-gtk3
 m4
 make
 man-db
@@ -169,6 +173,8 @@ openresolv
 pacman
 patch
 pavucontrol
+pcmanfm-gtk3
+perl-file-mimeinfo
 picom
 pkgconf
 playerctl
