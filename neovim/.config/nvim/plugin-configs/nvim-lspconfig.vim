@@ -45,7 +45,7 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 
 local configPath = vim.fn.stdpath("config")
 local languageServerPath = configPath.."/languageserver"
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level(0)
 
 -- common attach config
 local on_attach_common = function(client)
@@ -146,7 +146,32 @@ vim.lsp.handlers["callHierarchy/incomingCalls"] = require'fzf_lsp'.incoming_call
 vim.lsp.handlers["callHierarchy/outgoingCalls"] = require'fzf_lsp'.outgoing_calls_handler
 
 local on_attach_java = function(client)
+    require'illuminate'.on_attach(client)
+    require'completion'.on_attach(client)
     require('jdtls').setup_dap()
+    require('jdtls').setup.add_commands()
+    map('n', '<leader>lD','<cmd>lua vim.lsp.buf.declaration()<CR>')
+    map('n', '<leader>ld','<cmd>lua vim.lsp.buf.definition()<CR>')
+    map('n', '<C-q>','<cmd>lua vim.lsp.buf.hover()<CR>')
+    map('n', '<leader>lh','<cmd>lua vim.lsp.buf.hover()<CR>')
+    map('n', '<leader>lr','<cmd>lua vim.lsp.buf.references()<CR>')
+    map('n', '<leader>ls','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    map('n', '<leader>li','<cmd>lua vim.lsp.buf.implementation()<CR>')
+    map('n', '<leader>lt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    map('n', '<leader>lw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    map('n', '<leader>lW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    -- ACTION mappings
+    map('n', '<leader>la', "<Cmd>lua require'jdtls'.code_action()<CR>")
+    map('v', '<leader>la', "<Esc><Cmd>lua require'jdtls'.code_action(true)<CR>")
+    map('n', '<leader>lA', "<Cmd>lua require'jdtls'.code_action(false, 'refactor')<CR>")
+    map('n', '<leader>lR',  '<cmd>lua vim.lsp.buf.rename()<CR>')
+    -- Few language severs support these three
+    map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    -- Diagnostics mapping
+    map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+    map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+    map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+
     map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
     map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
     map("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
@@ -156,30 +181,25 @@ local on_attach_java = function(client)
 end
 
 local dap = require('dap')
---dap.configurations.java = {
---  {
---    type = 'java';
---    request = 'attach';
---    name = "Debug (Attach) - Remote";
---    hostName = "127.0.0.1";
---    port = 8080;
---  },
---}
 
 dap.defaults.fallback.external_terminal = {
   command = '/usr/bin/alacritty';
   args = {'-e'};
 }
 
+local bundles= {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+}
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/jemag/dev/vscode-java-test/server/*.jar"), "\n"))
+
 function start_jdt()
     print("starting jdt")
     require('jdtls').start_or_attach({
     cmd = {'java-lsp.sh'},
     init_options = {
-      bundles = {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")},
+      bundles = bundles,
     },
     on_attach = function(client)
-    on_attach_common(client)
+    --on_attach_common(client)
     on_attach_java(client)
     end
     })

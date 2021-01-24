@@ -63,7 +63,7 @@ set shiftround
 set hidden
 set shortmess=aFc
 set signcolumn=yes
-set completefunc=emoji#complete
+" set completefunc=emoji#complete
 set completeopt =menuone,noinsert,noselect
 set nolist
 set showbreak=↪\

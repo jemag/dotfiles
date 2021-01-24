@@ -19,6 +19,7 @@ text/yaml=nvim-qt.desktop;nvim.desktop;gvim.desktop;
 [Default Applications]
 application/json=nvim-qt.desktop;
 application/x-yaml=nvim-qt.desktop;
+image/jpeg=feh.desktop;
 image/png=feh.desktop;
 text/markdown=nvim-qt.desktop;
 text/plain=nvim-qt.desktop;

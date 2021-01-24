@@ -150,7 +150,6 @@ mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
 ncdu
-neovim-git
 neovim-remote
 nerd-fonts-complete
 net-tools
@@ -174,7 +173,6 @@ pacman
 patch
 pavucontrol
 pcmanfm-gtk3
-perl-file-mimeinfo
 picom
 pkgconf
 playerctl

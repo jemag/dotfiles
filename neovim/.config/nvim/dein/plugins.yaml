@@ -19,6 +19,7 @@
 - repo: christoomey/vim-tmux-navigator
 - repo: voldikss/vim-floaterm
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-floaterm.vim
+- repo: voldikss/fzf-floaterm
 - repo: airblade/vim-rooter
 - repo: wellle/targets.vim
 - repo: justinmk/vim-sneak
@@ -52,6 +53,8 @@
 - repo: theHamsta/nvim-dap-virtual-text
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-dap-virtual-text.vim
 - repo: mfussenegger/nvim-jdtls
+- repo: equalsraf/neovim-gui-shim
+- repo: lambdalisue/suda.vim
 #}}}
 
 # Themes {{{
@@ -146,6 +149,10 @@
 - repo: neovim/nvim-lspconfig
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-lspconfig.vim
+# - repo: Shougo/deoplete.nvim
+#   hook_post_source: let g:deoplete#enable_at_startup = 1
+# - repo: deoplete-plugins/deoplete-lsp
+#   hook_post_source: g:deoplete#lsp#handler_enabled = v:true
 - repo: nvim-lua/completion-nvim
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/completion-nvim.vim

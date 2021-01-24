@@ -11,6 +11,11 @@ source $HOME/.config/nvim/themes/theme.vim
 call dein#call_hook('source')
 call dein#call_hook('post_source')
 
+augroup gui
+  autocmd!
+  autocmd UIEnter * GuiFont! FuraCode\ Nerd\ Font\ Mono:h9
+augroup END
+
 if &compatible
   set nocompatible
 endif
