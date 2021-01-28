@@ -1,11 +1,13 @@
-# ~/.tmuxinator/psql.yml
+# ~/.tmuxinator/config.yml
 
 name: config
 root: ~/
 
 windows:
   - zsh:
-      layout: even-horizontal
+      layout: tiled
       panes:
+        - cd ~/dotfiles
+        - cd ~/dotfiles
         - cd ~/dotfiles
         - cd ~/dotfiles
