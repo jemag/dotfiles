@@ -199,6 +199,7 @@ samba
 seahorse
 sed
 shellcheck
+signal-desktop
 snapd
 sonar-scanner
 sonarqube

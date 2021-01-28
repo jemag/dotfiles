@@ -14,7 +14,7 @@ java \
   -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar \
   -jar $(echo "$JAR") \
   -configuration "$HOME/dev/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux" \
-  -data "$HOME/dev/eclipse/workspace" \
+  -data "$1" \
   --add-modules=ALL-SYSTEM \
   --add-opens java.base/java.util=ALL-UNNAMED \
   --add-opens java.base/java.lang=ALL-UNNAMED

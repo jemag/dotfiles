@@ -55,13 +55,17 @@
 - repo: mfussenegger/nvim-jdtls
 - repo: equalsraf/neovim-gui-shim
 - repo: lambdalisue/suda.vim
+- repo: gerw/vim-HiLinkTrace
+- repo: airblade/vim-gitgutter
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/vim-gitgutter.vim
 #}}}
 
 # Themes {{{
 - repo: doums/darcula
 - repo: aonemd/kuroi.vim
 - repo: romgrk/doom-one.vim
-- repo: ChristianChiarulli/nvcode-color-schemes.vim
+#TODO: restore when we figure a way to deal with their gruvbox theme and the community one
+# - repo: ChristianChiarulli/nvcode-color-schemes.vim
 - repo: habamax/vim-gruvbit
 - repo: kyazdani42/blue-moon
 - repo: romainl/Apprentice
@@ -71,8 +75,13 @@
 - repo: chuling/equinusocio-material.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/equinusocio-material.vim
 - repo: gruvbox-community/gruvbox
+- repo : arcticicestudio/nord-vim
+- repo: mhartington/oceanic-next
 - repo: franbach/miramare
 - repo: chuling/ci_dark
+- repo:  sonph/onehalf
+  rtp: vim
+- repo: joshdick/onedark.vim
 #}}}
 # Core Plugins{{{
 # - repo: neoclide/coc.nvim
@@ -187,15 +196,6 @@
 - repo: plasticboy/vim-markdown
   on_ft: [markdown, pandoc.markdown, rmd]
   hook_source: source  $HOME/.config/nvim/plugin-configs/vim-markdown.vim
-  hook_add: |
-        let g:markdown_fenced_languages = [
-          \ 'html',
-          \ 'bash=sh',
-          \ 'css',
-          \ 'javascript',
-          \ 'js=javascript',
-          \ 'go',
-          \]
 
 - repo: iamcco/markdown-preview.nvim
   on_ft: [markdown, pandoc.markdown, rmd]
@@ -241,9 +241,9 @@
             \  },
         \}
 
-- repo: luochen1990/rainbow
-  on_ft: [python,javascript,typescript,jsx, java,javascript.jsx,html,css,go,vim,toml]
-  hook_source: let g:rainbow_active = 1
+# - repo: luochen1990/rainbow
+#   on_ft: [python,javascript,typescript,jsx, java,javascript.jsx,html,css,go,vim,toml]
+#   hook_source: let g:rainbow_active = 1
 
 - repo: Shougo/echodoc.vim
   on_event: CompleteDone

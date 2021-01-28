@@ -1,10 +1,11 @@
 autocmd CursorHold * silent lua vim.lsp.diagnostic.show_line_diagnostics()
 lua <<EOF
 -- highlights for vim illuminate
-vim.api.nvim_command [[ hi def link LspReferenceText IncSearch ]]
-vim.api.nvim_command [[ hi def link LspReferenceRead IncSearch ]]
-vim.api.nvim_command [[ hi def link LspReferenceWrite IncSearch ]]
-vim.api.nvim_command [[ hi def link illuminatedCurWord IncSearch ]]
+local home = os.getenv('HOME')
+vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+vim.api.nvim_command [[ hi def link illuminatedCurWord CursorLine ]]
 
 -- util function to map keys
 local map = function(type, key, value)
@@ -34,13 +35,18 @@ local map_keys = function()
   map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 end
 -- configuring diagnostics
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "🛈", texthl = "LspDiagnosticsDefaultInformation", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "!", texthl = "LspDiagnosticsDefaultHint", numhl = "LspDiagnosticsDefaultHint"})
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = false,
-    signs = true,
-    update_in_insert = false,
-}
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+      underline = true,
+      virtual_text = false,
+      signs = true,
+      update_in_insert = false,
+  }
 )
 
 local configPath = vim.fn.stdpath("config")
@@ -191,10 +197,12 @@ local bundles= {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug
 }
 vim.list_extend(bundles, vim.split(vim.fn.glob("/home/jemag/dev/vscode-java-test/server/*.jar"), "\n"))
 
+local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
 function start_jdt()
     print("starting jdt")
     require('jdtls').start_or_attach({
-    cmd = {'java-lsp.sh'},
+    cmd = {'java-lsp.sh', workspace_folder},
     init_options = {
       bundles = bundles,
     },
