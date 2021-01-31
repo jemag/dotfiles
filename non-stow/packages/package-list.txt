@@ -179,6 +179,7 @@ playerctl
 polybar
 poppler
 postgresql
+procs-bin
 pulseaudio
 pulseaudio-alsa
 pulsemixer
@@ -219,6 +220,7 @@ texinfo
 the_silver_searcher
 tldr
 tmux-git
+tokei
 traceroute
 tree
 trivy-bin

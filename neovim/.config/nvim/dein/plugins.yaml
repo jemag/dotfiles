@@ -136,6 +136,8 @@
   depends: fzf
   hook_add: source $HOME/.config/nvim/plugin-configs/fzf.vim
 
+- repo : vijaymarupudi/nvim-fzf
+
 # }}}
 
 # Database Plugins{{{
@@ -211,7 +213,8 @@
 
 
 # Coding{{{
-- { repo: tpope/vim-commentary }
+# - { repo: tpope/vim-commentary }
+- repo : b3nj5m1n/kommentary
 
 - repo: Chiel92/vim-autoformat
   hook_source: source  $HOME/.config/nvim/plugin-configs/vim-autoformat.vim
@@ -241,10 +244,6 @@
             \  },
         \}
 
-# - repo: luochen1990/rainbow
-#   on_ft: [python,javascript,typescript,jsx, java,javascript.jsx,html,css,go,vim,toml]
-#   hook_source: let g:rainbow_active = 1
-
 - repo: Shougo/echodoc.vim
   on_event: CompleteDone
   hook_source: |
@@ -264,7 +263,6 @@
 # }}}
 
 # TextObjectOperator{{{
-- repo: AndrewRadev/splitjoin.vim
 - repo: terryma/vim-expand-region
 - repo: tpope/vim-surround
 # }}}

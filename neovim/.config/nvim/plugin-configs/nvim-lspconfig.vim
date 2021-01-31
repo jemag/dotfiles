@@ -151,6 +151,24 @@ vim.lsp.handlers["workspace/symbol"] = require'fzf_lsp'.workspace_symbol_handler
 vim.lsp.handlers["callHierarchy/incomingCalls"] = require'fzf_lsp'.incoming_calls_handler
 vim.lsp.handlers["callHierarchy/outgoingCalls"] = require'fzf_lsp'.outgoing_calls_handler
 
+local nvim_fzf = require("fzf")
+require'jdtls.ui'.pick_one_async = function(items, prompt, label_fn, cb)
+coroutine.wrap(function()
+  local lines = {}
+
+  for i, a in ipairs(items) do
+    a["idx"] = i
+    lines[i] = a["idx"] .. ". " .. a["title"]
+  end
+
+  local result_table = nvim_fzf.fzf(lines)
+  if result_table then
+    local idx = tonumber(result_table[1]:match("(%d+)[.]"))
+    cb(items[idx])
+  end
+end)()
+end
+
 local on_attach_java = function(client)
     require'illuminate'.on_attach(client)
     require'completion'.on_attach(client)
@@ -197,6 +215,7 @@ local bundles= {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug
 }
 vim.list_extend(bundles, vim.split(vim.fn.glob("/home/jemag/dev/vscode-java-test/server/*.jar"), "\n"))
 
+--TODO: could potentially want GUID for project directory to avoid problems with project with similar names or opening twice the same project?!
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 function start_jdt()
