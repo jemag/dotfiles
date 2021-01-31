@@ -49,7 +49,7 @@ windows:
               - k9s:
                 - k9s
               - kubie_dev:
-                - kubie ctx AKSDEV-admin
+                - kubie ctx aksdev-admin
                 - kubie ns iwls
               - kubie_test:
                 - kubie ctx akstest-admin

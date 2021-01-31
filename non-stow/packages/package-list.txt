@@ -1,4 +1,4 @@
-alacritty
+alacritty-git
 alsa-plugins
 alsa-utils
 arandr
@@ -17,6 +17,7 @@ broot
 calibre
 chromium
 chromium-widevine
+clang
 code-minimap
 cronie
 ctags
@@ -28,8 +29,10 @@ docker
 dockle-bin
 dust
 efm-langserver
+element-desktop
 epub-thumbnailer-git
 evince
+evtest
 exa
 fakeroot
 fd
@@ -64,9 +67,12 @@ grep
 groff
 gron-bin
 grub
+gruvbox-dark-gtk
+gruvbox-dark-icons-gtk
 gst-plugins-base-libs
 gvim
 gzip
+handlr-bin
 helm
 htop
 httpie
@@ -77,6 +83,7 @@ jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
 joplin
+joplin-desktop
 jp
 jq
 k9s
@@ -84,6 +91,7 @@ keepassxc
 kind-bin
 kitty
 krew
+kube-linter-bin
 kubectl
 kubectx
 kubeval-bin
@@ -128,11 +136,13 @@ lua51
 luarocks
 luit
 lutris
+lxappearance-gtk3
 m4
 make
 man-db
 man-pages
 maven
+mkcert
 mkinitcpio
 mkinitcpio-utils
 mongodb-bin
@@ -143,6 +153,7 @@ ncdu
 neovim-remote
 nerd-fonts-complete
 net-tools
+ninja
 nmap
 nodejs
 noto-fonts
@@ -161,12 +172,14 @@ openresolv
 pacman
 patch
 pavucontrol
+pcmanfm-gtk3
 picom
 pkgconf
 playerctl
 polybar
 poppler
 postgresql
+procs-bin
 pulseaudio
 pulseaudio-alsa
 pulsemixer
@@ -182,10 +195,12 @@ ripgrep
 rofi
 ruby
 rust
+rust-analyzer
 samba
 seahorse
 sed
 shellcheck
+signal-desktop
 snapd
 sonar-scanner
 sonarqube
@@ -200,10 +215,12 @@ studio-3t
 sudo
 tcpdump
 teams
+terraform-ls-bin
 texinfo
 the_silver_searcher
 tldr
 tmux-git
+tokei
 traceroute
 tree
 trivy-bin
@@ -261,5 +278,6 @@ yay
 ytop-bin
 zathura
 zathura-pdf-mupdf
+zeal-git
 zoom
 zsh

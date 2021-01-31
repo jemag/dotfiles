@@ -1,3 +1,4 @@
+set exrc
 set nobackup
 set noswapfile
 set autoread
@@ -8,7 +9,9 @@ set bsdir=buffer
 set nofoldenable
 set wildmode=full
 set inccommand=split
-set textwidth=140
+set textwidth=0
+set nowrap
+set scrolloff=8
 " enable mouse
 set mouse=a
 if has('vim_starting')
@@ -26,11 +29,13 @@ if get(g:,'gruvbox_transp_bg',1)
 endif
 
 " if has('clipboard')
-" 	set clipboard& clipboard+=unnamedplus
+"	set clipboard& clipboard+=unnamedplus
 " endif
 
 " spelling
 set spelllang=en,fr
+" enable embedded syntax highlighting
+let g:vimsyn_embed='lPr'
 
 set history=2000
 set number
@@ -58,10 +63,10 @@ set shiftround
 set hidden
 set shortmess=aFc
 set signcolumn=yes
-set completefunc=emoji#complete
-set completeopt =menuone,noinsert,noselect,preview
+" set completefunc=emoji#complete
+set completeopt =menuone,noinsert,noselect
 set nolist
-set showbreak=↪\ 
+set showbreak=↪\
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 set ignorecase      " Search ignoring case
@@ -110,3 +115,12 @@ function! Handle_Win_Enter()
   hi InactiveWindow guibg=#1C1C1C
   setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 endfunction
+
+" Better auto completion with tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif

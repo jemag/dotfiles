@@ -24,4 +24,4 @@ let g:scrollbar_min_size = 3
     \ 'tail': '',
     \ }
 
-let g:scrollbar_excluded_filetypes = ['nvim-tree', 'fzf', 'defx', 'vista', 'tagbar', 'vifm', 'startify']
+let g:scrollbar_excluded_filetypes = ['NvimTree', 'fzf', 'defx', 'vista', 'tagbar', 'vifm', 'startify']

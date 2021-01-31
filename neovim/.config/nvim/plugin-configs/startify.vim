@@ -20,5 +20,9 @@ function! s:center(lines) abort
         \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
   return centered_lines
 endfunction
+let g:startify_session_before_save = [
+      \ 'echo "Cleaning up before saving.."',
+      \ 'lua require("scrollbar").clear()'
+      \ ]
 
 " nnoremap <silent> <leader>s :Startify<CR>

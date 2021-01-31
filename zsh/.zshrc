@@ -1,8 +1,39 @@
+# zmodload zsh/zprof
 autoload bashcompinit && bashcompinit
+source '/usr/share/nvm/init-nvm.sh'
+nvm use node --silent
 source '/home/jemag/.config/zsh/plugins/zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
+# ci"
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
+done
+
+# ci{, ci(
+autoload -U select-bracketed
+zle -N select-bracketed
+for m in visual viopp; do
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $m $c select-bracketed
+  done
+done
+
+# surround
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+
+bindkey -a cs change-surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -M visual S add-surround
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
@@ -20,6 +51,7 @@ alias lh="ls -lh"
 alias lb="br -dsp"
 alias ta="tmux attach -t"
 alias k="kubectl"
+alias kl="kube-linter"
 alias vim="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
@@ -74,6 +106,8 @@ zplugin ice wait"0" blockf lucid
 zplugin light "zsh-users/zsh-completions"
 zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
 zplugin light "zsh-users/zsh-autosuggestions"
+# zplugin load "jeffreytse/zsh-vi-mode"
+# zplugin load "softmoth/zsh-vim-mode"
 zplugin snippet /home/jemag/lib/azure-cli/az.completion
 zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
@@ -174,6 +208,7 @@ export FZF_CTRL_T_OPTS="
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export JAVA_HOME=/usr/lib/jvm/default
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
+export NODE_BIN="$(npm config get prefix)/bin"
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
@@ -185,6 +220,7 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
 export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
+export HELM_EXPERIMENTAL_OCI=1
 export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
@@ -192,6 +228,8 @@ export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$NODE_BIN
 export PATH=$PATH:/home/jemag/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=${PATH%:/home/jemag/bin/}
@@ -200,5 +238,5 @@ typeset -U path
 source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
-source '/usr/share/nvm/init-nvm.sh'
 eval "$(starship init zsh)"
+# zprof

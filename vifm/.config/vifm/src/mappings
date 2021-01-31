@@ -11,8 +11,8 @@ nnoremap d :delete<cr>
 
 " Two-panel mappings
 nnoremap s :sync<cr>
-nnoremap y :copy<cr>
-nnoremap m :move<cr>
+nnoremap y :copy &<cr>
+nnoremap m :move &<cr>
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>

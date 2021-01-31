@@ -1,0 +1,13 @@
+# ~/.tmuxinator/reference.yml
+
+name: reference
+root: ~/
+
+windows:
+  - zsh:
+      layout: tiled
+      panes:
+        - cd ~/Projects/github-reference
+        - cd ~/Projects/github-reference
+        - cd ~/Projects/github-reference
+        - cd ~/Projects/github-reference
