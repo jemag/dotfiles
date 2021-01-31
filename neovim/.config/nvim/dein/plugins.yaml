@@ -164,7 +164,6 @@
 #   hook_post_source: let g:deoplete#enable_at_startup = 1
 # - repo: deoplete-plugins/deoplete-lsp
 #   hook_post_source: g:deoplete#lsp#handler_enabled = v:true
->>>>>>> nvim-lsp
 - repo: nvim-lua/completion-nvim
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/completion-nvim.vim
