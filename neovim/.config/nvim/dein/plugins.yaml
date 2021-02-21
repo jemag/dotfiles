@@ -16,6 +16,8 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/beacon.vim
 - repo: liuchengxu/vim-which-key
 - repo: honza/vim-snippets
+- repo: SirVer/ultisnips
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/ultisnips.vim
 - repo: christoomey/vim-tmux-navigator
 - repo: voldikss/vim-floaterm
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-floaterm.vim
@@ -31,8 +33,6 @@
 - repo: glacambre/firenvim
   hook_post_update: call firenvim#install()
   hook_add: source $HOME/.config/nvim/plugin-configs/firenvim.vim
-- repo: sheerun/vim-polyglot
-  merged: 0
 - repo: vifm/vifm.vim
   hook_add: source $HOME/.config/nvim/plugin-configs/vifm.vim
 - repo: kyazdani42/nvim-tree.lua
@@ -41,13 +41,12 @@
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-treesitter.vim
   hook_post_update: TSUpdate
-# - repo: hoob3rt/lualine.nvim
-#   hook_post_source: source $HOME/.config/nvim/plugin-configs/lualine.vim
 - repo: glepnir/galaxyline.nvim
   hook_post_source: source $HOME/.config/nvim/plugin-configs/galaxyline.vim
 - repo: RRethy/vim-illuminate
 - repo: tweekmonster/startuptime.vim
-- repo: jiangmiao/auto-pairs
+- repo: windwp/nvim-autopairs
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-autopairs.vim
 - repo: gfanto/fzf-lsp.nvim
 - repo: mfussenegger/nvim-dap
 - repo: theHamsta/nvim-dap-virtual-text
@@ -148,25 +147,18 @@
 # Git Plugins{{{
 - { repo: tpope/vim-fugitive, on_path: .* }
 - { repo: junegunn/gv.vim, on_path: .* }
-
-
-# - repo: neoclide/vim-easygit
-#   on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
-#   hook_source: let g:easygit_enable_command = 1
-
 # }}}
 
 # Language{{{
 - repo: neovim/nvim-lspconfig
   merged: 0
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-lspconfig.vim
-# - repo: Shougo/deoplete.nvim
-#   hook_post_source: let g:deoplete#enable_at_startup = 1
-# - repo: deoplete-plugins/deoplete-lsp
-#   hook_post_source: g:deoplete#lsp#handler_enabled = v:true
-- repo: nvim-lua/completion-nvim
+- repo: hrsh7th/vim-vsnip
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/vim-snip.vim
+- repo: hrsh7th/vim-vsnip-integ
+- repo: hrsh7th/nvim-compe
   merged: 0
-  hook_post_source: source $HOME/.config/nvim/plugin-configs/completion-nvim.vim
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-compe.vim
 - repo: tjdevries/nlua.nvim
   merged: 0
   on_ft: lua
@@ -201,7 +193,7 @@
 
 - repo: iamcco/markdown-preview.nvim
   on_ft: [markdown, pandoc.markdown, rmd]
-  build: 'cd app & yarn install'
+  build: 'cd app & npm install'
   hook_source: source  $HOME/.config/nvim/plugin-configs/markdown-preview.vim
 
 - repo: jtratner/vim-flavored-markdown
@@ -213,7 +205,6 @@
 
 
 # Coding{{{
-# - { repo: tpope/vim-commentary }
 - repo : b3nj5m1n/kommentary
 
 - repo: Chiel92/vim-autoformat

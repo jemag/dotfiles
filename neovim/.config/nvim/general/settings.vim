@@ -104,10 +104,10 @@ augroup highlight_yank
 
 " Background colors for active vs inactive windows
 " Call method on window enter
-augroup WindowManagement
-  autocmd!
-  autocmd WinEnter * call Handle_Win_Enter()
-augroup END
+" augroup WindowManagement
+  " autocmd!
+  " autocmd WinEnter * call Handle_Win_Enter()
+" augroup END
 
 " Change highlight group of active/inactive windows
 function! Handle_Win_Enter()
@@ -117,10 +117,10 @@ function! Handle_Win_Enter()
 endfunction
 
 " Better auto completion with tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" inoremap <expr> <Tab> pumvisible() ? '\<C-n>' : '\<Tab>'
+" inoremap <expr> <S-Tab> pumvisible() ? '\<C-p>' : '\<S-Tab>'
+" if exists('*complete_info')
+"   inoremap <expr> <cr> complete_info()["selected"] != '-1' ? '\<C-y>' : '\<C-g>u\<CR>'
+" else
+"   inoremap <expr> <cr> pumvisible() ? '\<C-y>' : '\<C-g>u\<CR>'
+" endif

@@ -18,7 +18,6 @@ calibre
 chromium
 chromium-widevine
 clang
-code-minimap
 cronie
 ctags
 deluge-gtk
@@ -60,6 +59,7 @@ github-cli
 glances
 gnome-calculator
 gnome-keyring
+gnu-netcat
 go-tools
 gradle
 graphviz
@@ -170,6 +170,7 @@ openjdk11-doc
 openjdk11-src
 openresolv
 pacman
+paru-bin
 patch
 pavucontrol
 pcmanfm-gtk3
@@ -234,12 +235,14 @@ vlc
 w3m
 weechat
 which
+whois
 wine-mono
 wine-staging
 winetricks
 wireguard-tools
 wireshark-qt
 wttr
+xboxdrv
 xdo
 xorg-bdftopcf
 xorg-iceauth
@@ -274,6 +277,7 @@ xorg-xwininfo
 xorg-xwud
 xournalpp
 xsel
+yarn
 yay
 ytop-bin
 zathura

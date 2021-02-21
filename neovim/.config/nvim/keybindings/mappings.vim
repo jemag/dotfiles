@@ -1,6 +1,6 @@
 " ctrl p/n should act like up down for command line history
 cnoremap <C-p> <Up>
-noremap <expr> ' printf('`%c zz',getchar())
+nnoremap <expr> ' printf('`%c zz',getchar())
 cnoremap <C-n> <Down>
 nnoremap R "_d
 " Remove search highlighting
@@ -18,9 +18,6 @@ inoremap <C-u> <C-g>u<C-u>
 " For toggling spelling
 nnoremap <silent> <F11> :set spell!<cr>
 inoremap <silent> <F11> <C-O>:set spell!<cr>
-" Cycle through buffers
-noremap <Tab> :BufferNext<CR>
-noremap <S-Tab> :BufferPrevious<CR>
 "smart move
 nnoremap j gj
 nnoremap k gk

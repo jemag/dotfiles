@@ -8,9 +8,8 @@ vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
 vim.api.nvim_command [[ hi def link illuminatedCurWord CursorLine ]]
 
 -- util function to map keys
-local map = function(type, key, value)
-    vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
-end
+-- TODO: move to util
+local map = function(type, key, value) vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true}); end
 
 -- GOTO mappings
 local map_keys = function()
@@ -34,7 +33,8 @@ local map_keys = function()
   map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
   map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 end
--- configuring diagnostics
+
+-- configuring diagnostics signs
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
 vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "🛈", texthl = "LspDiagnosticsDefaultInformation", numhl = "LspDiagnosticsDefaultInformation"})
@@ -49,16 +49,51 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
+local set_lsp_icons = function()
+
+require'vim.lsp.protocol'.CompletionItemKind = {
+    '';   -- Text          = 1;
+    '';   -- Method        = 2;
+    'ƒ';   -- Function      = 3;
+    '';   -- Constructor   = 4;
+    '識';  -- Field         = 5;
+    '';   -- Variable      = 6;
+    '';   -- Class         = 7;
+    'ﰮ';   -- Interface     = 8;
+    '';   -- Module        = 9;
+    '';   -- Property      = 10;
+    '';   -- Unit          = 11;
+    '';   -- Value         = 12;
+    '了';  -- Enum          = 13;
+    '';   -- Keyword       = 14;
+    '﬌';   -- Snippet       = 15;
+    '';   -- Color         = 16;
+    '';   -- File          = 17;
+    '渚';  -- Reference     = 18;
+    '';   -- Folder        = 19;
+    '';   -- EnumMember    = 20;
+    '';   -- Constant      = 21;
+    '';   -- Struct        = 22;
+    '鬒';  -- Event         = 23;
+    'Ψ';   -- Operator      = 24;
+    '';   -- TypeParameter = 25;
+  }
+end
+
 local configPath = vim.fn.stdpath("config")
 local languageServerPath = configPath.."/languageserver"
-vim.lsp.set_log_level(0)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+--vim.lsp.set_log_level(0)
 
 -- common attach config
 local on_attach_common = function(client)
     print("lsp started")
-    require'completion'.on_attach(client)
-    require'illuminate'.on_attach(client)
+    if client.resolved_capabilities.document_highlight then
+      require'illuminate'.on_attach(client)
+    end
     map_keys()
+    set_lsp_icons()
 end
 
 
@@ -81,26 +116,20 @@ require'lspconfig'.bashls.setup{
 }
 
 require'lspconfig'.terraformls.setup{
-  on_attach = function(client)
-  require'completion'.on_attach(client)
-  map_keys()
-  print("lsp started")
-  end,
+  on_attach = on_attach_common
 }
 
 if require'lspconfig'.jsonls then
 require'lspconfig'.jsonls.setup{
-  on_attach = function(client)
-  print("lsp started")
-  require'completion'.on_attach(client)
-  map_keys()
-  end,
+  on_attach = on_attach_common,
   cmd = {languageServerPath.."/node_modules/vscode-json-languageserver/bin/vscode-json-languageserver", "--stdio"}
 }
 end
 
+
 require'lspconfig'.gopls.setup{
-  on_attach = on_attach_common
+  on_attach = on_attach_common,
+  capabilities = capabilities
 }
 
 require'lspconfig'.clangd.setup{
@@ -129,11 +158,7 @@ require'lspconfig'.html.setup{
 }
 
 require'lspconfig'.yamlls.setup{
-  on_attach = function(client)
-  print("lsp started")
-  require'completion'.on_attach(client)
-  map_keys()
-  end,
+  on_attach = on_attach_common,
   cmd = {languageServerPath.."/node_modules/yaml-language-server/bin/yaml-language-server", "--stdio"}
 }
 
@@ -171,9 +196,9 @@ end
 
 local on_attach_java = function(client)
     require'illuminate'.on_attach(client)
-    require'completion'.on_attach(client)
     require('jdtls').setup_dap()
     require('jdtls').setup.add_commands()
+    set_lsp_icons()
     map('n', '<leader>lD','<cmd>lua vim.lsp.buf.declaration()<CR>')
     map('n', '<leader>ld','<cmd>lua vim.lsp.buf.definition()<CR>')
     map('n', '<C-q>','<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -222,6 +247,35 @@ function start_jdt()
     print("starting jdt")
     require('jdtls').start_or_attach({
     cmd = {'java-lsp.sh', workspace_folder},
+    capabilities = capabilities,
+    settings = {
+      java = {
+        signatureHelp = { enabled = true };
+        --contentProvider = { preferred = 'fernflower' };
+        completion = {
+          favoriteStaticMembers = {
+            "org.hamcrest.MatcherAssert.assertThat",
+            "org.hamcrest.Matchers.*",
+            "org.hamcrest.CoreMatchers.*",
+            "org.junit.jupiter.api.Assertions.*",
+            "java.util.Objects.requireNonNull",
+            "java.util.Objects.requireNonNullElse",
+            "org.mockito.Mockito.*"
+          }
+        };
+        sources = {
+          organizeImports = {
+            starThreshold = 9999;
+            staticStarThreshold = 9999;
+          };
+        };
+        codeGeneration = {
+          toString = {
+            template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+          }
+        };
+      };
+    },
     init_options = {
       bundles = bundles,
     },

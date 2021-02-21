@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@angular/language-server": "^0.1100.2",
-    "dockerfile-language-server-nodejs": "^0.2.0",
-    "typescript": "^4.1.3",
+    "@angular/language-server": "^0.1100.4",
+    "dockerfile-language-server-nodejs": "^0.2.2",
+    "typescript": "^4.1.5",
     "typescript-language-server": "^0.4.0",
     "vim-language-server": "^2.1.2",
     "vscode-html-languageserver-bin": "^1.4.0",
