@@ -2,16 +2,14 @@ autocmd CursorHold * silent lua vim.lsp.diagnostic.show_line_diagnostics()
 lua <<EOF
 -- highlights for vim illuminate
 local home = os.getenv('HOME')
-vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
-vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
-vim.api.nvim_command [[ hi def link illuminatedCurWord CursorLine ]]
 
--- util function to map keys
--- TODO: move to util
-local map = function(type, key, value) vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true}); end
+-- configuring diagnostics signs
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "🛈", texthl = "LspDiagnosticsDefaultInformation", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "!", texthl = "LspDiagnosticsDefaultHint", numhl = "LspDiagnosticsDefaultHint"})
 
--- GOTO mappings
+local map = require'utils'.map_key
 local map_keys = function()
   map('n', '<leader>lD','<cmd>lua vim.lsp.buf.declaration()<CR>')
   map('n', '<leader>ld','<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -34,23 +32,7 @@ local map_keys = function()
   map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 end
 
--- configuring diagnostics signs
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "🛈", texthl = "LspDiagnosticsDefaultInformation", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "!", texthl = "LspDiagnosticsDefaultHint", numhl = "LspDiagnosticsDefaultHint"})
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = true,
-      virtual_text = false,
-      signs = true,
-      update_in_insert = false,
-  }
-)
-
 local set_lsp_icons = function()
-
 require'vim.lsp.protocol'.CompletionItemKind = {
     '';   -- Text          = 1;
     '';   -- Method        = 2;
@@ -99,6 +81,7 @@ end
 
 require'lspconfig'.tsserver.setup{
   on_attach = on_attach_common,
+  capabilities = capabilities,
   cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
 }
 
@@ -133,17 +116,19 @@ require'lspconfig'.gopls.setup{
 }
 
 require'lspconfig'.clangd.setup{
-  on_attach = on_attach_common
+  on_attach = on_attach_common,
+  capabilities = capabilities
 }
 
 require'lspconfig'.rust_analyzer.setup{
-  on_attach = on_attach_common
+  on_attach = on_attach_common,
+  capabilities = capabilities
 }
 
 require'lspconfig'.vimls.setup{
   on_attach = on_attach_common,
   cmd = {languageServerPath.."/node_modules/vim-language-server/bin/index.js", "--stdio"}
-  }
+}
 
 
 require'lspconfig'.dockerls.setup{
@@ -162,8 +147,6 @@ require'lspconfig'.yamlls.setup{
   cmd = {languageServerPath.."/node_modules/yaml-language-server/bin/yaml-language-server", "--stdio"}
 }
 
-
--- require'lspconfig'.jdtls.setup{ on_attach=require'completion'.on_attach }
 -- Configure handlers
 vim.lsp.handlers["textDocument/codeAction"] = require'fzf_lsp'.code_action_handler
 vim.lsp.handlers["textDocument/definition"] = require'fzf_lsp'.definition_handler
@@ -175,6 +158,14 @@ vim.lsp.handlers["textDocument/documentSymbol"] = require'fzf_lsp'.document_symb
 vim.lsp.handlers["workspace/symbol"] = require'fzf_lsp'.workspace_symbol_handler
 vim.lsp.handlers["callHierarchy/incomingCalls"] = require'fzf_lsp'.incoming_calls_handler
 vim.lsp.handlers["callHierarchy/outgoingCalls"] = require'fzf_lsp'.outgoing_calls_handler
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+      underline = true,
+      virtual_text = false,
+      signs = true,
+      update_in_insert = false,
+  }
+)
 
 local nvim_fzf = require("fzf")
 require'jdtls.ui'.pick_one_async = function(items, prompt, label_fn, cb)
@@ -292,37 +283,9 @@ local autocmds = {
 		{"FileType",     "java",   "lua start_jdt()"};
 	};
 }
+require'utils'.nvim_create_augroups(autocmds)
 
---TODO: move to utils lua module
-function nvim_create_augroups(definitions)
-	for group_name, definition in pairs(definitions) do
-		vim.api.nvim_command('augroup '..group_name)
-		vim.api.nvim_command('autocmd!')
-		for _, def in ipairs(definition) do
-			-- if type(def) == 'table' and type(def[#def]) == 'function' then
-			--	def[#def] = lua_callback(def[#def])
-			-- end
-			local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-			vim.api.nvim_command(command)
-		end
-		vim.api.nvim_command('augroup END')
-	end
-end
-
-nvim_create_augroups(autocmds)
-
---TODO:  move to utils lua module
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
+local system_name = require'utils'.get_system_name()
 local sumneko_root_path = "/home/jemag/dev/sumneko/lua-language-server"
 local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 require'lspconfig'.sumneko_lua.setup{

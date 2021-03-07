@@ -44,6 +44,7 @@
 - repo: glepnir/galaxyline.nvim
   hook_post_source: source $HOME/.config/nvim/plugin-configs/galaxyline.vim
 - repo: RRethy/vim-illuminate
+  hook_post_source: source $HOME/.config/nvim/plugin-configs/vim-illuminate.vim
 - repo: tweekmonster/startuptime.vim
 - repo: windwp/nvim-autopairs
   hook_post_source: source $HOME/.config/nvim/plugin-configs/nvim-autopairs.vim
@@ -246,7 +247,8 @@
 
 - repo:  hashivim/vim-terraform
   hook_add: source $HOME/.config/nvim/plugin-configs/vim-terraform.vim
-  on_path: .tf
+  # on_path: .tf,.hcl
+- repo: jvirtanen/vim-hcl
 
 # Writing {{{
 - repo: reedes/vim-pencil

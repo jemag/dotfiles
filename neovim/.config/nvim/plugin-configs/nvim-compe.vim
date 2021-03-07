@@ -1,5 +1,7 @@
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-u>     compe#scroll({ 'delta': -4 })
 lua <<EOF
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
