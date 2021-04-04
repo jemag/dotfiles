@@ -22,6 +22,7 @@ set background=dark
 "colorscheme dracula
 "colorscheme  solarized8
 colorscheme  gruvbox
+" colorscheme  base16-gruvbox-dark-medium
 
 " Vim Colors
 " ---------------------------------------------------------

@@ -195,7 +195,7 @@ let g:which_key_map.s = {
 
 let g:which_key_localmap.t = {
       \ 'name' : '+toggle',
-      \ 'i' : [':IndentLinesToggle',              'Show indent'],
+      \ 'i' : [':IndentBlanklineToggle',              'Show indent'],
       \ 't' : ['TagbarToggle',                   'Tagbar'],
       \ 'f' : [':FloatermToggle',                'Floaterm'],
       \ 'e' : [':LuaTreeToggle',                 'Explorer' ],

@@ -55,5 +55,5 @@ windows:
                 - kubie ctx akstest-admin
                 - kubie ns iwls
               - kubie_prod:
-                - kubie ctx AKSPROD-admin
+                - kubie ctx aksprod-b-admin
                 - kubie ns iwls

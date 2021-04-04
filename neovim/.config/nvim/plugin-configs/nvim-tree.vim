@@ -1,6 +1,4 @@
-nnoremap <silent> <Leader>e
-      \ :NvimTreeRefresh<CR>
-      \ :NvimTreeToggle<CR>
+nnoremap <Leader>e :NvimTreeToggle<CR>
 nnoremap <silent> <Leader>E :NvimTreeFindFile<CR>
 " let g:nvim_tree_bindings = {
 "     \ 'edit':            ['<CR>', 'o'],

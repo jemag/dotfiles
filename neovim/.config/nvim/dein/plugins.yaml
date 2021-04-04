@@ -61,6 +61,8 @@
 #}}}
 
 # Themes {{{
+- repo: pineapplegiant/spaceduck
+  rev: main
 - repo: doums/darcula
 - repo: aonemd/kuroi.vim
 - repo: romgrk/doom-one.vim
@@ -82,6 +84,7 @@
 - repo:  sonph/onehalf
   rtp: vim
 - repo: joshdick/onedark.vim
+- repo: fnune/base16-vim
 #}}}
 # Core Plugins{{{
 # - repo: neoclide/coc.nvim
@@ -137,6 +140,10 @@
   hook_add: source $HOME/.config/nvim/plugin-configs/fzf.vim
 
 - repo : vijaymarupudi/nvim-fzf
+
+- repo: 'nvim-lua/popup.nvim'
+- repo: 'nvim-telescope/telescope.nvim'
+- repo: 'nvim-telescope/telescope-fzy-native.nvim'
 
 # }}}
 
@@ -212,8 +219,12 @@
   hook_source: source  $HOME/.config/nvim/plugin-configs/vim-autoformat.vim
   on_cmd: Autoformat
 
-- repo: Yggdroot/indentLine
-  hook_source: source  $HOME/.config/nvim/plugin-configs/indentline.vim
+# - repo: Yggdroot/indentLine
+#   hook_source: source  $HOME/.config/nvim/plugin-configs/indentline.vim
+
+- repo: lukas-reineke/indent-blankline.nvim
+  rev: lua
+  hook_source: source $HOME/.config/nvim/plugin-configs/indent-blankline.vim
 
 - repo: liuchengxu/vista.vim
   hook_source: source  $HOME/.config/nvim/plugin-configs/vista.vim

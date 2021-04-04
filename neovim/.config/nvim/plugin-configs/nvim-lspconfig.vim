@@ -213,8 +213,8 @@ local on_attach_java = function(client)
     map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 
     map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-    map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
-    map("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+    map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>", opts)
+    map("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>", opts)
     map("v", "<leader>ue", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
     map("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
     map("v", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
@@ -298,12 +298,16 @@ require'lspconfig'.sumneko_lua.setup{
         globals = { "vim", "it", "describe" },
       },
     },
-    runtime = {version = "LuaJIT"},
+    runtime = {
+      version = "LuaJIT",
+      path = vim.split(package.path, ';')
+    },
     workspace = {
       -- Make the server aware of Neovim runtime files
       library = {
         [vim.fn.expand('$VIMRUNTIME/lua')] = true,
         [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        maxPrelaod = 10000
       },
     },
   },
