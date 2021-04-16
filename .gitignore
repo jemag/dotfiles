@@ -8,3 +8,4 @@ joplin/.config/joplin-desktop/tmp
 joplin/.config/joplin-desktop/log-clipper.txt
 joplin/.config/joplin-desktop/keymap-desktop.json
 node_modules/
+**/packer_compiled.vim

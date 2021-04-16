@@ -35,6 +35,8 @@ vnoremap gk k
 vnoremap < <gv
 vnoremap > >gv
 
+" Show full path with ctrl-g
+nnoremap <c-g> 1<c-g>
 " Use alt + hjkl to resize windows
 nnoremap <silent> <M-j>    :resize -2<CR>
 nnoremap <silent> <M-k>    :resize +2<CR>

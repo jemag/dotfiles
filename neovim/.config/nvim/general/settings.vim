@@ -43,7 +43,7 @@ set timeout ttimeout
 set cmdheight=1         " Height of the command line
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=50
+set updatetime=100
 set undofile
 set undodir=~/.tmp/undo
 set relativenumber
@@ -115,12 +115,3 @@ function! Handle_Win_Enter()
   hi InactiveWindow guibg=#1C1C1C
   setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 endfunction
-
-" Better auto completion with tab
-" inoremap <expr> <Tab> pumvisible() ? '\<C-n>' : '\<Tab>'
-" inoremap <expr> <S-Tab> pumvisible() ? '\<C-p>' : '\<S-Tab>'
-" if exists('*complete_info')
-"   inoremap <expr> <cr> complete_info()["selected"] != '-1' ? '\<C-y>' : '\<C-g>u\<CR>'
-" else
-"   inoremap <expr> <cr> pumvisible() ? '\<C-y>' : '\<C-g>u\<CR>'
-" endif

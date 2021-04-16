@@ -45,6 +45,7 @@ fd
 feh
 ffmpegthumbnailer
 file
+filezilla
 findutils
 firefox
 firefox-developer-edition
