@@ -17,7 +17,6 @@ let g:which_key_map['e'] = [ ':NvimTreeToggle',          'Explorer' ]
 let g:which_key_map['E'] = [ ':NvimTreeFindFile',          'Show file' ]
 let g:which_key_map['S'] = [ ':SSave',                  'Save session' ]
 let g:which_key_map['L'] = [ ':SLoad',                  'Load session' ]
-let g:which_key_map['G'] = [ 'Goyo',                    'Zen' ]
 let g:which_key_map['1'] = [ ':BufferGoto 1',  'Buf 1']
 let g:which_key_map['2'] = [ ':BufferGoto 2',  'Buf 2']
 let g:which_key_map['3'] = [ ':BufferGoto 3',  'Buf 3']
@@ -151,17 +150,21 @@ let g:which_key_map.s = {
       \ }
 
 let g:which_key_localmap.t = {
-      \ 'name' : '+toggle',
-      \ 'i' : [':IndentBlanklineToggle',              'Show indent'],
-      \ 't' : ['TagbarToggle',                   'Tagbar'],
-      \ 'f' : [':FloatermToggle',                'Floaterm'],
-      \ 'e' : [':LuaTreeToggle',                 'Explorer' ],
-      \ 'v' : [':Vista!!',                       'Vista bar' ],
-      \ 'c' : [':ColorizerToggle',               'Colorizer'],
-      \ 'n' : [':set number!',                   'Line numbers'],
-      \ 'r' : [':set number! norelativenumber!', 'Hybrid line numbers'],
-      \ 's' : [':let @/ = ""',                   'Remove search highlight'],
-      \ 'm' : [':MundoToggle',                   'Mundo (local history)'],
+      \ 'name': '+toggle',
+      \ 'a':    [':TZAtaraxis',                    'TZAtaris'],
+      \ 'c':    [':ColorizerToggle',               'Colorizer'],
+      \ 'd':    [':LspTroubleToggle',              'Lsp Trouble (diagnostics)'],
+      \ 'e':    [':NvimTreeToggle',                'Explorer' ],
+      \ 'f':    [':FloatermToggle',                'Floaterm'],
+      \ 'i':    'Toggle indent blank lines',
+      \ 'L':    [':Limelight!!',                   'Limelight'],
+      \ 'm':    [':MundoToggle',                   'Mundo (local history)'],
+      \ 'M':    [':TZMinimalist',                  'TZMinimalist'],
+      \ 'n':    [':set number!',                   'Line numbers'],
+      \ 'r':    [':set number! norelativenumber!', 'Hybrid line numbers'],
+      \ 's':    [':SymbolsOutline',                'Symbols Outline'],
+      \ 't':    ['TagbarToggle',                   'Tagbar'],
+      \ 'v':    [':Vista!!',                       'Vista bar' ],
       \ }
 
 

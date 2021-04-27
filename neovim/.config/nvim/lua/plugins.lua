@@ -142,7 +142,10 @@ return require('packer').startup {
     use  'sonph/onehalf'
     use 'joshdick/onedark.vim'
     use 'fnune/base16-vim'
-
+    use {
+      'folke/tokyonight.nvim',
+      config = function() vim.g.tokyonight_style = "storm" end
+  }
     --[[ #######################
      Plugin development
     ####################### ]]
@@ -167,6 +170,17 @@ return require('packer').startup {
     use {
       'mhinz/vim-startify',
       config = function() require 'plugin-configs/startify' end
+    }
+
+    use {
+      'rmagatti/auto-session',
+      config = function() require 'plugin-configs/auto-session' end
+    }
+
+    use {
+      'rmagatti/session-lens',
+      config = function() require 'plugin-configs/session-lens' end,
+      after= {'telescope.nvim', 'auto-session'}
     }
 
     use 'junegunn/vim-easy-align'
@@ -310,6 +324,15 @@ return require('packer').startup {
       ft = {'markdown', 'pandoc.markdown', 'rmd'}
     }
 
+    use {
+      'simrat39/symbols-outline.nvim',
+      config = function() require 'plugin-configs/symbols-outline' end
+    }
+
+    use {
+      "folke/lsp-trouble.nvim",
+      config = function() require 'plugin-configs/lsp-trouble' end
+    }
     --[[ #######################
      Coding
     ####################### ]]
@@ -385,6 +408,11 @@ return require('packer').startup {
         use {
           'junegunn/goyo.vim',
           config = function() vim.cmd('source ~/.config/nvim/plugin-configs/goyo.vim') end
+        }
+
+        use {
+          'kdav5758/TrueZen.nvim',
+          config = function() require 'plugin-configs/truezen' end
         }
 
         use {
