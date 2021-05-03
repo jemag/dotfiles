@@ -65,13 +65,16 @@ local configPath = vim.fn.stdpath("config")
 local languageServerPath = configPath.."/languageserver"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
---vim.lsp.set_log_level(0)
+-- vim.lsp.set_log_level(0)
 
 -- common attach config
 local on_attach_common = function(client)
     print(client.name..' started')
     if client.resolved_capabilities.document_highlight then
       require'illuminate'.on_attach(client)
+    end
+    if client.resolved_capabilities.signature_help then
+      require'lsp_signature'.on_attach()
     end
     map_keys()
     set_lsp_icons()
@@ -237,6 +240,13 @@ local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(
 
 function start_jdt()
     print("jdtls started")
+    local root_markers = {'build.gradle', 'pom.xml'}
+    local root_dir = require('jdtls.setup').find_root(root_markers)
+
+    -- For Gradle only, removes the .settings folder, otherwise it often timeouts
+    if root_dir ~=nil then
+        os.execute("rm -rf " .. root_dir .. "/.settings")
+    end
     require('jdtls').start_or_attach({
     cmd = {'java-lsp.sh', workspace_folder},
     capabilities = capabilities,

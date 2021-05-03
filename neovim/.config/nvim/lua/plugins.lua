@@ -227,6 +227,10 @@ return require('packer').startup {
      Git
     ####################### ]]
     use 'tpope/vim-fugitive'
+    use {
+      'pwntester/octo.nvim',
+      config=function() require"octo".setup() end
+    }
     use 'junegunn/gv.vim'
     use {
       'airblade/vim-gitgutter',
@@ -239,6 +243,9 @@ return require('packer').startup {
     use {
       'neovim/nvim-lspconfig',
       config = function() require 'plugin-configs/nvim-lspconfig' end
+    }
+    use {
+      'ray-x/lsp_signature.nvim'
     }
     use {
       'hrsh7th/vim-vsnip',
