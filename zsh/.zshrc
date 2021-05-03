@@ -109,7 +109,7 @@ zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
 zplugin light "zsh-users/zsh-autosuggestions"
 # zplugin load "jeffreytse/zsh-vi-mode"
 # zplugin load "softmoth/zsh-vim-mode"
-zplugin snippet /home/jemag/lib/azure-cli/az.completion
+zplugin snippet /etc/bash_completion.d/azure-cli
 zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
@@ -182,6 +182,7 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 
 # add to path
 path+=/root/.gem/ruby/2.5.0/bin
+path+=/home/jemag/.local/share/gem/ruby/3.0.0/bin
 path+=('/snap/bin/')
 path+=('/var/lib/snapd/snap/bin')
 path+=$GRAILS_HOME/bin
