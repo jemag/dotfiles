@@ -1,7 +1,6 @@
 # ~/.tmuxinator/config.yml
 
 name: config
-root: ~/
 
 windows:
   - zsh:

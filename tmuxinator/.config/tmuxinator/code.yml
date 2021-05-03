@@ -1,7 +1,7 @@
 # ~/.tmuxinator/code.yml
 
 name: code
-root: ~/
+root: ~/Projects
 
 windows:
   - zsh:
