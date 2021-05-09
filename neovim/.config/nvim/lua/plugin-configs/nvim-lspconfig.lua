@@ -65,7 +65,7 @@ local configPath = vim.fn.stdpath("config")
 local languageServerPath = configPath.."/languageserver"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- vim.lsp.set_log_level(0)
+vim.lsp.set_log_level(0)
 
 -- common attach config
 local on_attach_common = function(client)
@@ -224,36 +224,35 @@ local on_attach_java = function(client)
     map("v", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>")
 end
 
-local dap = require('dap')
-
-dap.defaults.fallback.external_terminal = {
-  command = '/usr/bin/alacritty';
-  args = {'-e'};
-}
-
-local bundles= {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-}
-vim.list_extend(bundles, vim.split(vim.fn.glob("/home/jemag/dev/vscode-java-test/server/*.jar"), "\n"))
 
 --TODO: could potentially want GUID for project directory to avoid problems with project with similar names or opening twice the same project?!
-local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 function start_jdt()
+  local dap = require('dap')
+
+  dap.defaults.fallback.external_terminal = {
+    command = '/usr/bin/alacritty';
+    args = {'-e'};
+  }
+
+  local bundles= {vim.fn.glob("/home/jemag/dev/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")}
+    vim.list_extend(bundles, vim.split(vim.fn.glob("/home/jemag/dev/vscode-java-test/server/*.jar"), "\n"))
     print("jdtls started")
-    local root_markers = {'build.gradle', 'pom.xml'}
+    local root_markers = {'build.gradle', 'pom.xml', '.git'}
     local root_dir = require('jdtls.setup').find_root(root_markers)
+    local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
     -- For Gradle only, removes the .settings folder, otherwise it often timeouts
-    if root_dir ~=nil then
+    --[[ if root_dir ~=nil then
         os.execute("rm -rf " .. root_dir .. "/.settings")
-    end
+    end ]]
     require('jdtls').start_or_attach({
     cmd = {'java-lsp.sh', workspace_folder},
     capabilities = capabilities,
     settings = {
       java = {
         signatureHelp = { enabled = true };
-        --contentProvider = { preferred = 'fernflower' };
+        contentProvider = { preferred = 'fernflower' };
         completion = {
           favoriteStaticMembers = {
             "org.hamcrest.MatcherAssert.assertThat",

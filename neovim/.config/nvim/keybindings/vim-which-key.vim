@@ -67,7 +67,7 @@ let g:which_key_localmap.g = {
       \ 'b' : [':Git blame',                   'Blame'],
       \ 'B' : [':GBrowse',                     'Browse'],
       \ 'c' : [':Git commit',                  'Commit'],
-      \ 'd' : [':Git diff',                    'Diff'],
+      \ 'd' : [':DiffviewOpen',                'Diff view'],
       \ 'D' : [':Gdiffsplit',                  'Diff split'],
       \ 's' : [':Git',                         'Status'],
       \ 'i' : ['<Plug>(GitGutterPreviewHunk)', 'Chunk info'],
@@ -103,15 +103,17 @@ let g:which_key_map.l = {
 
 let g:which_key_map.m = {
       \ 'name' : '+bookmarks',
-      \ 'm' : [':BookmarkToggle',  'Toggle'],
-      \ 'i' : [':BookmarkAnnotate',  'Annotate'],
-      \ 'n' : [':BookmarkNext',      'Next bookmark'],
-      \ 'p' : [':BookmarkPrev',      'Prev bookmark'],
-      \ 'a' : [':BookmarkShowAll',   'Show all'],
-      \ 'c' : [':BookmarkClear',     'Clear'],
-      \ 'x' : [':BookmarkClearAll',  'Clear all'],
-      \ 'k' : [':BookmarkMoveUp',   'Move up'],
-      \ 'j' : [':BookmarkMoveDown', 'Move down'],
+      \ 'a' : [':BookmarkShowAll',                      'Show all'],
+      \ 'c' : [':BookmarkClear',                        'Clear'],
+      \ 'i' : [':BookmarkAnnotate',                     'Annotate'],
+      \ 'j' : [':BookmarkMoveDown',                     'Move down'],
+      \ 'k' : [':BookmarkMoveUp',                       'Move up'],
+      \ 'm' : [':BookmarkToggle',                       'Toggle'],
+      \ 'n' : [':BookmarkNext',                         'Next bookmark'],
+      \ 'p' : [':BookmarkPrev',                         'Prev bookmark'],
+      \ 's' : [':Telescope vim_bookmarks all',          'All annotated bookmarks'],
+      \ 'S' : [':Telescope vim_bookmarks current_file', 'Current file annotated bookmarks'],
+      \ 'x' : [':BookmarkClearAll',                     'Clear all'],
       \ }
 
 let g:which_key_map.r = {
@@ -198,6 +200,7 @@ let g:which_key_map.v = {
 let g:which_key_map.w = {
       \ 'name' : '+window',
       \ 'm' : [':MaximizerToggle',     'Toggle Maximizer'],
+      \ 't' : [':tabclose',     'Close tab'],
       \ }
 call which_key#register('<Space>', "g:which_key_map")
 call which_key#register('-', "g:which_key_localmap")

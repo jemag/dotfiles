@@ -63,6 +63,11 @@ return require('packer').startup {
       config = function() require 'plugin-configs/vim-bookmarks' end
     }
     use {
+      'tom-anders/telescope-vim-bookmarks.nvim',
+      after = {'telescope.nvim'},
+      config = function() require 'plugin-configs/telescope-vim-bookmarks' end
+    }
+    use {
       'editorconfig/editorconfig-vim',
       config = function() require 'plugin-configs/editorconfig-vim' end
     }
@@ -145,7 +150,8 @@ return require('packer').startup {
     use {
       'folke/tokyonight.nvim',
       config = function() vim.g.tokyonight_style = "storm" end
-  }
+    }
+    use 'shaunsingh/moonlight.nvim'
     --[[ #######################
      Plugin development
     ####################### ]]
@@ -227,6 +233,10 @@ return require('packer').startup {
      Git
     ####################### ]]
     use 'tpope/vim-fugitive'
+    use {
+      'sindrets/diffview.nvim',
+      config = function() require 'plugin-configs/diffview' end
+    }
     use {
       'pwntester/octo.nvim',
       config=function() require"octo".setup() end
