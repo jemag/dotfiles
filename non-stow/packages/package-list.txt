@@ -217,6 +217,7 @@ sed
 shellcheck
 signal-desktop
 snapd
+socat
 sonar-scanner
 sonarqube
 speedtest-cli

@@ -144,7 +144,7 @@ let g:which_key_map.s = {
       \ 'q' : [':Telescope quickfix',                  'Quickfix'],
       \ 'S' : [':Telescope colorscheme',               'Color schemes'],
       \ 't' : [':Telescope live_grep',                 'Text Rg'],
-      \ 'T' : [':BTags',                               'Buffer tags'],
+      \ 'T' : [':TodoTelescope',                       'TODOs'],
       \ 'v' : [':Vista finder coc',                    'Vista finder coc'],
       \ 'V' : [':Telescope vim_options',               'Vim options'],
       \ 'w' : [':Windows',                             'Search windows'],

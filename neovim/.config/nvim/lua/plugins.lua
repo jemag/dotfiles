@@ -24,6 +24,10 @@ return require('packer').startup {
       config =  function() require 'plugin-configs/nvim-hlslens' end
     }
     use {
+      'folke/todo-comments.nvim',
+      config = function() require("todo-comments").setup {} end
+    }
+    use {
       'romgrk/barbar.nvim',
       config = function() require 'plugin-configs/barbar' end
     }

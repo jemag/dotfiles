@@ -65,7 +65,7 @@ local configPath = vim.fn.stdpath("config")
 local languageServerPath = configPath.."/languageserver"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-vim.lsp.set_log_level(0)
+-- vim.lsp.set_log_level(0)
 
 -- common attach config
 local on_attach_common = function(client)
