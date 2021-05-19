@@ -1,6 +1,6 @@
  #!/bin/bash
 
-JAR="$HOME/dev/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
+JAR="$HOME/dev/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
 java \
   -Declipse.application=org.eclipse.jdt.ls.core.id1 \
   -Dosgi.bundles.defaultStartLevel=4 \
@@ -12,7 +12,7 @@ java \
   -javaagent:/home/jemag/.config/nvim/dependencies/lombok.jar \
   -Xbootclasspath/a:/home/jemag/.config/nvim/dependencies/lombok.jar \
   -jar $(echo "$JAR") \
-  -configuration "$HOME/dev/eclipse/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux" \
+  -configuration "$HOME/dev/jdtls/config_linux" \
   -data "$1" \
   --add-modules=ALL-SYSTEM \
   --add-opens java.base/java.util=ALL-UNNAMED \

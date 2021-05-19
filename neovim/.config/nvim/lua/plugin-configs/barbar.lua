@@ -25,7 +25,7 @@ let bufferline.letters =
 " Sets the maximum padding width with which to surround each tab
 let bufferline.maximum_padding = 4 ]]
 vim.g.bufferline = {
-	animation= true,
+	animation= false,
 	auto_hide= false,
 	closable= true,
 	clickable= true,

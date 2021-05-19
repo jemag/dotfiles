@@ -167,6 +167,7 @@ let g:which_key_localmap.t = {
       \ 's':    [':SymbolsOutline',                'Symbols Outline'],
       \ 't':    ['TagbarToggle',                   'Tagbar'],
       \ 'v':    [':Vista!!',                       'Vista bar' ],
+      \ 'z':    [':ZenMode',                       'Zen mode' ],
       \ }
 
 

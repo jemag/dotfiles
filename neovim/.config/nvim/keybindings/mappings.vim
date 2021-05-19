@@ -15,9 +15,6 @@ nnoremap <C-k> <C-w>k
 " CTRL-U in insert mode deletes a lot. Put an undo-point before it.
 inoremap <C-u> <C-g>u<C-u>
 
-" For toggling spelling
-nnoremap <silent> <F11> :set spell!<cr>
-inoremap <silent> <F11> <C-O>:set spell!<cr>
 "smart move
 nnoremap j gj
 nnoremap k gk

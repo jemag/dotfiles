@@ -1,6 +1,8 @@
 -- highlights for vim illuminate
 local home = os.getenv('HOME')
 
+
+
 -- configuring diagnostics signs
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
@@ -80,11 +82,32 @@ local on_attach_common = function(client)
     set_lsp_icons()
 end
 
+-- for nvim-lspinstall
+local function setup_servers()
+  require'lspinstall'.setup()
+  require'lspconfig'.typescript.setup{
+    on_attach = on_attach_common,
+    capabilities = capabilities,
+    -- cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
+  }
 
-require'lspconfig'.tsserver.setup{
+  -- local servers = require'lspinstall'.installed_servers()
+  --[[ for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end ]]
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
+require'lspconfig'.gopls.setup{
   on_attach = on_attach_common,
-  capabilities = capabilities,
-  cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
+  capabilities = capabilities
 }
 
 local angular_cmd = {"node", languageServerPath.."/node_modules/@angular/language-server/index.js", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath}
@@ -111,11 +134,6 @@ require'lspconfig'.jsonls.setup{
 }
 end
 
-
-require'lspconfig'.gopls.setup{
-  on_attach = on_attach_common,
-  capabilities = capabilities
-}
 
 require'lspconfig'.clangd.setup{
   on_attach = on_attach_common,

@@ -29,6 +29,7 @@ return require('packer').startup {
     }
     use {
       'romgrk/barbar.nvim',
+      -- '~/Projects/github-reference/barbar.nvim',
       config = function() require 'plugin-configs/barbar' end
     }
     use 'szw/vim-maximizer'
@@ -128,6 +129,12 @@ return require('packer').startup {
       'pineapplegiant/spaceduck',
       branch = 'main'
     }
+    use 'cocopon/iceberg.vim'
+    use 'sainnhe/sonokai'
+    use {
+      'Shatur95/neovim-ayu',
+      config = function() vim.g.ayu_mirage = true end
+    }
     use 'doums/darcula'
     use 'aonemd/kuroi.vim'
     use 'romgrk/doom-one.vim'
@@ -144,7 +151,7 @@ return require('packer').startup {
       config = function() require 'plugin-configs/equinusocio-material' end
     }
     use 'gruvbox-community/gruvbox'
-    use 'arcticicestudio/nord-vim'
+    use 'shaunsingh/nord.nvim'
     use 'mhartington/oceanic-next'
     use 'franbach/miramare'
     use 'chuling/ci_dark'
@@ -218,10 +225,14 @@ return require('packer').startup {
 
     use 'nvim-lua/popup.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
+    use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make'
+    }
     use 'nvim-telescope/telescope-media-files.nvim'
     use {
       'nvim-telescope/telescope.nvim',
-      config = function() require 'plugin-configs/telescope-config' end
+      config = function() require 'plugin-configs/telescope-config' end,
     }
 
 
@@ -257,6 +268,9 @@ return require('packer').startup {
     use {
       'neovim/nvim-lspconfig',
       config = function() require 'plugin-configs/nvim-lspconfig' end
+    }
+    use {
+      'kabouzeid/nvim-lspinstall'
     }
     use {
       'ray-x/lsp_signature.nvim'
@@ -434,6 +448,10 @@ return require('packer').startup {
         use {
           'kdav5758/TrueZen.nvim',
           config = function() require 'plugin-configs/truezen' end
+        }
+        use {
+          "folke/zen-mode.nvim",
+          config = function() require 'plugin-configs/zen-mode' end
         }
 
         use {
