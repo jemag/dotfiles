@@ -85,11 +85,13 @@ end
 -- for nvim-lspinstall
 local function setup_servers()
   require'lspinstall'.setup()
-  require'lspconfig'.typescript.setup{
-    on_attach = on_attach_common,
-    capabilities = capabilities,
-    -- cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
-  }
+  if require'lspconfig'.typescript then
+    require'lspconfig'.typescript.setup{
+      on_attach = on_attach_common,
+      capabilities = capabilities,
+      -- cmd = {languageServerPath.."/node_modules/typescript-language-server/lib/cli.js", "--stdio"}
+    }
+  end
 
   -- local servers = require'lspinstall'.installed_servers()
   --[[ for _, server in pairs(servers) do
