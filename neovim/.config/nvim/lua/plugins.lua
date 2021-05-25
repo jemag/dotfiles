@@ -24,6 +24,10 @@ return require('packer').startup {
       config =  function() require 'plugin-configs/nvim-hlslens' end
     }
     use {
+      'ethanholz/nvim-lastplace',
+      config = function() require'nvim-lastplace'.setup{} end
+    }
+    use {
       'folke/todo-comments.nvim',
       config = function() require("todo-comments").setup {} end
     }
@@ -53,6 +57,15 @@ return require('packer').startup {
       config = function() require 'plugin-configs/ultisnips' end
     }
     use 'christoomey/vim-tmux-navigator'
+    use {
+      'ThePrimeagen/harpoon',
+      config = function() require 'plugin-configs/harpoon' end
+    }
+    use {
+      'brandoncc/telescope-harpoon.nvim',
+      config = function() require'telescope'.load_extension('harpoon') end,
+      after = {'telescope.nvim', 'harpoon'}
+    }
     use {
       'voldikss/vim-floaterm',
       config = function() require 'plugin-configs/vim-floaterm' end
@@ -129,6 +142,7 @@ return require('packer').startup {
       'pineapplegiant/spaceduck',
       branch = 'main'
     }
+    use 'folke/lsp-colors.nvim'
     use 'cocopon/iceberg.vim'
     use 'sainnhe/sonokai'
     use {
@@ -136,6 +150,7 @@ return require('packer').startup {
       config = function() vim.g.ayu_mirage = true end
     }
     use 'doums/darcula'
+    use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
     use 'aonemd/kuroi.vim'
     use 'romgrk/doom-one.vim'
     --TODO: restore when we figure a way to deal with their gruvbox theme and the community one
@@ -275,6 +290,7 @@ return require('packer').startup {
     use {
       'ray-x/lsp_signature.nvim'
     }
+    use "folke/lua-dev.nvim"
     use {
       'hrsh7th/vim-vsnip',
       config = function() require 'plugin-configs.vim-snip' end
@@ -328,7 +344,7 @@ return require('packer').startup {
     use {
       'fatih/vim-go',
       opt = true,
-      ft = {'go'},
+      ft = {'go', 'yaml'},
       config = function () require 'plugin-configs/vim-go' end
     }
 

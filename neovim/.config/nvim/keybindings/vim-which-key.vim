@@ -142,6 +142,7 @@ let g:which_key_map.s = {
       \ 'p' : [':Telescope help_tags',                 'Help tags'] ,
       \ 'P' : [':Telescope tags',                      'Directory tags'],
       \ 'q' : [':Telescope quickfix',                  'Quickfix'],
+      \ 's' : [':Telescope lsp_document_symbols',      'Color schemes'],
       \ 'S' : [':Telescope colorscheme',               'Color schemes'],
       \ 't' : [':Telescope live_grep',                 'Text Rg'],
       \ 'T' : [':TodoTelescope',                       'TODOs'],
