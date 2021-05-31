@@ -142,6 +142,10 @@ return require('packer').startup {
       'pineapplegiant/spaceduck',
       branch = 'main'
     }
+    use {
+      'eddyekofo94/gruvbox-flat.nvim',
+      config  = function() vim.g.gruvbox_flat_style = "dark" end
+    }
     use 'folke/lsp-colors.nvim'
     use 'cocopon/iceberg.vim'
     use 'sainnhe/sonokai'
@@ -170,7 +174,10 @@ return require('packer').startup {
     use 'mhartington/oceanic-next'
     use 'franbach/miramare'
     use 'chuling/ci_dark'
-    use  'sonph/onehalf'
+    use  {
+      'sonph/onehalf',
+      rtp = 'vim'
+    }
     use 'joshdick/onedark.vim'
     use 'fnune/base16-vim'
     use {

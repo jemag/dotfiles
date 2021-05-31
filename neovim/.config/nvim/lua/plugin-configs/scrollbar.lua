@@ -13,7 +13,6 @@ local autocmds = {
 require'utils'.nvim_create_augroups(autocmds);
 vim.g.scrollbar_max_size = 10;
 vim.g.scrollbar_min_size = 3;
-vim.g.scrollbar_max_size = 10;
 vim.g.scrollbar_shape = {
      head = '',
      body = '█',
