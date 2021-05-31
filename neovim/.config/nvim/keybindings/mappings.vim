@@ -12,6 +12,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+" navigate quickfixlist
+noremap <Right> :cnext<CR>
+noremap <Left> :cprev<CR>
+noremap <Up> :copen<CR>
+noremap <Down> :cclose<CR>
 " CTRL-U in insert mode deletes a lot. Put an undo-point before it.
 inoremap <C-u> <C-g>u<C-u>
 
