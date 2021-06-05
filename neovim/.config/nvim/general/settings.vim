@@ -7,6 +7,8 @@ set confirm
 set splitbelow
 set bsdir=buffer
 set nofoldenable
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set wildmode=full
 set inccommand=split
 set textwidth=0

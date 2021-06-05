@@ -213,7 +213,7 @@ end
 
 local function on_attach_java(client)
   require'illuminate'.on_attach(client)
-  require('jdtls').setup_dap()
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
   require('jdtls').setup.add_commands()
   require'lsp_signature'.on_attach()
   set_lsp_icons()
