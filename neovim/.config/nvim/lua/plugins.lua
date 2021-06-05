@@ -295,7 +295,8 @@ return require('packer').startup {
       'kabouzeid/nvim-lspinstall'
     }
     use {
-      'ray-x/lsp_signature.nvim'
+      'ray-x/lsp_signature.nvim',
+      config = function() require 'plugin-configs/lsp_signature' end
     }
     use "folke/lua-dev.nvim"
     use {

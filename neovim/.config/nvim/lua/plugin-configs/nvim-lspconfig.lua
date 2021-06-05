@@ -32,8 +32,8 @@ local function map_keys()
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({enable_popup= false})<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev({enable_popup= false})<CR>')
 end
 
 local function set_lsp_icons()
