@@ -237,8 +237,8 @@ local function on_attach_java(client)
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({enable_popup= false})<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev({enable_popup= false})<CR>')
 
   map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
   map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>")
