@@ -56,6 +56,22 @@ require('telescope').setup {
       }
     }
   },
+  pickers = {
+    -- Your special builtin config goes in here
+    buffers = {
+      sort_lastused = true,
+      mappings = {
+        i = {
+          ["<c-s>"] = require("telescope.actions").delete_buffer,
+          -- or right hand side can also be a the name of the action as string
+          -- ["<c-d>"] = "delete_buffer",
+        },
+        n = {
+          ["<c-s>"] = require("telescope.actions").delete_buffer,
+        }
+      }
+    }
+  },
   extensions = {
     media_files = {
       -- filetypes whitelist
