@@ -128,6 +128,10 @@ return require('packer').startup {
       'theHamsta/nvim-dap-virtual-text',
       config = function() require 'plugin-configs/nvim-dap-virtual-text' end
     }
+    use {
+      'nvim-telescope/telescope-dap.nvim',
+      config = function() require('telescope').load_extension('dap') end
+    }
     use 'mfussenegger/nvim-jdtls'
     use 'equalsraf/neovim-gui-shim'
     use 'lambdalisue/suda.vim'
@@ -349,12 +353,12 @@ return require('packer').startup {
       'elzr/vim-json',
       ft = {'json'}
     }
-    use {
+    --[[ use {
       'fatih/vim-go',
       opt = true,
       ft = {'go', 'yaml'},
       config = function () require 'plugin-configs/vim-go' end
-    }
+    } ]]
 
     use {
       'plasticboy/vim-markdown',

@@ -170,6 +170,7 @@ end
 
 require'lspconfig'.gopls.setup{
   on_attach = on_attach_common,
+  filetypes = {"go", "gomod"},
   capabilities = capabilities
 }
 
