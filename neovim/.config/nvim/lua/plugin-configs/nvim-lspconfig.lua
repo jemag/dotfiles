@@ -309,15 +309,9 @@ require('jdtls').start_or_attach(config)
 
 end;
 
-local autocmds = {
-  lsp = {
-    {"FileType",     "java",   "lua Start_jdt()"};
-    -- TODO: put in on_attach instead so that it doesn't happen for buffers without language server?
-    {"CursorHold",     "*",   "lua vim.lsp.diagnostic.show_line_diagnostics()"};
-  };
-}
-require'utils'.nvim_create_augroups(autocmds)
- 
+vim.cmd("autocmd FileType java lua Start_jdt()")
+vim.cmd("autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})")
+
 vim.g.diagnostics_active = true
 function _G.toggle_diagnostics()
   if vim.g.diagnostics_active then
