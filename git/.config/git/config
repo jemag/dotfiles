@@ -20,6 +20,10 @@
 [push]
 	default = simple
 	# excludesfile = ~/.gitignore
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
 [web]
 	browser = firefox
 # [diff]
