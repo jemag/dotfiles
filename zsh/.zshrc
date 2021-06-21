@@ -233,6 +233,7 @@ export PATH=$PATH:/home/jemag/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$NODE_BIN
 export PATH=$PATH:/home/jemag/.local/bin
+export PATH=$PATH:/home/jemag/.yarn/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=${PATH%:/home/jemag/bin/}
 export RPS1="$(vi_mode_prompt_info)"
@@ -241,4 +242,5 @@ source /home/jemag/.config/broot/launcher/bash/br
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 # zprof
