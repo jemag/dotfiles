@@ -11,20 +11,16 @@ require('telescope').setup {
       "--line-number",
       "--column",
       "--smart-case",
-      "--hidden"
+      "--hidden",
+      -- "--glob=!.git"
     },
-    file_ignore_patterns = { 'node_modules', '.git' },
-    prompt_position = "bottom",
+    file_ignore_patterns = { 'node_modules', '.git'},
     prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
     shorten_path = true,
     winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
     border = {},
     borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
     color_devicons = true,
@@ -32,6 +28,16 @@ require('telescope').setup {
     file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
     grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
     qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        mirror = false,
+        width = 0.95
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
     mappings = {
       i = {
         -- To disable a keymap, put [map] = false
