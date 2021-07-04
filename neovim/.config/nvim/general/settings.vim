@@ -84,7 +84,7 @@ set cpoptions-=m    " showmatch will wait 0.5s or until a char is typed
 set grepprg=rg\ --vimgrep\ --hidden\ $*
 set wildignore+=*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*
 
-set conceallevel=0
+set conceallevel=2
 
 " Create file's directory before saving, if it doesn't exist.
 " Original: https://stackoverflow.com/a/4294176/151048

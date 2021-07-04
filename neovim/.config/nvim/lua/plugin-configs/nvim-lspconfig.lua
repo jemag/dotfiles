@@ -32,8 +32,8 @@ local function map_keys()
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({enable_popup= false})<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev({enable_popup= false})<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 end
 
 local function set_lsp_icons()
@@ -238,8 +238,8 @@ local function on_attach_java(client)
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({enable_popup= false})<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev({enable_popup= false})<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 
   map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
   map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>")
@@ -310,7 +310,7 @@ require('jdtls').start_or_attach(config)
 end;
 
 vim.cmd("autocmd FileType java lua Start_jdt()")
-vim.cmd("autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})")
+vim.cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})")
 
 vim.g.diagnostics_active = true
 function _G.toggle_diagnostics()
@@ -328,7 +328,12 @@ function _G.toggle_diagnostics()
         update_in_insert = false,
       }
     )
+    vim.lsp.diagnostic.display(vim.lsp.diagnostic.get(0, 1), 0, 1, {
+      underline = true,
+      virtual_text = false,
+      signs = true,
+      update_in_insert = false,
+      }
+    )
   end
 end
-
-vim.api.nvim_set_keymap('n', '<leader>tx', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
