@@ -73,9 +73,10 @@ return require('packer').startup {
     use 'voldikss/fzf-floaterm'
     use 'airblade/vim-rooter'
     use 'wellle/targets.vim'
-
-    use { 'justinmk/vim-sneak',
-    config = function() require 'plugin-configs/vim-sneak' end }
+    use {
+      'ggandor/lightspeed.nvim',
+      config = function() require 'plugin-configs/lightspeed' end
+    }
     use {
       'MattesGroeger/vim-bookmarks',
       config = function() require 'plugin-configs/vim-bookmarks' end
@@ -108,6 +109,9 @@ return require('packer').startup {
       'nvim-treesitter/nvim-treesitter',
       run = function() vim.cmd [[TSUpdate]] end,
       config = function() require 'plugin-configs/nvim-treesitter' end
+    }
+    use {
+      'nvim-treesitter/nvim-treesitter-textobjects',
     }
     use {
       'glepnir/galaxyline.nvim',
@@ -298,6 +302,10 @@ return require('packer').startup {
     use {
       'kabouzeid/nvim-lspinstall'
     }
+    --[[ use {
+      'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+      config = function() require'toggle_lsp_diagnostics'.init() end
+    } ]]
     use {
       'ray-x/lsp_signature.nvim',
       config = function() require 'plugin-configs/lsp_signature' end
@@ -473,10 +481,6 @@ return require('packer').startup {
           config = function() vim.cmd('source ~/.config/nvim/plugin-configs/goyo.vim') end
         }
 
-        use {
-          'kdav5758/TrueZen.nvim',
-          config = function() require 'plugin-configs/truezen' end
-        }
         use {
           "folke/zen-mode.nvim",
           config = function() require 'plugin-configs/zen-mode' end
