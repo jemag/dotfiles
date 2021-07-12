@@ -4,6 +4,7 @@ let g:maplocalleader = '-'
 
 " Load plugins
 lua require'plugins'
+lua require'keybindings'
 
 " Disable menu.vim
 if has('gui_running')

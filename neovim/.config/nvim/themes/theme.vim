@@ -23,7 +23,7 @@ colorscheme  gruvbox
 
 "Pmenu Colors
 " ---------------------------------------------------------
-" hi PMenuSel ctermfg=252 ctermbg=106 guifg=#d0d0d0 guibg=#859900 guisp=#859900 cterm=NONE gui=NONE
+" hi! link Pmenu Normal
 
 "coc highlight setting
 " ---------------------------------------------------------

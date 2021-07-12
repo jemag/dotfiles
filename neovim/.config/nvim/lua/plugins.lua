@@ -29,7 +29,7 @@ return require('packer').startup {
     }
     use {
       'folke/todo-comments.nvim',
-      config = function() require("todo-comments").setup {} end
+      config = function() require("todo-comments").setup{} end
     }
     use {
       'romgrk/barbar.nvim',
@@ -50,7 +50,7 @@ return require('packer').startup {
       'DanilaMihailov/beacon.nvim',
       config = function() require 'plugin-configs/beacon' end
     }
-    use 'liuchengxu/vim-which-key'
+    use 'folke/which-key.nvim'
     use 'honza/vim-snippets'
     use {
       'SirVer/ultisnips',
@@ -151,6 +151,9 @@ return require('packer').startup {
       branch = 'main'
     }
     use {
+      'lourenci/github-colors',
+    }
+    use {
       'eddyekofo94/gruvbox-flat.nvim',
       config  = function() vim.g.gruvbox_flat_style = "dark" end
     }
@@ -205,8 +208,6 @@ return require('packer').startup {
 
     use {
       'norcalli/nvim-colorizer.lua',
-      opt = true,
-      ft={'html','css','sass','scss','stylus','vim','javascript','javascriptreact','typescript','typescriptreact'},
     }
 
     use {
@@ -417,7 +418,6 @@ return require('packer').startup {
 
     use {
       'lukas-reineke/indent-blankline.nvim',
-      branch = 'lua',
       config = function() require 'plugin-configs/indent-blankline' end
     }
 
