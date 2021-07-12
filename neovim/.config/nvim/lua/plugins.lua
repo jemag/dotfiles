@@ -74,8 +74,8 @@ return require('packer').startup {
     use 'airblade/vim-rooter'
     use 'wellle/targets.vim'
     use {
-      'ggandor/lightspeed.nvim',
-      config = function() require 'plugin-configs/lightspeed' end
+      'justinmk/vim-sneak',
+      config = function() require 'plugin-configs/vim-sneak' end
     }
     use {
       'MattesGroeger/vim-bookmarks',
