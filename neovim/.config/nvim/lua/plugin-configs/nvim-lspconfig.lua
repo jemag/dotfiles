@@ -1,5 +1,6 @@
 local home = os.getenv('HOME')
-
+local border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
+  vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]
 -- configuring diagnostics signs
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
@@ -66,13 +67,21 @@ local function set_lsp_icons()
   }
 end
 
-local function on_attach_common(client)
+local function on_attach_common(client, bufnr)
   print(client.name..' started')
   if client.resolved_capabilities.document_highlight then
     require'illuminate'.on_attach(client)
   end
   if client.resolved_capabilities.signature_help then
-    require'lsp_signature'.on_attach()
+    require'lsp_signature'.on_attach({
+       bind = true,
+       handler_opts = {
+         border = "single"
+      }
+    })
+  end
+  if client.resolved_capabilities.hover then
+    vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
   end
   map_keys()
   set_lsp_icons()
@@ -216,7 +225,13 @@ local function on_attach_java(client)
   require'illuminate'.on_attach(client)
   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
   require('jdtls').setup.add_commands()
-  require'lsp_signature'.on_attach()
+  require'lsp_signature'.on_attach({
+    bind = true,
+    handler_opts = {
+      border = "single"
+    }
+  })
+  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
   set_lsp_icons()
   map('n', '<leader>lD','<cmd>lua vim.lsp.buf.declaration()<CR>')
   map('n', '<leader>ld','<cmd>lua vim.lsp.buf.definition()<CR>')

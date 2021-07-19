@@ -24,6 +24,10 @@ return require('packer').startup {
       config =  function() require 'plugin-configs/nvim-hlslens' end
     }
     use {
+      'windwp/nvim-spectre',
+      config = function() require('spectre').setup() end
+    }
+    use {
       'ethanholz/nvim-lastplace',
       config = function() require'nvim-lastplace'.setup{} end
     }
@@ -70,12 +74,37 @@ return require('packer').startup {
       'voldikss/vim-floaterm',
       config = function() require 'plugin-configs/vim-floaterm' end
     }
+    use {
+      'jlesquembre/nterm.nvim',
+      config =
+        function()
+          require 'nterm.main'.init({
+            maps = false,  -- load defaut mappings
+            shell = "zsh",
+            size = 20,
+            direction = "horizontal", -- horizontal or vertical
+            popup = 2000,     -- Number of miliseconds to show the info about the commmand. 0 to dissable
+            popup_pos = "SE", --  one of "NE" "SE" "SW" "NW"
+            autoclose = 0, -- If command is sucesful, close the terminal after that number of miliseconds. 0 to disable
+            require('telescope').load_extension('nterm')
+          })
+        end,
+      requires = {'Olical/aniseed'},
+    }
     use 'voldikss/fzf-floaterm'
     use 'airblade/vim-rooter'
     use 'wellle/targets.vim'
     use {
       'justinmk/vim-sneak',
       config = function() require 'plugin-configs/vim-sneak' end
+    }
+    use {
+      'phaazon/hop.nvim',
+      as = 'hop',
+      config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        require'plugin-configs/hop'
+      end
     }
     use {
       'MattesGroeger/vim-bookmarks',
@@ -289,8 +318,8 @@ return require('packer').startup {
     }
     use 'junegunn/gv.vim'
     use {
-      'airblade/vim-gitgutter',
-      config = function() require 'plugin-configs/vim-gitgutter' end
+      'lewis6991/gitsigns.nvim',
+      config = function() require'gitsigns'.setup() end
     }
 
     --[[ #######################

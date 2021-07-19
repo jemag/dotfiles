@@ -11,7 +11,7 @@ endif
 
 set background=dark
 
-colorscheme  gruvbox
+colorscheme  ayu
 
 " Vim Colors
 " ---------------------------------------------------------

@@ -4,7 +4,6 @@ endif
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/keybindings/mappings.vim
-" source $HOME/.config/nvim/keybindings/vim-which-key.vim
 source $HOME/.config/nvim/themes/theme.vim
 
 augroup gui
