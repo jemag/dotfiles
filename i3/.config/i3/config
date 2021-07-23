@@ -122,7 +122,7 @@ bindsym $mod+0 workspace $workspace10
 # switch to previous workspace
 bindsym $mod+a workspace back_and_forth
 # set monitors
-set $monitor_two DVI-I-1
+set $monitor_two DVI-D-0
 set $monitor_one DP-0
 #
 ## bind workspaces to monitors
@@ -208,9 +208,17 @@ bindsym $mod+shift+x exec i3lock -i ~/wallpapers/mars-plutot.png
 bindsym Print exec flameshot gui
 
 #AUDIO KEYBINDS
-bindsym $mod+F9 exec --no-startup-id amixer set Master playback 3-
-bindsym $mod+F10 exec --no-startup-id amixer set Master playback 3+
-bindsym $mod+F8 exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+
+bindsym $mod+F9 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym $mod+F10 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym $mod+F8 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym $mod+F5 exec playerctl previous
 bindsym $mod+F6 exec playerctl play-pause
