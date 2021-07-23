@@ -1,6 +1,6 @@
 local home = os.getenv('HOME')
 local border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
-  vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]
+vim.cmd [[autocmd ColorScheme * highlight! link NormalFloat Normal]]
 -- configuring diagnostics signs
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning"})
@@ -116,6 +116,11 @@ local function setup_servers()
   end
   if require'lspconfig'.lua then
     local luadev = require("lua-dev").setup({
+      library = {
+        vimruntime = true,
+        types = true,
+        plugins = false
+      },
       lspconfig = {
         on_attach = on_attach_common,
       },

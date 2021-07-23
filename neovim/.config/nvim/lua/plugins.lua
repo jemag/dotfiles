@@ -74,7 +74,7 @@ return require('packer').startup {
       'voldikss/vim-floaterm',
       config = function() require 'plugin-configs/vim-floaterm' end
     }
-    use {
+    --[[ use {
       'jlesquembre/nterm.nvim',
       config =
         function()
@@ -90,7 +90,7 @@ return require('packer').startup {
           })
         end,
       requires = {'Olical/aniseed'},
-    }
+    } ]]
     use 'voldikss/fzf-floaterm'
     use 'airblade/vim-rooter'
     use 'wellle/targets.vim'
@@ -191,7 +191,7 @@ return require('packer').startup {
     use 'sainnhe/sonokai'
     use {
       'Shatur95/neovim-ayu',
-      config = function() vim.g.ayu_mirage = true end
+      -- setup = function() vim.g.ayu_mirage = true end
     }
     use 'doums/darcula'
     use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }

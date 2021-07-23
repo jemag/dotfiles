@@ -1,3 +1,65 @@
+vim.api.nvim_set_keymap('c', '<C-p>', '<Up>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', "'", "printf('`%c zz',getchar())", { noremap = true, silent = true})
+vim.api.nvim_set_keymap('c', '<C-n>', '<Down>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'R', '"_d', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<esc>', '<cmd>noh<return><esc>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Right>', '<cmd>cnext<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Left>', '<cmd>cprev<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Up>', '<cmd>copen<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Down>', '<cmd>cclose<cr>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('i', '<C-u>', '<C-g>u<C-u>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gk', 'k', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', 'j', 'gj', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', 'k', 'gk', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', 'gj', 'j', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', 'gk', 'k', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<c-g>', '1<c-g>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<M-j>', '<cmd>resize -2<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<M-k>', '<cmd>resize +2<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<M-h>', '<cmd>vertical resize -2<cr>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<M-l>', '<cmd>vertical resize +2<cr>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call append(line("."),   repeat([""], v:count1))<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>O', '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '0', '^', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>", { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('t', '<c-h>', [[<C-\><C-n><C-w>h]], { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<c-l>', [[<C-\><C-n><C-w>j]], { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<c-k>', [[<C-\><C-n><C-w>k]], { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<c-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<c-o>', [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>yy', '"+yy', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true, silent = true})
 require("which-key").setup{
   plugins = {
     marks = false, -- shows a list of your marks on ' and `
@@ -76,14 +138,14 @@ local leader_mappings = {
     name = '+buffer',
     d = {'<cmd>BufferClose<cr>',              'Delete-buffer'}   ,
     D = {'<cmd>BufferCloseAllButCurrent<cr>', 'Delete all other buffers'}   ,
-    e = {'blast',                             'Last-buffer'}     ,
-    f = {'bfirst',                            'First-buffer'}    ,
+    e = {'<cmd>blast<cr>',                    'Last-buffer'}     ,
+    f = {'<cmd>bfirst<cr>',                   'First-buffer'}    ,
     h = {'<cmd>BufferMovePrevious<cr>',       'move prev'},
     l = {'<cmd>BufferMoveNext<cr>',           'move next'},
     r = {'<cmd>BufferCloseBuffersRight<cr>',  'delete buffers to the right'},
-    S = {'Startify',                          'Startify'}     ,
-    n = {'BufferNext',                        'Next-buffer'}     ,
-    p = {'BufferPrevious',                    'Previous-buffer'} ,
+    S = {'<cmd>Startify<cr>',                          'Startify'}     ,
+    n = {'<cmd>BufferNext<cr>',                        'Next-buffer'}     ,
+    p = {'<cmd>BufferPrevious<cr>',                    'Previous-buffer'} ,
     s = {'<cmd>BufferPick<cr>',               'Magic buffer select'} ,
     ['?'] = {'Buffers',                       'Fzf-buffer'}      ,
   },

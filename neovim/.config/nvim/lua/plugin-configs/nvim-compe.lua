@@ -56,7 +56,7 @@ require'compe'.setup {
   preselect = 'disable';
   throttle_time = 80;
   source_timeout = 200;
-  resolve_timeout = 800;
+  resolve_timeout = 2000;
   incomplete_delay = 400;
   max_abbr_width = 100;
   max_kind_width = 100;
@@ -78,7 +78,7 @@ require'compe'.setup {
     buffer = {priority = 500;};
     vsnip = {priority = 500};
     nvim_lsp = {priority = 1000;};
-    nvim_lua = {priority = 500;};
+    -- nvim_lua = {priority = 500;};
     ultisnips = {priority = 500;};
     calc = false;
     spell = false;
