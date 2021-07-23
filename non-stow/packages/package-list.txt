@@ -13,6 +13,8 @@ binutils
 bison
 bitwarden-bin
 bitwarden-cli
+bottom-bin
+brave-bin
 broot
 burpsuite
 calibre
@@ -30,6 +32,7 @@ dmidecode
 dnsmasq
 docker
 dockle-bin
+duf-bin
 dust
 ebtables
 eclipse-mat
@@ -60,6 +63,7 @@ fzf
 gawk
 gcc
 gcolor2
+gdb
 gettext
 git
 git-delta-bin
@@ -170,7 +174,6 @@ noto-fonts
 ntfs-3g
 numlockx
 nvidia
-nvidia-dkms
 nvidia-settings
 nvidia-utils
 nvm
@@ -202,6 +205,7 @@ python-pynvim
 qalculate-gtk
 qbittorrent
 qemu
+qmk
 ranger
 rclone
 rclone-browser
@@ -212,6 +216,7 @@ ruby
 rust
 rust-analyzer
 samba
+scrot
 seahorse
 sed
 shellcheck
@@ -231,12 +236,12 @@ studio-3t
 sudo
 sysstat
 tcpdump
+tealdeer
 teams
 terraform-ls-bin
 texinfo
 tfk8s
 the_silver_searcher
-tldr
 tmux-git
 tokei
 traceroute
@@ -265,6 +270,7 @@ wireguard-tools
 wireshark-qt
 wttr
 xdo
+xkb-switch
 xorg-bdftopcf
 xorg-iceauth
 xorg-mkfontscale
@@ -297,7 +303,9 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xournalpp
+xplr
 xsel
+xwobf-git
 yarn
 yay
 yq
@@ -306,4 +314,5 @@ zathura
 zathura-pdf-mupdf
 zeal-git
 zoom
+zoxide-bin
 zsh
