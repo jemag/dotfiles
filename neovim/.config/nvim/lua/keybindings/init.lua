@@ -39,8 +39,6 @@ vim.api.nvim_set_keymap('n', '<M-l>', '<cmd>vertical resize +2<cr>', { noremap =
 vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call append(line("."),   repeat([""], v:count1))<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>O', '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>', { noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '0', '^', { noremap = true, silent = true})
-
 vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>", { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true, silent = true})
