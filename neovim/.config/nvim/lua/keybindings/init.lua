@@ -16,6 +16,11 @@ vim.api.nvim_set_keymap('n', '<Up>', '<cmd>copen<cr>', { noremap = true, silent 
 vim.api.nvim_set_keymap('n', '<Down>', '<cmd>cclose<cr>', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('i', '<C-u>', '<C-g>u<C-u>', { noremap = true, silent = true})
+-- Set undo breakpoints in insert mode so that it doesn't cancel all the text written
+vim.api.nvim_set_keymap('i', ',', ',<C-g>u', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '.', '.<C-g>u', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '!', '!<C-g>u', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '?', '?<C-g>u', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
@@ -40,6 +45,10 @@ vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>call append(line("."),   repeat(
 vim.api.nvim_set_keymap('n', '<leader>O', '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<C-n>', "<cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>", { noremap = true, silent = true})
+
+-- Count relative line number movements toward jump list if we move by more than 5 lines
+vim.api.nvim_set_keymap('n', 'k', '(v:count > 5 ? "m\'" . v:count : "") . "k"', { noremap = true, expr = true})
+vim.api.nvim_set_keymap('n', 'j', '(v:count > 5 ? "m\'" . v:count : "") . "j"', { noremap = true, expr = true})
 
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true, silent = true})
 
