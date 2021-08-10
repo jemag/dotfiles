@@ -24,6 +24,8 @@ chromium-widevine
 clang
 cronie
 ctags
+cups
+cups-pdf
 deluge-gtk
 dhcpcd
 direnv
