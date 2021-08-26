@@ -67,6 +67,7 @@ alias cat="bat"
 alias ac="argocd"
 alias d="devour"
 alias tg="terragrunt"
+alias cd="z"
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
