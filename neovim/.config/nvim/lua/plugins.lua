@@ -24,6 +24,10 @@ return require('packer').startup {
       config =  function() require 'plugin-configs/nvim-hlslens' end
     }
     use {
+      'gelguy/wilder.nvim',
+      config = function() vim.cmd('source ~/.config/nvim/plugin-configs/wilder.vim') end
+    }
+    use {
       'windwp/nvim-spectre',
       config = function() require('spectre').setup() end
     }
@@ -178,6 +182,9 @@ return require('packer').startup {
     use {
       'pineapplegiant/spaceduck',
       branch = 'main'
+    }
+    use {
+      'EdenEast/nightfox.nvim'
     }
     use {
       'lourenci/github-colors',
