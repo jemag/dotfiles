@@ -183,6 +183,7 @@ return require('packer').startup {
       'pineapplegiant/spaceduck',
       branch = 'main'
     }
+    use "Pocco81/Catppuccino.nvim"
     use {
       'EdenEast/nightfox.nvim'
     }
