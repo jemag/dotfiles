@@ -26,13 +26,13 @@ vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'gk', 'k', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', 'j', 'gj', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', 'k', 'gk', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', 'gj', 'j', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', 'gk', 'k', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'j', 'gj', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'k', 'gk', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'gj', 'j', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'gk', 'k', { noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', '<', '<gv', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', '>', '>gv', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<c-g>', '1<c-g>', { noremap = true, silent = true})
 
@@ -58,15 +58,15 @@ vim.api.nvim_set_keymap('t', '<c-k>', [[<C-\><C-n><C-w>k]], { noremap = true, si
 vim.api.nvim_set_keymap('t', '<c-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<c-o>', [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', '<leader>y', '"+y', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>yy', '"+yy', { noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', '<leader>p', '"+p', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', '<leader>P', '"+P', { noremap = true, silent = true})
 require("which-key").setup{
   plugins = {
     marks = false, -- shows a list of your marks on ' and `
@@ -317,7 +317,7 @@ require("which-key").register(leader_mappings, {
   nowait = false -- use `nowait` when creating keymaps
 })
 require("which-key").register(leader_mappings, {
-  mode = "v", -- NORMAL mode
+  mode = "x", -- NORMAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps

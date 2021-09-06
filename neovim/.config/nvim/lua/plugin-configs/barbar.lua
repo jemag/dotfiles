@@ -30,7 +30,8 @@ vim.g.bufferline = {
 	closable= true,
 	clickable= true,
 	icon_separator_active= '▊ ',
-	icons= "both",
+	icons= "true",
 	maximum_padding= 4,
 	semantic_letters= true,
+  maximum_length = 40
 }

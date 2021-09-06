@@ -147,12 +147,13 @@ return require('packer').startup {
       'nvim-treesitter/nvim-treesitter-textobjects',
     }
     use {
-      'glepnir/galaxyline.nvim',
-      config = function() require 'plugin-configs/galaxyline' end
+      'hoob3rt/lualine.nvim',
+      config = function() require 'plugin-configs/lualine' end
     }
     use {
       'RRethy/vim-illuminate',
-      config = function() require 'plugin-configs/vim-illuminate' end
+      config = function() require 'plugin-configs/vim-illuminate' end,
+      commit = '8fe150bd775f659da7e40ea2d3ad7473e6d29494'
     }
     use 'tweekmonster/startuptime.vim'
     use {
@@ -325,10 +326,10 @@ return require('packer').startup {
       config=function() require"octo".setup() end
     }
     use 'junegunn/gv.vim'
-    use {
+    --[[ use {
       'lewis6991/gitsigns.nvim',
       config = function() require'gitsigns'.setup() end
-    }
+    } ]]
 
     --[[ #######################
      Language
@@ -354,9 +355,14 @@ return require('packer').startup {
       config = function() require 'plugin-configs.vim-snip' end
     }
     use 'hrsh7th/vim-vsnip-integ'
-    use {
+    --[[ use {
       'hrsh7th/nvim-compe',
       config = function() require 'plugin-configs/nvim-compe' end
+    } ]]
+    use {
+      'hrsh7th/nvim-cmp',
+      config = function() require 'plugin-configs/nvim-cmp' end,
+      requires = 'hrsh7th/cmp-nvim-lsp'
     }
 
     use {

@@ -7,11 +7,11 @@ nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 nmap t <Plug>Sneak_t
 nmap T <Plug>Sneak_T
-vmap s <Plug>Sneak_s
-vmap S <Plug>Sneak_S
-vmap f <Plug>Sneak_f
-vmap F <Plug>Sneak_F
-vmap t <Plug>Sneak_t
-vmap T <Plug>Sneak_T
+xmap s <Plug>Sneak_s
+xmap S <Plug>Sneak_S
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
 ]],true)
 vim.g['sneak#label'] = 1
