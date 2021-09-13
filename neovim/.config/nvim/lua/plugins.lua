@@ -20,10 +20,6 @@ return require('packer').startup {
      General
     ####################### ]]
     use {
-      'kevinhwang91/nvim-hlslens',
-      config =  function() require 'plugin-configs/nvim-hlslens' end
-    }
-    use {
       'gelguy/wilder.nvim',
       config = function() vim.cmd('source ~/.config/nvim/plugin-configs/wilder.vim') end
     }
