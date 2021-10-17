@@ -212,6 +212,7 @@ ranger
 rclone
 rclone-browser
 redshift
+reflector
 ripgrep
 rofi
 ruby
@@ -236,6 +237,7 @@ steam
 stow
 studio-3t
 sudo
+syncthing
 sysstat
 tcpdump
 tealdeer
