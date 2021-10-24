@@ -32,9 +32,11 @@ local function map_keys()
   -- Few language severs support these three
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
-  map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
+  map('n', '<leader>lc', '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_next{float=false}<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>')
+  map('n', '<leader>lq', '<cmd>lua vim.diagnostic.setqflist()<CR>')
   map('n', '<F5>', "<cmd>lua require'dap'.continue()<CR>")
   map('n', '<F10>', "<cmd>lua require'dap'.step_over()<CR>")
   map('n', '<F11>', "<cmd>lua require'dap'.step_into()<CR>")
@@ -44,36 +46,6 @@ local function map_keys()
   map('n', '<leader>dp', "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
   map('n', '<leader>dr', "<cmd>lua require'dap'.repl.open()<CR>")
   map('n', '<leader>dl', "<cmd>lua require'dap'.repl.run_last()<CR>")
-end
-
-local function set_lsp_icons()
-  require'vim.lsp.protocol'.CompletionItemKind = {
-    '';   -- Text          = 1;
-    '';   -- Method        = 2;
-    'ƒ';   -- Function      = 3;
-    '';   -- Constructor   = 4;
-    '識';  -- Field         = 5;
-    '';   -- Variable      = 6;
-    '';   -- Class         = 7;
-    'ﰮ';   -- Interface     = 8;
-    '';   -- Module        = 9;
-    '';   -- Property      = 10;
-    '';   -- Unit          = 11;
-    '';   -- Value         = 12;
-    '了';  -- Enum          = 13;
-    '';   -- Keyword       = 14;
-    '﬌';   -- Snippet       = 15;
-    '';   -- Color         = 16;
-    '';   -- File          = 17;
-    '渚';  -- Reference     = 18;
-    '';   -- Folder        = 19;
-    '';   -- EnumMember    = 20;
-    '';   -- Constant      = 21;
-    '';   -- Struct        = 22;
-    '鬒';  -- Event         = 23;
-    'Ψ';   -- Operator      = 24;
-    '';   -- TypeParameter = 25;
-  }
 end
 
 local function on_attach_common(client, bufnr)
@@ -93,7 +65,6 @@ local function on_attach_common(client, bufnr)
     vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
   end
   map_keys()
-  set_lsp_icons()
 end
 
 local function make_config()
@@ -114,7 +85,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-vim.lsp.set_log_level(0)
+-- vim.lsp.set_log_level(0)
 
 -- for nvim-lspinstall
 local function setup_servers()
@@ -246,7 +217,6 @@ local function on_attach_java(client)
     }
   })
   vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-  set_lsp_icons()
   map('n', '<leader>lD','<cmd>lua vim.lsp.buf.declaration()<CR>')
   map('n', '<leader>ld','<cmd>lua vim.lsp.buf.definition()<CR>')
   map('n', '<C-q>','<cmd>lua vim.lsp.buf.hover()<CR>')
@@ -266,9 +236,11 @@ local function on_attach_java(client)
   -- Few language severs support these three
   map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
-  map('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n', '<leader>lN', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
+  map('n', '<leader>lc', '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>')
+  map('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_next{float=false}<CR>')
+  map('n', '<leader>lN', '<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>')
+  map('n', '<leader>lq', '<cmd>lua vim.diagnostic.setqflist()<CR>')
 
   map("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
   map("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>")
@@ -348,30 +320,4 @@ require('jdtls').start_or_attach(config)
 end;
 
 vim.cmd("autocmd FileType java lua Start_jdt()")
-vim.cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})")
-
-vim.g.diagnostics_active = true
-function _G.toggle_diagnostics()
-  if vim.g.diagnostics_active then
-    vim.g.diagnostics_active = false
-    vim.lsp.diagnostic.clear(0)
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-  else
-    vim.g.diagnostics_active = true
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-      }
-    )
-    vim.lsp.diagnostic.display(vim.lsp.diagnostic.get(0, 1), 0, 1, {
-      underline = true,
-      virtual_text = false,
-      signs = true,
-      update_in_insert = false,
-      }
-    )
-  end
-end
+vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float(0, {scope='cursor'})")

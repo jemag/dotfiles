@@ -24,6 +24,10 @@ return require('packer').startup {
       config = function() vim.cmd('source ~/.config/nvim/plugin-configs/wilder.vim') end
     }
     use {
+      "luukvbaal/stabilize.nvim",
+      config = function() require("stabilize").setup() end
+    }
+    use {
       'windwp/nvim-spectre',
       config = function() require('spectre').setup() end
     }
@@ -106,6 +110,10 @@ return require('packer').startup {
         require'plugin-configs/hop'
       end
     }
+    --[[ use {
+      'chentau/marks.nvim',
+      config = function() require"marks".setup{} end
+    } ]]
     use {
       'MattesGroeger/vim-bookmarks',
       config = function() require 'plugin-configs/vim-bookmarks' end
@@ -334,13 +342,13 @@ return require('packer').startup {
       'neovim/nvim-lspconfig',
       config = function() require 'plugin-configs/nvim-lspconfig' end
     }
+    use{
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+    }
     use {
       'kabouzeid/nvim-lspinstall'
     }
-    --[[ use {
-      'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
-      config = function() require'toggle_lsp_diagnostics'.init() end
-    } ]]
     use {
       'ray-x/lsp_signature.nvim',
       config = function() require 'plugin-configs/lsp_signature' end
@@ -351,17 +359,15 @@ return require('packer').startup {
       config = function() require 'plugin-configs.vim-snip' end
     }
     use 'hrsh7th/vim-vsnip-integ'
-    --[[ use {
-      'hrsh7th/nvim-compe',
-      config = function() require 'plugin-configs/nvim-compe' end
-    } ]]
     use {
       'hrsh7th/nvim-cmp',
       config = function() require 'plugin-configs/nvim-cmp' end,
       requires = {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-vsnip',
-        "hrsh7th/cmp-buffer"
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'onsails/lspkind-nvim'
       }
     }
 
@@ -411,7 +417,6 @@ return require('packer').startup {
       ft = {'go', 'yaml'},
       config = function () require 'plugin-configs/vim-go' end
     } ]]
-
     use {
       'plasticboy/vim-markdown',
       opt = true,
@@ -442,11 +447,6 @@ return require('packer').startup {
     use {
       'simrat39/symbols-outline.nvim',
       config = function() require 'plugin-configs/symbols-outline' end
-    }
-
-    use {
-      "folke/lsp-trouble.nvim",
-      config = function() require 'plugin-configs/lsp-trouble' end
     }
     --[[ #######################
      Coding

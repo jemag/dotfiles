@@ -172,6 +172,7 @@ local leader_mappings = {
   },
   l = {
     name = '+language' ,
+    c =      'Cursor diagnostics',
     d =      'Definition',
     D =      'Declaration',
     h =      'Hover',
