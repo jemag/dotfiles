@@ -80,6 +80,7 @@ gradle
 graphviz
 grep
 groff
+gromit-mpx-git
 gron-bin
 grub
 gruvbox-dark-gtk
@@ -147,6 +148,7 @@ libtool
 libxslt
 linux
 linux-firmware
+linux-headers
 lua51
 luarocks
 luit
@@ -176,6 +178,7 @@ noto-fonts
 ntfs-3g
 numlockx
 nvidia
+nvidia-dkms
 nvidia-settings
 nvidia-utils
 nvm
@@ -218,6 +221,7 @@ rofi
 ruby
 rust
 rust-analyzer
+rxvt-unicode
 samba
 scrot
 seahorse
@@ -227,7 +231,6 @@ signal-desktop
 snapd
 socat
 sonar-scanner
-sonarqube
 speedtest-cli
 spicetify-cli
 spotify
@@ -235,7 +238,6 @@ spring-boot-cli
 starship-bin
 steam
 stow
-studio-3t
 sudo
 syncthing
 sysstat
@@ -317,6 +319,5 @@ ytop-bin
 zathura
 zathura-pdf-mupdf
 zeal-git
-zoom
 zoxide-bin
 zsh
