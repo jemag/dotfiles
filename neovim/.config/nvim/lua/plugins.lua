@@ -103,6 +103,10 @@ return require('packer').startup {
       config = function() require 'plugin-configs/vim-sneak' end
     }
     use {
+      'airblade/vim-current-search-match',
+      config = function() vim.g.current_search_match='IncSearch' end
+    }
+    use {
       'phaazon/hop.nvim',
       as = 'hop',
       config = function()
@@ -348,6 +352,9 @@ return require('packer').startup {
     }
     use {
       'kabouzeid/nvim-lspinstall'
+    }
+    use {
+      'williamboman/nvim-lsp-installer',
     }
     use {
       'ray-x/lsp_signature.nvim',

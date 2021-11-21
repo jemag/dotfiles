@@ -21,7 +21,8 @@ vim.api.nvim_set_keymap('i', ',', ',<C-g>u', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '.', '.<C-g>u', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '!', '!<C-g>u', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', '?', '?<C-g>u', { noremap = true, silent = true})
-
+vim.api.nvim_set_keymap('n', '<space>/', "<cmd>noh | lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>", {noremap = true})
+vim.api.nvim_set_keymap('c', '<C-f>', "<cr><cmd>lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>", {noremap = true})
 vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'gj', 'j', { noremap = true, silent = true})
@@ -205,8 +206,8 @@ local leader_mappings = {
     name = '+refactor',
     r = {'<Plug>(Scalpel)', 'Rename (substitute)'},
   },
-  s = {
-    name = '+search',
+  s       = {
+    name  = '+search',
     ['/'] = {'<cmd>Telescope current_buffer_fuzzy_find<cr>',                                                 'Find in buffer'},
     [':'] = {'<cmd>Telescope commands<cr>',                                                                  'Commands'},
     ['b'] = {'<cmd>Telescope buffers<cr>',                                                                   'Open buffers'},
@@ -218,8 +219,8 @@ local leader_mappings = {
     ['f'] = {'<cmd>Telescope find_files hidden=true<cr>',                                                    'Files'},
     ['F'] = {'<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>',           'Files'},
     ['G'] = {'<cmd>Telescope git_status<cr>',                                                                'Modified git files'},
-    ['h'] = {'<cmd>Telescope oldfiles<cr>',                                                                  'File history'},
-    ['H'] = {'<cmd>Telescope command_history<cr>',                                                           'Command history'},
+    ['h'] = {'<cmd>Telescope command_history<cr>',                                                           'Command history'},
+    ['H'] = {'<cmd>Telescope oldfiles<cr>',                                                                  'File history'},
     ['k'] = {'<cmd>Telescope keymaps<cr>',                                                                   'Keymaps'} ,
     ['l'] = {'<cmd>Telescope loclist<cr>',                                                                   'Location list'} ,
     ['m'] = {'<cmd>Telescope marks<cr>',                                                                     'Marks'} ,

@@ -85,10 +85,10 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
--- vim.lsp.set_log_level(0)
+vim.lsp.set_log_level(0)
 
 -- for nvim-lspinstall
-local function setup_servers()
+--[[ local function setup_servers()
   require'lspinstall'.setup()
 
   if require'lspconfig'.typescript then
@@ -152,8 +152,62 @@ local function setup_servers()
     yaml_config.filetypes = {'yaml'}
     require'lspconfig'.yaml.setup(make_config())
   end
+end ]]
+
+local lsp_installer = require("nvim-lsp-installer")
+
+local function setup_servers()
+  local servers = {
+    "bashls",
+    "angularls",
+    "pyright",
+    "terraformls",
+    "jsonls",
+    "clangd",
+    "rust_analyzer",
+    "vimls",
+    "dockerls",
+    "html",
+    "tsserver",
+    "sumneko_lua",
+  }
+
+  for _, name in pairs(servers) do
+    local ok, server = lsp_installer.get_server(name)
+    -- Check that the server is supported in nvim-lsp-installer
+    if ok then
+      if not server:is_installed() then
+        print("Installing " .. name)
+        server:install()
+      end
+    end
+  end
 end
 
+lsp_installer.on_server_ready(function(server)
+	-- Specify the default options which we'll use for pyright and solargraph
+	-- Note: These are automatically setup from nvim-lspconfig. See https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+	local default_opts = make_config()
+	-- Now we'll create a server_opts table where we'll specify our custom LSP server configuration
+	local server_opts = {
+		["sumneko_lua"] = function()
+      return require("lua-dev").setup({
+      library = {
+        vimruntime = true,
+        types = true,
+        plugins = false
+      },
+      lspconfig = {
+        on_attach = on_attach_common,
+      },
+    })
+		end,
+	}
+
+	-- We check to see if any custom server_opts exist for the LSP server, if so, load them, if not, use our default_opts
+	server:setup(server_opts[server.name] and server_opts[server.name]() or default_opts)
+	vim.cmd([[ do User LspAttachBuffers ]])
+end)
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
