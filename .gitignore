@@ -7,6 +7,7 @@ joplin/.config/joplin-desktop/resources/*
 joplin/.config/joplin-desktop/tmp
 joplin/.config/joplin-desktop/log-clipper.txt
 joplin/.config/joplin-desktop/keymap-desktop.json
+joplin/.config/joplin-desktop/settings.json
 node_modules/
 **/packer_compiled.vim
 **/packer_compiled.lua
