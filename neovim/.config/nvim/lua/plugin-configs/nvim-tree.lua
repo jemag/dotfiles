@@ -26,7 +26,9 @@ require'nvim-tree'.setup {
     auto_resize = false,
     mappings = {
       custom_only = false,
-      list = {}
+      list = {
+        { key = 'X', cb = ':lua require"nvim-tree.lib".collapse_all()<CR>' },
+      },
     }
   }
 }
