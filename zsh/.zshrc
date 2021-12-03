@@ -62,13 +62,15 @@ alias g="git"
 alias tmuxa="tmux attach -t"
 alias kcx="kubectx"
 alias kns="kubens"
-alias kb="kubie"
+alias kbx="kubie ctx"
 alias ..="cd .."
 alias cat="bat"
 alias ac="argocd"
 alias d="devour"
 alias tg="terragrunt"
 alias cd="z"
+alias ku="kustomize"
+alias vd="viddy "
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
@@ -241,6 +243,8 @@ export PATH=${PATH%:/home/jemag/bin/}
 export RPS1="$(vi_mode_prompt_info)"
 typeset -U path
 source /home/jemag/.config/broot/launcher/bash/br
+source <(kubectl completion zsh)
+source <(kustomize completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
