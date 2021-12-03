@@ -64,7 +64,7 @@ require('telescope').setup {
   pickers = {
     -- Your special builtin config goes in here
     buffers = {
-      sort_lastused = true,
+      sort_lastused = false,
       mappings = {
         i = {
           ["<c-s>"] = require("telescope.actions").delete_buffer,
