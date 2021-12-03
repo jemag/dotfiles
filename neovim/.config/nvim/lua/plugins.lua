@@ -334,6 +334,10 @@ return require('packer').startup {
       config=function() require"octo".setup() end
     }
     use 'junegunn/gv.vim'
+    use {
+      'TimUntersberger/neogit',
+      config= function() require'plugin-configs/neogit' end
+    }
     --[[ use {
       'lewis6991/gitsigns.nvim',
       config = function() require'gitsigns'.setup() end
