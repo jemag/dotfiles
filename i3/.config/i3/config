@@ -276,6 +276,7 @@ for_window [class="^jetbrains-.+"][window_type=dialog] focus
 
 # floating windows
 for_window [title="Qalculate!"] floating enable
+for_window [title="Pebbles"] floating enable
 for_window [title="Uno Calculator"] floating enable
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
