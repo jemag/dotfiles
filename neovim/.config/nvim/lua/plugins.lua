@@ -354,9 +354,9 @@ return require('packer').startup {
       'weilbith/nvim-code-action-menu',
       cmd = 'CodeActionMenu',
     }
-    use {
+    --[[ use {
       'kabouzeid/nvim-lspinstall'
-    }
+    } ]]
     use {
       'williamboman/nvim-lsp-installer',
     }
