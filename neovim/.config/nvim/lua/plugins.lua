@@ -475,6 +475,10 @@ return require('packer').startup {
       'lukas-reineke/indent-blankline.nvim',
       config = function() require 'plugin-configs/indent-blankline' end
     }
+    use {
+      'lukas-reineke/headlines.nvim',
+      config = function() require('headlines').setup() end,
+    }
 
     use {
       'liuchengxu/vista.vim',
