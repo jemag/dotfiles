@@ -29,8 +29,6 @@ local function map_keys()
   -- ACTION mappings
   map('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   map('n', '<leader>lR',  '<cmd>lua vim.lsp.buf.rename()<CR>')
-  -- Few language severs support these three
-  map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
   map('n', '<leader>lc', '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>')
@@ -85,7 +83,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-vim.lsp.set_log_level(0)
+-- vim.lsp.set_log_level(0)
 
 local lsp_installer = require("nvim-lsp-installer")
 
@@ -214,8 +212,6 @@ local function on_attach_java(client)
   map('v', '<leader>la', "<Esc><Cmd>lua require'jdtls'.code_action(true)<CR>")
   map('n', '<leader>lA', "<Cmd>lua require'jdtls'.code_action(false, 'refactor')<CR>")
   map('n', '<leader>lR',  '<cmd>lua vim.lsp.buf.rename()<CR>')
-  -- Few language severs support these three
-  map('n', '<leader>fF',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
   -- Diagnostics mapping
   map('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
   map('n', '<leader>lc', '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>')
@@ -298,7 +294,6 @@ end
 
 require('jdtls').start_or_attach(config)
 
-end;
-
+end
 vim.cmd("autocmd FileType java lua Start_jdt()")
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float(0, {scope='cursor'})")

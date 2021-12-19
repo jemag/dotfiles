@@ -9,6 +9,7 @@ local formatting = null_ls.builtins.formatting
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 -- npm install --save-dev prettier prettier-plugin-solidity
+-- or make prettier command available in path (installed through pacman)
 null_ls.setup({
 	debug = true,
 	sources = {
@@ -32,6 +33,7 @@ null_ls.setup({
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
+    -- stylua cmd must be in path (can install through pacman)
 		formatting.stylua,
 	},
 })

@@ -167,9 +167,9 @@ local leader_mappings = {
   },
   f = {
     name = '+format',
-    f = {'<Plug>(coc-format-selected)', 'Format selected'},
-    F =           'Format',
-    e = {'<Plug>(EasyAlign)',           'Easy align', mode = 'v'},
+    b =  {'<cmd>lua vim.lsp.buf.formatting()<CR>',      'Format' },
+    e = {'<Plug>(EasyAlign)',                           'Easy align', mode = 'v'},
+    r = {'<cmd>lua vim.lsp.buf.range_formatting()<CR>', 'Range formatting' },
   },
   l = {
     name = '+language' ,
