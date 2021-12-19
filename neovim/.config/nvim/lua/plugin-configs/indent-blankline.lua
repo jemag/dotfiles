@@ -7,8 +7,6 @@ vim.cmd [[autocmd ColorScheme * highlight! IndentBlanklineIndent5 guifg=#61AFEF 
 vim.cmd [[autocmd ColorScheme * highlight! IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
 require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
     char = '|',
     enabled = false,
     char_highlight_list = {

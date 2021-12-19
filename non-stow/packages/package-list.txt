@@ -209,6 +209,7 @@ playerctl
 polybar
 poppler
 postgresql
+prettier
 procs-bin
 pulseaudio
 pulseaudio-alsa
