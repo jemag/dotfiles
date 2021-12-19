@@ -234,6 +234,7 @@ export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 export PATH="${PATH}:${SONAR_SCANNER_HOME}/bin"
 export PATH=$PATH:/home/jemag/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/home/jemag/bin
+export PATH=$PATH:/home/jemag/.cargo/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$NODE_BIN
 export PATH=$PATH:/home/jemag/.local/bin
