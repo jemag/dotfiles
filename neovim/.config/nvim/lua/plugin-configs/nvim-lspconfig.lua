@@ -87,73 +87,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.set_log_level(0)
 
--- for nvim-lspinstall
---[[ local function setup_servers()
-  require'lspinstall'.setup()
-
-  if require'lspconfig'.typescript then
-    require'lspconfig'.typescript.setup(make_config())
-  end
-  if require'lspconfig'.lua then
-    local luadev = require("lua-dev").setup({
-      library = {
-        vimruntime = true,
-        types = true,
-        plugins = false
-      },
-      lspconfig = {
-        on_attach = on_attach_common,
-      },
-    })
-    require'lspconfig'.lua.setup(luadev)
-  end
-  if require'lspconfig'.bash then
-    require'lspconfig'.bash.setup(make_config())
-  end
-  if require'lspconfig'.angular then
-    local configPath = vim.fn.stdpath("config")
-    local languageServerPath = configPath.."/languageserver"
-    -- local languageServerPath = "/home/jemag/.local/share/nvim/lspinstall/angular"
-    local angular_cmd = {"node", languageServerPath.."/node_modules/@angular/language-server/index.js", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath}
-    -- local angular_cmd = {"node", languageServerPath.."/node_modules/@angular/language-server/bin/ngserver", "--stdio", "--tsProbeLocations", languageServerPath, "--ngProbeLocations", languageServerPath}
-    -- local angular_cmd = {"node", languageServerPath.."/node_modules/@angular/language-server/bin/ngserver", "--stdio", "--tsProbeLocations", "/home/jemag/dev/typescript", "--ngProbeLocations", languageServerPath}
-    -- local angular_cmd = {"/home/jemag/.local/share/nvim/lspinstall/angular/./node_modules/.bin/ngserver", "tsProbeLocations", "/home/jemag/dev/typescript"}
-    -- local angular_cmd = {"at"}
-    local angular_config= make_config()
-    angular_config.cmd= angular_cmd
-    angular_config.on_new_config = function(new_config,new_root_dir)
-      new_config.cmd = angular_cmd
-    end
-    require'lspconfig'.angular.setup(angular_config)
-  end
-  if require'lspconfig'.terraform then
-    require'lspconfig'.terraform.setup(make_config())
-  end
-  if require'lspconfig'.json then
-    require'lspconfig'.json.setup(make_config())
-  end
-  if require'lspconfig'.cpp then
-    require'lspconfig'.cpp.setup(make_config())
-  end
-  if require'lspconfig'.rust then
-    require'lspconfig'.rust.setup(make_config())
-  end
-  if require'lspconfig'.vim then
-    require'lspconfig'.vim.setup(make_config())
-  end
-  if require'lspconfig'.dockerfile then
-    require'lspconfig'.dockerfile.setup(make_config())
-  end
-  if require'lspconfig'.html then
-    require'lspconfig'.html.setup(make_config())
-  end
-  if require'lspconfig'.yaml then
-    local yaml_config= make_config()
-    yaml_config.filetypes = {'yaml'}
-    require'lspconfig'.yaml.setup(make_config())
-  end
-end ]]
-
 local lsp_installer = require("nvim-lsp-installer")
 
 local function setup_servers()
@@ -209,12 +142,6 @@ lsp_installer.on_server_ready(function(server)
 	vim.cmd([[ do User LspAttachBuffers ]])
 end)
 setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
---[[ require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end ]]
 
 require'lspconfig'.gopls.setup{
   on_attach = on_attach_common,

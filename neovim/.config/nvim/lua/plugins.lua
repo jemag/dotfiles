@@ -350,13 +350,14 @@ return require('packer').startup {
       'neovim/nvim-lspconfig',
       config = function() require 'plugin-configs/nvim-lspconfig' end
     }
+    use {
+      'jose-elias-alvarez/null-ls.nvim',
+      config = function() require 'plugin-configs/null-ls' end
+    }
     use{
       'weilbith/nvim-code-action-menu',
       cmd = 'CodeActionMenu',
     }
-    --[[ use {
-      'kabouzeid/nvim-lspinstall'
-    } ]]
     use {
       'williamboman/nvim-lsp-installer',
     }
