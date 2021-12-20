@@ -1,7 +1,7 @@
 local lspkind = require("lspkind")
 local cmp = require("cmp")
 cmp.setup({
-  preselect = { cmp.PreselectMode.None },
+  preselect = cmp.PreselectMode.Item,
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
@@ -12,11 +12,15 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    ["<esc>"] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
     ["<C-Space>"] = cmp.mapping.complete(),
     -- ['<C-e>'] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
+      select = true,
     }),
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
