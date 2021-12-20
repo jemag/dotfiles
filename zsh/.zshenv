@@ -1,7 +1,5 @@
 typeset -U path
 export JAVA_HOME=/usr/lib/jvm/default
-export NODE_PATH="$(npm config get prefix)/lib/node_modules"
-export NODE_BIN="$(npm config get prefix)/bin"
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export VISUAL=nvim
