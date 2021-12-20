@@ -192,6 +192,18 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # More on ripgrep https://github.com/BurntSushi/ripgrep
 # More on these tools https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html
 #
+[ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
+export FZF_DEFAULT_OPTS="
+--extended --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
+"
+FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
+export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+    --height 50% -1 --layout=reverse --multi --inline-info
+    --preview 'bat --style=numbers --color=always --line-range :500 {}'
+    "
+# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export RPS1="$(vi_mode_prompt_info)"
 source /home/jemag/.config/broot/launcher/bash/br
 source <(kubectl completion zsh)
