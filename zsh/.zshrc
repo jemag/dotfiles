@@ -210,6 +210,7 @@ export NODE_BIN="$(npm config get prefix)/bin"
 source /home/jemag/.config/broot/launcher/bash/br
 source <(kubectl completion zsh)
 source <(kustomize completion zsh)
+source <(velero completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
