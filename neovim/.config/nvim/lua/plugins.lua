@@ -666,7 +666,6 @@ return require("packer").startup({
 		})
 
 		-- TextObjectOperator
-		use("terryma/vim-expand-region")
 		use("tpope/vim-surround")
 	end,
 })
