@@ -168,6 +168,7 @@ man-db
 man-pages
 maven
 mkcert
+mkchromecast-git
 mkinitcpio
 mkinitcpio-utils
 mongodb-bin
@@ -247,7 +248,6 @@ spring-boot-cli
 starship-bin
 steam
 stow
-stylua-bin
 sudo
 syncthing
 sysstat
