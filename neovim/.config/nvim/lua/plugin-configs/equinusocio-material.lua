@@ -1,4 +1,4 @@
-vim.g.equinusocio_material_style = 'default'
+vim.g.equinusocio_material_style = "default"
 
 -- less bright
 -- which means some colors will be modified by this formula:

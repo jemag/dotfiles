@@ -1,18 +1,18 @@
 vim.g.firenvim_config = {
-     globalSettings = {
-         ["<C-w>"] = 'noop',
-         ["<C-n>"] = 'default',
-         alt = 'all',
-      },
-     localSettings = {
-         [".*"]= {
-             cmdline = 'neovim',
-             priority = 0,
-             selector = 'textarea',
-             takeover = 'never',
-         },
-     }
- }
+	globalSettings = {
+		["<C-w>"] = "noop",
+		["<C-n>"] = "default",
+		alt = "all",
+	},
+	localSettings = {
+		[".*"] = {
+			cmdline = "neovim",
+			priority = 0,
+			selector = "textarea",
+			takeover = "never",
+		},
+	},
+}
 
 --[[ function! s:IsFirenvimActive(event) abort
   if !exists('*nvim_get_chan_info')
@@ -35,10 +35,10 @@ autocmd UIEnter * call OnUIEnter(deepcopy(v:event)) ]]
 
 local autocmds = {
 	firenvim = {
-		{"BufEnter",     "github.com_*.txt",   "set filetype=markdown"};
-		{"BufEnter",     "github.com_*.txt",   "set filetype=markdown"};
-		{"BufEnter",     "ticktick.com_*.txt",   "set filetype=markdown"};
-		{"BufEnter",     "ticktick.com_*.txt",   "set filetype=markdown"};
-	};
+		{ "BufEnter", "github.com_*.txt", "set filetype=markdown" },
+		{ "BufEnter", "github.com_*.txt", "set filetype=markdown" },
+		{ "BufEnter", "ticktick.com_*.txt", "set filetype=markdown" },
+		{ "BufEnter", "ticktick.com_*.txt", "set filetype=markdown" },
+	},
 }
-require'utils'.nvim_create_augroups(autocmds);
+require("utils").nvim_create_augroups(autocmds)

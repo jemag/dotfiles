@@ -1,4 +1,5 @@
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
 nmap s <Plug>Sneak_s
 nmap S <Plug>Sneak_S
 omap z <Plug>Sneak_s
@@ -13,5 +14,7 @@ xmap f <Plug>Sneak_f
 xmap F <Plug>Sneak_F
 xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
-]],true)
-vim.g['sneak#label'] = 1
+]],
+	true
+)
+vim.g["sneak#label"] = 1

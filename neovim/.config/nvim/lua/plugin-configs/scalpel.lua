@@ -1,1 +1,1 @@
-vim.g.ScalpelMap=0
+vim.g.ScalpelMap = 0

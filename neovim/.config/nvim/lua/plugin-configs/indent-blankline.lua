@@ -7,24 +7,24 @@ vim.cmd([[autocmd ColorScheme * highlight! IndentBlanklineIndent5 guifg=#61AFEF 
 vim.cmd([[autocmd ColorScheme * highlight! IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
 
 require("indent_blankline").setup({
-  char = "|",
-  enabled = false,
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
-  },
-  filetype_exclude = {
-    "help",
-    "terminal",
-    "dashboard",
-    "nofile",
-    "packer",
-    "lspinfo",
-    "TelescopePrompt",
-    "TelescopeResults",
-  },
+	char = "|",
+	enabled = false,
+	char_highlight_list = {
+		"IndentBlanklineIndent1",
+		"IndentBlanklineIndent2",
+		"IndentBlanklineIndent3",
+		"IndentBlanklineIndent4",
+		"IndentBlanklineIndent5",
+		"IndentBlanklineIndent6",
+	},
+	filetype_exclude = {
+		"help",
+		"terminal",
+		"dashboard",
+		"nofile",
+		"packer",
+		"lspinfo",
+		"TelescopePrompt",
+		"TelescopeResults",
+	},
 })
