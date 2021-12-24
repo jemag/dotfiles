@@ -22,6 +22,9 @@ font pango:FuraMono Nerd Font Mono 9
 # font, it doesn’t scale on retina/hidpi displays.
 mouse_warping output
 
+# close window with middle click on title bar
+bindsym --release button2 kill
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

@@ -17,6 +17,7 @@ bitwarden-cli
 bottom-bin
 brave-bin
 broot
+btop
 burpsuite
 calibre
 calicoctl
