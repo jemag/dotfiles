@@ -1,6 +1,8 @@
 alacritty-git
 alsa-plugins
 alsa-utils
+ansible
+ansible-lint
 arandr
 arch-install-scripts
 autoconf
@@ -38,7 +40,6 @@ docker
 dockle-bin
 duf-bin
 dust
-ebtables
 eclipse-mat
 efm-langserver
 egl-wayland
@@ -76,7 +77,6 @@ github-cli
 glances
 gnome-calculator
 gnome-keyring
-gnu-netcat
 go-tools
 gobuster
 gparted
@@ -100,6 +100,7 @@ i3-gaps
 i3lock
 imagemagick
 imagewriter
+iptables-nft
 jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
@@ -194,6 +195,7 @@ nvm
 obs-studio
 ocl-icd
 openal
+openbsd-netcat
 openconnect
 openjdk11-doc
 openjdk11-src
@@ -269,6 +271,7 @@ trivy-bin
 ttf-ms-fonts
 ttf-windows
 ueberzug
+vagrant
 vde2
 velero-bin
 vi
