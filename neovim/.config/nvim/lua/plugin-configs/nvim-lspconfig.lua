@@ -103,11 +103,13 @@ local function setup_servers()
 	local servers = {
 		"bashls",
 		"angularls",
+		"ansiblels",
 		"pyright",
 		"terraformls",
 		"jsonls",
 		"clangd",
 		"rust_analyzer",
+		"solargraph",
 		"vimls",
 		"dockerls",
 		"html",
