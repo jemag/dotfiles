@@ -351,12 +351,12 @@ return require("packer").startup({
 
 		use("junegunn/vim-easy-align")
 
-		use({
-			"simnalamburt/vim-mundo",
-			config = function()
-				require("plugin-configs/vim-mundo")
-			end,
-		})
+    use({
+      "mbbill/undotree",
+      config = function()
+        require("plugin-configs.undotree")
+      end,
+    })
 
 		use("tpope/vim-repeat")
 		--[[ #######################

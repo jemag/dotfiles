@@ -410,6 +410,7 @@ local local_leader_mappings = {
     s = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
     S = { '<cmd>lua require("spectre").open()<CR>', "Open Spectre" },
     t = { "TagbarToggle", "Tagbar" },
+    u = { "<cmd>UndotreeToggle<cr>", "Undotree" },
     v = { "<cmd>Vista!!<cr>", "Vista bar" },
     z = { "<cmd>ZenMode<cr>", "Zen mode" },
   },
