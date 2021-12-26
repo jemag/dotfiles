@@ -20,12 +20,6 @@ return require("packer").startup({
      General
     ####################### ]]
 		use({
-			"gelguy/wilder.nvim",
-			config = function()
-				vim.cmd("source ~/.config/nvim/plugin-configs/wilder.vim")
-			end,
-		})
-		use({
 			"luukvbaal/stabilize.nvim",
 			config = function()
 				require("stabilize").setup()
@@ -475,6 +469,12 @@ return require("packer").startup({
 				"onsails/lspkind-nvim",
 			},
 		})
+    use({
+      "hrsh7th/cmp-cmdline",
+      config = function()
+        require("plugin-configs/cmp-cmdline")
+      end,
+    })
 
 		use({
 			"honza/dockerfile.vim",
