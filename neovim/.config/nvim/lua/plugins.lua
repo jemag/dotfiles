@@ -250,6 +250,9 @@ return require("packer").startup({
 			"pineapplegiant/spaceduck",
 			branch = "main",
 		})
+		use({
+			"rebelot/kanagawa.nvim",
+		})
 		use("Pocco81/Catppuccino.nvim")
 		use({
 			"EdenEast/nightfox.nvim",
