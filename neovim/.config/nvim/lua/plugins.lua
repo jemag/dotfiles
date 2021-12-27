@@ -216,6 +216,12 @@ return require("packer").startup({
 		})
 		use("gfanto/fzf-lsp.nvim")
 		use("mfussenegger/nvim-dap")
+    use({
+      "rcarriga/nvim-dap-ui",
+      config = function()
+        require("plugin-configs.nvim-dap-ui")
+      end,
+    })
 		use({
 			"theHamsta/nvim-dap-virtual-text",
 			config = function()

@@ -192,9 +192,11 @@ local leader_mappings = {
     name = "+debug",
     b = "Breakpoint",
     B = "Conditional breakpoint",
+    e = { "<cmd>lua require('dapui').eval()<cr>", "Eval expression" },
     l = "Repl run last",
     p = "Breakpoint with log",
     r = "Repl open",
+    u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle dap ui" },
   },
   f = {
     name = "+format",
