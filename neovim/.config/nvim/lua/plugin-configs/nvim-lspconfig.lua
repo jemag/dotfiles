@@ -220,9 +220,7 @@ local function on_attach_java(client)
 	map("n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
 	map("n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
 	-- ACTION mappings
-	map("n", "<leader>la", "<Cmd>lua require'jdtls'.code_action()<CR>")
-	map("v", "<leader>la", "<Esc><Cmd>lua require'jdtls'.code_action(true)<CR>")
-	map("n", "<leader>lA", "<Cmd>lua require'jdtls'.code_action(false, 'refactor')<CR>")
+	map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 	map("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>")
 	-- Diagnostics mapping
 	map("n", "<leader>ll", '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>')
