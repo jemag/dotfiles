@@ -253,6 +253,12 @@ return require("packer").startup({
 		use({
 			"rebelot/kanagawa.nvim",
 		})
+		use({
+			"rmehri01/onenord.nvim",
+		})
+		use({
+			"martinsione/darkplus.nvim",
+		})
 		use("Pocco81/Catppuccino.nvim")
 		use({
 			"EdenEast/nightfox.nvim",
