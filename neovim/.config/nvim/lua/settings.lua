@@ -16,10 +16,10 @@ vim.opt.scrolloff = 8
 vim.opt.mouse = "a"
 vim.opt.laststatus = 2
 vim.opt.fillchars = {
-	diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
-	eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
-	fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
-	vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+  diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+  eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
+  fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 }
 vim.opt.ruler = false
 vim.opt.showtabline = 2
@@ -56,12 +56,12 @@ vim.opt.signcolumn = "yes"
 vim.opt.completeopt = { "menuone", "noinsert" }
 vim.opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 vim.opt.listchars = {
-	tab = "→ ",
-	eol = "↲",
-	nbsp = "␣",
-	trail = "•",
-	extends = "⟩",
-	precedes = "⟨",
+  tab = "→ ",
+  eol = "↲",
+  nbsp = "␣",
+  trail = "•",
+  extends = "⟩",
+  precedes = "⟨",
 }
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -73,13 +73,20 @@ vim.opt.showmatch = true
 vim.opt.matchtime = 1
 vim.opt.wildignore = vim.opt.wildignore + "*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*"
 vim.opt.conceallevel = 2
+vim.cmd([[
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup
+]])
 local autocmds = {
-	highlight_yank = {
-		{
-			"TextYankPost",
-			"*",
-			"silent! lua vim.highlight.on_yank {higroup='Substitute', on_visual=false, timeout=200}",
-		},
-	},
+  highlight_yank = {
+    {
+      "TextYankPost",
+      "*",
+      "silent! lua vim.highlight.on_yank {higroup='Substitute', on_visual=false, timeout=200}",
+    },
+  },
 }
 require("utils").nvim_create_augroups(autocmds)

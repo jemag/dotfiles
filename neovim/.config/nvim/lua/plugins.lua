@@ -211,7 +211,6 @@ return require("packer").startup({
 			config = function()
 				require("plugin-configs/vim-illuminate")
 			end,
-			commit = "8fe150bd775f659da7e40ea2d3ad7473e6d29494",
 		})
 		use("tweekmonster/startuptime.vim")
 		use({
