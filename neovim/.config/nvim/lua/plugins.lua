@@ -26,6 +26,12 @@ return require("packer").startup({
 			end,
 		})
 		use({
+			"sindrets/winshift.nvim",
+			config = function()
+				require("winshift").setup()
+			end,
+		})
+		use({
 			"windwp/nvim-spectre",
 			config = function()
 				require("spectre").setup()
