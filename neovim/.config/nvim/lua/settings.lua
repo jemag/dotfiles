@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.autoread = true
