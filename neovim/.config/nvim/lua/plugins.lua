@@ -565,6 +565,13 @@ return require("packer").startup({
       "elzr/vim-json",
       ft = { "json" },
     })
+    use({
+      "ray-x/go.nvim",
+      ft = { "go" },
+      config = function()
+        require("plugin-configs.go-nvim")
+      end,
+    })
     --[[ use {
       'fatih/vim-go',
       opt = true,

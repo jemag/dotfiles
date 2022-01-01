@@ -421,7 +421,6 @@ local local_leader_mappings = {
     b = { "<cmd>Telescope file_browser hidden=true<cr>", "Telescope browser" },
     B = { "<cmd>Telescope file_browser hidden=true cwd=%:p:h<cr>", "Telescope browser current dir" },
     c = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
-    d = { "<cmd>LspTroubleToggle<cr>", "Lsp Trouble (diagnostics)" },
     D = { "<cmd>call v:lua.toggle_diagnostics()<cr>", "Toggle LSP diagnostics signs" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     f = { "<cmd>FloatermToggle<cr>", "Floaterm" },
