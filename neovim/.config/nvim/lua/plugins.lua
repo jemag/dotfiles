@@ -28,7 +28,7 @@ return require("packer").startup({
     use({
       "rcarriga/nvim-notify",
       config = function()
-        require("plugin-configs/nvim-notify")
+        require("plugin-configs.nvim-notify")
       end,
     })
     use({
@@ -59,27 +59,27 @@ return require("packer").startup({
       "romgrk/barbar.nvim",
       -- '~/Projects/github-reference/barbar.nvim',
       config = function()
-        require("plugin-configs/barbar")
+        require("plugin-configs.barbar")
       end,
     })
     use("szw/vim-maximizer")
     use({
       "Xuyuanp/scrollbar.nvim",
       config = function()
-        require("plugin-configs/scrollbar")
+        require("plugin-configs.scrollbar")
       end,
     })
     use({
       "wincent/scalpel",
       config = function()
-        require("plugin-configs/scalpel")
+        require("plugin-configs.scalpel")
       end,
     })
     use("psliwka/vim-smoothie")
     use({
       "DanilaMihailov/beacon.nvim",
       config = function()
-        require("plugin-configs/beacon")
+        require("plugin-configs.beacon")
       end,
     })
     use("folke/which-key.nvim")
@@ -87,14 +87,14 @@ return require("packer").startup({
     use({
       "SirVer/ultisnips",
       config = function()
-        require("plugin-configs/ultisnips")
+        require("plugin-configs.ultisnips")
       end,
     })
     use("christoomey/vim-tmux-navigator")
     use({
       "ThePrimeagen/harpoon",
       config = function()
-        require("plugin-configs/harpoon")
+        require("plugin-configs.harpoon")
       end,
     })
     use({
@@ -107,7 +107,7 @@ return require("packer").startup({
     use({
       "voldikss/vim-floaterm",
       config = function()
-        require("plugin-configs/vim-floaterm")
+        require("plugin-configs.vim-floaterm")
       end,
     })
     --[[ use {
@@ -133,7 +133,7 @@ return require("packer").startup({
     use({
       "justinmk/vim-sneak",
       config = function()
-        require("plugin-configs/vim-sneak")
+        require("plugin-configs.vim-sneak")
       end,
     })
     use({
@@ -147,7 +147,7 @@ return require("packer").startup({
       as = "hop",
       config = function()
         -- you can configure Hop the way you like here; see :h hop-config
-        require("plugin-configs/hop")
+        require("plugin-configs.hop")
       end,
     })
     --[[ use {
@@ -157,20 +157,27 @@ return require("packer").startup({
     use({
       "MattesGroeger/vim-bookmarks",
       config = function()
-        require("plugin-configs/vim-bookmarks")
+        require("plugin-configs.vim-bookmarks")
       end,
     })
     use({
       "tom-anders/telescope-vim-bookmarks.nvim",
       after = { "telescope.nvim" },
       config = function()
-        require("plugin-configs/telescope-vim-bookmarks")
+        require("plugin-configs.telescope-vim-bookmarks")
+      end,
+    })
+    use({
+      "nvim-telescope/telescope-ui-select.nvim",
+      after = { "telescope.nvim" },
+      config = function()
+        require("telescope").load_extension("ui-select")
       end,
     })
     use({
       "editorconfig/editorconfig-vim",
       config = function()
-        require("plugin-configs/editorconfig-vim")
+        require("plugin-configs.editorconfig-vim")
       end,
     })
     use({
@@ -179,19 +186,19 @@ return require("packer").startup({
         vim.fn["firenvim#install"](0)
       end,
       config = function()
-        require("plugin-configs/firenvim")
+        require("plugin-configs.firenvim")
       end,
     })
     use({
       "vifm/vifm.vim",
       config = function()
-        require("plugin-configs/vifm")
+        require("plugin-configs.vifm")
       end,
     })
     use({
       "kyazdani42/nvim-tree.lua",
       config = function()
-        require("plugin-configs/nvim-tree")
+        require("plugin-configs.nvim-tree")
       end,
     })
     use({
@@ -200,7 +207,7 @@ return require("packer").startup({
         vim.cmd([[TSUpdate]])
       end,
       config = function()
-        require("plugin-configs/nvim-treesitter")
+        require("plugin-configs.nvim-treesitter")
       end,
     })
     use({
@@ -212,20 +219,20 @@ return require("packer").startup({
     use({
       "hoob3rt/lualine.nvim",
       config = function()
-        require("plugin-configs/lualine")
+        require("plugin-configs.lualine")
       end,
     })
     use({
       "RRethy/vim-illuminate",
       config = function()
-        require("plugin-configs/vim-illuminate")
+        require("plugin-configs.vim-illuminate")
       end,
     })
     use("tweekmonster/startuptime.vim")
     use({
       "windwp/nvim-autopairs",
       config = function()
-        require("plugin-configs/nvim-autopairs")
+        require("plugin-configs.nvim-autopairs")
       end,
     })
     use("gfanto/fzf-lsp.nvim")
@@ -239,7 +246,7 @@ return require("packer").startup({
     use({
       "theHamsta/nvim-dap-virtual-text",
       config = function()
-        require("plugin-configs/nvim-dap-virtual-text")
+        require("plugin-configs.nvim-dap-virtual-text")
       end,
     })
     use({
@@ -255,7 +262,7 @@ return require("packer").startup({
     use({
       "gennaro-tedesco/nvim-peekup",
       config = function()
-        require("plugin-configs/nvim-peekup")
+        require("plugin-configs.nvim-peekup")
       end,
     })
 
@@ -308,7 +315,7 @@ return require("packer").startup({
     use({
       "chuling/equinusocio-material.vim",
       config = function()
-        require("plugin-configs/equinusocio-material")
+        require("plugin-configs.equinusocio-material")
       end,
     })
     use("gruvbox-community/gruvbox")
@@ -346,28 +353,28 @@ return require("packer").startup({
     use({
       "ludovicchabant/vim-gutentags",
       config = function()
-        require("plugin-configs/vim-gutentags")
+        require("plugin-configs.vim-gutentags")
       end,
     })
 
     use({
       "mhinz/vim-startify",
       config = function()
-        require("plugin-configs/startify")
+        require("plugin-configs.startify")
       end,
     })
 
     use({
       "rmagatti/auto-session",
       config = function()
-        require("plugin-configs/auto-session")
+        require("plugin-configs.auto-session")
       end,
     })
 
     use({
       "rmagatti/session-lens",
       config = function()
-        require("plugin-configs/session-lens")
+        require("plugin-configs.session-lens")
       end,
       after = { "telescope.nvim", "auto-session" },
     })
@@ -409,7 +416,7 @@ return require("packer").startup({
     use({
       "nvim-telescope/telescope.nvim",
       config = function()
-        require("plugin-configs/telescope-config")
+        require("plugin-configs.telescope-config")
       end,
     })
 
@@ -428,7 +435,7 @@ return require("packer").startup({
     use({
       "sindrets/diffview.nvim",
       config = function()
-        require("plugin-configs/diffview")
+        require("plugin-configs.diffview")
       end,
     })
     use({
@@ -441,7 +448,7 @@ return require("packer").startup({
     use({
       "TimUntersberger/neogit",
       config = function()
-        require("plugin-configs/neogit")
+        require("plugin-configs.neogit")
       end,
     })
     --[[ use {
@@ -455,13 +462,26 @@ return require("packer").startup({
     use({
       "neovim/nvim-lspconfig",
       config = function()
-        require("plugin-configs/nvim-lspconfig")
+        require("lsp")
       end,
+    })
+    use({
+      "b0o/schemastore.nvim",
+    })
+    use({
+      "ThePrimeagen/refactoring.nvim",
+      config = function()
+        require("plugin-configs.refactoring")
+      end,
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-treesitter/nvim-treesitter" },
+      },
     })
     use({
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
-        require("plugin-configs/null-ls")
+        require("plugin-configs.null-ls")
       end,
     })
     use({
@@ -474,7 +494,7 @@ return require("packer").startup({
     use({
       "ray-x/lsp_signature.nvim",
       config = function()
-        require("plugin-configs/lsp_signature")
+        require("plugin-configs.lsp_signature")
       end,
     })
     use("folke/lua-dev.nvim")
@@ -488,7 +508,7 @@ return require("packer").startup({
     use({
       "hrsh7th/nvim-cmp",
       config = function()
-        require("plugin-configs/nvim-cmp")
+        require("plugin-configs.nvim-cmp")
       end,
       requires = {
         "hrsh7th/cmp-nvim-lsp",
@@ -501,7 +521,7 @@ return require("packer").startup({
     use({
       "hrsh7th/cmp-cmdline",
       config = function()
-        require("plugin-configs/cmp-cmdline")
+        require("plugin-configs.cmp-cmdline")
       end,
     })
 
@@ -549,14 +569,14 @@ return require("packer").startup({
       'fatih/vim-go',
       opt = true,
       ft = {'go', 'yaml'},
-      config = function () require 'plugin-configs/vim-go' end
+      config = function () require 'plugin-configs.vim-go' end
     } ]]
     use({
       "plasticboy/vim-markdown",
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
       config = function()
-        require("plugin-configs/vim-markdown")
+        require("plugin-configs.vim-markdown")
       end,
     })
 
@@ -566,7 +586,7 @@ return require("packer").startup({
       ft = { "markdown", "pandoc.markdown", "rmd" },
       run = "cd app & npm install",
       config = function()
-        require("plugin-configs/markdown-preview")
+        require("plugin-configs.markdown-preview")
       end,
     })
 
@@ -585,7 +605,7 @@ return require("packer").startup({
     use({
       "simrat39/symbols-outline.nvim",
       config = function()
-        require("plugin-configs/symbols-outline")
+        require("plugin-configs.symbols-outline")
       end,
     })
     --[[ #######################
@@ -602,7 +622,7 @@ return require("packer").startup({
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require("plugin-configs/indent-blankline")
+        require("plugin-configs.indent-blankline")
       end,
     })
     use({
@@ -615,14 +635,14 @@ return require("packer").startup({
     use({
       "liuchengxu/vista.vim",
       config = function()
-        require("plugin-configs/vista")
+        require("plugin-configs.vista")
       end,
     })
 
     use({
       "majutsushi/tagbar",
       config = function()
-        require("plugin-configs/tagbar")
+        require("plugin-configs.tagbar")
       end,
     })
 
@@ -659,7 +679,7 @@ return require("packer").startup({
     use({
       "hashivim/vim-terraform",
       config = function()
-        require("plugin-configs/vim-terraform")
+        require("plugin-configs.vim-terraform")
       end,
     })
 
@@ -683,14 +703,14 @@ return require("packer").startup({
     use({
       "folke/zen-mode.nvim",
       config = function()
-        require("plugin-configs/zen-mode")
+        require("plugin-configs.zen-mode")
       end,
     })
 
     use({
       "junegunn/Limelight.vim",
       config = function()
-        require("plugin-configs/limelight")
+        require("plugin-configs.limelight")
       end,
     })
 

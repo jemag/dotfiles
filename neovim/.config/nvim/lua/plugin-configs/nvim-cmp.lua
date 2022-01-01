@@ -57,6 +57,7 @@ cmp.setup({
   },
   documentation = {
    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    -- winhighlight = "NormalFloat:Normal",
   },
   experimental = {
     native_menu = false,

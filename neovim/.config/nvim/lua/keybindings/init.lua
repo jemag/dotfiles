@@ -239,6 +239,9 @@ local leader_mappings = {
   },
   r = {
     name = "+refactor",
+    e = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract function" },
+    f = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], "Extract function" },
+    p = { [[ <Esc><Cmd>lua M.refactors()<CR>]], "Extract function" },
     r = { "<Plug>(Scalpel)", "Rename (substitute)" },
   },
   s = {

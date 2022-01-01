@@ -1,7 +1,10 @@
+local custom_ayu_mirage = require'lualine.themes.ayu_mirage'
+-- Change the background of lualine_c section for normal mode
+custom_ayu_mirage.inactive.c.bg = '#111111'
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "ayu_mirage",
+		theme = custom_ayu_mirage,
 		component_separators = { "", "" },
 		section_separators = { "", "" },
 		disabled_filetypes = {},
