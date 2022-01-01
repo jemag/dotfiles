@@ -22,11 +22,25 @@ local function map_keys(bufnr)
   bufmap(bufnr, "n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next{float=false}<CR>", opts)
   bufmap(bufnr, "n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>", opts)
   bufmap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
-  bufmap(bufnr, "n", "<F5>", "<cmd>lua require'dap'.continue()<CR>", opts)
-  bufmap(bufnr, "n", "<F10>", "<cmd>lua require'dap'.step_over()<CR>", opts)
-  bufmap(bufnr, "n", "<F11>", "<cmd>lua require'dap'.step_into()<CR>", opts)
-  bufmap(bufnr, "n", "<F12>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", opts)
+  bufmap(
+    bufnr,
+    "n",
+    "<leader>dv",
+    "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
+    opts
+  )
+  bufmap(bufnr, "n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dsO", "<cmd>lua require'dap'.step_out()<CR>", opts)
   bufmap(bufnr, "n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dtc", "<cmd>Telescope dap commands<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dtf", "<cmd>Telescope dap frames<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dtv", "<cmd>Telescope dap variables<CR>", opts)
   bufmap(
     bufnr,
     "n",
@@ -41,7 +55,7 @@ local function map_keys(bufnr)
     "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
     opts
   )
-  bufmap(bufnr, "n", "<leader>dr", "<cmd>lua require'dap'.repl.open()<CR>", opts)
+  bufmap(bufnr, "n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<CR>", opts)
   bufmap(bufnr, "n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>", opts)
 end
 
@@ -95,6 +109,8 @@ M.on_attach = function(client, bufnr)
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls").setup.add_commands()
+    -- Auto-detect main and setup dap config
+    require("jdtls.dap").setup_dap_main_class_configs()
     map_java_keys(bufnr)
   end
 end

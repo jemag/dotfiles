@@ -15,6 +15,7 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 end)
 
 local function setup_servers()
+  -- java not included, installed manually with nvim-jdtls special config
   local servers = {
     "bashls",
     "angularls",
