@@ -27,7 +27,7 @@ vim.api.nvim_set_keymap("i", ",", ",<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", ".", ".<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "!", "!<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
+--[[ vim.api.nvim_set_keymap(
   "n",
   "<space>/",
   "<cmd>noh | lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>",
@@ -38,7 +38,7 @@ vim.api.nvim_set_keymap(
   "<C-f>",
   "<cr><cmd>lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>",
   { noremap = true }
-)
+) ]]
 vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = true })
@@ -159,10 +159,9 @@ local leader_mappings = {
   ["."] = { "<cmd>e $MYVIMRC<cr>", "Open init" },
   [";"] = { "<cmd>Commands<cr>", "Commands" },
   [","] = { "<cmd>Startify<cr>", "Start screen" },
+  ["c"] = { "<Cmd>call searchx#clear()<CR>", "Clear search hints" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["E"] = { "<cmd>NvimTreeFindFile<cr>", "Show file" },
-  ["i"] = { "<cmd>HopPatternAC<cr>", "HopPattern forward" },
-  ["I"] = { "<cmd>HopPatternBC<cr>", "HopPattern backward" },
   ["S"] = { "<cmd>SSave<cr>", "Save session" },
   ["L"] = { "<cmd>SLoad<cr>", "Load session" },
   ["1"] = { "<cmd>BufferGoto 1<cr>", "Buf 1" },

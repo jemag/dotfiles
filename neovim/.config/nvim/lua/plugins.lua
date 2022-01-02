@@ -150,6 +150,12 @@ return require("packer").startup({
         require("plugin-configs.hop")
       end,
     })
+    use({
+      "hrsh7th/vim-searchx",
+      config = function()
+        vim.cmd("source ~/.config/nvim/plugin-configs/vim-searchx.vim")
+      end,
+    })
     --[[ use {
       'chentau/marks.nvim',
       config = function() require"marks".setup{} end
