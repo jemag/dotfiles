@@ -5,6 +5,7 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true, -- false will disable the whole extension
   },
+  autopairs = {enable = true},
   incremental_selection = {
     enable = true,
     keymaps = { -- mappings for incremental selection (visual mappings)
