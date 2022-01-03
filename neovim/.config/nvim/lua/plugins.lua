@@ -26,6 +26,9 @@ return require("packer").startup({
       end,
     })
     use({
+      "svban/YankAssassin.vim",
+    })
+    use({
       "rcarriga/nvim-notify",
       config = function()
         require("plugin-configs.nvim-notify")
@@ -457,10 +460,12 @@ return require("packer").startup({
         require("plugin-configs.neogit")
       end,
     })
-    --[[ use {
-      'lewis6991/gitsigns.nvim',
-      config = function() require'gitsigns'.setup() end
-    } ]]
+    use({
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require("plugin-configs.gitsigns")
+      end,
+    })
 
     --[[ #######################
      Language
@@ -502,6 +507,7 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.lsp_signature")
       end,
+      commit = "be39dacc17d51531f9e3a50f88de0a45683c6634"
     })
     use("folke/lua-dev.nvim")
     use("rafamadriz/friendly-snippets")

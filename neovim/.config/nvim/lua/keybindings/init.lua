@@ -221,6 +221,10 @@ local leader_mappings = {
     e = { "<Plug>(EasyAlign)", "Easy align", mode = "v" },
     r = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Range formatting" },
   },
+  h = {
+    name = "+hunk",
+    b = "Blame line",
+  },
   l = {
     name = "+language",
     a = "Code action",
