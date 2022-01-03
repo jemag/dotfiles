@@ -504,13 +504,13 @@ return require("packer").startup({
       end,
     })
     use("folke/lua-dev.nvim")
+    use("rafamadriz/friendly-snippets")
     use({
-      "hrsh7th/vim-vsnip",
+      "L3MON4D3/LuaSnip",
       config = function()
-        require("plugin-configs.vim-snip")
+        require("plugin-configs.luasnip")
       end,
     })
-    use("hrsh7th/vim-vsnip-integ")
     use({
       "hrsh7th/nvim-cmp",
       config = function()
@@ -518,7 +518,7 @@ return require("packer").startup({
       end,
       requires = {
         "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-vsnip",
+        "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "onsails/lspkind-nvim",
