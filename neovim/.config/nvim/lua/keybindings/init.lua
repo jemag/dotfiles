@@ -292,7 +292,7 @@ local leader_mappings = {
       "Buffer commits",
     },
     ["d"] = {
-      "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs cwd=%:p:h<cr>",
+      "<cmd>Telescope find_files hidden=true find_command=fd,--type,f, cwd=%:p:h<cr>",
       "Current file directory",
     },
     ["D"] = {
