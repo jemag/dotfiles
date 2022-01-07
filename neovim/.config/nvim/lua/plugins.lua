@@ -55,7 +55,7 @@ return require("packer").startup({
     use({
       "folke/todo-comments.nvim",
       config = function()
-        require("todo-comments").setup({})
+        require("plugin-configs.todo-comments")
       end,
     })
     use({
@@ -85,7 +85,11 @@ return require("packer").startup({
         require("plugin-configs.beacon")
       end,
     })
-    use("folke/which-key.nvim")
+    -- TODO: Restore to folke version once nil fix is merged
+    use({
+      "zeertzjq/which-key.nvim",
+      branch = "patch-1"
+    })
     use("honza/vim-snippets")
     use({
       "SirVer/ultisnips",
@@ -621,12 +625,13 @@ return require("packer").startup({
       ft = { "markdown", "pandoc.markdown", "rmd" },
     })
 
-    use({
+    -- TODO: Enable again once nil fix is merged
+    --[[ use({
       "simrat39/symbols-outline.nvim",
       config = function()
         require("plugin-configs.symbols-outline")
       end,
-    })
+    }) ]]
     --[[ #######################
      Coding
     ####################### ]]
@@ -664,30 +669,6 @@ return require("packer").startup({
         require("plugin-configs.tagbar")
       end,
     })
-
-    -- TODO: put emmet config into its own file
-    --[[ use 'mattn/emmet-vim'
-    on_ft: [html,css,jsx,javascript,javascript.jsx]
-    on_event: InsertEnter
-    hook_add: |
-    let g:use_emmet_complete_tag = 0
-    let g:user_emmet_install_global = 0
-    let g:user_emmet_install_command = 0
-    let g:user_emmet_mode = 'i'
-    let g:user_emmet_leader_key='<C-g>'
-    let g:user_emmet_settings = {
-      \  'javascript.jsx' : {
-        \      'extends' : 'jsx',
-        \  },
-        \} ]]
-
-    -- TODO: put echodoc config into its own file
-    -- actually do we still need this plugin ??
-    --[[ use 'Shougo/echodoc.vim'
-        on_event: CompleteDone
-        hook_source: |
-        call echodoc#enable()
-        let g:echodoc#type = "virtual" ]]
 
     use({
       "andrewstuart/vim-kubernetes",
