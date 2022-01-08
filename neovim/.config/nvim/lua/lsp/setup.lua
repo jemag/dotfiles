@@ -2,20 +2,20 @@ local M = {}
 
 local function define_signs()
   vim.fn.sign_define(
-    "LspDiagnosticsSignError",
-    { text = "", texthl = "LspDiagnosticsDefaultError", numhl = "LspDiagnosticsDefaultError" }
+    "DiagnosticSignError",
+    { text = "", texthl = "DiagnosticSignError", numhl = "LspDiagnosticsDefaultError" }
   )
   vim.fn.sign_define(
-    "LspDiagnosticsSignWarning",
-    { text = "", texthl = "LspDiagnosticsDefaultWarning", numhl = "LspDiagnosticsDefaultWarning" }
+    "DiagnosticSignWarn",
+    { text = "", texthl = "DiagnosticSignWarning", numhl = "LspDiagnosticsDefaultWarning" }
   )
   vim.fn.sign_define(
-    "LspDiagnosticsSignInformation",
-    { text = "🛈", texthl = "LspDiagnosticsDefaultInformation", numhl = "LspDiagnosticsDefaultInformation" }
+    "DiagnosticSignInfo",
+    { text = "🛈", texthl = "DiagnosticSignInfo", numhl = "LspDiagnosticsDefaultInformation" }
   )
   vim.fn.sign_define(
-    "LspDiagnosticsSignHint",
-    { text = "!", texthl = "LspDiagnosticsDefaultHint", numhl = "LspDiagnosticsDefaultHint" }
+    "DiagnosticSignHint",
+    { text = "!", texthl = "DiagnosticSignHint", numhl = "LspDiagnosticsDefaultHint" }
   )
 end
 

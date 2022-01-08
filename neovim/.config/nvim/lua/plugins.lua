@@ -29,6 +29,18 @@ return require("packer").startup({
       "svban/YankAssassin.vim",
     })
     use({
+      "gbprod/substitute.nvim",
+      config = function()
+        require("plugin-configs.substitute")
+      end,
+    })
+    use({
+      "haya14busa/vim-asterisk",
+      config = function()
+        require("plugin-configs.vim-asterisk")
+      end,
+    })
+    use({
       "rcarriga/nvim-notify",
       config = function()
         require("plugin-configs.nvim-notify")
@@ -66,6 +78,18 @@ return require("packer").startup({
       end,
     })
     use("szw/vim-maximizer")
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "main",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim"
+        },
+        config = function ()
+            require("plugin-configs.neo-tree")
+        end
+    }
     use({
       "Xuyuanp/scrollbar.nvim",
       config = function()
@@ -88,7 +112,7 @@ return require("packer").startup({
     -- TODO: Restore to folke version once nil fix is merged
     use({
       "zeertzjq/which-key.nvim",
-      branch = "patch-1"
+      branch = "patch-1",
     })
     use("honza/vim-snippets")
     use({
@@ -511,7 +535,7 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.lsp_signature")
       end,
-      commit = "be39dacc17d51531f9e3a50f88de0a45683c6634"
+      commit = "be39dacc17d51531f9e3a50f88de0a45683c6634",
     })
     use("folke/lua-dev.nvim")
     use("rafamadriz/friendly-snippets")
