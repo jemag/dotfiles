@@ -34,6 +34,14 @@ return require("packer").startup({
         require("plugin-configs.substitute")
       end,
     })
+    use {
+      '4513ECHO/vim-readme-viewer',
+      opt = true,
+      cmd = 'PackerReadme',
+      config = function()
+        vim.g['readme_viewer#plugin_manager'] = 'packer.nvim'
+      end,
+    }
     use({
       "haya14busa/vim-asterisk",
       config = function()
