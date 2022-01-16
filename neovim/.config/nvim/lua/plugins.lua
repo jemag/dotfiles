@@ -34,14 +34,14 @@ return require("packer").startup({
         require("plugin-configs.substitute")
       end,
     })
-    use {
-      '4513ECHO/vim-readme-viewer',
+    use({
+      "4513ECHO/vim-readme-viewer",
       opt = true,
-      cmd = 'PackerReadme',
+      cmd = "PackerReadme",
       config = function()
-        vim.g['readme_viewer#plugin_manager'] = 'packer.nvim'
+        vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
       end,
-    }
+    })
     use({
       "haya14busa/vim-asterisk",
       config = function()
@@ -86,18 +86,18 @@ return require("packer").startup({
       end,
     })
     use("szw/vim-maximizer")
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "main",
-        requires = {
-          "nvim-lua/plenary.nvim",
-          "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-          "MunifTanjim/nui.nvim"
-        },
-        config = function ()
-            require("plugin-configs.neo-tree")
-        end
-    }
+    use({
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "main",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
+      config = function()
+        require("plugin-configs.neo-tree")
+      end,
+    })
     use({
       "Xuyuanp/scrollbar.nvim",
       config = function()
@@ -119,8 +119,7 @@ return require("packer").startup({
     })
     -- TODO: Restore to folke version once nil fix is merged
     use({
-      "zeertzjq/which-key.nvim",
-      branch = "patch-1",
+      "folke/which-key.nvim",
     })
     use("honza/vim-snippets")
     use({
