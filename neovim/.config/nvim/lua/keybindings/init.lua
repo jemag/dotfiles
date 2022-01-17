@@ -302,6 +302,10 @@ local leader_mappings = {
     },
     ["f"] = { "<cmd>Telescope find_files hidden=true<cr>", "Files" },
     ["F"] = { "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>", "Files" },
+    ["g"] = {
+      "<cmd>lua require('telescope.builtin').grep_string({search=''})<cr>",
+      "Grep string",
+    },
     ["G"] = {
       "<cmd>Telescope git_status<cr>",
       "Modified git files",
@@ -349,7 +353,7 @@ local leader_mappings = {
     },
     ["t"] = {
       "<cmd>Telescope live_grep<cr>",
-      "Text Rg",
+      "Live grep",
     },
     ["T"] = { "<cmd>TodoTelescope<cr>", "TODOs" },
     ["v"] = {
