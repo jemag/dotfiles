@@ -35,6 +35,9 @@ return require("packer").startup({
       end,
     })
     use({
+      "google/vim-jsonnet",
+    })
+    use({
       "svban/YankAssassin.vim",
     })
     use({

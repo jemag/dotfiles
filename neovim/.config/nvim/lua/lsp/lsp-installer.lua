@@ -31,6 +31,7 @@ local function setup_servers()
     "html",
     "tsserver",
     "sumneko_lua",
+    "jsonnet_ls",
     "gopls",
   }
 
