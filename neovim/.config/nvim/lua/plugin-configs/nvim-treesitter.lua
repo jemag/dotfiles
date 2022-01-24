@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
   autopairs = {enable = true},
   incremental_selection = {
     enable = true,
+    disable = {"phpdoc"},
     keymaps = { -- mappings for incremental selection (visual mappings)
       init_selection = "gnn", -- maps in normal mode to init the node/scope selection
       node_incremental = "grn", -- increment to the upper named parent
@@ -71,5 +72,5 @@ require("nvim-treesitter.configs").setup({
       },
     },
   },
-  ensure_installed = "all", -- one of "all", "language", or a list of languages
+  ensure_installed = "maintained", -- one of "all", "language", or a list of languages
 })
