@@ -336,8 +336,8 @@ local leader_mappings = {
       "Help tags",
     },
     ["P"] = {
-      "<cmd>Telescope tags<cr>",
-      "Directory tags",
+      "<cmd>Telescope projects<cr>",
+      "Projects",
     },
     ["q"] = {
       "<cmd>Telescope quickfix<cr>",

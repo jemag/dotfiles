@@ -35,6 +35,9 @@ return require("packer").startup({
       end,
     })
     use({
+      "nathom/filetype.nvim",
+    })
+    use({
       "google/vim-jsonnet",
     })
     use({
@@ -92,7 +95,6 @@ return require("packer").startup({
     })
     use({
       "romgrk/barbar.nvim",
-      -- '~/Projects/github-reference/barbar.nvim',
       config = function()
         require("plugin-configs.barbar")
       end,
@@ -111,10 +113,7 @@ return require("packer").startup({
       end,
     })
     use({
-      "Xuyuanp/scrollbar.nvim",
-      config = function()
-        require("plugin-configs.scrollbar")
-      end,
+      "dstein64/nvim-scrollview",
     })
     use({
       "wincent/scalpel",
@@ -403,21 +402,12 @@ return require("packer").startup({
         require("plugin-configs.vim-gutentags")
       end,
     })
-
-    use({
-      "mhinz/vim-startify",
-      config = function()
-        require("plugin-configs.startify")
-      end,
-    })
-
     use({
       "rmagatti/auto-session",
       config = function()
         require("plugin-configs.auto-session")
       end,
     })
-
     use({
       "rmagatti/session-lens",
       config = function()
@@ -426,6 +416,13 @@ return require("packer").startup({
       after = { "telescope.nvim", "auto-session" },
     })
 
+    use({
+      "ahmedkhalf/project.nvim",
+      config = function()
+        require("plugin-configs.project_nvim")
+      end,
+      after = { "telescope.nvim" }
+    })
     use("junegunn/vim-easy-align")
 
     use({
@@ -454,7 +451,6 @@ return require("packer").startup({
     use("vijaymarupudi/nvim-fzf")
 
     use("nvim-lua/popup.nvim")
-    use("nvim-telescope/telescope-fzy-native.nvim")
     use({
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "make",
