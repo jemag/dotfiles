@@ -41,6 +41,7 @@ dockle-bin
 duf-bin
 dust
 eclipse-mat
+edk2-ovmf
 efm-langserver
 egl-wayland
 element-desktop
@@ -223,6 +224,7 @@ python-pynvim
 qalculate-gtk
 qbittorrent
 qemu
+qemu-arch-extra
 qmk
 ranger
 rclone
@@ -334,6 +336,5 @@ yq
 ytop-bin
 zathura
 zathura-pdf-mupdf
-zeal-git
 zoxide-bin
 zsh
