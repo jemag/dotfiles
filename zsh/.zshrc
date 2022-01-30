@@ -57,6 +57,8 @@ alias vim="nvim"
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
+alias mirrorback="sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
+alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vifm="vifmrun"
 alias g="git"
 alias tmuxa="tmux attach -t"
@@ -71,6 +73,13 @@ alias tg="terragrunt"
 alias cd="z"
 alias ku="kustomize"
 alias vd="viddy "
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem="ps auxf | sort -nr -k 4"
+alias pscpu="ps auxf | sort -nr -k 3"
+alias pacu="sudo pacman -Syu"                  # update only standard pkgs
+alias yaya="yay -Syu --aur --sudoloop"              # update only AUR pkgs (yay)
+alias parua="paru -Syua --sudoloop"             # update only AUR pkgs (paru)
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
