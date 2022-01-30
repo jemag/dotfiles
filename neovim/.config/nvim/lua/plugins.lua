@@ -206,10 +206,6 @@ return require("packer").startup({
         vim.cmd("source ~/.config/nvim/plugin-configs/vim-searchx.vim")
       end,
     })
-    --[[ use {
-      'chentau/marks.nvim',
-      config = function() require"marks".setup{} end
-    } ]]
     use({
       "MattesGroeger/vim-bookmarks",
       config = function()
@@ -341,16 +337,12 @@ return require("packer").startup({
       "EdenEast/nightfox.nvim",
     })
     use({
-      "lourenci/github-colors",
-    })
-    use({
       "eddyekofo94/gruvbox-flat.nvim",
       config = function()
         vim.g.gruvbox_flat_style = "dark"
       end,
     })
     use("folke/lsp-colors.nvim")
-    use("cocopon/iceberg.vim")
     use("sainnhe/sonokai")
     use({
       "Shatur95/neovim-ayu",
@@ -364,7 +356,6 @@ return require("packer").startup({
     -- use 'ChristianChiarulli/nvcode-color-schemes.vim'
     use("habamax/vim-gruvbit")
     use("kyazdani42/blue-moon")
-    use("romainl/Apprentice")
     use("drewtempelmeyer/palenight.vim")
     use("heraldofsolace/nisha-vim")
     use("ghifarit53/tokyonight-vim")
@@ -713,12 +704,7 @@ return require("packer").startup({
       end,
     })
 
-    use({
-      "andrewstuart/vim-kubernetes",
-      opt = true,
-      ft = { "yaml" },
-    })
-
+    use("towolf/vim-helm")
     use({
       "hashivim/vim-terraform",
       config = function()
