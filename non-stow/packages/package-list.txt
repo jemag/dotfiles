@@ -216,9 +216,11 @@ poppler
 postgresql
 prettier
 procs-bin
+protonup-qt
 pulseaudio
 pulseaudio-alsa
 pulsemixer
+python-black
 python-pip
 python-pynvim
 qalculate-gtk
