@@ -19,7 +19,8 @@ local function setup_servers()
   local servers = {
     "bashls",
     "angularls",
-    "ansiblels",
+    -- TODO: fix ansiblels highlight out of range problem
+    -- "ansiblels",
     "pyright",
     "terraformls",
     "jsonls",
@@ -31,6 +32,7 @@ local function setup_servers()
     "html",
     "tsserver",
     "sumneko_lua",
+    "yamlls",
     "jsonnet_ls",
     "gopls",
   }

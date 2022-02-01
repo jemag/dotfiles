@@ -113,6 +113,22 @@ M.on_attach = function(client, bufnr)
     require("jdtls.dap").setup_dap_main_class_configs()
     map_java_keys(bufnr)
   end
+  if client.name == "ansiblels" then
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+      vim.diagnostic.disable(bufnr)
+      vim.defer_fn(function()
+        vim.diagnostic.reset(nil, bufnr)
+      end, 1000)
+    end
+  end
+  if client.name == "yamlls" then
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+      vim.diagnostic.disable(bufnr)
+      vim.defer_fn(function()
+        vim.diagnostic.reset(nil, bufnr)
+      end, 1000)
+    end
+  end
 end
 
 local function get_basic_capabilities()

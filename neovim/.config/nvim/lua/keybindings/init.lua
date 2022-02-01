@@ -301,7 +301,7 @@ local leader_mappings = {
       "Current file directory text",
     },
     ["f"] = { "<cmd>Telescope find_files hidden=true<cr>", "Files" },
-    ["F"] = { "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>", "Files" },
+    ["F"] = { "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>", "Files, include ignored" },
     ["g"] = {
       "<cmd>lua require('telescope.builtin').grep_string({search=''})<cr>",
       "Grep string",

@@ -34,9 +34,10 @@ return require("packer").startup({
         })
       end,
     })
-    use({
+    -- TODO: waiting for it to support custom filetype plugins
+    --[[ use({
       "nathom/filetype.nvim",
-    })
+    }) ]]
     use({
       "google/vim-jsonnet",
     })
@@ -131,13 +132,6 @@ return require("packer").startup({
     -- TODO: Restore to folke version once nil fix is merged
     use({
       "folke/which-key.nvim",
-    })
-    use("honza/vim-snippets")
-    use({
-      "SirVer/ultisnips",
-      config = function()
-        require("plugin-configs.ultisnips")
-      end,
     })
     use("christoomey/vim-tmux-navigator")
     use({
