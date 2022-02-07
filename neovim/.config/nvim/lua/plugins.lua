@@ -678,12 +678,12 @@ return require("packer").startup({
         require('Comment').setup()
       end
     })
+    use("LudoPinelli/comment-box.nvim")
     use({
       "Chiel92/vim-autoformat",
       opt = true,
       cmd = "Autoformat",
     })
-
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()

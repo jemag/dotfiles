@@ -80,8 +80,8 @@ vim.api.nvim_set_keymap(
 )
 
 -- Count relative line number movements toward jump list if we move by more than 5 lines
-vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "k"', { noremap = true, expr = true })
-vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "j"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "gk"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "gj"', { noremap = true, expr = true })
 
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 
@@ -225,6 +225,11 @@ local leader_mappings = {
   h = {
     name = "+hunk",
     b = "Blame line",
+  },
+  i = {
+    name = "+insert",
+    b = { "<cmd>CBcbox<cr>", "Centered box", mode = "v" },
+    l = { "<cmd>CBcline<cr>", "Centered line"},
   },
   l = {
     name = "+language",
