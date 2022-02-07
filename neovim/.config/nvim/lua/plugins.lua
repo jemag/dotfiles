@@ -193,6 +193,7 @@ return require("packer").startup({
         require("plugin-configs.hop")
       end,
     })
+    -- Potential alternative would be https://github.com/rlane/pounce.nvim
     use({
       "hrsh7th/vim-searchx",
       config = function()
@@ -476,6 +477,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "rhysd/conflict-marker.vim",
+      config = function()
+        require("plugin-configs.conflict-marker")
+      end,
+    })
+    use({
       "pwntester/octo.nvim",
       config = function()
         require("octo").setup()
@@ -529,6 +536,12 @@ return require("packer").startup({
     })
     use({
       "williamboman/nvim-lsp-installer",
+    })
+    use({
+      "j-hui/fidget.nvim",
+      config = function()
+        require("plugin-configs.fidget")
+      end,
     })
     use({
       "ray-x/lsp_signature.nvim",
@@ -659,8 +672,12 @@ return require("packer").startup({
     --[[ #######################
      Coding
     ####################### ]]
-    use("b3nj5m1n/kommentary")
-
+    use({
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+    })
     use({
       "Chiel92/vim-autoformat",
       opt = true,
