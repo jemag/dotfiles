@@ -610,6 +610,14 @@ return require("packer").startup({
       ft = { "xml" },
     })
     use({
+      "cuducos/yaml.nvim",
+      ft = {"yaml"}, -- optional
+      requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope.nvim" -- optional
+      },
+    })
+    use({
       "pearofducks/ansible-vim",
       opt = true,
       ft = { "yaml", "ansible", "ansible_hosts" },

@@ -277,7 +277,7 @@ local leader_mappings = {
       "<cmd>Telescope current_buffer_fuzzy_find<cr>",
       "Find in buffer",
     },
-    [":"] = {
+    [";"] = {
       "<cmd>Telescope commands<cr>",
       "Commands",
     },
