@@ -43,6 +43,8 @@ require("telescope").setup({
         -- So, to not map "<C-n>", just put
         -- ["<c-x>"] = false,
         ["<esc>"] = actions.close,
+        ["<C-s>"] = actions.send_selected_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist,
         ["<C-w>"] = function()
           vim.cmd([[normal! bcw]])
         end,
@@ -56,6 +58,8 @@ require("telescope").setup({
         -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
       },
       n = {
+        ["<C-s>"] = actions.send_selected_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist,
         --[[ ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist, ]]
