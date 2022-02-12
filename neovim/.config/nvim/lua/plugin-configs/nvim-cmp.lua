@@ -83,7 +83,6 @@ cmp.setup({
     -- winhighlight = "NormalFloat:Normal",
   },
   experimental = {
-    native_menu = false,
     ghost_text = true,
   },
 })
