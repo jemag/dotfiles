@@ -129,11 +129,16 @@ M.on_attach = function(client, bufnr)
       end, 1000)
     end
   end
+  if client.name == "tsserver" or client.name == "html" or client.name == "sumneko_lua" then
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 end
 
 local function get_basic_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
+
   return capabilities
 end
 
