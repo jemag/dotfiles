@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "'", "printf('`%c zz',getchar())", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<return><esc>", { noremap = true, silent = true })
