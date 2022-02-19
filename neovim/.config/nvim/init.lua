@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "-"
 require("plugins")
 require("keybindings")
+require("globals")
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_logiPat = 1
 vim.g.loaded_getscriptPlugin = 1
