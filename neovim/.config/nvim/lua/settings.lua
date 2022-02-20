@@ -80,7 +80,7 @@ augroup CursorLineOnlyInActiveWindow
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
-augroup
+augroup END
 ]])
 --[[
 - "a"  Auto formatting is BAD.
