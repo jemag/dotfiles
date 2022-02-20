@@ -264,6 +264,10 @@ local leader_mappings = {
     S = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Current file annotated bookmarks" },
     x = { "<cmd>BookmarkClearAll<cr>", "Clear all" },
   },
+  n = {
+    name = "+nvim plugin devel",
+    t = { "<Plug>PlenaryTestFile", "PlenaryTestFile" },
+  },
   r = {
     name = "+refactor",
     e = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract function" },

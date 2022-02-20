@@ -12,6 +12,9 @@ return require("lua-dev").setup({
           disable = {
             "different-requires",
           },
+          globals = {
+            "vim", "describe", "it", "before_each", "after_each", "teasrdown", "pending", "clear"
+          }
         },
       },
     },
