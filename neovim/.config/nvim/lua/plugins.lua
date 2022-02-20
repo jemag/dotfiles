@@ -9,8 +9,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 execute("packadd packer.nvim")
-vim.cmd("autocmd BufWritePost plugins.lua PackerCompile") -- Auto compile when there are changes in plugins.lua
-
 return require("packer").startup({
   function(use)
     -- Packer can manage itself as an optional plugin
@@ -51,6 +49,8 @@ return require("packer").startup({
         require("plugin-configs.substitute")
       end,
     })
+    use({"milisims/nvim-luaref"})
+    use({"nanotee/luv-vimdocs"})
     use({
       "4513ECHO/vim-readme-viewer",
       opt = true,
@@ -705,7 +705,14 @@ return require("packer").startup({
         require("headlines").setup()
       end,
     })
-
+    use({
+      "lukas-reineke/virt-column.nvim",
+      config = function()
+        vim.opt.colorcolumn="120"
+        vim.cmd([[autocmd ColorScheme * highlight clear ColorColumn]])
+        require("virt-column").setup()
+      end
+    })
     use({
       "liuchengxu/vista.vim",
       config = function()
