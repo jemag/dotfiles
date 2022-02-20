@@ -41,6 +41,7 @@ dockle-bin
 duf-bin
 dust
 eclipse-mat
+editorconfig-checker
 edk2-ovmf
 efm-langserver
 egl-wayland
@@ -61,6 +62,7 @@ firefox
 firefox-developer-edition
 flameshot
 flex
+fontdownloader-git
 fontpreview
 forticlient
 forticlientsslvpn
@@ -94,6 +96,7 @@ gst-plugins-base-libs
 gvim
 gzip
 handlr-bin
+hdparm
 helm
 htop
 httpie
@@ -174,7 +177,6 @@ mkcert
 mkchromecast-git
 mkinitcpio
 mkinitcpio-utils
-mongodb-bin
 mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
