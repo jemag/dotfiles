@@ -513,12 +513,11 @@ key_bindings:
   - { key: End,    mods: Alt,           action: ScrollToBottom }
   - { key: Home,   mods: Alt,           action: ScrollToTop    }
  # Vi Mode
-  - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
-  - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
-  - { key: A,                           mode: Vi|~Search, action: ToggleViMode            }
+  - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   - { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   - { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
   - { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }
@@ -546,6 +545,7 @@ key_bindings:
   - { key: Right,                       mode: Vi|~Search, action: Right                   }
   - { key: 11,                          mode: Vi|~Search, action: First                   }
   - { key: 5,      mods: Shift,         mode: Vi|~Search, action: Last                    }
+  - { key: Key6,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
   - { key: H,      mods: Shift,         mode: Vi|~Search, action: High                    }
   - { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
   - { key: L,      mods: Shift,         mode: Vi|~Search, action: Low                     }
@@ -555,9 +555,9 @@ key_bindings:
   - { key: B,      mods: Shift,         mode: Vi|~Search, action: WordLeft                }
   - { key: W,      mods: Shift,         mode: Vi|~Search, action: WordRight               }
   - { key: E,      mods: Shift,         mode: Vi|~Search, action: WordRightEnd            }
-  - { key: 6,      mods: Shift,         mode: Vi|~Search, action: Bracket                 }
-  - { key: Slash,  mods: Shift,         mode: Vi|~Search, action: SearchForward           }
-  - { key: 7,      mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
+  - { key: Key5,   mods: Shift,         mode: Vi|~Search, action: Bracket                 }
+  - { key: Slash,                       mode: Vi|~Search, action: SearchForward           }
+  - { key: 53,     mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
   - { key: N,                           mode: Vi|~Search, action: SearchNext              }
   - { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
   # Search Mode
