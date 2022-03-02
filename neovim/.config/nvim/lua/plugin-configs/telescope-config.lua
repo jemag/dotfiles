@@ -45,9 +45,6 @@ require("telescope").setup({
         ["<esc>"] = actions.close,
         ["<C-s>"] = actions.send_selected_to_qflist,
         ["<C-q>"] = actions.send_to_qflist,
-        ["<C-w>"] = function()
-          vim.cmd([[normal! bcw]])
-        end,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
 
