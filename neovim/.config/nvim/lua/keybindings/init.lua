@@ -19,10 +19,6 @@ vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silen
 vim.api.nvim_set_keymap("n", "<Up>", "<cmd>copen<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>cclose<cr>", { noremap = true, silent = true })
 
--- do not put replaced text in register
-vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "P", '"_dP', { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap("i", "<C-u>", "<C-g>u<C-u>", { noremap = true, silent = true })
 -- Set undo breakpoints in insert mode so that it doesn't cancel all the text written
 vim.api.nvim_set_keymap("i", ",", ",<C-g>u", { noremap = true, silent = true })
