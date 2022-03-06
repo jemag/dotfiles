@@ -6,7 +6,13 @@ function Start_jdt()
 end
 
 M.setup = function()
-  vim.cmd("autocmd FileType java lua Start_jdt()")
+  vim.api.nvim_create_autocmd({ "FileType"}, {
+    pattern = "java",
+    callback = function()
+      Start_jdt()
+    end,
+    desc = "Start java language server"
+  })
 end
 
 return M

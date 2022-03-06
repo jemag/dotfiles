@@ -33,12 +33,16 @@ function! OnUIEnter(event) abort
 endfunction
 autocmd UIEnter * call OnUIEnter(deepcopy(v:event)) ]]
 
-local autocmds = {
-	firenvim = {
-		{ "BufEnter", "github.com_*.txt", "set filetype=markdown" },
-		{ "BufEnter", "github.com_*.txt", "set filetype=markdown" },
-		{ "BufEnter", "ticktick.com_*.txt", "set filetype=markdown" },
-		{ "BufEnter", "ticktick.com_*.txt", "set filetype=markdown" },
-	},
-}
-require("utils").nvim_create_augroups(autocmds)
+local firenvim = "firenvim"
+vim.api.nvim_create_augroup(firenvim, {clear = true})
+vim.api.nvim_create_autocmd({ "BufEnter"}, {
+  pattern = {
+    "github.com_*.txt",
+    "ticktick.com_*.txt"
+  },
+  callback = function()
+    vim.opt.filetype="markdown"
+  end,
+  desc = "Set firenvim filetype for specific websites",
+  group = firenvim
+})

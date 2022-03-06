@@ -54,7 +54,11 @@ local function set_handlers()
 end
 
 M.init = function()
-  vim.cmd([[autocmd ColorScheme * highlight! link NormalFloat Normal]])
+  vim.api.nvim_create_autocmd({ "ColorScheme"}, {
+    pattern = "*",
+    command = "highlight! link NormalFloat Normal",
+    desc = "Link NormalFloat to Normal",
+  })
   define_signs()
   configure_diagnostics()
   set_handlers()

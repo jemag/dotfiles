@@ -16,7 +16,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.mouse = "a"
 vim.opt.laststatus = 2
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 vim.opt.fillchars = {
   diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
   eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
@@ -75,33 +75,46 @@ vim.opt.showmatch = true
 vim.opt.matchtime = 1
 vim.opt.wildignore = vim.opt.wildignore + "*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*"
 vim.opt.conceallevel = 2
-vim.cmd([[
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
-]])
---[[
-- "a"  Auto formatting is BAD.
-- "t"  Don't auto format my code. I got linters for that.
-- "o"  O and o, don't continue comments
-- "2"  I'm not in gradeschool anymore
-+ "c"  In general, I like it when comments respect textwidth
-+ "q"  Allow formatting comments w/ gq
-+ "r"  But do continue when pressing enter.
-+ "n"  Indent past the formatlistpat, not underneath it.
-+ "j"  Auto-remove comments if possible. ]]
-vim.cmd([[
-  autocmd FileType * set formatoptions-=ato2 | set formatoptions+=cqrnj
-]])
-local autocmds = {
-  highlight_yank = {
-    {
-      "TextYankPost",
-      "*",
-      "silent! lua vim.highlight.on_yank {higroup='Substitute', on_visual=false, timeout=200}",
-    },
-  },
-}
-require("utils").nvim_create_augroups(autocmds)
+local cursorlineAugroup = "CursorLineOnlyInActiveWindow"
+vim.api.nvim_create_augroup(cursorlineAugroup, {clear = true})
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+  group = cursorlineAugroup,
+  pattern = "*",
+  callback = function()
+    vim.opt_local.cursorline = true
+  end,
+  desc = "Show cursorline in active window"
+})
+vim.api.nvim_create_autocmd({"WinLeave"}, {
+  group = cursorlineAugroup,
+  pattern = "*",
+  callback = function()
+    vim.opt_local.cursorline = false
+  end,
+  desc = "Hide cursorline in inactive window"
+})
+
+vim.api.nvim_create_autocmd({ "FileType"}, {
+  pattern = "*",
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions
+    - "a" -- Auto formatting is BAD.
+    - "t" -- Don't auto format my code. I got linters for that.
+    - "o" -- O and o, don't continue comments
+    - "2" -- I'm not in gradeschool anymore
+    + "c" -- In general, I like it when comments respect textwidth
+    + "q" -- Allow formatting comments w/ gq
+    + "r" -- But do continue when pressing enter.
+    + "n" -- Indent past the formatlistpat, not underneath it.
+    + "j" -- Auto-remove comments if possible.
+  end,
+  desc = "Set format options for all filetypes"
+})
+
+vim.api.nvim_create_autocmd({ "TextYankPost"}, {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({higroup='Substitute', on_visual=false, timeout=200})
+  end,
+  desc = "Highlight yanked text"
+})

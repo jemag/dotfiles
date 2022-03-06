@@ -709,7 +709,11 @@ return require("packer").startup({
       "lukas-reineke/virt-column.nvim",
       config = function()
         vim.opt.colorcolumn="120"
-        vim.cmd([[autocmd ColorScheme * highlight clear ColorColumn]])
+        vim.api.nvim_create_autocmd({ "ColorScheme"}, {
+          pattern = "*",
+          command = "highlight clear colorColumn",
+          desc = "Clear colorcolumn",
+        })
         require("virt-column").setup()
       end
     })
