@@ -160,7 +160,6 @@ local leader_mappings = {
   ["c"] = { "<Cmd>call searchx#clear()<CR>", "Clear search hints" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["E"] = { "<cmd>NvimTreeFindFile<cr>", "Show file" },
-  ["S"] = { "<cmd>SSave<cr>", "Save session" },
   ["L"] = { "<cmd>SLoad<cr>", "Load session" },
   ["1"] = { "<cmd>BufferGoto 1<cr>", "Buf 1" },
   ["2"] = { "<cmd>BufferGoto 2<cr>", "Buf 2" },
@@ -272,7 +271,7 @@ local leader_mappings = {
     p = { [[ <Esc><Cmd>lua M.refactors()<CR>]], "Extract function" },
     r = { "<Plug>(Scalpel)", "Rename (substitute)" },
   },
-  s = {
+  a = {
     name = "+search",
     ["/"] = {
       "<cmd>Telescope current_buffer_fuzzy_find<cr>",
