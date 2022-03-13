@@ -687,6 +687,12 @@ return require("packer").startup({
         require('Comment').setup()
       end
     })
+    use({
+      "toppair/reach.nvim",
+      config = function()
+        require("reach").setup()
+      end,
+    })
     use("LudoPinelli/comment-box.nvim")
     use({
       "Chiel92/vim-autoformat",
