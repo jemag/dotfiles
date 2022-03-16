@@ -370,7 +370,6 @@ return require("packer").startup({
       rtp = "vim",
     })
     use("joshdick/onedark.vim")
-    use("fnune/base16-vim")
     use({
       "folke/tokyonight.nvim",
       config = function()
