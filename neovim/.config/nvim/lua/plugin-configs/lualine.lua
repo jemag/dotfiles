@@ -3,6 +3,7 @@ local custom_ayu_mirage = require'lualine.themes.ayu_mirage'
 custom_ayu_mirage.inactive.c.bg = '#111111'
 require("lualine").setup({
 	options = {
+    globalstatus = true,
 		icons_enabled = true,
 		theme = custom_ayu_mirage,
 		component_separators = { "", "" },
