@@ -24,6 +24,12 @@ let bufferline.letters =
 
 " Sets the maximum padding width with which to surround each tab
 let bufferline.maximum_padding = 4 ]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferCurrent guifg=black guibg=#77A8D9]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferCurrentIndex guifg=black guibg=#77A8D9]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferCurrentSign guifg=#E06C75 guibg=#77A8D9]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferVisible guifg=black guibg=#626A73]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferVisibleIndex guifg=black guibg=#626A73]]
+vim.cmd[[autocmd ColorScheme * highlight! BufferVisibleSign guifg=#626A73 guibg=#626A73]]
 vim.g.bufferline = {
 	animation = false,
 	auto_hide = false,
