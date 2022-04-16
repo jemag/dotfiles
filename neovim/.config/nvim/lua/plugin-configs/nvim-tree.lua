@@ -1,4 +1,3 @@
-vim.g.nvim_tree_indent_markers = 1 -- 0 by default, this option shows indent markers when folders are open
 require("nvim-tree").setup({
 	disable_netrw = false,
 	hijack_netrw = true,
@@ -15,6 +14,11 @@ require("nvim-tree").setup({
 		update_cwd = false,
 		ignore_list = {},
 	},
+  renderer = {
+    indent_markers = {
+      enable = true
+    }
+  },
 	system_open = {
 		cmd = nil,
 		args = {},

@@ -37,8 +37,6 @@ vim.api.nvim_set_keymap(
   "<cr><cmd>lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>",
   { noremap = true }
 ) ]]
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "j", "gj", { noremap = true, silent = true })
@@ -77,8 +75,8 @@ vim.api.nvim_set_keymap(
 )
 
 -- Count relative line number movements toward jump list if we move by more than 5 lines
-vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "gk"', { noremap = true, expr = true })
-vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "gj"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"', { noremap = true, expr = true })
 
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 

@@ -78,9 +78,11 @@ cmp.setup({
       },
     }),
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    -- winhighlight = "NormalFloat:Normal",
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      -- winhighlight = "NormalFloat:Normal",
+    }
   },
   experimental = {
     ghost_text = true,

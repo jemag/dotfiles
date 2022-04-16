@@ -35,9 +35,9 @@ require("neo-tree").setup({
       },
     },
     search_limit = 50, -- max number of search results when using filters
-    filters = {
-      show_hidden = false,
-      respect_gitignore = true,
+    filtered_items = {
+      hide_dotfiles = false,
+      hide_gitignored = true,
     },
     bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
     --[[ before_render = function(state)

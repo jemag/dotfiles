@@ -16,6 +16,7 @@ binutils
 bison
 bitwarden-bin
 bitwarden-cli
+bottles
 bottom-bin
 brave-bin
 broot
@@ -69,6 +70,7 @@ forticlientsslvpn
 foxitreader
 freetube-bin
 fzf
+gamemode
 gawk
 gcc
 gcolor2
@@ -235,6 +237,7 @@ rclone
 rclone-browser
 redshift
 reflector
+retroarch
 ripgrep
 rofi
 ruby
@@ -276,6 +279,7 @@ tree
 trivy-bin
 ttf-ms-fonts
 ttf-windows
+tutanota-desktop-bin
 ueberzug
 vagrant
 vde2

@@ -125,13 +125,6 @@ return require("packer").startup({
     })
     use("psliwka/vim-smoothie")
     use({
-      "DanilaMihailov/beacon.nvim",
-      config = function()
-        require("plugin-configs.beacon")
-      end,
-    })
-    -- TODO: Restore to folke version once nil fix is merged
-    use({
       "folke/which-key.nvim",
     })
     use("christoomey/vim-tmux-navigator")
@@ -140,6 +133,9 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.harpoon")
       end,
+    })
+    use({
+      "rainbowhxch/accelerated-jk.nvim",
     })
     use({
       "brandoncc/telescope-harpoon.nvim",
