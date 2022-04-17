@@ -10,16 +10,19 @@ vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, s
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true })
 
 -- moving between splits
-vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
-vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
-vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
+
+vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 
 -- resizing splits
-vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
-vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
-vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
-vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true })
@@ -56,7 +59,6 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<c-g>", "1<c-g>", { noremap = true, silent = true })
 
-
 vim.api.nvim_set_keymap(
   "n",
   "<leader>o",
@@ -78,8 +80,18 @@ vim.api.nvim_set_keymap(
 )
 
 -- Count relative line number movements toward jump list if we move by more than 5 lines
-vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"', { noremap = true, expr = true })
-vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"', { noremap = true, expr = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "k",
+  '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"',
+  { noremap = true, expr = true }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "j",
+  '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"',
+  { noremap = true, expr = true }
+)
 
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 

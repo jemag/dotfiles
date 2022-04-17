@@ -529,6 +529,12 @@ return require("packer").startup({
       "b0o/schemastore.nvim",
     })
     use({
+      "mfussenegger/nvim-treehopper",
+      requires = {
+        { "nvim-treesitter/nvim-treesitter" },
+      },
+    })
+    use({
       "ThePrimeagen/refactoring.nvim",
       config = function()
         require("plugin-configs.refactoring")
