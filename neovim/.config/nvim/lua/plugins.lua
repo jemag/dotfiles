@@ -39,10 +39,6 @@ return require("packer").startup({
         require("plugin-configs.substitute")
       end,
     })
-    -- TODO: waiting for it to support custom filetype plugins
-    --[[ use({
-      "nathom/filetype.nvim",
-    }) ]]
     use({
       "google/vim-jsonnet",
     })
@@ -136,12 +132,6 @@ return require("packer").startup({
     use({
       "dstein64/nvim-scrollview",
     })
-    use({
-      "wincent/scalpel",
-      config = function()
-        require("plugin-configs.scalpel")
-      end,
-    })
     use("psliwka/vim-smoothie")
     use({
       "folke/which-key.nvim",
@@ -168,23 +158,6 @@ return require("packer").startup({
         require("plugin-configs.vim-floaterm")
       end,
     })
-    --[[ use {
-      'jlesquembre/nterm.nvim',
-      config =
-        function()
-          require 'nterm.main'.init({
-            maps = false,  -- load defaut mappings
-            shell = "zsh",
-            size = 20,
-            direction = "horizontal", -- horizontal or vertical
-            popup = 2000,     -- Number of miliseconds to show the info about the commmand. 0 to dissable
-            popup_pos = "SE", --  one of "NE" "SE" "SW" "NW"
-            autoclose = 0, -- If command is sucesful, close the terminal after that number of miliseconds. 0 to disable
-            require('telescope').load_extension('nterm')
-          })
-        end,
-      requires = {'Olical/aniseed'},
-    } ]]
     use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
     use("wellle/targets.vim")
@@ -200,15 +173,6 @@ return require("packer").startup({
         vim.g.current_search_match = "IncSearch"
       end,
     })
-    use({
-      "phaazon/hop.nvim",
-      as = "hop",
-      config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        require("plugin-configs.hop")
-      end,
-    })
-    -- Potential alternative would be https://github.com/rlane/pounce.nvim
     use({
       "hrsh7th/vim-searchx",
       config = function()
@@ -355,14 +319,11 @@ return require("packer").startup({
     use("sainnhe/sonokai")
     use({
       "Shatur95/neovim-ayu",
-      -- setup = function() vim.g.ayu_mirage = true end
     })
     use("doums/darcula")
     use({ "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" })
     use("aonemd/kuroi.vim")
     use("romgrk/doom-one.vim")
-    --TODO: restore when we figure a way to deal with their gruvbox theme and the community one
-    -- use 'ChristianChiarulli/nvcode-color-schemes.vim'
     use("habamax/vim-gruvbit")
     use("kyazdani42/blue-moon")
     use("drewtempelmeyer/palenight.vim")
@@ -457,8 +418,6 @@ return require("packer").startup({
       end,
     })
 
-    use("vijaymarupudi/nvim-fzf")
-
     use("nvim-lua/popup.nvim")
     use({
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -502,7 +461,6 @@ return require("packer").startup({
         require("octo").setup()
       end,
     })
-    use("junegunn/gv.vim")
     use({
       "TimUntersberger/neogit",
       config = function()
@@ -551,10 +509,6 @@ return require("packer").startup({
       end,
     })
     use({
-      "weilbith/nvim-code-action-menu",
-      cmd = "CodeActionMenu",
-    })
-    use({
       "williamboman/nvim-lsp-installer",
     })
     use({
@@ -568,7 +522,6 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.lsp_signature")
       end,
-      commit = "be39dacc17d51531f9e3a50f88de0a45683c6634",
     })
     use("folke/lua-dev.nvim")
     use("rafamadriz/friendly-snippets")
@@ -608,17 +561,6 @@ return require("packer").startup({
       opt = true,
       ft = { "mustache" },
     })
-
-    use({
-      "Vimjas/vim-python-pep8-indent",
-      opt = true,
-      ft = { "python" },
-    })
-    use({
-      "vim-python/python-syntax",
-      opt = true,
-      ft = { "python" },
-    })
     use({
       "cespare/vim-toml",
       opt = true,
@@ -653,12 +595,6 @@ return require("packer").startup({
         require("plugin-configs.go-nvim")
       end,
     })
-    --[[ use {
-      'fatih/vim-go',
-      opt = true,
-      ft = {'go', 'yaml'},
-      config = function () require 'plugin-configs.vim-go' end
-    } ]]
     use({
       "plasticboy/vim-markdown",
       opt = true,
@@ -713,11 +649,6 @@ return require("packer").startup({
       end,
     })
     use("LudoPinelli/comment-box.nvim")
-    use({
-      "Chiel92/vim-autoformat",
-      opt = true,
-      cmd = "Autoformat",
-    })
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
