@@ -33,6 +33,12 @@ return require("packer").startup({
         })
       end,
     })
+    use({
+      "mrjones2014/smart-splits.nvim",
+      config = function()
+        require("plugin-configs.substitute")
+      end,
+    })
     -- TODO: waiting for it to support custom filetype plugins
     --[[ use({
       "nathom/filetype.nvim",
@@ -43,6 +49,19 @@ return require("packer").startup({
     use({
       "svban/YankAssassin.vim",
     })
+    use {
+      "danymat/neogen",
+      config = function()
+        require('neogen').setup({
+          enabled = true,
+          snippet_engine = "luasnip"
+        })
+      end,
+      requires = { 
+        "nvim-treesitter/nvim-treesitter",
+        "L3MON4D3/LuaSnip"
+      }
+    }
     use({
       "gbprod/substitute.nvim",
       config = function()
@@ -127,7 +146,6 @@ return require("packer").startup({
     use({
       "folke/which-key.nvim",
     })
-    use("christoomey/vim-tmux-navigator")
     use({
       "ThePrimeagen/harpoon",
       config = function()

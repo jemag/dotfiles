@@ -9,10 +9,17 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true })
 
---[[ vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true }) ]]
+-- moving between splits
+vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
+vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
+vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
+vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+
+-- resizing splits
+vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
+vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
+vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
+vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true })
@@ -49,10 +56,6 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<c-g>", "1<c-g>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<M-j>", "<cmd>resize -2<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-k>", "<cmd>resize +2<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-h>", "<cmd>vertical resize -2<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<M-l>", "<cmd>vertical resize +2<cr>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap(
   "n",
@@ -224,6 +227,7 @@ local leader_mappings = {
     name = "+insert",
     b = { "<cmd>CBcbox<cr>", "Centered box", mode = "v" },
     l = { "<cmd>CBcline<cr>", "Centered line" },
+    n = { "<cmd>Neogen<cr>", "Neogen" },
   },
   l = {
     name = "+language",
