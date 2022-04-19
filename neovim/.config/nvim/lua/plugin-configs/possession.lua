@@ -15,7 +15,12 @@ require('possession').setup {
     hooks = {
         before_save = function(name) return {} end,
         after_save = function(name, user_data, aborted) end,
-        before_load = function(name, user_data) return user_data end,
+        before_load = function(name, user_data)
+          for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+            vim.api.nvim_buf_delete(buffer, {})
+          end
+          return user_data
+        end,
         after_load = function(name, user_data) end,
     },
     plugins = {
@@ -32,7 +37,6 @@ require('possession').setup {
         delete_hidden_buffers = {
             hooks = {
                 'before_load',
-                vim.o.sessionoptions:match('buffer') --and 'before_save',
             },
             force = false,
         },
