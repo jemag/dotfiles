@@ -407,6 +407,10 @@ local local_leader_mappings = {
       "<cmd>Telescope loclist<cr>",
       "Location list",
     },
+    ["L"] = {
+      "<cmd>Telescope possession list<cr>",
+      "Session list",
+    },
     ["m"] = { "<cmd>Telescope marks<cr>", "Marks" },
     ["M"] = {
       "<cmd>Telescope media_files<cr>",
