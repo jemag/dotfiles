@@ -4,6 +4,10 @@ require("nvim-lsp-installer").on_server_ready(function(server)
     local jsonls_opts = require("lsp.configs.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
+  if server.name == "ansiblels" then
+    local ansiblels_opts = require("lsp.configs.ansiblels")
+    opts = vim.tbl_deep_extend("force", ansiblels_opts, opts)
+  end
 
   if server.name == "sumneko_lua" then
     -- Don't extend default opts because of the lua-dev setup
@@ -20,7 +24,7 @@ local function setup_servers()
     "bashls",
     "angularls",
     -- TODO: fix ansiblels highlight out of range problem
-    -- "ansiblels",
+    "ansiblels",
     "pyright",
     "terraformls",
     "jsonls",
