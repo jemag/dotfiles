@@ -13,7 +13,7 @@ return require("packer").startup({
   function(use)
     -- Packer can manage itself as an optional plugin
     use({ "wbthomason/packer.nvim", opt = true })
-    use({ "tyru/capture.vim"})
+    use({ "tyru/capture.vim" })
 
     --[[ #######################
      General
@@ -25,11 +25,24 @@ return require("packer").startup({
       end,
     })
     use({
+      "s1n7ax/nvim-window-picker",
+      tag = "v1.*",
+      config = function()
+        require("plugin-configs.nvim-window-picker")
+      end,
+    })
+    use({
+      "edluffy/specs.nvim",
+      config = function()
+        require("plugin-configs.specs")
+      end,
+    })
+    use({
       "anuvyklack/pretty-fold.nvim",
       config = function()
         require("pretty-fold").setup({})
         require("pretty-fold.preview").setup({
-          key = 'h',
+          key = "h",
         })
       end,
     })
@@ -45,27 +58,27 @@ return require("packer").startup({
     use({
       "svban/YankAssassin.vim",
     })
-    use {
+    use({
       "danymat/neogen",
       config = function()
-        require('neogen').setup({
+        require("neogen").setup({
           enabled = true,
-          snippet_engine = "luasnip"
+          snippet_engine = "luasnip",
         })
       end,
-      requires = { 
+      requires = {
         "nvim-treesitter/nvim-treesitter",
-        "L3MON4D3/LuaSnip"
-      }
-    }
+        "L3MON4D3/LuaSnip",
+      },
+    })
     use({
       "gbprod/substitute.nvim",
       config = function()
         require("plugin-configs.substitute")
       end,
     })
-    use({"milisims/nvim-luaref"})
-    use({"nanotee/luv-vimdocs"})
+    use({ "milisims/nvim-luaref" })
+    use({ "nanotee/luv-vimdocs" })
     use({
       "4513ECHO/vim-readme-viewer",
       opt = true,
@@ -373,25 +386,17 @@ return require("packer").startup({
       end,
     })
     use({
-      "rmagatti/auto-session",
+      "jedrzejboczar/possession.nvim",
       config = function()
-        require("plugin-configs.auto-session")
+        require("plugin-configs.possession")
       end,
     })
-    use({
-      "rmagatti/session-lens",
-      config = function()
-        require("plugin-configs.session-lens")
-      end,
-      after = { "telescope.nvim", "auto-session" },
-    })
-
     use({
       "ahmedkhalf/project.nvim",
       config = function()
         require("plugin-configs.project_nvim")
       end,
-      after = { "telescope.nvim" }
+      after = { "telescope.nvim" },
     })
     use("junegunn/vim-easy-align")
 
@@ -573,10 +578,10 @@ return require("packer").startup({
     })
     use({
       "cuducos/yaml.nvim",
-      ft = {"yaml"}, -- optional
+      ft = { "yaml" }, -- optional
       requires = {
         "nvim-treesitter/nvim-treesitter",
-        "nvim-telescope/telescope.nvim" -- optional
+        "nvim-telescope/telescope.nvim", -- optional
       },
     })
     use({
@@ -637,10 +642,10 @@ return require("packer").startup({
      Coding
     ####################### ]]
     use({
-      'numToStr/Comment.nvim',
+      "numToStr/Comment.nvim",
       config = function()
-        require('Comment').setup()
-      end
+        require("Comment").setup()
+      end,
     })
     use({
       "toppair/reach.nvim",
@@ -664,14 +669,14 @@ return require("packer").startup({
     use({
       "lukas-reineke/virt-column.nvim",
       config = function()
-        vim.opt.colorcolumn="120"
-        vim.api.nvim_create_autocmd({ "ColorScheme"}, {
+        vim.opt.colorcolumn = "120"
+        vim.api.nvim_create_autocmd({ "ColorScheme" }, {
           pattern = "*",
           command = "highlight clear colorColumn",
           desc = "Clear colorcolumn",
         })
         require("virt-column").setup()
-      end
+      end,
     })
     use({
       "liuchengxu/vista.vim",
