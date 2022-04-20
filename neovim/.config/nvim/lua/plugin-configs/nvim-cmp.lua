@@ -17,8 +17,9 @@ cmp.setup({
     end,
   },
   mapping = {
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s", "c"}),
+    ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "s", "c"}),
+    -- ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<esc>"] = cmp.mapping({
@@ -46,6 +47,7 @@ cmp.setup({
     end, {
       "i",
       "s",
+      "c",
     }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -58,6 +60,7 @@ cmp.setup({
     end, {
       "i",
       "s",
+      "c",
     }),
   },
   sources = {

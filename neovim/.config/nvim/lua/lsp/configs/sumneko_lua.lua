@@ -13,7 +13,7 @@ return require("lua-dev").setup({
             "different-requires",
           },
           globals = {
-            "vim", "describe", "it", "before_each", "after_each", "teasrdown", "pending", "clear"
+            "vim", "describe", "it", "before_each", "after_each", "teardown", "pending", "clear"
           }
         },
       },
