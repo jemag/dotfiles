@@ -41,7 +41,6 @@ local function configure_diagnostics()
 end
 
 local function set_handlers()
-  vim.lsp.handlers["textDocument/codeAction"] = require("telescope.builtin").lsp_code_actions
   vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
   vim.lsp.handlers["textDocument/declaration"] = require("fzf_lsp").declaration_handler
   vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions

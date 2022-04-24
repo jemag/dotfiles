@@ -112,6 +112,7 @@ vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true })
+require('legendary').setup()
 require("which-key").setup({
   plugins = {
     marks = false, -- shows a list of your marks on ' and `
@@ -171,8 +172,8 @@ local leader_mappings = {
   [";"] = { "<cmd>Commands<cr>", "Commands" },
   [","] = { "<cmd>Startify<cr>", "Start screen" },
   ["c"] = { "<Cmd>call searchx#clear()<CR>", "Clear search hints" },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["E"] = { "<cmd>NvimTreeFindFile<cr>", "Show file" },
+  ["e"] = { "<cmd>Neotree filesystem show toggle left<cr>", "Explorer" },
+  ["E"] = { "<cmd>Neotree filesystem show reveal left<cr>", "Show file" },
   ["L"] = { "<cmd>SLoad<cr>", "Load session" },
   ["1"] = { "<cmd>BufferGoto 1<cr>", "Buf 1" },
   ["2"] = { "<cmd>BufferGoto 2<cr>", "Buf 2" },
@@ -341,6 +342,7 @@ local local_leader_mappings = {
     P = { "<cmd>Git pull<cr>", "Pull" },
     r = { "<cmd>GRemove<cr>", "Remove" },
     s = { "<cmd>Git<cr>", "Status" },
+    S = { "<cmd>Neotree focus toggle git_status float<cr>", "Neotree status" },
     v = { "<cmd>GV<cr>", "View commits" },
     V = { "<cmd>GV!<cr>", "View buffer commits" },
   },
@@ -403,6 +405,10 @@ local local_leader_mappings = {
       "<cmd>Telescope keymaps<cr>",
       "Keymaps",
     },
+    ["K"] = {
+      "<cmd>Legendary<cr>",
+      "Legendary keymaps",
+    },
     ["l"] = {
       "<cmd>Telescope loclist<cr>",
       "Location list",
@@ -461,10 +467,12 @@ local local_leader_mappings = {
   t = {
     name = "+toggle",
     b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
+    B = { "<cmd>Neotree buffers focus toggle float<cr>", "Neotree buffers" },
     c = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
     D = { "<cmd>call v:lua.toggle_diagnostics()<cr>", "Toggle LSP diagnostics signs" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     f = { "<cmd>FloatermToggle<cr>", "Floaterm" },
+    g = { "<cmd>Neotree focus toggle git_status float<cr>", "Toggle Neotree git" },
     i = "Toggle indent blank lines",
     L = { "<cmd>Limelight!!<cr>", "Limelight" },
     m = { "<cmd>ReachOpen marks<cr>", "Marks" },

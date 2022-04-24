@@ -147,6 +147,10 @@ return require("packer").startup({
     })
     use("psliwka/vim-smoothie")
     use({
+      "mrjones2014/legendary.nvim",
+    })
+    use({ "stevearc/dressing.nvim" })
+    use({
       "folke/which-key.nvim",
     })
     use({
@@ -169,6 +173,18 @@ return require("packer").startup({
       "voldikss/vim-floaterm",
       config = function()
         require("plugin-configs.vim-floaterm")
+      end,
+    })
+    use({
+      "/home/jemag/Projects/github-reference/numToStr/FTerm.nvim/",
+      config = function()
+        require("FTerm").setup({
+          border = "double",
+          dimensions = {
+            height = 0.9,
+            width = 0.9,
+          },
+        })
       end,
     })
     use("voldikss/fzf-floaterm")
@@ -631,13 +647,12 @@ return require("packer").startup({
       ft = { "markdown", "pandoc.markdown", "rmd" },
     })
 
-    -- TODO: Enable again once nil fix is merged
-    --[[ use({
+    use({
       "simrat39/symbols-outline.nvim",
       config = function()
         require("plugin-configs.symbols-outline")
       end,
-    }) ]]
+    })
     --[[ #######################
      Coding
     ####################### ]]

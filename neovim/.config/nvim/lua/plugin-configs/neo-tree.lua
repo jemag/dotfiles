@@ -1,119 +1,159 @@
 local highlights = require("neo-tree.ui.highlights")
 
 require("neo-tree").setup({
-  -- The default_source is the one used when calling require('neo-tree').show()
-  -- without a source argument.
-  default_source = "filesystem",
-  popup_border_style = "rounded", -- "double", "none", "rounded", "shadow", "single" or "solid"
-  -- "NC" is a special style that works well with NormalNC set
+  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+  popup_border_style = "rounded",
+  enable_git_status = true,
+  enable_diagnostics = true,
+  default_component_configs = {
+    container = {
+      enable_character_fade = true,
+    },
+    indent = {
+      indent_size = 2,
+      padding = 1, -- extra padding on left hand side
+      -- indent guides
+      with_markers = true,
+      indent_marker = "│",
+      last_indent_marker = "└",
+      highlight = "NeoTreeIndentMarker",
+      -- expander config, needed for nesting files
+      with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
+    icon = {
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "ﰊ",
+      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+      -- then these will never be used.
+      default = "*",
+      highlight = "NeoTreeFileIcon",
+    },
+    modified = {
+      symbol = "[+]",
+      highlight = "NeoTreeModified",
+    },
+    name = {
+      trailing_slash = false,
+      use_git_status_colors = true,
+      highlight = "NeoTreeFileName",
+    },
+    git_status = {
+      symbols = {
+        -- Change type
+        added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+        deleted = "✖", -- this can only be used in the git_status source
+        renamed = "", -- this can only be used in the git_status source
+        -- Status type
+        untracked = "",
+        ignored = "",
+        unstaged = "",
+        staged = "",
+        conflict = "",
+      },
+    },
+  },
+  window = {
+    position = "left",
+    width = 40,
+    mapping_options = {
+      noremap = true,
+      nowait = true,
+    },
+    mappings = {
+      ["<space>"] = {
+        "toggle_node",
+        nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+      },
+      ["<2-LeftMouse>"] = "open",
+      ["<cr>"] = "open",
+      ["<c-x>"] = "split_with_window_picker",
+      ["<c-s>"] = "vsplit_with_window_picker",
+      ["t"] = "open_tabnew",
+      ["w"] = "open_with_window_picker",
+      ["C"] = "close_node",
+      ["a"] = "add",
+      ["A"] = "add_directory",
+      ["d"] = "delete",
+      ["r"] = "rename",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+      ["c"] = "copy", -- takes text input for destination
+      ["m"] = "move", -- takes text input for destination
+      ["q"] = "close_window",
+      ["R"] = "refresh",
+      ["/"] = "none",
+    },
+  },
+  nesting_rules = {},
   filesystem = {
+    filtered_items = {
+      visible = false, -- when true, they will just be displayed differently than normal items
+      hide_dotfiles = false,
+      hide_gitignored = true,
+      hide_hidden = true, -- only works on Windows for hidden files/directories
+      hide_by_name = {
+        ".DS_Store",
+        "thumbs.db",
+        --"node_modules"
+      },
+      hide_by_pattern = { -- uses glob style patterns
+        --"*.meta"
+      },
+      never_show = { -- remains hidden even if visible is toggled to true
+        --".DS_Store",
+        --"thumbs.db"
+      },
+    },
+    follow_current_file = false, -- This will find and focus the file in the active buffer every
+    -- time the current file is changed while the tree is open.
+    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+    -- in whatever position is specified in window.position
+    -- "open_current",  -- netrw disabled, opening a directory opens within the
+    -- window like netrw would, regardless of window.position
+    -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+    -- instead of relying on nvim autocmd events.
     window = {
-      position = "left",
-      width = 40,
-      -- Mappings for tree window. See |Neo-tree-Mappings| for built-in
-      -- commands. You can also create your own commands by providing a
-      -- function instead of a string. See the built-in commands for examples.
       mappings = {
-        ["<2-LeftMouse>"] = "open",
-        ["<cr>"] = "open",
-        ["<C-x>"] = "open_split",
-        ["<C-v>"] = "open_vsplit",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
-        ["I"] = "toggle_gitignore",
-        ["R"] = "refresh",
-        ["/"] = "filter_as_you_type",
-        ["f"] = "filter_on_submit",
-        ["<C-f>"] = "clear_filter",
-        ["a"] = "add",
-        ["d"] = "delete",
-        ["r"] = "rename",
-        ["c"] = "copy_to_clipboard",
-        ["x"] = "cut_to_clipboard",
-        ["p"] = "paste_from_clipboard",
+        ["/"] = "none",
+        ["f"] = "filter_as_you_type",
+        ["<c-f>"] = "clear_filter",
       },
     },
-    search_limit = 50, -- max number of search results when using filters
-    filtered_items = {
-      hide_dotfiles = false,
-      hide_gitignored = true,
+  },
+  buffers = {
+    show_unloaded = true,
+    window = {
+      mappings = {
+        ["bd"] = "buffer_delete",
+        ["<bs>"] = "navigate_up",
+        ["."] = "set_root",
+      },
     },
-    bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
-    --[[ before_render = function(state)
-      -- This function is called after the file system has been scanned,
-      -- but before the tree is rendered. You can use this to gather extra
-      -- data that can be used in the renderers.
-      local utils = require("neo-tree.utils")
-      state.git_status_lookup = utils.get_git_status()
-    end, ]]
-    -- The components section provides custom functions that may be called by
-    -- the renderers below. Each componment is a function that takes the
-    -- following arguments:
-    --      config: A table containing the configuration provided by the user
-    --              when declaring this component in their renderer config.
-    --      node:   A NuiNode object for the currently focused node.
-    --      state:  The current state of the source providing the items.
-    --
-    -- The function should return either a table, or a list of tables, each of which
-    -- contains the following keys:
-    --    text:      The text to display for this item.
-    --    highlight: The highlight group to apply to this text.
-    --[[ components = {
-      hello_node = function(config, node, state)
-        local text = "Hello " .. node.name
-        if state.search_term then
-          text = string.format("Hello '%s' in %s", state.search_term, node.name)
-        end
-        return {
-          text = text,
-          highlight = config.highlight or highlights.FILE_NAME,
-        }
-      end,
-    }, ]]
-    -- This section provides the renderers that will be used to render the tree.
-    -- The first level is the node type.
-    -- For each node type, you can specify a list of components to render.
-    -- Components are rendered in the order they are specified.
-    -- The first field in each component is the name of the function to call.
-    -- The rest of the fields are passed to the function as the "config" argument.
-    --[[ renderers = {
-      directory = {
-        {
-          "icon",
-          folder_closed = "",
-          folder_open = "",
-          padding = " ",
-        },
-        { "current_filter" },
-        { "name" },
-        {
-          "clipboard",
-          highlight = "NeoTreeDimText",
-        },
-        --{ "git_status" },
+  },
+  git_status = {
+    window = {
+      position = "float",
+      mappings = {
+        ["A"] = "git_add_all",
+        ["gu"] = "git_unstage_file",
+        ["ga"] = "git_add_file",
+        ["gr"] = "git_revert_file",
+        ["gc"] = "git_commit",
+        ["gp"] = "git_push",
+        ["gg"] = "git_commit_and_push",
       },
-      file = {
-        {
-          "git_status",
-          highlight = "NeoTreeDimText",
-        },
-        {
-          "icon",
-          default = " ",
-          padding = " ",
-        },
-        --{ "hello_node", highlight = "Normal" }, -- For example, don't actually
-        -- use this!
-        { "name" },
-        { "diagnostics" },
-        {
-          "clipboard",
-          highlight = "NeoTreeDimText",
-        },
-      },
-    }, ]]
+    },
   },
 })
-vim.cmd([[nnoremap \ :NeoTreeRevealToggle<cr>]])
-vim.cmd([[nnoremap \| :NeoTreeFloatToggle<cr>]])
+vim.keymap.set("n", "\\", "<cmd>Neotree filesystem focus toggle left<cr>")
+vim.keymap.set("n", "|", "<cmd>Neotree filesystem float toggle<cr>")
