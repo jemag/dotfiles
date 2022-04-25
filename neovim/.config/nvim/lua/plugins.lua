@@ -265,6 +265,9 @@ return require("packer").startup({
       end,
     })
     use({
+      "nvim-treesitter/playground",
+    })
+    use({
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
     use({
