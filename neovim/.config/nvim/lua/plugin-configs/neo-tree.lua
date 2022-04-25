@@ -72,7 +72,7 @@ require("neo-tree").setup({
       ["<2-LeftMouse>"] = "open",
       ["<cr>"] = "open",
       ["<c-x>"] = "split_with_window_picker",
-      ["<c-s>"] = "vsplit_with_window_picker",
+      ["<c-v>"] = "vsplit_with_window_picker",
       ["t"] = "open_tabnew",
       ["w"] = "open_with_window_picker",
       ["C"] = "close_node",
@@ -155,5 +155,5 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set("n", "\\", "<cmd>Neotree filesystem focus toggle left<cr>")
-vim.keymap.set("n", "|", "<cmd>Neotree filesystem float toggle<cr>")
+vim.keymap.set("n", "\\", "<cmd>Neotree filesystem show toggle left<cr>")
+vim.keymap.set("n", "|", "<cmd>Neotree filesystem float reveal toggle<cr>")
