@@ -1,6 +1,6 @@
 require'cmp'.setup.cmdline(':', {
   sources = {
-    { name = 'cmdline' }
+    { name = 'cmdline', keyword_pattern=[=[[^[:blank:]\!]*]=] }
   }
 })
 require'cmp'.setup.cmdline('/', {
