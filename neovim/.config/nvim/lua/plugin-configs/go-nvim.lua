@@ -1,3 +1,6 @@
+local path = require 'nvim-lsp-installer.path'
+local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
+
 require('go').setup({
   goimport='gopls', -- goimport command, can be gopls[default] or goimport
   gofmt = 'gofumpt', --gofmt cmd,
@@ -16,9 +19,9 @@ require('go').setup({
   lsp_on_attach = nil, -- nil: use on_attach function defined in go/lsp.lua,
                        --      when lsp_cfg is true
                        -- if lsp_on_attach is a function: use this function as on_attach function for gopls
-  lsp_codelens = true, -- set to false to disable codelens, true by default
+  lsp_codelens = false, -- set to false to disable codelens, true by default
   gopls_remote_auto = true, -- add -remote=auto to gopls
-  gopls_cmd = nil, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
+  gopls_cmd = {install_root_dir .. '/go/gopls'}, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
   fillstruct = 'gopls', -- can be nil (use fillstruct, slower) and gopls
   lsp_diag_hdlr = true, -- hook lsp diag handler
   dap_debug = true, -- set to false to disable dap
