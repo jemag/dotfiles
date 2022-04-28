@@ -172,6 +172,7 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 bindkey -v
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+bindkey -r '^l'
 # Use vim keys in tab complete menu:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
