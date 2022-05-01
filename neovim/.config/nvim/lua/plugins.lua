@@ -45,6 +45,9 @@ return require("packer").startup({
           key = "h",
         })
       end,
+      requires = {
+        'anuvyklack/nvim-keymap-amend'
+      },
     })
     use({
       "mrjones2014/smart-splits.nvim",
@@ -155,8 +158,10 @@ return require("packer").startup({
       "mrjones2014/legendary.nvim",
     })
     use({ "stevearc/dressing.nvim" })
+    -- TODO: switch back to folke version once PR merged
     use({
-      "folke/which-key.nvim",
+      "zeertzjq/which-key.nvim",
+      branch= "fix-prefix"
     })
     use({
       "ThePrimeagen/harpoon",
