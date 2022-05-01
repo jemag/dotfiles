@@ -145,7 +145,12 @@ return require("packer").startup({
     use({
       "dstein64/nvim-scrollview",
     })
-    use("psliwka/vim-smoothie")
+    use({
+      "karb94/neoscroll.nvim",
+      config = function()
+        require("plugin-configs.neoscroll")
+      end,
+    })
     use({
       "mrjones2014/legendary.nvim",
     })

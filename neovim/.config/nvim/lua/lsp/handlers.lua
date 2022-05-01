@@ -77,13 +77,13 @@ local function map_java_keys(bufnr)
 end
 
 local function set_document_higlighting(client)
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentFormattingProvider then
     require("illuminate").on_attach(client)
   end
 end
 
 local function set_signature_helper(client)
-  if client.resolved_capabilities.signature_help then
+  if client.server_capabilities.signatureHelpProvider then
     require("lsp_signature").on_attach({
       bind = true,
       handler_opts = {
@@ -94,7 +94,7 @@ local function set_signature_helper(client)
 end
 
 local function set_hover_border(client)
-  if client.resolved_capabilities.hover then
+  if client.server_capabilities.hoverProvider then
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
   end
 end
@@ -128,10 +128,6 @@ M.on_attach = function(client, bufnr)
         vim.diagnostic.reset(nil, bufnr)
       end, 1000)
     end
-  end
-  if client.name == "tsserver" or client.name == "html" or client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
   end
 end
 
