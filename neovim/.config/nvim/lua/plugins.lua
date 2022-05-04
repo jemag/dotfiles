@@ -160,8 +160,7 @@ return require("packer").startup({
     use({ "stevearc/dressing.nvim" })
     -- TODO: switch back to folke version once PR merged
     use({
-      "zeertzjq/which-key.nvim",
-      branch= "fix-prefix"
+      "folke/which-key.nvim",
     })
     use({
       "ThePrimeagen/harpoon",
