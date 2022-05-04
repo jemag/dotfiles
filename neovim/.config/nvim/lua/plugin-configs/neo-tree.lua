@@ -80,12 +80,14 @@ require("neo-tree").setup({
       ["r"] = "rename",
       ["y"] = "copy_to_clipboard",
       ["x"] = "cut_to_clipboard",
+      ["X"] = "close_all_nodes",
       ["p"] = "paste_from_clipboard",
       ["c"] = "copy", -- takes text input for destination
       ["m"] = "move", -- takes text input for destination
       ["q"] = "close_window",
       ["R"] = "refresh",
       ["/"] = "none",
+      ["z"] = "none",
     },
   },
   nesting_rules = {},
