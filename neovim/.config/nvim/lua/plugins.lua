@@ -158,7 +158,6 @@ return require("packer").startup({
       "mrjones2014/legendary.nvim",
     })
     use({ "stevearc/dressing.nvim" })
-    -- TODO: switch back to folke version once PR merged
     use({
       "folke/which-key.nvim",
     })
@@ -256,12 +255,6 @@ return require("packer").startup({
       "vifm/vifm.vim",
       config = function()
         require("plugin-configs.vifm")
-      end,
-    })
-    use({
-      "kyazdani42/nvim-tree.lua",
-      config = function()
-        require("plugin-configs.nvim-tree")
       end,
     })
     use({
@@ -738,26 +731,17 @@ return require("packer").startup({
       ft = { "markdown", "text", "tex" },
     })
     use({
-      "junegunn/goyo.vim",
-      config = function()
-        vim.cmd("source ~/.config/nvim/plugin-configs/goyo.vim")
-      end,
-    })
-
-    use({
       "folke/zen-mode.nvim",
       config = function()
         require("plugin-configs.zen-mode")
       end,
     })
-
     use({
       "junegunn/Limelight.vim",
       config = function()
         require("plugin-configs.limelight")
       end,
     })
-
     -- TextObjectOperator
     use("tpope/vim-surround")
   end,
