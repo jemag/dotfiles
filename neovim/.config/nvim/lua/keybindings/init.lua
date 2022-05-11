@@ -96,6 +96,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<c-w>m", "<cmd>WinShift<cr>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
 
 vim.api.nvim_set_keymap("t", "<c-h>", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<c-l>", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
