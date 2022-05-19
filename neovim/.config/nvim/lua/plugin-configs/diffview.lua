@@ -5,7 +5,10 @@ require("diffview").setup({
 	diff_binaries = false, -- Show diffs for binaries
 	use_icons = true, -- Requires nvim-web-devicons,
 	file_panel = {
-		width = 70,
+    win_config = {
+      width = 70,
+      position = "left"
+    }
 	},
 	key_bindings = {
 		-- The `view` bindings are active in the diff buffers, only when the current
