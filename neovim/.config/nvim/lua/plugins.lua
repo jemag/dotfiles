@@ -510,6 +510,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "SmiteshP/nvim-gps",
+      config = function()
+        require("nvim-gps").setup()
+      end,
+    })
+    use({
       "b0o/schemastore.nvim",
     })
     use({
