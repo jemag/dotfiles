@@ -46,7 +46,7 @@ return require("packer").startup({
         })
       end,
       requires = {
-        'anuvyklack/nvim-keymap-amend'
+        "anuvyklack/nvim-keymap-amend",
       },
     })
     use({
@@ -476,9 +476,9 @@ return require("packer").startup({
       end,
     })
     use({
-      "rhysd/conflict-marker.vim",
+      "akinsho/git-conflict.nvim",
       config = function()
-        require("plugin-configs.conflict-marker")
+        require("git-conflict").setup()
       end,
     })
     use({
