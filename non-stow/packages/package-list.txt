@@ -199,6 +199,7 @@ nvidia-utils
 nvm
 obs-studio
 ocl-icd
+onlyoffice-bin
 openal
 openbsd-netcat
 openconnect
@@ -229,8 +230,8 @@ python-pip
 python-pynvim
 qalculate-gtk
 qbittorrent
-qemu
-qemu-arch-extra
+qemu-desktop
+qemu-emulators-full
 qmk
 ranger
 rclone
@@ -290,6 +291,7 @@ vint
 virt-manager
 virt-viewer
 vlc
+vscodium-bin
 w3m
 weechat
 which

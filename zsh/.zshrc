@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="exa -g"
+alias sue="sudoedit"
 alias grep="grep --color"
 alias tp="tmuxinator-fzf-start.sh"
 alias ll="ls -l"
