@@ -229,7 +229,7 @@ local leader_mappings = {
   },
   f = {
     name = "+format",
-    b = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+    b = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
     e = { "<Plug>(EasyAlign)", "Easy align", mode = "v" },
     r = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Range formatting" },
   },
