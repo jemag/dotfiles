@@ -232,7 +232,7 @@ bindsym $mod+F7 exec playerctl next
 bindsym $mod+t exec ~/dotfiles/polybar/.config/polybar/toggle-polybar.sh
 
 # GAP VARIABLES
-set $inner 16
+set $inner 13
 set $outer 0
 
 # SET GAPS
@@ -253,6 +253,7 @@ bindsym $mod+Shift+z exec pkill picom
 new_window pixel 3
 new_float pixel 3
 hide_edge_borders none
+smart_gaps on
 
 
 client.background	$background_i3wmthemer
@@ -270,7 +271,7 @@ exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-D-0 --mod
 # exec --no-startup-id xrandr --output DVI-I-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --brightness 1 --output DP-1 --off --output DVI-D-0 --off
 bindsym $mod+Tab [con_mark=_prevFocus0] focus
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-exec_always feh --bg-tile ~/wallpapers/dark-honeycomb.png
+exec_always feh --bg-scale --no-xinerama ~/wallpapers/wallhaven-mountain.png
 
 
 #intellij focus
