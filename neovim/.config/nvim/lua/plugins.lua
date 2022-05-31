@@ -339,7 +339,13 @@ return require("packer").startup({
     use({
       "martinsione/darkplus.nvim",
     })
-    use("Pocco81/Catppuccino.nvim")
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin",
+      config = function()
+        vim.g.catppuccin_flavour = "mocha"
+      end,
+    })
     use({
       "EdenEast/nightfox.nvim",
     })
@@ -455,6 +461,9 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.telescope-config")
       end,
+      requires = {
+        { "nvim-telescope/telescope-live-grep-raw.nvim" }
+      }
     })
 
     --[[ #######################

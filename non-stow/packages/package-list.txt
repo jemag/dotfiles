@@ -192,7 +192,6 @@ nodejs
 noto-fonts
 ntfs-3g
 numlockx
-nvidia
 nvidia-dkms
 nvidia-settings
 nvidia-utils
@@ -266,7 +265,6 @@ syncthing
 sysstat
 tcpdump
 tealdeer
-teams
 terraform-ls-bin
 texinfo
 tfk8s

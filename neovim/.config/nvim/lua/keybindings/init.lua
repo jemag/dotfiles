@@ -437,6 +437,10 @@ local local_leader_mappings = {
       "<cmd>Telescope quickfix<cr>",
       "Quickfix",
     },
+    ["r"] = {
+      "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>",
+      "Raw rg",
+    },
     ["s"] = {
       "<cmd>Telescope lsp_document_symbols<cr>",
       "LSP symbols",
