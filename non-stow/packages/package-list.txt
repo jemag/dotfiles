@@ -40,6 +40,7 @@ dnsmasq
 docker
 dockle-bin
 duf-bin
+dunst
 dust
 eclipse-mat
 editorconfig-checker
@@ -47,6 +48,7 @@ edk2-ovmf
 efm-langserver
 egl-wayland
 element-desktop
+entr
 epub-thumbnailer-git
 evince
 evtest
@@ -191,6 +193,7 @@ nmap
 nodejs
 noto-fonts
 ntfs-3g
+ntfy
 numlockx
 nvidia-dkms
 nvidia-settings
@@ -239,6 +242,7 @@ redshift
 reflector
 retroarch
 ripgrep
+rmlint
 rofi
 ruby
 rust
