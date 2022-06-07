@@ -183,7 +183,7 @@ return require("packer").startup({
         require("plugin-configs.vim-floaterm")
       end,
     })
-    use({
+    --[[ use({
       "/home/jemag/Projects/github-reference/numToStr/FTerm.nvim/",
       config = function()
         require("FTerm").setup({
@@ -194,10 +194,9 @@ return require("packer").startup({
           },
         })
       end,
-    })
+    }) ]]
     use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
-    use("wellle/targets.vim")
     use({
       "justinmk/vim-sneak",
       config = function()
