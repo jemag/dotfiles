@@ -104,7 +104,7 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 -- require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("media_files")
-require("telescope").load_extension("live_grep_raw")
+require("telescope").load_extension("live_grep_args")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])

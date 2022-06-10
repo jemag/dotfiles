@@ -461,7 +461,7 @@ return require("packer").startup({
         require("plugin-configs.telescope-config")
       end,
       requires = {
-        { "nvim-telescope/telescope-live-grep-raw.nvim" }
+        { "nvim-telescope/telescope-live-grep-args.nvim" }
       }
     })
 
