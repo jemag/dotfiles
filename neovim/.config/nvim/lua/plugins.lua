@@ -559,9 +559,6 @@ return require("packer").startup({
     })
     use({
       "ray-x/lsp_signature.nvim",
-      config = function()
-        require("plugin-configs.lsp_signature")
-      end,
     })
     use("folke/lua-dev.nvim")
     use("rafamadriz/friendly-snippets")

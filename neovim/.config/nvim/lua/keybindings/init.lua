@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 
 vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("x", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 
 -- resizing splits
 vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
