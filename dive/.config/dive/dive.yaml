@@ -1,0 +1,21 @@
+keybinding:
+  # Global bindings
+  quit: ctrl+c
+  toggle-view: tab
+  filter-files: ctrl+f, ctrl+slash
+
+  # Layer view specific bindings
+  compare-all: ctrl+b
+  compare-layer: ctrl+l
+
+  # File view specific bindings
+  toggle-collapse-dir: space
+  toggle-collapse-all-dir: ctrl+space
+  toggle-added-files: ctrl+a
+  toggle-removed-files: ctrl+r
+  toggle-modified-files: ctrl+m
+  toggle-unmodified-files: ctrl+u
+  toggle-filetree-attributes: ctrl+b
+  page-up: pgup
+  page-down: pgdn
+
