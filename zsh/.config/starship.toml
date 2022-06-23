@@ -4,3 +4,7 @@ disabled = false
 disabled = true
 [java]
 disabled = true
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = "%T"
