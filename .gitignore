@@ -10,6 +10,7 @@ joplin/.config/joplin-desktop/plugins/*
 joplin/.config/joplin-desktop/log-clipper.txt
 joplin/.config/joplin-desktop/keymap-desktop.json
 joplin/.config/joplin-desktop/settings.json
+joplin/.config/joplin-desktop/database.sqlite-journal
 node_modules/
 **/packer_compiled.vim
 **/packer_compiled.lua
