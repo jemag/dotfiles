@@ -39,9 +39,7 @@ require("diffview").setup({
       height = 16,
     },
   },
-  commit_log_panel = {
-    win_config = {},  -- See ':h diffview-config-win_config'
-  },
+  commit_log_panel = {},
   default_args = {    -- Default args prepended to the arg-list for the listed commands
     DiffviewOpen = {},
     DiffviewFileHistory = {},
@@ -79,7 +77,7 @@ require("diffview").setup({
       ["U"]             = actions.unstage_all,        -- Unstage all entries.
       ["X"]             = actions.restore_entry,      -- Restore entry to the state on the left side.
       ["R"]             = actions.refresh_files,      -- Update stats and entries in the file list.
-      ["C"]             = actions.open_commit_log,    -- Open the commit log panel.
+      ["c"]             = actions.open_commit_log,    -- Open the commit log panel.
       ["<c-b>"]         = actions.scroll_view(-0.25), -- Scroll the view up
       ["<c-f>"]         = actions.scroll_view(0.25),  -- Scroll the view down
       ["<tab>"]         = actions.select_next_entry,
@@ -93,10 +91,10 @@ require("diffview").setup({
       ["<leader>b"]     = actions.toggle_files,
     },
     file_history_panel = {
-      ["g!"]            = actions.options,          -- Open the option panel
+      ["?"]             = actions.options,          -- Open the option panel
       ["<C-A-d>"]       = actions.open_in_diffview, -- Open the entry under the cursor in a diffview
       ["y"]             = actions.copy_hash,        -- Copy the commit hash of the entry under the cursor
-      ["L"]             = actions.open_commit_log,
+      ["c"]             = actions.open_commit_log,
       ["zR"]            = actions.open_all_folds,
       ["zM"]            = actions.close_all_folds,
       ["j"]             = actions.next_entry,
@@ -118,6 +116,9 @@ require("diffview").setup({
     },
     option_panel = {
       ["<tab>"] = actions.select_entry,
+      ["q"]     = actions.close,
+    },
+    commit_log_panel = {
       ["q"]     = actions.close,
     },
   },
