@@ -38,6 +38,7 @@ discord
 dmidecode
 dnsmasq
 docker
+docker-slim
 dockle-bin
 duf-bin
 dunst
@@ -176,6 +177,7 @@ m4
 make
 man-db
 man-pages
+mangohud
 maven
 mkcert
 mkchromecast-git

@@ -64,5 +64,5 @@ local function close_window()
     vim.api.nvim_win_close(window, false)
 end
 
-vim.keymap.set('n', '<c-w><c-s>', switch_window)
-vim.keymap.set('n', '<c-w><c-q>', close_window)
+vim.keymap.set('n', '<c-w><c-s>', switch_window, {desc= "Switch window by id"})
+vim.keymap.set('n', '<c-w><c-q>', close_window, {desc= "Close window by id"})

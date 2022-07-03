@@ -116,7 +116,7 @@ vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true
 require('legendary').setup()
 require("which-key").setup({
   plugins = {
-    marks = false, -- shows a list of your marks on ' and `
+    marks = true, -- shows a list of your marks on ' and `
     registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
@@ -283,7 +283,7 @@ local leader_mappings = {
   r = {
     name = "+refactor",
     e = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract function" },
-    f = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], "Extract function" },
+    f = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], "Extract function to file" },
     p = { [[ <Esc><Cmd>lua M.refactors()<CR>]], "Extract function" },
     r = { "<Plug>(Scalpel)", "Rename (substitute)" },
   },
@@ -383,6 +383,10 @@ local local_leader_mappings = {
       "<cmd>Telescope live_grep cwd=%:p:h<cr>",
       "Current file directory text",
     },
+    ["e"] = {
+      "<cmd>Telescope colorscheme<cr>",
+      "Colorschemes",
+    },
     ["f"] = { "<cmd>Telescope find_files hidden=true<cr>", "Files" },
     ["F"] = {
       "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
@@ -446,8 +450,8 @@ local local_leader_mappings = {
       "LSP symbols",
     },
     ["S"] = {
-      "<cmd>Telescope colorscheme<cr>",
-      "Color schemes",
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      "Dynamic symbols",
     },
     ["t"] = {
       "<cmd>Telescope live_grep<cr>",

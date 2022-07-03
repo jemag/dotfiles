@@ -158,8 +158,10 @@ return require("packer").startup({
       "mrjones2014/legendary.nvim",
     })
     use({ "stevearc/dressing.nvim" })
+    -- TODO: replace with folke/which-key.nvim once fix gets merged
     use({
-      "folke/which-key.nvim",
+      "xiyaowong/which-key.nvim",
+      branch = "patch-1",
     })
     use({
       "ThePrimeagen/harpoon",
@@ -226,13 +228,6 @@ return require("packer").startup({
       after = { "telescope.nvim" },
       config = function()
         require("plugin-configs.telescope-vim-bookmarks")
-      end,
-    })
-    use({
-      "nvim-telescope/telescope-ui-select.nvim",
-      after = { "telescope.nvim" },
-      config = function()
-        require("telescope").load_extension("ui-select")
       end,
     })
     use({
@@ -461,8 +456,8 @@ return require("packer").startup({
         require("plugin-configs.telescope-config")
       end,
       requires = {
-        { "nvim-telescope/telescope-live-grep-args.nvim" }
-      }
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
+      },
     })
 
     --[[ #######################
