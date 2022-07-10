@@ -31,7 +31,7 @@ vim.opt.history = 2000
 vim.opt.number = true
 vim.opt.timeout = true
 vim.opt.ttimeout = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
@@ -119,4 +119,28 @@ vim.api.nvim_create_autocmd({ "TextYankPost"}, {
     vim.highlight.on_yank({higroup='Substitute', on_visual=true, timeout=300})
   end,
   desc = "Highlight yanked text"
+})
+-- Set cmdheight=1 when recording macro
+vim.api.nvim_create_autocmd('RecordingEnter', {
+    pattern = '*',
+    callback = function()
+        vim.opt_local.cmdheight = 1
+    end,
+})
+
+-- Reset cmdheight=0 after marco is recorded
+vim.api.nvim_create_autocmd('RecordingLeave', {
+    pattern = '*',
+    callback = function()
+        local timer = vim.loop.new_timer()
+        -- NOTE: Timer is here because we need to close cmdheight AFTER
+        -- the macro is ended, not during the Leave event
+        timer:start(
+            50,
+            0,
+            vim.schedule_wrap(function()
+                vim.opt_local.cmdheight = 0
+            end)
+        )
+    end,
 })

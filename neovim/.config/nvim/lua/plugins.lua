@@ -200,9 +200,10 @@ return require("packer").startup({
     use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
     use({
-      "justinmk/vim-sneak",
+      "phaazon/hop.nvim",
+      branch = 'v2',
       config = function()
-        require("plugin-configs.vim-sneak")
+        require("plugin-configs.hop")
       end,
     })
     use({
