@@ -13,7 +13,7 @@ require("telescope").setup({
       "--smart-case",
       "--hidden",
     },
-    file_ignore_patterns = { "node_modules", ".git" },
+    file_ignore_patterns = { "node_modules/", ".git/" },
     prompt_prefix = " ",
     selection_caret = " ",
     entry_prefix = "  ",
