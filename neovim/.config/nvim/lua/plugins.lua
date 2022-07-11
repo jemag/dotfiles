@@ -749,7 +749,11 @@ return require("packer").startup({
         require("plugin-configs.limelight")
       end,
     })
-    -- TextObjectOperator
-    use("tpope/vim-surround")
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("plugin-configs.nvim-surround")
+      end
+    })
   end,
 })
