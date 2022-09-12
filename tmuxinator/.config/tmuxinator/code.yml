@@ -4,7 +4,7 @@ name: code
 root: ~/Projects
 
 windows:
-  - zsh:
+  - code:
       layout: tiled
       panes:
               - clear
