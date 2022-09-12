@@ -80,7 +80,7 @@ gcolor2
 gdb
 gettext
 git
-git-delta-bin
+git-delta
 github-cli
 glances
 gnome-calculator
@@ -113,6 +113,7 @@ iptables-nft
 jdk11-openjdk
 jdk8-openjdk
 jetbrains-toolbox
+jless
 joplin-appimage
 jp
 jq
@@ -192,7 +193,6 @@ nerd-fonts-complete
 net-tools
 ninja
 nmap
-nodejs
 noto-fonts
 ntfs-3g
 ntfy
@@ -256,6 +256,7 @@ seahorse
 sed
 shellcheck
 signal-desktop
+sioyek
 snapd
 socat
 sonar-scanner
@@ -298,6 +299,7 @@ vlc
 vscodium-bin
 w3m
 weechat
+wezterm
 which
 whois
 wine-mono
