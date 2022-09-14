@@ -1,3 +1,9 @@
+-- More convenient horizontal scrolling
+vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "zH", "<cmd>call HorizontalScrollMode('H')<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "zL", "<cmd>call HorizontalScrollMode('L')<cr>", { noremap = true, silent = true})
+
 vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true })
@@ -113,7 +119,7 @@ vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true })
-require('legendary').setup()
+require("legendary").setup()
 require("which-key").setup({
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
@@ -283,7 +289,10 @@ local leader_mappings = {
   r = {
     name = "+refactor",
     e = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract function" },
-    f = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]], "Extract function to file" },
+    f = {
+      [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
+      "Extract function to file",
+    },
     p = { [[ <Esc><Cmd>lua M.refactors()<CR>]], "Extract function" },
     r = { "<Plug>(Scalpel)", "Rename (substitute)" },
   },
