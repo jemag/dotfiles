@@ -359,11 +359,23 @@ return require("packer").startup({
 
     -- Themes
     use({
+      "levouh/tint.nvim",
+      config = function()
+        require("tint").setup()
+      end,
+    })
+    use({
+      "sam4llis/nvim-tundra",
+    })
+    use({
       "pineapplegiant/spaceduck",
       branch = "main",
     })
     use({
       "rebelot/kanagawa.nvim",
+    })
+    use({
+      "Everblush/everblush.nvim",
     })
     use({
       "rmehri01/onenord.nvim",
@@ -382,11 +394,15 @@ return require("packer").startup({
       "EdenEast/nightfox.nvim",
     })
     use({
-      "eddyekofo94/gruvbox-flat.nvim",
-      config = function()
-        vim.g.gruvbox_flat_style = "dark"
-      end,
+      "luisiacc/gruvbox-baby",
     })
+    -- TODO: wait until the lua queries are removed or fixed to re-enable
+    -- use({
+    --   "eddyekofo94/gruvbox-flat.nvim",
+    --   config = function()
+    --     vim.g.gruvbox_flat_style = "dark"
+    --   end,
+    -- })
     use("folke/lsp-colors.nvim")
     use("sainnhe/sonokai")
     use({
@@ -409,7 +425,6 @@ return require("packer").startup({
     })
     use("gruvbox-community/gruvbox")
     use("shaunsingh/nord.nvim")
-    use("mhartington/oceanic-next")
     use("franbach/miramare")
     use("chuling/ci_dark")
     use({
@@ -423,7 +438,6 @@ return require("packer").startup({
         vim.g.tokyonight_style = "storm"
       end,
     })
-    use("shaunsingh/moonlight.nvim")
     --[[ #######################
      Plugin development
     ####################### ]]
