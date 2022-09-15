@@ -1,3 +1,4 @@
+vim.g.ts_highlight_lua = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "-"
 require("plugins")
