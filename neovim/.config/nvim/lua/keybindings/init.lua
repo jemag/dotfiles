@@ -181,6 +181,7 @@ local leader_mappings = {
   ["c"] = { "<Cmd>call searchx#clear()<CR>", "Clear search hints" },
   ["e"] = { "<cmd>Neotree filesystem focus toggle left<cr>", "Explorer" },
   ["E"] = { "<cmd>Neotree filesystem focus reveal left<cr>", "Show file" },
+  ["j"] = { "<cmd>lua require('trevj').format_at_cursor()<cr>", "Reverse J" },
   ["L"] = { "<cmd>SLoad<cr>", "Load session" },
   ["1"] = { "<cmd>BufferGoto 1<cr>", "Buf 1" },
   ["2"] = { "<cmd>BufferGoto 2<cr>", "Buf 2" },
