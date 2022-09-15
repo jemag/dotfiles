@@ -360,6 +360,15 @@ local local_leader_mappings = {
     v = { "<cmd>GV<cr>", "View commits" },
     V = { "<cmd>GV!<cr>", "View buffer commits" },
   },
+  p = {
+    name = "+project",
+    s = {
+      name = "+session",
+      s = { "<cmd>SSave<cr>", "Quick save" },
+      S = { "<cmd>Telescope possession list<cr>", "Search sessions" },
+      j = { "<cmd>SShow<cr>", "Show session" },
+    },
+  },
   s = {
     name = "+search",
     ["/"] = {
