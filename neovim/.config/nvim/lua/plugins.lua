@@ -695,6 +695,7 @@ return require("packer").startup({
     })
     use({
       "lukas-reineke/headlines.nvim",
+      commit = "347ef0371451d9bfbf010c6743fb74997b5b9a80",
       config = function()
         require("headlines").setup()
       end,
