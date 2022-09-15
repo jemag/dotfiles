@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
   group = minlines,
 })
 
+-- function to do continuous horizontal scrolling
 vim.cmd([[ 
 function! HorizontalScrollMode( call_char )
   if &wrap
@@ -51,5 +52,12 @@ function! HorizontalScrollMode( call_char )
   echohl None | echo '' | redraws
 endfunction
 ]])
+-- Disable treesitter incremental_selection in command window
+vim.api.nvim_create_augroup("cmdwin_treesitter", { clear = true })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  pattern = "*",
+  command = "TSBufDisable incremental_selection",
+  group = "cmdwin_treesitter",
+  desc = "Disable treesitter's incremental selection in Command-line window",
+})
 vim.cmd("filetype indent plugin on")
-vim.cmd("syntax on")
