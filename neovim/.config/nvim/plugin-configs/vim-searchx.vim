@@ -3,6 +3,8 @@ nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
 nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
 xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
 xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+onoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+onoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
 cnoremap ; <Cmd>call searchx#select()<CR>
 
 " Move to next/prev match.
