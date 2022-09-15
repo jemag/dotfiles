@@ -25,6 +25,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "AckslD/nvim-trevJ.lua",
+      config = function()
+        require("plugin-configs.nvim-trevJ")
+      end,
+    })
+    use({
       "s1n7ax/nvim-window-picker",
       tag = "v1.*",
       config = function()
