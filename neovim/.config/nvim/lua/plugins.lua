@@ -47,12 +47,11 @@ return require("packer").startup({
       "anuvyklack/pretty-fold.nvim",
       config = function()
         require("pretty-fold").setup({})
-        require("pretty-fold.preview").setup({
-          key = "h",
-        })
+        require("fold-preview").setup()
       end,
       requires = {
         "anuvyklack/nvim-keymap-amend",
+        "anuvyklack/fold-preview.nvim",
       },
     })
     use({
@@ -191,23 +190,55 @@ return require("packer").startup({
         require("plugin-configs.vim-floaterm")
       end,
     })
-    --[[ use({
-      "/home/jemag/Projects/github-reference/numToStr/FTerm.nvim/",
-      config = function()
-        require("FTerm").setup({
+    -- use({
+    --   "/home/jemag/Projects/github-reference/numToStr/FTerm.nvim/",
+    --   config = function()
+    --     require("FTerm").setup({
+    --       on_stdout = function(t, job, data, name)
+    --         print("terminal/n")
+    --         print(vim.inspect(t))
+    --         print("job/n")
+    --         print(vim.inspect(job))
+    --         print("data/n")
+    --         print(vim.inspect(data))
+    --         print("name/n")
+    --         print(vim.inspect(name))
+    --       end,
+    --       border = "double",
+    --       dimensions = {
+    --         height = 0.9,
+    --         width = 0.9,
+    --       },
+    --     })
+    --   end,
+    -- })
+    -- use({
+    --   "/home/jemag/Projects/multi-term.nvim/",
+    --[[ config = function()
+        require("multi-term").setup({
+          on_stdout = function(t, job, data, name)
+            print("terminal/n")
+            print(vim.inspect(t))
+            print("job/n")
+            print(vim.inspect(job))
+            print("data/n")
+            print(vim.inspect(data))
+            print("name/n")
+            print(vim.inspect(name))
+          end,
           border = "double",
           dimensions = {
             height = 0.9,
             width = 0.9,
           },
         })
-      end,
-    }) ]]
+      end ]]
+    -- })
     use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
     use({
       "phaazon/hop.nvim",
-      branch = 'v2',
+      branch = "v2",
       config = function()
         require("plugin-configs.hop")
       end,
