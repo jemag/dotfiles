@@ -14,10 +14,10 @@ bat
 bind
 binutils
 bison
-bitwarden-bin
+bitwarden
 bitwarden-cli
 bottles
-bottom-bin
+bottom
 brave-bin
 broot
 btop
@@ -40,7 +40,8 @@ dnsmasq
 docker
 docker-slim
 dockle-bin
-duf-bin
+dolphin
+duf
 dunst
 dust
 eclipse-mat
@@ -93,7 +94,7 @@ graphviz
 grep
 groff
 gromit-mpx-git
-gron-bin
+gron
 grub
 gruvbox-dark-gtk
 gruvbox-dark-icons-gtk
@@ -123,7 +124,6 @@ kind-bin
 kitty
 krew
 krita
-kube-linter-bin
 kubectl
 kubectx
 kubeval-bin
@@ -187,6 +187,7 @@ mkinitcpio-utils
 mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
+nautilus
 ncdu
 neovim-remote
 nerd-fonts-complete
@@ -264,7 +265,7 @@ speedtest-cli
 spicetify-cli
 spotify
 spring-boot-cli
-starship-bin
+starship
 steam
 stow
 sudo
@@ -349,8 +350,7 @@ xwobf-git
 yarn
 yay
 yq
-ytop-bin
 zathura
 zathura-pdf-mupdf
-zoxide-bin
+zoxide
 zsh
