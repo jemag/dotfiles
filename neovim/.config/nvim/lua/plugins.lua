@@ -449,7 +449,10 @@ return require("packer").startup({
     use("kyazdani42/nvim-web-devicons")
 
     use({
-      "norcalli/nvim-colorizer.lua",
+      "NvChad/nvim-colorizer.lua",
+      config = function()
+        require("plugin-configs.nvim-colorizer")
+      end,
     })
 
     use({
