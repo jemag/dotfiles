@@ -14,7 +14,6 @@ return require("packer").startup({
     -- Packer can manage itself as an optional plugin
     use({ "wbthomason/packer.nvim", opt = true })
     use({ "tyru/capture.vim" })
-
     --[[ #######################
      General
     ####################### ]]
@@ -56,9 +55,6 @@ return require("packer").startup({
     })
     use({
       "mrjones2014/smart-splits.nvim",
-      config = function()
-        require("plugin-configs.substitute")
-      end,
     })
     use({
       "google/vim-jsonnet",
@@ -163,26 +159,11 @@ return require("packer").startup({
       "mrjones2014/legendary.nvim",
     })
     use({ "stevearc/dressing.nvim" })
-    -- TODO: replace with folke/which-key.nvim once fix gets merged
     use({
-      "xiyaowong/which-key.nvim",
-      branch = "patch-1",
-    })
-    use({
-      "ThePrimeagen/harpoon",
-      config = function()
-        require("plugin-configs.harpoon")
-      end,
+      "folke/which-key.nvim",
     })
     use({
       "rainbowhxch/accelerated-jk.nvim",
-    })
-    use({
-      "brandoncc/telescope-harpoon.nvim",
-      config = function()
-        require("telescope").load_extension("harpoon")
-      end,
-      after = { "telescope.nvim", "harpoon" },
     })
     use({
       "voldikss/vim-floaterm",
