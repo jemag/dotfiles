@@ -16,19 +16,19 @@ vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, s
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true })
 
 -- moving between splits
-vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
-vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
-vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
-vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, {desc = "move to left win"})
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, {desc = "move to win under"})
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up, {desc = "move to win above"})
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right, {desc = "move to right win"})
 
 vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 
 -- resizing splits
-vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
-vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
-vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
-vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left, {desc = "resize left"})
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down, {desc = "resize down"})
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up, {desc = "resize up"})
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right, {desc = "resize right"})
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true })
@@ -41,18 +41,6 @@ vim.api.nvim_set_keymap("i", ",", ",<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", ".", ".<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "!", "!<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true, silent = true })
---[[ vim.api.nvim_set_keymap(
-  "n",
-  "<space>/",
-  "<cmd>noh | lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>",
-  { noremap = true }
-)
-vim.api.nvim_set_keymap(
-  "c",
-  "<C-f>",
-  "<cr><cmd>lua require'hop'.hint_patterns({}, vim.fn['getreg']('/'))<cr>",
-  { noremap = true }
-) ]]
 vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "j", "gj", { noremap = true, silent = true })
@@ -421,12 +409,12 @@ local local_leader_mappings = {
       "Modified git files",
     },
     ["h"] = {
-      "<cmd>Telescope command_history<cr>",
+      "<cmd>lua require('telescope.builtin').command_history({sorter = require('telescope.sorters').get_substr_matcher()})<cr>",
       "Command history",
     },
     ["H"] = {
-      "<cmd>Telescope oldfiles<cr>",
-      "File history",
+      "<cmd>Telescope command_history<cr>",
+      "Fuzzy Command History",
     },
     ["k"] = {
       "<cmd>Telescope keymaps<cr>",

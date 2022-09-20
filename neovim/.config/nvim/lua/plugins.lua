@@ -237,16 +237,17 @@ return require("packer").startup({
     use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
     use({
-      "phaazon/hop.nvim",
-      branch = "v2",
-      config = function()
-        require("plugin-configs.hop")
-      end,
-    })
-    use({
       "airblade/vim-current-search-match",
       config = function()
         vim.g.current_search_match = "IncSearch"
+      end,
+    })
+    use({
+      "jinh0/eyeliner.nvim",
+      config = function()
+        require("eyeliner").setup({
+          highlight_on_key = true,
+        })
       end,
     })
     use({
