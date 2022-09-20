@@ -281,6 +281,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "Kasama/nvim-custom-diagnostic-highlight",
+      config = function()
+        require("nvim-custom-diagnostic-highlight").setup({})
+      end,
+    })
+    use({
       "nvim-treesitter/playground",
     })
     use({
@@ -581,6 +587,16 @@ return require("packer").startup({
       end,
     })
     use({
+      "gbprod/stay-in-place.nvim",
+      config = function()
+        require("stay-in-place").setup({
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        })
+      end,
+    })
+    use({
       "williamboman/nvim-lsp-installer",
     })
     use({
@@ -790,7 +806,7 @@ return require("packer").startup({
       "kylechui/nvim-surround",
       config = function()
         require("plugin-configs.nvim-surround")
-      end
+      end,
     })
   end,
 })
