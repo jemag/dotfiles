@@ -40,7 +40,6 @@ dnsmasq
 docker
 docker-slim
 dockle-bin
-dolphin
 duf
 dunst
 dust
@@ -189,6 +188,7 @@ mpg123
 mullvad-vpn-bin
 nautilus
 ncdu
+neovide
 neovim-remote
 nerd-fonts-complete
 net-tools
@@ -201,7 +201,6 @@ numlockx
 nvidia-dkms
 nvidia-settings
 nvidia-utils
-nvm
 obs-studio
 ocl-icd
 onlyoffice-bin
@@ -277,6 +276,7 @@ terraform-ls-bin
 texinfo
 tfk8s
 the_silver_searcher
+thunar
 timeshift
 tmux-git
 tokei
@@ -292,11 +292,13 @@ vagrant
 vde2
 velero-bin
 vi
+viddy
 vifm
 vint
 virt-manager
 virt-viewer
 vlc
+volta-bin
 vscodium-bin
 w3m
 weechat

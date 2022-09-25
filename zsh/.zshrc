@@ -1,7 +1,6 @@
 # zmodload zsh/zprof
-autoload bashcompinit && bashcompinit
-source '/usr/share/nvm/init-nvm.sh'
-nvm use node --silent
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 source '/home/jemag/.config/zsh/plugins/zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 autoload -U up-line-or-beginning-search
@@ -229,3 +228,5 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 # zprof
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
