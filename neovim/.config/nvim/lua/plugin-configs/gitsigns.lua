@@ -38,7 +38,7 @@ require("gitsigns").setup({
     enable = false,
   },
 })
-vim.keymap.set("n", "<leader>hb", '<cmd>Gitsigns attach<CR>', { desc = "Gitsigns attach" })
+vim.keymap.set("n", "<leader>ha", '<cmd>Gitsigns attach<CR>', { desc = "Gitsigns attach" })
 vim.keymap.set("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { desc = "blame line" })
 vim.keymap.set("n", "<leader>hc", '<cmd>Gitsigns toggle_current_line_blame<CR>', { desc = "toggle current line blame" })
 vim.keymap.set("n", "<leader>hl", '<cmd>Gitsigns toggle_linehl<CR>', { desc = "toggle line hl" })
