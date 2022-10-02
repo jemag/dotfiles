@@ -230,7 +230,6 @@ local leader_mappings = {
   },
   h = {
     name = "+hunk",
-    b = "Blame line",
   },
   i = {
     name = "+insert",
@@ -432,7 +431,7 @@ local local_leader_mappings = {
       "<cmd>Telescope possession list<cr>",
       "Session list",
     },
-    ["m"] = { "<cmd>Telescope marks<cr>", "Marks" },
+    ["m"] = { "<cmd>Telescope man_pages<cr>", "Marks" },
     ["M"] = {
       "<cmd>Telescope media_files<cr>",
       "Media files",

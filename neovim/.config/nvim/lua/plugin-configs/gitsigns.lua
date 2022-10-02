@@ -10,27 +10,6 @@ require("gitsigns").setup({
   numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
   linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-  keymaps = {
-    -- Default keymap options
-    noremap = true,
-
-    ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-    ["n <leader>hn"] = "<cmd>Gitsigns next_hunk<CR>",
-    ["n <leader>hN"] = "<cmd>Gitsigns prev_hunk<CR>",
-    ["n <leader>hp"] = "<cmd>Gitsigns preview_hunk<CR>",
-    ["n <leader>hr"] = "<cmd>Gitsigns reset_hunk<CR>",
-    ["v <leader>hr"] = "<cmd>Gitsigns reset_hunk<CR>",
-    ["n <leader>hR"] = "<cmd>Gitsigns reset_buffer<CR>",
-    ["n <leader>hs"] = "<cmd>Gitsigns stage_hunk<CR>",
-    ["v <leader>hs"] = "<cmd>Gitsigns stage_hunk<CR>",
-    ["n <leader>hS"] = "<cmd>Gitsigns stage_buffer<CR>",
-    ["n <leader>hu"] = "<cmd>Gitsigns undo_stage_hunk<CR>",
-    ["n <leader>hU"] = "<cmd>Gitsigns reset_buffer_index<CR>",
-
-    -- Text objects
-    ["o ih"] = ":<C-U>Gitsigns select_hunk<CR>",
-    ["x ih"] = ":<C-U>Gitsigns select_hunk<CR>",
-  },
   watch_gitdir = {
     interval = 1000,
     follow_files = true,
@@ -42,9 +21,6 @@ require("gitsigns").setup({
     virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
     delay = 1000,
     ignore_whitespace = false,
-  },
-  current_line_blame_formatter_opts = {
-    relative_time = false,
   },
   sign_priority = 6,
   update_debounce = 100,
@@ -62,3 +38,18 @@ require("gitsigns").setup({
     enable = false,
   },
 })
+vim.keymap.set("n", "<leader>hb", '<cmd>Gitsigns attach<CR>', { desc = "Gitsigns attach" })
+vim.keymap.set("n", "<leader>hb", '<cmd>lua require"gitsigns".blame_line{full=true}<CR>', { desc = "blame line" })
+vim.keymap.set("n", "<leader>hc", '<cmd>Gitsigns toggle_current_line_blame<CR>', { desc = "toggle current line blame" })
+vim.keymap.set("n", "<leader>hl", '<cmd>Gitsigns toggle_linehl<CR>', { desc = "toggle line hl" })
+vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>", { desc = "next hunk" })
+vim.keymap.set("n", "<leader>hN", "<cmd>Gitsigns prev_hunk<CR>", { desc = "prev hunk" })
+vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "preview hunk" })
+vim.keymap.set({ "n", "v" }, "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "reset hunk" })
+vim.keymap.set("n", "<leader>hR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "reset buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "stage hunk" })
+vim.keymap.set("n", "<leader>hS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "stage buffer" })
+vim.keymap.set("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "undo stage hunk" })
+vim.keymap.set("n", "<leader>hU", "<cmd>Gitsigns reset_buffer_index<CR>", { desc = "reset buffer index" })
+vim.keymap.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "inner hunk text object" })
+vim.keymap.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "inner hunk text object" })
