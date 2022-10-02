@@ -232,9 +232,10 @@ return require("packer").startup({
       end,
     })
     use({
-      "hrsh7th/vim-searchx",
+      "woosaaahh/sj.nvim",
+      branch = "0.5",
       config = function()
-        vim.cmd("source ~/.config/nvim/plugin-configs/vim-searchx.vim")
+        require("plugin-configs.sj")
       end,
     })
     use({
@@ -337,7 +338,6 @@ return require("packer").startup({
     use("mfussenegger/nvim-jdtls")
     use("equalsraf/neovim-gui-shim")
     use("lambdalisue/suda.vim")
-    use("gerw/vim-HiLinkTrace")
     use({
       "gennaro-tedesco/nvim-peekup",
       config = function()
