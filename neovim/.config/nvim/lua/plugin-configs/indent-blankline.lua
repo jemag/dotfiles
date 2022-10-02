@@ -24,7 +24,6 @@ vim.api.nvim_create_autocmd({ "ColorScheme"}, {
   command = "highlight! IndentBlanklineIndent6 guifg=#C678DD gui=nocombine",
 })
 require("indent_blankline").setup({
-  char = "|",
   enabled = false,
   char_highlight_list = {
     "IndentBlanklineIndent1",
