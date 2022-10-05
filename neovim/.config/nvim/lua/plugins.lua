@@ -24,6 +24,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "gaoDean/autolist.nvim",
+      config = function()
+        require("plugin-configs.autolist")
+      end,
+    })
+    use({
       "AckslD/nvim-trevJ.lua",
       config = function()
         require("plugin-configs.nvim-trevJ")
@@ -351,6 +357,10 @@ return require("packer").startup({
       config = function()
         require("tint").setup()
       end,
+    })
+    use({
+      "kartikp10/noctis.nvim",
+      requires = { "rktjmp/lush.nvim" },
     })
     use({
       "sam4llis/nvim-tundra",
