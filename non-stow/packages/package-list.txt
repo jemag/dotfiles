@@ -302,7 +302,7 @@ volta-bin
 vscodium-bin
 w3m
 weechat
-wezterm
+wezterm-nightly-bin
 which
 whois
 wine-mono
