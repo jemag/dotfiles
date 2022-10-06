@@ -175,6 +175,10 @@ return {
       { key = "L", mods = "SHIFT", action = act.CopyMode("MoveToViewportBottom") },
       { key = "M", mods = "NONE", action = act.CopyMode("MoveToViewportMiddle") },
       { key = "M", mods = "SHIFT", action = act.CopyMode("MoveToViewportMiddle") },
+      { key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
+      { key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
+      { key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
+      { key = "e", mods = "CTRL", action = act.CopyMode("ClearPattern") },
       { key = "O", mods = "NONE", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
       { key = "O", mods = "SHIFT", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
       { key = "T", mods = "NONE", action = act.CopyMode({ JumpBackward = { prev_char = true } }) },
@@ -222,16 +226,8 @@ return {
     },
 
     search_mode = {
-      { key = "Enter", mods = "NONE", action = act.CopyMode("PriorMatch") },
+      { key = "Enter", mods = "NONE", action = act("ActivateCopyMode") },
       { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
-      { key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
-      { key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
-      { key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
-      { key = "u", mods = "CTRL", action = act.CopyMode("ClearPattern") },
-      { key = "PageUp", mods = "NONE", action = act.CopyMode("PriorMatchPage") },
-      { key = "PageDown", mods = "NONE", action = act.CopyMode("NextMatchPage") },
-      { key = "UpArrow", mods = "NONE", action = act.CopyMode("PriorMatch") },
-      { key = "DownArrow", mods = "NONE", action = act.CopyMode("NextMatch") },
     },
   },
 }
