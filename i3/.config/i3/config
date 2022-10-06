@@ -29,7 +29,7 @@ bindsym --release button2 kill
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -243,6 +243,7 @@ gaps outer $outer
 bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
 bindsym $mod+Shift+g gaps inner all set 0; gaps outer all set 0
 smart_borders on
+# default_border normal
 
 # TOGGLE PICOM
 bindsym $mod+z exec picom
@@ -252,7 +253,7 @@ bindsym $mod+Shift+z exec pkill picom
 
 new_window pixel 3
 new_float pixel 3
-hide_edge_borders none
+hide_edge_borders smart_no_gaps
 smart_gaps on
 
 
