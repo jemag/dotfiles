@@ -166,7 +166,6 @@ local leader_mappings = {
   ["."] = { "<cmd>e $MYVIMRC<cr>", "Open init" },
   [";"] = { "<cmd>Commands<cr>", "Commands" },
   [","] = { "<cmd>Startify<cr>", "Start screen" },
-  ["c"] = { "<Cmd>call searchx#clear()<CR>", "Clear search hints" },
   ["e"] = { "<cmd>Neotree filesystem focus toggle left<cr>", "Explorer" },
   ["E"] = { "<cmd>Neotree filesystem focus reveal left<cr>", "Show file" },
   ["j"] = { "<cmd>lua require('trevj').format_at_cursor()<cr>", "Reverse J" },
