@@ -3,6 +3,7 @@ local act = wezterm.action
 
 return {
   -- option	= value	, [default] comment
+  warn_about_missing_glyphs=false,
 
   -- Fonts
   font = wezterm.font_with_fallback({
