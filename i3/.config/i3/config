@@ -268,7 +268,8 @@ client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$
 # switch to previous window
 exec --no-startup-id /home/jemag/.config/i3/i3-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
-exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-D-0 --mode 1920x1080 --rate 144 --pos 0x0 --rotate left --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 1080x0 --rotate normal --output DP-1 --off --output DVI-D-0 --off
+# exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-D-0 --mode 1920x1080 --rate 144 --pos 0x0 --rotate left --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 1080x0 --rotate normal --output DP-1 --off --output DVI-D-0 --off
+exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal --output DP-1 --off --output DVI-D-0 --mode 1920x1080 --pos 256x1440 --rotate normal --rate 144
 # exec --no-startup-id xrandr --output DVI-I-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --brightness 1 --output DP-1 --off --output DVI-D-0 --off
 bindsym $mod+Tab [con_mark=_prevFocus0] focus
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
