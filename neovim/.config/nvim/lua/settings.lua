@@ -107,7 +107,7 @@ vim.api.nvim_create_autocmd({ "FileType"}, {
     - "2" -- I'm not in gradeschool anymore
     + "c" -- In general, I like it when comments respect textwidth
     + "q" -- Allow formatting comments w/ gq
-    + "r" -- But do continue when pressing enter.
+    - "r" -- But do continue when pressing enter.
     + "n" -- Indent past the formatlistpat, not underneath it.
     + "j" -- Auto-remove comments if possible.
   end,
