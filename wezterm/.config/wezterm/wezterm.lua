@@ -72,6 +72,19 @@ return {
     { key = "K", mods = "SHIFT|CTRL", action = act.ClearScrollback("ScrollbackOnly") },
     { key = "L", mods = "CTRL", action = act.ShowDebugOverlay },
     { key = "L", mods = "SHIFT|CTRL", action = act.ShowDebugOverlay },
+    {
+      key = "O",
+      mods = "SHIFT|CTRL",
+      action = wezterm.action.QuickSelectArgs({
+        label = "open url",
+        patterns = { "https?://\\S+" },
+        action = wezterm.action_callback(function(window, pane)
+          local url = window:get_selection_text_for_pane(pane)
+          wezterm.log_info("opening: " .. url)
+          wezterm.open_with(url)
+        end),
+      }),
+    },
     { key = "M", mods = "CTRL", action = act.Hide },
     { key = "M", mods = "SHIFT|CTRL", action = act.Hide },
     { key = "N", mods = "CTRL", action = act.SpawnWindow },
