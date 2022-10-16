@@ -1,8 +1,8 @@
 -- More convenient horizontal scrolling
-vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "zH", "<cmd>call HorizontalScrollMode('H')<cr>", { noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "zL", "<cmd>call HorizontalScrollMode('L')<cr>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "zH", "<cmd>call HorizontalScrollMode('H')<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "zL", "<cmd>call HorizontalScrollMode('L')<cr>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true })
@@ -16,19 +16,19 @@ vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, s
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true })
 
 -- moving between splits
-vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, {desc = "move to left win"})
-vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, {desc = "move to win under"})
-vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up, {desc = "move to win above"})
-vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right, {desc = "move to right win"})
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, { desc = "move to left win" })
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, { desc = "move to win under" })
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up, { desc = "move to win above" })
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right, { desc = "move to right win" })
 
 vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true })
 
 -- resizing splits
-vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left, {desc = "resize left"})
-vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down, {desc = "resize down"})
-vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up, {desc = "resize up"})
-vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right, {desc = "resize right"})
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left, { desc = "resize left" })
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down, { desc = "resize down" })
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up, { desc = "resize up" })
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right, { desc = "resize right" })
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true })
@@ -36,11 +36,6 @@ vim.api.nvim_set_keymap("n", "<Up>", "<cmd>copen<cr>", { noremap = true, silent 
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>cclose<cr>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("i", "<C-u>", "<C-g>u<C-u>", { noremap = true, silent = true })
--- Set undo breakpoints in insert mode so that it doesn't cancel all the text written
-vim.api.nvim_set_keymap("i", ",", ",<C-g>u", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", ".", ".<C-g>u", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "!", "!<C-g>u", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "j", "gj", { noremap = true, silent = true })
@@ -53,18 +48,10 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<c-g>", "1<c-g>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>o",
-  '<cmd>call append(line("."),   repeat([""], v:count1))<CR>',
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>O",
-  '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>',
-  { noremap = true, silent = true }
-)
+vim.api.nvim_set_keymap("n", "<leader>o", '<cmd>call append(line("."),   repeat([""], v:count1))<CR>',
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>O", '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>',
+  { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap(
   "n",
@@ -74,18 +61,10 @@ vim.api.nvim_set_keymap(
 )
 
 -- Count relative line number movements toward jump list if we move by more than 5 lines
-vim.api.nvim_set_keymap(
-  "n",
-  "k",
-  '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"',
-  { noremap = true, expr = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "j",
-  '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"',
-  { noremap = true, expr = true }
-)
+vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"',
+  { noremap = true, expr = true })
+vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"',
+  { noremap = true, expr = true })
 
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 
@@ -107,6 +86,16 @@ vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true })
+
+local diagnostics_active = true
+vim.keymap.set("n", "<localleader>tD", function()
+  if diagnostics_active then
+    vim.diagnostic.disable(0)
+  else
+    vim.diagnostic.enable(0)
+  end
+  diagnostics_active = not diagnostics_active
+end, { desc = "Toggle lsp diagnostics" })
 require("legendary").setup()
 require("which-key").setup({
   plugins = {
@@ -346,6 +335,12 @@ local local_leader_mappings = {
     v = { "<cmd>GV<cr>", "View commits" },
     V = { "<cmd>GV!<cr>", "View buffer commits" },
   },
+  m = {
+    name = "+misc",
+    s = {
+      name = "+schema",
+    },
+  },
   p = {
     name = "+project",
     s = {
@@ -486,7 +481,6 @@ local local_leader_mappings = {
     b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
     B = { "<cmd>Neotree buffers focus toggle float<cr>", "Neotree buffers" },
     c = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
-    D = { "<cmd>call v:lua.toggle_diagnostics()<cr>", "Toggle LSP diagnostics signs" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     f = { "<cmd>FloatermToggle<cr>", "Floaterm" },
     g = { "<cmd>Neotree focus toggle git_status float<cr>", "Toggle Neotree git" },
