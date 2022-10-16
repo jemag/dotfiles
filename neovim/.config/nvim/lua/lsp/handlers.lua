@@ -159,6 +159,6 @@ local function get_basic_capabilities()
   return capabilities
 end
 
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(get_basic_capabilities())
+M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 return M
