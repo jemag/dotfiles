@@ -54,6 +54,7 @@ epub-thumbnailer-git
 evince
 evtest
 exa
+exercism-bin
 fakeroot
 faq-bin
 fd
@@ -69,7 +70,6 @@ flex
 fontdownloader-git
 fontpreview
 forticlient
-forticlientsslvpn
 foxitreader
 freetube-bin
 fzf
@@ -167,6 +167,7 @@ libxslt
 linux
 linux-firmware
 linux-headers
+logseq-desktop-bin
 lua51
 luarocks
 luit
@@ -312,6 +313,8 @@ wireguard-tools
 wireshark-qt
 woeusb-ng
 wttr
+xcursor-neutral
+xcursor-themes
 xdo
 xkb-switch
 xorg-bdftopcf
