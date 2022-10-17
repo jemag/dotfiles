@@ -8,6 +8,7 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "solargraph",
+  "tailwindcss",
   "vimls",
   "dockerls",
   "html",
@@ -17,17 +18,9 @@ local servers = {
   "jsonnet_ls",
   "gopls",
 }
-require("nvim-lsp-installer").setup({
-  ensure_installed = servers,
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗",
-    },
-  },
+require("mason-lspconfig").setup({
+    ensure_installed = servers,
 })
-
 local lspconfig = require("lspconfig")
 
 local function setup_servers()
@@ -37,6 +30,14 @@ local function setup_servers()
     if name == "jsonls" then
       local jsonls_opts = require("lsp.configs.jsonls")
       opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+    if name == "yamlls" then
+      local yamlls_opts = require("yaml-companion").setup({
+        lspconfig = {
+          on_attach = require("lsp.handlers").on_attach,
+        }
+      })
+      opts = yamlls_opts
     end
     if name == "ansiblels" then
       local ansiblels_opts = require("lsp.configs.ansiblels")

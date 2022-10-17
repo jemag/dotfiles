@@ -17,16 +17,38 @@ return require("packer").startup({
     --[[ #######################
      General
     ####################### ]]
+    -- Scope buffers to their specific tab
     use({
-      "luukvbaal/stabilize.nvim",
+      "tiagovla/scope.nvim",
       config = function()
-        require("stabilize").setup()
+        require("scope").setup()
       end,
     })
     use({
       "gaoDean/autolist.nvim",
       config = function()
         require("plugin-configs.autolist")
+      end,
+    })
+    use({
+      "smjonas/live-command.nvim",
+      -- live-command supports semantic versioning via tags
+      -- tag = "1.*",
+      config = function()
+        require("plugin-configs.live-command")
+      end,
+    })
+
+    use({
+      "someone-stole-my-name/yaml-companion.nvim",
+      requires = {
+        { "neovim/nvim-lspconfig" },
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope.nvim" },
+      },
+      config = function()
+        require("telescope").load_extension("yaml_schema")
+        require("plugin-configs.yaml-companion")
       end,
     })
     use({
@@ -61,6 +83,12 @@ return require("packer").startup({
     })
     use({
       "mrjones2014/smart-splits.nvim",
+      config = function()
+        require("plugin-configs.smart-splits")
+      end,
+    })
+    use({
+      "phelipetls/jsonpath.nvim",
     })
     use({
       "google/vim-jsonnet",
@@ -607,8 +635,13 @@ return require("packer").startup({
       end,
     })
     use({
-      "williamboman/nvim-lsp-installer",
+      "williamboman/mason.nvim",
+      config = function()
+        require("plugin-configs.mason")
+      end,
     })
+    use({ "williamboman/mason-lspconfig.nvim" })
+
     use({
       "j-hui/fidget.nvim",
       config = function()
