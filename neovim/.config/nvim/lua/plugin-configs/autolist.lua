@@ -42,23 +42,6 @@ require('autolist').setup({
 		"invert",
 		"new",
 	},
-	insert_mappings = {
-		invert = { "<c-r>+[catch]" },
-		new = { "<CR>" },
-		tab = { "<c-t>" },
-		detab = { "<c-d>" },
-		recal = { "<c-z>" },
-		indent = {},
-	},
-	normal_mappings = {
-		new = {
-			"o",
-			"O+(true)",
-		},
-		tab = { ">>" },
-		detab = { "<<" },
-		recal = { "dd" },
-	},
 	checkbox = {
 		left = "%[",
 		right = "%]",
