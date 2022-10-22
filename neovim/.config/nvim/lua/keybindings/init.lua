@@ -299,7 +299,7 @@ local leader_mappings = {
   },
   w = {
     name = "+window",
-    m = { "<cmd>MaximizerToggle<cr>", "Toggle Maximizer" },
+    m = { "<cmd>NeoZoomToggle<cr>", "Toggle zoom" },
     t = { "<cmd>tabclose<cr>", "Close tab" },
   },
 }

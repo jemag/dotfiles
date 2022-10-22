@@ -167,7 +167,12 @@ return require("packer").startup({
         require("plugin-configs.barbar")
       end,
     })
-    use("szw/vim-maximizer")
+    use({
+      "nyngwang/NeoZoom.lua",
+      config = function()
+        require("plugin-configs.neozoom")
+      end,
+    })
     use({
       "nvim-neo-tree/neo-tree.nvim",
       branch = "main",
@@ -267,7 +272,6 @@ return require("packer").startup({
     })
     use({
       "woosaaahh/sj.nvim",
-      branch = "0.5",
       config = function()
         require("plugin-configs.sj")
       end,
@@ -731,7 +735,6 @@ return require("packer").startup({
         require("plugin-configs.vim-markdown")
       end,
     })
-
     use({
       "iamcco/markdown-preview.nvim",
       opt = true,
