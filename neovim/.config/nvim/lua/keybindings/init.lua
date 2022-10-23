@@ -360,6 +360,10 @@ local local_leader_mappings = {
       "<cmd>Telescope commands<cr>",
       "Commands",
     },
+    ["a"] = {
+      "<cmd>Telescope aerial<cr>",
+      "Search aerial",
+    },
     ["b"] = {
       "<cmd>Telescope buffers<cr>",
       "Open buffers",
@@ -491,7 +495,6 @@ local local_leader_mappings = {
     n = { "<cmd>Neogit<cr>", "Neogit" },
     N = { "<cmd>Notifications<cr>", "Notifications" },
     r = { "<cmd>set number! norelativenumber!<cr>", "Hybrid line numbers" },
-    s = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
     S = { '<cmd>lua require("spectre").open()<CR>', "Open Spectre" },
     t = { "<cmd>ReachOpen tabpages<cr>", "Tabpages" },
     T = { "<cmd>TagbarToggle<cr>", "Tagbar" },

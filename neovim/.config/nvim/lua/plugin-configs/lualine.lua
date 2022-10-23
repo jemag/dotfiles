@@ -26,7 +26,6 @@ require("lualine").setup({
     lualine_a = { "mode" },
     lualine_b = { "branch" },
     lualine_c = {
-      { "filename", path = 1, color = { fg = "#ffffff" } },
       { gps.get_location, condition = gps.is_available },
     },
     lualine_x = { "encoding", "fileformat", "filetype" },

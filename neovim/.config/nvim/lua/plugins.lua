@@ -756,11 +756,10 @@ return require("packer").startup({
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
     })
-
     use({
-      "simrat39/symbols-outline.nvim",
+      "stevearc/aerial.nvim",
       config = function()
-        require("plugin-configs.symbols-outline")
+        require("plugin-configs.aerial")
       end,
     })
     --[[ #######################

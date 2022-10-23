@@ -81,6 +81,14 @@ require("telescope").setup({
     },
   },
   extensions = {
+    aerial = {
+      -- Display symbols as <root>.<parent>.<symbol>
+      show_nesting = {
+        ["_"] = false, -- This key will be the default
+        json = true, -- You can set the option for specific filetypes
+        yaml = true,
+      },
+    },
     media_files = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
@@ -105,6 +113,7 @@ require("telescope").load_extension("fzf")
 -- require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("live_grep_args")
+require("telescope").load_extension("aerial")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
