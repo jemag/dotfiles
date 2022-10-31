@@ -21,9 +21,7 @@ bottom
 brave-bin
 broot
 btop
-burpsuite
 calibre
-calicoctl
 chromium
 chromium-widevine
 clang
@@ -32,6 +30,7 @@ ctags
 cups
 cups-pdf
 deluge-gtk
+deno
 dhcpcd
 direnv
 discord
@@ -39,7 +38,6 @@ dmidecode
 dnsmasq
 docker
 docker-slim
-dockle-bin
 duf
 dunst
 dust
@@ -86,7 +84,6 @@ glances
 gnome-calculator
 gnome-keyring
 go-tools
-gobuster
 gparted
 gradle
 graphviz
@@ -100,7 +97,7 @@ gruvbox-dark-icons-gtk
 gst-plugins-base-libs
 gvim
 gzip
-handlr-bin
+handlr
 hdparm
 helm
 htop
@@ -187,7 +184,6 @@ mkinitcpio-utils
 mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
-nautilus
 ncdu
 neovide
 neovim-remote
@@ -277,8 +273,7 @@ terraform-ls-bin
 texinfo
 tfk8s
 the_silver_searcher
-thunar
-timeshift
+timeshift-bin
 tmux-git
 tokei
 traceroute
@@ -291,7 +286,6 @@ tutanota-desktop-bin
 ueberzug
 vagrant
 vde2
-velero-bin
 vi
 viddy
 vifm
@@ -300,7 +294,6 @@ virt-manager
 virt-viewer
 vlc
 volta-bin
-vscodium-bin
 w3m
 weechat
 wezterm-nightly-bin
