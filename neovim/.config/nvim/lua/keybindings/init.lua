@@ -259,8 +259,8 @@ local leader_mappings = {
     x = { "<cmd>BookmarkClearAll<cr>", "Clear all" },
   },
   n = {
-    name = "+nvim plugin devel",
-    t = { "<Plug>PlenaryTestFile", "PlenaryTestFile" },
+    name = "notes",
+    w = { "<cmd>e ~/working-memory.md<cr>", "Working memory" },
   },
   r = {
     name = "+refactor",
@@ -491,7 +491,6 @@ local local_leader_mappings = {
     i = "Toggle indent blank lines",
     L = { "<cmd>Limelight!!<cr>", "Limelight" },
     m = { "<cmd>ReachOpen marks<cr>", "Marks" },
-    M = { "<cmd>TZMinimalist<cr>", "TZMinimalist" },
     n = { "<cmd>Neogit<cr>", "Neogit" },
     N = { "<cmd>Notifications<cr>", "Notifications" },
     r = { "<cmd>set number! norelativenumber!<cr>", "Hybrid line numbers" },

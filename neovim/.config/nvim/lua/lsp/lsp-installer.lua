@@ -17,9 +17,10 @@ local servers = {
   "yamlls",
   "jsonnet_ls",
   "gopls",
+  "marksman",
 }
 require("mason-lspconfig").setup({
-    ensure_installed = servers,
+  ensure_installed = servers,
 })
 local lspconfig = require("lspconfig")
 
@@ -35,7 +36,7 @@ local function setup_servers()
       local yamlls_opts = require("yaml-companion").setup({
         lspconfig = {
           on_attach = require("lsp.handlers").on_attach,
-        }
+        },
       })
       opts = yamlls_opts
     end

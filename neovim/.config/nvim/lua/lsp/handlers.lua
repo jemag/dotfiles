@@ -127,7 +127,6 @@ M.on_attach = function(client, bufnr)
   set_signature_helper(client, bufnr)
   set_hover_border(client)
   map_keys(bufnr)
-  require("aerial").on_attach(client, bufnr)
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls").setup.add_commands()

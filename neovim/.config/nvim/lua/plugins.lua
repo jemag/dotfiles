@@ -329,6 +329,9 @@ return require("packer").startup({
       "nvim-treesitter/playground",
     })
     use({
+      "michaeljsmith/vim-indent-object",
+    })
+    use({
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
     use({
@@ -736,6 +739,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "gorbit99/codewindow.nvim",
+      config = function()
+        require("plugin-configs.codewindow")
+      end,
+    })
+    use({
       "iamcco/markdown-preview.nvim",
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
@@ -755,6 +764,12 @@ return require("packer").startup({
       "nelstrom/vim-markdown-folding",
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
+    })
+    use({
+      "stevearc/stickybuf.nvim",
+      config = function()
+        require("plugin-configs.stickybuf")
+      end,
     })
     use({
       "stevearc/aerial.nvim",
