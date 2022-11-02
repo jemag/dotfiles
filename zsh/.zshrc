@@ -52,6 +52,7 @@ alias lh="ls -lh"
 alias lb="br -dsp"
 alias ta="tmux attach -t"
 alias k="kubectl"
+alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias kl="kube-linter"
 alias vim="nvim"
 alias n="nvim"
@@ -222,7 +223,6 @@ export NODE_BIN="$(npm config get prefix)/bin"
 source /home/jemag/.config/broot/launcher/bash/br
 source <(kubectl completion zsh)
 source <(kustomize completion zsh)
-source <(velero completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
