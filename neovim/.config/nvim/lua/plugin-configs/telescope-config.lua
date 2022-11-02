@@ -43,7 +43,6 @@ require("telescope").setup({
         -- So, to not map "<C-n>", just put
         -- ["<c-x>"] = false,
         ["<esc>"] = actions.close,
-        ["<C-s>"] = actions.send_selected_to_qflist,
         ["<C-q>"] = actions.send_to_qflist,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
@@ -55,7 +54,6 @@ require("telescope").setup({
         -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
       },
       n = {
-        ["<C-s>"] = actions.send_selected_to_qflist,
         ["<C-q>"] = actions.send_to_qflist,
         --[[ ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
@@ -71,11 +69,23 @@ require("telescope").setup({
       mappings = {
         i = {
           ["<c-s>"] = require("telescope.actions").delete_buffer,
-          -- or right hand side can also be a the name of the action as string
-          -- ["<c-d>"] = "delete_buffer",
         },
         n = {
           ["<c-s>"] = require("telescope.actions").delete_buffer,
+        },
+      },
+    },
+    git_status = {
+      mappings = {
+        i = {
+          ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+          ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+          ["<c-s>"] = actions.git_staging_toggle,
+        },
+        n = {
+          ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+          ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+          ["<c-s>"] = actions.git_staging_toggle,
         },
       },
     },
