@@ -71,6 +71,8 @@ vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<c-w>m", "<cmd>WinShift<cr>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
 
+vim.api.nvim_set_keymap("c", "<esc>", "<c-c>", { noremap = true })
+
 vim.api.nvim_set_keymap("t", "<c-h>", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<c-l>", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<c-k>", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
@@ -447,7 +449,7 @@ local local_leader_mappings = {
       "Quickfix",
     },
     ["r"] = {
-      "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>",
+      "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
       "Raw rg",
     },
     ["s"] = {
