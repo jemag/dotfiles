@@ -32,8 +32,6 @@ return require("packer").startup({
     })
     use({
       "smjonas/live-command.nvim",
-      -- live-command supports semantic versioning via tags
-      -- tag = "1.*",
       config = function()
         require("plugin-configs.live-command")
       end,
