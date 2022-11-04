@@ -13,10 +13,10 @@ vim.keymap.set({ "n", "x", "o" }, "/", function()
   sj.run({
     prompt_prefix = "/",
   })
-end)
+end, { desc = "SJ forward" })
 vim.keymap.set({ "n", "x", "o" }, "?", function()
   sj.run({
     forward_search = false,
     prompt_prefix = "?",
   })
-end)
+end, { desc = "SJ backward" })

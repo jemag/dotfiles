@@ -155,5 +155,5 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set("n", "\\", "<cmd>Neotree filesystem show toggle left<cr>")
-vim.keymap.set("n", "|", "<cmd>Neotree filesystem float reveal toggle<cr>")
+vim.keymap.set("n", "\\", "<cmd>Neotree filesystem show toggle left<cr>", { desc="Toggle neo-tree"})
+vim.keymap.set("n", "|", "<cmd>Neotree filesystem float reveal toggle<cr>", { desc="Toggle floating neo-tree"})

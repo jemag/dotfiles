@@ -390,7 +390,7 @@ return require("packer").startup({
     use({
       "levouh/tint.nvim",
       config = function()
-        require("tint").setup()
+        require("plugin-configs.tint")
       end,
     })
     use({
