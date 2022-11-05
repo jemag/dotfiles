@@ -252,7 +252,6 @@ return require("packer").startup({
         })
       end ]]
     -- })
-    use("voldikss/fzf-floaterm")
     use("airblade/vim-rooter")
     use({
       "airblade/vim-current-search-match",
@@ -385,6 +384,13 @@ return require("packer").startup({
     })
 
     -- Themes
+
+    use({
+      "nvim-zh/colorful-winsep.nvim",
+      config = function()
+        require('colorful-winsep').setup({})
+      end,
+    })
     use({
       "levouh/tint.nvim",
       config = function()

@@ -1,4 +1,12 @@
-vim.api.nvim_command([[ hi def link LspReferenceText CursorLine ]])
-vim.api.nvim_command([[ hi def link LspReferenceRead CursorLine ]])
-vim.api.nvim_command([[ hi def link LspReferenceWrite CursorLine ]])
-vim.api.nvim_command([[ hi def link illuminatedCurWord CursorLine ]])
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "hi def link IlluminatedWordText IncSearch",
+})
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "hi def link IlluminatedWordRead IncSearch",
+})
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "hi def link IlluminatedWordWrite IncSearch",
+})

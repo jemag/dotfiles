@@ -99,13 +99,6 @@ local function map_java_keys(bufnr)
   bufmap(bufnr, "v", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
 end
 
-local function set_document_higlighting(client)
-  local dfp = client.server_capabilities.documentFormattingProvider
-  if vim.fn.empty(dfp) == 0 then
-    require("illuminate").on_attach(client)
-  end
-end
-
 local function set_signature_helper(client, bufnr)
   local shp = client.server_capabilities.signatureHelpProvider
   if vim.fn.empty(shp) == 0 then
@@ -123,7 +116,6 @@ end
 M.on_attach = function(client, bufnr)
   print(client.name .. " started")
 
-  set_document_higlighting(client)
   set_signature_helper(client, bufnr)
   set_hover_border(client)
   map_keys(bufnr)
