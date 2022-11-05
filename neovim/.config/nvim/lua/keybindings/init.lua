@@ -24,7 +24,7 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, des
 
 vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true, desc = "Next buffer" })
-
+vim.keymap.set( "n", "<c-i>", "<c-i>")
 -- moving between splits
 vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, { desc = "Move to left win" })
 vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, { desc = "Move to win under" })
@@ -35,10 +35,10 @@ vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { nor
 vim.api.nvim_set_keymap("x", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true, desc = "Treesitter hints" })
 
 -- resizing splits
-vim.keymap.set("n", "<A-h>", require("smart-splits").move_cursor_left, { desc = "Resize left" })
-vim.keymap.set("n", "<A-j>", require("smart-splits").move_cursor_down, { desc = "Resize down" })
-vim.keymap.set("n", "<A-k>", require("smart-splits").move_cursor_up, { desc = "Resize up" })
-vim.keymap.set("n", "<A-l>", require("smart-splits").move_cursor_right, { desc = "Resize right" })
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left, { desc = "Resize left" })
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down, { desc = "Resize down" })
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up, { desc = "Resize up" })
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right, { desc = "Resize right" })
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true, desc = "Next quickfix item" })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true, desc = "Prev quickfix item" })
