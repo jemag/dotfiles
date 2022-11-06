@@ -390,6 +390,8 @@ return require("packer").startup({
       config = function()
         require('colorful-winsep').setup({})
       end,
+      -- TODO: waiting for plugin to stabilise before using main
+      commit= "dbdf5ac62273385638c5ba9dd9017e9dd0fdb8d8",
     })
     use({
       "levouh/tint.nvim",
@@ -410,9 +412,6 @@ return require("packer").startup({
     })
     use({
       "rebelot/kanagawa.nvim",
-    })
-    use({
-      "Everblush/everblush.nvim",
     })
     use({
       "rmehri01/onenord.nvim",
@@ -454,12 +453,6 @@ return require("packer").startup({
     use("drewtempelmeyer/palenight.vim")
     use("heraldofsolace/nisha-vim")
     use("ghifarit53/tokyonight-vim")
-    use({
-      "chuling/equinusocio-material.vim",
-      config = function()
-        require("plugin-configs.equinusocio-material")
-      end,
-    })
     use("gruvbox-community/gruvbox")
     use("shaunsingh/nord.nvim")
     use("franbach/miramare")
@@ -638,11 +631,7 @@ return require("packer").startup({
     use({
       "gbprod/stay-in-place.nvim",
       config = function()
-        require("stay-in-place").setup({
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        })
+        require("stay-in-place").setup({})
       end,
     })
     use({
@@ -788,12 +777,6 @@ return require("packer").startup({
       "numToStr/Comment.nvim",
       config = function()
         require("Comment").setup()
-      end,
-    })
-    use({
-      "toppair/reach.nvim",
-      config = function()
-        require("reach").setup()
       end,
     })
     use("LudoPinelli/comment-box.nvim")

@@ -14,10 +14,8 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "Right half-screen scroll" }
 )
 
-vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = true, silent = true, desc = "Previous command" })
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true, desc = "Increment" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
-vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = true, silent = true, desc = "Next command" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
 vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<return><esc>", { noremap = true, silent = true, desc = "Remove highlight or escape" })
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, desc = "Escape" })
@@ -500,7 +498,6 @@ local local_leader_mappings = {
   },
   t = {
     name = "+toggle",
-    b = { "<cmd>ReachOpen buffers<cr>", "Buffers" },
     B = { "<cmd>Neotree buffers focus toggle float<cr>", "Neotree buffers" },
     c = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -508,12 +505,10 @@ local local_leader_mappings = {
     g = { "<cmd>Neotree focus toggle git_status float<cr>", "Toggle Neotree git" },
     i = "Toggle indent blank lines",
     L = { "<cmd>Limelight!!<cr>", "Limelight" },
-    m = { "<cmd>ReachOpen marks<cr>", "Marks" },
     n = { "<cmd>Neogit<cr>", "Neogit" },
     N = { "<cmd>Notifications<cr>", "Notifications" },
     r = { "<cmd>set number! norelativenumber!<cr>", "Hybrid line numbers" },
     S = { '<cmd>lua require("spectre").open()<CR>', "Open Spectre" },
-    t = { "<cmd>ReachOpen tabpages<cr>", "Tabpages" },
     T = { "<cmd>TagbarToggle<cr>", "Tagbar" },
     u = { "<cmd>UndotreeToggle<cr>", "Undotree" },
     v = { "<cmd>Vista!!<cr>", "Vista bar" },

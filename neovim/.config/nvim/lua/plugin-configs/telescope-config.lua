@@ -44,7 +44,7 @@ require("telescope").setup({
         -- ["<c-x>"] = false,
         ["<esc>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist,
-        ["<C-u>"] = false,
+        -- ["<C-u>"] = false,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
 

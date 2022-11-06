@@ -61,4 +61,29 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = "cmdwin_treesitter",
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
+
+vim.api.nvim_create_augroup("cmdwin_esc", { clear = true })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  pattern = "*",
+  callback = function()
+    vim.keymap.set("n", "<esc>", "<c-c><c-c>", {buffer = true})
+  end,
+  group = "cmdwin_esc",
+  desc = "Use Esc to exit command-line window",
+})
+-- Resetting these keymaps since their normal behaviour do not work in the command-line window
+vim.api.nvim_create_augroup("cmdwin_reset_maps", { clear = true })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  pattern = "*",
+  callback = function()
+    vim.keymap.set("n", "<c-n>", "<c-n>", { buffer = true})
+    vim.keymap.set("n", "<c-p>", "<c-p>", { buffer = true})
+    vim.keymap.set("n", "<up>", "<up>", { buffer = true})
+    vim.keymap.set("n", "<down>", "<down>", { buffer = true})
+    vim.keymap.set("n", "<left>", "<left>", { buffer = true})
+    vim.keymap.set("n", "<right>", "<right>", { buffer = true})
+  end,
+  group = "cmdwin_reset_maps",
+  desc = "Remove some keybinds for command-line window",
+})
 vim.cmd("filetype indent plugin on")
