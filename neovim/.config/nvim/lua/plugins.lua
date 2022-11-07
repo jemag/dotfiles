@@ -17,6 +17,18 @@ return require("packer").startup({
     --[[ #######################
      General
     ####################### ]]
+    use({
+      "kevinhwang91/nvim-bqf",
+      config = function()
+        require("plugin-configs.bqf")
+      end,
+    })
+    use({
+      "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+      config = function()
+        require("pqf").setup()
+      end,
+    })
     -- Scope buffers to their specific tab
     use({
       "tiagovla/scope.nvim",
@@ -388,10 +400,10 @@ return require("packer").startup({
     use({
       "nvim-zh/colorful-winsep.nvim",
       config = function()
-        require('colorful-winsep').setup({})
+        require("colorful-winsep").setup({})
       end,
       -- TODO: waiting for plugin to stabilise before using main
-      commit= "dbdf5ac62273385638c5ba9dd9017e9dd0fdb8d8",
+      commit = "dbdf5ac62273385638c5ba9dd9017e9dd0fdb8d8",
     })
     use({
       "levouh/tint.nvim",

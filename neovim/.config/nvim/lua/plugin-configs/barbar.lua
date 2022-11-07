@@ -36,6 +36,7 @@ vim.g.bufferline = {
 	auto_hide = false,
 	closable = true,
 	clickable = true,
+  exclude_ft = {'qf'},
 	icon_separator_active = "▊ ",
 	icons = "both",
 	maximum_padding = 4,
