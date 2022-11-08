@@ -1,12 +1,12 @@
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
-  command = "hi def link IlluminatedWordText IncSearch",
+  command = "hi def IlluminatedWordText gui=underline",
 })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
-  command = "hi def link IlluminatedWordRead IncSearch",
+  command = "hi def IlluminatedWordRead gui=underline",
 })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
-  command = "hi def link IlluminatedWordWrite IncSearch",
+  command = "hi def IlluminatedWordWrite gui=underline",
 })
