@@ -47,3 +47,4 @@ neogit.setup({
     },
   },
 })
+vim.keymap.set("n", "<localleader>tn", "<cmd>Neogit<cr>", { desc = "Neogit" })

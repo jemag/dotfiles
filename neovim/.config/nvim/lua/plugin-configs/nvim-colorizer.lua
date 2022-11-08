@@ -1,6 +1,6 @@
 require("colorizer").setup({
-filetypes = {
-    '*'; -- Highlight all files, but customize some others.
+  filetypes = {
+    "*", -- Highlight all files, but customize some others.
   },
   user_default_options = {
     RGB = true, -- #RGB hex codes
@@ -24,3 +24,4 @@ filetypes = {
   -- all the sub-options of filetypes apply to buftypes
   buftypes = {},
 })
+vim.keymap.set("n", "<localleader>tc", "<cmd>ColorizerToggle<cr>", { desc = "Colorizer" })

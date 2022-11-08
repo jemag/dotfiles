@@ -25,78 +25,89 @@ local signature_cfg = {
 }
 
 local function map_keys(bufnr)
-  local opts = { noremap = true, silent = true }
-  local bufmap = vim.api.nvim_buf_set_keymap
-  bufmap(bufnr, "n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  bufmap(bufnr, "n", "<C-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  bufmap(bufnr, "i", "<C-q>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>ll", '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts)
-  bufmap(bufnr, "n", "<leader>lc", '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>', opts)
-  bufmap(bufnr, "n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next{float=false}<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>", opts)
-  bufmap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", opts)
-  bufmap(
-    bufnr,
+  -- local opts = { noremap = true, silent = true }
+  vim.keymap.set("n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Declaration", buffer = bufnr })
+  vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Definition", buffer = bufnr })
+  vim.keymap.set("n", "<C-q>", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr, silent = true})
+  vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", buffer = bufnr })
+  vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+    { desc = "Signature help", buffer = bufnr })
+  vim.keymap.set("i", "<C-q>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr, silent = true})
+  vim.keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>",
+    { desc = "Implementation", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",
+    { desc = "Type definition", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
+    { desc = "Document Symbol", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",
+    { desc = "Workspace symbol", buffer = bufnr })
+  vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
+  vim.keymap.set(
+    "n",
+    "<leader>ll",
+    '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
+    { desc = "Line diagnostics", buffer = bufnr }
+  )
+  vim.keymap.set(
+    "n",
+    "<leader>lc",
+    '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>',
+    { desc = "Cursor diagnostics", buffer = bufnr }
+  )
+  vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next{float=false}<CR>",
+    { desc = "Next diagnostic", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>",
+    { desc = "Previous diagnostic", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>",
+    { desc = "Diagnostic to quickfix", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
+  vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>",
+    { desc = "Eval expression", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
+  vim.keymap.set(
     "n",
     "<leader>dv",
     "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
-    opts
+    { desc = "Scope variables widget", buffer = bufnr }
   )
-  bufmap(bufnr, "n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dsO", "<cmd>lua require'dap'.step_out()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dtc", "<cmd>Telescope dap commands<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dtf", "<cmd>Telescope dap frames<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dtv", "<cmd>Telescope dap variables<CR>", opts)
-  bufmap(
-    bufnr,
+  vim.keymap.set("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step over", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step into", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsO", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Step out", buffer = bufnr })
+  vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>",
+    { desc = "Toggle breakpoint", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtc", "<cmd>Telescope dap commands<CR>", { desc = "Dap commands", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>",
+    { desc = "Dap configurations", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtf", "<cmd>Telescope dap frames<CR>", { desc = "Dap frames", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>",
+    { desc = "List breakpoints", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtv", "<cmd>Telescope dap variables<CR>", { desc = "Dap variables", buffer = bufnr })
+  vim.keymap.set(
     "n",
     "<leader>dB",
     "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-    opts
+    { desc = "Conditional breakpoint", buffer = bufnr }
   )
-  bufmap(
-    bufnr,
+  vim.keymap.set(
     "n",
     "<leader>dp",
     "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-    opts
+    { desc = "Breakpoint with log", buffer = bufnr }
   )
-  bufmap(bufnr, "n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>", opts)
+  vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<CR>", { desc = "Toggle repl", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>",
+    { desc = "Repl run last", buffer = bufnr })
 end
 
 local function map_java_keys(bufnr)
-  local opts = { noremap = true, silent = true }
-  local bufmap = vim.api.nvim_buf_set_keymap
-  bufmap(bufnr, "n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-  bufmap(bufnr, "n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>", opts)
-  bufmap(
-    bufnr,
-    "n",
-    "<leader>uT",
-    "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>",
-    opts
-  )
-  bufmap(bufnr, "v", "<leader>ue", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
-  bufmap(bufnr, "n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-  bufmap(bufnr, "v", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+  vim.keymap.set("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = "Organized imports", buffer = bufnr })
+  vim.keymap.set("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>", { desc = "Test class", buffer = bufnr })
+  vim.keymap.set("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>" , { desc = "Test method", buffer = bufnr })
+  vim.keymap.set("x", "<leader>ue", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = "Extract variable", buffer = bufnr })
+  vim.keymap.set("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = "Extract variable", buffer = bufnr })
+  vim.keymap.set("x", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = "Extract method", buffer = bufnr })
 end
 
 local function set_signature_helper(client, bufnr)
@@ -142,13 +153,6 @@ M.on_attach = function(client, bufnr)
       end, 1000)
     end
   end
-end
-
-local function get_basic_capabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-  return capabilities
 end
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()

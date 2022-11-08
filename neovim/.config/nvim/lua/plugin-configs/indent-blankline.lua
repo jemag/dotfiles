@@ -1,9 +1,3 @@
-vim.api.nvim_set_keymap(
-  "n",
-  "<localleader>ti",
-  "<cmd>IndentBlanklineToggle<CR>",
-  { noremap = true, silent = true, desc = "Toggle indentblankline" }
-)
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
   command = "highlight! IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine",
@@ -49,3 +43,9 @@ require("indent_blankline").setup({
     "TelescopeResults",
   },
 })
+vim.api.nvim_set_keymap(
+  "n",
+  "<localleader>ti",
+  "<cmd>IndentBlanklineToggle<CR>",
+  { noremap = true, silent = true, desc = "Toggle indentblankline" }
+)

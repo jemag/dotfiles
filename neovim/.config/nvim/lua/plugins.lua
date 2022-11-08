@@ -113,6 +113,7 @@ return require("packer").startup({
           enabled = true,
           snippet_engine = "luasnip",
         })
+        vim.keymap.set({ "n", "x" }, "<leader>in", "<cmd>Neogen<cr>", { desc = "Neogen" })
       end,
       requires = {
         "nvim-treesitter/nvim-treesitter",
@@ -157,6 +158,7 @@ return require("packer").startup({
       "windwp/nvim-spectre",
       config = function()
         require("spectre").setup()
+        vim.keymap.set("n", "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
       end,
     })
     use({
@@ -206,6 +208,9 @@ return require("packer").startup({
     })
     use({
       "mrjones2014/legendary.nvim",
+      config = function()
+        vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
+      end
     })
     use({ "stevearc/dressing.nvim" })
     use({
@@ -213,6 +218,9 @@ return require("packer").startup({
     })
     use({
       "rainbowhxch/accelerated-jk.nvim",
+      config = function()
+        require("plugin-configs.acceleratedjk")
+      end,
     })
     use({
       "voldikss/vim-floaterm",
@@ -516,7 +524,12 @@ return require("packer").startup({
       end,
       after = { "telescope.nvim" },
     })
-    use("junegunn/vim-easy-align")
+    use({
+      "junegunn/vim-easy-align",
+      config = function()
+        require("plugin-configs.easyalign")
+      end,
+    })
 
     use({
       "mbbill/undotree",
@@ -568,7 +581,12 @@ return require("packer").startup({
     --[[ #######################
      Git
     ####################### ]]
-    use("tpope/vim-fugitive")
+    use({
+      "tpope/vim-fugitive",
+      config = function()
+        require("plugin-configs.fugitive")
+      end,
+    })
     use({
       "sindrets/diffview.nvim",
       config = function()
@@ -578,7 +596,7 @@ return require("packer").startup({
     use({
       "akinsho/git-conflict.nvim",
       config = function()
-        require("git-conflict").setup()
+        require("plugin-configs.git-conflict")
       end,
     })
     use({
@@ -620,6 +638,9 @@ return require("packer").startup({
     })
     use({
       "mfussenegger/nvim-treehopper",
+      config = function()
+        require("plugin-configs.treehopper")
+      end,
       requires = {
         { "nvim-treesitter/nvim-treesitter" },
       },
@@ -791,7 +812,12 @@ return require("packer").startup({
         require("Comment").setup()
       end,
     })
-    use("LudoPinelli/comment-box.nvim")
+    use({
+      "LudoPinelli/comment-box.nvim",
+      config = function()
+        require("plugin-configs.comment-box")
+      end,
+    })
     use({
       "lukas-reineke/indent-blankline.nvim",
       config = function()

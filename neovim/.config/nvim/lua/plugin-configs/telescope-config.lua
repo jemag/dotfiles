@@ -136,3 +136,49 @@ vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptTitle guifg=black guib
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeResultsTitle guifg=#626A73 guibg=#1F2430]])
 -- vim.cmd([[autocmd ColorScheme * highlight! TelescopeSelection guifg=#E06C75]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeSelectionCaret guifg=#77A8D9]])
+
+vim.keymap.set("n", "<localleader>s/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in buffer" })
+vim.keymap.set("n", "<localleader>s;", "<cmd>Telescope commands<cr>", { desc = "Commands" })
+vim.keymap.set("n", "<localleader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
+vim.keymap.set("n", "<localleader>sb", "<cmd>Telescope buffers<cr>", { desc = "Open buffers" })
+vim.keymap.set("n", "<localleader>sB", "<cmd>Telescope builtin<cr>", { desc = "Telescope builtin" })
+vim.keymap.set("n", "<localleader>sc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
+vim.keymap.set("n", "<localleader>sC", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
+vim.keymap.set(
+  "n",
+  "<localleader>sd",
+  "<cmd>Telescope find_files hidden=true find_command=fd,--type,f, cwd=%:p:h<cr>",
+  { desc = "Current file directory" }
+)
+vim.keymap.set("n", "<localleader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
+vim.keymap.set("n", "<localleader>se", "<cmd>Telescope colorscheme<cr>", { desc = "Colorschemes" })
+vim.keymap.set("n", "<localleader>sf", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Files" })
+vim.keymap.set(
+  "n",
+  "<localleader>sF",
+  "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
+  { desc = "Files, include ignored" }
+)
+vim.keymap.set("n", "<localleader>sg", "<cmd>lua require('telescope.builtin').grep_string({search=''})<cr>", { desc = "Grep string" })
+vim.keymap.set("n", "<localleader>sG", "<cmd>Telescope git_status<cr>", { desc = "Modified git files" })
+vim.keymap.set(
+  "n",
+  "<localleader>sh",
+  "<cmd>lua require('telescope.builtin').command_history({sorter = require('telescope.sorters').get_substr_matcher()})<cr>",
+  { desc = "Command history" }
+)
+vim.keymap.set("n", "<localleader>sH", "<cmd>Telescope command_history<cr>", { desc = "Fuzzy Command History" })
+vim.keymap.set("n", "<localleader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
+vim.keymap.set("n", "<localleader>sl", "<cmd>Telescope loclist<cr>", { desc = "Location list" })
+vim.keymap.set("n", "<localleader>sL", "<cmd>Telescope possession list<cr>", { desc = "Session list" })
+vim.keymap.set("n", "<localleader>sm", "<cmd>Telescope man_pages<cr>", { desc = "Marks" })
+vim.keymap.set("n", "<localleader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
+vim.keymap.set("n", "<localleader>sp", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
+vim.keymap.set("n", "<localleader>sP", "<cmd>Telescope projects<cr>", { desc = "Projects" })
+vim.keymap.set("n", "<localleader>sq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
+vim.keymap.set("n", "<localleader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
+vim.keymap.set("n", "<localleader>ss", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "LSP symbols" })
+vim.keymap.set("n", "<localleader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Dynamic symbols" })
+vim.keymap.set("n", "<localleader>st", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+vim.keymap.set("n", "<localleader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
+vim.keymap.set("n", "<localleader>sy", "<cmd>Telescope filetypes<cr>", { desc = "File types" })

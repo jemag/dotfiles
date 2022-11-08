@@ -7,3 +7,4 @@ require('trevj').setup({
     },
   },
 })
+vim.keymap.set({"n","x"}, "<leader>j", require('trevj').format_at_cursor, { desc = "Reverse J"})

@@ -3,9 +3,12 @@ require("neo-zoom").setup({ -- use the defaults or UNCOMMENT and change any one 
   top_ratio = 0.03,
   width_ratio = 0.70,
   height_ratio = 0.9,
-  border = 'double',
+  border = "double",
   exclude_filetypes = {
-    'fzf', 'qf', 'dashboard'
+    "fzf",
+    "qf",
+    "dashboard",
   },
   scrolloff_on_zoom = 13, -- offset to the top-border.
 })
+vim.keymap.set("n", "<leader>wm", "<cmd>NeoZoomToggle<cr>", { desc = "Toggle zoom" })

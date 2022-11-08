@@ -32,11 +32,18 @@ notify.setup({
   },
 })
 
--- vim.notify = notify
+local banned_messages = {
+  "No information available",
+  "warning: multiple different client offset_encodings",
+}
 
 vim.notify = function(msg, ...)
-    if msg:match("warning: multiple different client offset_encodings") then
-        return
+  for _, banned in ipairs(banned_messages) do
+    if msg == banned then
+      return
     end
-    notify(msg, ...)
+  end
+  notify(msg, ...)
 end
+
+vim.keymap.set("n", "<localleader>tN", "<cmd>Notifications<cr>", { desc = "Notifications" })

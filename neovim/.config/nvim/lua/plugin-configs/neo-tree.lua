@@ -155,5 +155,10 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set("n", "\\", "<cmd>Neotree filesystem show toggle left<cr>", { desc="Toggle neo-tree"})
-vim.keymap.set("n", "|", "<cmd>Neotree filesystem float reveal toggle<cr>", { desc="Toggle floating neo-tree"})
+vim.keymap.set({ "n" }, "\\", "<cmd>Neotree filesystem show toggle left<cr>", { desc = "Toggle neotree" })
+vim.keymap.set({ "n" }, "|", "<cmd>Neotree filesystem float reveal toggle<cr>", { desc = "Neotree floating" })
+vim.keymap.set({ "n" }, "<leader>e", "<cmd>Neotree filesystem focus toggle left<cr>", { desc = "Neotree explorer" })
+vim.keymap.set({ "n" }, "<leader>E", "<cmd>Neotree filesystem focus reveal left<cr>", { desc = "Neotree show file" })
+vim.keymap.set("n", "<localleader>gS", "<cmd>Neotree focus toggle git_status float<cr>", { desc = "Neotree status" })
+vim.keymap.set("n", "<localleader>tb", "<cmd>Neotree buffers focus toggle float<cr>", { desc = "Neotree buffers" })
+vim.keymap.set("n", "<localleader>tg", "<cmd>Neotree focus toggle git_status float<cr>", { desc = "Neotree git" })

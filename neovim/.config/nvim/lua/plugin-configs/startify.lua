@@ -22,3 +22,4 @@ vim.g.startify_session_before_save = {
 	'echo "Cleaning up before saving.."',
 	'lua require("scrollbar").clear()',
 }
+vim.keymap.set({"n", "x"}, "<leader>,", "<cmd>Startify<cr>", { desc = "Start screen"})

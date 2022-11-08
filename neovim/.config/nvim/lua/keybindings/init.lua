@@ -1,6 +1,8 @@
 -- More convenient horizontal scrolling
-vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true, desc = "Left scroll" })
-vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true, desc = "Right scroll" })
+vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>",
+  { noremap = true, silent = true, desc = "Left scroll" })
+vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>",
+  { noremap = true, silent = true, desc = "Right scroll" })
 vim.api.nvim_set_keymap(
   "n",
   "zH",
@@ -17,26 +19,11 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true, desc = "Increment" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
-vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<return><esc>", { noremap = true, silent = true, desc = "Remove highlight or escape" })
+vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<return><esc>",
+  { noremap = true, silent = true, desc = "Remove highlight or escape" })
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, desc = "Escape" })
 
-vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true, desc = "Next buffer" })
-vim.keymap.set( "n", "<c-i>", "<c-i>")
--- moving between splits
-vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, { desc = "Move to left win" })
-vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, { desc = "Move to win under" })
-vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up, { desc = "Move to win above" })
-vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right, { desc = "Move to right win" })
-
-vim.api.nvim_set_keymap("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", { noremap = true, silent = true, desc = "Treesitter hints" })
-vim.api.nvim_set_keymap("x", "m", ":lua require('tsht').nodes()<CR>", { noremap = true, silent = true, desc = "Treesitter hints" })
-
--- resizing splits
-vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left, { desc = "Resize left" })
-vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down, { desc = "Resize down" })
-vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up, { desc = "Resize up" })
-vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right, { desc = "Resize right" })
+vim.keymap.set("n", "<c-i>", "<c-i>")
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true, desc = "Next quickfix item" })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true, desc = "Prev quickfix item" })
@@ -76,13 +63,8 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "Previous buffer" }
 )
 
--- Count relative line number movements toward jump list if we move by more than 5 lines
-vim.api.nvim_set_keymap("n", "k", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gk)"', { noremap = true, expr = true })
-vim.api.nvim_set_keymap("n", "j", '(v:count > 5 ? "m\'" . v:count : "") . "<Plug>(accelerated_jk_gj)"', { noremap = true, expr = true })
-
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true, desc = "Yank till end of line" })
 
-vim.api.nvim_set_keymap("n", "<c-w>m", "<cmd>WinShift<cr>", { noremap = true, desc = "Winshift" })
 vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
 
 vim.api.nvim_set_keymap("c", "<esc>", "<c-c>", { noremap = true, desc = "Esc as ctrl-c in command mode" })
@@ -103,6 +85,11 @@ vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true
 vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
 vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
 
+vim.keymap.set({ "n", "x" }, "<leader>.", "<cmd>e $MYVIMRC<cr>", { desc = "Open init" })
+vim.keymap.set({ "n", "x" }, "<leader>nw", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
+vim.keymap.set("n", "<leader>fb", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format" })
+vim.keymap.set("n", "<leader>wt", "<cmd>tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<localleader>tr", "<cmd>set number! norelativenumber!<cr>", { desc = "Hybrid line numbers" })
 local diagnostics_active = true
 vim.keymap.set("n", "<localleader>tD", function()
   if diagnostics_active then
@@ -168,188 +155,56 @@ require("which-key").setup({
 })
 
 local leader_mappings = {
-  ["."] = { "<cmd>e $MYVIMRC<cr>", "Open init" },
-  [";"] = { "<cmd>Commands<cr>", "Commands" },
-  [","] = { "<cmd>Startify<cr>", "Start screen" },
-  ["e"] = { "<cmd>Neotree filesystem focus toggle left<cr>", "Explorer" },
-  ["E"] = { "<cmd>Neotree filesystem focus reveal left<cr>", "Show file" },
-  ["j"] = { "<cmd>lua require('trevj').format_at_cursor()<cr>", "Reverse J" },
-  ["L"] = { "<cmd>SLoad<cr>", "Load session" },
-  ["1"] = { "<cmd>BufferGoto 1<cr>", "Buf 1" },
-  ["2"] = { "<cmd>BufferGoto 2<cr>", "Buf 2" },
-  ["3"] = { "<cmd>BufferGoto 3<cr>", "Buf 3" },
-  ["4"] = { "<cmd>BufferGoto 4<cr>", "Buf 4" },
-  ["5"] = { "<cmd>BufferGoto 5<cr>", "Buf 5" },
-  ["6"] = { "<cmd>BufferGoto 6<cr>", "Buf 6" },
-  ["7"] = { "<cmd>BufferGoto 7<cr>", "Buf 7" },
-  ["8"] = { "<cmd>BufferGoto 8<cr>", "Buf 8" },
-  ["9"] = { "<cmd>BufferGoto 9<cr>", "Buf 9" },
-  ["0"] = { "<cmd>BufferGoto 10<cr>", "Buf 10" },
   b = {
     name = "+buffer",
-    d = { "<cmd>BufferClose<cr>", "Delete-buffer" },
-    D = { "<cmd>BufferCloseAllButCurrent<cr>", "Delete all other buffers" },
-    e = { "<cmd>blast<cr>", "Last-buffer" },
-    f = { "<cmd>bfirst<cr>", "First-buffer" },
-    h = { "<cmd>BufferMovePrevious<cr>", "move prev" },
-    l = { "<cmd>BufferMoveNext<cr>", "move next" },
-    r = { "<cmd>BufferCloseBuffersRight<cr>", "delete buffers to the right" },
-    S = { "<cmd>Startify<cr>", "Startify" },
-    n = { "<cmd>BufferNext<cr>", "Next-buffer" },
-    p = { "<cmd>BufferPrevious<cr>", "Previous-buffer" },
-    s = { "<cmd>BufferPick<cr>", "Magic buffer select" },
-    ["?"] = { "Buffers", "Fzf-buffer" },
   },
   d = {
     name = "+debug",
-    b = "Breakpoint",
-    B = "Conditional breakpoint",
-    e = "Eval expression",
-    E = "Dap ui eval",
-    l = "Repl run last",
-    p = "Breakpoint with log",
-    r = "Repl open",
     s = {
       name = "Step",
-      i = "Into",
-      o = "Over",
-      O = "Out",
     },
     t = {
       name = "Telescope",
-      c = "Commands",
-      C = "Configurations",
-      f = "Frames",
-      l = "List breakpoints",
-      v = "Variables",
     },
-    u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle dap ui" },
-    v = "Scope variables widget",
   },
   f = {
     name = "+format",
-    b = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format" },
-    e = { "<Plug>(EasyAlign)", "Easy align"},
-    r = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Range formatting" },
   },
   h = {
     name = "+hunk",
   },
   i = {
     name = "+insert",
-    b = { "<cmd>CBcbox<cr>", "Centered box", mode = "v" },
-    l = { "<cmd>CBcline<cr>", "Centered line" },
-    n = { "<cmd>Neogen<cr>", "Neogen" },
   },
   l = {
     name = "+language",
-    a = "Code action",
-    c = "Cursor diagnostics",
-    d = "Definition",
-    D = "Declaration",
-    h = "Hover",
-    i = "Implementation",
-    l = "Show line diagnostics",
-    n = "Next diagnostic",
-    N = "Previous diagnostic",
-    q = "Diagnostic quickfix list",
-    r = "References",
-    R = "Rename",
-    s = "Signature help",
-    t = "Type definition",
-    w = "Document symbol",
-    W = "Workspace symbol",
   },
   m = {
     name = "+bookmarks",
-    a = { "<cmd>BookmarkShowAll<cr>", "Show all" },
-    c = { "<cmd>BookmarkClear<cr>", "Clear" },
-    i = { "<cmd>BookmarkAnnotate<cr>", "Annotate" },
-    j = { "<cmd>BookmarkMoveDown<cr>", "Move down" },
-    k = { "<cmd>BookmarkMoveUp<cr>", "Move up" },
-    m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
-    n = { "<cmd>BookmarkNext<cr>", "Next bookmark" },
-    p = { "<cmd>BookmarkPrev<cr>", "Prev bookmark" },
-    s = { "<cmd>Telescope vim_bookmarks all<cr>", "All annotated bookmarks" },
-    S = { "<cmd>Telescope vim_bookmarks current_file<cr>", "Current file annotated bookmarks" },
-    x = { "<cmd>BookmarkClearAll<cr>", "Clear all" },
   },
   n = {
     name = "notes",
-    w = { "<cmd>e ~/working-memory.md<cr>", "Working memory" },
   },
   r = {
     name = "+refactor",
-    e = { [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract function" },
-    f = {
-      [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-      "Extract function to file",
-    },
-    p = { [[ <Esc><Cmd>lua M.refactors()<CR>]], "Extract function" },
-    r = { "<Plug>(Scalpel)", "Rename (substitute)" },
   },
   t = {
     name = "+terminal",
-    [";"] = { "<cmd>FloatermNew<cr>", "New Floaterm" },
-    c = { "<cmd>FloatermNew! cd %:p:h<cr>", "Floaterm current directory" },
-    d = { "<cmd>FloatermNew lazydocker<cr>", "Docker" },
-    f = { "<cmd>FloatermNew fzf<cr>", "Fzf" },
-    g = { "<cmd>FloatermNew lazygit<cr>", "Git" },
-    h = { "<cmd>FloatermPrev<cr>", "Floaterm prev" },
-    k = { "<cmd>FloatermKill<cr>", "Floaterm kill" },
-    l = { "<cmd>FloatermNext<cr>", "Floaterm next" },
-    n = { "<cmd>FloatermNew node<cr>", "Node" },
-    p = { "<cmd>FloatermNew python<cr>", "Python" },
-    v = { "<cmd>FloatermNew vifm<cr>", "Vifm" },
-    t = { "<cmd>FloatermToggle<cr>", "Toggle" },
-    y = { "<cmd>FloatermNew ytop<cr>", "Ytop" },
-    s = { "<cmd>FloatermNew ncdu<cr>", "Ncdu" },
   },
   v = {
     name = "+vifm",
-    n = { "<cmd>Vifm .<cr>", "Normal" },
-    v = { "<cmd>VsplitVifm<cr>", "Vsplit" },
-    s = { "<cmd>SplitVifm<cr>", "Split" },
-    d = { "<cmd>DiffVifm<cr>", "Diff" },
-    t = { "<cmd>TabVifm<cr>", "Tab" },
   },
   w = {
     name = "+window",
-    m = { "<cmd>NeoZoomToggle<cr>", "Toggle zoom" },
-    t = { "<cmd>tabclose<cr>", "Close tab" },
   },
 }
 
 local local_leader_mappings = {
   g = {
     name = "+git",
-    a = { "<cmd>Git add .<cr>", "Add all" },
-    A = { "<cmd>Git add %<cr>", "Add current" },
-    b = { "<cmd>Git blame<cr>", "Blame" },
-    B = { "<cmd>GBrowse<cr>", "Browse" },
-    c = { "<cmd>Git commit<cr>", "Commit" },
-    d = { "<cmd>DiffviewOpen<cr>", "Diff view" },
-    D = { "<cmd>Gdiffsplit<cr>", "Diff split" },
-    l = { "<cmd>Git log<cr>", "Log" },
-    h = { "<cmd>DiffviewFileHistory %<cr>", "Current file history" },
-    H = { "<cmd>DiffviewFileHistory<cr>", "Global file history" },
     m = {
       name = "+merge",
-      b = { "<cmd>GitConflictChooseBoth<cr>", "Both" },
-      j = { "<cmd>GitConflictNextConflict<cr>", "Next conflict" },
-      k = { "<cmd>GitConflictPrevConflict<cr>", "Prev conflict" },
-      n = { "<cmd>GitConflictChooseNone<cr>", "None" },
-      q = { "<cmd>GitConflictListQf<cr>", "Quickfix conflicts" },
-      o = { "<cmd>GitConflictChooseOurs<cr>", "Ours" },
-      t = { "<cmd>GitConflictChooseTheirs<cr>", "Theirs" },
     },
-    p = { "<cmd>Git push<cr>", "Push" },
-    P = { "<cmd>Git pull<cr>", "Pull" },
-    r = { "<cmd>GRemove<cr>", "Remove" },
-    s = { "<cmd>Git<cr>", "Status" },
-    S = { "<cmd>Neotree focus toggle git_status float<cr>", "Neotree status" },
-    v = { "<cmd>GV<cr>", "View commits" },
-    V = { "<cmd>GV!<cr>", "View buffer commits" },
   },
   m = {
     name = "+misc",
@@ -361,158 +216,13 @@ local local_leader_mappings = {
     name = "+project",
     s = {
       name = "+session",
-      s = { "<cmd>SSave<cr>", "Quick save" },
-      S = { "<cmd>Telescope possession list<cr>", "Search sessions" },
-      j = { "<cmd>SShow<cr>", "Show session" },
     },
   },
   s = {
     name = "+search",
-    ["/"] = {
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      "Find in buffer",
-    },
-    [";"] = {
-      "<cmd>Telescope commands<cr>",
-      "Commands",
-    },
-    ["a"] = {
-      "<cmd>Telescope aerial<cr>",
-      "Search aerial",
-    },
-    ["b"] = {
-      "<cmd>Telescope buffers<cr>",
-      "Open buffers",
-    },
-    ["B"] = {
-      "<cmd>Telescope builtin<cr>",
-      "Telescope builtin",
-    },
-    ["c"] = {
-      "<cmd>Telescope git_commits<cr>",
-      "Commits",
-    },
-    ["C"] = {
-      "<cmd>Telescope git_bcommits<cr>",
-      "Buffer commits",
-    },
-    ["d"] = {
-      "<cmd>Telescope find_files hidden=true find_command=fd,--type,f, cwd=%:p:h<cr>",
-      "Current file directory",
-    },
-    ["D"] = {
-      "<cmd>Telescope live_grep cwd=%:p:h<cr>",
-      "Current file directory text",
-    },
-    ["e"] = {
-      "<cmd>Telescope colorscheme<cr>",
-      "Colorschemes",
-    },
-    ["f"] = { "<cmd>Telescope find_files hidden=true<cr>", "Files" },
-    ["F"] = {
-      "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
-      "Files, include ignored",
-    },
-    ["g"] = {
-      "<cmd>lua require('telescope.builtin').grep_string({search=''})<cr>",
-      "Grep string",
-    },
-    ["G"] = {
-      "<cmd>Telescope git_status<cr>",
-      "Modified git files",
-    },
-    ["h"] = {
-      "<cmd>lua require('telescope.builtin').command_history({sorter = require('telescope.sorters').get_substr_matcher()})<cr>",
-      "Command history",
-    },
-    ["H"] = {
-      "<cmd>Telescope command_history<cr>",
-      "Fuzzy Command History",
-    },
-    ["k"] = {
-      "<cmd>Telescope keymaps<cr>",
-      "Keymaps",
-    },
-    ["K"] = {
-      "<cmd>Legendary<cr>",
-      "Legendary keymaps",
-    },
-    ["l"] = {
-      "<cmd>Telescope loclist<cr>",
-      "Location list",
-    },
-    ["L"] = {
-      "<cmd>Telescope possession list<cr>",
-      "Session list",
-    },
-    ["m"] = { "<cmd>Telescope man_pages<cr>", "Marks" },
-    ["M"] = {
-      "<cmd>Telescope media_files<cr>",
-      "Media files",
-    },
-    ["p"] = {
-      "<cmd>Telescope help_tags<cr>",
-      "Help tags",
-    },
-    ["P"] = {
-      "<cmd>Telescope projects<cr>",
-      "Projects",
-    },
-    ["q"] = {
-      "<cmd>Telescope quickfix<cr>",
-      "Quickfix",
-    },
-    ["r"] = {
-      "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
-      "Raw rg",
-    },
-    ["s"] = {
-      "<cmd>Telescope lsp_document_symbols<cr>",
-      "LSP symbols",
-    },
-    ["S"] = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Dynamic symbols",
-    },
-    ["t"] = {
-      "<cmd>Telescope live_grep<cr>",
-      "Live grep",
-    },
-    ["T"] = { "<cmd>TodoTelescope<cr>", "TODOs" },
-    ["v"] = {
-      "<cmd>Vista finder<cr>",
-      "Vista finder",
-    },
-    ["V"] = {
-      "<cmd>Telescope vim_options<cr>",
-      "Vim options",
-    },
-    ["w"] = {
-      "<cmd>Windows<cr>",
-      "Search windows",
-    },
-    ["y"] = {
-      "<cmd>Filetypes<cr>",
-      "File types",
-    },
   },
   t = {
     name = "+toggle",
-    B = { "<cmd>Neotree buffers focus toggle float<cr>", "Neotree buffers" },
-    c = { "<cmd>ColorizerToggle<cr>", "Colorizer" },
-    e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    f = { "<cmd>FloatermToggle<cr>", "Floaterm" },
-    g = { "<cmd>Neotree focus toggle git_status float<cr>", "Toggle Neotree git" },
-    i = "Toggle indent blank lines",
-    L = { "<cmd>Limelight!!<cr>", "Limelight" },
-    n = { "<cmd>Neogit<cr>", "Neogit" },
-    N = { "<cmd>Notifications<cr>", "Notifications" },
-    r = { "<cmd>set number! norelativenumber!<cr>", "Hybrid line numbers" },
-    S = { '<cmd>lua require("spectre").open()<CR>', "Open Spectre" },
-    T = { "<cmd>TagbarToggle<cr>", "Tagbar" },
-    u = { "<cmd>UndotreeToggle<cr>", "Undotree" },
-    v = { "<cmd>Vista!!<cr>", "Vista bar" },
-    z = { "<cmd>ZenMode<cr>", "Zen mode" },
   },
 }
 require("which-key").register(leader_mappings, {
