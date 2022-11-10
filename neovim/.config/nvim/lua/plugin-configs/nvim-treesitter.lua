@@ -54,20 +54,30 @@ require("nvim-treesitter.configs").setup({
 
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
+        -- function
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["aC"] = "@class.outer",
-        ["iC"] = "@class.inner",
+        -- o for object (classes)
+        ["ao"] = "@class.outer",
+        ["io"] = "@class.inner",
+        -- conditional
         ["ac"] = "@conditional.outer",
         ["ic"] = "@conditional.inner",
+        -- block
         ["ae"] = "@block.outer",
         ["ie"] = "@block.inner",
+        -- loop
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
-        ["aP"] = "@parameter.outer",
-        ["iP"] = "@parameter.inner",
+        -- a for argument
+        -- now handled through miniai to support count
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        -- statement
         ["as"] = "@statement.outer",
-        ["ad"] = "@comment.outer",
+        -- comment
+        ["aC"] = "@comment.outer",
+        -- m for method call
         ["am"] = "@call.outer",
         ["im"] = "@call.inner",
       },

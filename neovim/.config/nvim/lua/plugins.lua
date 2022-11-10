@@ -210,7 +210,7 @@ return require("packer").startup({
       "mrjones2014/legendary.nvim",
       config = function()
         vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
-      end
+      end,
     })
     use({ "stevearc/dressing.nvim" })
     use({
@@ -885,6 +885,12 @@ return require("packer").startup({
       "junegunn/Limelight.vim",
       config = function()
         require("plugin-configs.limelight")
+      end,
+    })
+    use({
+      "echasnovski/mini.ai",
+      config = function()
+        require("plugin-configs.mini-ai")
       end,
     })
     use({

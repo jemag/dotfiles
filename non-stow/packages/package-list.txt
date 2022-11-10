@@ -1,6 +1,7 @@
 alacritty-git
 alsa-plugins
 alsa-utils
+anki-bin
 ansible
 ansible-lint
 arandr
