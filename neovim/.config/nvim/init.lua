@@ -21,8 +21,14 @@ local guiAugroup = "gui"
 vim.api.nvim_create_augroup(guiAugroup, { clear = true })
 vim.api.nvim_create_autocmd({ "UIEnter" }, {
   pattern = "*",
-  command = "GuiFont! FuraCode Nerd Font Mono:h9",
+  command = "GuiFont! FuraMono Nerd Font:h10",
   desc = "Set gui font",
+  group = guiAugroup,
+})
+vim.api.nvim_create_autocmd({ "UIEnter" }, {
+  pattern = "*",
+  command = "nmap <c-d> <c-d> | nmap <c-u> <c-u>",
+  desc = "disable neoscroll in gui",
   group = guiAugroup,
 })
 

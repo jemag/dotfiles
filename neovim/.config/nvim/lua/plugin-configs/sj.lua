@@ -1,7 +1,7 @@
 local sj = require("sj")
 sj.setup({
   auto_jump = false,
-  separator = ";",
+  separator = "",
   -- help to better identify labels and matches
   use_overlay = false,
   preserve_highlights = true,

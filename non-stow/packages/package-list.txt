@@ -9,7 +9,6 @@ arch-install-scripts
 autoconf
 automake
 azure-cli
-azure-storage-explorer
 base
 bat
 bind
@@ -68,8 +67,6 @@ flameshot
 flex
 fontdownloader-git
 fontpreview
-forticlient
-foxitreader
 freetube-bin
 fzf
 gamemode
@@ -127,6 +124,7 @@ kubeval-bin
 kubie-bin
 kustomize
 lab-bin
+latex2html
 lazydocker
 lazygit
 lens-bin
@@ -238,6 +236,7 @@ qmk
 ranger
 rclone
 rclone-browser
+rebuild-detector
 redshift
 reflector
 retroarch
