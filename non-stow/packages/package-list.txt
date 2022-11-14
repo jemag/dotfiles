@@ -184,7 +184,7 @@ mongodb-tools-bin
 mpg123
 mullvad-vpn-bin
 ncdu
-neovide
+neovim-qt
 neovim-remote
 nerd-fonts-complete
 net-tools

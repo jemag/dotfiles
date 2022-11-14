@@ -54,7 +54,6 @@ alias ta="tmux attach -t"
 alias k="kubectl"
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias kl="kube-linter"
-alias vim="nvim"
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"

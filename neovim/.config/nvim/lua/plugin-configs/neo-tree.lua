@@ -87,6 +87,8 @@ require("neo-tree").setup({
       ["q"] = "close_window",
       ["R"] = "refresh",
       ["/"] = "none",
+      ["?"] = "none",
+      ["g?"] = "show_help",
       ["z"] = "none",
     },
   },
