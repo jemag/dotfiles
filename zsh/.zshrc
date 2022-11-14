@@ -46,6 +46,7 @@ alias sue="sudoedit"
 alias grep="grep --color"
 alias tp="tmuxinator-fzf-start.sh"
 alias ll="ls -l"
+alias lt="ls -T"
 alias l="ls -l"
 alias la="ls -la"
 alias lh="ls -lh"
@@ -53,6 +54,7 @@ alias lb="br -dsp"
 alias ta="tmux attach -t"
 alias k="kubectl"
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias ky="kyverno"
 alias kl="kube-linter"
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
@@ -191,7 +193,9 @@ bindkey -v '^?' backward-delete-char
 # keybinds
 #########
 bindkey '^f' autosuggest-accept
-bindkey -s '^x' 'fg\n'
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
