@@ -25,12 +25,12 @@ vim.api.nvim_create_autocmd({ "UIEnter" }, {
   desc = "Set gui font",
   group = guiAugroup,
 })
-vim.api.nvim_create_autocmd({ "UIEnter" }, {
-  pattern = "*",
-  command = "nmap <c-d> <c-d> | nmap <c-u> <c-u>",
-  desc = "disable neoscroll in gui",
-  group = guiAugroup,
-})
+-- vim.api.nvim_create_autocmd({ "UIEnter" }, {
+--   pattern = "*",
+--   command = "nmap <c-d> <c-d> | nmap <c-u> <c-u>",
+--   desc = "disable neoscroll in gui",
+--   group = guiAugroup,
+-- })
 
 local minlines = "minlines"
 vim.api.nvim_create_augroup(minlines, { clear = true })

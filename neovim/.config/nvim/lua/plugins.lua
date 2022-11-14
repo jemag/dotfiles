@@ -646,6 +646,9 @@ return require("packer").startup({
       },
     })
     use({
+      "ThePrimeagen/vim-be-good",
+    })
+    use({
       "ThePrimeagen/refactoring.nvim",
       config = function()
         require("plugin-configs.refactoring")
