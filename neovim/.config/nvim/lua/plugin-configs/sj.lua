@@ -14,9 +14,23 @@ vim.keymap.set({ "n", "x", "o" }, "/", function()
     prompt_prefix = "/",
   })
 end, { desc = "SJ forward" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>/", function()
+  sj.run({
+    prompt_prefix = "/",
+    separator = ";"
+  })
+end, { desc = "SJ forward" })
+
 vim.keymap.set({ "n", "x", "o" }, "?", function()
   sj.run({
     forward_search = false,
     prompt_prefix = "?",
+  })
+end, { desc = "SJ backward" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>?", function()
+  sj.run({
+    forward_search = false,
+    prompt_prefix = "?",
+    separator = ";"
   })
 end, { desc = "SJ backward" })
