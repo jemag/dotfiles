@@ -103,7 +103,7 @@ vim.api.nvim_set_keymap(
 -- Cleanup function: this remap should be made in normal mode
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>rc",
+  "<leader>rC",
   ":lua require('refactoring').debug.cleanup({})<CR>",
   { noremap = true, desc = "Clean up print statements" }
 )

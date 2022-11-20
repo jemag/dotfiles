@@ -43,6 +43,12 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true, desc =
 
 vim.api.nvim_set_keymap("n", "<c-g>", "1<c-g>", { noremap = true, silent = true, desc = "Full path to current buffer" })
 
+-- refactoring keybinds
+vim.keymap.set( "n", "<leader>rc", "<cmd>let @/='\\<'.expand('<cword>').'\\>'<cr>cgn", { desc = "Cgn current word" })
+vim.keymap.set( "x", "<leader>rc", '"sy:let @/=@s<CR>cgn', { desc = "Cgn current word" })
+vim.keymap.set( "n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace word in file"})
+vim.keymap.set( "x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
+
 vim.api.nvim_set_keymap(
   "n",
   "<leader>o",
