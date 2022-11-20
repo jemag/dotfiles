@@ -151,7 +151,7 @@ return require("packer").startup({
     use({
       "sindrets/winshift.nvim",
       config = function()
-        require("winshift").setup()
+        require("plugin-configs.winshift")
       end,
     })
     use({
@@ -461,9 +461,7 @@ return require("packer").startup({
     -- })
     use("folke/lsp-colors.nvim")
     use("sainnhe/sonokai")
-    use({
-      "Shatur95/neovim-ayu",
-    })
+    use("Shatur95/neovim-ayu")
     use("doums/darcula")
     use({ "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" })
     use("aonemd/kuroi.vim")

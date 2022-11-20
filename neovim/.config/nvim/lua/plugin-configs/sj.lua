@@ -1,7 +1,7 @@
 local sj = require("sj")
 sj.setup({
   auto_jump = false,
-  separator = "",
+  separator = ";",
   -- help to better identify labels and matches
   use_overlay = false,
   preserve_highlights = true,
@@ -17,7 +17,7 @@ end, { desc = "SJ forward" })
 vim.keymap.set({ "n", "x", "o" }, "<leader>/", function()
   sj.run({
     prompt_prefix = "/",
-    separator = ";"
+    separator = ""
   })
 end, { desc = "SJ forward" })
 
@@ -31,6 +31,6 @@ vim.keymap.set({ "n", "x", "o" }, "<leader>?", function()
   sj.run({
     forward_search = false,
     prompt_prefix = "?",
-    separator = ";"
+    separator = ""
   })
 end, { desc = "SJ backward" })
