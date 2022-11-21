@@ -25,7 +25,7 @@ require("dapui").setup({
         "repl",
         "console",
       },
-      size = 10,
+      size = 20,
       position = "bottom",
     },
   },
@@ -39,3 +39,14 @@ require("dapui").setup({
   },
   windows = { indent = 1 },
 })
+local dap = require("dap")
+local dapui = require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open {}
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close {}
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close {}
+end

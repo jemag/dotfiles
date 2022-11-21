@@ -172,6 +172,9 @@ local leader_mappings = {
     t = {
       name = "Telescope",
     },
+    u = {
+      name = "Dap UI",
+    },
   },
   f = {
     name = "+format",

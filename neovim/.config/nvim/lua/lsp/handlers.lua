@@ -65,7 +65,8 @@ local function map_keys(bufnr)
   vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
   vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>",
     { desc = "Eval expression", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
+  vim.keymap.set("n", "<leader>due", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dut", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle dap ui", buffer = bufnr })
   vim.keymap.set(
     "n",
     "<leader>dv",
@@ -130,7 +131,8 @@ M.on_attach = function(client, bufnr)
   set_signature_helper(client, bufnr)
   set_hover_border(client)
   map_keys(bufnr)
-  if client.name == "jdt.ls" then
+  if client.name == "jdtls" then
+    print("inside jdtls on attach")
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls").setup.add_commands()
     -- Auto-detect main and setup dap config
