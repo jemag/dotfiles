@@ -3,7 +3,7 @@ local act = wezterm.action
 
 return {
   -- option	= value	, [default] comment
-  warn_about_missing_glyphs=false,
+  warn_about_missing_glyphs = false,
 
   -- Fonts
   font = wezterm.font_with_fallback({
@@ -145,7 +145,14 @@ return {
     { key = "{", mods = "SHIFT|SUPER", action = act.ActivateTabRelative(-1) },
     { key = "}", mods = "SUPER", action = act.ActivateTabRelative(1) },
     { key = "}", mods = "SHIFT|SUPER", action = act.ActivateTabRelative(1) },
-    { key = "phys:Space", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
+    {
+      key = "phys:Space",
+      mods = "SHIFT|CTRL",
+      action = act.Multiple({
+        act.ActivateCopyMode,
+        act.CopyMode("ClearPattern"),
+      }),
+    },
     { key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
     { key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) },
     { key = "PageUp", mods = "SHIFT|SUPER", action = act.MoveTabRelative(-1) },
@@ -175,7 +182,22 @@ return {
       { key = "Space", mods = "NONE", action = act.CopyMode({ SetSelectionMode = "Cell" }) },
       { key = "$", mods = "NONE", action = act.CopyMode("MoveToEndOfLineContent") },
       { key = "$", mods = "SHIFT", action = act.CopyMode("MoveToEndOfLineContent") },
-      { key = "/", mods = "NONE", action = act.Search({CaseSensitiveString=""}) },
+      {
+        key = "/",
+        mods = "NONE",
+        action = act.Multiple({
+          act.CopyMode("ClearPattern"),
+          act.Search({ CaseSensitiveString = "" }),
+        }),
+      },
+      {
+        key = "?",
+        mods = "SHIFT",
+        action = act.Multiple({
+          act.CopyMode("ClearPattern"),
+          act.Search({ CaseSensitiveString = "" }),
+        }),
+      },
       { key = ";", mods = "NONE", action = act.CopyMode("JumpAgain") },
       { key = ",", mods = "NONE", action = act.CopyMode("JumpReverse") },
       { key = "0", mods = "NONE", action = act.CopyMode("MoveToStartOfLine") },
@@ -191,8 +213,17 @@ return {
       { key = "M", mods = "SHIFT", action = act.CopyMode("MoveToViewportMiddle") },
       { key = "n", mods = "CTRL", action = act.CopyMode("NextMatch") },
       { key = "p", mods = "CTRL", action = act.CopyMode("PriorMatch") },
+      { key = "n", mods = "NONE", action = act.CopyMode("PriorMatch") },
+      { key = "N", mods = "NONE", action = act.CopyMode("NextMatch") },
       { key = "r", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
-      { key = "e", mods = "CTRL", action = act.CopyMode("ClearPattern") },
+      {
+        key = "e",
+        mods = "CTRL",
+        action = act.Multiple({
+          act.CopyMode("ClearPattern"),
+          act.CopyMode("ClearSelectionMode"),
+        }),
+      },
       { key = "O", mods = "NONE", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
       { key = "O", mods = "SHIFT", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
       { key = "T", mods = "NONE", action = act.CopyMode({ JumpBackward = { prev_char = true } }) },
@@ -229,7 +260,10 @@ return {
       {
         key = "y",
         mods = "NONE",
-        action = act.Multiple({ { CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } }),
+        action = act.Multiple({
+          { CopyTo = "ClipboardAndPrimarySelection" },
+          { CopyMode = "Close" },
+        }),
       },
       { key = "PageUp", mods = "NONE", action = act.CopyMode("PageUp") },
       { key = "PageDown", mods = "NONE", action = act.CopyMode("PageDown") },
@@ -244,6 +278,7 @@ return {
     search_mode = {
       { key = "Enter", mods = "NONE", action = act("ActivateCopyMode") },
       { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
+      { key = "w", mods = "CTRL", action = act.CopyMode("ClearPattern") },
     },
   },
 }
