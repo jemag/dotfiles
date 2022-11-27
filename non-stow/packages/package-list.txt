@@ -208,6 +208,7 @@ openjdk11-src
 openresolv
 pacman
 pacman-contrib
+page-git
 paru-bin
 patch
 pavucontrol
@@ -296,7 +297,7 @@ vlc
 volta-bin
 w3m
 weechat
-wezterm-nightly-bin
+wezterm-git
 which
 whois
 wine-mono
