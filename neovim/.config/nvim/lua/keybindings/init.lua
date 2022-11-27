@@ -62,13 +62,6 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "Append line above" }
 )
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-n>",
-  "<cmd>exe v:count ? v:count . 'b' : 'b' . (bufloaded(0) ? '#' : 'n')<CR>",
-  { noremap = true, silent = true, desc = "Previous buffer" }
-)
-
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true, desc = "Yank till end of line" })
 
 vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
