@@ -180,12 +180,6 @@ return require("packer").startup({
       end,
     })
     use({
-      "nyngwang/NeoZoom.lua",
-      config = function()
-        require("plugin-configs.neozoom")
-      end,
-    })
-    use({
       "nvim-neo-tree/neo-tree.nvim",
       branch = "main",
       requires = {
@@ -215,12 +209,6 @@ return require("packer").startup({
     use({ "stevearc/dressing.nvim" })
     use({
       "folke/which-key.nvim",
-    })
-    use({
-      "rainbowhxch/accelerated-jk.nvim",
-      config = function()
-        require("plugin-configs.acceleratedjk")
-      end,
     })
     use({
       "voldikss/vim-floaterm",

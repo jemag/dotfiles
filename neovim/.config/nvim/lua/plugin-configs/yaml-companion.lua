@@ -14,4 +14,4 @@ end
 vim.keymap.set("n", "<localleader>msn", function()
   print_schema_name()
 end, { desc = "get json/yaml schema name" })
-vim.keymap.set("n", "<localleader>mss", "<cmd>Telescope yaml_schema<cr>", { desc = "get json/yaml schema name" })
+vim.keymap.set("n", "<localleader>mss", "<cmd>Telescope yaml_schema<cr>", { desc = "set json/yaml schema" })
