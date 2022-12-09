@@ -195,12 +195,6 @@ return require("packer").startup({
       "dstein64/nvim-scrollview",
     })
     use({
-      "karb94/neoscroll.nvim",
-      config = function()
-        require("plugin-configs.neoscroll")
-      end,
-    })
-    use({
       "mrjones2014/legendary.nvim",
       config = function()
         vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
@@ -347,9 +341,9 @@ return require("packer").startup({
       end,
     })
     use({
-      "RRethy/vim-illuminate",
+      "nyngwang/murmur.lua",
       config = function()
-        require("plugin-configs.vim-illuminate")
+        require("plugin-configs.murmur")
       end,
     })
     use("tweekmonster/startuptime.vim")
@@ -362,9 +356,9 @@ return require("packer").startup({
     use("gfanto/fzf-lsp.nvim")
     use({
       "mfussenegger/nvim-dap",
-      config = function ()
+      config = function()
         require("plugin-configs.dap")
-      end
+      end,
     })
     use({
       "rcarriga/nvim-dap-ui",

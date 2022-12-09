@@ -15,7 +15,6 @@ vim.opt.inccommand = "split"
 vim.opt.textwidth = 0
 vim.opt.wrap = false
 vim.opt.virtualedit = { "all"}
-vim.opt.scrolloff = 8
 vim.opt.mouse = "a"
 vim.opt.laststatus = 2
 vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
