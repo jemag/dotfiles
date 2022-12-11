@@ -268,6 +268,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "j-morano/buffer_manager.nvim",
+      config = function()
+        require("plugin-configs.buffer_manager")
+      end,
+    })
+    use({
       "woosaaahh/sj.nvim",
       config = function()
         require("plugin-configs.sj")
