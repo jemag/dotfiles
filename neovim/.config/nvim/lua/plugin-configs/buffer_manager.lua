@@ -1,13 +1,19 @@
- require("buffer_manager").setup({
+require("buffer_manager").setup({
   select_menu_item_commands = {
     v = {
       key = "<C-v>",
-      command = "vsplit"
+      command = "vsplit",
     },
     h = {
       key = "<C-x>",
-      command = "split"
-    }
-  }
+      command = "split",
+    },
+  },
 })
-vim.keymap.set("n", "<leader>bm", function() require("buffer_manager.ui").toggle_quick_menu() end)
+vim.keymap.set("n", "<leader>bm", function()
+  require("buffer_manager.ui").toggle_quick_menu()
+end)
+vim.api.nvim_command([[
+autocmd FileType buffer_manager vnoremap J :m '>+1<CR>gv=gv
+autocmd FileType buffer_manager vnoremap K :m '<-2<CR>gv=gv
+]])
