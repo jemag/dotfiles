@@ -9,31 +9,31 @@ local check_backspace = function()
 end
 
 local icons = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "⌘",
-    Field = "ﰠ",
-    Variable = "",
-    Class = "ﴯ",
-    Interface = "",
-    Module = "",
-    Property = "ﰠ",
-    Unit = "塞",
-    Value = "",
-    Enum = "",
-    Keyword = "廓",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "פּ",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "⌘",
+  Field = "ﰠ",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "塞",
+  Value = "",
+  Enum = "",
+  Keyword = "廓",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "פּ",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
 }
 
 cmp.setup({
@@ -115,3 +115,34 @@ cmp.setup({
     ghost_text = false,
   },
 })
+-- vim.keymap.set("i", "<c-x><c-f>", function()
+--   require("cmp").complete({
+--     config = {
+--       completion = {
+--         get_trigger_characters = function(trigger_characters)
+--           print('inside get_trigger_characters')
+--           return {}
+--         end
+--       },
+--       sources = {
+--         {
+--           name = "fuzzy_path",
+--           keyword_length = 0,
+--           keyword_pattern = ".*?",
+--           trigger_characters = { ''}
+--         },
+--       },
+--     },
+--   })
+-- end)
+vim.keymap.set("i", "<c-x><c-r>", function()
+  require("cmp").complete({
+    config = {
+      sources = {
+        {
+          name = "rg",
+        },
+      },
+    },
+  })
+end)

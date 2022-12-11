@@ -689,6 +689,7 @@ return require("packer").startup({
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "onsails/lspkind-nvim",
+        "lukas-reineke/cmp-rg"
       },
     })
     use({
@@ -696,6 +697,9 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.cmp-cmdline")
       end,
+      requires = {
+        "dmitmel/cmp-cmdline-history"
+      }
     })
 
     use({
