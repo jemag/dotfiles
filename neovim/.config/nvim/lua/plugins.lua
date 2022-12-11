@@ -623,6 +623,12 @@ return require("packer").startup({
       end,
     })
     use({
+      "AckslD/nvim-FeMaco.lua",
+      config = function ()
+        require("plugin-configs.femaco")
+      end
+    })
+    use({
       "b0o/schemastore.nvim",
     })
     use({
