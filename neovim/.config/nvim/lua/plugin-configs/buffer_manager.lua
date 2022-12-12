@@ -18,8 +18,8 @@ vim.api.nvim_create_augroup("buffer_manager", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "buffer_manager",
   callback = function()
-    vim.keymap.set("n", "J", "<cmd>:m +1<CR>gv=gv", { buffer = true })
-    vim.keymap.set("n", "K", "<cmd>:m -2<CR>gv=gv", { buffer = true })
+    vim.keymap.set("n", "J", "<cmd>:m +1<CR>", { buffer = true })
+    vim.keymap.set("n", "K", "<cmd>:m -2<CR>", { buffer = true })
     -- vim.keymap.set("n", "<C-v>", function()
     --   local picked_window_id = require("window-picker").pick_window()
     --   vim.api.nvim_set_current_win(picked_window_id)
