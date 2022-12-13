@@ -182,3 +182,4 @@ vim.keymap.set("n", "<localleader>sS", "<cmd>Telescope lsp_dynamic_workspace_sym
 vim.keymap.set("n", "<localleader>st", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
 vim.keymap.set("n", "<localleader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<localleader>sy", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
+vim.keymap.set("n", "<localleader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
