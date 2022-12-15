@@ -109,6 +109,7 @@ setopt NO_CHECK_JOBS
 setopt autocd
 setopt IGNOREEOF
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
+unsetopt BEEP
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
 
