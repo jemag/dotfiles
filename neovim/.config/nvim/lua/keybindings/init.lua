@@ -87,6 +87,11 @@ vim.api.nvim_set_keymap("n", "<leader>Y", '"+yg_', { noremap = true, silent = tr
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
 vim.api.nvim_set_keymap("n", "<leader>yy", '"+yy', { noremap = true, silent = true, desc = "Yank whole line +reg" })
 
+vim.api.nvim_set_keymap("x", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Yank +reg" })
+vim.api.nvim_set_keymap("n", "<leader>d", '"+dg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
+vim.api.nvim_set_keymap("n", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Yank +reg" })
+vim.api.nvim_set_keymap("n", "<leader>dd", '"+dd', { noremap = true, silent = true, desc = "Yank whole line +reg" })
+
 vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
 vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
 vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
