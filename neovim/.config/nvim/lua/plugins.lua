@@ -755,6 +755,13 @@ return require("packer").startup({
       ft = { "json" },
     })
     use({
+      "olexsmir/gopher.nvim",
+      requires = { -- dependencies
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+      },
+    })
+    use({
       "plasticboy/vim-markdown",
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
