@@ -43,6 +43,9 @@ vim.api.nvim_set_keymap("x", "k", "gk", { noremap = true, silent = true, desc = 
 vim.api.nvim_set_keymap("x", "gj", "j", { noremap = true, silent = true, desc = "Normal j" })
 vim.api.nvim_set_keymap("x", "gk", "k", { noremap = true, silent = true, desc = "Normal k" })
 
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Shift selection down"})
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Shift selection up"})
+
 vim.api.nvim_set_keymap("x", "<", "<gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
 vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
 
