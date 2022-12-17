@@ -126,13 +126,11 @@ local function set_hover_border(client)
 end
 
 M.on_attach = function(client, bufnr)
-  print(client.name .. " started")
 
   set_signature_helper(client, bufnr)
   set_hover_border(client)
   map_keys(bufnr)
   if client.name == "jdtls" then
-    print("inside jdtls on attach")
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls").setup.add_commands()
     -- Auto-detect main and setup dap config

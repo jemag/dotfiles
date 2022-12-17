@@ -20,11 +20,23 @@ local tools = {
   "yaml-language-server",
   "jsonnet-language-server",
   "gopls",
+  "delve",
+  "gofumpt",
+  "goimports",
+  "goimports-reviser",
+  "golangci-lint",
+  "golangci-lint-langserver",
+  "golines",
+  "gomodifytags",
+  "gotests",
+  "gotestsum",
+  "iferr",
+  "impl",
   "marksman",
 }
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
-  ensure_installed = tools
+  ensure_installed = tools,
 })
 
 local lspconfig = require("lspconfig")
@@ -47,7 +59,7 @@ local function setup_servers()
       opts = yamlls_opts
     end
     if name == "jdtls" then
-      do break end
+      goto continue
     end
     if name == "ansiblels" then
       local ansiblels_opts = require("lsp.configs.ansiblels")
@@ -59,6 +71,7 @@ local function setup_servers()
     end
 
     lspconfig[name].setup(opts)
+    ::continue::
   end
 end
 

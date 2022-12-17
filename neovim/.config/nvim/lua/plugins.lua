@@ -755,13 +755,6 @@ return require("packer").startup({
       ft = { "json" },
     })
     use({
-      "ray-x/go.nvim",
-      ft = { "go" },
-      config = function()
-        require("plugin-configs.go-nvim")
-      end,
-    })
-    use({
       "plasticboy/vim-markdown",
       opt = true,
       ft = { "markdown", "pandoc.markdown", "rmd" },
