@@ -755,6 +755,12 @@ return require("packer").startup({
       ft = { "json" },
     })
     use({
+      "leoluz/nvim-dap-go",
+      config = function ()
+        require("plugin-configs.nvim-dap-go")
+      end
+    })
+    use({
       "olexsmir/gopher.nvim",
       requires = { -- dependencies
         "nvim-lua/plenary.nvim",
