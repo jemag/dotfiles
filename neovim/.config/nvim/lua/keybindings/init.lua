@@ -43,6 +43,10 @@ vim.api.nvim_set_keymap("x", "k", "gk", { noremap = true, silent = true, desc = 
 vim.api.nvim_set_keymap("x", "gj", "j", { noremap = true, silent = true, desc = "Normal j" })
 vim.api.nvim_set_keymap("x", "gk", "k", { noremap = true, silent = true, desc = "Normal k" })
 
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Keep cursor in the same position while joining lines"})
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Shift selection down"})
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Shift selection up"})
+
 vim.api.nvim_set_keymap("x", "<", "<gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
 vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
 
@@ -83,6 +87,11 @@ vim.api.nvim_set_keymap("x", "<leader>y", '"+y', { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "<leader>Y", '"+yg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
 vim.api.nvim_set_keymap("n", "<leader>yy", '"+yy', { noremap = true, silent = true, desc = "Yank whole line +reg" })
+
+vim.api.nvim_set_keymap("x", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
+vim.api.nvim_set_keymap("n", "<leader>d", '"+dg_', { noremap = true, silent = true, desc = "Delete end of line +reg" })
+vim.api.nvim_set_keymap("n", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
+vim.api.nvim_set_keymap("n", "<leader>dd", '"+dd', { noremap = true, silent = true, desc = "Delete whole line +reg" })
 
 vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
 vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })

@@ -1,31 +1,37 @@
-local servers = {
-  "bashls",
-  "angularls",
-  "ansiblels",
+local tools = {
+  "bash-language-server",
+  "angular-language-server",
+  "ansible-language-server",
   "pyright",
-  "terraformls",
-  "jsonls",
+  "terraform-ls",
+  "json-lsp",
+  "jdtls",
+  "java-debug-adapter",
+  "java-test",
   "clangd",
-  "rust_analyzer",
+  "rust-analyzer",
   "solargraph",
-  "tailwindcss",
-  "vimls",
-  "dockerls",
-  "html",
-  "tsserver",
-  "sumneko_lua",
-  "yamlls",
-  "jsonnet_ls",
+  "tailwindcss-language-server",
+  "vim-language-server",
+  "dockerfile-language-server",
+  "html-lsp",
+  "typescript-language-server",
+  "lua-language-server",
+  "yaml-language-server",
+  "jsonnet-language-server",
   "gopls",
   "marksman",
 }
-require("mason-lspconfig").setup({
-  ensure_installed = servers,
+require("mason-lspconfig").setup()
+require("mason-tool-installer").setup({
+  ensure_installed = tools
 })
+
 local lspconfig = require("lspconfig")
+local installed_servers = require("mason-lspconfig").get_installed_servers()
 
 local function setup_servers()
-  for _, name in pairs(servers) do
+  for _, name in pairs(installed_servers) do
     local opts = require("lsp.configs.generic").get_config()
 
     if name == "jsonls" then
@@ -39,6 +45,9 @@ local function setup_servers()
         },
       })
       opts = yamlls_opts
+    end
+    if name == "jdtls" then
+      do break end
     end
     if name == "ansiblels" then
       local ansiblels_opts = require("lsp.configs.ansiblels")

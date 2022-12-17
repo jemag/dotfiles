@@ -624,9 +624,9 @@ return require("packer").startup({
     })
     use({
       "AckslD/nvim-FeMaco.lua",
-      config = function ()
+      config = function()
         require("plugin-configs.femaco")
-      end
+      end,
     })
     use({
       "b0o/schemastore.nvim",
@@ -670,6 +670,9 @@ return require("packer").startup({
       config = function()
         require("plugin-configs.mason")
       end,
+      requires = {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+      },
     })
     use({ "williamboman/mason-lspconfig.nvim" })
 
@@ -701,7 +704,7 @@ return require("packer").startup({
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "onsails/lspkind-nvim",
-        "lukas-reineke/cmp-rg"
+        "lukas-reineke/cmp-rg",
       },
     })
     use({
@@ -710,8 +713,8 @@ return require("packer").startup({
         require("plugin-configs.cmp-cmdline")
       end,
       requires = {
-        "dmitmel/cmp-cmdline-history"
-      }
+        "dmitmel/cmp-cmdline-history",
+      },
     })
 
     use({
