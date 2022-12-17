@@ -107,6 +107,7 @@ imagemagick
 imagewriter
 iptables-nft
 jdk11-openjdk
+jdk17-openjdk
 jdk8-openjdk
 jless
 joplin-appimage
@@ -293,6 +294,7 @@ virt-manager
 virt-viewer
 vlc
 volta-bin
+vscodium-bin
 w3m
 weechat
 wezterm-git
