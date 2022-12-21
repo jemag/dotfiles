@@ -16,7 +16,7 @@ local tools = {
   "dockerfile-language-server",
   "html-lsp",
   "typescript-language-server",
-  "lua-language-server",
+  {"lua-language-server", version = 'v3.2.2'},
   "yaml-language-server",
   "jsonnet-language-server",
   "gopls",

@@ -201,9 +201,7 @@ return require("packer").startup({
       end,
     })
     use({ "stevearc/dressing.nvim" })
-    use({
-      "folke/which-key.nvim",
-    })
+    use({ "folke/which-key.nvim" })
     use({
       "voldikss/vim-floaterm",
       config = function()
@@ -461,7 +459,6 @@ return require("packer").startup({
     use("kyazdani42/blue-moon")
     use("drewtempelmeyer/palenight.vim")
     use("heraldofsolace/nisha-vim")
-    use("ghifarit53/tokyonight-vim")
     use("gruvbox-community/gruvbox")
     use("shaunsingh/nord.nvim")
     use("franbach/miramare")
@@ -756,15 +753,15 @@ return require("packer").startup({
     })
     use({
       "leoluz/nvim-dap-go",
-      config = function ()
+      config = function()
         require("plugin-configs.nvim-dap-go")
-      end
+      end,
     })
     use({
       "olexsmir/gopher.nvim",
-      config = function ()
+      config = function()
         require("plugin-configs.gopher")
-      end                             ,
+      end,
       requires = { -- dependencies
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
