@@ -82,6 +82,7 @@ github-cli
 glances
 gnome-calculator
 gnome-keyring
+gnomecast-git
 go-tools
 gparted
 gradle
@@ -286,6 +287,7 @@ ttf-windows
 ueberzug
 vagrant
 vde2
+ventoy-bin
 vi
 viddy
 vifm

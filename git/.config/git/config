@@ -38,12 +38,15 @@
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
 	a = add --all
+	af = forgit add
 	ai = add -i
 	au = add -u
 	#############
 	ap = apply
 	as = apply --stat
 	ac = apply --check
+	#############
+  bl = forgit blame
 	#############
 	b = branch
 	ba = branch -a
@@ -58,7 +61,10 @@
 	#############
 	cl = clone
 	#############
+	cle = forgit clean
+	#############
 	d = diff
+	df = forgit diff
 	dp = diff --patience
 	dc = diff --cached
 	dk = diff --check
@@ -76,7 +82,9 @@
 	#############
 	g = grep -p
 	#############
-	l = log --oneline
+	i = forgit ignore
+	#############
+	l = forgit log
 	lg = log --oneline --graph --decorate --all
 	#############
 	ls = ls-files
@@ -88,8 +96,15 @@
 	ms = merge --skip
 	#############
 	co = checkout
+	cb = forgit checkout_branch
+	cc = forgit checkout_commit
+	cf = forgit checkout_file
+	ct = forgit checkout_tag
 	com = checkout master
 	cob = checkout -b
+	#############
+  cp = forgit cherry_pick
+  cpb = forgit cherry_pick_from_branch
 	#############
 	ps = push
 	psf = push -f
@@ -104,13 +119,17 @@
 	pl = pull
 	#############
 	rb = rebase
+	rbf = forgit rebase
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rbs = rebase --skip
 	#############
+	rc = forgit revert_commit
+	#############
 	re = reset
 	rh = reset HEAD
+	rf = forgit reset_head
 	reh = reset --hard
 	rem = reset --mixed
 	res = reset --soft
@@ -147,8 +166,9 @@
 	sl = stash list
 	sp = stash pop
 	ss = stash save
+	spu = forgit stash_push
 	ssk = stash save -k
-	sw = stash show
+	sw = forgit stash_show
 	st = !git stash list | wc -l 2>/dev/null | grep -oEi '[0-9][0-9]*'
 	#############
 	t = tag
