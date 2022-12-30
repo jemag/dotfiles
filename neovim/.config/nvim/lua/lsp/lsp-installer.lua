@@ -17,6 +17,7 @@ local tools = {
   "html-lsp",
   "typescript-language-server",
   "lua-language-server",
+  "stylua",
   "yaml-language-server",
   "jsonnet-language-server",
   "gopls",
