@@ -31,17 +31,18 @@ vim.cmd([[autocmd ColorScheme * highlight! BufferCurrentMod guifg=#E06C75 guibg=
 vim.cmd([[autocmd ColorScheme * highlight! BufferVisible guifg=black guibg=#626A73]])
 vim.cmd([[autocmd ColorScheme * highlight! BufferVisibleIndex guifg=black guibg=#626A73]])
 vim.cmd([[autocmd ColorScheme * highlight! BufferVisibleSign guifg=#626A73 guibg=#626A73]])
-vim.g.bufferline = {
+require'bufferline'.setup {
   animation = false,
   auto_hide = false,
+  tabpages = true,
   closable = true,
   clickable = true,
-  exclude_ft = { "qf" },
-  icon_separator_active = "▊ ",
+  exclude_ft = {'qf'},
   icons = "both",
+  icon_separator_active = "▊ ",
   maximum_padding = 4,
-  semantic_letters = true,
   maximum_length = 40,
+  semantic_letters = true,
 }
 vim.api.nvim_set_keymap("n", "H", "<cmd>BufferPrevious<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.api.nvim_set_keymap("n", "L", "<cmd>BufferNext<cr>", { noremap = true, silent = true, desc = "Next buffer" })
