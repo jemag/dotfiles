@@ -9,13 +9,15 @@ require('autolist').setup({
 		preferred = "-"
 	},
 	invert = {
-		mapping = "<c-r>",
 		normal_mapping = "",
 		toggles_checkbox = true,
 		ul_marker = "-",
 		ol_incrementable = "1",
 		ol_delim = ".",
 	},
+  insert_mappings = {
+    invert = {},
+  },
 	lists = {
 		preloaded = {
 			generic = {
