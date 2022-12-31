@@ -679,12 +679,14 @@ require("lazy").setup({
     "ray-x/lsp_signature.nvim",
   },
   { "folke/lua-dev.nvim" },
-  { "rafamadriz/friendly-snippets" },
   {
     "L3MON4D3/LuaSnip",
     config = function()
       require("plugin-configs.luasnip")
     end,
+    dependencies = {
+      { "rafamadriz/friendly-snippets" },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
