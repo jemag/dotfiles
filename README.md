@@ -19,3 +19,9 @@ To remove dotfiles, you can simply use:
  stow -D {folder_name}
 ```
 This allows keeping the dotfiles properly in the git repo while creating symlinks to the expected location by their respective program.
+
+## Screenshots
+
+Neovim + tmux
+![image](https://user-images.githubusercontent.com/7985687/210149936-07787e45-082f-4360-903f-fc3e505d3947.png)
+![image](https://user-images.githubusercontent.com/7985687/210150012-7cade9cb-7192-4446-96bb-1c3e17d426b4.png)
