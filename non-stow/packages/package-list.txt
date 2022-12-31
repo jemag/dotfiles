@@ -68,6 +68,7 @@ flameshot
 flex
 fontdownloader-git
 fontpreview
+forgit-git
 freetube-bin
 fzf
 gamemode
@@ -266,6 +267,7 @@ spring-boot-cli
 starship
 steam
 stow
+stylua
 sudo
 syncthing
 sysstat
