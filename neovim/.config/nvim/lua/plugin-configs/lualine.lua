@@ -7,7 +7,7 @@ local function search_cnt()
   local res = vim.fn.searchcount()
 
   if res.total > 0 then
-    return string.format("%s/%d %s", res.current, res.total, vim.fn.getreg("/"))
+    return string.format("%s:[%d/%d]", vim.fn.getreg("/"), res.current, res.total)
   else
     return ""
   end
@@ -30,7 +30,7 @@ require("lualine").setup({
     },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = { "diff" },
-    lualine_z = { search_cnt, "location" },
+    lualine_z = { search_cnt, "location", "progress" },
   },
   inactive_sections = {
     lualine_a = {},
