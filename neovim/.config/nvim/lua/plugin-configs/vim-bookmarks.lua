@@ -1,5 +1,5 @@
 vim.g.bookmark_location_list = 0
-vim.g.bookmark_no_default_key_mappings = 1
+-- vim.g.bookmark_no_default_key_mappings = 1
 vim.keymap.set({ "n", "v" }, "<leader>ma", "<cmd>BookmarkShowAll<cr>", { desc = "Show all" })
 vim.keymap.set({ "n", "v" }, "<leader>mc", "<cmd>BookmarkClear<cr>", { desc = "Clear" })
 vim.keymap.set({ "n", "v" }, "<leader>mi", "<cmd>BookmarkAnnotate<cr>", { desc = "Annotate" })

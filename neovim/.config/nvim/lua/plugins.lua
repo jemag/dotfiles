@@ -284,6 +284,9 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.vim-bookmarks")
     end,
+    init = function ()
+      vim.g.bookmark_no_default_key_mappings = 1
+    end
   },
   {
     "tom-anders/telescope-vim-bookmarks.nvim",
@@ -304,12 +307,6 @@ require("lazy").setup({
     end,
     config = function()
       require("plugin-configs.firenvim")
-    end,
-  },
-  {
-    "vifm/vifm.vim",
-    config = function()
-      require("plugin-configs.vifm")
     end,
   },
   {
@@ -435,13 +432,6 @@ require("lazy").setup({
   {
     "luisiacc/gruvbox-baby",
   },
-  -- TODO: wait until the lua queries are removed or fixed to re-enable
-  -- use({
-  --   "eddyekofo94/gruvbox-flat.nvim",
-  --   config = function()
-  --     vim.g.gruvbox_flat_style = "dark"
-  --   end,
-  -- })
   { "folke/lsp-colors.nvim" },
   { "sainnhe/sonokai" },
   {
