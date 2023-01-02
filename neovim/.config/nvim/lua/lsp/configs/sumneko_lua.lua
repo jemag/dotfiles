@@ -24,6 +24,7 @@ return {
           "different-requires",
         },
         globals = {
+          "P",
           "vim",
           "describe",
           "it",
