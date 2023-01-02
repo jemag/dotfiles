@@ -117,13 +117,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   desc = "Set format options for all filetypes",
 })
 
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({ higroup = "Substitute", on_visual = true, timeout = 300 })
-  end,
-  desc = "Highlight yanked text",
-})
+-- FIXME: waiting for vim to fix testyankpost with virtualedit all 
+-- vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+--   pattern = "*",
+--   callback = function()
+--     vim.highlight.on_yank({ higroup = "Substitute", on_visual = true, timeout = 300 })
+--   end,
+--   desc = "Highlight yanked text",
+-- })
+
 -- Set cmdheight=1 when recording macro
 -- vim.api.nvim_create_autocmd('RecordingEnter', {
 --     pattern = '*',
