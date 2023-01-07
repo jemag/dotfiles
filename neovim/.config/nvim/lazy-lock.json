@@ -47,7 +47,7 @@
   "jsonpath.nvim": { "branch": "main", "commit": "d52d1c1cdbcb268cbf4b101bb400eba19ca918c5" },
   "kanagawa.nvim": { "branch": "master", "commit": "c9fc16815fc9b195882e40c881fb590eda4e8ecf" },
   "kuroi.vim": { "branch": "master", "commit": "54ab6f0be98bdde5446a82b24c983b7232798f2f" },
-  "lazy.nvim": { "branch": "main", "commit": "85173dcc4d7a39e67370571316a6290f31a0de4a" },
+  "lazy.nvim": { "branch": "main", "commit": "7b9fa284f8cd895b5831971058919cfceda6b39b" },
   "legendary.nvim": { "branch": "master", "commit": "756fd2220ebc7893f10b9957a2205e3cf55cdb37" },
   "live-command.nvim": { "branch": "main", "commit": "ce4b104ce702c7bb9fdff863059af6d47107ca61" },
   "lsp-colors.nvim": { "branch": "main", "commit": "4e6da1984d23da88a947805866580c48fc3cc8d7" },
