@@ -222,9 +222,10 @@ export FZF_CTRL_T_OPTS="
     "
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export RPS1="$(vi_mode_prompt_info)"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
-source /home/jemag/.config/broot/launcher/bash/br
 source <(kubectl completion zsh)
 source <(kustomize completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -232,5 +233,3 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 # zprof
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
