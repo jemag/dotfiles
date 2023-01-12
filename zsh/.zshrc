@@ -42,6 +42,8 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="exa -g"
+alias zl="zellij"
+alias zla="zellij attach"
 alias sue="sudoedit"
 alias grep="grep --color"
 alias tp="tmuxinator-fzf-start.sh"
@@ -92,6 +94,7 @@ bindkey '^[t' tmuxpopup
 ##########
 # generic options
 ##########
+KEYTIMEOUT=10
 HISTFILE=~/.zsh/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
