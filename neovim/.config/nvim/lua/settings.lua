@@ -16,6 +16,7 @@ vim.opt.textwidth = 0
 vim.opt.wrap = false
 vim.opt.virtualedit = { "all"}
 vim.opt.mouse = "a"
+vim.opt.mousemodel = "extend"
 vim.opt.laststatus = 3
 vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 -- vim.opt.grepprg = "rg --vimgrep --no-heading --hidden --smart-case --ignore-file ~/dotfiles/fzf-ignore"
