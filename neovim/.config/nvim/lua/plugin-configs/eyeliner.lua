@@ -1,5 +1,6 @@
 require("eyeliner").setup({
   highlight_on_key = true,
+  debug = false,
 })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
