@@ -24,6 +24,12 @@ require("lazy").setup({
     end,
   },
   {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      require("plugin-configs.statuscol")
+    end,
+  },
+  {
     url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
     config = function()
       require("pqf").setup()
