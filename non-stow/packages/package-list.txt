@@ -1,4 +1,4 @@
-alacritty-git
+alacritty
 alsa-plugins
 alsa-utils
 anki-bin
@@ -16,6 +16,9 @@ binutils
 bison
 bitwarden
 bitwarden-cli
+blueman
+bluez
+bluez-utils
 bottles
 bottom
 brave-bin
@@ -43,7 +46,6 @@ duf
 dunst
 dust
 eclipse-mat
-editorconfig-checker
 edk2-ovmf
 efm-langserver
 egl-wayland
@@ -103,7 +105,7 @@ hdparm
 helm
 htop
 httpie
-i3-gaps
+i3-wm
 i3lock
 imagemagick
 imagewriter
@@ -217,6 +219,8 @@ pavucontrol
 pcmanfm-gtk3
 pebbles-git
 picom
+pipewire-alsa
+pipewire-pulse
 pkgconf
 playerctl
 polybar
@@ -225,8 +229,6 @@ postgresql
 prettier
 procs-bin
 protonup-qt
-pulseaudio
-pulseaudio-alsa
 pulsemixer
 python-black
 python-pip
@@ -355,5 +357,6 @@ yay
 yq
 zathura
 zathura-pdf-mupdf
+zellij
 zoxide
 zsh

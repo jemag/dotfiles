@@ -2,6 +2,7 @@ local tools = {
   "bash-language-server",
   "angular-language-server",
   "ansible-language-server",
+  "editorconfig-checker",
   "pyright",
   "terraform-ls",
   "json-lsp",

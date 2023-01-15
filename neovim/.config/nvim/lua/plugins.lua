@@ -24,6 +24,12 @@ require("lazy").setup({
     end,
   },
   {
+    "luukvbaal/statuscol.nvim",
+    config = function()
+      require("plugin-configs.statuscol")
+    end,
+  },
+  {
     url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
     config = function()
       require("pqf").setup()
@@ -168,6 +174,7 @@ require("lazy").setup({
   },
   {
     "folke/todo-comments.nvim",
+    lazy = false,
     config = function()
       require("plugin-configs.todo-comments")
     end,
@@ -260,9 +267,7 @@ require("lazy").setup({
     end,
   },
   {
-    "jemag/eyeliner.nvim",
-    branch = "fix-lazy-plugin-initialization",
-    lazy = false,
+    "jinh0/eyeliner.nvim",
     config = function()
       require("plugin-configs.eyeliner")
     end,
@@ -284,9 +289,9 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.vim-bookmarks")
     end,
-    init = function ()
+    init = function()
       vim.g.bookmark_no_default_key_mappings = 1
-    end
+    end,
   },
   {
     "tom-anders/telescope-vim-bookmarks.nvim",
@@ -334,7 +339,7 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   {
-    "p00f/nvim-ts-rainbow",
+    "mrjones2014/nvim-ts-rainbow",
   },
   {
     "hoob3rt/lualine.nvim",
@@ -705,6 +710,10 @@ require("lazy").setup({
   {
     "honza/dockerfile.vim",
     ft = { "Dockerfile" },
+  },
+  {
+    "imsnif/kdl.vim",
+    ft = { "kdl" },
   },
   {
     "mustache/vim-mustache-handlebars",
