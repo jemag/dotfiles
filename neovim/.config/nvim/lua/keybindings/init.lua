@@ -26,7 +26,7 @@ vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true, desc = "Increment" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
-vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<return><esc>",
+vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<cr><esc>",
   { noremap = true, silent = true, desc = "Remove highlight or escape" })
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, desc = "Escape" })
 
