@@ -37,19 +37,9 @@ if [ -n "$SELECTED_PROJECTS" ]; then
     # Set the IFS to \n to iterate over \n delimited projects
     IFS=$'\n'
 
-    # Start each project without attaching
+    # Start only the first project and attach directly
     for PROJECT in $SELECTED_PROJECTS; do
-        tmuxinator start "$PROJECT" --no-attach # force disable attaching
+        tmuxinator start "$PROJECT" 
     done
-
-    # If inside tmux then select session to switch, otherwise just attach
-    if [ -n "$TMUX" ]; then
-        SESSION=$(tmux list-sessions -F "#S" | fzf-tmux-popup --prompt="Session: " --reverse --height 50%)
-        if [ -n "$SESSION" ]; then
-            tmux switch-client -t "$SESSION"
-        fi
-    else
-        tmux attach-session
-    fi
 fi
 
