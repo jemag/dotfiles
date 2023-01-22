@@ -414,6 +414,9 @@ require("lazy").setup({
     version = "v0.0.7",
   },
   {
+    "AlexvZyl/nordic.nvim",
+  },
+  {
     "sam4llis/nvim-tundra",
   },
   {

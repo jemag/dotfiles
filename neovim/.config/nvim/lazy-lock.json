@@ -76,6 +76,7 @@
   "nisha-vim": { "branch": "master", "commit": "63cbecf49c09c6fc532f25b9e67db9176eaa15b7" },
   "noctis.nvim": { "branch": "main", "commit": "0b9336e39c686a7e58de06e4dd38c2bd862a7b33" },
   "nord.nvim": { "branch": "master", "commit": "9824b8511dcb7d89de628d7e9bab5fa65c9d59d1" },
+  "nordic.nvim": { "branch": "main", "commit": "4b0730c9fc4dff304f03dae39724274645f0f03e" },
   "nui.nvim": { "branch": "main", "commit": "b99e6cb13dc51768abc1c4c8585045a0c0459ef1" },
   "null-ls.nvim": { "branch": "main", "commit": "33cfeb7a761f08e8535dca722d4b237cabadd371" },
   "nvim-FeMaco.lua": { "branch": "main", "commit": "469465fc1adf8bddc2c9bbe549d38304de95e9f7" },
