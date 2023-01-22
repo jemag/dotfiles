@@ -406,6 +406,14 @@ require("lazy").setup({
     },
   },
   {
+    "uloco/bluloco.nvim",
+    dependencies = { 'rktjmp/lush.nvim'}
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    version = "v0.0.7",
+  },
+  {
     "sam4llis/nvim-tundra",
   },
   {
