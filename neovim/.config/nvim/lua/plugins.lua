@@ -300,12 +300,6 @@ require("lazy").setup({
     end,
   },
   {
-    "editorconfig/editorconfig-vim",
-    config = function()
-      require("plugin-configs.editorconfig-vim")
-    end,
-  },
-  {
     "glacambre/firenvim",
     build = function()
       vim.fn["firenvim#install"](0)
