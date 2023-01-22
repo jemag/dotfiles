@@ -342,6 +342,9 @@ require("lazy").setup({
     "mrjones2014/nvim-ts-rainbow",
   },
   {
+    "Isrothy/lualine-diagnostic-message",
+  },
+  {
     "hoob3rt/lualine.nvim",
     config = function()
       require("plugin-configs.lualine")

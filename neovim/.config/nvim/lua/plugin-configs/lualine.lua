@@ -27,6 +27,7 @@ require("lualine").setup({
     lualine_b = { "branch" },
     lualine_c = {
       { gps.get_location, condition = gps.is_available },
+      { "diagnostic-message"}
     },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = { "diff" },
