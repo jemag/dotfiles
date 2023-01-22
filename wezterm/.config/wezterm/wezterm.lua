@@ -10,6 +10,28 @@ return {
     "FiraCode Nerd Font",
     "JetBrains Mono",
   }),
+  font_rules = {
+    {
+      intensity = "Normal",
+      italic = false,
+      font = wezterm.font("FiraCode Nerd Font"),
+    },
+    {
+      intensity = "Bold",
+      italic = false,
+      font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
+    },
+    {
+      intensity = "Bold",
+      italics = true,
+      font = wezterm.font("VictorMono Nerd Font", { weight = "Bold", italic = true }),
+    },
+    {
+      intensity = "Normal",
+      italics = true,
+      font = wezterm.font("VictorMono Nerd Font", { italic = true }),
+    },
+  },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
   font_size = 10.0, -- [12.0]
 
@@ -96,8 +118,7 @@ return {
     { key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
     { key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
     { key = "T", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-    { key = "U", mods = "CTRL",
-      action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }) },
+    { key = "U", mods = "CTRL", action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }) },
     {
       key = "U",
       mods = "SHIFT|CTRL",
