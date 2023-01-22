@@ -460,7 +460,7 @@ require("lazy").setup({
   { "romgrk/doom-one.vim" },
   { "habamax/vim-gruvbit" },
   { "kyazdani42/blue-moon" },
-  { "drewtempelmeyer/palenight.vim" },
+  { "JoosepAlviste/palenightfall.nvim" },
   { "heraldofsolace/nisha-vim" },
   { "gruvbox-community/gruvbox" },
   { "shaunsingh/nord.nvim" },
