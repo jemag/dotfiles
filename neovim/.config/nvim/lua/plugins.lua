@@ -285,6 +285,12 @@ require("lazy").setup({
     end,
   },
   {
+    "LeonHeidelbach/trailblazer.nvim",
+    config = function()
+      require("plugin-configs.trailblazer")
+    end,
+  },
+  {
     "MattesGroeger/vim-bookmarks",
     config = function()
       require("plugin-configs.vim-bookmarks")

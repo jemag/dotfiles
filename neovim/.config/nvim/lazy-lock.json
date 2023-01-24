@@ -143,6 +143,7 @@
   "tint.nvim": { "branch": "master", "commit": "f6a259861ba8c0d88afc2ef05140ddf345eb0296" },
   "todo-comments.nvim": { "branch": "main", "commit": "077c59586d9d0726b0696dc5680eb863f4e04bc5" },
   "tokyonight.nvim": { "branch": "main", "commit": "4071f7fa984859c5de7a1fd27069b99c3a0d802a" },
+  "trailblazer.nvim": { "branch": "main", "commit": "9b8252e56d96c7a13d91dc2bdb21c78ca1a3c61b" },
   "undotree": { "branch": "master", "commit": "1a23ea84bd02c34f50d8e10a8b4bfc89597ffe4e" },
   "vim-asterisk": { "branch": "master", "commit": "77e97061d6691637a034258cc415d98670698459" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
