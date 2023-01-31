@@ -285,6 +285,12 @@ require("lazy").setup({
     end,
   },
   {
+    "kwakzalver/duckytype.nvim",
+    config = function()
+      require('duckytype').setup{}
+    end,
+  },
+  {
     "LeonHeidelbach/trailblazer.nvim",
     config = function()
       require("plugin-configs.trailblazer")
@@ -536,14 +542,7 @@ require("lazy").setup({
      Search Plugins
     ####################### ]]
   {
-    "junegunn/fzf",
-    build = "./install --all",
-  },
-  {
     "junegunn/fzf.vim",
-    dependencies = {
-      { "junegunn/fzf" },
-    },
     config = function()
       vim.cmd("source ~/.config/nvim/plugin-configs/fzf.vim")
     end,

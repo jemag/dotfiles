@@ -34,6 +34,7 @@ require("trailblazer").setup(
           track_back = "<A-b>",
           peek_move_next_down = "<A-n>",
           peek_move_previous_up = "<A-p>",
+          toggle_trail_mark_list = "<A-m>",
         },
         actions = {
           delete_all_trail_marks = "<A-d>",
@@ -52,8 +53,13 @@ require("trailblazer").setup(
       -- },
     },
     hl_groups = {
-      TrailBlazerTrailMarkNext = {
+      TrailBlazerTrailMark = {
         -- You can add any valid highlight group attribute to this table
+        guifg = "White",
+        guibg = "none",
+        gui = "bold",
+      },
+      TrailBlazerTrailMarkNext = {
         guifg = "Green",
         guibg = "none",
         gui = "bold",
