@@ -4,6 +4,7 @@ local act = wezterm.action
 return {
   -- option	= value	, [default] comment
   warn_about_missing_glyphs = false,
+  window_close_confirmation = 'NeverPrompt',
 
   -- Fonts
   font = wezterm.font_with_fallback({
@@ -23,12 +24,12 @@ return {
     },
     {
       intensity = "Bold",
-      italics = true,
+      italic = true,
       font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = true }),
     },
     {
       intensity = "Normal",
-      italics = true,
+      italic = true,
       font = wezterm.font("JetBrainsMono Nerd Font", { italic = true }),
     },
   },
@@ -209,7 +210,7 @@ return {
         mods = "NONE",
         action = act.Multiple({
           act.CopyMode("ClearPattern"),
-          act.Search({ CaseSensitiveString = "" }),
+          act.Search({ CaseInSensitiveString = "" }),
         }),
       },
       {
@@ -217,7 +218,7 @@ return {
         mods = "SHIFT",
         action = act.Multiple({
           act.CopyMode("ClearPattern"),
-          act.Search({ CaseSensitiveString = "" }),
+          act.Search({ CaseInSensitiveString = "" }),
         }),
       },
       { key = ";", mods = "NONE", action = act.CopyMode("JumpAgain") },
