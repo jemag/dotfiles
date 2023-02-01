@@ -35,6 +35,9 @@ return {
           "clear",
         },
       },
+      workspace = {
+        checkThirdParty = false,
+      }
     },
   },
   capabilities = require("lsp.handlers").capabilities,
