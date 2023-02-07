@@ -262,6 +262,8 @@ return {
       { key = "b", mods = "CTRL", action = act.CopyMode("PageUp") },
       { key = "c", mods = "CTRL", action = act.CopyMode("Close") },
       { key = "d", mods = "CTRL", action = act.CopyMode("PageDown") },
+      { key = "e", mods = "NONE", action = act.CopyMode("MoveForwardWordEnd") },
+      { key = "e", mods = "SHIFT", action = act.CopyMode("MoveForwardWordEnd") },
       { key = "f", mods = "NONE", action = act.CopyMode({ JumpForward = { prev_char = false } }) },
       { key = "f", mods = "CTRL", action = act.CopyMode("PageDown") },
       { key = "g", mods = "NONE", action = act.CopyMode("MoveToScrollbackTop") },
