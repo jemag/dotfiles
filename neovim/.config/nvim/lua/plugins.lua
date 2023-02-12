@@ -293,7 +293,7 @@ require("lazy").setup({
   {
     "kwakzalver/duckytype.nvim",
     config = function()
-      require('duckytype').setup{}
+      require("duckytype").setup({})
     end,
   },
   {
@@ -367,6 +367,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.murmur")
     end,
+    commit = "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e"
   },
   { "tweekmonster/startuptime.vim" },
   {
