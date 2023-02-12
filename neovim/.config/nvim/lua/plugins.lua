@@ -426,7 +426,7 @@ require("lazy").setup({
   },
   {
     "uloco/bluloco.nvim",
-    dependencies = { 'rktjmp/lush.nvim'}
+    dependencies = { "rktjmp/lush.nvim" },
   },
   {
     "projekt0n/github-nvim-theme",
@@ -444,9 +444,6 @@ require("lazy").setup({
   },
   {
     "rebelot/kanagawa.nvim",
-  },
-  {
-    "rmehri01/onenord.nvim",
   },
   {
     "martinsione/darkplus.nvim",
