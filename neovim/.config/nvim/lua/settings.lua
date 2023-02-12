@@ -17,7 +17,7 @@ vim.opt.wildmode = "full"
 vim.opt.inccommand = "split"
 vim.opt.textwidth = 0
 vim.opt.wrap = false
-vim.opt.virtualedit = { "all"}
+vim.opt.virtualedit = { "none"}
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "extend"
 vim.opt.laststatus = 3
@@ -126,13 +126,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- FIXME: waiting for vim to fix testyankpost with virtualedit all 
--- vim.api.nvim_create_autocmd({ "TextYankPost" }, {
---   pattern = "*",
---   callback = function()
---     vim.highlight.on_yank({ higroup = "Substitute", on_visual = true, timeout = 300 })
---   end,
---   desc = "Highlight yanked text",
--- })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Substitute", on_visual = true, timeout = 300 })
+  end,
+  desc = "Highlight yanked text",
+})
 
 -- Set cmdheight=1 when recording macro
 -- vim.api.nvim_create_autocmd('RecordingEnter', {
