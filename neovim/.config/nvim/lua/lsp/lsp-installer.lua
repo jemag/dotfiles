@@ -67,9 +67,9 @@ local function setup_servers()
       local ansiblels_opts = require("lsp.configs.ansiblels")
       opts = vim.tbl_deep_extend("force", ansiblels_opts, opts)
     end
-    if name == "sumneko_lua" then
+    if name == "lua_ls" then
       -- Don't extend default opts because of the lua-dev setup
-      opts = require("lsp.configs.sumneko_lua")
+      opts = require("lsp.configs.lua_ls")
     end
 
     lspconfig[name].setup(opts)
