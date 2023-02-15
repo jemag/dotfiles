@@ -1,6 +1,16 @@
 local highlights = require("neo-tree.ui.highlights")
 
 require("neo-tree").setup({
+  event_handlers = {
+    {
+      event = "neo_tree_buffer_enter",
+      handler = function(arg)
+        vim.cmd([[
+          setlocal relativenumber
+        ]])
+      end,
+    },
+  },
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
   enable_git_status = true,
