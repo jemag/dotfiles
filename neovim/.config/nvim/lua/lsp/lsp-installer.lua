@@ -52,6 +52,10 @@ local function setup_servers()
       local jsonls_opts = require("lsp.configs.jsonls")
       opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     end
+    if name == "jsonnet_ls" then
+      local jsonnetls_opts = require("lsp.configs.jsonnnetls")
+      opts = vim.tbl_deep_extend("force", jsonnetls_opts, opts)
+    end
     if name == "yamlls" then
       local yamlls_opts = require("yaml-companion").setup({
         lspconfig = {

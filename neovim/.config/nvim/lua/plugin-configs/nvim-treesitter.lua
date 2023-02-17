@@ -124,6 +124,7 @@ require("nvim-treesitter.configs").setup({
     "javascript",
     "jsdoc",
     "json",
+    "jsonnet",
     "json5",
     "jsonc",
     "julia",

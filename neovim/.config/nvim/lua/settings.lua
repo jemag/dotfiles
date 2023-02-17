@@ -125,7 +125,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   desc = "Set format options for all filetypes",
 })
 
--- FIXME: waiting for vim to fix testyankpost with virtualedit all 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   pattern = "*",
   callback = function()
@@ -134,6 +133,17 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   desc = "Highlight yanked text",
 })
 
+local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
+
+vim.api.nvim_create_autocmd(
+    'VimResized',
+    {
+        group = wr_group,
+        pattern = '*',
+        command = 'wincmd =',
+        desc = 'Automatically resize windows when the host window size changes.'
+    }
+)
 -- Set cmdheight=1 when recording macro
 -- vim.api.nvim_create_autocmd('RecordingEnter', {
 --     pattern = '*',
