@@ -138,15 +138,6 @@ require("lazy").setup({
       require("plugin-configs.substitute")
     end,
   },
-  { "milisims/nvim-luaref" },
-  { "nanotee/luv-vimdocs" },
-  {
-    "4513ECHO/vim-readme-viewer",
-    cmd = "PackerReadme",
-    config = function()
-      vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
-    end,
-  },
   {
     "haya14busa/vim-asterisk",
     config = function()
