@@ -274,6 +274,7 @@ require("lazy").setup({
   },
   {
     "jinh0/eyeliner.nvim",
+    commit = "e1df20beed2560914492db95ee7675d44c4ce96f",
     config = function()
       require("plugin-configs.eyeliner")
     end,
@@ -367,7 +368,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.murmur")
     end,
-    commit = "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e"
+    commit = "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e",
   },
   { "tweekmonster/startuptime.vim" },
   {
