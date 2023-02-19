@@ -139,6 +139,7 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("live_grep_args")
 require("telescope").load_extension("aerial")
+require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
@@ -156,7 +157,7 @@ vim.keymap.set("n", "<localleader>s/", "<cmd>Telescope current_buffer_fuzzy_find
 vim.keymap.set("n", "<localleader>s;", "<cmd>Telescope commands<cr>", { desc = "Commands" })
 vim.keymap.set("n", "<localleader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
 vim.keymap.set("n", "<localleader>sb", "<cmd>Telescope buffers<cr>", { desc = "Open buffers" })
-vim.keymap.set("n", "<localleader>sB", "<cmd>Telescope builtin<cr>", { desc = "Telescope builtin" })
+vim.keymap.set("n", "<localleader>sB", "<cmd>Telescope builtin include_extensions=true<cr>", { desc = "Telescope all" })
 vim.keymap.set("n", "<localleader>sc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
 vim.keymap.set("n", "<localleader>sC", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
 vim.keymap.set(
