@@ -48,8 +48,6 @@ vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
 vim.opt.undofile = true
--- TODO: replace with some home directory expansion thing
-vim.opt.undodir = "/home/jemag/.tmp/undo"
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2

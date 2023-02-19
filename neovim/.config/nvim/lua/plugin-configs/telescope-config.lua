@@ -100,6 +100,20 @@ require("telescope").setup({
         yaml = true,
       },
     },
+    undo = {
+      use_delta = true,
+      use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
+      side_by_side = false,
+      diff_context_lines = vim.o.scrolloff,
+      entry_format = "state #$ID, $STAT, $TIME",
+      mappings = {
+        i = {
+          ["<c-y>"] = require("telescope-undo.actions").yank_additions,
+          ["<c-d>"] = require("telescope-undo.actions").yank_deletions,
+          ["<cr>"] = require("telescope-undo.actions").restore,
+        },
+      },
+    },
     media_files = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
@@ -125,6 +139,7 @@ require("telescope").load_extension("fzf")
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("live_grep_args")
 require("telescope").load_extension("aerial")
+require("telescope").load_extension("undo")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
@@ -180,6 +195,7 @@ vim.keymap.set("n", "<localleader>sr", "<cmd>lua require('telescope').extensions
 vim.keymap.set("n", "<localleader>ss", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "LSP symbols" })
 vim.keymap.set("n", "<localleader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Dynamic symbols" })
 vim.keymap.set("n", "<localleader>st", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+vim.keymap.set("n", "<localleader>su", "<cmd>Telescope undo<cr>", { desc = "Undo" })
 vim.keymap.set("n", "<localleader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<localleader>sy", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 vim.keymap.set("n", "<localleader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
