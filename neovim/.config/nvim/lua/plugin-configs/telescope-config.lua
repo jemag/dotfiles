@@ -187,7 +187,7 @@ vim.keymap.set("n", "<localleader>sH", "<cmd>Telescope command_history<cr>", { d
 vim.keymap.set("n", "<localleader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
 vim.keymap.set("n", "<localleader>sl", "<cmd>Telescope loclist<cr>", { desc = "Location list" })
 vim.keymap.set("n", "<localleader>sL", "<cmd>Telescope possession list<cr>", { desc = "Session list" })
-vim.keymap.set("n", "<localleader>sm", "<cmd>Telescope man_pages<cr>", { desc = "Marks" })
+vim.keymap.set("n", "<localleader>sm", "<cmd>Telescope man_pages<cr>", { desc = "Man pages" })
 vim.keymap.set("n", "<localleader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
 vim.keymap.set("n", "<localleader>sp", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 vim.keymap.set("n", "<localleader>sP", "<cmd>Telescope projects<cr>", { desc = "Projects" })
