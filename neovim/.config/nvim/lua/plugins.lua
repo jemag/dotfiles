@@ -411,24 +411,7 @@ require("lazy").setup({
     end,
   },
   {
-    "kartikp10/noctis.nvim",
-    dependencies = {
-      { "rktjmp/lush.nvim" },
-    },
-  },
-  {
-    "uloco/bluloco.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-  },
-  {
-    "projekt0n/github-nvim-theme",
-    version = "v0.0.7",
-  },
-  {
     "AlexvZyl/nordic.nvim",
-  },
-  {
-    "sam4llis/nvim-tundra",
   },
   {
     "pineapplegiant/spaceduck",
@@ -467,12 +450,10 @@ require("lazy").setup({
       { "rktjmp/lush.nvim" },
     },
   },
-  { "aonemd/kuroi.vim" },
   { "romgrk/doom-one.vim" },
   { "habamax/vim-gruvbit" },
   { "kyazdani42/blue-moon" },
   { "JoosepAlviste/palenightfall.nvim" },
-  { "heraldofsolace/nisha-vim" },
   { "gruvbox-community/gruvbox" },
   { "shaunsingh/nord.nvim" },
   { "franbach/miramare" },
