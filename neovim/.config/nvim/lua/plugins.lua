@@ -175,7 +175,7 @@ require("lazy").setup({
   {
     "ethanholz/nvim-lastplace",
     config = function()
-      require("nvim-lastplace").setup({})
+      require("plugin-configs.nvim-lastplace")
     end,
   },
   {
