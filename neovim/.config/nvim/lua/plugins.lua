@@ -551,6 +551,9 @@ require("lazy").setup({
     config = function()
       vim.cmd("source ~/.config/nvim/plugin-configs/fzf.vim")
     end,
+    dependencies = {
+      "junegunn/fzf"
+    },
   },
 
   { "nvim-lua/popup.nvim" },
