@@ -26,6 +26,7 @@ brave-bin
 broot
 btop
 calibre
+chafa
 chatgpt-desktop-bin
 chromium
 chromium-widevine
@@ -135,7 +136,6 @@ lab-bin
 latex2html
 lazydocker
 lazygit
-lens-bin
 lib32-alsa-lib
 lib32-alsa-plugins
 lib32-giflib
