@@ -139,8 +139,6 @@ zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zplugin light zdharma/fast-syntax-highlighting
-# zplugin snippet ~/.config/zsh/plugins/fzf/key-bindings.zsh
-
 
 #########
 # spaceship settings
@@ -238,4 +236,5 @@ source <(kustomize completion zsh)
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+# zplugin load ellie/atuin
 # zprof
