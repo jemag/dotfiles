@@ -17,4 +17,10 @@ function M.map_key(type, key, value)
 	vim.api.nvim_buf_set_keymap(0, type, key, value, { noremap = true, silent = true })
 end
 
+function M.windo_restore_win(windo_str)
+  local cur_win = vim.api.nvim_get_current_win()
+  vim.cmd("windo " .. windo_str)
+  vim.api.nvim_set_current_win(cur_win)
+end
+
 return M

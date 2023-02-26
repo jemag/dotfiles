@@ -135,8 +135,8 @@ vim.keymap.set("n", "\\l", "<Cmd>setlocal list! list?<CR>", {desc= "Toggle 'list
 vim.keymap.set("n", "\\n", "<Cmd>setlocal number! number?<CR>", {desc= "Toggle 'number'" })
 vim.keymap.set("n", "\\r", "<Cmd>setlocal relativenumber! relativenumber?<CR>", {desc= "Toggle 'relativenumber'" })
 vim.keymap.set("n", "\\s", "<Cmd>setlocal spell! spell?<CR>", {desc= "Toggle 'spell'" })
-vim.keymap.set("n", "\\w", "<Cmd>windo set wrap<CR>", {desc= "Set 'wrap'" })
-vim.keymap.set("n", "\\W", "<Cmd>windo set nowrap<CR>", {desc= "Set 'nowrap'" })
+vim.keymap.set("n", "\\w", function() utils.windo_restore_win("set wrap") end, {desc= "Set 'wrap'" })
+vim.keymap.set("n", "\\W", function() utils.windo_restore_win("set nowrap") end, {desc= "Set 'nowrap'" })
 
 
 require("legendary").setup()
