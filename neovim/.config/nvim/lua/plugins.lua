@@ -336,9 +336,6 @@ require("lazy").setup({
     "nvim-treesitter/playground",
   },
   {
-    "michaeljsmith/vim-indent-object",
-  },
-  {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   {
@@ -895,6 +892,12 @@ require("lazy").setup({
     "echasnovski/mini.ai",
     config = function()
       require("plugin-configs.mini-ai")
+    end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    config = function()
+      require("plugin-configs.indentscope")
     end,
   },
   {
