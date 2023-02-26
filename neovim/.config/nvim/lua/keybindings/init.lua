@@ -91,12 +91,14 @@ vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
 
 vim.api.nvim_set_keymap("c", "<esc>", "<c-c>", { noremap = true, desc = "Esc as ctrl-c in command mode" })
 
+vim.api.nvim_set_keymap("n", "<c-w>z", "<c-w>_<c-w>|", { noremap = true, desc = "Zoom current window" })
 vim.api.nvim_set_keymap("t", "<c-h>", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true, desc = "Left pane" })
 vim.api.nvim_set_keymap("t", "<c-l>", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true, desc = "Right pane" })
 vim.api.nvim_set_keymap("t", "<c-k>", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true, desc = "Up pane" })
 vim.api.nvim_set_keymap("t", "<c-j>", [[<C-\><C-n><C-w>j]], { noremap = true, silent = true, desc = "Down pane" })
 vim.api.nvim_set_keymap("t", "<c-o>", [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true, desc = "Normal mode" })
 
+-- NOTE: could use gy, gY, gs, gS, gp gP instead if we want to use y, s, and p with leader
 vim.api.nvim_set_keymap("x", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
 vim.api.nvim_set_keymap("n", "<leader>Y", '"+yg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
