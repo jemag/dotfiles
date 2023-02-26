@@ -52,16 +52,14 @@ vim.api.nvim_set_keymap("n", "<Up>", "<cmd>copen<cr>", { noremap = true, silent 
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>cclose<cr>", { noremap = true, silent = true, desc = "Close quickfix" })
 
 vim.api.nvim_set_keymap("i", "<C-u>", "<C-g>u<C-u>", { noremap = true, silent = true, desc = "Delete before cursor" })
-vim.api.nvim_set_keymap("n", "gj", "j", { noremap = true, silent = true, desc = "Normal j" })
-vim.api.nvim_set_keymap("n", "gk", "k", { noremap = true, silent = true, desc = "Normal k" })
-vim.api.nvim_set_keymap("x", "j", "gj", { noremap = true, silent = true, desc = "Visual j" })
-vim.api.nvim_set_keymap("x", "k", "gk", { noremap = true, silent = true, desc = "Visual k" })
-vim.api.nvim_set_keymap("x", "gj", "j", { noremap = true, silent = true, desc = "Normal j" })
-vim.api.nvim_set_keymap("x", "gk", "k", { noremap = true, silent = true, desc = "Normal k" })
+vim.keymap.set({"n", "x"}, "j", [[v:count == 0 ? 'gj' : 'j']], { noremap = true, expr = true, silent = true, desc = "Visual j" })
+vim.keymap.set({"n", "x"}, "k", [[v:count == 0 ? 'gk' : 'k']], { noremap = true, expr = true, silent = true, desc = "Visual k" })
+vim.keymap.set({"n", "x"}, "gj", "j", { noremap = true, silent = true, desc = "Normal j" })
+vim.keymap.set({"n", "x"}, "gk", "k", { noremap = true, silent = true, desc = "Normal k" })
 
-vim.keymap.set("n", "J", "mzJ`z", { desc = "Keep cursor in the same position while joining lines"})
-vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Shift selection down"})
-vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Shift selection up"})
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Keep cursor in the same position while joining lines" })
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv", { desc = "Shift selection down" })
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv", { desc = "Shift selection up" })
 
 vim.api.nvim_set_keymap("x", "<", "<gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
 vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true, desc = "Indent and keep selection" })
