@@ -67,11 +67,20 @@ vim.api.nvim_set_keymap("x", ">", ">gv", { noremap = true, silent = true, desc =
 vim.api.nvim_set_keymap("n", "<c-g>", "1<c-g>", { noremap = true, silent = true, desc = "Full path to current buffer" })
 
 -- refactoring keybinds
-vim.keymap.set( "n", "<leader>rc", "<cmd>let @/='\\<'.expand('<cword>').'\\>'<cr>cgn", { desc = "Cgn current word" })
-vim.keymap.set( "x", "<leader>rc", '"sy:let @/=@s<CR>cgn', { desc = "Cgn current word" })
-vim.keymap.set( "n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace word in file"})
-vim.keymap.set( "x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
+vim.keymap.set("n", "<leader>rc", "<cmd>let @/='\\<'.expand('<cword>').'\\>'<cr>cgn", { desc = "Cgn current word" })
+vim.keymap.set("x", "<leader>rc", '"sy:let @/=@s<CR>cgn', { desc = "Cgn current word" })
+vim.keymap.set("n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace word in file" })
+vim.keymap.set("x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
 
+--  Reselect latest changed, put, or yanked text
+vim.keymap.set("n", "gV", '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, desc = "Visually select changed text" })
+-- Search inside visually highlighted text. Use `silent = false` for it to
+-- make effect immediately.
+vim.keymap.set("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
+-- Search visually selected text (slightly better than builtins in Neovim>=0.8)
+vim.keymap.set("x", "*", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]])
+vim.keymap.set("x", "#", [[y?\V<C-R>=escape(@", '?\')<CR><CR>]])
+-- NOTE: could potentially use 'go' and 'gO' as well if we wanted to keep letter 'o' with leader key for more keybinds
 vim.api.nvim_set_keymap(
   "n",
   "<leader>o",
