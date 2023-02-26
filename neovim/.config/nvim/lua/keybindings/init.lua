@@ -114,7 +114,22 @@ vim.keymap.set({ "n", "x" }, "<leader>nw", "<cmd>e ~/working-memory.md<cr>", { d
 vim.keymap.set("n", "<leader>fb", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format" })
 vim.keymap.set("n", "<leader>wt", "<cmd>tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<localleader>tr", "<cmd>set number! norelativenumber!<cr>", { desc = "Hybrid line numbers" })
+
+-- Toggle options
+vim.keymap.set("n", "\\b", '<Cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<CR>', {desc= "Toggle 'background'" })
+vim.keymap.set("n", "\\c", "<Cmd>setlocal cursorline! cursorline?<CR>", { desc= "Toggle 'cursorline'" })
+vim.keymap.set("n", "\\C", "<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>", {desc= "Toggle 'cursorcolumn'" })
 vim.keymap.set("n", "\\d", function() print(toggle_diagnostic())end, {desc= "Toggle diagnostic" })
+vim.keymap.set("n", "\\h", '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>', {desc= "Toggle search highlight" })
+vim.keymap.set("n", "\\i", "<Cmd>setlocal ignorecase! ignorecase?<CR>", {desc= "Toggle 'ignorecase'" })
+vim.keymap.set("n", "\\l", "<Cmd>setlocal list! list?<CR>", {desc= "Toggle 'list'" })
+vim.keymap.set("n", "\\n", "<Cmd>setlocal number! number?<CR>", {desc= "Toggle 'number'" })
+vim.keymap.set("n", "\\r", "<Cmd>setlocal relativenumber! relativenumber?<CR>", {desc= "Toggle 'relativenumber'" })
+vim.keymap.set("n", "\\s", "<Cmd>setlocal spell! spell?<CR>", {desc= "Toggle 'spell'" })
+vim.keymap.set("n", "\\w", "<Cmd>windo set wrap<CR>", {desc= "Set 'wrap'" })
+vim.keymap.set("n", "\\W", "<Cmd>windo set nowrap<CR>", {desc= "Set 'nowrap'" })
+
+
 require("legendary").setup()
 require("which-key").setup({
   plugins = {
