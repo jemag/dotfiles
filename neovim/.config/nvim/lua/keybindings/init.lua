@@ -1,3 +1,4 @@
+local utils = require("utils")
 local buffer_diagnostic_state ={}
 local toggle_diagnostic = function()
 local buf_id = vim.api.nvim_get_current_buf()
