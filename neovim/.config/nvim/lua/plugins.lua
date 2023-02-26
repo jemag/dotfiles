@@ -350,13 +350,6 @@ require("lazy").setup({
       require("plugin-configs.lualine")
     end,
   },
-  {
-    "nyngwang/murmur.lua",
-    config = function()
-      require("plugin-configs.murmur")
-    end,
-    commit = "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e",
-  },
   { "tweekmonster/startuptime.vim" },
   {
     "windwp/nvim-autopairs",
@@ -892,6 +885,12 @@ require("lazy").setup({
     "echasnovski/mini.ai",
     config = function()
       require("plugin-configs.mini-ai")
+    end,
+  },
+  {
+    "echasnovski/mini.cursorword",
+    config = function()
+      require("plugin-configs.cursorword")
     end,
   },
   {
