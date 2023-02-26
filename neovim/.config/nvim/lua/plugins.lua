@@ -578,6 +578,12 @@ require("lazy").setup({
     end,
   },
   {
+    "ruifm/gitlinker.nvim",
+    config = function()
+      require("plugin-configs.gitlinker")
+    end,
+  },
+  {
     "TimUntersberger/neogit",
     config = function()
       require("plugin-configs.neogit")
