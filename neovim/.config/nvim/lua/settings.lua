@@ -106,6 +106,11 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   desc = "Hide cursorline in inactive window",
 })
 
+vim.opt.cpoptions = vim.opt.cpoptions
+- "a" -- Do not put :read file in alternate file
+- "A" -- Do not put :write file in alternate file
++ ">"
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "*",
   callback = function()
