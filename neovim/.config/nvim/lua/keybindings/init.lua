@@ -1,8 +1,23 @@
+local buffer_diagnostic_state ={}
+local toggle_diagnostic = function()
+local buf_id = vim.api.nvim_get_current_buf()
+  local buf_state = buffer_diagnostic_state[buf_id]
+  if buf_state == nil then buf_state = true end
+
+  if buf_state then
+    vim.diagnostic.disable(buf_id)
+  else
+    vim.diagnostic.enable(buf_id)
+  end
+
+  local new_buf_state = not buf_state
+  buffer_diagnostic_state[buf_id] = new_buf_state
+
+  return new_buf_state and '  diagnostic' or 'nodiagnostic'
+end
 -- More convenient horizontal scrolling
-vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>",
-  { noremap = true, silent = true, desc = "Left scroll" })
-vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>",
-  { noremap = true, silent = true, desc = "Right scroll" })
+vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true, desc = "Left scroll" })
+vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true, desc = "Right scroll" })
 vim.api.nvim_set_keymap(
   "n",
   "zH",
@@ -26,8 +41,7 @@ vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc
 vim.api.nvim_set_keymap("n", "<C-s>", "<C-a>", { noremap = true, silent = true, desc = "Increment" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
-vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<cr><esc>",
-  { noremap = true, silent = true, desc = "Remove highlight or escape" })
+vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<cr><esc>", { noremap = true, silent = true, desc = "Remove highlight or escape" })
 vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, desc = "Escape" })
 
 vim.keymap.set("n", "<c-i>", "<c-i>")
@@ -100,15 +114,7 @@ vim.keymap.set({ "n", "x" }, "<leader>nw", "<cmd>e ~/working-memory.md<cr>", { d
 vim.keymap.set("n", "<leader>fb", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format" })
 vim.keymap.set("n", "<leader>wt", "<cmd>tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<localleader>tr", "<cmd>set number! norelativenumber!<cr>", { desc = "Hybrid line numbers" })
-local diagnostics_active = true
-vim.keymap.set("n", "<localleader>tD", function()
-  if diagnostics_active then
-    vim.diagnostic.disable(0)
-  else
-    vim.diagnostic.enable(0)
-  end
-  diagnostics_active = not diagnostics_active
-end, { desc = "Toggle lsp diagnostics" })
+vim.keymap.set("n", "\\d", function() print(toggle_diagnostic())end, {desc= "Toggle diagnostic" })
 require("legendary").setup()
 require("which-key").setup({
   plugins = {
@@ -203,9 +209,6 @@ local leader_mappings = {
   },
   t = {
     name = "+terminal",
-  },
-  v = {
-    name = "+vifm",
   },
   w = {
     name = "+window",
