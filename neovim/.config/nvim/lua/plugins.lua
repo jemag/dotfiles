@@ -265,7 +265,6 @@ require("lazy").setup({
   },
   {
     "jinh0/eyeliner.nvim",
-    commit = "e1df20beed2560914492db95ee7675d44c4ce96f",
     config = function()
       require("plugin-configs.eyeliner")
     end,
