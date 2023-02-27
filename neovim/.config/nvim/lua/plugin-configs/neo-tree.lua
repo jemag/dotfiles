@@ -89,6 +89,16 @@ require("neo-tree").setup({
       ["d"] = "delete",
       ["r"] = "rename",
       ["y"] = "copy_to_clipboard",
+      ["Y"] = function(state)
+        local node = state.tree:get_node()
+        vim.fn.setreg("+", node.name)
+      end,
+      ["<C-y>"] = function(state)
+        local node = state.tree:get_node()
+        local full_path = node.path
+        local relative_path = full_path:sub(#state.path + 2)
+        vim.fn.setreg("+", relative_path)
+      end,
       ["x"] = "cut_to_clipboard",
       ["X"] = "close_all_nodes",
       ["p"] = "paste_from_clipboard",
