@@ -57,10 +57,7 @@ alias la="ls -la"
 alias lh="ls -lh"
 alias lb="br -dsp"
 alias ta="tmux attach -t"
-alias k="kubectl"
 alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-alias ky="kyverno"
-alias kl="kube-linter"
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
@@ -69,9 +66,6 @@ alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sor
 alias vifm="vifmrun"
 alias g="git"
 alias tmuxa="tmux attach -t"
-alias kcx="kubectx"
-alias kns="kubens"
-alias kbx="kubie ctx"
 alias ..="cd .."
 alias cat="bat"
 alias ac="argocd"
@@ -139,6 +133,7 @@ zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
 zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zplugin light zdharma/fast-syntax-highlighting
+zplugin light johanhaleby/kubetail
 
 #########
 # spaceship settings
@@ -204,6 +199,8 @@ bindkey "^X^E" edit-command-line
 
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
+# Source kubectl aliases
+[ -f ~/.config/zsh/kubectl_aliases.zsh ] && source ~/.config/zsh/kubectl_aliases.zsh
 # Source fzf
 # Requires installation of fzf
 # fzf wiki https://github.com/junegunn/fzf/wiki/examples
