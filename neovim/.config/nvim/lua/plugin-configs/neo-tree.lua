@@ -1,13 +1,43 @@
 local highlights = require("neo-tree.ui.highlights")
-
+local function getTelescopeOpts(state, path)
+  return {
+    cwd = path,
+    search_dirs = { path },
+    attach_mappings = function(prompt_bufnr, map)
+      local actions = require("telescope.actions")
+      actions.select_default:replace(function()
+        actions.close(prompt_bufnr)
+        local action_state = require("telescope.actions.state")
+        local selection = action_state.get_selected_entry()
+        local filename = selection.filename
+        if filename == nil then
+          filename = selection[1]
+        end
+        -- any way to open the file without triggering auto-close event of neo-tree?
+        require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
+      end)
+      return true
+    end,
+  }
+end
 require("neo-tree").setup({
+  source_selector = {
+    winbar = true,
+    statusline = false,
+  },
   event_handlers = {
     {
       event = "neo_tree_buffer_enter",
-      handler = function(arg)
+      handler = function()
         vim.cmd([[
           setlocal relativenumber
         ]])
+      end,
+    },
+    {
+      event = "after_render",
+      handler = function()
+        vim.api.nvim_feedkeys("zz", "n", false)
       end,
     },
   },
@@ -80,7 +110,7 @@ require("neo-tree").setup({
       ["<cr>"] = "open",
       ["<c-x>"] = "split_with_window_picker",
       ["<c-v>"] = "vsplit_with_window_picker",
-      ["t"] = "open_tabnew",
+      ["tn"] = "open_tabnew",
       ["<c-s>"] = "open_with_window_picker",
       ["w"] = "none",
       ["C"] = "close_node",
@@ -109,6 +139,15 @@ require("neo-tree").setup({
       ["/"] = "none",
       ["?"] = "none",
       ["g?"] = "show_help",
+      ["ge"] = function()
+        vim.api.nvim_exec("Neotree focus filesystem left", true)
+      end,
+      ["gb"] = function()
+        vim.api.nvim_exec("Neotree focus buffers left", true)
+      end,
+      ["gg"] = function()
+        vim.api.nvim_exec("Neotree focus git_status left", true)
+      end,
       ["z"] = "none",
     },
   },
@@ -143,6 +182,9 @@ require("neo-tree").setup({
     -- instead of relying on nvim autocmd events.
     window = {
       mappings = {
+        ["tf"] = "telescope_find",
+        ["tg"] = "telescope_grep",
+        ["tr"] = "telescope_rawgrep",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
@@ -150,6 +192,23 @@ require("neo-tree").setup({
         ["f"] = "filter_as_you_type",
         ["<c-f>"] = "clear_filter",
       },
+    },
+    commands = {
+      telescope_find = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+      end,
+      telescope_grep = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
+      end,
+      telescope_rawgrep = function(state)
+        local node = state.tree:get_node()
+        local path = node:get_id()
+        require("telescope").extensions.live_grep_args.live_grep_args(getTelescopeOpts(state, path))
+      end,
     },
   },
   buffers = {
@@ -177,10 +236,8 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set({ "n" }, "<localleader>te", "<cmd>Neotree filesystem show toggle left<cr>", { desc = "Toggle neotree" })
+vim.keymap.set({ "n" }, "<localleader>te", "<cmd>Neotree show toggle left<cr>", { desc = "Toggle neotree" })
+vim.keymap.set({ "n" }, "<localleader>tc", "<cmd>Neotree close<cr>", { desc = "Toggle neotree" })
 vim.keymap.set({ "n" }, "|", "<cmd>Neotree filesystem float reveal toggle<cr>", { desc = "Neotree floating" })
 vim.keymap.set({ "n" }, "<leader>e", "<cmd>Neotree filesystem focus toggle left<cr>", { desc = "Neotree explorer" })
 vim.keymap.set({ "n" }, "<leader>E", "<cmd>Neotree filesystem focus reveal left<cr>", { desc = "Neotree show file" })
-vim.keymap.set("n", "<localleader>gS", "<cmd>Neotree focus toggle git_status float<cr>", { desc = "Neotree status" })
-vim.keymap.set("n", "<localleader>tb", "<cmd>Neotree buffers focus toggle float<cr>", { desc = "Neotree buffers" })
-vim.keymap.set("n", "<localleader>tg", "<cmd>Neotree focus toggle git_status float<cr>", { desc = "Neotree git" })
