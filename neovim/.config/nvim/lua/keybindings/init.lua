@@ -73,6 +73,9 @@ vim.keymap.set("x", "<leader>rc", '"sy:let @/=@s<CR>cgn', { desc = "Cgn current 
 vim.keymap.set("n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace word in file" })
 vim.keymap.set("x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
 
+
+vim.keymap.set("n", ")", "]", { remap = true, desc = "Remap opening parenthesis to bracket" })
+vim.keymap.set("n", "(", "[", { remap = true, desc = "Remap closing parenthesis to bracket" })
 --  Reselect latest changed, put, or yanked text
 vim.keymap.set("n", "gV", '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, desc = "Visually select changed text" })
 -- Search inside visually highlighted text. Use `silent = false` for it to

@@ -900,6 +900,12 @@ require("lazy").setup({
     end,
   },
   {
+    "echasnovski/mini.bracketed",
+    config = function()
+      require("plugin-configs.bracketed")
+    end,
+  },
+  {
     "kylechui/nvim-surround",
     config = function()
       require("plugin-configs.nvim-surround")
