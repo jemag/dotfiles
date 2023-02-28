@@ -63,6 +63,15 @@ local function close_window()
     local window = require('window-picker').pick_window()
     vim.api.nvim_win_close(window, false)
 end
+local function swap_window()
+    local picked_window = require('window-picker').pick_window()
+    local picked_buffer = vim.api.nvim_win_get_buf(picked_window)
+    local current_buffer =vim.api.nvim_get_current_buf()
+    local current_window = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_buf(picked_window, current_buffer)
+    vim.api.nvim_win_set_buf(current_window, picked_buffer)
+end
 
-vim.keymap.set('n', '<c-w><c-s>', switch_window, {desc= "Switch window by id"})
+vim.keymap.set('n', '<c-w><c-s>', swap_window, {desc= "Swap window by id"})
+vim.keymap.set('n', '<c-w><c-m>', switch_window, {desc= "Move to window by id"})
 vim.keymap.set('n', '<c-w><c-q>', close_window, {desc= "Close window by id"})
