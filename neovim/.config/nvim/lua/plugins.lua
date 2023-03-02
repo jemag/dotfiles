@@ -394,6 +394,14 @@ require("lazy").setup({
 
   -- Themes
   {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup({
+        filter = "octagon",
+      })
+    end
+  },
+  {
     "levouh/tint.nvim",
     config = function()
       require("plugin-configs.tint")
@@ -529,6 +537,7 @@ require("lazy").setup({
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "tsakirist/telescope-lazy.nvim" },
       { "debugloop/telescope-undo.nvim" },
+      { "molecule-man/telescope-menufacture" },
     },
   },
 

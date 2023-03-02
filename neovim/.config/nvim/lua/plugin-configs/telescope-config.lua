@@ -141,6 +141,7 @@ require("telescope").load_extension("live_grep_args")
 require("telescope").load_extension("aerial")
 require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
+require("telescope").load_extension("menufacture")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
@@ -168,14 +169,14 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<localleader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
 vim.keymap.set("n", "<localleader>se", "<cmd>Telescope colorscheme<cr>", { desc = "Colorschemes" })
-vim.keymap.set("n", "<localleader>sf", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Files" })
+vim.keymap.set("n", "<localleader>sf", require('telescope').extensions.menufacture.find_files, { desc = "Files" })
 vim.keymap.set(
   "n",
   "<localleader>sF",
   "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
   { desc = "Files, include ignored" }
 )
-vim.keymap.set("n", "<localleader>sg", "<cmd>lua require('telescope.builtin').grep_string({search=''})<cr>", { desc = "Grep string" })
+vim.keymap.set("n", "<localleader>sg", require('telescope').extensions.menufacture.grep_string, { desc = "Grep string" })
 vim.keymap.set("n", "<localleader>sG", "<cmd>Telescope git_status<cr>", { desc = "Modified git files" })
 vim.keymap.set(
   "n",
@@ -195,7 +196,7 @@ vim.keymap.set("n", "<localleader>sq", "<cmd>Telescope quickfix<cr>", { desc = "
 vim.keymap.set("n", "<localleader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
 vim.keymap.set("n", "<localleader>ss", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "LSP symbols" })
 vim.keymap.set("n", "<localleader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Dynamic symbols" })
-vim.keymap.set("n", "<localleader>st", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+vim.keymap.set("n", "<localleader>st", require('telescope').extensions.menufacture.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<localleader>su", "<cmd>Telescope undo<cr>", { desc = "Undo" })
 vim.keymap.set("n", "<localleader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<localleader>sy", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
