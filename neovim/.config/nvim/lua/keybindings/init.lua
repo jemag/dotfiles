@@ -264,6 +264,9 @@ local local_leader_mappings = {
   },
   s = {
     name = "+search",
+    g = {
+      name = "+git",
+    },
   },
   t = {
     name = "+toggle",

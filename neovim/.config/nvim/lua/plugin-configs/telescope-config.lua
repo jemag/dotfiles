@@ -142,6 +142,7 @@ require("telescope").load_extension("aerial")
 require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
+require("telescope").load_extension("advanced_git_search")
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
@@ -159,8 +160,14 @@ vim.keymap.set("n", "<localleader>s;", "<cmd>Telescope commands<cr>", { desc = "
 vim.keymap.set("n", "<localleader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
 vim.keymap.set("n", "<localleader>sb", "<cmd>Telescope buffers<cr>", { desc = "Open buffers" })
 vim.keymap.set("n", "<localleader>sB", "<cmd>Telescope builtin include_extensions=true<cr>", { desc = "Telescope all" })
-vim.keymap.set("n", "<localleader>sc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
-vim.keymap.set("n", "<localleader>sC", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
+-- TODO: add advanced_git_search, use 'sg' prefix for anything git related?
+vim.keymap.set("n", "<localleader>sgb", require('telescope').extensions.advanced_git_search.diff_commit_file, { desc = "Buffer diff" })
+vim.keymap.set("n", "<localleader>sgl", require('telescope').extensions.advanced_git_search.diff_commit_line, { desc = "Buffer line diff" })
+vim.keymap.set("n", "<localleader>sgi", require('telescope').extensions.advanced_git_search.search_log_content, { desc = "Search inside commit contents" })
+vim.keymap.set("n", "<localleader>sgf", require('telescope').extensions.advanced_git_search.diff_branch_file, { desc = "Branch file" })
+vim.keymap.set("n", "<localleader>sgB", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer checkout" })
+vim.keymap.set("n", "<localleader>sgc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
+vim.keymap.set("n", "<localleader>sgr", require('telescope').extensions.advanced_git_search.checkout_reflog, { desc = "Reflog" })
 vim.keymap.set(
   "n",
   "<localleader>sd",
@@ -169,15 +176,15 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<localleader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
 vim.keymap.set("n", "<localleader>se", "<cmd>Telescope colorscheme<cr>", { desc = "Colorschemes" })
-vim.keymap.set("n", "<localleader>sf", require('telescope').extensions.menufacture.find_files, { desc = "Files" })
+vim.keymap.set("n", "<localleader>sf", function() require('telescope').extensions.menufacture.find_files({hidden=true}) end, { desc = "Files" })
 vim.keymap.set(
   "n",
   "<localleader>sF",
   "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
   { desc = "Files, include ignored" }
 )
-vim.keymap.set("n", "<localleader>sg", require('telescope').extensions.menufacture.grep_string, { desc = "Grep string" })
-vim.keymap.set("n", "<localleader>sG", "<cmd>Telescope git_status<cr>", { desc = "Modified git files" })
+vim.keymap.set("n", "<localleader>sc", require('telescope').extensions.menufacture.grep_string, { desc = "Grep cursor word" })
+vim.keymap.set("n", "<localleader>sgs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
 vim.keymap.set(
   "n",
   "<localleader>sh",
