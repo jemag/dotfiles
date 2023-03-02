@@ -16,7 +16,8 @@ vim.keymap.set("n", "<C-Up>", require("smart-splits").resize_up, { desc = "Resiz
 vim.keymap.set("n", "<C-Right>", require("smart-splits").resize_right, { desc = "Resize right" })
 -- swapping buffers between windows
 -- TODO: Use hydra mode instead to not have to redo c-w each time?
-vim.keymap.set('n', '<C-w>H', require('smart-splits').swap_buf_left, { desc = "Swap with left window"})
-vim.keymap.set('n', '<C-w>J', require('smart-splits').swap_buf_down, { desc = "Swap with window under"})
-vim.keymap.set('n', '<C-w>K', require('smart-splits').swap_buf_up, { desc = "Swap with window above"})
-vim.keymap.set('n', '<C-w>L', require('smart-splits').swap_buf_right, { desc = "Swap with right window"})
+-- TODO: Does not work currently to switch a window from horizontal split to vertical split, like original vim keybinds
+-- vim.keymap.set('n', '<C-w>H', require('smart-splits').swap_buf_left, { desc = "Swap with left window"})
+-- vim.keymap.set('n', '<C-w>J', require('smart-splits').swap_buf_down, { desc = "Swap with window under"})
+-- vim.keymap.set('n', '<C-w>K', require('smart-splits').swap_buf_up, { desc = "Swap with window above"})
+-- vim.keymap.set('n', '<C-w>L', require('smart-splits').swap_buf_right, { desc = "Swap with right window"})
