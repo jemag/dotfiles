@@ -145,7 +145,7 @@ require("neo-tree").setup({
       ["gb"] = function()
         vim.api.nvim_exec("Neotree focus buffers left", true)
       end,
-      ["gg"] = function()
+      ["gs"] = function()
         vim.api.nvim_exec("Neotree focus git_status left", true)
       end,
       ["z"] = "none",
