@@ -7,8 +7,3 @@ require("statuscol").setup({
 -- vim.o.statuscolumn = "%@v:lua.ScFa@%C%T%@v:lua.ScSa@%s%T%@v:lua.ScLa@%{%v:lua.ScLn()%}%{v:lua.ScSp()}%T"
 -- statuscolumn=%@v:lua.ScFa@%C%T%@v:lua.ScSa@%s%T%@v:lua.ScLa@%{%v:lua.ScLn()%}%{v:lua.ScSp()}%T
 -- statuscolumn=%@v:lua.ScFa@%C%T%@v:lua.ScLa@%s%T@v:lua.ScNa@%=%{v:lua.ScLn()}%T
-vim.api.nvim_create_autocmd("CmdwinEnter", {
-  pattern = "*",
-  command = "setlocal statuscolumn=",
-  desc = "Disable statuscol in command-line window",
-})
