@@ -24,11 +24,22 @@ local signature_cfg = {
   -- decorator = {"`", "`"}  -- this is no longer needed as nvim give me a handler and it allow me to highlight active parameter in floating_window
 }
 
+local function peek_definition()
+  local params = vim.lsp.util.make_position_params()
+  return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result)
+    if result == nil or vim.tbl_isempty(result) then
+      return nil
+    end
+    vim.lsp.util.preview_location(result[1])
+  end)
+end
+
 local function map_keys(bufnr)
   -- local opts = { noremap = true, silent = true }
   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Declaration", buffer = bufnr })
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Definition", buffer = bufnr })
   vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lp", peek_definition, { desc = "Peek definition", buffer = bufnr })
   vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", buffer = bufnr })
   vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",
     { desc = "Signature help", buffer = bufnr })
