@@ -688,7 +688,6 @@ require("lazy").setup({
   { "folke/lua-dev.nvim" },
   {
     "L3MON4D3/LuaSnip",
-    commit = "f7c845749aba6096f041a73a26ba64f3817bab99",
     config = function()
       require("plugin-configs.luasnip")
     end,
