@@ -188,7 +188,7 @@ require("lazy").setup({
     branch = "main",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "kyazdani42/nvim-web-devicons" }, -- not strictly required, but recommended
+      { "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
       { "MunifTanjim/nui.nvim" },
     },
     config = function()
@@ -470,7 +470,7 @@ require("lazy").setup({
   --[[ #######################
      Interface
     ####################### ]]
-  { "kyazdani42/nvim-web-devicons" },
+  { "nvim-tree/nvim-web-devicons" },
 
   {
     "NvChad/nvim-colorizer.lua",
@@ -611,10 +611,16 @@ require("lazy").setup({
     end,
   },
   {
-    "SmiteshP/nvim-gps",
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
     config = function()
-      require("nvim-gps").setup()
+      require("barbecue").setup()
     end,
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
   },
   {
     "AckslD/nvim-FeMaco.lua",
