@@ -43,7 +43,7 @@ require("neo-tree").setup({
     {
       event = "neo_tree_window_before_open",
       handler = function()
-        require("bufferline.api").set_offset(65, "FileTree")
+        require("bufferline.api").set_offset(65)
       end,
     },
     {
