@@ -1,7 +1,4 @@
-local gps = require("nvim-gps")
 local custom_ayu_mirage = require("lualine.themes.ayu_mirage")
--- Change the background of lualine_c section for normal mode
-custom_ayu_mirage.inactive.c.bg = "#111111"
 
 local function search_cnt()
   local res = vim.fn.searchcount()
@@ -13,25 +10,56 @@ local function search_cnt()
   end
 end
 
+local space = {
+  function()
+    return " "
+  end,
+}
+
+local fileformat = {
+  "fileformat",
+  color = { bg = "#b4befe", fg = "#313244" },
+  separator = { left = "", right = "" },
+}
+
+local modes = {
+  "mode",
+  fmt = function(str)
+    return str:sub(1, 1)
+  end,
+  color = { bg = "#fab387		", fg = "#1e1e2e" },
+  separator = { left = "", right = "" },
+}
+
 require("lualine").setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
     theme = custom_ayu_mirage,
-    component_separators = { "", "" },
-    section_separators = { "", "" },
+    component_separators = { "", "" },
+    section_separators = { "", "" },
     disabled_filetypes = {},
   },
   sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "branch" },
-    lualine_c = {
-      { gps.get_location, condition = gps.is_available },
-      { "diagnostic-message"}
+    lualine_a = { modes },
+    lualine_b = {
+      "branch",
+      "diff",
     },
-    lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_y = { "diff" },
-    lualine_z = { search_cnt, "location", "progress" },
+    lualine_c = {
+      { "diagnostic-message" },
+    },
+    lualine_x = {},
+    lualine_y = {
+      { "encoding", color = { fg = "#5C6773" } },
+      fileformat,
+      { "filetype", color = { fg = "#5C6773" } },
+    },
+    lualine_z = {
+      { "location", separator = { left = "" } },
+      search_cnt,
+      { "progress", separator = { right = "" } },
+    },
   },
   inactive_sections = {
     lualine_a = {},
