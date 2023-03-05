@@ -225,6 +225,7 @@ export FZF_CTRL_T_OPTS="
 export RPS1="$(vi_mode_prompt_info)"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="/home/jemag/.local/share/bob/nvim-bin:$PATH"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
 source <(kubectl completion zsh)
