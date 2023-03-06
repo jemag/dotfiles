@@ -4,10 +4,10 @@ require('smart-splits').setup({
   cursor_follows_swapped_bufs = true,
 })
 -- moving between splits
-vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left, { desc = "Move to left win" })
-vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down, { desc = "Move to win under" })
-vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up, { desc = "Move to win above" })
-vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right, { desc = "Move to right win" })
+vim.keymap.set({"n", "t"}, "<C-h>", require("smart-splits").move_cursor_left, { desc = "Left pane" })
+vim.keymap.set({"n", "t"}, "<C-j>", require("smart-splits").move_cursor_down, { desc = "Down pane" })
+vim.keymap.set({"n", "t"}, "<C-k>", require("smart-splits").move_cursor_up, { desc = "Up pane" })
+vim.keymap.set({"n", "t"}, "<C-l>", require("smart-splits").move_cursor_right, { desc = "Right pane" })
 
 -- resizing splits
 vim.keymap.set("n", "<C-Left>", require("smart-splits").resize_left, { desc = "Resize left" })
