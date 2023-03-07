@@ -57,7 +57,7 @@ alias la="ls -la"
 alias lh="ls -lh"
 alias lb="br -dsp"
 alias ta="tmux attach -t"
-alias tldrf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
@@ -221,6 +221,11 @@ export FZF_CTRL_T_OPTS="
     --height 50% -1 --layout=reverse --multi --inline-info
     --preview 'bat --style=numbers --color=always --line-range :500 {}'
     "
+fzf-dir() {
+  LBUFFER+=${$(fd --type directory --follow --hidden --exclude .git --exclude node_modules | fzf --height ${FZF_TMUX_HEIGHT:-40%})}
+}
+zle     -N    fzf-dir
+bindkey '\ec' fzf-dir
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export RPS1="$(vi_mode_prompt_info)"
 export VOLTA_HOME="$HOME/.volta"
