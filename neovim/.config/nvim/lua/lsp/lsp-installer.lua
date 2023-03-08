@@ -12,7 +12,6 @@ local tools = {
   "clangd",
   "rust-analyzer",
   "solargraph",
-  "tailwindcss-language-server",
   "vim-language-server",
   "dockerfile-language-server",
   "html-lsp",
