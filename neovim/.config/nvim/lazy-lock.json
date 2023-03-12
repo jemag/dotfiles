@@ -20,6 +20,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-rg": { "branch": "master", "commit": "1cad8eb315643d0df13c37401c03d7986f891011" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
+  "codeium.nvim": { "branch": "main", "commit": "bdef6a47c2a7223450b94052d1614ce35a2f355e" },
   "codewindow.nvim": { "branch": "master", "commit": "46b005fc5c40d512a2ec8e55e21b64afa6aaed00" },
   "comment-box.nvim": { "branch": "main", "commit": "379cbe4f22c369393b4f6b6d34fcb557dce9b8dd" },
   "darcula": { "branch": "master", "commit": "faf8dbab27bee0f27e4f1c3ca7e9695af9b1242b" },

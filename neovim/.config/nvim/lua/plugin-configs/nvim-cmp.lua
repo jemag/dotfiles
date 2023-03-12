@@ -16,6 +16,7 @@ local icons = {
   Field = "ﰠ",
   Variable = "",
   Class = "ﴯ",
+  Codeium = "",
   Interface = "",
   Module = "",
   Property = "ﰠ",
@@ -94,6 +95,7 @@ cmp.setup({
     { name = "nvim_lsp", max_item_count = 30 },
     { name = "path" },
     { name = "luasnip" },
+    { name = "codeium" },
     { name = "buffer" },
   },
   formatting = {
