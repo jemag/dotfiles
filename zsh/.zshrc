@@ -230,6 +230,7 @@ export FZF_CTRL_T_OPTS="
     "
 fzf-dir() {
   LBUFFER+=${$(fd --type directory --follow --hidden --exclude .git --exclude node_modules | fzf --height ${FZF_TMUX_HEIGHT:-40%})}
+  zle reset-prompt
 }
 zle     -N    fzf-dir
 bindkey '\ec' fzf-dir
