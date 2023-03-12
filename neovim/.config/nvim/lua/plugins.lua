@@ -402,6 +402,9 @@ require("lazy").setup({
     end
   },
   {
+    "NTBBloodbath/sweetie.nvim",
+  },
+  {
     "levouh/tint.nvim",
     config = function()
       require("plugin-configs.tint")
@@ -804,6 +807,7 @@ require("lazy").setup({
   },
   {
     "stevearc/stickybuf.nvim",
+    lazy = false,
     config = function()
       require("plugin-configs.stickybuf")
     end,
