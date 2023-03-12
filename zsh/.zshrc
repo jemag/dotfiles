@@ -69,7 +69,8 @@ alias tmuxa="tmux attach -t"
 alias ..="cd .."
 alias cat="bat"
 alias ac="argocd"
-alias d="devour"
+alias d="dirs -v | fzf"
+alias dk="dirs -c"
 alias tg="terragrunt"
 alias cd="z"
 alias ku="kustomize"
@@ -108,6 +109,12 @@ setopt NO_HUP											# don't kill jobs
 setopt NO_CHECK_JOBS
 setopt autocd
 setopt IGNOREEOF
+setopt AUTO_PUSHD
+setopt PUSHD_TO_HOME
+setopt PUSHD_SILENT
+setopt PUSHD_IGNORE_DUPS
+# setopt PUSHD_MINUS
+setopt CDABLE_VARS 
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 unsetopt BEEP
 # Include hidden files in autocomplete:
