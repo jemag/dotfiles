@@ -123,6 +123,7 @@ require("neo-tree").setup({
       ["<c-x>"] = "split_with_window_picker",
       ["<c-v>"] = "vsplit_with_window_picker",
       ["tn"] = "open_tabnew",
+      ["t"] = "none",
       ["<c-s>"] = "open_with_window_picker",
       ["w"] = "none",
       ["C"] = "close_node",
