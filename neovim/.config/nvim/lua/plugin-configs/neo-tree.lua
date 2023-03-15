@@ -40,18 +40,6 @@ require("neo-tree").setup({
         vim.api.nvim_feedkeys("zz", "n", false)
       end,
     },
-    {
-      event = "neo_tree_window_before_open",
-      handler = function()
-        require("bufferline.api").set_offset(65)
-      end,
-    },
-    {
-      event = "neo_tree_window_before_close",
-      handler = function()
-        require("bufferline.api").set_offset(0)
-      end,
-    },
   },
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
