@@ -32,6 +32,7 @@ require("telescope").setup({
       horizontal = {
         mirror = false,
         width = 0.95,
+        preview_width = 0.5,
       },
       vertical = {
         mirror = false,
@@ -143,6 +144,8 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
+
+vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
 vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
 vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
