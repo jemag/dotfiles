@@ -51,7 +51,7 @@
   "jsonpath.nvim": { "branch": "main", "commit": "d52d1c1cdbcb268cbf4b101bb400eba19ca918c5" },
   "kanagawa.nvim": { "branch": "master", "commit": "3579d55c47366a536e07cf83df397a9f5f806813" },
   "kdl.vim": { "branch": "main", "commit": "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" },
-  "lazy.nvim": { "branch": "main", "commit": "5b4444f0d7e556deba3f7ca949a2ba0e2c3369fb" },
+  "lazy.nvim": { "branch": "main", "commit": "fdb41229ca39cf2795cbf4e6d04a52b73e6225f5" },
   "legendary.nvim": { "branch": "master", "commit": "9e38951df410c6d65fa2b932832d201d7cd6ca62" },
   "live-command.nvim": { "branch": "main", "commit": "ce4b104ce702c7bb9fdff863059af6d47107ca61" },
   "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },

@@ -15,3 +15,5 @@ node_modules/
 **/packer_compiled.vim
 **/packer_compiled.lua
 tmux-client-*.log
+kubie/.kube/cache
+kubie/.kube/config

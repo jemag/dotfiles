@@ -34,6 +34,7 @@ local tools = {
   "iferr",
   "impl",
   "marksman",
+  "prettier"
 }
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
