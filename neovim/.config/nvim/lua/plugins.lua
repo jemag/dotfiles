@@ -483,12 +483,6 @@ require("lazy").setup({
   },
 
   {
-    "ludovicchabant/vim-gutentags",
-    config = function()
-      require("plugin-configs.vim-gutentags")
-    end,
-  },
-  {
     "jedrzejboczar/possession.nvim",
     config = function()
       require("plugin-configs.possession")
