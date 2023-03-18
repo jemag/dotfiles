@@ -1,8 +1,10 @@
 # zmodload zsh/zprof
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
-source '/home/jemag/.config/zsh/plugins/zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 # ci"
@@ -35,7 +37,6 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 
 ###########
@@ -121,26 +122,25 @@ unsetopt BEEP
 _comp_options+=(globdots)
 
 ##########
-# zplugins
+# zinits
 ##########
-zplugin ice wait"2" lucid
-zplugin light "hlissner/zsh-autopair"
-zplugin ice wait"2" lucid
-zplugin light "changyuheng/zsh-interactive-cd"
-# zplugin load "denysdovhan/spaceship-prompt"
-zplugin ice wait"0" blockf lucid
-zplugin light "zsh-users/zsh-completions"
-zplugin ice wait'0' atload'_zsh_autosuggest_start' lucid
-zplugin light "zsh-users/zsh-autosuggestions"
-# zplugin load "jeffreytse/zsh-vi-mode"
-# zplugin load "softmoth/zsh-vim-mode"
-zplugin snippet /etc/bash_completion.d/azure-cli
-zplugin snippet OMZ::lib/git.zsh
-zplugin snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit ice wait"2" lucid
+zinit light "hlissner/zsh-autopair"
+zinit ice wait"2" lucid
+zinit light "changyuheng/zsh-interactive-cd"
+# zinit load "denysdovhan/spaceship-prompt"
+zinit ice wait"0" blockf lucid
+zinit light "zsh-users/zsh-completions"
+zinit ice wait'0' atload'_zsh_autosuggest_start' lucid
+zinit light "zsh-users/zsh-autosuggestions"
+# zinit load "jeffreytse/zsh-vi-mode"
+# zinit load "softmoth/zsh-vim-mode"
+zinit snippet OMZ::lib/git.zsh
+zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
-zplugin ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light johanhaleby/kubetail
+zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
+zinit light zdharma/fast-syntax-highlighting
+zinit light johanhaleby/kubetail
 
 #########
 # spaceship settings
