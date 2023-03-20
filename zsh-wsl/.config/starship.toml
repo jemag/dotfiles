@@ -1,0 +1,11 @@
+command_timeout = 1000
+[kubernetes]
+disabled = false
+[terraform]
+disabled = true
+[java]
+disabled = true
+[time]
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = "%T"

@@ -17,3 +17,6 @@ node_modules/
 tmux-client-*.log
 kubie/.kube/cache
 kubie/.kube/config
+kubie/.kube/kubectx
+kubie/.kube/ctx
+kubie/.kube/kubectx
