@@ -15,6 +15,7 @@
 [delta]
   side-by-side = true
   whitespace-error-style = 22 reverse
+  paging = never
 [delta "decorations"]
   commit-decoration-style = bold yellow box ul
   file-style = bold yellow ul
