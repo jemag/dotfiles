@@ -610,7 +610,7 @@ require("lazy").setup({
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    version = "*",
+    branch = "fix/E36",
     config = function()
       require("barbecue").setup()
     end,
@@ -849,18 +849,6 @@ require("lazy").setup({
     commit = "347ef0371451d9bfbf010c6743fb74997b5b9a80",
     config = function()
       require("headlines").setup()
-    end,
-  },
-  {
-    "lukas-reineke/virt-column.nvim",
-    config = function()
-      vim.opt.colorcolumn = "120"
-      vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-        pattern = "*",
-        command = "highlight clear colorColumn",
-        desc = "Clear colorcolumn",
-      })
-      require("virt-column").setup()
     end,
   },
   {
