@@ -137,15 +137,30 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
 
-vim.api.nvim_create_autocmd(
-    'VimResized',
-    {
-        group = wr_group,
-        pattern = '*',
-        command = 'wincmd =',
-        desc = 'Automatically resize windows when the host window size changes.'
-    }
-)
+vim.api.nvim_create_autocmd("VimResized", {
+  group = wr_group,
+  pattern = "*",
+  command = "wincmd =",
+  desc = "Automatically resize windows when the host window size changes.",
+})
+local colorcolumnAugroup = "CursorColumnOnlyInActiveWindow"
+vim.api.nvim_create_augroup(colorcolumnAugroup, { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+  group = colorcolumnAugroup,
+  pattern = "*",
+  callback = function()
+    vim.opt_local.colorcolumn = "120"
+  end,
+  desc = "Show colorcolumn in active window",
+})
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+  group = colorcolumnAugroup,
+  pattern = "*",
+  callback = function()
+    vim.opt_local.colorcolumn = ""
+  end,
+  desc = "Hide colorcolumn in inactive window",
+})
 -- Set cmdheight=1 when recording macro
 -- vim.api.nvim_create_autocmd('RecordingEnter', {
 --     pattern = '*',
