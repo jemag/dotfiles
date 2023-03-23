@@ -7,7 +7,9 @@
 [core]
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	pager = delta
+	pager = bat
+[pager]
+  diff = delta
 [interactive]
   diffFilter = delta --color-only
 [include]
@@ -86,7 +88,7 @@
 	i = forgit ignore
 	#############
 	l = forgit log
-	lg = log --oneline --graph --decorate --all
+  lg = log --oneline --graph --decorate --all
 	#############
 	ls = ls-files
 	lsf = !git ls-files | grep -i
@@ -189,6 +191,8 @@
 	assumed = !git ls -v | grep ^h | cut -c 3-
 	unassumeall = !git assumed | xargs git unassume
 	assumeall = !git status -s | awk {'print $2'} | xargs git assume
+	#############
+	; lg = !git log --oneline --graph --decorate --all --topo-order | tac
 	#############
 	bump = !sh -c 'git commit -am \"Version bump v$1\" && git psuoc && git release $1' -
 	release = !sh -c 'git tag v$1 && git pst' -
