@@ -1,6 +1,20 @@
 -- Global remapping
 ------------------------------
+local action_state = require("telescope.actions.state")
+local action_mt = require("telescope.actions.mt")
 local actions = require("telescope.actions")
+
+local custom_actions = {}
+
+custom_actions.yank_entry = function(prompt_bufnr)
+	local entry = action_state.get_selected_entry()
+	vim.fn.setreg("*", entry.value)
+	actions.close(prompt_bufnr)
+end
+
+-- turn functions in M to actions s.t. you can do cool stuff like M.my_action:{replace, replace_if, enhance, ...}, M.my_action + M.my_other_action, etc.
+custom_actions = action_mt.transform_mod(custom_actions)
+
 require("telescope").setup({
 	defaults = {
 		vimgrep_arguments = {
@@ -45,6 +59,7 @@ require("telescope").setup({
 				-- ["<c-x>"] = false,
 				["<esc>"] = actions.close,
 				["<C-q>"] = actions.send_to_qflist,
+				["<C-y>"] = custom_actions.yank_entry,
 				-- ["<C-u>"] = false,
 				-- Otherwise, just set the mapping to the function that you want it to be.
 				-- ["<C-i>"] = actions.select_horizontal,
@@ -57,6 +72,7 @@ require("telescope").setup({
 			},
 			n = {
 				["<C-q>"] = actions.send_to_qflist,
+				["<C-y>"] = custom_actions.yank_entry,
 				--[[ ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist, ]]
@@ -188,7 +204,7 @@ vim.keymap.set(
 	require("telescope").extensions.advanced_git_search.diff_branch_file,
 	{ desc = "Advanced Branch file" }
 )
-vim.keymap.set("n", "<localleader>sgB", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer checkout" })
+vim.keymap.set("n", "<localleader>sgB", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
 vim.keymap.set("n", "<localleader>sgc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
 vim.keymap.set(
 	"n",
