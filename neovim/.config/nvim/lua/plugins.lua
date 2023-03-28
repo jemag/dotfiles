@@ -562,6 +562,12 @@ require("lazy").setup({
     end,
   },
   {
+    "wintermute-cell/gitignore.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+    }
+  },
+  {
     "akinsho/git-conflict.nvim",
     config = function()
       require("plugin-configs.git-conflict")

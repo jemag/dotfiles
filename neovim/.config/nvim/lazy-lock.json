@@ -40,6 +40,7 @@
   "fzf-lsp.nvim": { "branch": "main", "commit": "16905056051759b15a388709a3fa65ff098eb243" },
   "fzf.vim": { "branch": "master", "commit": "dc71692255b62d1f67dc55c8e51ab1aa467b1d46" },
   "git-conflict.nvim": { "branch": "main", "commit": "2957f747e1a34f1854e4e0efbfbfa59a1db04af5" },
+  "gitignore.nvim": { "branch": "master", "commit": "df7a19984678e466f2fb91068d5e64b954d4afef" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "b1f9cf7c5c5639c006c937fc1819e09f358210fc" },
   "gopher.nvim": { "branch": "main", "commit": "cc46546a93c7ccea39f1e008e6804b93559bec29" },
