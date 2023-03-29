@@ -136,6 +136,7 @@
   "sweetie.nvim": { "branch": "master", "commit": "94db9015bffbe09e6639e5526db0ce58d5ba9d9f" },
   "tagbar": { "branch": "master", "commit": "af3ce7c3cec81f2852bdb0a0651d2485fcd01214" },
   "telescope-dap.nvim": { "branch": "master", "commit": "313d2ea12ae59a1ca51b62bf01fc941a983d9c9c" },
+  "telescope-diff.nvim": { "branch": "master", "commit": "e897f828586f893ea8cd4d3e5c5aaff351fce86e" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope-lazy.nvim": { "branch": "main", "commit": "62b325696f33e338a820abe623bebc92ebf1786b" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "7de3baef1ec4fb77f7a8195fe87bebd513244b6a" },

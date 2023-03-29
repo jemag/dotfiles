@@ -240,22 +240,12 @@ require("lazy").setup({
         require("multi-term").setup({
           on_stdout = function(t, job, data, name)
             print("terminal/n")
-            print(vim.inspect(t))
-            print("job/n")
-            print(vim.inspect(job))
-            print("data/n")
-            print(vim.inspect(data))
-            print("name/n")
-            print(vim.inspect(name))
-          end,
-          border = "double",
-          dimensions = {
-            height = 0.9,
-            width = 0.9,
-          },
-        })
-      end ]]
-  -- })
+  {
+    "jemag/telescope-diff.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+    }
+  },
   { "airblade/vim-rooter" },
   {
     "airblade/vim-current-search-match",
