@@ -251,9 +251,9 @@ vim.keymap.set("n", "<localleader>sV", "<cmd>Telescope vim_options<cr>", { desc 
 vim.keymap.set("n", "<localleader>sy", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 vim.keymap.set("n", "<localleader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
 
-vim.keymap.set("n", "<localleader>sc", function()
+vim.keymap.set("n", "<localleader>sC", function()
   require("telescope").extensions.diff.diff_files({ hidden = true })
 end, { desc = "Compare 2 files" })
-vim.keymap.set("n", "<localleader>sC", function()
+vim.keymap.set("n", "<localleader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
