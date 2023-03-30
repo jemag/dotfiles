@@ -1,19 +1,25 @@
-vim.api.nvim_set_keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true, desc = "Substitute with reg" })
-vim.api.nvim_set_keymap(
+require("substitute").setup({
+  highlight_substituted_text = {
+    enabled = false
+  }
+})
+
+vim.keymap.set("n", "s", require('substitute').operator, { noremap = true, desc = "Substitute with reg" })
+vim.keymap.set(
   "n",
   "<leader>s",
   '"+<cmd>lua require("substitute").operator()<cr>',
   { noremap = true, desc = "Substitute with +reg" }
 )
-vim.api.nvim_set_keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", { noremap = true, desc = "Substitute with reg" })
-vim.api.nvim_set_keymap("n", "<leader>ss", '"+<cmd>lua require("substitute").line()<cr>', {
+vim.keymap.set("n", "ss", require('substitute').line, { noremap = true, desc = "Substitute with reg" })
+vim.keymap.set("n", "<leader>ss", '"+<cmd>lua require("substitute").line()<cr>', {
   noremap = true,
   desc = "Substitute with +reg",
 })
-vim.api.nvim_set_keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", { noremap = true, desc = "Substitute with reg" })
-vim.api.nvim_set_keymap("n", "<leader>S", '"+<cmd>lua require("substitute").eol()<cr>', { noremap = true, desc = "Substitute with +reg" })
-vim.api.nvim_set_keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", { noremap = true, desc = "Substitute with reg" })
-vim.api.nvim_set_keymap(
+vim.keymap.set("n", "S", require('substitute').eol, { noremap = true, desc = "Substitute with reg" })
+vim.keymap.set("n", "<leader>S", '"+<cmd>lua require("substitute").eol()<cr>', { noremap = true, desc = "Substitute with +reg" })
+vim.keymap.set("x", "s", require('substitute').visual, { noremap = true, desc = "Substitute with reg" })
+vim.keymap.set(
   "x",
   "<leader>s",
   '"+<cmd>lua require("substitute").visual()<cr>',
