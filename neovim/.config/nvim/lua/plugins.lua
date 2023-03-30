@@ -464,7 +464,7 @@ require("lazy").setup({
   { "shaunsingh/nord.nvim" },
   { "franbach/miramare" },
   { "chuling/ci_dark" },
-  { "joshdick/onedark.vim" },
+  { "olimorris/onedarkpro.nvim" },
   {
     "folke/tokyonight.nvim",
     config = function()
