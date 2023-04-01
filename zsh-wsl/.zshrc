@@ -86,6 +86,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 alias pacu="sudo pacman -Syu"                  # update only standard pkgs
 alias yaya="yay -Syu --aur --sudoloop"              # update only AUR pkgs (yay)
 alias parua="paru -Syua --sudoloop"             # update only AUR pkgs (paru)
+alias ap='apropos -s 1 . | fzf --preview='\''man {1}'\'' --preview-window=up | awk '\''{print $1}'\'' | xargs man'
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
 }
