@@ -116,7 +116,6 @@ require("nvim-treesitter.configs").setup({
     "haskell",
     "hcl",
     "heex",
-    "help",
     "hjson",
     "html",
     "http",
@@ -166,6 +165,7 @@ require("nvim-treesitter.configs").setup({
     "typescript",
     "vala",
     "vim",
+    "vimdoc",
     "vue",
     "yaml",
   }, -- one of "all", "language", or a list of languages
