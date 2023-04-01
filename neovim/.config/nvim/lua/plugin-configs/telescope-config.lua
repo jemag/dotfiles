@@ -109,6 +109,9 @@ require("telescope").setup({
     },
   },
   extensions = {
+    advanced_git_search = {
+      diff_plugin = "diffview",
+    },
     aerial = {
       -- Display symbols as <root>.<parent>.<symbol>
       show_nesting = {
