@@ -8,7 +8,7 @@ local custom_actions = {}
 
 custom_actions.yank_entry = function(prompt_bufnr)
   local entry = action_state.get_selected_entry()
-  vim.fn.setreg("*", entry.value)
+  vim.fn.setreg("+", entry.value)
   actions.close(prompt_bufnr)
 end
 
