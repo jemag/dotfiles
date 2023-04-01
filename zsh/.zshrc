@@ -123,7 +123,7 @@ unsetopt BEEP
 _comp_options+=(globdots)
 
 ##########
-# zinits
+# zinit
 ##########
 zinit ice wait"2" lucid
 zinit light "hlissner/zsh-autopair"
@@ -140,7 +140,7 @@ zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light johanhaleby/kubetail
 
 #########
@@ -188,12 +188,10 @@ bindkey -r '^l'
 # Use vim keys in tab complete menu:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-my-backward-delete-word() {
-    local WORDCHARS=${WORDCHARS/\//}
-    zle backward-delete-word
-}
-zle -N my-backward-delete-word
-bindkey '^W' my-backward-delete-word
+
+autoload -U select-word-style
+select-word-style bash
+
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey -v '^?' backward-delete-char
 

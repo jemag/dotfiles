@@ -137,21 +137,12 @@ zinit ice wait'0' atload'_zsh_autosuggest_start' lucid
 zinit light "zsh-users/zsh-autosuggestions"
 # zinit load "jeffreytse/zsh-vi-mode"
 # zinit load "softmoth/zsh-vim-mode"
-# zinit snippet /etc/bash_completion.d/azure-cli
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 # Syntax Highlighting (should always be at the end)
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light johanhaleby/kubetail
-# zinit light starship/starship
-
-#########
-# spaceship settings
-# spaceship_vi_mode_enable()
-# SPACESHIP_TIME_SHOW
-#########
-# SPACESHIP_VI_MODE_SHOW=true
 
 #########
 # vim mode settings
@@ -193,12 +184,10 @@ bindkey -r '^l'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
 zmodload zsh/complist
-my-backward-delete-word() {
-    local WORDCHARS=${WORDCHARS/\//}
-    zle backward-delete-word
-}
-zle -N my-backward-delete-word
-bindkey '^W' my-backward-delete-word
+
+autoload -U select-word-style
+select-word-style bash
+
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey -v '^?' backward-delete-char
 
