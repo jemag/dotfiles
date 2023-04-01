@@ -622,7 +622,6 @@ require("lazy").setup({
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    branch = "fix/E36",
     config = function()
       require("barbecue").setup()
     end,
