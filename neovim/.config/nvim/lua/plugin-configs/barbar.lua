@@ -5,9 +5,20 @@ require("bufferline").setup({
   closable = true,
   clickable = true,
   exclude_ft = { "qf" },
-  icons = "both",
-  icon_separator_active = "▊ ",
-  icon_separator_inactive = "",
+  icons = {
+    buffer_index = true,
+    filetype = {
+      enabled = true
+    },
+    inactive = {
+      separator = {
+        left = ""
+      }
+    },
+    separator = {
+      left = "▊ "
+    }
+  },
   maximum_padding = 4,
   maximum_length = 40,
   semantic_letters = true,
