@@ -935,4 +935,8 @@ require("lazy").setup({
       require("plugin-configs.nvim-surround")
     end,
   },
+}, {
+  readme = {
+    enabled = false
+  }
 })
