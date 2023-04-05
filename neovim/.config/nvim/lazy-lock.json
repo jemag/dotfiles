@@ -1,4 +1,6 @@
 {
+  "ChatGPT.nvim": { "branch": "main", "commit": "b1d0ec290e0b6506b9c608c02462d6c4568120f0" },
+  "CodeGPT.nvim": { "branch": "master", "commit": "58c21bb98249fe18ee399aee2f0f1b1d5dc73bcf" },
   "Comment.nvim": { "branch": "master", "commit": "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" },
   "Limelight.vim": { "branch": "master", "commit": "86aaec1700b27618d33d6182f44691d84d2cb6e5" },
   "LuaSnip": { "branch": "master", "commit": "bc8ec05022743d3f08bda7a76c6bb5e9a9024581" },
@@ -6,6 +8,7 @@
   "aerial.nvim": { "branch": "master", "commit": "24fe657357320cab076eb88d17aae64d014fae38" },
   "ansible-vim": { "branch": "master", "commit": "93798e8c89c441d29d4678da0c0d5e1429eb43b0" },
   "autolist.nvim": { "branch": "main", "commit": "6fc6e376d7f3e2a69a3c364294a14d3c620075e2" },
+  "backseat.nvim": { "branch": "main", "commit": "2895727e8cc98922fdbf559e276d620ece484924" },
   "barbar.nvim": { "branch": "master", "commit": "202e51e967b79e82832f537ddb29d35af991de90" },
   "barbecue": { "branch": "main", "commit": "a0e19486ccc1fb134f6ef7bf914d07bbb462e346" },
   "blue-moon": { "branch": "master", "commit": "8fcdcdf76e7a120299d41fa80206887ca7b1ca58" },

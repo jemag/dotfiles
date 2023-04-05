@@ -242,6 +242,7 @@ export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
 source <(kubectl completion zsh)
 source <(kustomize completion zsh)
+[ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"

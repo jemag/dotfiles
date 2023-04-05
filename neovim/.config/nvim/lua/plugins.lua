@@ -662,6 +662,41 @@ require("lazy").setup({
     },
   },
   {
+    "james1236/backseat.nvim",
+    config = function()
+      require("backseat").setup({
+        -- Alternatively, set the env var $OPENAI_API_KEY by putting "export OPENAI_API_KEY=sk-xxxxx" in your ~/.bashrc
+        openai_model_id = 'gpt-3.5-turbo', --gpt-4 (If you do not have access to a model, it says "The model does not exist")
+        })
+      end,
+  },
+  {
+    "dpayne/CodeGPT.nvim",
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("codegpt.config")
+    end
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        keymaps = {
+          submit = "<C-s>"
+        }
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
       require("plugin-configs.null-ls")
