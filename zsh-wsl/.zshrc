@@ -248,6 +248,7 @@ source <(velero completion zsh)
 source <(argo completion zsh)
 source <(kyverno completion zsh)
 source <(trivy completion zsh)
+[ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
 source /usr/share/bash-completion/completions/az
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
