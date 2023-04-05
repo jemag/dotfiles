@@ -231,6 +231,7 @@ zle     -N    fzf-dir
 bindkey '\ec' fzf-dir
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export RPS1="$(vi_mode_prompt_info)"
+export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="/home/jemag/.local/share/bob/nvim-bin:$PATH"
