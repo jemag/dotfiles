@@ -175,6 +175,38 @@ vim.keymap.set("n", "\\W", function()
   utils.windo_restore_win("set nowrap")
 end, { desc = "Set 'nowrap'" })
 
+-- Diffs
+vim.keymap.set("n", "<localleader>md", function()
+  local split_filenames = {}
+  for _, buf in ipairs(vim.fn.getbufinfo()) do
+    if buf.hidden == 0 and buf.listed == 1 then
+      table.insert(split_filenames, buf.name)
+    end
+  end
+  if #split_filenames == 2 then
+    vim.cmd.tabnew(split_filenames[1])
+    vim.cmd("vertical diffsplit " .. split_filenames[2])
+    vim.cmd.normal({ args = { "gg" }, bang = true })
+  else
+    vim.notify("Can't diff with more than 2 files open")
+  end
+end, { desc = "Diff between open files" })
+
+vim.keymap.set("x", "<localleader>md", function()
+  vim.cmd('noau normal! "vy')
+  local filetype = vim.bo.filetype
+  vim.cmd.tabnew()
+  vim.cmd('noau normal! "0P')
+  vim.bo.filetype=filetype
+  vim.bo.buftype="nowrite"
+  vim.cmd.diffthis()
+  vim.cmd.vsplit()
+  vim.cmd.ene()
+  vim.cmd('noau normal! "vP')
+  vim.bo.buftype="nowrite"
+  vim.cmd.diffthis()
+end, { desc = "Diff selection with clipboard" })
+
 require("legendary").setup()
 require("which-key").setup({
     plugins = {
