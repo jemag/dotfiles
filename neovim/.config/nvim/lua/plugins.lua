@@ -408,6 +408,9 @@ require("lazy").setup({
     end
   },
   {
+    "bluz71/vim-nightfly-colors",
+  },
+  {
     "NTBBloodbath/sweetie.nvim",
   },
   {
