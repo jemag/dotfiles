@@ -2,15 +2,12 @@ require("trailblazer").setup(
   -- Adjust these values to your liking
   {
     lang = "en",
+    auto_save_trailblazer_state_on_exit = true,
+    auto_load_trailblazer_state_on_enter = true,
     trail_options = {
       -- Available modes to cycle through. Remove any you don't need.
       available_trail_mark_modes = {
         "global_chron",
-        "global_buf_line_sorted",
-        "global_chron_buf_line_sorted",
-        "global_chron_buf_switch_group_chron",
-        "global_chron_buf_switch_group_line_sorted",
-        "buffer_local_chron",
         "buffer_local_line_sorted",
       },
       -- The current / initially selected trail mark selection mode. Choose from one of the
