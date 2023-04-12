@@ -203,6 +203,7 @@ vim.keymap.set("x", "<localleader>md", function()
   vim.cmd.vsplit()
   vim.cmd.ene()
   vim.cmd('noau normal! "vP')
+  vim.bo.filetype=filetype
   vim.bo.buftype="nowrite"
   vim.cmd.diffthis()
 end, { desc = "Diff selection with clipboard" })
