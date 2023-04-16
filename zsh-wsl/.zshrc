@@ -138,7 +138,8 @@ zinit light "zsh-users/zsh-autosuggestions"
 # zinit load "jeffreytse/zsh-vi-mode"
 # zinit load "softmoth/zsh-vim-mode"
 zinit snippet OMZ::lib/git.zsh
-zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 # Syntax Highlighting (should always be at the end)
 zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -177,7 +178,7 @@ key=(
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 bindkey -v
-bindkey 'jk' vi-cmd-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 bindkey '^R' history-incremental-search-backward
 bindkey -r '^l'
 # Use vim keys in tab complete menu:
@@ -230,7 +231,6 @@ fzf-dir() {
 zle     -N    fzf-dir
 bindkey '\ec' fzf-dir
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-export RPS1="$(vi_mode_prompt_info)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
