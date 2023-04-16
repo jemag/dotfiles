@@ -163,6 +163,10 @@ M.on_attach = function(client, bufnr)
       end, 1000)
     end
   end
+  if client.name == "lua_ls" then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end
 end
 
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
