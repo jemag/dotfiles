@@ -154,6 +154,13 @@ alias keds='kubectl edit daemonset'
 alias kdds='kubectl describe daemonset'
 alias kdelds='kubectl delete daemonset'
 
+# Network policy management.
+alias kgnp='kubectl get netpol'
+alias kgnpw='kgnp --watch'
+alias kenp='kubectl edit netpol'
+alias kdnp='kubectl describe netpol'
+alias kdelnp='kubectl delete netpol'
+
 # CronJob management.
 alias kgcj='kubectl get cronjob'
 alias kecj='kubectl edit cronjob'
