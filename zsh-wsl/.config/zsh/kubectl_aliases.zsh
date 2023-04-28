@@ -53,6 +53,15 @@ alias kes='kubectl edit svc'
 alias kds='kubectl describe svc'
 alias kdels='kubectl delete svc'
 
+# Endpoint management.
+alias kge='kubectl get endpoints'
+alias kgea='kubectl get endpoints --all-namespaces'
+alias kgew='kge --watch'
+alias kgewide='kge -o wide'
+alias kee='kubectl edit endpoints'
+alias kde='kubectl describe endpoints'
+alias kdele='kubectl delete endpoints'
+
 # Ingress management
 alias kgi='kubectl get ingress'
 alias kgia='kubectl get ingress --all-namespaces'
