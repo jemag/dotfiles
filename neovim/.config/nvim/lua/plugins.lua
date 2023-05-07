@@ -756,7 +756,7 @@ require("lazy").setup({
     },
   },
   {
-    "jcdickinson/codeium.nvim",
+    "jemag/codeium.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
