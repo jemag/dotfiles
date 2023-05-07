@@ -260,3 +260,14 @@ end, { desc = "Compare 2 files" })
 vim.keymap.set("n", "<localleader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
+
+-- NOTE: Temp fix until this is fixed in Neovim or Telescope.nvim directly
+vim.api.nvim_create_autocmd("WinLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    end
+  end,
+  desc = "Exit telescope in normal mode",
+})
