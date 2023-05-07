@@ -3,7 +3,8 @@ require("trailblazer").setup(
   {
     lang = "en",
     auto_save_trailblazer_state_on_exit = true,
-    auto_load_trailblazer_state_on_enter = true,
+    -- WARN: Currently autoload crashes
+    auto_load_trailblazer_state_on_enter = false,
     trail_options = {
       -- Available modes to cycle through. Remove any you don't need.
       available_trail_mark_modes = {
@@ -14,7 +15,7 @@ require("trailblazer").setup(
       -- available modes: global_chron, global_buf_line_sorted, global_chron_buf_line_sorted,
       -- global_chron_buf_switch_group_chron, global_chron_buf_switch_group_line_sorted,
       -- buffer_local_chron, buffer_local_line_sorted
-      current_trail_mark_mode = "global_chron",
+      current_trail_mark_mode = "buffer_local_line_sorted",
       verbose_trail_mark_select = true, -- print current mode notification on mode change
       newest_mark_symbol = "⬤", -- disable this mark symbol by setting its value to ""
       cursor_mark_symbol = "⬤", -- disable this mark symbol by setting its value to ""
@@ -49,69 +50,6 @@ require("trailblazer").setup(
       --     },
       --     ...
       -- },
-    },
-    hl_groups = {
-      TrailBlazerTrailMark = {
-        -- You can add any valid highlight group attribute to this table
-        guifg = "White",
-        guibg = "none",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkNext = {
-        guifg = "Green",
-        guibg = "none",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkPrevious = {
-        guifg = "Red",
-        guibg = "none",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkCursor = {
-        guifg = "Black",
-        guibg = "Orange",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkNewest = {
-        guifg = "Black",
-        guibg = "LightBlue",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkGlobalChron = {
-        guifg = "Black",
-        guibg = "Red",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkGlobalBufLineSorted = {
-        guifg = "Black",
-        guibg = "LightRed",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkGlobalChronBufLineSorted = {
-        guifg = "Black",
-        guibg = "Olive",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkGlobalChronBufSwitchGroupChron = {
-        guifg = "Black",
-        guibg = "VioletRed",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkGlobalChronBufSwitchGroupLineSorted = {
-        guifg = "Black",
-        guibg = "MediumSpringGreen",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkBufferLocalChron = {
-        guifg = "Black",
-        guibg = "Green",
-        gui = "bold",
-      },
-      TrailBlazerTrailMarkBufferLocalLineSorted = {
-        guifg = "Black",
-        guibg = "LightGreen",
-        gui = "bold",
-      },
     },
   }
 )
