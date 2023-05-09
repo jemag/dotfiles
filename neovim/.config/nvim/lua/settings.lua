@@ -128,6 +128,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   desc = "Set format options for all filetypes",
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  command = "exe 'tabdo windo clearjumps' | tabnext",
+  desc = "Clear jumplist when starting neovim",
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   pattern = "*",
   callback = function()
@@ -137,13 +143,13 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 local wr_group = vim.api.nvim_create_augroup("WinResize", { clear = true })
-
 vim.api.nvim_create_autocmd("VimResized", {
   group = wr_group,
   pattern = "*",
   command = "wincmd =",
   desc = "Automatically resize windows when the host window size changes.",
 })
+
 local colorcolumnAugroup = "CursorColumnOnlyInActiveWindow"
 vim.api.nvim_create_augroup(colorcolumnAugroup, { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
