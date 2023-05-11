@@ -12,6 +12,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.colorcolumn = "120"
+vim.opt.smoothscroll = true
 -- vim.opt.splitkeep = "screen"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.wildmode = "full"
