@@ -177,10 +177,10 @@ require("lazy").setup({
     end,
   },
   {
-    "romgrk/barbar.nvim",
+    "akinsho/bufferline.nvim",
     lazy = false,
     config = function()
-      require("plugin-configs.barbar")
+      require("plugin-configs.bufferline")
     end,
   },
   {
