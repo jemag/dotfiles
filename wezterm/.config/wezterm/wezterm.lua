@@ -8,19 +8,19 @@ return {
 
   -- Fonts
   font = wezterm.font_with_fallback({
-    "FiraCode Nerd Font",
-    "JetBrains Mono",
+    "FiraMono Nerd Font",
+    -- "JetBrains Mono",
   }),
   font_rules = {
     {
       intensity = "Normal",
       italic = false,
-      font = wezterm.font("FiraCode Nerd Font"),
+      font = wezterm.font("FiraMono Nerd Font"),
     },
     {
       intensity = "Bold",
       italic = false,
-      font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
+      font = wezterm.font("FiraMono Nerd Font", { weight = "Bold" }),
     },
     {
       intensity = "Bold",
