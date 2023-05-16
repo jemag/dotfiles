@@ -16,7 +16,7 @@ return {
   -- Fonts
   font = wezterm.font_with_fallback({
     "FiraMono Nerd Font",
-    "JetBrains Mono",
+    "JetBrainsMono Nerd Font",
   }),
   font_rules = {
     {
