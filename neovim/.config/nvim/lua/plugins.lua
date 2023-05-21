@@ -742,6 +742,12 @@ require("lazy").setup({
     },
   },
   {
+    "evesdropper/luasnip-latex-snippets.nvim",
+    dependencies = {
+      { "L3MON4D3/LuaSnip" },
+    }
+  },
+  {
     "hrsh7th/nvim-cmp",
     config = function()
       require("plugin-configs.nvim-cmp")
