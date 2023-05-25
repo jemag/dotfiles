@@ -1,0 +1,18 @@
+# ~/.tmuxinator/work.yml
+
+name: work
+root: ~/Projects
+
+windows:
+  - automation:
+      layout: even-horizontal
+      panes:
+              - terraform-modules:
+                - cd ~/Projects/TerraformModules/
+              - automation:
+                - cd ~/Projects/Automation/
+  - argo-platform:
+      layout: even-horizontal
+      panes:
+              - argo-platform:
+                - cd ~/Projects/ArgoPlatform/
