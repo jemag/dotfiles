@@ -43,10 +43,10 @@ root: ~/
 # post: tmux -CC attach -t psql
 
 windows:
-  - k8s:
+  - all:
       layout: tiled
       panes:
-              - k9s:
+              - 
               - kubie_dev:
                 - kubie ctx aksdev-admin
                 - kubie ns iwls
@@ -56,3 +56,10 @@ windows:
               - kubie_prod:
                 - kubie ctx aksprod-b-admin
                 - kubie ns iwls
+  - sandbox:
+      layout: tiled
+      panes:
+              - 
+              - 
+              -
+              -
