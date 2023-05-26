@@ -1,0 +1,13 @@
+
+# ~/.tmuxinator/mem.yml
+
+name: mem
+root: ~/
+
+windows:
+  - mem:
+      layout: tiled
+      panes:
+        - working-memory:
+          - nvim ~/working-memory.md
+

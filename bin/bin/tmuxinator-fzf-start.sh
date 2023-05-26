@@ -39,7 +39,7 @@ if [ -n "$SELECTED_PROJECTS" ]; then
 
     # Start only the first project and attach directly
     for PROJECT in $SELECTED_PROJECTS; do
-        tmuxinator start "$PROJECT" 
+        tmuxinator start "$PROJECT" --suppress-tmux-version-warning
     done
 fi
 
