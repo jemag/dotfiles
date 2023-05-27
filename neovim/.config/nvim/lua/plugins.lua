@@ -950,12 +950,6 @@ require("lazy").setup({
     end,
   },
   {
-    "echasnovski/mini.ai",
-    config = function()
-      require("plugin-configs.mini-ai")
-    end,
-  },
-  {
     "echasnovski/mini.cursorword",
     config = function()
       require("plugin-configs.cursorword")
