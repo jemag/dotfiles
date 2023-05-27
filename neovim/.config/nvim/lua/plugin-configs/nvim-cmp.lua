@@ -38,6 +38,10 @@ local icons = {
 }
 
 cmp.setup({
+  performance = {
+    debounce = 150,
+    max_view_entries = 20,
+  },
   preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
