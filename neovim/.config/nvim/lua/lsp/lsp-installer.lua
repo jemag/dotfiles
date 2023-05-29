@@ -56,6 +56,10 @@ local function setup_servers()
       local clangd_opts = require("lsp.configs.clangd")
       opts = vim.tbl_deep_extend("force", clangd_opts, opts)
     end
+    if name == "gopls" then
+      local gopls_opts = require("lsp.configs.gopls")
+      opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
     if name == "jsonnet_ls" then
       local jsonnetls_opts = require("lsp.configs.jsonnnetls")
       opts = vim.tbl_deep_extend("force", jsonnetls_opts, opts)
