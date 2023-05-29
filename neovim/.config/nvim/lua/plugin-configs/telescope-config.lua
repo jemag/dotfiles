@@ -164,6 +164,8 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
+require('telescope').load_extension('neoclip')
+require('telescope').load_extension('macroscope')
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
@@ -261,13 +263,3 @@ vim.keymap.set("n", "<localleader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
 
--- NOTE: Temp fix until this is fixed in Neovim or Telescope.nvim directly
-vim.api.nvim_create_autocmd("WinLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
-    end
-  end,
-  desc = "Exit telescope in normal mode",
-})
