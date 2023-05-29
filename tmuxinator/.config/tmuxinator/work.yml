@@ -1,6 +1,6 @@
 # ~/.tmuxinator/work.yml
 
-name: work
+name: code-work
 root: ~/Projects
 
 windows:
