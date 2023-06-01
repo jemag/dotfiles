@@ -14,3 +14,6 @@ require("scrollview").setup({
     "trail",
   },
 })
+
+vim.keymap.set({ "n", "x" }, "]v", "<cmd>ScrollViewNext<cr>", { desc = "Go to next scroll sign" })
+vim.keymap.set({ "n", "x" }, "[v", "<cmd>ScrollViewPrev<cr>", { desc = "Go to prev scroll sign" })
