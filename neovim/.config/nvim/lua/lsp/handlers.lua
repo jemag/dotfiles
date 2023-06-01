@@ -66,10 +66,6 @@ local function map_keys(bufnr)
     '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>',
     { desc = "Cursor diagnostics", buffer = bufnr }
   )
-  vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.diagnostic.goto_next{float=false}<CR>",
-    { desc = "Next diagnostic", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lN", "<cmd>lua vim.diagnostic.goto_prev{float=false}<CR>",
-    { desc = "Previous diagnostic", buffer = bufnr })
   vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>",
     { desc = "Diagnostic to quickfix", buffer = bufnr })
   vim.keymap.set("n", "<localleader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
