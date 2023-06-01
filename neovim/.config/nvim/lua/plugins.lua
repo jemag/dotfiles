@@ -197,6 +197,9 @@ require("lazy").setup({
   },
   {
     "dstein64/nvim-scrollview",
+    config = function ()
+      require("plugin-configs.scrollview")
+    end
   },
   {
     "mrjones2014/legendary.nvim",
@@ -446,6 +449,13 @@ require("lazy").setup({
     "luisiacc/gruvbox-baby",
   },
   { "folke/lsp-colors.nvim" },
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    config = function ()
+      require("plugin-configs.inlayhints")
+    end,
+    branch = "anticonceal",
+  },
   { "sainnhe/sonokai" },
   {
     "Shatur95/neovim-ayu",
