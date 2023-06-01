@@ -2,6 +2,7 @@ require("mini.indentscope").setup({
   draw = {
     -- Delay (in ms) between event and start of drawing scope indicator
     delay = 100,
+    priority = 0,
   },
 
   -- Module mappings. Use `''` (empty string) to disable one.
