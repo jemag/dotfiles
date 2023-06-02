@@ -42,7 +42,7 @@ zle -N down-line-or-beginning-search
 ###########
 # aliases
 ###########
-alias ls="exa -g"
+alias ls="exa -g --time-style long-iso"
 alias zl="zellij"
 alias zla="zellij attach"
 alias sue="sudoedit"
