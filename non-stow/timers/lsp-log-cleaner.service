@@ -1,0 +1,12 @@
+[Unit]
+Description=Clean neovim lsp.log
+Wants=lsp-log-cleaner.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/jemag/dotfiles/non-stow/lsp-log-cleaner.sh
+User=jemag
+Group=users
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Clean neovim lsp.log
+Requires=lsp-log-cleaner.service
+
+[Timer]
+Unit=lsp-log-cleaner.service
+OnCalendar=weekly
+
+[Install]
+WantedBy=timers.target
