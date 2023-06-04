@@ -1,0 +1,10 @@
+[Unit]
+Description=Update the package list
+Wants=package-list.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/jemag/dotfiles/non-stow/packages/package-list.sh
+
+[Install]
+WantedBy=multi-user.target

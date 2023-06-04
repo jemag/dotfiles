@@ -1,0 +1,10 @@
+[Unit]
+Description=Update the package list
+Requires=package-list.service
+
+[Timer]
+Unit=package-list.service
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target
