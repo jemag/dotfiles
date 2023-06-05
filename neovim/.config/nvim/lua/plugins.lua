@@ -556,6 +556,7 @@ require("lazy").setup({
       { "aaronhallaert/ts-advanced-git-search.nvim" },
       { "molecule-man/telescope-menufacture" },
     },
+    cmd = "Telescope",
   },
 
   --[[ #######################
@@ -597,6 +598,7 @@ require("lazy").setup({
     config = function()
       require("octo").setup()
     end,
+    cmd = "Octo",
   },
   {
     "ruifm/gitlinker.nvim",
