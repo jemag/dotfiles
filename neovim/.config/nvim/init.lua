@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "-"
+require("filetypes")
 require("plugins")
 require("keybindings")
 require("globals")
