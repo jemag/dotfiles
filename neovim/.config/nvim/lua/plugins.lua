@@ -291,12 +291,6 @@ require("lazy").setup({
     end,
   },
   {
-    "kwakzalver/duckytype.nvim",
-    config = function()
-      require("duckytype").setup({})
-    end,
-  },
-  {
     "LeonHeidelbach/trailblazer.nvim",
     config = function()
       require("plugin-configs.trailblazer")

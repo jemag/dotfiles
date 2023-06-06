@@ -33,7 +33,6 @@
   "dockerfile.vim": { "branch": "master", "commit": "b8c574928e503c0e94ad06647cff28b7c566af29" },
   "doom-one.vim": { "branch": "master", "commit": "323b7c31c617b153d12095e9fd9648f2fda2b646" },
   "dressing.nvim": { "branch": "master", "commit": "f16d7586fcdd8b2e3850d0abb7e46f944125cc25" },
-  "duckytype.nvim": { "branch": "main", "commit": "da3b08a98db3b18942a39dff085ddde7f007df63" },
   "eyeliner.nvim": { "branch": "main", "commit": "fa3a0986cb072fe2ab29ef79e022514d2533f0db" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "firenvim": { "branch": "master", "commit": "e2d5a0f97d1f41e03c8d2a3c71ee60b1a4a6bb83" },
