@@ -13,7 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "tyru/capture.vim" },
+  {
+    "tyru/capture.vim",
+    cmd = "Capture"
+  },
   --[[ #######################
      General
     ####################### ]]
@@ -60,7 +63,6 @@ require("lazy").setup({
       require("plugin-configs.live-command")
     end,
   },
-
   {
     "someone-stole-my-name/yaml-companion.nvim",
     dependencies = {
@@ -72,6 +74,7 @@ require("lazy").setup({
       require("telescope").load_extension("yaml_schema")
       require("plugin-configs.yaml-companion")
     end,
+    ft = { "yaml", "json" }
   },
   {
     "AckslD/nvim-trevJ.lua",
@@ -111,9 +114,11 @@ require("lazy").setup({
   },
   {
     "phelipetls/jsonpath.nvim",
+    ft = { "json" }
   },
   {
     "google/vim-jsonnet",
+    ft = { "jsonnet" }
   },
   {
     "svban/YankAssassin.vim",
@@ -162,6 +167,7 @@ require("lazy").setup({
       require("spectre").setup()
       vim.keymap.set("n", "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
     end,
+    keys = { "<localleader>tS" }
   },
   {
     "ethanholz/nvim-lastplace",
@@ -206,6 +212,7 @@ require("lazy").setup({
     config = function()
       vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
     end,
+    keys = { "<localleader>sK" }
   },
   { "stevearc/dressing.nvim" },
   { "folke/which-key.nvim" },
@@ -549,7 +556,6 @@ require("lazy").setup({
       { "aaronhallaert/ts-advanced-git-search.nvim" },
       { "molecule-man/telescope-menufacture" },
     },
-    cmd = "Telescope",
   },
 
   --[[ #######################
@@ -750,7 +756,8 @@ require("lazy").setup({
     "evesdropper/luasnip-latex-snippets.nvim",
     dependencies = {
       { "L3MON4D3/LuaSnip" },
-    }
+    },
+    ft = { "latex", "tex", "plaintex" }
   },
   {
     "hrsh7th/nvim-cmp",
@@ -906,10 +913,10 @@ require("lazy").setup({
   },
   {
     "lukas-reineke/headlines.nvim",
-    commit = "347ef0371451d9bfbf010c6743fb74997b5b9a80",
     config = function()
       require("headlines").setup()
     end,
+    ft = { "markdown", "neorg"},
   },
   {
     "liuchengxu/vista.vim",
@@ -925,7 +932,10 @@ require("lazy").setup({
     end,
   },
 
-  { "towolf/vim-helm" },
+  {
+    "towolf/vim-helm",
+    ft= { "helm", }
+  },
   {
     "hashivim/vim-terraform",
     config = function()
@@ -933,7 +943,10 @@ require("lazy").setup({
     end,
   },
 
-  { "jvirtanen/vim-hcl" },
+  {
+    "jvirtanen/vim-hcl",
+    ft= { "hcl" },
+  },
 
   --[[ #######################
         Writing
