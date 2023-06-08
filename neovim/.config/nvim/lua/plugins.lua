@@ -360,7 +360,6 @@ require("lazy").setup({
       require("plugin-configs.nvim-autopairs")
     end,
   },
-  { "gfanto/fzf-lsp.nvim" },
   {
     "mfussenegger/nvim-dap",
     config = function()

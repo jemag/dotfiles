@@ -42,14 +42,11 @@ end
 
 local function set_handlers()
   vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
-  vim.lsp.handlers["textDocument/declaration"] = require("fzf_lsp").declaration_handler
   vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions
   vim.lsp.handlers["textDocument/implementation"] = require("telescope.builtin").lsp_implementations
   vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
   vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
   vim.lsp.handlers["workspace/symbol"] = require("telescope.builtin").lsp_workspace_symbols
-  vim.lsp.handlers["callHierarchy/incomingCalls"] = require("fzf_lsp").incoming_calls_handler
-  vim.lsp.handlers["callHierarchy/outgoingCalls"] = require("fzf_lsp").outgoing_calls_handler
 end
 
 M.init = function()
