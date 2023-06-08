@@ -84,12 +84,6 @@ require("lazy").setup({
     end,
   },
   {
-    "edluffy/specs.nvim",
-    config = function()
-      require("plugin-configs.specs")
-    end,
-  },
-  {
     "anuvyklack/pretty-fold.nvim",
     config = function()
       require("pretty-fold").setup({})
