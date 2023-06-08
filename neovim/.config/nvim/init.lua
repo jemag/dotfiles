@@ -17,20 +17,6 @@ vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_zipPlugin = 1
 
 require("settings")
-local guiAugroup = "gui"
-vim.api.nvim_create_augroup(guiAugroup, { clear = true })
-vim.api.nvim_create_autocmd({ "UIEnter" }, {
-  pattern = "*",
-  command = "GuiFont! FuraMono Nerd Font:h10",
-  desc = "Set gui font",
-  group = guiAugroup,
-})
--- vim.api.nvim_create_autocmd({ "UIEnter" }, {
---   pattern = "*",
---   command = "nmap <c-d> <c-d> | nmap <c-u> <c-u>",
---   desc = "disable neoscroll in gui",
---   group = guiAugroup,
--- })
 
 local minlines = "minlines"
 vim.api.nvim_create_augroup(minlines, { clear = true })
