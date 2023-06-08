@@ -274,21 +274,9 @@ require("lazy").setup({
   },
   { "airblade/vim-rooter" },
   {
-    "airblade/vim-current-search-match",
-    config = function()
-      vim.g.current_search_match = "IncSearch"
-    end,
-  },
-  {
     "jinh0/eyeliner.nvim",
     config = function()
       require("plugin-configs.eyeliner")
-    end,
-  },
-  {
-    "j-morano/buffer_manager.nvim",
-    config = function()
-      require("plugin-configs.buffer_manager")
     end,
   },
   {
@@ -343,9 +331,6 @@ require("lazy").setup({
     end,
   },
   {
-    "nvim-treesitter/playground",
-  },
-  {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   {
@@ -392,7 +377,6 @@ require("lazy").setup({
     end,
   },
   { "mfussenegger/nvim-jdtls" },
-  { "equalsraf/neovim-gui-shim" },
   { "lambdalisue/suda.vim" },
   {
     "gennaro-tedesco/nvim-peekup",
@@ -541,7 +525,6 @@ require("lazy").setup({
     },
   },
 
-  { "nvim-lua/popup.nvim" },
   { "nvim-telescope/telescope-media-files.nvim" },
   {
     "nvim-telescope/telescope.nvim",
@@ -854,12 +837,6 @@ require("lazy").setup({
     end,
   },
   {
-    "gorbit99/codewindow.nvim",
-    config = function()
-      require("plugin-configs.codewindow")
-    end,
-  },
-  {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown", "pandoc.markdown", "rmd" },
     build = "cd app & npm install",
@@ -965,12 +942,6 @@ require("lazy").setup({
     "junegunn/Limelight.vim",
     config = function()
       require("plugin-configs.limelight")
-    end,
-  },
-  {
-    "echasnovski/mini.cursorword",
-    config = function()
-      require("plugin-configs.cursorword")
     end,
   },
   {
