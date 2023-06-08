@@ -92,7 +92,7 @@ require("nvim-treesitter.configs").setup({
     "clojure",
     "cmake",
     -- May have slow performance in large files
-    "comment",
+    -- "comment",
     "commonlisp",
     "cpp",
     "css",
