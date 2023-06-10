@@ -1,4 +1,5 @@
-local custom_ayu_mirage = require("lualine.themes.ayu_mirage")
+-- NOTE: changing theme through telescope will not set proper separator color
+local ayu_mirage = require("lualine.themes.ayu_mirage")
 
 local function search_cnt()
   local res = vim.fn.searchcount()
@@ -35,7 +36,7 @@ require("lualine").setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    theme = custom_ayu_mirage,
+    theme = ayu_mirage,
     component_separators = { "", "" },
     section_separators = { "", "" },
     disabled_filetypes = {},
@@ -51,9 +52,9 @@ require("lualine").setup({
     },
     lualine_x = {},
     lualine_y = {
-      { "encoding", color = { fg = "#5C6773" } },
+      { "encoding" },
       fileformat,
-      { "filetype", color = { fg = "#5C6773" } },
+      { "filetype" },
     },
     lualine_z = {
       { "location", separator = { left = "" } },
