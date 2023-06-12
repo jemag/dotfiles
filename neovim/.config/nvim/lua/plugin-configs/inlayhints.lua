@@ -13,3 +13,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, bufnr)
   end,
 })
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
+  end,
+})
