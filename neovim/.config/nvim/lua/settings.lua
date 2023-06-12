@@ -8,13 +8,14 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.foldcolumn = "0"
 vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
+vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.colorcolumn = "120"
 vim.opt.smoothscroll = true
 -- vim.opt.splitkeep = "screen"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- NOTE: can impact performance if enabled
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.wildmode = "full"
 vim.opt.inccommand = "split"
 vim.opt.textwidth = 0
