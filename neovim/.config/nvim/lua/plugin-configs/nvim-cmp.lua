@@ -103,12 +103,10 @@ cmp.setup({
     { name = "buffer" },
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(_, vim_item)
-      vim_item.menu = vim_item.kind
-      vim_item.kind = icons[vim_item.kind]
-
-      return vim_item
+    fields = { "abbr", "kind", "menu" },
+    format = function(_, item)
+      item.kind = " " .. icons[item.kind] .. " " .. item.kind
+      return item
     end,
   },
   window = {
@@ -118,7 +116,9 @@ cmp.setup({
     },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = {
+      hl_group = "LspCodeLens",
+    },
   },
 })
 -- vim.keymap.set("i", "<c-x><c-f>", function()
