@@ -167,16 +167,27 @@ require("telescope").load_extension("advanced_git_search")
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
-vim.cmd([[autocmd ColorScheme * highlight! TelescopeBorder guifg=white guibg=#1F2430]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptBorder guibg=#1F2430 guifg=white]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptNormal guibg=#1F2430 guifg=white ]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptPrefix guibg=#1F2430 guifg=#F29E74]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopePreviewTitle guifg=black guibg=#BAE67E]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopePromptTitle guifg=black guibg=#F28779]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopeResultsTitle guifg=#626A73 guibg=#1F2430]])
-vim.cmd([[autocmd ColorScheme * highlight! TelescopeSelectionCaret guifg=#77A8D9]])
--- vim.cmd([[autocmd ColorScheme * highlight! TelescopeNormal guifg=#E06C75]])
--- vim.cmd([[autocmd ColorScheme * highlight! TelescopeSelection guifg=#E06C75]])
+local function set_telescope_colors()
+  if vim.g.colors_name == "ayu" then
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "white", bg = "#1F2430" })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#1F2430", fg = "white" })
+    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#1F2430", fg = "white" })
+    vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "#1F2430", fg = "#F29E74" })
+    vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = "black", bg = "#BAE67E" })
+    vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = "#626A73", bg = "#1F2430" })
+    vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#77A8D9" })
+  end
+  vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#E06C75" })
+  vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = "black", bg = "#F28779" })
+end
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    set_telescope_colors()
+  end,
+})
 
 vim.keymap.set("n", "<localleader>s/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in buffer" })
 vim.keymap.set("n", "<localleader>s;", "<cmd>Telescope commands<cr>", { desc = "Commands" })
@@ -260,4 +271,3 @@ end, { desc = "Compare 2 files" })
 vim.keymap.set("n", "<localleader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
-
