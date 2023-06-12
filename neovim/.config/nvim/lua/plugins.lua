@@ -58,6 +58,19 @@ require("lazy").setup({
     end,
   },
   {
+    "tzachar/highlight-undo.nvim",
+    config = function()
+      require('highlight-undo').setup({
+        hlgroup = 'HighlightUndo',
+        duration = 300,
+        keymaps = {
+          {'n', 'u', 'undo', {}},
+          {'n', '<C-r>', 'redo', {}},
+        }
+      })
+    end,
+  },
+  {
     "someone-stole-my-name/yaml-companion.nvim",
     dependencies = {
       { "neovim/nvim-lspconfig" },
@@ -328,7 +341,7 @@ require("lazy").setup({
     "Isrothy/lualine-diagnostic-message",
   },
   {
-    "hoob3rt/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
     config = function()
       require("plugin-configs.lualine")
     end,
@@ -404,6 +417,20 @@ require("lazy").setup({
   },
   {
     "rebelot/kanagawa.nvim",
+    lazy = true,
+    config = function()
+      require('kanagawa').setup({
+        colors = {
+          theme = {
+            all = {
+              ui = {
+                bg_gutter = "none"
+              }
+            }
+          }
+        }
+      })
+    end,
   },
   {
     "martinsione/darkplus.nvim",
@@ -457,10 +484,6 @@ require("lazy").setup({
       vim.g.tokyonight_style = "storm"
     end,
   },
-  --[[ #######################
-     Plugin development
-    ####################### ]]
-  { "nvim-lua/plenary.nvim" },
 
   --[[ #######################
      Interface
@@ -711,6 +734,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.fidget")
     end,
+    -- TODO: Upgrade to new version once released
+    tag = "legacy"
   },
   {
     "ray-x/lsp_signature.nvim",
