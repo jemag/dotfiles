@@ -4,8 +4,8 @@ vim.cmd.colorscheme("ayu-mirage")
 local M = {}
 
 M.colors = {
-  white = '#FFFFFF',
-  black = '#000000',
+  white = "#FFFFFF",
+  black = "#000000",
   accent = "#FFCC66",
   bg = "#1F2430",
   fg = "#CBCCC6",
@@ -28,6 +28,7 @@ M.colors = {
   panel_border = "#101521",
   gutter_normal = "#404755",
   gutter_active = "#5F687A",
+  search = "#D4BFFF",
   selection_bg = "#33415E",
   selection_inactive = "#323A4C",
   selection_border = "#232A4C",
@@ -43,16 +44,22 @@ M.colors = {
 }
 
 M.icons = {
+  array = "[]",
   arrow = "➜",
   a_to_z = "",
   boxed_x = "",
+  boolean = "",
   breadcrumb = "»",
   checkmark = "✓",
+  calendar = "",
   class = "ﴯ",
   collapsed = "▸",
   color = "",
   constant = "",
+  const = "󰏿",
   constructor = "⌘",
+  copilot = "",
+  codeium = "",
   debug = "",
   enum = "",
   error = "",
@@ -60,28 +67,44 @@ M.icons = {
   expanded = "▾",
   field = "ﰠ",
   file = "",
-  folder = "",
+  folder = "󰉋",
   folder_closed = "",
   folder_empty = "ﰊ",
   folder_open = "",
   func = "",
+  funct = "󰆧",
   info = "",
   interface = "",
   keyword = "廓",
+  key = "󰌋",
   lightbulb = "",
   method = "",
   module = "",
+  namespace = "󰌗",
+  number = "",
+  null = "󰟢",
+  object = "󰅩",
   onetwothree = "",
   operator = "",
+  package = "",
   pencil = "✎",
   plus = "+",
   property = "ﰠ",
   reference = "",
   ruler = "塞",
   snippet = "",
+  snip = "",
+  string = "󰉿",
   struct = "פּ",
-  text = "",
+  table = "",
+  tabNine = "",
+  tag = "",
+  typeParameter = "󰊄",
+  text = "󰉿",
+  variable = "󰀫",
+  value = "󰎠",
   warning = "",
+  watch = "󰥔",
 }
 
 M.border = {
@@ -94,5 +117,22 @@ M.border = {
   "╰",
   "│",
 }
+
+local function set_default_colors()
+  vim.api.nvim_set_hl(0, "Search", { bg = M.colors.search, fg = M.colors.bg })
+  vim.api.nvim_set_hl(0, "CurSearch", { bg = M.colors.special, fg = M.colors.bg })
+  vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
+  if vim.g.colors_name == "monokai-pro" then
+    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#313443" })
+  end
+end
+
+set_default_colors()
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    set_default_colors()
+  end,
+})
 
 return M
