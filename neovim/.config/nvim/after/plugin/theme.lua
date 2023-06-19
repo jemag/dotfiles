@@ -122,9 +122,6 @@ local function set_default_colors()
   vim.api.nvim_set_hl(0, "Search", { bg = M.colors.search, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "CurSearch", { bg = M.colors.special, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
-  if vim.g.colors_name == "monokai-pro" then
-    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#313443" })
-  end
 end
 
 set_default_colors()
