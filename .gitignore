@@ -21,3 +21,4 @@ kubie/.kube/kubectx
 kubie/.kube/ctx
 kubie/.kube/kubectx
 kubie/.kube/kubens
+*profile*.log

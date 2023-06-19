@@ -1,6 +1,7 @@
 alacritty
 alsa-plugins
 alsa-utils
+android-tools
 anki-bin
 ansible
 ansible-lint
@@ -12,6 +13,7 @@ azure-cli
 base
 base-devel
 bat
+bat-extras
 bind
 binutils
 bison
@@ -20,6 +22,7 @@ bitwarden-cli
 blueman
 bluez
 bluez-utils
+bob
 bottles
 bottom
 brave-bin
@@ -70,6 +73,7 @@ firefox
 firefox-developer-edition
 flameshot
 flex
+foliate
 fontdownloader-git
 fontpreview
 forgit-git
@@ -86,9 +90,11 @@ git-delta
 github-cli
 glances
 gnome-calculator
+gnome-font-viewer
 gnome-keyring
 gnomecast-git
 go-tools
+go-yq
 gparted
 gradle
 graphviz
@@ -183,6 +189,7 @@ man-db
 man-pages
 mangohud
 maven
+microsoft-edge-stable-bin
 mkcert
 mkchromecast-git
 mkinitcpio
@@ -193,8 +200,8 @@ mullvad-vpn-bin
 ncdu
 neovim-qt
 neovim-remote
-nerd-fonts-complete
 net-tools
+newsboat
 ninja
 nmap
 noto-fonts
@@ -213,9 +220,11 @@ openconnect
 openjdk11-doc
 openjdk11-src
 openresolv
+otf-firamono-nerd
 pacman
 pacman-contrib
 page-git
+pandoc-cli
 paru-bin
 patch
 pavucontrol
@@ -256,6 +265,7 @@ rust
 rust-analyzer
 rxvt-unicode
 samba
+screenkey
 scrot
 seahorse
 sed
@@ -269,6 +279,7 @@ speedtest-cli
 spicetify-cli
 spotify
 spring-boot-cli
+src-cli-bin
 starship
 steam
 stow
@@ -285,12 +296,15 @@ the_silver_searcher
 timeshift-bin
 tmux-git
 tokei
+torbrowser-launcher
 traceroute
 trash-cli
 tree
 trivy-bin
+ttf-jetbrains-mono-nerd
 ttf-ms-fonts
 ttf-windows
+ttyper
 ueberzug
 vagrant
 vde2
@@ -316,6 +330,7 @@ wireguard-tools
 wireshark-qt
 woeusb-ng
 wttr
+xcolor
 xcursor-neutral
 xcursor-themes
 xdo
@@ -357,7 +372,6 @@ xsel
 xwobf-git
 yarn
 yay
-yq
 zathura
 zathura-pdf-mupdf
 zellij
