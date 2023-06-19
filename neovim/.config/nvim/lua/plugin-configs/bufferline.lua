@@ -1,8 +1,7 @@
 require("bufferline").setup({
   options = {
     numbers = "ordinal",
-  }
-
+  },
 })
 
 local function close_all_but_current_buffer()
@@ -38,3 +37,13 @@ vim.keymap.set({ "n", "x" }, "<leader>bj", "<cmd>BufferLineCloseLeft<cr>", { des
 vim.keymap.set({ "n", "x" }, "<leader>bk", "<cmd>BufferLineCloseRight<cr>", { desc = "delete buffers to the right" })
 vim.keymap.set({ "n", "x" }, "<leader>bs", "<cmd>BufferLinePick<cr>", { desc = "Magic buffer select" })
 
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    if vim.g.colors_name == "monokai-pro" then
+      vim.api.nvim_set_hl(0, "BufferLineNumbers", { link = "BufferLineBackground" })
+      vim.api.nvim_set_hl(0, "BufferLineNumbersSelected", { link = "BufferLineBufferSelected" })
+      vim.api.nvim_set_hl(0, "BufferLineNumbersVisible", { link = "BufferLineBufferSelected" })
+    end
+  end,
+})
