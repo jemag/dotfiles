@@ -238,28 +238,28 @@ require("lazy").setup({
   --     })
   --   end,
   -- })
-  -- use({
-  --   "/home/jemag/Projects/multi-term.nvim/",
-  --[[ config = function()
-        require("multi-term").setup({
-          on_stdout = function(t, job, data, name)
-            print("terminal/n")
-            print(vim.inspect(t))
-            print("job/n")
-            print(vim.inspect(job))
-            print("data/n")
-            print(vim.inspect(data))
-            print("name/n")
-            print(vim.inspect(name))
-          end,
-          border = "double",
-          dimensions = {
-            height = 0.9,
-            width = 0.9,
-          },
-        })
-      end ]]
-  -- })
+  -- ({
+  --   dir = "/home/jemag/Projects/multi-term.nvim/",
+  --   config = function()
+  --     require("multi-term").setup({
+  --       on_stdout = function(t, job, data, name)
+  --         print("terminal/n")
+  --         print(vim.inspect(t))
+  --         print("job/n")
+  --         print(vim.inspect(job))
+  --         print("data/n")
+  --         print(vim.inspect(data))
+  --         print("name/n")
+  --         print(vim.inspect(name))
+  --       end,
+  --       border = "double",
+  --       dimensions = {
+  --         height = 0.9,
+  --         width = 0.9,
+  --       },
+  --     })
+  --   end
+  -- }),
   {
     "jemag/telescope-diff.nvim",
     dependencies = {
@@ -385,12 +385,21 @@ require("lazy").setup({
     "loctvl842/monokai-pro.nvim",
     config = function()
       require("monokai-pro").setup({
-        filter = "octagon",
+        terminal_colors = false,
+        background_clear = {
+          "telescope",
+          "floaterm",
+          "neo-tree",
+          "bufferline",
+        },
       })
     end
   },
   {
     "bluz71/vim-nightfly-colors",
+  },
+  {
+    "tiagovla/tokyodark.nvim",
   },
   {
     "NTBBloodbath/sweetie.nvim",
@@ -410,7 +419,6 @@ require("lazy").setup({
   },
   {
     "rebelot/kanagawa.nvim",
-    lazy = true,
     config = function()
       require('kanagawa').setup({
         colors = {
@@ -441,7 +449,9 @@ require("lazy").setup({
   {
     "luisiacc/gruvbox-baby",
   },
-  { "folke/lsp-colors.nvim" },
+  {
+    "folke/lsp-colors.nvim",
+  },
   {
     "lvimuser/lsp-inlayhints.nvim",
     config = function ()
@@ -449,28 +459,49 @@ require("lazy").setup({
     end,
     branch = "anticonceal",
   },
-  { "sainnhe/sonokai" },
+  {
+    "sainnhe/sonokai",
+  },
   {
     "Shatur95/neovim-ayu",
-    lazy = false,
     priority = 1000,
   },
-  { "doums/darcula" },
+  {
+    "doums/darcula",
+  },
   {
     "briones-gabriel/darcula-solid.nvim",
     dependencies = {
       { "rktjmp/lush.nvim" },
     },
   },
-  { "romgrk/doom-one.vim" },
-  { "habamax/vim-gruvbit" },
-  { "kyazdani42/blue-moon" },
-  { "JoosepAlviste/palenightfall.nvim" },
-  { "gruvbox-community/gruvbox" },
-  { "shaunsingh/nord.nvim" },
-  { "franbach/miramare" },
-  { "chuling/ci_dark" },
-  { "olimorris/onedarkpro.nvim" },
+  {
+    "romgrk/doom-one.vim",
+  },
+  {
+    "habamax/vim-gruvbit",
+  },
+  {
+    "kyazdani42/blue-moon",
+  },
+  {
+    "JoosepAlviste/palenightfall.nvim",
+  },
+  {
+    "gruvbox-community/gruvbox",
+  },
+  {
+    "shaunsingh/nord.nvim",
+  },
+  {
+    "franbach/miramare",
+  },
+  {
+    "chuling/ci_dark",
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+  },
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -497,6 +528,7 @@ require("lazy").setup({
       require("plugin-configs.possession")
     end,
   },
+  -- TODO: Check if still needed
   {
     "ahmedkhalf/project.nvim",
     config = function()
@@ -550,6 +582,7 @@ require("lazy").setup({
   --[[ #######################
      Database
     ####################### ]]
+  -- TODO: Check if still needed
   {
     "tpope/vim-dadbod",
     cmd = "DB",
