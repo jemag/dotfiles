@@ -177,6 +177,19 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/flash.nvim",
+    config = function ()
+      require("plugin-configs.flash")
+    end,
+  },
+  {
+    "folke/noice.nvim",
+    lazy = false,
+    config = function()
+      require("plugin-configs.noice")
+    end,
+  },
+  {
     "akinsho/bufferline.nvim",
     lazy = false,
     config = function()
@@ -267,18 +280,6 @@ require("lazy").setup({
     }
   },
   { "airblade/vim-rooter" },
-  {
-    "jinh0/eyeliner.nvim",
-    config = function()
-      require("plugin-configs.eyeliner")
-    end,
-  },
-  {
-    "woosaaahh/sj.nvim",
-    config = function()
-      require("plugin-configs.sj")
-    end,
-  },
   {
     "LeonHeidelbach/trailblazer.nvim",
     config = function()
@@ -755,14 +756,6 @@ require("lazy").setup({
   },
   { "williamboman/mason-lspconfig.nvim" },
 
-  {
-    "j-hui/fidget.nvim",
-    config = function()
-      require("plugin-configs.fidget")
-    end,
-    -- TODO: Upgrade to new version once released
-    tag = "legacy"
-  },
   {
     "ray-x/lsp_signature.nvim",
   },

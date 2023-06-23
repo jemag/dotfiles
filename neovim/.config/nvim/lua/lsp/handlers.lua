@@ -117,13 +117,6 @@ local function map_java_keys(bufnr)
   vim.keymap.set("x", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = "Extract method", buffer = bufnr })
 end
 
-local function set_signature_helper(client, bufnr)
-  local shp = client.server_capabilities.signatureHelpProvider
-  if vim.fn.empty(shp) == 0 then
-    require("lsp_signature").on_attach(signature_cfg, bufnr)
-  end
-end
-
 local function set_hover_border(client)
   local hp = client.server_capabilities.hoverProvider
   if vim.fn.empty(hp) == 0 then
@@ -133,7 +126,6 @@ end
 
 M.on_attach = function(client, bufnr)
 
-  set_signature_helper(client, bufnr)
   set_hover_border(client)
   map_keys(bufnr)
   if client.name == "jdtls" then
