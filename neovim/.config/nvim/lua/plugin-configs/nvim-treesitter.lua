@@ -131,6 +131,8 @@ require("nvim-treesitter.configs").setup({
     "latex",
     "llvm",
     "lua",
+    "luap",
+    "luadoc",
     "make",
     "markdown",
     "markdown_inline",
