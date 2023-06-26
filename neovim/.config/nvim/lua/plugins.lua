@@ -756,9 +756,6 @@ require("lazy").setup({
   },
   { "williamboman/mason-lspconfig.nvim" },
 
-  {
-    "ray-x/lsp_signature.nvim",
-  },
   { "folke/lua-dev.nvim" },
   {
     "L3MON4D3/LuaSnip",
