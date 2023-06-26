@@ -37,7 +37,6 @@ require("neo-tree").setup({
     {
       event = "after_render",
       handler = function()
-        vim.api.nvim_feedkeys("zz", "n", false)
       end,
     },
   },
