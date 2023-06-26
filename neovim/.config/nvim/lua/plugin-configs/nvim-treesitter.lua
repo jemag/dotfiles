@@ -11,10 +11,9 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = { "phpdoc" },
     keymaps = { -- mappings for incremental selection (visual mappings)
-      init_selection = "<cr>", -- maps in normal mode to init the node/scope selection
-      node_incremental = "<cr>", -- increment to the upper named parent
+      node_incremental = "v", -- increment to the upper named parent
       scope_incremental = "grc", -- increment to the upper scope (as defined in locals.scm)
-      node_decremental = "<bs>", -- decrement to the previous node
+      node_decremental = "V", -- decrement to the previous node
     },
   },
   refactor = {
