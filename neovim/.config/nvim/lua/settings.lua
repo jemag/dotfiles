@@ -13,6 +13,8 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.colorcolumn = "120"
 vim.opt.smoothscroll = true
+-- Fix markdown indentation settings (4 spaces with recommendation)
+vim.g.markdown_recommended_style = 0
 -- vim.opt.splitkeep = "screen"
 -- NOTE: can impact performance if enabled
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
