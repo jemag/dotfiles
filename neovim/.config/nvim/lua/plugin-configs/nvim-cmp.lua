@@ -116,9 +116,10 @@ cmp.setup({
     },
   },
   experimental = {
-    ghost_text = {
-      hl_group = "LspCodeLens",
-    },
+    ghost_text = false
+    -- ghost_text = {
+    --   hl_group = "LspCodeLens",
+    -- },
   },
 })
 -- vim.keymap.set("i", "<c-x><c-f>", function()
