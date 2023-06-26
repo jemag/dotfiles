@@ -108,26 +108,25 @@ vim.api.nvim_set_keymap("c", "<esc>", "<c-c>", { noremap = true, desc = "Esc as 
 vim.api.nvim_set_keymap("n", "<c-w>z", "<c-w>_<c-w>|", { noremap = true, desc = "Zoom current window" })
 vim.api.nvim_set_keymap("t", "<c-o>", [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true, desc = "Normal mode" })
 
--- NOTE: could use gy, gY, gs, gS, gp gP instead if we want to use y, s, and p with leader
-vim.api.nvim_set_keymap("x", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
-vim.api.nvim_set_keymap("n", "<leader>Y", '"+yg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
-vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
-vim.api.nvim_set_keymap("n", "<leader>yy", '"+yy', { noremap = true, silent = true, desc = "Yank whole line +reg" })
+vim.api.nvim_set_keymap("x", "<cr>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
+vim.api.nvim_set_keymap("n", "<cr>Y", '"+yg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
+vim.api.nvim_set_keymap("n", "<cr>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
+vim.api.nvim_set_keymap("n", "<cr>yy", '"+yy', { noremap = true, silent = true, desc = "Yank whole line +reg" })
 
-vim.api.nvim_set_keymap("x", "<leader>c", '"+c', { noremap = true, silent = true, desc = "Change +reg" })
-vim.api.nvim_set_keymap("n", "<leader>C", '"+cg_', { noremap = true, silent = true, desc = "Change end of line +reg" })
-vim.api.nvim_set_keymap("n", "<leader>c", '"+c', { noremap = true, silent = true, desc = "Change +reg" })
-vim.api.nvim_set_keymap("n", "<leader>cc", '"+cc', { noremap = true, silent = true, desc = "Change whole line +reg" })
+vim.api.nvim_set_keymap("x", "<cr>c", '"+c', { noremap = true, silent = true, desc = "Change +reg" })
+vim.api.nvim_set_keymap("n", "<cr>C", '"+cg_', { noremap = true, silent = true, desc = "Change end of line +reg" })
+vim.api.nvim_set_keymap("n", "<cr>c", '"+c', { noremap = true, silent = true, desc = "Change +reg" })
+vim.api.nvim_set_keymap("n", "<cr>cc", '"+cc', { noremap = true, silent = true, desc = "Change whole line +reg" })
 
-vim.api.nvim_set_keymap("x", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
-vim.api.nvim_set_keymap("n", "<leader>D", '"+dg_', { noremap = true, silent = true, desc = "Delete end of line +reg" })
-vim.api.nvim_set_keymap("n", "<leader>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
-vim.api.nvim_set_keymap("n", "<leader>dd", '"+dd', { noremap = true, silent = true, desc = "Delete whole line +reg" })
+vim.api.nvim_set_keymap("x", "<cr>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
+vim.api.nvim_set_keymap("n", "<cr>D", '"+dg_', { noremap = true, silent = true, desc = "Delete end of line +reg" })
+vim.api.nvim_set_keymap("n", "<cr>d", '"+d', { noremap = true, silent = true, desc = "Delete +reg" })
+vim.api.nvim_set_keymap("n", "<cr>dd", '"+dd', { noremap = true, silent = true, desc = "Delete whole line +reg" })
 
-vim.api.nvim_set_keymap("n", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
-vim.api.nvim_set_keymap("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
-vim.api.nvim_set_keymap("x", "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
-vim.api.nvim_set_keymap("x", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
+vim.api.nvim_set_keymap("n", "<cr>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
+vim.api.nvim_set_keymap("n", "<cr>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
+vim.api.nvim_set_keymap("x", "<cr>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
+vim.api.nvim_set_keymap("x", "<cr>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
 
 vim.keymap.set({ "n", "x" }, "<leader>.", "<cmd>e $MYVIMRC<cr>", { desc = "Open init" })
 vim.keymap.set({ "n", "x" }, "<leader>nw", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
@@ -257,8 +256,26 @@ local leader_mappings = {
   b = {
     name = "+buffer",
   },
+  d = {
+    name = "+debug",
+    s = {
+      name = "Step",
+    },
+    t = {
+      name = "Telescope",
+    },
+    u = {
+      name = "Dap UI",
+    },
+  },
   f = {
     name = "+format",
+  },
+  g = {
+    name = "+git",
+    m = {
+      name = "+merge",
+    },
   },
   h = {
     name = "+hunk",
@@ -278,6 +295,12 @@ local leader_mappings = {
   r = {
     name = "+refactor",
   },
+  s = {
+    name = "+search",
+    g = {
+      name = "+git",
+    },
+  },
   t = {
     name = "+terminal",
   },
@@ -287,24 +310,6 @@ local leader_mappings = {
 }
 
 local local_leader_mappings = {
-  d = {
-    name = "+debug",
-    s = {
-      name = "Step",
-    },
-    t = {
-      name = "Telescope",
-    },
-    u = {
-      name = "Dap UI",
-    },
-  },
-  g = {
-    name = "+git",
-    m = {
-      name = "+merge",
-    },
-  },
   m = {
     name = "+misc",
     s = {
@@ -315,12 +320,6 @@ local local_leader_mappings = {
     name = "+project",
     s = {
       name = "+session",
-    },
-  },
-  s = {
-    name = "+search",
-    g = {
-      name = "+git",
     },
   },
   t = {

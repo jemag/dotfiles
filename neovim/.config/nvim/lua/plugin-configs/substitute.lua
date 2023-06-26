@@ -7,21 +7,21 @@ require("substitute").setup({
 vim.keymap.set("n", "s", require('substitute').operator, { noremap = true, desc = "Substitute with reg" })
 vim.keymap.set(
   "n",
-  "<leader>s",
+  "<cr>s",
   '"+<cmd>lua require("substitute").operator()<cr>',
   { noremap = true, desc = "Substitute with +reg" }
 )
 vim.keymap.set("n", "ss", require('substitute').line, { noremap = true, desc = "Substitute with reg" })
-vim.keymap.set("n", "<leader>ss", '"+<cmd>lua require("substitute").line()<cr>', {
+vim.keymap.set("n", "<cr>ss", '"+<cmd>lua require("substitute").line()<cr>', {
   noremap = true,
   desc = "Substitute with +reg",
 })
 vim.keymap.set("n", "S", require('substitute').eol, { noremap = true, desc = "Substitute with reg" })
-vim.keymap.set("n", "<leader>S", '"+<cmd>lua require("substitute").eol()<cr>', { noremap = true, desc = "Substitute with +reg" })
+vim.keymap.set("n", "<cr>S", '"+<cmd>lua require("substitute").eol()<cr>', { noremap = true, desc = "Substitute with +reg" })
 vim.keymap.set("x", "s", require('substitute').visual, { noremap = true, desc = "Substitute with reg" })
 vim.keymap.set(
   "x",
-  "<leader>s",
+  "<cr>s",
   '"+<cmd>lua require("substitute").visual()<cr>',
   { noremap = true, desc = "Substitute with +reg" }
 )

@@ -54,6 +54,6 @@ require("diffview").setup({
     end,
   }, -- See ':h diffview-config-hooks'
 })
-vim.keymap.set("n", "<localleader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Diff view" })
-vim.keymap.set("n", "<localleader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Current file history" })
-vim.keymap.set("n", "<localleader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Global file history" })
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Diff view" })
+vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "Current file history" })
+vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "Global file history" })
