@@ -83,7 +83,7 @@ flash.setup({
     -- a regular search with `/` or `?`
     search = {
       enabled = true, -- enable flash for search
-      highlight = { backdrop = false },
+      highlight = { backdrop = true },
       jump = { history = true, register = true, nohlsearch = true },
       search = {
         -- `forward` will be automatically set to the search direction
