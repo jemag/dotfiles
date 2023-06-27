@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = "-"
+vim.cmd[[ let maplocalleader = "\<bs>"]]
 require("filetypes")
 require("plugins")
 require("keybindings")
