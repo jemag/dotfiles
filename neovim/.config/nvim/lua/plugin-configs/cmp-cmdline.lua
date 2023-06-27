@@ -11,8 +11,3 @@ require("cmp").setup.cmdline(":", {
     { name = "cmdline_history", max_item_count = 10 },
   },
 })
-require("cmp").setup.cmdline("/", {
-  sources = {
-    { name = "buffer" },
-  },
-})
