@@ -22,7 +22,8 @@ flash.setup({
     mode = "exact",
     -- behave like `incsearch`
     incremental = false,
-    filetype_exclude = { "notify", "noice" },
+    filetype_exclude = { "notify", "noice", "cmp_menu", "flash_prompt" },
+    trigger = "",
   },
   jump = {
     -- save location in the jumplist
@@ -40,6 +41,8 @@ flash.setup({
   },
   highlight = {
     label = {
+      -- allow uppercase labels
+      uppercase = true,
       -- add a label for the first match in the current window.
       -- you can always jump to the first match with `<CR>`
       current = true,
