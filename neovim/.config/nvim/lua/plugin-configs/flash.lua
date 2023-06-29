@@ -23,7 +23,7 @@ flash.setup({
 		-- behave like `incsearch`
 		incremental = false,
 		filetype_exclude = { "notify", "noice", "cmp_menu", "flash_prompt" },
-		trigger = ";",
+		trigger = "",
 	},
 	jump = {
 		-- save location in the jumplist
