@@ -32,7 +32,7 @@ require("telescope").setup({
     selection_caret = " ",
     entry_prefix = "  ",
     initial_mode = "insert",
-    path_display = { "absolute" },
+    path_display = { "relative" },
     winblend = 0,
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
