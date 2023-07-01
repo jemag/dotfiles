@@ -41,12 +41,6 @@ require("lazy").setup({
   },
   {
     "gaoDean/autolist.nvim",
-    ft = {
-      "markdown",
-      "test",
-      "tex",
-      "plaintex",
-    },
     config = function()
       require("plugin-configs.autolist")
     end,
