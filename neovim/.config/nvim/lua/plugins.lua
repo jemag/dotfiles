@@ -623,7 +623,7 @@ require("lazy").setup({
     end,
   },
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     config = function()
       require("plugin-configs.neogit")
     end,
