@@ -21,7 +21,7 @@ require("flash").setup({
     --   end,
     mode = "exact",
     -- behave like `incsearch`
-    incremental = false,
+    incremental = true,
     exclude = {
       "notify",
       "cmp_menu",
@@ -93,7 +93,7 @@ require("flash").setup({
     search = {
       enabled = true, -- enable flash for search
       highlight = { backdrop = true },
-      jump = { history = true, register = true, nohlsearch = true },
+      jump = { history = true, register = true, nohlsearch = false },
       search = {
         -- `forward` will be automatically set to the search direction
         -- `mode` is always set to `search`
@@ -136,7 +136,7 @@ require("flash").setup({
     treesitter = {
       labels = "abcdefghijklmnopqrstuvwxyz",
       jump = { pos = "range" },
-      search = { incremental = false },
+      search = { incremental = true },
       label = { before = true, after = true, style = "inline" },
       highlight = {
         backdrop = false,
@@ -145,7 +145,7 @@ require("flash").setup({
     },
     treesitter_search = {
       jump = { pos = "range" },
-      search = { multi_window = true, wrap = true, incremental = false },
+      search = { multi_window = true, wrap = true, incremental = true },
       remote_op = { restore = true },
       label = { before = true, after = true, style = "inline" },
     },
