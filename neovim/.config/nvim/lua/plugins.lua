@@ -391,6 +391,9 @@ require("lazy").setup({
     end
   },
   {
+    "antonk52/lake.nvim",
+  },
+  {
     "bluz71/vim-nightfly-colors",
   },
   {
