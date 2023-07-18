@@ -107,6 +107,8 @@ require("nvim-treesitter.configs").setup({
     "fish",
     "foam",
     "fortran",
+    "gitcommit",
+    "git_rebase",
     "gdscript",
     "go",
     "gomod",

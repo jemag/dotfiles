@@ -153,6 +153,9 @@ require("neo-tree").setup({
   },
   nesting_rules = {},
   filesystem = {
+    follow_current_file = {
+      enabled = false
+    },
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
       hide_dotfiles = false,
@@ -215,7 +218,6 @@ require("neo-tree").setup({
         },
       },
     },
-    follow_current_file = false,          -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
     hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
     -- in whatever position is specified in window.position
