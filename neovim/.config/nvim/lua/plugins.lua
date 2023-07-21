@@ -627,7 +627,6 @@ require("lazy").setup({
   },
   {
     "NeogitOrg/neogit",
-    branch = "hard-code-colors",
     config = function()
       require("plugin-configs.neogit")
     end,
