@@ -164,6 +164,9 @@ vim.keymap.set("n", "\\W", function()
   utils.windo_restore_win("set nowrap")
 end, { desc = "Set 'nowrap'" })
 
+
+vim.keymap.set("n", "<localleader>tm", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle markdown preview" })
+
 -- Diffs
 vim.keymap.set("n", "<localleader>md", function()
   local split_filenames = {}
