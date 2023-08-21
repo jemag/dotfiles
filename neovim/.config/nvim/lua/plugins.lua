@@ -465,7 +465,7 @@ require("lazy").setup({
     priority = 1000,
   },
   {
-    "doums/darcula",
+    "xiantang/darcula-dark.nvim",
   },
   {
     "briones-gabriel/darcula-solid.nvim",
@@ -917,13 +917,6 @@ require("lazy").setup({
     end,
   },
   {
-    "lukas-reineke/headlines.nvim",
-    config = function()
-      require("headlines").setup()
-    end,
-    ft = { "markdown", "neorg"},
-  },
-  {
     "liuchengxu/vista.vim",
     config = function()
       require("plugin-configs.vista")
@@ -976,6 +969,12 @@ require("lazy").setup({
     "echasnovski/mini.indentscope",
     config = function()
       require("plugin-configs.indentscope")
+    end,
+  },
+  {
+    "echasnovski/mini.ai",
+    config = function()
+      require("plugin-configs.mini-ai")
     end,
   },
   {
