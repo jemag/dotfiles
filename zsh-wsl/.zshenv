@@ -5,6 +5,7 @@ export GIT_EDITOR=nvim
 export VISUAL=nvim
 export DIFFPROG="nvim -d"
 export MANPAGER='nvim +Man!'
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export MANWIDTH=999
 export TERMINAL=/usr/local/bin/st
 export GOPATH=$HOME/go

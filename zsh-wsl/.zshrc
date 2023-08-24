@@ -251,6 +251,7 @@ source <(kyverno completion zsh)
 source <(trivy completion zsh)
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
 source /usr/share/bash-completion/completions/az
+source ~/.config/zsh/update-tags.sh.bash
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
