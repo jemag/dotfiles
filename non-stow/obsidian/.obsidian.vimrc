@@ -1,4 +1,4 @@
-inoremap jk <esc>
+inoremap jk <Esc>
 nmap j gj
 nmap k gk
 vnoremap j gj
