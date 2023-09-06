@@ -16,6 +16,21 @@ local function close_all_but_current_buffer()
   end
 end
 
+local function close_all_but_pinned()
+  local bufferline = require("bufferline")
+  local commands = require("bufferline.commands")
+  local current = vim.api.nvim_get_current_buf()
+  vim.schedule(function()
+    for _, e in ipairs(bufferline.get_elements().elements) do
+      local is_current = e.id == current
+      local is_pinned = bufferline.groups._is_pinned(e)
+      if not is_current and not is_pinned then
+        commands.unpin_and_close(e.id)
+      end
+    end
+  end)
+end
+
 vim.keymap.set({ "n", "x" }, "H", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
 vim.keymap.set({ "n", "x" }, "L", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 vim.keymap.set({ "n", "x" }, "<leader>1", "<cmd>lua require('bufferline').go_to(1, true)<cr>", { desc = "Buf 1" })
@@ -35,6 +50,8 @@ vim.keymap.set({ "n", "x" }, "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { desc
 vim.keymap.set({ "n", "x" }, "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { desc = "move next" })
 vim.keymap.set({ "n", "x" }, "<leader>bj", "<cmd>BufferLineCloseLeft<cr>", { desc = "delete buffers to the left" })
 vim.keymap.set({ "n", "x" }, "<leader>bk", "<cmd>BufferLineCloseRight<cr>", { desc = "delete buffers to the right" })
+vim.keymap.set({ "n", "x" }, "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "delete buffers to the right" })
+vim.keymap.set({ "n", "x" }, "<leader>bP", close_all_but_pinned, { desc = "Close all unpinned" })
 vim.keymap.set({ "n", "x" }, "<leader>bs", "<cmd>BufferLinePick<cr>", { desc = "Magic buffer select" })
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
