@@ -216,7 +216,6 @@ require("lazy").setup({
     keys = { "<localleader>sK" }
   },
   { "stevearc/dressing.nvim" },
-  { "folke/which-key.nvim" },
   {
     "voldikss/vim-floaterm",
     config = function()
@@ -969,6 +968,12 @@ require("lazy").setup({
     "echasnovski/mini.indentscope",
     config = function()
       require("plugin-configs.indentscope")
+    end,
+  },
+  {
+    "echasnovski/mini.clue",
+    config = function()
+      require("plugin-configs.clue")
     end,
   },
   {

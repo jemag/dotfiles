@@ -64,4 +64,4 @@ require("todo-comments").setup({
     -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
   },
 })
-vim.keymap.set("n", "<localleader>sT", "<cmd>TodoTelescope<cr>", { desc = "TODOs" })
+vim.keymap.set("n", "<localleader>st", "<cmd>TodoTelescope<cr>", { desc = "TODOs" })
