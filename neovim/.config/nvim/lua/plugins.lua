@@ -126,12 +126,6 @@ require("lazy").setup({
     },
   },
   {
-    "gbprod/substitute.nvim",
-    config = function()
-      require("plugin-configs.substitute")
-    end,
-  },
-  {
     "haya14busa/vim-asterisk",
     config = function()
       require("plugin-configs.vim-asterisk")
@@ -974,6 +968,12 @@ require("lazy").setup({
     "echasnovski/mini.clue",
     config = function()
       require("plugin-configs.clue")
+    end,
+  },
+  {
+    "echasnovski/mini.operators",
+    config = function()
+      require("plugin-configs.operators")
     end,
   },
   {
