@@ -111,6 +111,7 @@
   "nvim-ts-rainbow": { "branch": "master", "commit": "8312b513ce930e7669a1721befbe56f2e1853301" },
   "nvim-web-devicons": { "branch": "master", "commit": "bc11ee2498de2310de5776477dd9dce65d03b464" },
   "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
+  "obsidian.nvim": { "branch": "main", "commit": "d7c3b8361630e57dfd0b72a43811273ad7d7fde3" },
   "octo.nvim": { "branch": "master", "commit": "d1e52f9b3c755fcebb93d635821663a2c0f53281" },
   "onedarkpro.nvim": { "branch": "main", "commit": "fa861b992471d55f653751f1fea8769ca536a554" },
   "palenightfall.nvim": { "branch": "main", "commit": "f33b64d0099867deb4a7aa6024d4c55f628253f2" },

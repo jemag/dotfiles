@@ -69,6 +69,7 @@ miniclue.setup({
     { mode = "x", keys = "<leader>m", desc = "+bookmarks" },
     { mode = "n", keys = "<leader>n", desc = "+notes" },
     { mode = "x", keys = "<leader>n", desc = "+notes" },
+    { mode = "n", keys = "<leader>o", desc = "+obsidian" },
     { mode = "n", keys = "<leader>r", desc = "+refactor" },
     { mode = "x", keys = "<leader>r", desc = "+refactor" },
     { mode = "n", keys = "<leader>s", desc = "+search" },

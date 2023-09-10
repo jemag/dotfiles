@@ -268,6 +268,12 @@ require("lazy").setup({
   },
   { "airblade/vim-rooter" },
   {
+    "epwalsh/obsidian.nvim",
+    config = function()
+      require("plugin-configs.obsidian")
+    end,
+  },
+  {
     "LeonHeidelbach/trailblazer.nvim",
     config = function()
       require("plugin-configs.trailblazer")
