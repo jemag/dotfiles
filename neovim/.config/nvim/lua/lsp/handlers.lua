@@ -34,7 +34,7 @@ local function peek_definition()
   end)
 end
 
-vim.g.inlay_hints_visible = false
+vim.g.inlay_hints_visible = true
 local function toggle_inlay_hints(client, bufnr)
   if vim.g.inlay_hints_visible then
     vim.g.inlay_hints_visible = false
