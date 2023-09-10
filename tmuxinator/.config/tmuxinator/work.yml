@@ -16,3 +16,8 @@ windows:
       panes:
               - argo-platform:
                 - cd ~/Projects/ArgoPlatform/
+  - wiki:
+      layout: even-horizontal
+      panes:
+              - wiki:
+                - cd ~/Projects/Wiki/
