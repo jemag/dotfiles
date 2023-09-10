@@ -7,6 +7,7 @@ ansible
 ansible-lint
 arandr
 arch-install-scripts
+ast-grep
 autoconf
 automake
 azure-cli
@@ -59,8 +60,8 @@ entr
 epub-thumbnailer-git
 evince
 evtest
-exa
 exercism-bin
+eza
 fakeroot
 faq-bin
 fd
@@ -212,6 +213,7 @@ nvidia-dkms
 nvidia-settings
 nvidia-utils
 obs-studio
+obsidian
 ocl-icd
 onlyoffice-bin
 openal
@@ -229,7 +231,6 @@ paru-bin
 patch
 pavucontrol
 pcmanfm-gtk3
-pebbles-git
 picom
 pipewire-alsa
 pipewire-pulse
@@ -240,11 +241,13 @@ poppler
 postgresql
 prettier
 procs-bin
-protonup-qt
+protonup-qt-bin
 pulsemixer
 python-black
 python-pip
+python-pipx
 python-pynvim
+python-pyserial
 qalculate-gtk
 qbittorrent
 qemu-desktop
