@@ -6,6 +6,8 @@ miniclue.setup({
     { mode = "x", keys = "<Leader>" },
     { mode = "n", keys = "<localleader>" },
     { mode = "x", keys = "<localleader>" },
+    { mode = "n", keys = "\\" },
+    { mode = "x", keys = "\\" },
     { mode = "n", keys = "[" },
     { mode = "x", keys = "[" },
     { mode = "n", keys = "<cr>" },
