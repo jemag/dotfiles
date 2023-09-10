@@ -88,13 +88,13 @@ vim.keymap.set("x", "#", [[y?\V<C-R>=escape(@", '?\')<CR><CR>]])
 -- NOTE: could potentially use 'go' and 'gO' as well if we wanted to keep letter 'o' with leader key for more keybinds
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>o",
+  "<cr>o",
   '<cmd>call append(line("."),   repeat([""], v:count1))<CR>',
   { noremap = true, silent = true, desc = "Append line underneath" }
 )
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>O",
+  "<cr>O",
   '<cmd>call append(line(".")-1, repeat([""], v:count1))<CR>',
   { noremap = true, silent = true, desc = "Append line above" }
 )
