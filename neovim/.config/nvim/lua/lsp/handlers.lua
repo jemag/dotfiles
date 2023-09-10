@@ -26,7 +26,7 @@ local signature_cfg = {
 
 local function peek_definition()
   local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result)
+  return vim.lsp.buf_request(0, "textDocument/definition", params, function(_, result)
     if result == nil or vim.tbl_isempty(result) then
       return nil
     end
@@ -34,24 +34,34 @@ local function peek_definition()
   end)
 end
 
-local function map_keys(bufnr)
+vim.g.inlay_hints_visible = false
+local function toggle_inlay_hints(client, bufnr)
+  if vim.g.inlay_hints_visible then
+    vim.g.inlay_hints_visible = false
+    vim.lsp.inlay_hint(bufnr, false)
+  else
+    if client.server_capabilities.inlayHintProvider then
+      vim.g.inlay_hints_visible = true
+      vim.lsp.inlay_hint(bufnr, true)
+    else
+      print("no inlay hints available")
+    end
+  end
+end
+
+local function map_keys(client, bufnr)
   -- local opts = { noremap = true, silent = true }
   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Declaration", buffer = bufnr })
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Definition", buffer = bufnr })
   vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr })
   vim.keymap.set("n", "<leader>lp", peek_definition, { desc = "Peek definition", buffer = bufnr })
   vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", buffer = bufnr })
-  vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-    { desc = "Signature help", buffer = bufnr })
-  vim.keymap.set("i", "<C-q>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr, silent = true})
-  vim.keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>",
-    { desc = "Implementation", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>",
-    { desc = "Type definition", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>",
-    { desc = "Document Symbol", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>",
-    { desc = "Workspace symbol", buffer = bufnr })
+  vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr })
+  vim.keymap.set("i", "<C-q>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr, silent = true })
+  vim.keymap.set("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Implementation", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Type definition", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", { desc = "Document Symbol", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", { desc = "Workspace symbol", buffer = bufnr })
   vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action", buffer = bufnr })
   vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
   vim.keymap.set(
@@ -66,11 +76,13 @@ local function map_keys(bufnr)
     '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>',
     { desc = "Cursor diagnostics", buffer = bufnr }
   )
-  vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>",
-    { desc = "Diagnostic to quickfix", buffer = bufnr })
+
+  vim.keymap.set("n", "\\I", function()
+    toggle_inlay_hints(client, bufnr)
+  end, { desc = "Toggle inlay hints", buffer = bufnr })
+  vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { desc = "Diagnostic to quickfix", buffer = bufnr })
   vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
-  vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>",
-    { desc = "Eval expression", buffer = bufnr })
+  vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>", { desc = "Eval expression", buffer = bufnr })
   vim.keymap.set("n", "<leader>due", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
   vim.keymap.set("n", "<leader>dut", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle dap ui", buffer = bufnr })
   vim.keymap.set(
@@ -82,14 +94,11 @@ local function map_keys(bufnr)
   vim.keymap.set("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step over", buffer = bufnr })
   vim.keymap.set("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step into", buffer = bufnr })
   vim.keymap.set("n", "<leader>dsO", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Step out", buffer = bufnr })
-  vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>",
-    { desc = "Toggle breakpoint", buffer = bufnr })
+  vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle breakpoint", buffer = bufnr })
   vim.keymap.set("n", "<leader>dtc", "<cmd>Telescope dap commands<CR>", { desc = "Dap commands", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>",
-    { desc = "Dap configurations", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>", { desc = "Dap configurations", buffer = bufnr })
   vim.keymap.set("n", "<leader>dtf", "<cmd>Telescope dap frames<CR>", { desc = "Dap frames", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>",
-    { desc = "List breakpoints", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "List breakpoints", buffer = bufnr })
   vim.keymap.set("n", "<leader>dtv", "<cmd>Telescope dap variables<CR>", { desc = "Dap variables", buffer = bufnr })
   vim.keymap.set(
     "n",
@@ -104,15 +113,29 @@ local function map_keys(bufnr)
     { desc = "Breakpoint with log", buffer = bufnr }
   )
   vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<CR>", { desc = "Toggle repl", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>",
-    { desc = "Repl run last", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>", { desc = "Repl run last", buffer = bufnr })
 end
 
 local function map_java_keys(bufnr)
   vim.keymap.set("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = "Organized imports", buffer = bufnr })
-  vim.keymap.set("n", "<leader>ut", "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>", { desc = "Test class", buffer = bufnr })
-  vim.keymap.set("n", "<leader>uT", "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>" , { desc = "Test method", buffer = bufnr })
-  vim.keymap.set("x", "<leader>ue", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = "Extract variable", buffer = bufnr })
+  vim.keymap.set(
+    "n",
+    "<leader>ut",
+    "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>",
+    { desc = "Test class", buffer = bufnr }
+  )
+  vim.keymap.set(
+    "n",
+    "<leader>uT",
+    "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>",
+    { desc = "Test method", buffer = bufnr }
+  )
+  vim.keymap.set(
+    "x",
+    "<leader>ue",
+    "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+    { desc = "Extract variable", buffer = bufnr }
+  )
   vim.keymap.set("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = "Extract variable", buffer = bufnr })
   vim.keymap.set("x", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = "Extract method", buffer = bufnr })
 end
@@ -125,9 +148,8 @@ local function set_hover_border(client)
 end
 
 M.on_attach = function(client, bufnr)
-
   set_hover_border(client)
-  map_keys(bufnr)
+  map_keys(client, bufnr)
   if client.name == "jdtls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls").setup.add_commands()
@@ -138,6 +160,9 @@ M.on_attach = function(client, bufnr)
   if client.name == "lua_ls" then
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
+  end
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, true)
   end
 end
 

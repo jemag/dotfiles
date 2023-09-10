@@ -55,7 +55,6 @@
   "legendary.nvim": { "branch": "master", "commit": "3db15cae08d63bab40d0c38474e368f97414f090" },
   "live-command.nvim": { "branch": "main", "commit": "d460067d47948725a6f25b20f31ea8bbfdfe4622" },
   "lsp-colors.nvim": { "branch": "main", "commit": "2bbe7541747fd339bdd8923fc45631a09bb4f1e5" },
-  "lsp-inlayhints.nvim": { "branch": "anticonceal", "commit": "0fb3b5ef16f2d7e85963cb0b1beacf573ade35de" },
   "lspkind-nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
   "lua-dev.nvim": { "branch": "main", "commit": "dcd34653b0f1d3e7ea9aeb3e37dc7c8da445c4fe" },
   "lualine-diagnostic-message": { "branch": "master", "commit": "132ec94f3f5358bad91de955f05aee2f5b3e946d" },

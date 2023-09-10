@@ -450,13 +450,6 @@ require("lazy").setup({
     "folke/lsp-colors.nvim",
   },
   {
-    "lvimuser/lsp-inlayhints.nvim",
-    config = function ()
-      require("plugin-configs.inlayhints")
-    end,
-    branch = "anticonceal",
-  },
-  {
     "sainnhe/sonokai",
   },
   {
