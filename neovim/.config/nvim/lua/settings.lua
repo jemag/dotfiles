@@ -1,5 +1,6 @@
 vim.opt.termguicolors = true
 vim.opt.backup = false
+vim.opt.backupdir = "/home/jemag/.local/state/nvim/backup//,."
 vim.opt.swapfile = false
 vim.opt.autoread = true
 vim.opt.autowrite = true
