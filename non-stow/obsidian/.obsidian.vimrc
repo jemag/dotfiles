@@ -85,5 +85,4 @@ map s{ :surround_curly_brackets
 map s} :surround_curly_brackets
 
 exmap altBuffer obcommand grappling-hook:alternate-note
-unmap <C-6>
 nnoremap <C-6> :altBuffer
