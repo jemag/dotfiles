@@ -21,20 +21,18 @@ nnoremap ZZ :closeWindow
 
 " Splits
 exmap splitVertical obcommand workspace:split-vertical
-exmap splitHorizontal obcommand workspace:split-horizontal
-exmap only obcommand workspace:close-others
-exmap closeTab obcommand workspace:close
 nnoremap <C-w>v :splitVertical
+exmap splitHorizontal obcommand workspace:split-horizontal
 nnoremap <C-w>s :splitHorizontal
+exmap only obcommand workspace:close-others
 nnoremap <C-w>o :only
+exmap closeTab obcommand workspace:close
 nnoremap <C-w>c :closeTab
 
 exmap focusRight obcommand editor:focus-right
 nnoremap <C-l> :focusRight
-
 exmap focusLeft obcommand editor:focus-left
 nnoremap <C-h> :focusLeft
-
 exmap focusTop obcommand editor:focus-top
 nnoremap <C-k> :focusTop
 exmap focusBottom obcommand editor:focus-bottom
@@ -61,3 +59,27 @@ nmap &a& :blankAbove
 nmap &b& :blankBelow
 nmap o &b&i
 nmap O &a&i
+
+" Surround
+exmap surround_wiki surround [[ ]]
+exmap surround_double_quotes surround " "
+exmap surround_single_quotes surround ' '
+exmap surround_backticks surround ` `
+exmap surround_brackets surround ( )
+exmap surround_square_brackets surround [ ]
+exmap surround_curly_brackets surround { }
+
+" NOTE: must use 'map' and not 'nmap'
+map [[ :surround_wiki
+nunmap s
+vunmap s
+map s" :surround_double_quotes
+map s' :surround_single_quotes
+map s` :surround_backticks
+map sb :surround_brackets
+map s( :surround_brackets
+map s) :surround_brackets
+map s[ :surround_square_brackets
+map s] :surround_square_brackets
+map s{ :surround_curly_brackets
+map s} :surround_curly_brackets
