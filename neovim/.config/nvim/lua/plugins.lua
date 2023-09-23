@@ -344,6 +344,7 @@ require("lazy").setup({
       require("plugin-configs.nvim-autopairs")
     end,
   },
+  { "LunarVim/bigfile.nvim" },
   {
     "mfussenegger/nvim-dap",
     config = function()
