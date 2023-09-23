@@ -322,7 +322,10 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   {
-    "mrjones2014/nvim-ts-rainbow",
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("plugin-configs.rainbow-delimiters")
+    end,
   },
   {
     "Isrothy/lualine-diagnostic-message",
