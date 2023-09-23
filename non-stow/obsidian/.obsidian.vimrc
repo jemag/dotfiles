@@ -6,6 +6,8 @@ vnoremap j gj
 vnoremap k gk
 nnoremap I g0i
 nnoremap A g$a
+vnoremap > >gv
+vnoremap < <gv
 exmap 0 goLineLeftSmart
 exmap $ goLineRight
 nnoremap Y y$
