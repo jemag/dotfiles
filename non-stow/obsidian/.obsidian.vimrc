@@ -88,3 +88,20 @@ map s} :surround_curly_brackets
 
 exmap altBuffer obcommand grappling-hook:alternate-note
 nnoremap <C-6> :altBuffer
+
+exmap togglefold obcommand editor:toggle-fold
+nmap zo :togglefold
+nmap zc :togglefold
+nmap za :togglefold
+
+exmap foldless obcommand editor:fold-less
+nmap zr :foldless
+
+exmap foldmore obcommand editor:fold-more
+nmap zm :foldmore
+
+exmap unfoldall obcommand editor:unfold-all
+nmap zR :unfoldall
+
+exmap foldall obcommand editor:fold-all
+nmap zM :foldall
