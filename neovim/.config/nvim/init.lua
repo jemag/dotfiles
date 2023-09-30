@@ -70,6 +70,16 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = "cmdwin_treesitter",
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
+-- Disable mini.clue triggers in command window
+vim.api.nvim_create_augroup("cmdwin_clue", { clear = true })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  pattern = "*",
+  callback = function ()
+    vim.b.miniclue_disable = true
+  end,
+  group = "cmdwin_clue",
+  desc = "Disable mini.clue triggers in command window",
+})
 
 vim.api.nvim_create_augroup("cmdwin_esc", { clear = true })
 vim.api.nvim_create_autocmd("CmdwinEnter", {
@@ -91,6 +101,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
     vim.keymap.set("n", "<down>", "<down>", { buffer = true})
     vim.keymap.set("n", "<left>", "<left>", { buffer = true})
     vim.keymap.set("n", "<right>", "<right>", { buffer = true})
+    vim.keymap.set("n", "<cr>", "<cr>", { buffer = true})
   end,
   group = "cmdwin_reset_maps",
   desc = "Remove some keybinds for command-line window",
