@@ -16,6 +16,15 @@ local function close_all_but_current_buffer()
   end
 end
 
+local function close_hidden_buffers()
+  local bufinfos = vim.fn.getbufinfo({ buflisted = true }) or {}
+  for _, bufinfo in ipairs(bufinfos) do
+    if bufinfo.hidden == 1 then
+      vim.api.nvim_buf_delete(bufinfo.bufnr, { force = true })
+    end
+  end
+end
+
 local function close_all_but_pinned()
   local bufferline = require("bufferline")
   local commands = require("bufferline.commands")
@@ -53,6 +62,7 @@ vim.keymap.set({ "n", "x" }, "<leader>bk", "<cmd>BufferLineCloseRight<cr>", { de
 vim.keymap.set({ "n", "x" }, "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "delete buffers to the right" })
 vim.keymap.set({ "n", "x" }, "<leader>bP", close_all_but_pinned, { desc = "Close all unpinned" })
 vim.keymap.set({ "n", "x" }, "<leader>bs", "<cmd>BufferLinePick<cr>", { desc = "Magic buffer select" })
+vim.keymap.set({ "n", "x" }, "<leader>bv", close_hidden_buffers, { desc = "Close non-visible buffers" })
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
