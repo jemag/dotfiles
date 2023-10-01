@@ -113,6 +113,7 @@ require("neo-tree").setup({
       ["t"] = "none",
       ["<c-s>"] = "open_with_window_picker",
       ["w"] = "none",
+      ["<esc>"] = "none",
       ["C"] = "close_node",
       ["a"] = "add",
       ["A"] = "add_directory",
