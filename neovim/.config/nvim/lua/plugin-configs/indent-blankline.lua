@@ -24,14 +24,6 @@ end)
 require("ibl").setup({
   indent = { highlight = highlight },
   enabled = false,
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
-  },
   exclude = {
     filetypes = {
       "help",
