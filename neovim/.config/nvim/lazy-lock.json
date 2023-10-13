@@ -73,7 +73,7 @@
   "mini.operators": { "branch": "main", "commit": "913ddd99ee00a0b600524b215224d688bd3250f1" },
   "miramare": { "branch": "master", "commit": "04330816640c3162275d69e7094126727948cd0d" },
   "monokai-pro.nvim": { "branch": "master", "commit": "6b3bf9a4e0c988471969f62b36486023b33dd963" },
-  "neo-tree.nvim": { "branch": "v3.x", "commit": "71f1841ba6c652908678cece623f52c1fea8a6cd" },
+  "neo-tree.nvim": { "branch": "v3.x", "commit": "6f8c49956c89e9fefae6acdfe1d57c6293b0a03d" },
   "neogen": { "branch": "main", "commit": "70127baaff25611deaf1a29d801fc054ad9d2dc1" },
   "neogit": { "branch": "master", "commit": "ed99c59d7fda3ba5e2ce9a3adc0a8eb5ebfa6c8f" },
   "neovim-ayu": { "branch": "master", "commit": "76dbf939b38e03ac5f9bd711ab3e434999f715c8" },

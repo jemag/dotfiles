@@ -103,3 +103,22 @@ miniclue.setup({
     },
   },
 })
+-- Disable mini.clue triggers in command window
+vim.api.nvim_create_augroup("cmdwin_clue", { clear = true })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  pattern = "*",
+  callback = function ()
+    vim.b.miniclue_disable = true
+  end,
+  group = "cmdwin_clue",
+  desc = "Disable mini.clue triggers in command window",
+})
+vim.api.nvim_create_augroup("cmdwin_qf", { clear = true })
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "qf",
+  callback = function ()
+    vim.b.miniclue_disable = true
+  end,
+  group = "cmdwin_qf",
+  desc = "Disable mini.clue triggers in qf window",
+})
