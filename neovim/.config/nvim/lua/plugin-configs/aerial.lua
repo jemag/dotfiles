@@ -1,4 +1,7 @@
 require("aerial").setup({
+  layout = {
+    min_width = 25,
+  },
   on_attach = function(bufnr)
     -- Toggle the aerial window with <leader>a
     -- Jump forwards/backwards with '{' and '}'
