@@ -3,6 +3,7 @@
 local action_state = require("telescope.actions.state")
 local action_mt = require("telescope.actions.mt")
 local actions = require("telescope.actions")
+local action_set = require("telescope.actions.set")
 
 local custom_actions = {}
 
@@ -60,6 +61,45 @@ require("telescope").setup({
         ["<esc>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = custom_actions.yank_entry,
+        ["<C-v>"] = function(prompt_bufnr)
+          -- Use nvim-window-picker to choose the window by dynamically attaching a function
+          local picker = action_state.get_current_picker(prompt_bufnr)
+          picker.get_selection_window = function(pickr, _)
+            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+              or vim.api.nvim_get_current_win()
+            -- Unbind after using so next instance of the picker acts normally
+            pickr.get_selection_window = nil
+            return picked_window_id
+          end
+
+          return action_set.select(prompt_bufnr, "vertical")
+        end,
+        ["<C-x>"] = function(prompt_bufnr)
+          -- Use nvim-window-picker to choose the window by dynamically attaching a function
+          local picker = action_state.get_current_picker(prompt_bufnr)
+          picker.get_selection_window = function(pickr, _)
+            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+              or vim.api.nvim_get_current_win()
+            -- Unbind after using so next instance of the picker acts normally
+            pickr.get_selection_window = nil
+            return picked_window_id
+          end
+
+          return action_set.select(prompt_bufnr, "horizontal")
+        end,
+        ["<C-s>"] = function(prompt_bufnr)
+          -- Use nvim-window-picker to choose the window by dynamically attaching a function
+          local picker = action_state.get_current_picker(prompt_bufnr)
+          picker.get_selection_window = function(pickr, _)
+            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, includ_current_win = true })
+              or vim.api.nvim_get_current_win()
+            -- Unbind after using so next instance of the picker acts normally
+            pickr.get_selection_window = nil
+            return picked_window_id
+          end
+
+          return action_set.edit(prompt_bufnr, "edit")
+        end,
         -- ["<C-u>"] = false,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
@@ -86,10 +126,10 @@ require("telescope").setup({
       sort_lastused = false,
       mappings = {
         i = {
-          ["<c-s>"] = require("telescope.actions").delete_buffer,
+          ["<c-r>"] = actions.delete_buffer,
         },
         n = {
-          ["<c-s>"] = require("telescope.actions").delete_buffer,
+          ["<c-r>"] = actions.delete_buffer,
         },
       },
     },
@@ -201,24 +241,14 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_set_keymap("v", "<leader>sgl", ":DiffCommitLine<CR>", { noremap = true, desc = "Advanced line diff" })
-vim.keymap.set(
-  "n",
-  "<leader>sgb",
-  require("telescope").extensions.advanced_git_search.diff_commit_file,
-  { desc = "Advanced buffer diff" }
-)
+vim.keymap.set("n", "<leader>sgb", require("telescope").extensions.advanced_git_search.diff_commit_file, { desc = "Advanced buffer diff" })
 vim.keymap.set(
   "n",
   "<leader>sgi",
   require("telescope").extensions.advanced_git_search.search_log_content,
   { desc = "Advanced Search inside commit contents" }
 )
-vim.keymap.set(
-  "n",
-  "<leader>sgf",
-  require("telescope").extensions.advanced_git_search.diff_branch_file,
-  { desc = "Advanced Branch file" }
-)
+vim.keymap.set("n", "<leader>sgf", require("telescope").extensions.advanced_git_search.diff_branch_file, { desc = "Advanced Branch file" })
 vim.keymap.set("n", "<leader>sgB", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
 vim.keymap.set("n", "<leader>sgc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
 vim.keymap.set("n", "<leader>sgr", require("telescope").extensions.advanced_git_search.checkout_reflog, { desc = "Advanced Reflog" })

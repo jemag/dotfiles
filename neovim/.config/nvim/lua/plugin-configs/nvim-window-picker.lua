@@ -5,7 +5,7 @@ require("window-picker").setup({
 
   -- whether you want to include the window you are currently on to window
   -- selection or not
-  include_current_win = false,
+  include_current_win = true,
 
   -- when you go to window selection mode, status bar will show one of
   -- following letters on them so you can use that letter to select the window
@@ -72,6 +72,6 @@ local function swap_window()
     vim.api.nvim_win_set_buf(current_window, picked_buffer)
 end
 
-vim.keymap.set('n', '<c-w><c-s>', swap_window, {desc= "Swap window by id"})
-vim.keymap.set('n', '<c-w><c-m>', switch_window, {desc= "Move to window by id"})
-vim.keymap.set('n', '<c-w><c-q>', close_window, {desc= "Close window by id"})
+vim.keymap.set('n', '<c-w>S', swap_window, {desc= "Swap window by id"})
+vim.keymap.set('n', '<c-w>m', switch_window, {desc= "Move to window by id"})
+vim.keymap.set('n', '<c-w>Q', close_window, {desc= "Close window by id"})
