@@ -870,6 +870,13 @@ require("lazy").setup({
     end,
   },
   {
+    "Myzel394/easytables.nvim",
+    ft = { "markdown", "pandoc.markdown" },
+    config = function()
+      require("plugin-configs.easytables")
+    end,
+  },
+  {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown", "pandoc.markdown", "rmd" },
     build = "cd app & npm install",
