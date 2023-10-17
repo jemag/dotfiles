@@ -792,6 +792,15 @@ require("lazy").setup({
     end
   },
   {
+    "Gelio/cmp-natdat",
+    config = function()
+      require("cmp_natdat").setup()
+    end,
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
+  },
+  {
     "hrsh7th/cmp-cmdline",
     config = function()
       require("plugin-configs.cmp-cmdline")

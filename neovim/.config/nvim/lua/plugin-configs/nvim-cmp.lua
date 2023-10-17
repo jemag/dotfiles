@@ -101,6 +101,7 @@ cmp.setup({
     { name = "luasnip" },
     { name = "codeium" },
     { name = "buffer" },
+    { name = "natdat" },
   },
   formatting = {
     fields = { "abbr", "kind", "menu" },
