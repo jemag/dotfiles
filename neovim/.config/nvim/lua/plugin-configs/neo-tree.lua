@@ -1,4 +1,3 @@
-local highlights = require("neo-tree.ui.highlights")
 local function getTelescopeOpts(state, path)
   return {
     cwd = path,

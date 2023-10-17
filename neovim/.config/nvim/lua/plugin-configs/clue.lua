@@ -10,8 +10,9 @@ miniclue.setup({
     { mode = "x", keys = "\\" },
     { mode = "n", keys = "[" },
     { mode = "x", keys = "[" },
-    { mode = "n", keys = "<cr>" },
-    { mode = "x", keys = "<cr>" },
+    -- NOTE: temporarily disable until recording macro stop removing <cr> buffer local bindings mini.nvim issue#524
+    -- { mode = "n", keys = "<cr>" },
+    -- { mode = "x", keys = "<cr>" },
     { mode = "n", keys = "]" },
     { mode = "x", keys = "]" },
 
@@ -112,7 +113,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   desc = "Disable mini.clue triggers in command window",
 })
 vim.api.nvim_create_autocmd("Filetype", {
-  pattern = {"qf", "aerial", "TelescopePrompt"},
+  pattern = {"qf", "aerial", "TelescopePrompt", "neo-tree"},
   callback = function ()
     vim.b.miniclue_disable = true
   end,
