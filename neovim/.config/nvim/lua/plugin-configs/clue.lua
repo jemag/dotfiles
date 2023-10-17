@@ -10,9 +10,8 @@ miniclue.setup({
     { mode = "x", keys = "\\" },
     { mode = "n", keys = "[" },
     { mode = "x", keys = "[" },
-    -- NOTE: temporarily disable until recording macro stop removing <cr> buffer local bindings mini.nvim issue#524
-    -- { mode = "n", keys = "<cr>" },
-    -- { mode = "x", keys = "<cr>" },
+    { mode = "n", keys = "<cr>" },
+    { mode = "x", keys = "<cr>" },
     { mode = "n", keys = "]" },
     { mode = "x", keys = "]" },
 
