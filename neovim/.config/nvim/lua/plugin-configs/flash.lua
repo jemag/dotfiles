@@ -32,7 +32,7 @@ require("flash").setup({
         return not vim.api.nvim_win_get_config(win).focusable
       end,
     },
-    trigger = "",
+    trigger = ";",
   },
   jump = {
     -- save location in the jumplist

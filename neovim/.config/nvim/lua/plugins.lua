@@ -165,9 +165,9 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/flash.nvim",
+    "woosaaahh/sj.nvim",
     config = function ()
-      require("plugin-configs.flash")
+      require("plugin-configs.sj")
     end,
   },
   {
