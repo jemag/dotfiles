@@ -2,6 +2,7 @@ local sj = require("sj")
 sj.setup({
   auto_jump = false,
   separator = ";",
+  highlights_timeout = 0,
   -- help to better identify labels and matches
   use_overlay = false,
   preserve_highlights = true,
@@ -24,6 +25,7 @@ vim.keymap.set({ "n", "x", "o" }, "/", function()
   sj.run({
     prompt_prefix = "/",
   })
+  vim.opt.hls=true
 end, { desc = "SJ forward" })
 vim.keymap.set({ "n", "x", "o" }, "<leader>/", function()
   sj.run({
@@ -37,6 +39,7 @@ vim.keymap.set({ "n", "x", "o" }, "?", function()
     forward_search = false,
     prompt_prefix = "?",
   })
+  vim.opt.hls=true
 end, { desc = "SJ backward" })
 vim.keymap.set({ "n", "x", "o" }, "<leader>?", function()
   sj.run({
