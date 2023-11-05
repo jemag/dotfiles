@@ -406,10 +406,10 @@ require("lazy").setup({
     "NTBBloodbath/sweetie.nvim",
   },
   {
-    "levouh/tint.nvim",
+    "miversen33/sunglasses.nvim",
     config = function()
-      require("plugin-configs.tint")
-    end,
+      require("plugin-configs.sunglasses")
+    end
   },
   {
     "AlexvZyl/nordic.nvim",
