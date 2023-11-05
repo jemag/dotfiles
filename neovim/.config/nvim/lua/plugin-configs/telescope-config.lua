@@ -127,7 +127,8 @@ require("telescope").setup({
   pickers = {
     -- Your special builtin config goes in here
     buffers = {
-      sort_lastused = false,
+      sort_lastused = true,
+      sort_mru = true,
       mappings = {
         i = {
           ["<c-r>"] = actions.delete_buffer,
@@ -208,6 +209,7 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
+require("telescope").load_extension("frecency")
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
@@ -305,3 +307,4 @@ end, { desc = "Compare 2 files" })
 vim.keymap.set("n", "<leader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
+vim.keymap.set("n", "<leader><leader>", "<Cmd>Telescope frecency workspace=CWD<CR>")
