@@ -309,6 +309,7 @@ ttf-ms-fonts
 ttf-windows
 ttyper
 ueberzug
+unarchiver
 vagrant
 vde2
 ventoy-bin
@@ -318,6 +319,7 @@ vifm
 vint
 virt-manager
 virt-viewer
+virtualbox
 vlc
 volta-bin
 vscodium-bin
@@ -375,6 +377,7 @@ xsel
 xwobf-git
 yarn
 yay
+yazi-git
 zathura
 zathura-pdf-mupdf
 zellij
