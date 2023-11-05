@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="exa -g --time-style long-iso"
+alias y="yazi"
 alias gs="git status"
 alias zl="zellij"
 alias zla="zellij attach"

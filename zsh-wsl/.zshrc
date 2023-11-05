@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="exa -g --time-style long-iso"
+alias y="yazi"
 alias gs="git status"
 alias kcac='kubectl cost --service-port 9003 --service-name opencost --kubecost-namespace opencost --allocation-path /allocation/compute'
 alias rk="rakkess"
