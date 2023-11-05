@@ -18,6 +18,14 @@ local toggle_diagnostic = function()
 
   return new_buf_state and "  diagnostic" or "nodiagnostic"
 end
+
+vim.keymap.set("n", "i", function()
+  if #vim.fn.getline(".") == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, { expr = true, desc = "enter insert mode with proper indent" })
 -- More convenient horizontal scrolling
 vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true, desc = "Left scroll" })
 vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true, desc = "Right scroll" })
