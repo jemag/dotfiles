@@ -50,19 +50,19 @@ local function setup_servers()
 
     if name == "jsonls" then
       local jsonls_opts = require("lsp.configs.jsonls")
-      opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+      opts = vim.tbl_deep_extend("force", opts, jsonls_opts)
     end
     if name == "clangd" then
       local clangd_opts = require("lsp.configs.clangd")
-      opts = vim.tbl_deep_extend("force", clangd_opts, opts)
+      opts = vim.tbl_deep_extend("force", opts, clangd_opts)
     end
     if name == "gopls" then
       local gopls_opts = require("lsp.configs.gopls")
-      opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+      opts = vim.tbl_deep_extend("force", opts, gopls_opts)
     end
     if name == "jsonnet_ls" then
       local jsonnetls_opts = require("lsp.configs.jsonnnetls")
-      opts = vim.tbl_deep_extend("force", jsonnetls_opts, opts)
+      opts = vim.tbl_deep_extend("force", opts, jsonnetls_opts)
     end
     if name == "yamlls" then
       local yamlls_opts = require("yaml-companion").setup({
@@ -77,7 +77,7 @@ local function setup_servers()
     end
     if name == "ansiblels" then
       local ansiblels_opts = require("lsp.configs.ansiblels")
-      opts = vim.tbl_deep_extend("force", ansiblels_opts, opts)
+      opts = vim.tbl_deep_extend("force", opts, ansiblels_opts)
     end
     if name == "lua_ls" then
       -- Don't extend default opts because of the lua-dev setup
