@@ -9,7 +9,7 @@ sj.setup({
   search_scope = "buffer",
   update_search_register = true,
   relative_labels = true,
-  stop_on_fail = true,
+  stop_on_fail = false,
   inclusive = false,
 
 highlights = {
