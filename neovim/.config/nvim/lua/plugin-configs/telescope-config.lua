@@ -307,4 +307,10 @@ end, { desc = "Compare 2 files" })
 vim.keymap.set("n", "<leader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
-vim.keymap.set("n", "<leader><leader>", "<Cmd>Telescope frecency workspace=CWD<CR>")
+
+vim.keymap.set("n", "<leader><leader>", function()
+	require("telescope").extensions.frecency.frecency({
+		workspace = "CWD",
+		sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+	})
+end, { desc = "Frecency" })
