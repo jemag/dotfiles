@@ -6,5 +6,11 @@ neogit.setup({
   integrations = {
     diffview = true,
   },
+  mappings = {
+    popup = {
+      ["g?"] = "HelpPopup",
+      ["?"] = false,
+    }
+  }
 })
 vim.keymap.set("n", "<localleader>tn", "<cmd>Neogit<cr>", { desc = "Neogit" })
