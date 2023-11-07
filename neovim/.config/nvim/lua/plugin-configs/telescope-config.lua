@@ -309,8 +309,8 @@ vim.keymap.set("n", "<leader>sc", function()
 end, { desc = "Compare file with current" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-	require("telescope").extensions.frecency.frecency({
-		workspace = "CWD",
-		sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
-	})
+  require("telescope").extensions.frecency.frecency({
+    workspace = "CWD",
+    sorter = require("telescope").extensions.fzf.native_fzf_sorter(),
+  })
 end, { desc = "Frecency" })
