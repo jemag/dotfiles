@@ -394,6 +394,9 @@ require("lazy").setup({
     end
   },
   {
+    "oxfist/night-owl.nvim",
+  },
+  {
     "antonk52/lake.nvim",
   },
   {
