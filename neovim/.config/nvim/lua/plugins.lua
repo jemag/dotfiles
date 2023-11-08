@@ -652,6 +652,13 @@ require("lazy").setup({
   --[[ #######################
      Language
     ####################### ]]
+    {
+      "zeioth/garbage-day.nvim",
+      event = "VeryLazy",
+      opts = {
+        grace_period=300,
+      }
+    },
   {
     "neovim/nvim-lspconfig",
     config = function()
