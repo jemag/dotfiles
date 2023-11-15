@@ -100,6 +100,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "bash",
     "bibtex",
+    "bicep",
     "c",
     "c_sharp",
     "clojure",
