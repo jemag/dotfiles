@@ -8,7 +8,7 @@ vim.keymap.set({ "n", "v" }, "<leader>mk", "<cmd>BookmarkMoveUp<cr>", { desc = "
 vim.keymap.set({ "n", "v" }, "<leader>mm", "<cmd>BookmarkToggle<cr>", { desc = "Toggle" })
 vim.keymap.set({ "n", "v" }, "<leader>mn", "<cmd>BookmarkNext<cr>", { desc = "Next bookmark" })
 vim.keymap.set({ "n", "v" }, "<leader>mp", "<cmd>BookmarkPrev<cr>", { desc = "Prev bookmark" })
-vim.keymap.set({ "n", "v" }, "<leader>ms", "<cmd>Telescope vim_bookmarks all<cr>", { desc = "All annotated bookmarks" })
+vim.keymap.set({ "n", "v" }, "<leader>ms", "<cmd>Telescope vim_bookmarks all<cr>", { desc = "Search all annotated bookmarks" })
 vim.keymap.set({ "n", "v" }, "<leader>mS", "<cmd>Telescope vim_bookmarks current_file<cr>",
-  { desc = "Current file annotated bookmarks" })
+  { desc = "Search current file annotated bookmarks" })
 vim.keymap.set({ "n", "v" }, "<leader>mx", "<cmd>BookmarkClearAll<cr>", { desc = "Clear all" })
