@@ -172,7 +172,6 @@ vim.keymap.set("n", "\\W", function()
 end, { desc = "Set 'nowrap'" })
 
 
-vim.keymap.set("n", "<localleader>tm", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Toggle markdown preview" })
 
 -- Diffs
 vim.keymap.set("n", "<localleader>md", function()
