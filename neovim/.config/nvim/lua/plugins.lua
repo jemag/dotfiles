@@ -625,7 +625,7 @@ require("lazy").setup({
     cmd = "Octo",
   },
   {
-    "ruifm/gitlinker.nvim",
+    "linrongbin16/gitlinker.nvim",
     config = function()
       require("plugin-configs.gitlinker")
     end,

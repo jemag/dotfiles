@@ -42,7 +42,7 @@
   "garbage-day.nvim": { "branch": "main", "commit": "cecb3b5672b61d970bb714cec781720c9ab76bbf" },
   "git-conflict.nvim": { "branch": "main", "commit": "896261933afe2fddf6fb043d9cd4d88301b151a9" },
   "gitignore.nvim": { "branch": "master", "commit": "e0e0c511595681ef826a91a9e8449e86049406a0" },
-  "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
+  "gitlinker.nvim": { "branch": "master", "commit": "491e43bc274572e4fd08db0dc0eaed2e04be69bf" },
   "gitsigns.nvim": { "branch": "main", "commit": "af0f583cd35286dd6f0e3ed52622728703237e50" },
   "gopher.nvim": { "branch": "main", "commit": "ac27f4b6794c872140fb205313d79ab166892fe9" },
   "gruvbox": { "branch": "master", "commit": "86c767ff91e2518da44ba8c78b3bc6c979cf5403" },
