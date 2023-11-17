@@ -1,6 +1,6 @@
 local tools = {
   "angular-language-server",
-  "ansible-language-server",
+  -- "ansible-language-server",
   -- "azure-pipelines-language-server",
   "bash-language-server",
   "bicep-lsp",
