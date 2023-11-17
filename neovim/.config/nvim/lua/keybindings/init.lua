@@ -49,8 +49,10 @@ vim.api.nvim_set_keymap("n", "<C-b>", "<C-b>zz", { noremap = true, silent = true
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Next match centered" })
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "Previous match centered" })
 
-vim.keymap.set({ "n", "x" }, "c", '"_c', { desc = "Change without yank" })
-vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "Change without yank" })
+vim.keymap.set({ "n", "x" }, "c", '"_c', { desc = "c without yank" })
+vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "C without yank" })
+vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "x without yank" })
+vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "X without yank" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
 vim.api.nvim_set_keymap("n", "<esc>", "<cmd>noh<cr><esc>", { noremap = true, silent = true, desc = "Remove highlight or escape" })
