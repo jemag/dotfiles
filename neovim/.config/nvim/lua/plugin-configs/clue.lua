@@ -61,6 +61,8 @@ miniclue.setup({
     { mode = "x", keys = "<leader>f", desc = "+format" },
     { mode = "n", keys = "<leader>g", desc = "+git" },
     { mode = "x", keys = "<leader>g", desc = "+git" },
+    { mode = "n", keys = "<leader>gl", desc = "+git linker" },
+    { mode = "x", keys = "<leader>gl", desc = "+git linker" },
     { mode = "n", keys = "<leader>h", desc = "+hunk" },
     { mode = "x", keys = "<leader>h", desc = "+hunk" },
     { mode = "n", keys = "<leader>i", desc = "+insert" },
