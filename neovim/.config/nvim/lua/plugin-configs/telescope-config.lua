@@ -209,7 +209,6 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
-require("telescope").load_extension("frecency")
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
