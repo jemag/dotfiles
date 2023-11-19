@@ -409,12 +409,6 @@ require("lazy").setup({
     "NTBBloodbath/sweetie.nvim",
   },
   {
-    "nvim-telescope/telescope-frecency.nvim",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-  },
-  {
     "miversen33/sunglasses.nvim",
     config = function()
       require("plugin-configs.sunglasses")
