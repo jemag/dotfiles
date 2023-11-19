@@ -122,6 +122,7 @@ local function set_default_colors()
   vim.api.nvim_set_hl(0, "Search", { bg = M.colors.search, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "CurSearch", { bg = M.colors.special, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
+  vim.api.nvim_set_hl(0, "Whitespace", { fg = M.colors.error })
 end
 
 set_default_colors()

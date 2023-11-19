@@ -73,6 +73,7 @@ vim.opt.signcolumn = "yes"
 -- vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+vim.opt.list = true
 vim.opt.listchars = {
   tab = "→ ",
   eol = "↲",
