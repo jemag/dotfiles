@@ -377,10 +377,17 @@ require("lazy").setup({
       require("plugin-configs.nvim-peekup")
     end,
   },
+  {
+    "miversen33/sunglasses.nvim",
+    config = function()
+      require("plugin-configs.sunglasses")
+    end
+  },
 
   -- Themes
   {
     "loctvl842/monokai-pro.nvim",
+    event = "User LoadColorSchemes",
     config = function()
       require("monokai-pro").setup({
         terminal_colors = false,
@@ -395,34 +402,36 @@ require("lazy").setup({
   },
   {
     "oxfist/night-owl.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "antonk52/lake.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "bluz71/vim-nightfly-colors",
+    event = "User LoadColorSchemes",
   },
   {
     "tiagovla/tokyodark.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "NTBBloodbath/sweetie.nvim",
-  },
-  {
-    "miversen33/sunglasses.nvim",
-    config = function()
-      require("plugin-configs.sunglasses")
-    end
+    event = "User LoadColorSchemes",
   },
   {
     "AlexvZyl/nordic.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "pineapplegiant/spaceduck",
+    event = "User LoadColorSchemes",
     branch = "main",
   },
   {
     "rebelot/kanagawa.nvim",
+    event = "User LoadColorSchemes",
     config = function()
       require('kanagawa').setup({
         colors = {
@@ -439,9 +448,11 @@ require("lazy").setup({
   },
   {
     "martinsione/darkplus.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "catppuccin/nvim",
+    event = "User LoadColorSchemes",
     name = "catppuccin",
     config = function()
       vim.g.catppuccin_flavour = "mocha"
@@ -449,15 +460,19 @@ require("lazy").setup({
   },
   {
     "EdenEast/nightfox.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "luisiacc/gruvbox-baby",
+    event = "User LoadColorSchemes",
   },
   {
     "folke/lsp-colors.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "sainnhe/sonokai",
+    event = "User LoadColorSchemes",
   },
   {
     "Shatur95/neovim-ayu",
@@ -465,45 +480,58 @@ require("lazy").setup({
   },
   {
     "xiantang/darcula-dark.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "briones-gabriel/darcula-solid.nvim",
+    event = "User LoadColorSchemes",
     dependencies = {
       { "rktjmp/lush.nvim" },
     },
   },
   {
     "romgrk/doom-one.vim",
+    event = "User LoadColorSchemes",
   },
   {
     "habamax/vim-gruvbit",
+    event = "User LoadColorSchemes",
   },
   {
     "kyazdani42/blue-moon",
+    event = "User LoadColorSchemes",
   },
   {
     "JoosepAlviste/palenightfall.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "gruvbox-community/gruvbox",
+    event = "User LoadColorSchemes",
   },
   {
     "shaunsingh/nord.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "franbach/miramare",
+    event = "User LoadColorSchemes",
   },
   {
     "chuling/ci_dark",
+    event = "User LoadColorSchemes",
   },
   {
     "olimorris/onedarkpro.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "folke/tokyonight.nvim",
-    config = function()
-      vim.g.tokyonight_style = "storm"
-    end,
+    event = "User LoadColorSchemes",
+    opts = {
+      style = "storm",
+      dim_inactive = false,
+    }
   },
 
   --[[ #######################

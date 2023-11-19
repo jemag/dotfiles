@@ -264,7 +264,10 @@ vim.keymap.set(
   { desc = "Current file directory" }
 )
 vim.keymap.set("n", "<leader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
-vim.keymap.set("n", "<leader>se",function() require("telescope.builtin").colorscheme({ enable_preview = true}) end, { desc = "Colorschemes" })
+vim.keymap.set("n", "<leader>se",function()
+  vim.api.nvim_command("doautocmd User LoadColorSchemes")
+  require("telescope.builtin").colorscheme({ enable_preview = true})
+end, { desc = "Colorschemes" })
 vim.keymap.set("n", "<leader>sf", function()
   require("telescope").extensions.menufacture.find_files({ hidden = true })
 end, { desc = "Files" })
