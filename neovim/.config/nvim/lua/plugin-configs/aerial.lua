@@ -13,3 +13,13 @@ require("aerial").setup({
   end,
 })
 vim.keymap.set("n", "<localleader>ta", "<cmd>AerialToggle!<CR>", { desc = "Toggle aerial" })
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  callback = function()
+    -- NOTE: temporarily set AerialFunction to Normal so it shows when selected
+    -- see: https://github.com/stevearc/aerial.nvim/issues/329
+    vim.api.nvim_set_hl(0, "AerialFunction", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "AerialLine", { fg = "black", bg = "#D4BFFF", force = true})
+  end,
+})
