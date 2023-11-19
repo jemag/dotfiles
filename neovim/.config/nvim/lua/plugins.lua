@@ -789,6 +789,12 @@ require("lazy").setup({
 
   { "folke/lua-dev.nvim" },
   {
+    "benfowler/telescope-luasnip.nvim",
+    dependencies = {
+      { "L3MON4D3/LuaSnip" },
+    }
+  },
+  {
     "L3MON4D3/LuaSnip",
     config = function()
       require("plugin-configs.luasnip")

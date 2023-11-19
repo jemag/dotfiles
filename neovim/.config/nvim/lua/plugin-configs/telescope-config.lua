@@ -209,6 +209,7 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
+require("telescope").load_extension("luasnip")
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
@@ -301,6 +302,7 @@ vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.li
 vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Undo" })
 vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
+vim.keymap.set("n", "<leader>sz", "<cmd>Telescope luasnip<cr>", { desc = "Snippets" })
 vim.keymap.set("n", "<leader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
 
 vim.keymap.set("n", "<leader>sC", function()
