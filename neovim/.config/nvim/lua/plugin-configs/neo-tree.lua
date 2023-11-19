@@ -35,22 +35,22 @@ require("neo-tree").setup({
         ]])
       end,
     },
-    {
-      event = "before_render",
-      handler = function()
-        savedview = vim.fn.winsaveview()
-      end,
-    },
-    {
-      event = "after_render",
-      handler = function()
-        if savedview ~= nil then
-          print("printing savedview: ")
-          print(vim.inspect(savedview))
-          vim.fn.winrestview(savedview)
-        end
-      end,
-    },
+    -- {
+    --   event = "before_render",
+    --   handler = function()
+    --     savedview = vim.fn.winsaveview()
+    --   end,
+    -- },
+    -- {
+    --   event = "after_render",
+    --   handler = function()
+    --     if savedview ~= nil then
+    --       print("printing savedview: ")
+    --       print(vim.inspect(savedview))
+    --       vim.fn.winrestview(savedview)
+    --     end
+    --   end,
+    -- },
   },
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = "rounded",
