@@ -19,6 +19,8 @@ local function getTelescopeOpts(state, path)
     end,
   }
 end
+
+local savedview
 require("neo-tree").setup({
   source_selector = {
     winbar = true,
@@ -34,8 +36,19 @@ require("neo-tree").setup({
       end,
     },
     {
+      event = "before_render",
+      handler = function()
+        savedview = vim.fn.winsaveview()
+      end,
+    },
+    {
       event = "after_render",
       handler = function()
+        if savedview ~= nil then
+          print("printing savedview: ")
+          print(vim.inspect(savedview))
+          vim.fn.winrestview(savedview)
+        end
       end,
     },
   },
