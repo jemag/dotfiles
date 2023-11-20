@@ -346,6 +346,24 @@ require("lazy").setup({
   },
   { "LunarVim/bigfile.nvim" },
   {
+    "nvim-neotest/neotest",
+    config = function ()
+      require("plugin-configs.neotest")
+    end,
+    dependencies = {
+      "sidlatau/neotest-dart",
+      "Issafalcon/neotest-dotnet",
+      "jfpedroza/neotest-elixir",
+      "nvim-neotest/neotest-go",
+      "rcasia/neotest-java",
+      "nvim-neotest/neotest-jest",
+      "olimorris/neotest-phpunit",
+      "nvim-neotest/neotest-python",
+      "rouge8/neotest-rust",
+      "lawrence-laz/neotest-zig",
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     config = function()
       require("plugin-configs.dap")

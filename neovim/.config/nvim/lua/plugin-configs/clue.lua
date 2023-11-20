@@ -71,8 +71,8 @@ miniclue.setup({
     { mode = "x", keys = "<leader>l", desc = "+language" },
     { mode = "n", keys = "<leader>m", desc = "+bookmarks" },
     { mode = "x", keys = "<leader>m", desc = "+bookmarks" },
-    { mode = "n", keys = "<leader>n", desc = "+notes" },
-    { mode = "x", keys = "<leader>n", desc = "+notes" },
+    { mode = "n", keys = "<leader>n", desc = "+neotest" },
+    { mode = "n", keys = "<leader>nr", desc = "+neotest run" },
     { mode = "n", keys = "<leader>o", desc = "+obsidian" },
     { mode = "n", keys = "<leader>r", desc = "+refactor" },
     { mode = "x", keys = "<leader>r", desc = "+refactor" },
@@ -89,6 +89,7 @@ miniclue.setup({
 
     { mode = "n", keys = "<localleader>m", desc = "+misc" },
     { mode = "x", keys = "<localleader>m", desc = "+misc" },
+    { mode = "n", keys = "<localleader>n", desc = "+notes" },
     { mode = "n", keys = "<localleader>p", desc = "+project" },
     { mode = "x", keys = "<localleader>p", desc = "+project" },
     { mode = "n", keys = "<localleader>ps", desc = "+session" },
