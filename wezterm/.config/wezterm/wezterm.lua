@@ -25,12 +25,12 @@ return {
     {
       intensity = "Bold",
       italic = true,
-      font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Bold", italic = true }),
+      font = wezterm.font("JetBrainsMonoNL NFM", { weight = "Bold", italic = true }),
     },
     {
       intensity = "Normal",
       italic = true,
-      font = wezterm.font("JetBrainsMono Nerd Font", { italic = true }),
+      font = wezterm.font("JetBrainsMonoNL NFM", { italic = true }),
     },
   },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
