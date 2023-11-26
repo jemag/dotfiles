@@ -13,6 +13,31 @@ custom_actions.yank_entry = function(prompt_bufnr)
   actions.close(prompt_bufnr)
 end
 
+local pick_window = function(prompt_bufnr, direction)
+  -- Use nvim-window-picker to choose the window by dynamically attaching a function
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  picker.get_selection_window = function(pickr, _)
+    local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+      or vim.api.nvim_get_current_win()
+    -- Unbind after using so next instance of the picker acts normally
+    pickr.get_selection_window = nil
+    return picked_window_id
+  end
+
+  action_set.select(prompt_bufnr, direction)
+  vim.cmd("stopinsert")
+end
+
+local pick_vertical = function(prompt_bufnr)
+  pick_window(prompt_bufnr, "vertical")
+end
+local pick_horizontal = function(prompt_bufnr)
+  pick_window(prompt_bufnr, "horizontal")
+end
+local pick_default = function(prompt_bufnr)
+  pick_window(prompt_bufnr, "default")
+end
+
 -- turn functions in M to actions s.t. you can do cool stuff like M.my_action:{replace, replace_if, enhance, ...}, M.my_action + M.my_other_action, etc.
 custom_actions = action_mt.transform_mod(custom_actions)
 
@@ -65,45 +90,9 @@ require("telescope").setup({
         ["<esc>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = custom_actions.yank_entry,
-        ["<C-v>"] = function(prompt_bufnr)
-          -- Use nvim-window-picker to choose the window by dynamically attaching a function
-          local picker = action_state.get_current_picker(prompt_bufnr)
-          picker.get_selection_window = function(pickr, _)
-            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-              or vim.api.nvim_get_current_win()
-            -- Unbind after using so next instance of the picker acts normally
-            pickr.get_selection_window = nil
-            return picked_window_id
-          end
-
-          return action_set.select(prompt_bufnr, "vertical")
-        end,
-        ["<C-x>"] = function(prompt_bufnr)
-          -- Use nvim-window-picker to choose the window by dynamically attaching a function
-          local picker = action_state.get_current_picker(prompt_bufnr)
-          picker.get_selection_window = function(pickr, _)
-            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-              or vim.api.nvim_get_current_win()
-            -- Unbind after using so next instance of the picker acts normally
-            pickr.get_selection_window = nil
-            return picked_window_id
-          end
-
-          return action_set.select(prompt_bufnr, "horizontal")
-        end,
-        ["<C-s>"] = function(prompt_bufnr)
-          -- Use nvim-window-picker to choose the window by dynamically attaching a function
-          local picker = action_state.get_current_picker(prompt_bufnr)
-          picker.get_selection_window = function(pickr, _)
-            local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, includ_current_win = true })
-              or vim.api.nvim_get_current_win()
-            -- Unbind after using so next instance of the picker acts normally
-            pickr.get_selection_window = nil
-            return picked_window_id
-          end
-
-          return action_set.edit(prompt_bufnr, "edit")
-        end,
+        ["<C-v>"] = pick_vertical,
+        ["<C-x>"] = pick_horizontal,
+        ["<C-s>"] = pick_default,
         -- ["<C-u>"] = false,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
@@ -265,9 +254,9 @@ vim.keymap.set(
   { desc = "Current file directory" }
 )
 vim.keymap.set("n", "<leader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
-vim.keymap.set("n", "<leader>se",function()
+vim.keymap.set("n", "<leader>se", function()
   vim.api.nvim_command("doautocmd User LoadColorSchemes")
-  require("telescope.builtin").colorscheme({ enable_preview = true})
+  require("telescope.builtin").colorscheme({ enable_preview = true })
 end, { desc = "Colorschemes" })
 vim.keymap.set("n", "<leader>sf", function()
   require("telescope").extensions.menufacture.find_files({ hidden = true })
@@ -311,3 +300,4 @@ end, { desc = "Compare 2 files" })
 vim.keymap.set("n", "<leader>sc", function()
   require("telescope").extensions.diff.diff_current({ hidden = true })
 end, { desc = "Compare file with current" })
+
