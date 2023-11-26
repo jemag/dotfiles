@@ -38,6 +38,9 @@ local icons = {
 }
 
 cmp.setup({
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+  end,
   performance = {
     debounce = 150,
     max_view_entries = 20,
@@ -117,10 +120,15 @@ cmp.setup({
     },
   },
   experimental = {
-    ghost_text = false
+    ghost_text = false,
     -- ghost_text = {
     --   hl_group = "LspCodeLens",
     -- },
+  },
+})
+require("cmp").setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
   },
 })
 -- vim.keymap.set("i", "<c-x><c-f>", function()

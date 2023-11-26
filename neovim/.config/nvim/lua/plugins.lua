@@ -840,6 +840,7 @@ require("lazy").setup({
       { "hrsh7th/cmp-path" },
       { "onsails/lspkind-nvim" },
       { "lukas-reineke/cmp-rg" },
+      { "rcarriga/cmp-dap" },
     },
   },
   {
