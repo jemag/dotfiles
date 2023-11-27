@@ -211,9 +211,20 @@ require("lazy").setup({
   },
   { "stevearc/dressing.nvim" },
   {
-    "voldikss/vim-floaterm",
+    "ryanmsnyder/toggleterm-manager.nvim",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
+    },
+    config = function ()
+      require("plugin-configs.toggleterm-manager")
+    end
+  },
+  {
+    "akinsho/nvim-toggleterm.lua",
     config = function()
-      require("plugin-configs.vim-floaterm")
+      require("plugin-configs.nvim-toggleterm")
     end,
   },
   -- use({
