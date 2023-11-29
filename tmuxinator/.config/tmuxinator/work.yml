@@ -21,3 +21,15 @@ windows:
       panes:
               - wiki:
                 - cd ~/Projects/Wiki/
+  - cicd:
+      layout: even-horizontal
+      panes:
+              - systeminformer:
+                - cd ~/Projects/SystemInformer/
+              - argoexample:
+                - cd ~/Projects/ArgoExample/
+  - images:
+      layout: even-horizontal
+      panes:
+              - images:
+                - cd ~/Projects/Images/

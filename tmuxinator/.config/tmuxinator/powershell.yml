@@ -1,0 +1,12 @@
+# ~/.tmuxinator/config.yml
+
+name: powershell
+
+windows:
+  - pwsh:
+      layout: tiled
+      panes:
+        - pwsh
+        - pwsh
+        - pwsh
+        - pwsh
