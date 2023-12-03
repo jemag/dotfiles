@@ -49,3 +49,8 @@ end, { desc = "Create term" })
 
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope toggleterm_manager<cr>", { desc = "Search terminals" })
 vim.keymap.set({ "n", "t" }, "<F9>", "<cmd>ToggleTerm<cr>", { desc = "Toggle term" })
+
+vim.api.nvim_create_autocmd("TermEnter", {
+  command = "setlocal number relativenumber",
+  desc = "Set line numbers in terminals, including float",
+})
