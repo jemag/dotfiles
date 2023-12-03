@@ -22,33 +22,88 @@ end, { desc = "Term current dir" })
 vim.keymap.set("n", "<leader>tg", function()
   local t = term:new({
     cmd = "lazygit",
-    display_name = "lazygit"
+    display_name = "lazygit",
   })
   t:toggle()
 end, { desc = "Lazygit" })
 vim.keymap.set("n", "<leader>tb", function()
   local t = term:new({
     cmd = "btop",
-    display_name = "btop"
+    display_name = "btop",
   })
   t:toggle()
 end, { desc = "Btop" })
 vim.keymap.set("n", "<leader>td", function()
   local t = term:new({
     cmd = "lazydocker",
-    display_name = "lazydocker"
+    display_name = "lazydocker",
   })
   t:toggle()
 end, { desc = "Lazydocker" })
 vim.keymap.set("n", "<leader>t;", function()
   local t = term:new({
-    display_name = "default"
+    display_name = "default",
   })
   t:toggle()
 end, { desc = "Create term" })
 
+local function get_term_index(current_id, terms)
+  local idx
+  for i, v in ipairs(terms) do
+    if v.id == current_id then
+      idx = i
+    end
+  end
+  return idx
+end
+
+local function go_prev_term()
+  local current_id = vim.b.toggle_number
+  if current_id == nil then
+    return
+  end
+
+  local terms = require("toggleterm.terminal").get_all(true)
+  local prev_index
+
+  local index = get_term_index(current_id, terms)
+  if index > 1 then
+    prev_index = index - 1
+  else
+    prev_index = #terms
+  end
+  require("toggleterm").toggle(index)
+  require("toggleterm").toggle(prev_index)
+end
+
+local function go_next_term()
+  local current_id = vim.b.toggle_number
+  if current_id == nil then
+    return
+  end
+
+  local terms = require("toggleterm.terminal").get_all(true)
+  local next_index
+
+  local index = get_term_index(current_id, terms)
+  if index == #terms then
+    next_index = 1
+  else
+    next_index = index + 1
+  end
+  require("toggleterm").toggle(index)
+  require("toggleterm").toggle(next_index)
+end
+
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope toggleterm_manager<cr>", { desc = "Search terminals" })
 vim.keymap.set({ "n", "t" }, "<F9>", "<cmd>ToggleTerm<cr>", { desc = "Toggle term" })
+vim.keymap.set({ "n", "t" }, "<F8>", function()
+  go_next_term()
+end, { desc = "Toggle term" })
+
+vim.keymap.set({ "n", "t" }, "<F7>", function()
+  go_prev_term()
+end, { desc = "Toggle term" })
 
 vim.api.nvim_create_autocmd("TermEnter", {
   command = "setlocal number relativenumber",
