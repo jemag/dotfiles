@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup obsidian vault
+Wants=obsidian-backup.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/jemag/dotfiles/non-stow/backup-obsidian.sh
+User=jemag
+Group=users
+
+[Install]
+WantedBy=multi-user.target

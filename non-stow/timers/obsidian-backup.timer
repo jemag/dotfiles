@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup obsidian vault
+Requires=obsidian-backup.service
+
+[Timer]
+Unit=obsidian-backup.service
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target
