@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   {
     "tyru/capture.vim",
-    cmd = "Capture"
+    cmd = "Capture",
   },
   --[[ #######################
      General
@@ -68,7 +68,7 @@ require("lazy").setup({
       require("telescope").load_extension("yaml_schema")
       require("plugin-configs.yaml-companion")
     end,
-    ft = { "yaml", "json" }
+    ft = { "yaml", "json" },
   },
   {
     "AckslD/nvim-trevJ.lua",
@@ -102,11 +102,11 @@ require("lazy").setup({
   },
   {
     "phelipetls/jsonpath.nvim",
-    ft = { "json" }
+    ft = { "json" },
   },
   {
     "google/vim-jsonnet",
-    ft = { "jsonnet" }
+    ft = { "jsonnet" },
   },
   {
     "svban/YankAssassin.vim",
@@ -137,19 +137,19 @@ require("lazy").setup({
       require("plugin-configs.nvim-notify")
     end,
   },
-  {
-    "sindrets/winshift.nvim",
-    config = function()
-      require("plugin-configs.winshift")
-    end,
-  },
+  -- {
+  --   "sindrets/winshift.nvim",
+  --   config = function()
+  --     require("plugin-configs.winshift")
+  --   end,
+  -- },
   {
     "windwp/nvim-spectre",
     config = function()
       require("spectre").setup()
       vim.keymap.set("n", "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
     end,
-    keys = { "<localleader>tS" }
+    keys = { "<localleader>tS" },
   },
   {
     "ethanholz/nvim-lastplace",
@@ -166,7 +166,7 @@ require("lazy").setup({
   },
   {
     "woosaaahh/sj.nvim",
-    config = function ()
+    config = function()
       require("plugin-configs.sj")
     end,
   },
@@ -198,16 +198,16 @@ require("lazy").setup({
   },
   {
     "dstein64/nvim-scrollview",
-    config = function ()
+    config = function()
       require("plugin-configs.scrollview")
-    end
+    end,
   },
   {
     "mrjones2014/legendary.nvim",
     config = function()
       vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
     end,
-    keys = { "<localleader>sK" }
+    keys = { "<localleader>sK" },
   },
   { "stevearc/dressing.nvim" },
   {
@@ -217,9 +217,9 @@ require("lazy").setup({
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
     },
-    config = function ()
+    config = function()
       require("plugin-configs.toggleterm-manager")
-    end
+    end,
   },
   {
     "akinsho/nvim-toggleterm.lua",
@@ -275,7 +275,7 @@ require("lazy").setup({
     "jemag/telescope-diff.nvim",
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
-    }
+    },
   },
   { "airblade/vim-rooter" },
   {
@@ -297,6 +297,12 @@ require("lazy").setup({
     end,
     init = function()
       vim.g.bookmark_no_default_key_mappings = 1
+    end,
+  },
+  {
+    "backdround/improved-ft.nvim",
+    config = function()
+      require("plugin-configs.improved-ft")
     end,
   },
   {
@@ -358,7 +364,7 @@ require("lazy").setup({
   { "LunarVim/bigfile.nvim" },
   {
     "nvim-neotest/neotest",
-    config = function ()
+    config = function()
       require("plugin-configs.neotest")
     end,
     dependencies = {
@@ -410,7 +416,7 @@ require("lazy").setup({
     "miversen33/sunglasses.nvim",
     config = function()
       require("plugin-configs.sunglasses")
-    end
+    end,
   },
 
   -- Themes
@@ -427,7 +433,7 @@ require("lazy").setup({
           "bufferline",
         },
       })
-    end
+    end,
   },
   {
     "oxfist/night-owl.nvim",
@@ -462,16 +468,16 @@ require("lazy").setup({
     "rebelot/kanagawa.nvim",
     event = "User LoadColorSchemes",
     config = function()
-      require('kanagawa').setup({
+      require("kanagawa").setup({
         colors = {
           theme = {
             all = {
               ui = {
-                bg_gutter = "none"
-              }
-            }
-          }
-        }
+                bg_gutter = "none",
+              },
+            },
+          },
+        },
       })
     end,
   },
@@ -560,7 +566,7 @@ require("lazy").setup({
     opts = {
       style = "storm",
       dim_inactive = false,
-    }
+    },
   },
 
   --[[ #######################
@@ -573,7 +579,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.nvim-colorizer")
     end,
-    keys = { "<localleader>tC" }
+    keys = { "<localleader>tC" },
   },
 
   {
@@ -613,7 +619,7 @@ require("lazy").setup({
       vim.cmd("source ~/.config/nvim/plugin-configs/fzf.vim")
     end,
     dependencies = {
-      "junegunn/fzf"
+      "junegunn/fzf",
     },
   },
 
@@ -660,7 +666,7 @@ require("lazy").setup({
     "wintermute-cell/gitignore.nvim",
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
-    }
+    },
   },
   {
     "akinsho/git-conflict.nvim",
@@ -703,13 +709,13 @@ require("lazy").setup({
   --[[ #######################
      Language
     ####################### ]]
-    {
-      "zeioth/garbage-day.nvim",
-      event = "VeryLazy",
-      opts = {
-        grace_period=300,
-      }
+  {
+    "zeioth/garbage-day.nvim",
+    event = "VeryLazy",
+    opts = {
+      grace_period = 300,
     },
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -763,19 +769,19 @@ require("lazy").setup({
     config = function()
       require("backseat").setup({
         -- Alternatively, set the env var $OPENAI_API_KEY by putting "export OPENAI_API_KEY=sk-xxxxx" in your ~/.bashrc
-        openai_model_id = 'gpt-3.5-turbo', --gpt-4 (If you do not have access to a model, it says "The model does not exist")
-        })
-      end,
+        openai_model_id = "gpt-3.5-turbo", --gpt-4 (If you do not have access to a model, it says "The model does not exist")
+      })
+    end,
   },
   {
     "dpayne/CodeGPT.nvim",
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
     },
     config = function()
       require("codegpt.config")
-    end
+    end,
   },
   {
     "jackMort/ChatGPT.nvim",
@@ -783,15 +789,15 @@ require("lazy").setup({
     config = function()
       require("chatgpt").setup({
         keymaps = {
-          submit = "<CR>"
-        }
+          submit = "<CR>",
+        },
       })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      "nvim-telescope/telescope.nvim",
+    },
   },
   {
     "nvimtools/none-ls.nvim",
@@ -821,7 +827,7 @@ require("lazy").setup({
     "benfowler/telescope-luasnip.nvim",
     dependencies = {
       { "L3MON4D3/LuaSnip" },
-    }
+    },
   },
   {
     "L3MON4D3/LuaSnip",
@@ -837,7 +843,7 @@ require("lazy").setup({
     dependencies = {
       { "L3MON4D3/LuaSnip" },
     },
-    ft = { "latex", "tex", "plaintex" }
+    ft = { "latex", "tex", "plaintex" },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -861,9 +867,8 @@ require("lazy").setup({
       "hrsh7th/nvim-cmp",
     },
     config = function()
-      require("codeium").setup({
-      })
-    end
+      require("codeium").setup({})
+    end,
   },
   {
     "Gelio/cmp-natdat",
@@ -1018,7 +1023,7 @@ require("lazy").setup({
 
   {
     "towolf/vim-helm",
-    ft= { "helm", }
+    ft = { "helm" },
   },
   {
     "hashivim/vim-terraform",
@@ -1029,7 +1034,7 @@ require("lazy").setup({
 
   {
     "jvirtanen/vim-hcl",
-    ft= { "hcl" },
+    ft = { "hcl" },
   },
 
   --[[ #######################
@@ -1089,6 +1094,6 @@ require("lazy").setup({
   },
 }, {
   readme = {
-    enabled = false
-  }
+    enabled = false,
+  },
 })
