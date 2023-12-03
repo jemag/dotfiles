@@ -300,12 +300,6 @@ require("lazy").setup({
     end,
   },
   {
-    "backdround/improved-ft.nvim",
-    config = function()
-      require("plugin-configs.improved-ft")
-    end,
-  },
-  {
     "tom-anders/telescope-vim-bookmarks.nvim",
     config = function()
       require("plugin-configs.telescope-vim-bookmarks")

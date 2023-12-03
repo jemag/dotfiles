@@ -50,7 +50,6 @@
   "gruvbox-baby": { "branch": "main", "commit": "be47338877e0536360290d66d26854e90dbc0004" },
   "highlight-undo.nvim": { "branch": "main", "commit": "50a6884a8476be04ecce8f1c4ed692c5000ef0a1" },
   "hover.nvim": { "branch": "main", "commit": "0a0dd1baf1bb9415e3358207b6ab35747fb5f3ba" },
-  "improved-ft.nvim": { "branch": "main", "commit": "8cedde259c6882928b0360b531bc03b9338fd268" },
   "indent-blankline.nvim": { "branch": "master", "commit": "dbd90bb689ff10d21fee6792eb8928f0584b5860" },
   "jsonpath.nvim": { "branch": "main", "commit": "ea7e07e935f3f95deda97f9f6dc87f7bcf3fb69a" },
   "kanagawa.nvim": { "branch": "master", "commit": "c19b9023842697ec92caf72cd3599f7dd7be4456" },
