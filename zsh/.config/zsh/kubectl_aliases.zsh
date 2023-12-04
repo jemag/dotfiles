@@ -1,5 +1,8 @@
 # This command is used a LOT both below and in daily life
 alias k=kubectl
+alias kgg='kubectl api-resources --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl get'
+alias kyg=kubectl-get-yaml-fzf
+alias kdg=kubectl-describe-fzf
 
 alias kcx="kubectx"
 alias kns="kubens"
@@ -37,6 +40,7 @@ alias kgpw='kgp --watch'
 alias kgpwide='kgp -o wide'
 alias kep='kubectl edit pods'
 alias kdp='kubectl describe pods'
+alias kdpp='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl describe pods'
 alias kdelp='kubectl delete pods'
 alias kgpall='kubectl get pods --all-namespaces -o wide'
 # get pod by label: kgpl "app=myapp" -n myns
@@ -127,6 +131,7 @@ alias kgaa='kubectl get all --all-namespaces'
 
 # Logs
 alias kl='kubectl logs'
+alias klg='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl logs'
 alias kl1h='kubectl logs --since 1h'
 alias kl1m='kubectl logs --since 1m'
 alias kl1s='kubectl logs --since 1s'

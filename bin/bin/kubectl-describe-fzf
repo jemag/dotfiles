@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+kubectl api-resources --no-headers | fzf | awk '{print $1}' |  read -r resource && echo "$resource" | xargs kubectl get --no-headers | fzf | awk '{print $1}' | xargs kubectl describe "$resource"
