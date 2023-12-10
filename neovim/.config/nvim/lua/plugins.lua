@@ -222,9 +222,9 @@ require("lazy").setup({
     end,
   },
   {
-    "akinsho/nvim-toggleterm.lua",
+    "akinsho/toggleterm.nvim",
     config = function()
-      require("plugin-configs.nvim-toggleterm")
+      require("plugin-configs.toggleterm")
     end,
   },
   -- use({
