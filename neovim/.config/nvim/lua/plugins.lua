@@ -381,6 +381,9 @@ require("lazy").setup({
     end,
   },
   {
+    "jbyuki/one-small-step-for-vimkind",
+  },
+  {
     "rcarriga/nvim-dap-ui",
     config = function()
       require("plugin-configs.nvim-dap-ui")

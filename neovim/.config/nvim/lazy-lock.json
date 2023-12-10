@@ -128,6 +128,7 @@
   "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
   "obsidian.nvim": { "branch": "main", "commit": "ce58193226fa72302ad0732aa61d6a4bec3f0789" },
   "octo.nvim": { "branch": "master", "commit": "1ce62d9a29b5eca2c63fb955359f5212e4d1bc7b" },
+  "one-small-step-for-vimkind": { "branch": "main", "commit": "94b06d81209627d0098c4c5a14714e42a792bf0b" },
   "onedarkpro.nvim": { "branch": "main", "commit": "c9d7e5f9a40e9a3aa578b40361577315cbbfdeea" },
   "palenightfall.nvim": { "branch": "main", "commit": "25a1e7d43256834a671174e5d83edb57f7bec1e0" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
