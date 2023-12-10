@@ -35,6 +35,7 @@ require("refactoring").setup({
 -- -- you can extract this function and the helper above
 -- -- and then require the file and call the extracted function
 -- -- in the mappings below
+
 -- M = {}
 -- M.refactors = function()
 --   local opts = require("telescope.themes").get_cursor() -- set personal telescope options
