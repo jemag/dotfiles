@@ -145,8 +145,12 @@ vim.keymap.set({ "n", "x" }, "<leader>.", "<cmd>e $MYVIMRC<cr>", { desc = "Open 
 vim.keymap.set({ "n", "x" }, "<localleader>nw", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", { desc = "Format" })
 
-vim.keymap.set("n", "]t", function() vim.cmd.tabnext() end, { desc = "Next tab" })
-vim.keymap.set("n", "[t", function() vim.cmd.tabprevious() end, { desc = "Previous tab" })
+vim.keymap.set("n", "]t", function()
+  vim.cmd.tabnext()
+end, { desc = "Next tab" })
+vim.keymap.set("n", "[t", function()
+  vim.cmd.tabprevious()
+end, { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>wt", "<cmd>tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<localleader>tr", "<cmd>set number! norelativenumber!<cr>", { desc = "Hybrid line numbers" })
 
