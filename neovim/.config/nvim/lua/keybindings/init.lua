@@ -86,6 +86,8 @@ vim.keymap.set("x", "<leader>rc", '"sy:let @/=@s<CR>cgn', { desc = "Cgn current 
 vim.keymap.set("n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace word in file" })
 vim.keymap.set("x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
 
+vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "apply macro 'q' over current visual selection" })
+
 vim.keymap.set({ "n", "x" }, ")", "]", { remap = true, desc = "Remap opening parenthesis to bracket" })
 vim.keymap.set({ "n", "x" }, "(", "[", { remap = true, desc = "Remap closing parenthesis to bracket" })
 --  Reselect latest changed, put, or yanked text
