@@ -1,4 +1,5 @@
 unmap <Space>
+unmap <BS>
 inoremap jk <Esc>
 nmap j gj
 nmap k gk
@@ -33,12 +34,16 @@ nnoremap <C-w>c :closeTab
 
 exmap focusRight obcommand editor:focus-right
 nnoremap <C-l> :focusRight
+nnoremap <C-w>l :focusRight
 exmap focusLeft obcommand editor:focus-left
 nnoremap <C-h> :focusLeft
+nnoremap <C-w>h :focusLeft
 exmap focusTop obcommand editor:focus-top
 nnoremap <C-k> :focusTop
+nnoremap <C-w>k :focusTop
 exmap focusBottom obcommand editor:focus-bottom
 nnoremap <C-j> :focusBottom
+nnoremap <C-w>j :focusBottom
 
 " Go back and forward with Ctrl+O and Ctrl+I
 " (make sure to remove default Obsidian shortcuts for these to work)
@@ -53,6 +58,11 @@ exmap searchGlobal obcommand global-search:open
 nmap <Space>st :searchGlobal
 exmap replaceCurrentFile obcommand editor:open-search-replace
 nmap <Space>rs :replaceCurrentFile
+
+exmap toggleLeftSidebar obcommand app:toggle-left-sidebar
+nmap <Space>e :toggleLeftSidebar
+exmap toggleRightSidebar obcommand app:toggle-right-sidebar
+nmap <BS>ta :toggleRightSidebar
 
 " Smarter o and O (inserting prefix for markdown lists)
 exmap blankBelow obcommand obsidian-editor-shortcuts:insertLineBelow
