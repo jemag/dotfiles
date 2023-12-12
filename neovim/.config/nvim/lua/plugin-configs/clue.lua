@@ -89,6 +89,10 @@ miniclue.setup({
 
     { mode = "n", keys = "<localleader>m", desc = "+misc" },
     { mode = "x", keys = "<localleader>m", desc = "+misc" },
+    { mode = "n", keys = "<localleader>ms", desc = "+schema" },
+    { mode = "x", keys = "<localleader>ms", desc = "+schema" },
+    { mode = "n", keys = "<localleader>mp", desc = "+paste image" },
+    { mode = "x", keys = "<localleader>mp", desc = "+paste image" },
     { mode = "n", keys = "<localleader>n", desc = "+notes" },
     { mode = "n", keys = "<localleader>p", desc = "+project" },
     { mode = "x", keys = "<localleader>p", desc = "+project" },

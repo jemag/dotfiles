@@ -620,6 +620,12 @@ require("lazy").setup({
     },
   },
 
+  {
+    "HakonHarnes/img-clip.nvim",
+    config = function()
+      require("plugin-configs.img-clip")
+    end,
+  },
   { "nvim-telescope/telescope-media-files.nvim" },
   {
     "nvim-telescope/telescope.nvim",
