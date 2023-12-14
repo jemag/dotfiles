@@ -40,12 +40,6 @@ require("lazy").setup({
     end,
   },
   {
-    "gaoDean/autolist.nvim",
-    config = function()
-      require("plugin-configs.autolist")
-    end,
-  },
-  {
     "smjonas/live-command.nvim",
     config = function()
       require("plugin-configs.live-command")
