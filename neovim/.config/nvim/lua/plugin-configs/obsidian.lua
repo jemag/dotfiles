@@ -20,6 +20,12 @@ require("obsidian").setup({
   finder = "telescope.nvim",
   open_notes_in = "current",
   mappings = {},
+  attachments = {
+    img_folder = "_resources"
+  },
+  ui = {
+    enable = false,
+  }
 })
 
 vim.keymap.set("n", "gf", function()
@@ -29,11 +35,12 @@ vim.keymap.set("n", "gf", function()
     return "gf"
   end
 end, { noremap = false, expr = true })
-vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<cr>", { desc = "Open" })
-vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New note" })
-vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Search" })
-vim.keymap.set("n", "<leader>og", "<cmd>ObsidianSearch<cr>", { desc = "Grep" })
 vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { desc = "Backlinks" })
+vim.keymap.set("n", "<leader>og", "<cmd>ObsidianSearch<cr>", { desc = "Grep in notes" })
+vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New note" })
+vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<cr>", { desc = "Open" })
+vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<cr>", { desc = "Paste img" })
+vim.keymap.set("n", "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Quick switch" })
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianToday<cr>", { desc = "Today" })
-vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday" })
 vim.keymap.set("n", "<leader>oT", "<cmd>ObsidianTemplate<cr>", { desc = "Template" })
+vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday" })
