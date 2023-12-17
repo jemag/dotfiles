@@ -102,6 +102,7 @@ cmp.setup({
     { name = "nvim_lsp", max_item_count = 30 },
     { name = "path" },
     { name = "luasnip" },
+    { name = "cody" },
     { name = "codeium" },
     { name = "buffer" },
     { name = "natdat" },
@@ -109,7 +110,9 @@ cmp.setup({
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(_, item)
-      item.kind = " " .. icons[item.kind] .. " " .. item.kind
+      if item.kind and icons[item.kind] then
+        item.kind = " " .. icons[item.kind] .. " " .. item.kind
+      end
       return item
     end,
   },
