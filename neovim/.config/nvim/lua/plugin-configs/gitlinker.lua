@@ -1,4 +1,4 @@
-require('gitlinker').setup({
+require("gitlinker").setup({
   -- print message in command line
   message = true,
 
@@ -22,7 +22,17 @@ require('gitlinker').setup({
       ["^github%.com"] = require("gitlinker.routers").github_browse,
       ["^gitlab%.com"] = require("gitlinker.routers").gitlab_browse,
       ["^bitbucket%.org"] = require("gitlinker.routers").bitbucket_browse,
+      ["^dev.azure%.com"] = "https://dev.azure.com/"
+        .. "{_A.USER}/"
+        .. "{_A.REPO}"
+        .. "?path=/{_A.FILE}"
+        .. "&version={_A.REV}"
+        .. "&Line={_A.LSTART}"
+        .. "{(_A.LEND > _A.LSTART and ('&LineEnd=' .. _A.LEND) or '')}"
+        .. "&lineStyle=plain"
+        .. "&_a=contents"
     },
+    -- https://dev.azure.com/foc-poc/AKS/_git/SystemInformer?path=/Dockerfile&version=GC3c76fa9e8a3add2f6d9683a7df1c1f9ae4295fbf&line=14&lineEnd=16&lineStartColumn=1&lineEndColumn=74&lineStyle=plain&_a=contents
     blame = {
       ["^github%.com"] = require("gitlinker.routers").github_blame,
       ["^gitlab%.com"] = require("gitlinker.routers").gitlab_blame,
@@ -40,27 +50,17 @@ require('gitlinker').setup({
   file_log = false,
 })
 -- browse
-vim.keymap.set(
-  {"n", 'x'},
-  "<leader>gly",
-  "<cmd>GitLink<cr>",
-  { silent = true, noremap = true, desc = "Copy git permlink to clipboard" }
-)
-vim.keymap.set(
-  {"n", 'x'},
-  "<leader>glg",
-  "<cmd>GitLink!<cr>",
-  { silent = true, noremap = true, desc = "Open git permlink in browser" }
-)
+vim.keymap.set({ "n", "x" }, "<leader>gly", "<cmd>GitLink<cr>", { silent = true, noremap = true, desc = "Copy git permlink to clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>glg", "<cmd>GitLink!<cr>", { silent = true, noremap = true, desc = "Open git permlink in browser" })
 -- blame
 vim.keymap.set(
-  {"n", 'x'},
+  { "n", "x" },
   "<leader>glb",
   "<cmd>GitLink blame<cr>",
   { silent = true, noremap = true, desc = "Copy git blame link to clipboard" }
 )
 vim.keymap.set(
-  {"n", 'x'},
+  { "n", "x" },
   "<leader>glB",
   "<cmd>GitLink! blame<cr>",
   { silent = true, noremap = true, desc = "Open git blame link in browser" }

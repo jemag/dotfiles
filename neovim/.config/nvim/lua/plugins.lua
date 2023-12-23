@@ -427,6 +427,10 @@ require("lazy").setup({
     end,
   },
   {
+    "fynnfluegge/monet.nvim",
+    event = "User LoadColorSchemes",
+  },
+  {
     "oxfist/night-owl.nvim",
     event = "User LoadColorSchemes",
   },
@@ -760,15 +764,6 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  },
-  {
-    "james1236/backseat.nvim",
-    config = function()
-      require("backseat").setup({
-        -- Alternatively, set the env var $OPENAI_API_KEY by putting "export OPENAI_API_KEY=sk-xxxxx" in your ~/.bashrc
-        openai_model_id = "gpt-3.5-turbo", --gpt-4 (If you do not have access to a model, it says "The model does not exist")
-      })
-    end,
   },
   {
     "dpayne/CodeGPT.nvim",
