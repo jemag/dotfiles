@@ -67,6 +67,8 @@ miniclue.setup({
     { mode = "x", keys = "<leader>h", desc = "+hunk" },
     { mode = "n", keys = "<leader>i", desc = "+insert" },
     { mode = "x", keys = "<leader>i", desc = "+insert" },
+    { mode = "n", keys = "<leader>ib", desc = "+comment box" },
+    { mode = "x", keys = "<leader>ib", desc = "+comment box" },
     { mode = "n", keys = "<leader>l", desc = "+language" },
     { mode = "x", keys = "<leader>l", desc = "+language" },
     { mode = "n", keys = "<leader>m", desc = "+bookmarks" },

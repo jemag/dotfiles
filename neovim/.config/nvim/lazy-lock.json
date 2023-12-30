@@ -24,7 +24,7 @@
   "cmp-rg": { "branch": "master", "commit": "677a7874ee8f1afc648c2e7d63a97bc21a7663c5" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "codeium.nvim": { "branch": "main", "commit": "37fc809e9ad242d6e4748a4abfd792d360b00505" },
-  "comment-box.nvim": { "branch": "main", "commit": "1ffbacf99649f04204149baa07b58908be090a12" },
+  "comment-box.nvim": { "branch": "main", "commit": "4231b536d5286441b0cbe948c127932a5176a47c" },
   "darcula-dark.nvim": { "branch": "main", "commit": "9cb7d384d2550f7bc9b8988571144b86c366d7ff" },
   "darcula-solid.nvim": { "branch": "main", "commit": "d950b9ca20096313c435a93e57af7815766f3d3d" },
   "darkplus.nvim": { "branch": "main", "commit": "6101ffce60682208e9e076710299d189ce11c40d" },
