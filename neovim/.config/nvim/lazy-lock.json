@@ -76,7 +76,7 @@
   "miramare": { "branch": "master", "commit": "04330816640c3162275d69e7094126727948cd0d" },
   "monet.nvim": { "branch": "main", "commit": "04cf366c2cceff7b2a8cfc7d96406bd9b73526d7" },
   "monokai-pro.nvim": { "branch": "master", "commit": "6e7ce88ab4ddfcdeac65161d233a43e906940a0c" },
-  "neo-tree.nvim": { "branch": "v3.x", "commit": "77d9f484b88fd380386b46ed9206e5374d69d9d8" },
+  "neo-tree.nvim": { "branch": "main", "commit": "953313ecf0a92a8e9f2a4afc603731f1fcb331b4" },
   "neogen": { "branch": "main", "commit": "70127baaff25611deaf1a29d801fc054ad9d2dc1" },
   "neogit": { "branch": "master", "commit": "265e96128cf3bc3ba467c45f8fc112e91021e579" },
   "neotest": { "branch": "master", "commit": "6aa6e4529a4a125b49c48541b97ba146ceee2441" },
