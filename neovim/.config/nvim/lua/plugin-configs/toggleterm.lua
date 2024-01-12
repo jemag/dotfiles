@@ -2,6 +2,8 @@ require("toggleterm").setup({
   shading_factor = "0",
   hide_numbers = false,
   direction = "float",
+  start_in_insert = true,
+  persist_mode = false,
   size = function(term)
     if term.direction == "horizontal" then
       return vim.o.lines * 0.5
