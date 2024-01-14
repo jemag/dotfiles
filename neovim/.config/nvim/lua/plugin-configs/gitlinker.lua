@@ -1,6 +1,24 @@
+--- @param s string
+--- @param t string
+local function string_endswith(s, t)
+  return string.len(s) >= string.len(t) and string.sub(s, #s - #t + 1) == t
+end
+
+local function ado_router(lk)
+  local builder = "https://dev.azure.com"
+  builder = builder .. lk.user:sub(3, #lk.user) .. "/_git/"
+  builder = builder .. lk.repo .. "/"
+  builder = builder .. "?path=" .. lk.file
+  builder = builder .. "&version=GC" .. lk.rev
+  builder = builder .. "&line=" .. lk.lstart
+  builder = builder .. "&lineEnd=" .. lk.lend + 1
+  builder = builder .. "&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents"
+  return builder
+end
+
 require("gitlinker").setup({
   -- print message in command line
-  message = true,
+  message = false,
 
   -- highlights the linked line(s) by the time in ms
   -- disable highlight by setting a value equal or less than 0
@@ -22,15 +40,7 @@ require("gitlinker").setup({
       ["^github%.com"] = require("gitlinker.routers").github_browse,
       ["^gitlab%.com"] = require("gitlinker.routers").gitlab_browse,
       ["^bitbucket%.org"] = require("gitlinker.routers").bitbucket_browse,
-      ["^dev.azure%.com"] = "https://dev.azure.com/"
-        .. "{_A.USER}/"
-        .. "{_A.REPO}"
-        .. "?path=/{_A.FILE}"
-        .. "&version={_A.REV}"
-        .. "&Line={_A.LSTART}"
-        .. "{(_A.LEND > _A.LSTART and ('&LineEnd=' .. _A.LEND) or '')}"
-        .. "&lineStyle=plain"
-        .. "&_a=contents"
+      ["%.dev.azure%.com"] = ado_router,
     },
     -- https://dev.azure.com/foc-poc/AKS/_git/SystemInformer?path=/Dockerfile&version=GC3c76fa9e8a3add2f6d9683a7df1c1f9ae4295fbf&line=14&lineEnd=16&lineStartColumn=1&lineEndColumn=74&lineStyle=plain&_a=contents
     blame = {
