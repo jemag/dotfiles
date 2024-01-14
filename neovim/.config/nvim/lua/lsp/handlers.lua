@@ -117,27 +117,36 @@ local function map_keys(client, bufnr)
 end
 
 local function map_java_keys(bufnr)
-  vim.keymap.set("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = "Organized imports", buffer = bufnr })
   vim.keymap.set(
     "n",
-    "<leader>ut",
-    "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>",
-    { desc = "Test class", buffer = bufnr }
+    "<leader>urc",
+    require('java').test.run_current_class,
+    { desc = "Run class", buffer = bufnr }
   )
   vim.keymap.set(
     "n",
-    "<leader>uT",
-    "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>",
-    { desc = "Test method", buffer = bufnr }
+    "<leader>urm",
+    require('java').test.run_current_method,
+    { desc = "Run method", buffer = bufnr }
   )
   vim.keymap.set(
-    "x",
-    "<leader>ue",
-    "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
-    { desc = "Extract variable", buffer = bufnr }
+    "n",
+    "<leader>udc",
+    require('java').test.debug_current_class,
+    { desc = "Debug class", buffer = bufnr }
   )
-  vim.keymap.set("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = "Extract variable", buffer = bufnr })
-  vim.keymap.set("x", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = "Extract method", buffer = bufnr })
+  vim.keymap.set(
+    "n",
+    "<leader>udm",
+    require('java').test.debug_current_method,
+    { desc = "Debug method", buffer = bufnr }
+  )
+  vim.keymap.set(
+    "n",
+    "<leader>up",
+    require('java').test.view_last_report,
+    { desc = "Debug method", buffer = bufnr }
+  )
 end
 
 local function set_hover_border(client)
@@ -151,10 +160,9 @@ M.on_attach = function(client, bufnr)
   set_hover_border(client)
   map_keys(client, bufnr)
   if client.name == "jdtls" then
-    require("jdtls").setup_dap({ hotcodereplace = "auto" })
-    require("jdtls").setup.add_commands()
-    -- Auto-detect main and setup dap config
-    require("jdtls.dap").setup_dap_main_class_configs()
+    -- require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    -- require("jdtls").setup.add_commands()
+    require('java').dap.config_dap()
     map_java_keys(bufnr)
   end
   if client.name == "lua_ls" then

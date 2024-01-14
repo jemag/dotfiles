@@ -75,7 +75,7 @@ local function setup_servers()
       opts = yamlls_opts
     end
     if name == "jdtls" then
-      goto continue
+      require('java').setup()
     end
     if name == "ansiblels" then
       local ansiblels_opts = require("lsp.configs.ansiblels")

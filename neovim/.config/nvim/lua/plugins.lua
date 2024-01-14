@@ -395,7 +395,20 @@ require("lazy").setup({
       require("telescope").load_extension("dap")
     end,
   },
-  { "mfussenegger/nvim-jdtls" },
+  {
+    "nvim-java/nvim-java",
+    dependencies = {
+      "nvim-java/lua-async-await",
+      "nvim-java/nvim-java-core",
+      "nvim-java/nvim-java-test",
+      "nvim-java/nvim-java-dap",
+      "MunifTanjim/nui.nvim",
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "williamboman/mason.nvim",
+    },
+  },
+  -- { "mfussenegger/nvim-jdtls" },
   { "lambdalisue/suda.vim" },
   {
     "gennaro-tedesco/nvim-peekup",
