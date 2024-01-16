@@ -35,6 +35,7 @@ return {
   },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
   font_size = 10.0, -- [12.0]
+  max_fps = 250,
 
   -- Colors
   color_scheme = "Ayu Mirage", -- full list @ wezfurlong.org/wezterm/colorschemes/index.html
