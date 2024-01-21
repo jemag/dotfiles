@@ -330,12 +330,6 @@ require("lazy").setup({
     "Isrothy/lualine-diagnostic-message",
   },
   {
-    "rasulomaroff/reactive.nvim",
-    config = function()
-      require("plugin-configs.reactive")
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     config = function()
       require("plugin-configs.lualine")
