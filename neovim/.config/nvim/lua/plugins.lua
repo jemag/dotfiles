@@ -1049,34 +1049,15 @@ require("lazy").setup({
     end,
   },
   {
-    "echasnovski/mini.indentscope",
+    "echasnovski/mini.nvim",
     config = function()
       require("plugin-configs.indentscope")
-    end,
-  },
-  {
-    "echasnovski/mini.clue",
-    config = function()
       require("plugin-configs.clue")
-    end,
-  },
-  {
-    "echasnovski/mini.operators",
-    config = function()
       require("plugin-configs.operators")
-    end,
-  },
-  {
-    "echasnovski/mini.ai",
-    config = function()
       require("plugin-configs.mini-ai")
-    end,
-  },
-  {
-    "echasnovski/mini.bracketed",
-    config = function()
       require("plugin-configs.bracketed")
     end,
+    version = false,
   },
   {
     "kylechui/nvim-surround",
