@@ -131,12 +131,6 @@ require("lazy").setup({
       require("plugin-configs.nvim-notify")
     end,
   },
-  -- {
-  --   "sindrets/winshift.nvim",
-  --   config = function()
-  --     require("plugin-configs.winshift")
-  --   end,
-  -- },
   {
     "windwp/nvim-spectre",
     config = function()
