@@ -199,6 +199,7 @@ require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
 require("telescope").load_extension("luasnip")
+require("telescope").load_extension("git_worktree")
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
@@ -269,6 +270,8 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>sw", require("telescope").extensions.menufacture.grep_string, { desc = "Grep cursor word" })
 vim.keymap.set("n", "<leader>sgs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
+vim.keymap.set("n", "<leader>sgw", require('telescope').extensions.git_worktree.git_worktrees, { desc = "Switch worktree" })
+vim.keymap.set("n", "<leader>sgW", require('telescope').extensions.git_worktree.create_git_worktree, { desc = "Create worktree" })
 vim.keymap.set(
   "n",
   "<leader>sh",
