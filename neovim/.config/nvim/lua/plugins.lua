@@ -876,9 +876,6 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.cmp-cmdline")
     end,
-    dependencies = {
-      { "dmitmel/cmp-cmdline-history" },
-    },
   },
 
   {
