@@ -3,6 +3,7 @@ alias k=kubectl
 alias kgg='kubectl api-resources --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl get'
 alias kyg=kubectl-get-yaml-fzf
 alias kdg=kubectl-describe-fzf
+alias keg=kubectl-edit-fzf
 
 alias kcx="kubectx"
 alias kns="kubens"
