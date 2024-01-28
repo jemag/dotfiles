@@ -4,6 +4,12 @@ require("toggleterm").setup({
   direction = "float",
   start_in_insert = true,
   persist_mode = false,
+  on_open = function(t)
+    vim.opt_local.relativenumber = true
+    vim.fn.timer_start(1, function()
+      vim.cmd('startinsert!')
+    end)
+  end,
   size = function(term)
     if term.direction == "horizontal" then
       return vim.o.lines * 0.5
@@ -106,8 +112,3 @@ end, { desc = "Toggle term" })
 vim.keymap.set({ "n", "t" }, "<F7>", function()
   go_prev_term()
 end, { desc = "Toggle term" })
-
-vim.api.nvim_create_autocmd("TermEnter", {
-  command = "setlocal number relativenumber",
-  desc = "Set line numbers in terminals, including float",
-})
