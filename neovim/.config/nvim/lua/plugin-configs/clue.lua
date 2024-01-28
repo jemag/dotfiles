@@ -102,8 +102,8 @@ miniclue.setup({
     { mode = "x", keys = "<localleader>ps", desc = "+session" },
     { mode = "n", keys = "<localleader>s", desc = "+misc search" },
     { mode = "x", keys = "<localleader>s", desc = "+misc search" },
-    { mode = "n", keys = "<localleader>t", desc = "+project" },
-    { mode = "x", keys = "<localleader>t", desc = "+project" },
+    { mode = "n", keys = "<localleader>t", desc = "+toggle" },
+    { mode = "x", keys = "<localleader>t", desc = "+toggle" },
   },
   window = {
     delay = 500,
