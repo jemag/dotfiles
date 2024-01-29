@@ -1040,6 +1040,12 @@ require("lazy").setup({
     end,
   },
   {
+    "gbprod/substitute.nvim",
+    config = function()
+      require("plugin-configs.substitute")
+    end,
+  },
+  {
     "echasnovski/mini.nvim",
     config = function()
       require("plugin-configs.indentscope")

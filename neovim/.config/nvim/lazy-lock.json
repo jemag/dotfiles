@@ -142,6 +142,7 @@
   "startuptime.vim": { "branch": "master", "commit": "dfa57f522d6f61793fe5fea65bca7484751b8ca2" },
   "stay-in-place.nvim": { "branch": "main", "commit": "0628b6db8970fc731abf9608d6f80659b58932c9" },
   "stickybuf.nvim": { "branch": "master", "commit": "2160fcd536d81f5fa43f7167dba6634e814e3154" },
+  "substitute.nvim": { "branch": "main", "commit": "17ffaeb5a1dc2dbef39cf0865d8a4b6000836714" },
   "suda.vim": { "branch": "master", "commit": "8b0fc3711760195aba104e2d190cff9af8267052" },
   "sunglasses.nvim": { "branch": "main", "commit": "63a0b4914da3cd200ba1c55bd3231ddef14fc5fa" },
   "sweetie.nvim": { "branch": "master", "commit": "f51386b1f5884a634d639b0466c2f869e925605e" },
