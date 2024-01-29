@@ -392,12 +392,6 @@ require("lazy").setup({
   { "mfussenegger/nvim-jdtls" },
   { "lambdalisue/suda.vim" },
   {
-    "gennaro-tedesco/nvim-peekup",
-    config = function()
-      require("plugin-configs.nvim-peekup")
-    end,
-  },
-  {
     "miversen33/sunglasses.nvim",
     config = function()
       require("plugin-configs.sunglasses")
