@@ -620,6 +620,7 @@ require("lazy").setup({
     end,
     dependencies = {
       { "nvim-telescope/telescope-live-grep-args.nvim" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "tsakirist/telescope-lazy.nvim" },
       { "debugloop/telescope-undo.nvim" },
