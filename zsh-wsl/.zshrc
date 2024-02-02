@@ -44,6 +44,9 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="exa -g --time-style long-iso"
 alias y="yazi"
+alias digs="dig +short"
+alias dign="dig +noall +answer"
+alias digy="dig +yaml"
 alias gs="git status"
 alias kcac='kubectl cost --service-port 9003 --service-name opencost --kubecost-namespace opencost --allocation-path /allocation/compute'
 alias rk="rakkess"

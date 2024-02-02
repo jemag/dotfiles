@@ -44,6 +44,9 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="exa -g --time-style long-iso"
 alias y="yazi"
+alias digs="dig +short"
+alias dign="dig +noall +answer"
+alias digy="dig +yaml"
 alias gs="git status"
 alias zl="zellij"
 alias zla="zellij attach"
