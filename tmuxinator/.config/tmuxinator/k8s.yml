@@ -46,7 +46,9 @@ windows:
   - all:
       layout: tiled
       panes:
-              - 
+              - kubie_sandbox:
+                - kubie ctx akssandbox-admin
+                - kubie ns argocd
               - kubie_dev:
                 - kubie ctx aksdev-admin
                 - kubie ns iwls
@@ -59,7 +61,15 @@ windows:
   - sandbox:
       layout: tiled
       panes:
-              - 
-              - 
-              -
-              -
+              - kubie_sandbox:
+                - kubie ctx akssandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx akssandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx akssandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx akssandbox-admin
+                - kubie ns argocd
