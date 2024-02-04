@@ -11,7 +11,7 @@ require("mini.operators").setup({
 
   -- Multiply (duplicate) text
   multiply = {
-    prefix = "gm",
+    prefix = "",
   },
 
   -- Replace text with register
@@ -25,5 +25,4 @@ require("mini.operators").setup({
   },
 })
 vim.keymap.set({ "n" }, "gX", "gx$", { remap = true, desc = "Exchange until end of line" })
-vim.keymap.set({ "n" }, "gM", "gm$", { remap = true, desc = "Multiply until end of line" })
 vim.keymap.set({ "n" }, "gS", "gs$", { remap = true, desc = "Sort until end of line" })
