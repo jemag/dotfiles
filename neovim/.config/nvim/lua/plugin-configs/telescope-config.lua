@@ -200,6 +200,7 @@ require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
 require("telescope").load_extension("luasnip")
 require("telescope").load_extension("git_worktree")
+require('telescope').load_extension('bookmarks')
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 

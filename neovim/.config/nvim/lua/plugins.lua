@@ -173,6 +173,20 @@ require("lazy").setup({
     end,
   },
   {
+    "otavioschwanck/arrow.nvim",
+    config = function()
+      require("plugin-configs.arrow")
+    end,
+  },
+  {
+    -- "tomasky/bookmarks.nvim",
+    "ten3roberts/bookmarks.nvim",
+    branch = "feat-scoped-bookmarks",
+    config = function()
+      require("plugin-configs.bookmarks")
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "main",
     dependencies = {
@@ -276,21 +290,6 @@ require("lazy").setup({
     "LeonHeidelbach/trailblazer.nvim",
     config = function()
       require("plugin-configs.trailblazer")
-    end,
-  },
-  {
-    "MattesGroeger/vim-bookmarks",
-    config = function()
-      require("plugin-configs.vim-bookmarks")
-    end,
-    init = function()
-      vim.g.bookmark_no_default_key_mappings = 1
-    end,
-  },
-  {
-    "tom-anders/telescope-vim-bookmarks.nvim",
-    config = function()
-      require("plugin-configs.telescope-vim-bookmarks")
     end,
   },
   {
