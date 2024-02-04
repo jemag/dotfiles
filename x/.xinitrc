@@ -52,6 +52,6 @@ setxkbmap -option caps:super
 dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 # 1st number is ms before repeating and 2nd is repetitions per seconds
-xset r rate 150 50
+xset r rate 200 50
 export SSH_AUTH_SOCK
 exec i3
