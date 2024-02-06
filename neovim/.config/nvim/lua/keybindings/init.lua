@@ -126,7 +126,7 @@ vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
 vim.api.nvim_set_keymap("c", "<esc>", "<c-c>", { noremap = true, desc = "Esc as ctrl-c in command mode" })
 
 vim.api.nvim_set_keymap("n", "<c-w>z", "<c-w>_<c-w>|", { noremap = true, desc = "Zoom current window" })
-vim.api.nvim_set_keymap("t", "<c-o>", [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true, desc = "Normal mode" })
+vim.api.nvim_set_keymap("t", "<c-x>", [[<C-\><C-n><esc><cr>]], { noremap = true, silent = true, desc = "Normal mode" })
 
 vim.api.nvim_set_keymap("x", "<cr>y", '"+y', { noremap = true, silent = true, desc = "Yank +reg" })
 vim.api.nvim_set_keymap("n", "<cr>Y", '"+yg_', { noremap = true, silent = true, desc = "Yank end of line +reg" })
