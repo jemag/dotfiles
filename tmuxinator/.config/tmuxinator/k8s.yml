@@ -73,3 +73,18 @@ windows:
               - kubie_sandbox:
                 - kubie ctx akssandbox-admin
                 - kubie ns argocd
+  - sc2g-dev:
+      layout: tiled
+      panes:
+              - kubie_sandbox:
+                - kubie ctx aks-dev-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-dev-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-dev-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-dev-admin
+                - kubie ns argocd
