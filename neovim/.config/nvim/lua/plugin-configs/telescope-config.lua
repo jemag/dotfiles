@@ -256,7 +256,7 @@ vim.keymap.set(
   { desc = "Current file directory" }
 )
 vim.keymap.set("n", "<leader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
-vim.keymap.set("n", "<leader>se", function()
+vim.keymap.set("n", "<leader>sE", function()
   vim.api.nvim_command("doautocmd User LoadColorSchemes")
   require("telescope.builtin").colorscheme({ enable_preview = true })
 end, { desc = "Colorschemes" })
