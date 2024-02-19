@@ -253,5 +253,6 @@ source <(kustomize completion zsh)
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+stty -ixon
 # zplugin load ellie/atuin
 # zprof
