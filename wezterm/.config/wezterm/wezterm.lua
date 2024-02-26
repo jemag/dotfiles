@@ -40,6 +40,13 @@ return {
   -- Colors
   color_scheme = "Ayu Mirage", -- full list @ wezfurlong.org/wezterm/colorschemes/index.html
 
+  window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+  },
+
   -- Appearance
   window_background_opacity = 1.0, -- [1.0] alpha channel value with floating point numbers in the range 0.0 (meaning completely translucent/transparent) through to 1.0 (meaning completely opaque)
   enable_tab_bar = false, -- [true]
