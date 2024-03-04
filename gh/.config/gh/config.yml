@@ -2,7 +2,8 @@
 git_protocol: ssh
 # What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor: nvim
-browser: firefox
+browser: xdg-open
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: pr checkout
+version: "1"
