@@ -709,6 +709,7 @@ require("lazy").setup({
     event = "VeryLazy",
     opts = {
       grace_period = 300,
+      timeout = 3000
     },
   },
   {
