@@ -666,9 +666,10 @@ require("lazy").setup({
   {
     "pwntester/octo.nvim",
     config = function()
-      require("octo").setup()
+      require("plugin-configs.octo")
     end,
     cmd = "Octo",
+    keys = { "<leader>go" },
   },
   {
     "linrongbin16/gitlinker.nvim",
