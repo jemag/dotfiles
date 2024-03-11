@@ -1,0 +1,13 @@
+
+# ~/.tmuxinator/obsidian.yml
+
+name: obsidian
+root: ~/H/obsidian/
+
+windows:
+  - obs:
+      layout: tiled
+      panes:
+        - working-memory:
+          - nvim working-memory.md
+
