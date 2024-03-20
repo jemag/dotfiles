@@ -353,6 +353,7 @@ require("lazy").setup({
       "Issafalcon/neotest-dotnet",
       "jfpedroza/neotest-elixir",
       "nvim-neotest/neotest-go",
+      "nvim-neotest/nvim-nio",
       "rcasia/neotest-java",
       "nvim-neotest/neotest-jest",
       "olimorris/neotest-phpunit",
