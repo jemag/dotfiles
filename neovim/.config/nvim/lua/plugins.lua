@@ -369,6 +369,14 @@ require("lazy").setup({
     end,
   },
   {
+    "MeanderingProgrammer/markdown.nvim",
+    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("render-markdown").setup({})
+    end,
+  },
+  {
     "jbyuki/one-small-step-for-vimkind",
   },
   {
@@ -711,7 +719,7 @@ require("lazy").setup({
     event = "VeryLazy",
     opts = {
       grace_period = 300,
-      timeout = 3000
+      timeout = 3000,
     },
   },
   {
