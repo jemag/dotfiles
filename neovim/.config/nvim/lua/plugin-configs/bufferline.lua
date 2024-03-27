@@ -52,7 +52,7 @@ vim.keymap.set({ "n", "x" }, "<leader>7", "<cmd>lua require('bufferline').go_to(
 vim.keymap.set({ "n", "x" }, "<leader>8", "<cmd>lua require('bufferline').go_to(8, true)<cr>", { desc = "Buf 8" })
 vim.keymap.set({ "n", "x" }, "<leader>9", "<cmd>lua require('bufferline').go_to(9, true)<cr>", { desc = "Buf 9" })
 vim.keymap.set({ "n", "x" }, "<leader>0", "<cmd>lua require('bufferline').go_to(10, true)<cr>", { desc = "Buf 10" })
-vim.keymap.set({ "n", "x" }, "<leader>bd", "<cmd>bd<cr>", { desc = "Delete-buffer" })
+vim.keymap.set({ "n", "x" }, "<leader>bd", "<cmd>bn | bd#<cr>", { desc = "Delete-buffer" })
 vim.keymap.set({ "n", "x" }, "<leader>bD", close_all_but_current_buffer, { desc = "Delete all other buffers" })
 vim.keymap.set({ "n", "x" }, "<leader>b$", "<cmd>lua require('bufferline').go_to(-1, true)<cr>", { desc = "Last-buffer" })
 vim.keymap.set({ "n", "x" }, "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { desc = "move prev" })
