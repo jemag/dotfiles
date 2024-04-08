@@ -41,6 +41,11 @@ cmp.setup({
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
   end,
+  view = {
+    entries = {
+      follow_cursor = true,
+    }
+  },
   performance = {
     debounce = 150,
     max_view_entries = 20,
