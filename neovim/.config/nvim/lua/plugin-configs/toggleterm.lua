@@ -104,6 +104,7 @@ local function go_next_term()
 end
 
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope toggleterm_manager<cr>", { desc = "Search terminals" })
+vim.keymap.set({ "n", "t" }, "<F6>", "<cmd>Telescope toggleterm_manager<cr>", { desc = "Search terminals" })
 vim.keymap.set({ "n", "t" }, "<F9>", "<cmd>ToggleTerm<cr>", { desc = "Toggle term" })
 vim.keymap.set({ "n", "t" }, "<F8>", function()
   go_next_term()
