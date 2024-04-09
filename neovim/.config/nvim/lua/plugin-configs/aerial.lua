@@ -1,6 +1,7 @@
 require("aerial").setup({
   layout = {
     min_width = 25,
+    default_direction = "right",
   },
   on_attach = function(bufnr)
     -- Toggle the aerial window with <leader>a

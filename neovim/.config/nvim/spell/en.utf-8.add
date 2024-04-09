@@ -55,3 +55,8 @@ serverless
 sub-directory
 JWT
 Katalon
+kustomization
+Trivy
+Falco
+Velero
+Opencost
