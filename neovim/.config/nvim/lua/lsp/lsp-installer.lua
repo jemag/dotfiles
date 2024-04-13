@@ -19,6 +19,7 @@ local tools = {
   "gotests",
   "gotestsum",
   "html-lsp",
+  "helm-ls",
   "iferr",
   "impl",
   "java-debug-adapter",
