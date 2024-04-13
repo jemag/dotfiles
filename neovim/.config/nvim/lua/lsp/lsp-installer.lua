@@ -34,6 +34,7 @@ local tools = {
   "solargraph",
   "stylua",
   "terraform-ls",
+  "tflint",
   "typescript-language-server",
   "vim-language-server",
   "yaml-language-server",
