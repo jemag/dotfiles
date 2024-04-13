@@ -80,8 +80,8 @@ local function go_prev_term()
   else
     prev_index = #terms
   end
-  require("toggleterm").toggle(index)
-  require("toggleterm").toggle(prev_index)
+  require("toggleterm").toggle(terms[index].id)
+  require("toggleterm").toggle(terms[prev_index].id)
 end
 
 local function go_next_term()
@@ -99,8 +99,8 @@ local function go_next_term()
   else
     next_index = index + 1
   end
-  require("toggleterm").toggle(index)
-  require("toggleterm").toggle(next_index)
+  require("toggleterm").toggle(terms[index].id)
+  require("toggleterm").toggle(terms[next_index].id)
 end
 
 vim.keymap.set("n", "<leader>ts", "<cmd>Telescope toggleterm_manager<cr>", { desc = "Search terminals" })
