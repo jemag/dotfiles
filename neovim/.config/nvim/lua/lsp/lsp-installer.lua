@@ -38,6 +38,7 @@ local tools = {
   "typescript-language-server",
   "vim-language-server",
   "yaml-language-server",
+  "yamllint",
 }
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({

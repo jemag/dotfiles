@@ -36,5 +36,6 @@ null_ls.setup({
     -- stylua cmd must be in path (can install through pacman)
     formatting.stylua,
     diagnostics.editorconfig_checker,
+    diagnostics.yamllint,
   },
 })
