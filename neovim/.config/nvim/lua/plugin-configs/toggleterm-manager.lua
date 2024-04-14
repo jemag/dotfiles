@@ -51,11 +51,10 @@ toggleterm_manager.setup({
       ["<C-i>"] = { action = term_actions.create_and_name_term, exit_on_action = false },
       ["<C-y>"] = { action = term_actions.create_and_name_term, exit_on_action = false },
       ["<C-f>"] = { action = open_float, exit_on_action = false },
-      -- creates a new terminal buffer
-      ["<C-d>"] = { action = term_actions.delete_term, exit_on_action = false },
       -- deletes a terminal buffer
-      ["<C-r>"] = { action = term_actions.rename_term, exit_on_action = false },
+      ["<C-d>"] = { action = term_actions.delete_term, exit_on_action = false },
       -- provides a prompt to rename a terminal,
+      ["<C-r>"] = { action = term_actions.rename_term, exit_on_action = false },
     },
   },
 })

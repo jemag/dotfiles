@@ -88,6 +88,7 @@ require("telescope").setup({
         -- So, to not map "<C-n>", just put
         -- ["<c-x>"] = false,
         ["<esc>"] = actions.close,
+        ["<F6>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist,
         ["<C-y>"] = custom_actions.yank_entry,
         ["<C-v>"] = pick_vertical,
