@@ -116,30 +116,6 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>", { desc = "Repl run last", buffer = bufnr })
 end
 
-local function map_java_keys(bufnr)
-  vim.keymap.set("n", "<leader>uo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = "Organized imports", buffer = bufnr })
-  vim.keymap.set(
-    "n",
-    "<leader>ut",
-    "<Cmd>lua require'jdtls'.test_class({ config = { console = 'console' }})<CR>",
-    { desc = "Test class", buffer = bufnr }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>uT",
-    "<Cmd>lua require'jdtls'.test_nearest_method({ config = { console = 'console' }})<CR>",
-    { desc = "Test method", buffer = bufnr }
-  )
-  vim.keymap.set(
-    "x",
-    "<leader>ue",
-    "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
-    { desc = "Extract variable", buffer = bufnr }
-  )
-  vim.keymap.set("n", "<leader>ue", "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = "Extract variable", buffer = bufnr })
-  vim.keymap.set("x", "<leader>um", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = "Extract method", buffer = bufnr })
-end
-
 local function set_hover_border(client)
   local hp = client.server_capabilities.hoverProvider
   if vim.fn.empty(hp) == 0 then
@@ -155,7 +131,6 @@ M.on_attach = function(client, bufnr)
     require("jdtls").setup.add_commands()
     -- Auto-detect main and setup dap config
     require("jdtls.dap").setup_dap_main_class_configs()
-    map_java_keys(bufnr)
   end
   if client.name == "lua_ls" then
     client.server_capabilities.documentFormattingProvider = false
