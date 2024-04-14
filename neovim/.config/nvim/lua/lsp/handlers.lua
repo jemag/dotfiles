@@ -83,8 +83,8 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { desc = "Diagnostic to quickfix", buffer = bufnr })
   vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
   vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>", { desc = "Eval expression", buffer = bufnr })
-  vim.keymap.set("n", "<leader>due", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dut", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle dap ui", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dT", "<cmd>lua require('dapui').toggle({reset = true})<CR>", { desc = "Toggle dap ui", buffer = bufnr })
   vim.keymap.set(
     "n",
     "<leader>dv",
