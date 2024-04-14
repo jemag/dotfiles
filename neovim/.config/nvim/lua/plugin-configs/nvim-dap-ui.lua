@@ -16,7 +16,7 @@ require("dapui").setup({
       elements = {
         {
           id = "scopes",
-          size = 0.25,
+          size = 0.35,
         },
         {
           id = "breakpoints",
@@ -28,7 +28,7 @@ require("dapui").setup({
         },
         {
           id = "watches",
-          size = 0.25,
+          size = 0.15,
         },
       },
       size = 65,
