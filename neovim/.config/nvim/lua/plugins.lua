@@ -153,6 +153,13 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/trouble.nvim",
+    config = function()
+      require("plugin-configs.trouble")
+    end,
+    branch = "dev"
+  },
+  {
     "woosaaahh/sj.nvim",
     config = function()
       require("plugin-configs.sj")
