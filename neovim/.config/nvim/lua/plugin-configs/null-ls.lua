@@ -35,6 +35,7 @@ null_ls.setup({
     formatting.black.with({ extra_args = { "--fast" } }),
     -- stylua cmd must be in path (can install through pacman)
     formatting.stylua,
+    formatting.shfmt.with({extra_args = { "-i", "2"}}),
     diagnostics.editorconfig_checker,
     diagnostics.yamllint,
   },
