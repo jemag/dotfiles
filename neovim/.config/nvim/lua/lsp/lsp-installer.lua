@@ -30,7 +30,7 @@ local tools = {
   "jsonnet-language-server",
   "lua-language-server",
   "marksman",
-  "prettier",
+  "prettierd",
   "pyright",
   "rust-analyzer",
   "solargraph",
@@ -41,6 +41,7 @@ local tools = {
   "vim-language-server",
   "yaml-language-server",
   "yamllint",
+  "yamlfmt",
 }
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
@@ -74,6 +75,13 @@ local function setup_servers()
       local yamlls_opts = require("yaml-companion").setup({
         lspconfig = {
           on_attach = require("lsp.handlers").on_attach,
+          settings = {
+            yaml = {
+              format = {
+                enable = false,
+              },
+            },
+          },
         },
       })
       opts = yamlls_opts

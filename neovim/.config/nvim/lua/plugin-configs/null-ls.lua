@@ -13,7 +13,7 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = true,
   sources = {
-    formatting.prettier.with({
+    formatting.prettierd.with({
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -30,7 +30,6 @@ null_ls.setup({
         "graphql",
         "solidity",
       },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     }),
     formatting.black.with({ extra_args = { "--fast" } }),
     -- stylua cmd must be in path (can install through pacman)
