@@ -24,14 +24,14 @@ require("obsidian").setup({
       action = function()
         return require("obsidian").util.gf_passthrough()
       end,
-      opts = { noremap = false, expr = true, buffer = true },
+      opts = { noremap = false, expr = true, buffer = true, desc = "Follow link" },
     },
     -- Toggle check-boxes.
     ["<leader>oc"] = {
       action = function()
         return require("obsidian").util.toggle_checkbox()
       end,
-      opts = { buffer = true },
+      opts = { buffer = true, desc = "Toggle checkbox"},
     },
   },
   -- Optional, customize how note file names are generated given the ID, target directory, and title.
