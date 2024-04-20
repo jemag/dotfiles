@@ -16,7 +16,7 @@ return {
   -- Fonts
   font = wezterm.font_with_fallback({
     "FiraMono Nerd Font",
-    "JetBrainsMono Nerd Font",
+    -- "JetBrainsMono Nerd Font",
   }),
   font_rules = {
     {
@@ -41,7 +41,7 @@ return {
     },
   },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
-  font_size = 9, -- [12.0]
+  font_size = 10, -- [12.0]
   max_fps = 120,
 
   -- Colors
