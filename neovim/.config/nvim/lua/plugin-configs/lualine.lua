@@ -48,7 +48,15 @@ require("lualine").setup({
       "diff",
     },
     lualine_c = {
-      { "diagnostic-message" },
+      {
+        "diagnostic-message",
+        icons = {
+          error = "",
+          warn = "",
+          info = "",
+          hint = "",
+        },
+      },
     },
     lualine_x = {},
     lualine_y = {
