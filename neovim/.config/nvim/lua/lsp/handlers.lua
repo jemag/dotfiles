@@ -38,11 +38,11 @@ vim.g.inlay_hints_visible = true
 local function toggle_inlay_hints(client, bufnr)
   if vim.g.inlay_hints_visible then
     vim.g.inlay_hints_visible = false
-    vim.lsp.inlay_hint.enable(bufnr, false)
+    vim.lsp.inlay_hint.enable(false, { bufnr = 0 })
   else
     if client.server_capabilities.inlayHintProvider then
       vim.g.inlay_hints_visible = true
-      vim.lsp.inlay_hint.enable(bufnr, true)
+      vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
     else
       print("no inlay hints available")
     end
@@ -137,7 +137,7 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end
 end
 
