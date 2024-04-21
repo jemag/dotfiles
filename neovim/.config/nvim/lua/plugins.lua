@@ -135,9 +135,10 @@ require("lazy").setup({
     "windwp/nvim-spectre",
     config = function()
       require("spectre").setup()
-      vim.keymap.set("n", "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
     end,
-    keys = { "<localleader>tS" },
+    keys = {
+      { "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', desc = "Open Spectre" },
+    },
   },
   {
     "ethanholz/nvim-lastplace",
