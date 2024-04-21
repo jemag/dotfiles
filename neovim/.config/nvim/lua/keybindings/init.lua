@@ -159,6 +159,7 @@ vim.keymap.set("n", "[t", function()
   vim.cmd.tabprevious()
 end, { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>wt", "<cmd>tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>wn", "<cmd>tabnew<CR>", { desc = "New tab" })
 vim.keymap.set("n", "<localleader>tr", "<cmd>set number! norelativenumber!<cr>", { desc = "Hybrid line numbers" })
 
 -- Toggle options
