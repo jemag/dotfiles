@@ -24,4 +24,3 @@ require("colorizer").setup({
   -- all the sub-options of filetypes apply to buftypes
   buftypes = {},
 })
-vim.keymap.set("n", "<localleader>tC", "<cmd>ColorizerToggle<cr>", { desc = "Colorizer" })

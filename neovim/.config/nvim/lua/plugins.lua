@@ -577,7 +577,9 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.nvim-colorizer")
     end,
-    keys = { "<localleader>tC" },
+    keys = {
+      { "<localleader>tC", "<cmd>ColorizerToggle<cr>", desc = "Colorizer" }
+    },
   },
 
   {
