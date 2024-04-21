@@ -15,6 +15,7 @@ dap.configurations["lua"] = {
 vim.keymap.set({ "n" }, "<leader>dol", function()
   require("osv").launch({ port = 8086 })
 end, { desc = "Launch lua adapter" })
+vim.keymap.set({ "n" }, "<leader>dor", require("osv").run_this , { desc = "Run this lua file" })
 vim.keymap.set({ "n" }, "<leader>dos", function()
   require("osv").stop()
-end, { desc = "Launch lua adapter" })
+end, { desc = "Stop lua adapter" })
