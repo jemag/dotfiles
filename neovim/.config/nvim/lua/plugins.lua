@@ -158,7 +158,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.trouble")
     end,
-    branch = "dev"
+    branch = "dev",
   },
   {
     "woosaaahh/sj.nvim",
@@ -579,7 +579,7 @@ require("lazy").setup({
       require("plugin-configs.nvim-colorizer")
     end,
     keys = {
-      { "<localleader>tC", "<cmd>ColorizerToggle<cr>", desc = "Colorizer" }
+      { "<localleader>tC", "<cmd>ColorizerToggle<cr>", desc = "Colorizer" },
     },
   },
 
@@ -701,7 +701,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neogit")
     end,
-    branch = "nightly"
+    branch = "nightly",
   },
   {
     "ThePrimeagen/git-worktree.nvim",
