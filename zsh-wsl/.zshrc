@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -47,7 +47,6 @@ alias y="yazi"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
 alias digy="dig +yaml"
-alias gs="git status"
 alias kcac='kubectl cost --service-port 9003 --service-name opencost --kubecost-namespace opencost --allocation-path /allocation/compute'
 alias rk="rakkess"
 alias zl="zellij"
@@ -123,7 +122,7 @@ setopt PUSHD_TO_HOME
 setopt PUSHD_SILENT
 setopt PUSHD_IGNORE_DUPS
 # setopt PUSHD_MINUS
-setopt CDABLE_VARS 
+setopt CDABLE_VARS
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 unsetopt BEEP
 # Include hidden files in autocomplete:
@@ -218,24 +217,49 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 # More on ripgrep https://github.com/BurntSushi/ripgrep
 # More on these tools https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html
 #
-[ -f ~/.config/zsh/plugins/fzf/key-bindings.zsh ] && source ~/.config/zsh/plugins/fzf/key-bindings.zsh
+eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="
 --extended --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
 "
 FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
 export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
 export FZF_CTRL_T_OPTS="
     --height 50% -1 --layout=reverse --multi --inline-info
     --preview 'bat --style=numbers --color=always --line-range :500 {}'
     "
-fzf-dir() {
-  LBUFFER+=${$(fd --type directory --follow --hidden --exclude .git --exclude node_modules | fzf --height ${FZF_TMUX_HEIGHT:-40%})}
-  zle reset-prompt
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# fzf-dir() {
+#   LBUFFER+=${$(fd --type directory --follow --hidden --exclude .git --exclude node_modules | fzf --height ${FZF_TMUX_HEIGHT:-40%})}
+#   zle reset-prompt
+# }
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
 }
-zle     -N    fzf-dir
-bindkey '\ec' fzf-dir
-# export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
 export RPS1="$(vi_mode_prompt_info)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export VOLTA_HOME="$HOME/.volta"
@@ -260,6 +284,8 @@ source ~/.config/zsh/update-tags.sh.bash
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
 stty -ixon
 # zplugin load ellie/atuin
 # zprof
