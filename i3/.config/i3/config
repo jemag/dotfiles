@@ -139,7 +139,7 @@ workspace $workspace6 output $monitor_one
 workspace $workspace7 output $monitor_one
 workspace $workspace8 output $monitor_one
 workspace $workspace9 output $monitor_one
-workspace $workspace10 output $monitor_two
+workspace $workspace10 output $monitor_one
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -269,7 +269,8 @@ client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$
 exec --no-startup-id /home/jemag/.config/i3/i3-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
 # exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-D-0 --mode 1920x1080 --rate 144 --pos 0x0 --rotate left --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 1080x0 --rotate normal --output DP-1 --off --output DVI-D-0 --off
-exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal --output DP-1 --off --output DVI-D-0 --mode 1920x1080 --pos 256x1440 --rotate normal --rate 144
+# exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal --output DP-1 --off --output DVI-D-0 --mode 1920x1080 --pos 256x1440 --rotate normal --rate 144
+exec_always --no-startup-id xrandr --output DVI-I-0 --off --output DVI-I-1 --off --output HDMI-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 0x0 --rotate normal --output DP-1 --off
 # exec --no-startup-id xrandr --output DVI-I-0 --off --output DP-0 --primary --mode 2560x1440 --rate 144 --pos 2560x0 --rotate normal --brightness 1 --output DP-1 --off --output DVI-D-0 --off
 bindsym $mod+Tab [con_mark=_prevFocus0] focus
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
