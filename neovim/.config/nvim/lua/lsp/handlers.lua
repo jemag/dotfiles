@@ -53,7 +53,7 @@ local function map_keys(client, bufnr)
   -- local opts = { noremap = true, silent = true }
   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Declaration", buffer = bufnr })
   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Definition", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr })
+  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover", buffer = bufnr })
   vim.keymap.set("n", "<leader>lp", peek_definition, { desc = "Peek definition", buffer = bufnr })
   vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References", buffer = bufnr })
   vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr })

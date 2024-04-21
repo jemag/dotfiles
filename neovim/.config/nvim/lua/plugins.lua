@@ -715,12 +715,6 @@ require("lazy").setup({
       require("plugin-configs.gitsigns")
     end,
   },
-  {
-    "lewis6991/hover.nvim",
-    config = function()
-      require("plugin-configs.hover")
-    end,
-  },
 
   --[[ #######################
      Language
