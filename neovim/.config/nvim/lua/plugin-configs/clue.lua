@@ -56,7 +56,6 @@ miniclue.setup({
     { mode = "n", keys = "<leader>d", desc = "+debug" },
     { mode = "n", keys = "<leader>ds", desc = "+step" },
     { mode = "n", keys = "<leader>dt", desc = "+telescope" },
-    { mode = "n", keys = "<leader>du", desc = "+dap ui" },
     { mode = "n", keys = "<leader>f", desc = "+format" },
     { mode = "x", keys = "<leader>f", desc = "+format" },
     { mode = "n", keys = "<leader>g", desc = "+git" },
