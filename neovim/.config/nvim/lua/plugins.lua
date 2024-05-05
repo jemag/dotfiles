@@ -367,7 +367,8 @@ require("lazy").setup({
       "olimorris/neotest-phpunit",
       "nvim-neotest/neotest-python",
       "rouge8/neotest-rust",
-      "lawrence-laz/neotest-zig",
+      -- NOTE: temporarily disable until https://github.com/lawrence-laz/neotest-zig/issues/10 is fixed
+      -- "lawrence-laz/neotest-zig",
     },
   },
   {
