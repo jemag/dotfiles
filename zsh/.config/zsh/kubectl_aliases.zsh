@@ -134,6 +134,7 @@ alias kgaa='kubectl get all --all-namespaces'
 # Logs
 alias kl='kubectl logs'
 alias klg='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl logs'
+alias klgp='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl logs -p'
 alias kl1h='kubectl logs --since 1h'
 alias kl1m='kubectl logs --since 1m'
 alias kl1s='kubectl logs --since 1s'
