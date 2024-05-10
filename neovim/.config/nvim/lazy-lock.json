@@ -86,6 +86,7 @@
   "neotest-phpunit": { "branch": "main", "commit": "baae8dfa0a3aaacd9f0bb6845d6348f5bcdc48bb" },
   "neotest-python": { "branch": "master", "commit": "2e83d2bc00acbcc1fd529dbf0a0e677cabfe6b50" },
   "neotest-rust": { "branch": "main", "commit": "0418811e1e3499b2501593f2e131d02f5e6823d4" },
+  "neotest-zig": { "branch": "main", "commit": "3b94c749e26e2c02e5f07aaea6149a7e417db1e7" },
   "neovim-ayu": { "branch": "master", "commit": "e03beacbc51f1a985d7a4b69828fd7612a4151e0" },
   "night-owl.nvim": { "branch": "main", "commit": "42b85926978c8cba6ed4a57c84a530449e59904b" },
   "nightfox.nvim": { "branch": "main", "commit": "df75a6a94910ae47854341d6b5a6fd483192c0eb" },
