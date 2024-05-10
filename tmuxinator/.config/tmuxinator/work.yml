@@ -7,29 +7,29 @@ windows:
   - automation:
       layout: even-horizontal
       panes:
-              - terraform-modules:
-                - cd ~/Projects/TerraformModules/
-              - automation:
-                - cd ~/Projects/Automation/
+        - terraform-modules:
+            - cd ~/Projects/TerraformModules/
+        - automation:
+            - cd ~/Projects/Automation/
   - argo-platform:
       layout: even-horizontal
       panes:
-              - argo-platform:
-                - cd ~/Projects/ArgoPlatform/
+        - argo-platform:
+            - cd ~/Projects/ArgoPlatform/master
   - wiki:
       layout: even-horizontal
       panes:
-              - wiki:
-                - cd ~/Projects/Wiki/
+        - wiki:
+            - cd ~/Projects/Wiki/
   - cicd:
       layout: even-horizontal
       panes:
-              - systeminformer:
-                - cd ~/Projects/SystemInformer/
-              - argoexample:
-                - cd ~/Projects/ArgoExample/
+        - systeminformer:
+            - cd ~/Projects/SystemInformer/
+        - argoexample:
+            - cd ~/Projects/ArgoExample/
   - images:
       layout: even-horizontal
       panes:
-              - images:
-                - cd ~/Projects/Images/
+        - images:
+            - cd ~/Projects/Images/
