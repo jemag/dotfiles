@@ -1,8 +1,24 @@
 require("img-clip").setup({
-  dir_path = ".attachments",
-  markdown = {
-    url_encode_path = true,
-    template = "![$CURSOR](/$FILE_PATH)",
+  default = {
+    dir_path = ".attachments",
+    relative_to_current_file = false,
+    relative_template_path = false,
+    markdown = {
+      url_encode_path = true,
+      template = "![$CURSOR](/$FILE_PATH)",
+    },
+  },
+  -- TODO: add same for home PC
+  dirs = {
+    ["/mnt/c/Users/brassarddesjardinsa/obsidian"] = {
+      dir_path = "_attachments",
+      relative_template_path = false,
+      relative_to_current_file = false,
+      markdown = {
+        url_encode_path = true,
+        template = "![$CURSOR]($FILE_PATH)",
+      },
+    },
   },
 })
 
