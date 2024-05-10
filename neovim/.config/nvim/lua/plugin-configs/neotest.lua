@@ -20,8 +20,7 @@ require("neotest").setup({
     require("neotest-phpunit"),
     require("neotest-python"),
     require("neotest-rust"),
-    -- NOTE: temporarily disable until https://github.com/lawrence-laz/neotest-zig/issues/10 is fixed
-    -- require("neotest-zig"),
+    require("neotest-zig"),
   },
 })
 
