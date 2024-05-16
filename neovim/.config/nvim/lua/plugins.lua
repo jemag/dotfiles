@@ -398,6 +398,7 @@ require("lazy").setup({
   { "lambdalisue/suda.vim" },
   {
     "miversen33/sunglasses.nvim",
+    lazy = false,
     config = function()
       require("plugin-configs.sunglasses")
     end,
