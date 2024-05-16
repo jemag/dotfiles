@@ -1,22 +1,13 @@
 local utils = require("utils")
-local buffer_diagnostic_state = {}
 local toggle_diagnostic = function()
   local buf_id = vim.api.nvim_get_current_buf()
-  local buf_state = buffer_diagnostic_state[buf_id]
-  if buf_state == nil then
-    buf_state = true
-  end
 
-  if buf_state then
-    vim.diagnostic.disable(buf_id)
+  if vim.diagnostic.is_enabled({ bufnr = buf_id }) then
+    vim.diagnostic.enable(false, { bufnr = buf_id })
   else
-    vim.diagnostic.enable(buf_id)
+    vim.diagnostic.enable(true, { bufnr = buf_id })
   end
 
-  local new_buf_state = not buf_state
-  buffer_diagnostic_state[buf_id] = new_buf_state
-
-  return new_buf_state and "  diagnostic" or "nodiagnostic"
 end
 
 vim.keymap.set("n", "i", function()
@@ -58,7 +49,7 @@ vim.keymap.set("n", "gm", function()
   if vim.v.count == 0 then
     vim.api.nvim_feedkeys("^", "n", false)
   else
-    vim.api.nvim_feedkeys(vim.v.count*10 .. "gM", "n", false)
+    vim.api.nvim_feedkeys(vim.v.count * 10 .. "gM", "n", false)
   end
 end, { noremap = true, silent = true, desc = "Go to % of current line" })
 vim.api.nvim_set_keymap("n", "R", '"_d', { noremap = true, silent = true, desc = "Delete without register" })
