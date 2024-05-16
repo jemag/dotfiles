@@ -991,12 +991,6 @@ require("lazy").setup({
      Coding
     ####################### ]]
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  },
-  {
     "LudoPinelli/comment-box.nvim",
     config = function()
       require("plugin-configs.comment-box")
