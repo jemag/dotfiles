@@ -78,17 +78,6 @@ require("lazy").setup({
     end,
   },
   {
-    "anuvyklack/pretty-fold.nvim",
-    config = function()
-      require("pretty-fold").setup({})
-      require("fold-preview").setup()
-    end,
-    dependencies = {
-      { "anuvyklack/nvim-keymap-amend" },
-      { "anuvyklack/fold-preview.nvim" },
-    },
-  },
-  {
     "mrjones2014/smart-splits.nvim",
     config = function()
       require("plugin-configs.smart-splits")
