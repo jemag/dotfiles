@@ -66,12 +66,6 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
   vim.keymap.set(
     "n",
-    "<leader>ll",
-    '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
-    { desc = "Line diagnostics", buffer = bufnr }
-  )
-  vim.keymap.set(
-    "n",
     "<leader>lc",
     '<cmd>lua vim.diagnostic.open_float(0, {scope="cursor"})<CR>',
     { desc = "Cursor diagnostics", buffer = bufnr }
