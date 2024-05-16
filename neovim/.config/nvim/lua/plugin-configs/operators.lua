@@ -6,7 +6,7 @@ require("mini.operators").setup({
 
   -- Exchange text regions
   exchange = {
-    prefix = "gx",
+    prefix = "cx",
   },
 
   -- Multiply (duplicate) text
@@ -24,5 +24,5 @@ require("mini.operators").setup({
     prefix = "gs",
   },
 })
-vim.keymap.set({ "n" }, "gX", "gx$", { remap = true, desc = "Exchange until end of line" })
+vim.keymap.set({ "n" }, "cX", "cx$", { remap = true, desc = "Exchange until end of line" })
 vim.keymap.set({ "n" }, "gS", "gs$", { remap = true, desc = "Sort until end of line" })
