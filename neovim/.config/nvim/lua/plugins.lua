@@ -691,7 +691,6 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neogit")
     end,
-    branch = "nightly",
   },
   {
     "ThePrimeagen/git-worktree.nvim",
