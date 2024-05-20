@@ -28,15 +28,15 @@ cmp.setup({
     debounce = 150,
     max_view_entries = 20,
   },
-  preselect = cmp.PreselectMode.None,
+  -- preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
-    ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
-    ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
+    ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "i", "s", "c" }),
+    ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "i", "s", "c" }),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<esc>"] = cmp.mapping({
@@ -44,9 +44,9 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm({
+    ["<c-y>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
-      select = false,
+      select = true,
     }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
