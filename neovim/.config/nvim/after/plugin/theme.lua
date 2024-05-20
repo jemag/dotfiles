@@ -122,6 +122,7 @@ local function set_default_colors()
   vim.api.nvim_set_hl(0, "Search", { bg = M.colors.search, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "CurSearch", { bg = M.colors.special, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
+  vim.api.nvim_set_hl(0, "LspInlayHint", { bg = M.colors.selection_border })
 end
 
 set_default_colors()
@@ -132,6 +133,6 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   end,
 })
 
-vim.cmd[[match errorMsg /\s\+$/]]
+vim.cmd([[match errorMsg /\s\+$/]])
 
 return M
