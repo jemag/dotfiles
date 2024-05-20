@@ -28,7 +28,7 @@ cmp.setup({
     debounce = 150,
     max_view_entries = 20,
   },
-  -- preselect = cmp.PreselectMode.None,
+  preselect = cmp.PreselectMode.Item,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
