@@ -866,14 +866,12 @@ require("lazy").setup({
   },
   {
     "Exafunction/codeium.nvim",
-    -- Pin for in-flight cancel request errors
-    commit = "a070f57c0f54bd940436b94c8b679bcad5a48811",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
     },
     config = function()
-      require("codeium").setup({})
+      require("codeium").setup({enable_chat = true})
     end,
   },
   {
