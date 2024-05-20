@@ -55,7 +55,7 @@ require("telescope").setup({
     },
     file_ignore_patterns = { "node_modules/", ".git/", ".attachments/" },
     prompt_prefix = " ",
-    selection_caret = " ",
+    selection_caret = "󰼛 ",
     entry_prefix = "  ",
     initial_mode = "insert",
     path_display = { "relative" },
