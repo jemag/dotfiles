@@ -1,6 +1,4 @@
 #zmodload zsh/zprof
-autoload -U +X bashcompinit && bashcompinit
-autoload -U +X compinit && compinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -42,7 +40,7 @@ zle -N down-line-or-beginning-search
 ###########
 # aliases
 ###########
-alias ls="exa -g --time-style long-iso"
+alias ls="eza -g --time-style long-iso --icons=always"
 alias y="yazi"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
@@ -105,12 +103,14 @@ HISTFILE=~/.zsh/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1				# all search results returned will be unique
+HISTDUP=erase
 setopt INC_APPEND_HISTORY					            # add commmand to history as soon as it's entered
-# setopt SHARE_HISTORY
+setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY									# save command timestamp
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_SAVE_NO_DUPS                        		# don't write duplicate entries in the history file
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE                        		# prefix commands you don't want stored with a space
 setopt NO_HUP											# don't kill jobs
@@ -131,23 +131,27 @@ _comp_options+=(globdots)
 ##########
 # zinit
 ##########
-zinit ice wait"2" lucid
 zinit light "hlissner/zsh-autopair"
-zinit ice wait"2" lucid
-zinit light "changyuheng/zsh-interactive-cd"
 # zinit load "denysdovhan/spaceship-prompt"
-zinit ice wait"0" blockf lucid
 zinit light "zsh-users/zsh-completions"
-zinit ice wait'0' atload'_zsh_autosuggest_start' lucid
-zinit light "zsh-users/zsh-autosuggestions"
 # zinit load "jeffreytse/zsh-vi-mode"
 # zinit load "softmoth/zsh-vim-mode"
+zinit light Aloxaf/fzf-tab
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit light "zsh-users/zsh-autosuggestions"
 # Syntax Highlighting (should always be at the end)
-zinit ice wait"0" atinit"zpcompinit; zpcdreplay" lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light johanhaleby/kubetail
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+zinit cdreplay -q
+#########
+# spaceship settings
+#########
+# spaceship_vi_mode_enable()
+# SPACESHIP_VI_MODE_SHOW=true
 
 #########
 # vim mode settings
@@ -186,7 +190,19 @@ bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 bindkey -r '^l'
 # Use vim keys in tab complete menu:
-zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
 zmodload zsh/complist
 
@@ -287,7 +303,6 @@ eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 stty -ixon
-# zplugin load ellie/atuin
 # zprof
 
 complete -o nospace -C /usr/bin/tk tk
