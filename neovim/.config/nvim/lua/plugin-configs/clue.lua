@@ -10,8 +10,6 @@ miniclue.setup({
     { mode = "x", keys = "\\" },
     { mode = "n", keys = "[" },
     { mode = "x", keys = "[" },
-    { mode = "n", keys = "<cr>" },
-    { mode = "x", keys = "<cr>" },
     { mode = "n", keys = "]" },
     { mode = "x", keys = "]" },
 

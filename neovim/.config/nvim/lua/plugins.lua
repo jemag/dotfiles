@@ -121,12 +121,12 @@ require("lazy").setup({
     end,
   },
   {
-    "windwp/nvim-spectre",
+    "MagicDuck/grug-far.nvim",
     config = function()
-      require("spectre").setup()
+      require("plugin-configs.grugfar")
     end,
     keys = {
-      { "<localleader>tS", '<cmd>lua require("spectre").open()<CR>', desc = "Open Spectre" },
+      { "<leader>rg", '<cmd>GrugFar<CR>', desc = " GrugFar" },
     },
   },
   {
@@ -871,7 +871,7 @@ require("lazy").setup({
       "hrsh7th/nvim-cmp",
     },
     config = function()
-      require("codeium").setup({enable_chat = true})
+      require("codeium").setup({ enable_chat = true })
     end,
   },
   {
