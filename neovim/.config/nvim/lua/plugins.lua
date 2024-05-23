@@ -568,6 +568,7 @@ require("lazy").setup({
     opts = {
       rocks = { "magick" },
     },
+    enabled = vim.fn.getenv("WSL_INTEROP") == nil
   },
   {
     "3rd/image.nvim",
@@ -575,6 +576,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.image")
     end,
+    enabled = vim.fn.getenv("WSL_INTEROP") == nil
   },
   {
     "NvChad/nvim-colorizer.lua",
