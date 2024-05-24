@@ -143,7 +143,6 @@
   "stickybuf.nvim": { "branch": "master", "commit": "f2389d99b988728b6cd11fb81827c16a2b45e385" },
   "substitute.nvim": { "branch": "main", "commit": "17ffaeb5a1dc2dbef39cf0865d8a4b6000836714" },
   "suda.vim": { "branch": "master", "commit": "b97fab52f9cdeabe2bbb5eb98d82356899f30829" },
-  "sunglasses.nvim": { "branch": "main", "commit": "91757165af055c0709ad6974ae456bba80793032" },
   "sweetie.nvim": { "branch": "master", "commit": "918b29663c4a30922634ad2d1b7e94babf375fca" },
   "tagbar": { "branch": "master", "commit": "12edcb59449b335555652898f82dd6d5c59d519a" },
   "telescope-dap.nvim": { "branch": "master", "commit": "8c88d9716c91eaef1cdea13cb9390d8ef447dbfe" },
