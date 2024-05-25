@@ -1,11 +1,20 @@
 command_timeout = 1000
+[rust]
+symbol = " "
+[python]
+symbol = " "
 [kubernetes]
 disabled = false
+[lua]
+symbol = " "
 [terraform]
-disabled = true
+disabled = false
+symbol = "󱁢 "
 [java]
-disabled = true
+disabled = false
 [time]
 disabled = false
 format = '[\[$time\]]($style) '
 time_format = "%T"
+[golang]
+symbol = " "
