@@ -422,6 +422,10 @@ require("lazy").setup({
     event = "User LoadColorSchemes",
   },
   {
+    "diegoulloao/neofusion.nvim",
+    event = "User LoadColorSchemes",
+  },
+  {
     "antonk52/lake.nvim",
     event = "User LoadColorSchemes",
   },
