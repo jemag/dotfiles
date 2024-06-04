@@ -49,15 +49,21 @@ windows:
               - kubie_sandbox:
                 - kubie ctx akssandbox-admin
                 - kubie ns argocd
+              - kubie_sc2gsandbox:
+                - kubie ctx aks-sandbox-admin
+                - kubie ns argocd
               - kubie_dev:
                 - kubie ctx aksdev-admin
-                - kubie ns iwls
+                - kubie ns argocd
+              - kubie_sc2gdev:
+                - kubie ctx aks-dev-admin
+                - kubie ns argocd
               - kubie_test:
                 - kubie ctx akstest-admin
-                - kubie ns iwls
+                - kubie ns argocd
               - kubie_prod:
                 - kubie ctx aksprod-b-admin
-                - kubie ns iwls
+                - kubie ns argocd
   - sandbox:
       layout: tiled
       panes:
@@ -72,6 +78,21 @@ windows:
                 - kubie ns argocd
               - kubie_sandbox:
                 - kubie ctx akssandbox-admin
+                - kubie ns argocd
+  - sc2g-sandbox:
+      layout: tiled
+      panes:
+              - kubie_sandbox:
+                - kubie ctx aks-sandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-sandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-sandbox-admin
+                - kubie ns argocd
+              - kubie_sandbox:
+                - kubie ctx aks-sandbox-admin
                 - kubie ns argocd
   - sc2g-dev:
       layout: tiled
