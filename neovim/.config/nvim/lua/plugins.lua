@@ -147,7 +147,6 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.trouble")
     end,
-    branch = "dev",
   },
   {
     "woosaaahh/sj.nvim",
