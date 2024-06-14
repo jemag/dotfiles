@@ -1,6 +1,7 @@
 local Path = require("plenary.path")
 require("possession").setup({
   session_dir = (Path:new(vim.fn.stdpath("data")) / "possession"):absolute(),
+  prompt_no_cr = true,
   silent = false,
   load_silent = true,
   debug = false,
