@@ -121,10 +121,10 @@ require("telescope").setup({
       sort_mru = true,
       mappings = {
         i = {
-          ["<c-r>"] = actions.delete_buffer,
+          ["<c-e>"] = actions.delete_buffer,
         },
         n = {
-          ["<c-r>"] = actions.delete_buffer,
+          ["<c-e>"] = actions.delete_buffer,
         },
       },
     },
