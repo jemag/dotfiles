@@ -42,6 +42,7 @@
   "git-worktree.nvim": { "branch": "master", "commit": "f247308e68dab9f1133759b05d944569ad054546" },
   "gitignore.nvim": { "branch": "master", "commit": "2455191ec94da8ed222806a4fe3aa358eac1e558" },
   "gitlinker.nvim": { "branch": "master", "commit": "542f51784f20107ef9ecdadc47825204837efed5" },
+  "gitpad.nvim": { "branch": "main", "commit": "9685127c3795821bdbd3dab5a5fee4422255a102" },
   "gitsigns.nvim": { "branch": "main", "commit": "47c8e3e571376b24de62408fd0c9d12f0a9fc0a3" },
   "gopher.nvim": { "branch": "main", "commit": "f55c15ada8e02398000c04a96ef44d986cd01051" },
   "grug-far.nvim": { "branch": "main", "commit": "23a645089bd3fa75412babe9b9b3dc2b795f2e89" },
