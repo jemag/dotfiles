@@ -1,4 +1,5 @@
 require("trouble").setup({
+  autojump = false,
   modes = {
     preview_float = {
       mode = "diagnostics",
@@ -15,3 +16,5 @@ require("trouble").setup({
     },
   },
 })
+vim.keymap.set("n", "<localleader>ttd", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
+vim.keymap.set("n", "<localleader>tts", "<cmd>Trouble symbols toggle<cr>", { desc = "Trouble symbols" })
