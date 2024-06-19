@@ -101,6 +101,8 @@ miniclue.setup({
     { mode = "x", keys = "<localleader>s", desc = "+misc search" },
     { mode = "n", keys = "<localleader>t", desc = "+toggle" },
     { mode = "x", keys = "<localleader>t", desc = "+toggle" },
+    { mode = "n", keys = "<localleader>tm", desc = "+markdown" },
+    { mode = "x", keys = "<localleader>tm", desc = "+markdown" },
   },
   window = {
     delay = 500,
