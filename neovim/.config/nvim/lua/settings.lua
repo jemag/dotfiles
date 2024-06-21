@@ -52,7 +52,7 @@ vim.opt.timeout = true
 vim.opt.ttimeout = true
 vim.opt.cmdheight = 1
 -- Increased timeoutlen value for gx and wslview
-vim.opt.timeoutlen = 2000
+vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
 vim.opt.undofile = true
