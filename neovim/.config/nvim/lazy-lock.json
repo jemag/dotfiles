@@ -4,6 +4,7 @@
   "Limelight.vim": { "branch": "master", "commit": "785c1e17fe90c587ebca88920baa3146cd6e30fa" },
   "LuaSnip": { "branch": "master", "commit": "ce0a05ab4e2839e1c48d072c5236cce846a387bc" },
   "YankAssassin.nvim": { "branch": "main", "commit": "c08ad31c68a9b3750f2f0d3ef2836801fa5f6cc2" },
+  "adopure.nvim": { "branch": "master", "commit": "3b17bd90ab8b9960a65abae910580a85d3e86645" },
   "aerial.nvim": { "branch": "master", "commit": "a1c5476732686da2a51218f47580f0dc1a3b8aa9" },
   "ansible-vim": { "branch": "master", "commit": "3329367d2e5f90d203c8d340c53fa83c60a1ad41" },
   "arrow.nvim": { "branch": "master", "commit": "0b0191d967d9fd837a850f2ccaa95d5917239404" },

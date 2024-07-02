@@ -392,14 +392,6 @@ require("lazy").setup({
       require("plugin-configs.dap")
     end,
   },
-  -- {
-  --   "MeanderingProgrammer/markdown.nvim",
-  --   name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   config = function()
-  --     require("plugin-configs.render-markdown")
-  --   end,
-  -- },
   {
     "OXY2DEV/markview.nvim",
     dependencies = {
@@ -733,6 +725,16 @@ require("lazy").setup({
     "linrongbin16/gitlinker.nvim",
     config = function()
       require("plugin-configs.gitlinker")
+    end,
+  },
+  {
+    "Willem-J-an/adopure.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      vim.g.adopure = {}
     end,
   },
   {
