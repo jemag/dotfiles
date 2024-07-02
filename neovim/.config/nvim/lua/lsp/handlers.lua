@@ -49,6 +49,7 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>lW", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", { desc = "Workspace symbol", buffer = bufnr })
   vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action", buffer = bufnr })
   vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
+  -- Default keybindg to show diagnostics is now <c-w>d
   vim.keymap.set(
     "n",
     "<leader>lc",
