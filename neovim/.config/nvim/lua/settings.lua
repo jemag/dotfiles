@@ -53,6 +53,8 @@ vim.opt.ttimeout = true
 vim.opt.cmdheight = 1
 -- Increased timeoutlen value for gx and wslview
 vim.opt.timeoutlen = 500
+-- keep same scroll view when jumping
+vim.opt.jumpoptions = "stack,view"
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
 vim.opt.undofile = true
