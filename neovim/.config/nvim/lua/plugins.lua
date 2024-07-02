@@ -392,12 +392,22 @@ require("lazy").setup({
       require("plugin-configs.dap")
     end,
   },
+  -- {
+  --   "MeanderingProgrammer/markdown.nvim",
+  --   name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   config = function()
+  --     require("plugin-configs.render-markdown")
+  --   end,
+  -- },
   {
-    "MeanderingProgrammer/markdown.nvim",
-    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    "OXY2DEV/markview.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
+    },
+
     config = function()
-      require("plugin-configs.render-markdown")
+      require("markview").setup()
     end,
   },
   {
