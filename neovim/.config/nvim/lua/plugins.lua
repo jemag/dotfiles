@@ -394,13 +394,12 @@ require("lazy").setup({
   },
   {
     "OXY2DEV/markview.nvim",
+    config = function ()
+      require("plugin-configs.markview")
+    end,
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
     },
-
-    config = function()
-      require("markview").setup()
-    end,
   },
   {
     "jbyuki/one-small-step-for-vimkind",
