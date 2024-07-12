@@ -296,7 +296,7 @@ require("lazy").setup({
     end,
     keys = {
       {
-        "<localleader>g",
+        "<localleader>tg",
         function()
           require("gitpad").toggle_gitpad() -- or require('gitpad').toggle_gitpad({ title = 'Project notes' })
         end,
