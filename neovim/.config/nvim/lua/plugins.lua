@@ -393,14 +393,22 @@ require("lazy").setup({
     end,
   },
   {
-    "OXY2DEV/markview.nvim",
-    config = function ()
-      require("plugin-configs.markview")
+    "MeanderingProgrammer/markdown.nvim",
+    name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    config = function()
+      require("plugin-configs.render-markdown")
     end,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
-    },
   },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   config = function ()
+  --     require("plugin-configs.markview")
+  --   end,
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
+  --   },
+  -- },
   {
     "jbyuki/one-small-step-for-vimkind",
   },
@@ -447,10 +455,6 @@ require("lazy").setup({
   },
   {
     "oxfist/night-owl.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "diegoulloao/neofusion.nvim",
     event = "User LoadColorSchemes",
   },
   {
