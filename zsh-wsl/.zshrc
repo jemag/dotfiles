@@ -41,6 +41,9 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
+alias ch="checkov"
+alias ig="kubectl gadget"
+alias wo="wsl-open"
 alias y="yazi"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
