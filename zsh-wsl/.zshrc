@@ -123,6 +123,7 @@ setopt PUSHD_SILENT
 setopt PUSHD_IGNORE_DUPS
 # setopt PUSHD_MINUS
 setopt CDABLE_VARS
+unset zle_bracketed_paste
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 unsetopt BEEP
 # Include hidden files in autocomplete:
