@@ -41,6 +41,9 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
+alias ch="checkov"
+alias ig="kubectl gadget"
+alias wo="wsl-open"
 alias y="yazi"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
@@ -123,6 +126,7 @@ setopt PUSHD_SILENT
 setopt PUSHD_IGNORE_DUPS
 # setopt PUSHD_MINUS
 setopt CDABLE_VARS
+unset zle_bracketed_paste
 unsetopt rm_star_silent					            # ask for confirmation for `rm *' or `rm path/*'
 unsetopt BEEP
 # Include hidden files in autocomplete:

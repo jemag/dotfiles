@@ -100,3 +100,18 @@ windows:
         - kubie_sandbox:
             - kubie ctx aks-dev-admin
             - kubie ns argocd
+  - unclass-dev:
+      layout: tiled
+      panes:
+        - kubie_sandbox:
+            - kubie ctx aksdev-admin
+            - kubie ns argocd
+        - kubie_sandbox:
+            - kubie ctx aksdev-admin
+            - kubie ns argocd
+        - kubie_sandbox:
+            - kubie ctx aksdev-admin
+            - kubie ns argocd
+        - kubie_sandbox:
+            - kubie ctx aksdev-admin
+            - kubie ns argocd
