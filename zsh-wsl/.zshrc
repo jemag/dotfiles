@@ -42,6 +42,7 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
 alias ch="checkov"
+alias cl="calicoctl"
 alias ig="kubectl gadget"
 alias wo="wsl-open"
 alias y="yazi"
