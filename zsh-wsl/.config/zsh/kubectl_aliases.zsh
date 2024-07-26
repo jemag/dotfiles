@@ -189,3 +189,11 @@ alias kgj='kubectl get job'
 alias kej='kubectl edit job'
 alias kdj='kubectl describe job'
 alias kdelj='kubectl delete job'
+
+# calico network policies
+alias kgnc='kubectl get networkpolicies.crd.projectcalico.org'
+alias kdnc='kubectl describe networkpolicies.crd.projectcalico.org'
+alias kdelnc='kubectl delete networkpolicies.crd.projectcalico.org'
+alias kgng='kubectl get globalnetworkpolicies.crd.projectcalico.org'
+alias kdng='kubectl describe globalnetworkpolicies.crd.projectcalico.org'
+alias kdelng='kubectl delete globalnetworkpolicies.crd.projectcalico.org'
