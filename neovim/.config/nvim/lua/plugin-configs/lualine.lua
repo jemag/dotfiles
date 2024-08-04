@@ -42,12 +42,32 @@ require("lualine").setup({
     disabled_filetypes = {},
   },
   sections = {
-    lualine_a = { modes },
+    lualine_a = {
+      modes,
+    },
     lualine_b = {
       "branch",
       "diff",
+      -- {
+      --   require("tmux-status").tmux_session,
+      --   cond = require("tmux-status").show,
+      --   padding = { left = 3 },
+      --   separator = { left = "|", right = "|" },
+      -- },
     },
     lualine_c = {
+
+      -- {
+      --   -- require("tmux-status").tmux_windows,
+      --   function()
+      --     local text = require("tmux-status").tmux_render_format("window_index")..":"..require("tmux-status").tmux_render_format("window_name")
+      --     return text
+      --   end,
+      --   cond = require("tmux-status").show,
+      --   padding = { left = 3 },
+      -- },
+    },
+    lualine_x = {
       {
         "diagnostic-message",
         icons = {
@@ -58,7 +78,6 @@ require("lualine").setup({
         },
       },
     },
-    lualine_x = {},
     lualine_y = {
       { "encoding" },
       fileformat,

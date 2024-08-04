@@ -358,6 +358,13 @@ require("lazy").setup({
       require("plugin-configs.lualine")
     end,
   },
+  {
+    "christopher-francisco/tmux-status.nvim",
+    lazy = true,
+    config = function()
+      require("plugin-configs.tmux-status")
+    end,
+  },
   { "tweekmonster/startuptime.vim" },
   { "stevearc/profile.nvim" },
   {
