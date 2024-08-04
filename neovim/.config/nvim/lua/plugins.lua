@@ -58,6 +58,12 @@ require("lazy").setup({
     end,
   },
   {
+    "Allaman/kustomize.nvim",
+    config = function()
+      require("plugin-configs.kustomize")
+    end,
+  },
+  {
     "someone-stole-my-name/yaml-companion.nvim",
     dependencies = {
       { "neovim/nvim-lspconfig" },
