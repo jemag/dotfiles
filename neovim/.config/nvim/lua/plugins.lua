@@ -469,6 +469,11 @@ require("lazy").setup({
     end,
   },
   {
+    "2giosangmitom/nightfall.nvim",
+    event = "User LoadColorSchemes",
+    opts = {},
+  },
+  {
     "fynnfluegge/monet.nvim",
     event = "User LoadColorSchemes",
   },
