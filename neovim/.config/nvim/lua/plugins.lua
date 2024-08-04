@@ -52,6 +52,12 @@ require("lazy").setup({
     end,
   },
   {
+    "ramilito/kubectl.nvim",
+    config = function()
+      require("plugin-configs.kubectl")
+    end,
+  },
+  {
     "someone-stole-my-name/yaml-companion.nvim",
     dependencies = {
       { "neovim/nvim-lspconfig" },
