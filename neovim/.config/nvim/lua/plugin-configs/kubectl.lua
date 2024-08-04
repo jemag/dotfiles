@@ -21,10 +21,10 @@ require("kubectl").setup({
 
     -- For more context aware size:
     width = 0.9,
-    height = 0.9,
+    height = 0.85,
 
     -- Might need to tweak these to get it centered when float is smaller
-    col = 10,
+    col = 5,
     row = 5,
   },
   obj_fresh = 0, -- highlight if creation newer than number (in minutes)
