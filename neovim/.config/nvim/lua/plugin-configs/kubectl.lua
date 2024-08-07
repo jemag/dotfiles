@@ -1,7 +1,7 @@
 require("kubectl").setup({
   auto_refresh = {
     enabled = true,
-    interval = 3000, -- milliseconds
+    interval = 5000, -- milliseconds
   },
   diff = {
     bin = "kubediff" -- or any other binary
