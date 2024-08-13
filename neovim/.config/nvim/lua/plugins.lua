@@ -56,6 +56,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.kubectl")
     end,
+    lazy = true,
+    keys = { "<leader>kt" },
   },
   {
     "Allaman/kustomize.nvim",
