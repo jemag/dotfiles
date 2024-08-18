@@ -84,7 +84,7 @@ cmp.setup({
     { name = "path" },
     { name = "luasnip" },
     { name = "cody" },
-    { name = "codeium" },
+    { name = "supermaven" },
     { name = "buffer" },
     { name = "natdat" },
   },

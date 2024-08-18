@@ -27,6 +27,13 @@ require("lazy").setup({
     end,
   },
   {
+    "stevearc/quicker.nvim",
+    event = "FileType qf",
+    ---@module "quicker"
+    ---@type quicker.SetupOptions
+    opts = {},
+  },
+  {
     url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
     config = function()
       require("pqf").setup()
@@ -932,13 +939,15 @@ require("lazy").setup({
     },
   },
   {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-    },
+    "supermaven-inc/supermaven-nvim",
     config = function()
-      require("codeium").setup({ enable_chat = true })
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = "<C-f>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
+        },
+      })
     end,
   },
   {
