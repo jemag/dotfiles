@@ -4,7 +4,7 @@ require("kubectl").setup({
     interval = 5000, -- milliseconds
   },
   diff = {
-    bin = "kubediff" -- or any other binary
+    bin = "kubediff", -- or any other binary
   },
   namespace = "All",
   notifications = {
@@ -28,10 +28,4 @@ require("kubectl").setup({
     row = 5,
   },
   obj_fresh = 0, -- highlight if creation newer than number (in minutes)
-  mappings = {
-    exit = "<leader>kt",
-  }
 })
--- Recommended is to have the same open mapping as your close (```<leader>k```) the plugin for a toggle effect.
-vim.keymap.set("n", "<leader>kt", '<cmd>lua require("kubectl").open()<cr>', { noremap = true, silent = true , desc = "Toggle kubectl.nvim"})
-

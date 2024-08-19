@@ -64,7 +64,9 @@ require("lazy").setup({
       require("plugin-configs.kubectl")
     end,
     lazy = true,
-    keys = { "<leader>kt" },
+    keys = {
+      { "<leader>kt", '<cmd>lua require("kubectl").toggle()<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
+    },
   },
   {
     "Allaman/kustomize.nvim",
