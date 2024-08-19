@@ -6,3 +6,6 @@ extends: default
 rules:
   document-start: disable  # don't bother me with this rule
   line-length: disable
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
