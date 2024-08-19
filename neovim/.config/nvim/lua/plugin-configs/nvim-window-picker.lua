@@ -1,4 +1,5 @@
 require("window-picker").setup({
+  hint = "floating-big-letter",
   -- when there is only one window available to pick from, use that window
   -- without prompting the user to select
   autoselect_one = true,
@@ -29,10 +30,10 @@ require("window-picker").setup({
     -- filter using buffer options
     bo = {
       -- if the file type is one of following, the window will be ignored
-      filetype = { "notify", "neo-tree", "neo-tree-popup", "quickfix"},
+      filetype = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview" },
 
       -- if the buffer type is one of following, the window will be ignored
-      buftype = { },
+      buftype = {"nofile"},
     },
 
     -- filter using window options
@@ -56,22 +57,22 @@ require("window-picker").setup({
   other_win_hl_color = "#44cc41",
 })
 local function switch_window()
-    local window = require('window-picker').pick_window()
-    vim.api.nvim_set_current_win(window)
+  local window = require("window-picker").pick_window()
+  vim.api.nvim_set_current_win(window)
 end
 local function close_window()
-    local window = require('window-picker').pick_window()
-    vim.api.nvim_win_close(window, false)
+  local window = require("window-picker").pick_window()
+  vim.api.nvim_win_close(window, false)
 end
 local function swap_window()
-    local picked_window = require('window-picker').pick_window()
-    local picked_buffer = vim.api.nvim_win_get_buf(picked_window)
-    local current_buffer =vim.api.nvim_get_current_buf()
-    local current_window = vim.api.nvim_get_current_win()
-    vim.api.nvim_win_set_buf(picked_window, current_buffer)
-    vim.api.nvim_win_set_buf(current_window, picked_buffer)
+  local picked_window = require("window-picker").pick_window()
+  local picked_buffer = vim.api.nvim_win_get_buf(picked_window)
+  local current_buffer = vim.api.nvim_get_current_buf()
+  local current_window = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_buf(picked_window, current_buffer)
+  vim.api.nvim_win_set_buf(current_window, picked_buffer)
 end
 
-vim.keymap.set('n', '<c-w>S', swap_window, {desc= "Swap window by id"})
-vim.keymap.set('n', '<c-w>m', switch_window, {desc= "Move to window by id"})
-vim.keymap.set('n', '<c-w>Q', close_window, {desc= "Close window by id"})
+vim.keymap.set("n", "<c-w>S", swap_window, { desc = "Swap window by id" })
+vim.keymap.set("n", "<c-w>m", switch_window, { desc = "Move to window by id" })
+vim.keymap.set("n", "<c-w>Q", close_window, { desc = "Close window by id" })
