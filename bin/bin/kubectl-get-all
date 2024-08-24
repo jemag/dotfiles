@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+set -eo pipefail
+
+namespace=$1 #optional
+
+ns="-A"
+if [ ! -z $namespace ]; then
+  ns="-n $namespace"
+fi
+
+kubectl api-resources --verbs=list -o name | grep -vE "events" | sort | paste -d, -s - | xargs kubectl get $ns --ignore-not-found --show-kind

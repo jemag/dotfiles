@@ -129,6 +129,7 @@ alias kpf="kubectl port-forward"
 
 # Tools for accessing all information
 alias kga='kubectl get all'
+alias kac=kubectl-get-all # get everything in all namespaces including crds
 alias kgaa='kubectl get all --all-namespaces'
 
 # Logs
