@@ -22,6 +22,7 @@
       packages = with pkgs; [
 # # Adds the 'hello' command to your environment. It prints a friendly
 # # "Hello, world!" when run.
+        bat
         hello
         tmuxinator
         redshift
