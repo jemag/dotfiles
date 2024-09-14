@@ -42,6 +42,7 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
 alias y="yazi"
+alias hm="home-manager"
 alias :q="exit"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
@@ -312,6 +313,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="/home/jemag/.local/share/bob/nvim-bin:$PATH"
+export PATH="/home/jemag/.nix-profile/bin:$PATH"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
 source <(kubectl completion zsh)
@@ -322,5 +324,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 stty -ixon
 # zprof
