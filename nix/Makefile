@@ -1,12 +1,12 @@
 .PHONY: update
 
 update:
-		home-manager switch --flake .#jemag
+		home-manager switch --flake .
 
 .PHONY: news
 
 news:
-		home-manager news --flake .#jemag
+		home-manager news --flake .
 
 .PHONY: clean
 
