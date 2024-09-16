@@ -30,6 +30,7 @@ local tools = {
   "jsonnet-language-server",
   "lua-language-server",
   "marksman",
+  "rnix-lsp",
   "prettierd",
   "pyright",
   "rust-analyzer",

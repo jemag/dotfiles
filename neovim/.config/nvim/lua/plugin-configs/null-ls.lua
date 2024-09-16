@@ -31,6 +31,7 @@ null_ls.setup({
         "solidity",
       },
     }),
+    formatting.nixfmt,
     formatting.black.with({ extra_args = { "--fast" } }),
     -- stylua cmd must be in path (can install through pacman)
     formatting.stylua,
