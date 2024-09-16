@@ -15,7 +15,8 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-    in {
+    in
+    {
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

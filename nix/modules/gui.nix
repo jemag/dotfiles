@@ -16,6 +16,7 @@ in
       chromium
       firefox
       bitwarden
+      ticktick
     ];
   };
 }

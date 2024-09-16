@@ -4,6 +4,12 @@
   imports = [ ../modules/cli.nix ../modules/gui.nix ];
 
   gui.enable = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
   home = {
 
