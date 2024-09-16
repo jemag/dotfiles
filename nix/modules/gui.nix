@@ -14,6 +14,8 @@ in
     #config contents
     home.packages = with pkgs; [
       chromium
+      firefox
+      bitwarden
     ];
   };
 }
