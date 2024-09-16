@@ -28,7 +28,8 @@
       chromium
       rustup
       nixfmt
-      nix-search-cli
+      nix-search-cli # search nixpkgs
+      manix # search nix options
 
       # # It is sometimes useful to fine-tune packages, for example, by applying
       # # overrides. You can do that directly here, just don't forget the
