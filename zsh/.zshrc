@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 alias ls="eza -g --time-style long-iso --icons=always"
 alias y="yazi"
 alias hm="home-manager"
+alias ns="nix-search"
 alias :q="exit"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
