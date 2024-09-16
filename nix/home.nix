@@ -27,10 +27,10 @@
       redshift
       chromium
       rustup
-      nixfmt
+      nixfmt-classic
       nix-search-cli # search nixpkgs
       manix # search nix options
-      nix-tree  # browse dependency graphs of Nix derivations
+      nix-tree # browse dependency graphs of Nix derivations
       nix-health # check health of nix installation
 
       # # It is sometimes useful to fine-tune packages, for example, by applying
