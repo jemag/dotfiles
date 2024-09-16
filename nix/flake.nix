@@ -17,7 +17,7 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       homeConfigurations = {
-        jemag = home-manager.lib.homeManagerConfiguration {
+        "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
         };
