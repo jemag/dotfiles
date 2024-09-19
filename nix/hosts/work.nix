@@ -31,6 +31,9 @@
     packages = with pkgs;
       [
         argocd
+        buildkit
+        cosign
+        dockle
         kyverno
         terraform
         terragrunt
