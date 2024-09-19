@@ -22,6 +22,10 @@
           inherit pkgs;
           modules = [ ./hosts/laptop.nix ];
         };
+        "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/work.nix ];
+        };
       };
     };
 }

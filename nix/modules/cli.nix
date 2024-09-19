@@ -23,11 +23,11 @@ in
       nix-search-cli # search nixpkgs
       nix-tree # browse dependency graphs of Nix derivations
       nixfmt-classic
-      redshift
       rustup
       ticker
       tmux
       tmuxinator
+      zsh-forgit
     ];
   };
 }

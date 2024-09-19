@@ -17,6 +17,7 @@ in
       firefox
       bitwarden
       ticktick
+      redshift
     ];
   };
 }
