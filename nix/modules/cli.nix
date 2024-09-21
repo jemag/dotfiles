@@ -14,16 +14,16 @@ in
     #config contents
     home.packages = with pkgs; [
       bat
-      eza
       btop
-      dig
+      delta
       difftastic
-      fzf
-      fd
+      dig
+      eza
       falcoctl
+      fd
+      fzf
       gh
       lazygit
-      delta
       manix # search nix options
       nix-health # check health of nix installation
       nix-search-cli # search nixpkgs
