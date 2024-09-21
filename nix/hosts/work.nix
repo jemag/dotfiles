@@ -38,9 +38,17 @@
         cosign
         cri-tools
         dockle
+        k9s
+        krew
+        kube-linter
+        kubeconform
         kubectl
         kubectx
         kubelogin
+        kubent
+        kubernetes-helm
+        kubeshark
+        kubie
         kyverno
         terraform
         terragrunt

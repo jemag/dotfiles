@@ -23,6 +23,17 @@ in
       fd
       fzf
       gh
+      glow
+      go
+      gobuster
+      gradle
+      helix
+      htop
+      ijq
+      imagemagick
+      jdk17
+      jdk22
+      jq
       lazygit
       manix # search nix options
       nix-health # check health of nix installation
@@ -30,9 +41,11 @@ in
       nix-tree # browse dependency graphs of Nix derivations
       nixfmt-classic
       rustup
+      socat
       ticker
       tmux
       tmuxinator
+      yq-go
       zsh-forgit
     ];
   };
