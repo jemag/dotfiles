@@ -3,6 +3,7 @@ local tools = {
   -- "ansible-language-server",
   -- "azure-pipelines-language-server",
   "bash-language-server",
+  "black",
   "shfmt",
   "bicep-lsp",
   "clangd",
