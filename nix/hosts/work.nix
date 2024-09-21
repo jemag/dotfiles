@@ -31,12 +31,20 @@
     packages = with pkgs;
       [
         argocd
+        azure-cli
         buildkit
+        calicoctl
+        cmctl
         cosign
+        cri-tools
         dockle
+        kubectl
+        kubectx
+        kubelogin
         kyverno
         terraform
         terragrunt
+        velero
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 
