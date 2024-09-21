@@ -51,8 +51,15 @@ in
       ticker
       tmux
       tmuxinator
+      tree-sitter
+      unzip
+      viddy
+      whois
+      yamllint
       yazi
       yq-go
+      zellij
+      zoxide
       zsh-forgit
     ];
   };
