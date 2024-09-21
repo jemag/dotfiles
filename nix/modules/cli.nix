@@ -18,6 +18,7 @@ in
       delta
       difftastic
       dig
+      dust
       eza
       falcoctl
       fd
@@ -31,7 +32,6 @@ in
       htop
       ijq
       imagemagick
-      jdk17
       jdk22
       jq
       lazygit
@@ -40,11 +40,18 @@ in
       nix-search-cli # search nixpkgs
       nix-tree # browse dependency graphs of Nix derivations
       nixfmt-classic
+      parallel
+      ripgrep
       rustup
       socat
+      starship
+      stow
+      tealdeer
+      thefuck
       ticker
       tmux
       tmuxinator
+      yazi
       yq-go
       zsh-forgit
     ];

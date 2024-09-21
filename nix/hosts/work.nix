@@ -49,9 +49,18 @@
         kubernetes-helm
         kubeshark
         kubie
+        kustomize
         kyverno
+        mkcert
+        powershell
+        skopeo
+        sonar-scanner-cli
+        step-cli
+        tanka
+        termshark
         terraform
         terragrunt
+        tflint
         velero
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
