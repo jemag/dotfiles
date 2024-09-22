@@ -15,6 +15,7 @@ in
     home.packages = with pkgs; [
       chromium
       firefox
+      fira-code-nerdfont
       bitwarden
       ticktick
       redshift

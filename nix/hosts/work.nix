@@ -63,7 +63,7 @@
         tflint
         trivy
         tshark
-        velero
+      velero
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 
@@ -113,7 +113,7 @@
     #  /etc/profiles/per-user/jemag/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      # EDITOR = "emacs";
+      # EDITOR = "vi";
     };
   };
 
