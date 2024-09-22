@@ -23,7 +23,14 @@ in
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/bat/.config/bat/config";
         };
-
+        ".config/delta/themes/themes.gitconfig" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/delta/.config/delta/themes/themes.gitconfig";
+        };
+        ".config/dive/dive.yaml" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/dive/.config/dive/dive.yaml";
+        };
       };
 
       packages = with pkgs; [
