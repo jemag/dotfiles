@@ -56,6 +56,10 @@ in
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/git/.config/git/config";
         };
+        ".kube/kubie.yaml" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/kubie/.kube/kubie.yaml";
+        };
       };
 
       packages = with pkgs; [
