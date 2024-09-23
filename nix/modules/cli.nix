@@ -14,6 +14,7 @@ in
     #config contents
 
     programs = {
+
       gh = {
         enable = true;
         settings = {
@@ -27,6 +28,14 @@ in
         };
       };
 
+      bat = {
+        enable = true;
+        config = {
+          pager =
+            "less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse --ignore-case";
+        };
+      };
+
     };
     home = {
 
@@ -34,10 +43,6 @@ in
         ".config/.ripgreprc" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/ripgrep/.config/.ripgreprc";
-        };
-        ".config/bat/config" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/bat/.config/bat/config";
         };
         ".config/delta/themes/themes.gitconfig" = {
           source = config.lib.file.mkOutOfStoreSymlink
