@@ -12,6 +12,22 @@ in
 
   config = lib.mkIf cfg.enable {
     #config contents
+
+    programs = {
+      gh = {
+        enable = true;
+        settings = {
+          editor = "nvim";
+          git_protocol = "ssh";
+          browser = "xdg-open";
+          aliases = {
+            co = "pr checkout";
+
+          };
+        };
+      };
+
+    };
     home = {
 
       file = {
@@ -83,6 +99,7 @@ in
         zoxide
         zsh-forgit
       ];
+
     };
   };
 }
