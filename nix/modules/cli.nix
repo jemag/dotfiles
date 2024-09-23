@@ -52,6 +52,10 @@ in
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/dive/.config/dive/dive.yaml";
         };
+        ".config/git/config" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/git/.config/git/config";
+        };
       };
 
       packages = with pkgs; [
