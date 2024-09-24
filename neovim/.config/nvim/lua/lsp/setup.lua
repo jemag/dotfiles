@@ -1,22 +1,17 @@
 local M = {}
 
 local function define_signs()
-  vim.fn.sign_define(
-    "DiagnosticSignError",
-    { text = "", texthl = "DiagnosticSignError"}
-  )
-  vim.fn.sign_define(
-    "DiagnosticSignWarn",
-    { text = "", texthl = "DiagnosticSignWarning"}
-  )
-  vim.fn.sign_define(
-    "DiagnosticSignInfo",
-    { text = "🛈", texthl = "DiagnosticSignInfo"}
-  )
-  vim.fn.sign_define(
-    "DiagnosticSignHint",
-    { text = "!", texthl = "DiagnosticSignHint"}
-  )
+  vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.INFO] = "🛈",
+        [vim.diagnostic.severity.HINT] = "!",
+      },
+    },
+  })
+
 end
 
 local function configure_diagnostics()
@@ -50,7 +45,7 @@ local function set_handlers()
 end
 
 M.init = function()
-  vim.api.nvim_create_autocmd({ "ColorScheme"}, {
+  vim.api.nvim_create_autocmd({ "ColorScheme" }, {
     pattern = "*",
     command = "highlight! link NormalFloat Normal",
     desc = "Link NormalFloat to Normal",
