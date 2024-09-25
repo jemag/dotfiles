@@ -30,7 +30,10 @@
     # environment.
     packages = with pkgs; [
       argocd
-      azure-cli
+      (azure-cli.withExtensions [
+        azure-cli.extensions.azure-devops
+        azure-cli.extensions.fzf
+      ])
       buildkit
       calicoctl
       cmctl
