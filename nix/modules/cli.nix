@@ -87,6 +87,7 @@ in
         jq
         lazygit
         manix # search nix options
+        netmask
         nix-health # check health of nix installation
         nix-search-cli # search nixpkgs
         nix-tree # browse dependency graphs of Nix derivations
