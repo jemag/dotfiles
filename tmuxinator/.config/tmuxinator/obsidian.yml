@@ -1,13 +1,12 @@
-
 # ~/.tmuxinator/obsidian.yml
 
 name: obsidian
-root: ~/H/obsidian/
+# root: /mnt/c/Users/brassarddesjardinsa/obsidian
 
 windows:
   - obs:
       layout: tiled
       panes:
         - working-memory:
-          - nvim working-memory.md
-
+            - cd $OBSIDIAN_VAULT
+            - n 0-\ Inbox/working-memory.md
