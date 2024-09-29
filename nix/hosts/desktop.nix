@@ -3,7 +3,7 @@
 {
   imports = [ ../modules/cli.nix ../modules/gui.nix ];
 
-  # gui.enable = true;
+  gui.enable = true;
   nixpkgs = {
     config = {
       allowUnfree = true;
