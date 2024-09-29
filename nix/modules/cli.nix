@@ -71,7 +71,6 @@ in
         dig
         dust
         eza
-        falcoctl
         fd
         fzf
         gh

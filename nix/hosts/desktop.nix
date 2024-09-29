@@ -3,6 +3,7 @@
 {
   imports = [ ../modules/cli.nix ../modules/gui.nix ];
 
+  # gui.enable = true;
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -28,62 +29,24 @@
 
     # The home.packages option allows you to install Nix packages into your
     # environment.
-    packages = with pkgs; [
-      argocd
-      (azure-cli.withExtensions [
-        azure-cli.extensions.azure-devops
-        azure-cli.extensions.fzf
-      ])
-      buildkit
-      calicoctl
-      cmctl
-      cosign
-      cri-tools
-      dockle
-      falcoctl
-      k9s
-      krew
-      kube-linter
-      kubeconform
-      kubectl
-      kubectx
-      kubelogin
-      kubent
-      kubernetes-helm
-      kubeshark
-      kubie
-      kustomize
-      kyverno
-      maven
-      mkcert
-      powershell
-      skopeo
-      sonar-scanner-cli
-      step-cli
-      tanka
-      termshark
-      terraform
-      terragrunt
-      tflint
-      trivy
-      tshark
-      velero
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
+    packages = with pkgs;
+      [
+        # # Adds the 'hello' command to your environment. It prints a friendly
+        # # "Hello, world!" when run.
 
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+        # # It is sometimes useful to fine-tune packages, for example, by applying
+        # # overrides. You can do that directly here, just don't forget the
+        # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+        # # fonts?
+        # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
-    ];
+        # # You can also create simple shell scripts directly inside your
+        # # configuration. For example, this adds a command 'my-hello' to your
+        # # environment:
+        # (pkgs.writeShellScriptBin "my-hello" ''
+        #   echo "Hello, ${config.home.username}!"
+        # '')
+      ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
@@ -117,7 +80,7 @@
     #  /etc/profiles/per-user/jemag/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      # EDITOR = "vi";
+      # EDITOR = "emacs";
     };
   };
 
