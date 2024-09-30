@@ -31,6 +31,8 @@
     # environment.
     packages = with pkgs;
       [
+        anki-bin
+        brave
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 

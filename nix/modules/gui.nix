@@ -75,6 +75,9 @@ in
       };
     };
     home.packages = with pkgs; [
+      arandr
+      blueman
+      bluez
       chromium
       firefox
       fira-code-nerdfont
