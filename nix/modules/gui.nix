@@ -76,12 +76,15 @@ in
     };
     home.packages = with pkgs; [
       arandr
-      deluge
+      bitwarden
       chromium
+      deluge
       feh
+      flameshot
       firefox
       fira-code-nerdfont
-      bitwarden
+      libreoffice-fresh
+      onlyoffice-desktopeditors
       sxiv
       ticktick
       redshift
