@@ -69,7 +69,9 @@ in
         delta
         difftastic
         dig
+        duf
         dust
+        entr
         eza
         fd
         fzf

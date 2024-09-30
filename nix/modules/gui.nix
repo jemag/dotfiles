@@ -76,10 +76,13 @@ in
     };
     home.packages = with pkgs; [
       arandr
+      deluge
       chromium
+      feh
       firefox
       fira-code-nerdfont
       bitwarden
+      sxiv
       ticktick
       redshift
     ];

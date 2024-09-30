@@ -33,6 +33,8 @@
       [
         anki-bin
         brave
+        element-desktop
+        epub-thumbnailer
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 
