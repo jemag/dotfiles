@@ -99,12 +99,14 @@ in
         socat
         starship
         stow
+        stylua
         tealdeer
         thefuck
         ticker
         tmux
         tmuxinator
         tree-sitter
+        trivy
         unzip
         viddy
         whois

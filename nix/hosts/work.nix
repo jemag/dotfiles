@@ -65,7 +65,6 @@
       terraform
       terragrunt
       tflint
-      trivy
       tshark
       velero
       # # Adds the 'hello' command to your environment. It prints a friendly

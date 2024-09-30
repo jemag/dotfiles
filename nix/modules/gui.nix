@@ -85,6 +85,12 @@ in
       fira-code-nerdfont
       libreoffice-fresh
       onlyoffice-desktopeditors
+      neovim-qt
+      obsidian
+      pandoc
+      qalculate-gtk
+      signal-desktop
+      spotify
       sxiv
       ticktick
       redshift
