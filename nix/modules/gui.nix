@@ -94,6 +94,7 @@ in
       sxiv
       ticktick
       redshift
+      zathura
     ];
   };
 }
