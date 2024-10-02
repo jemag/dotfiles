@@ -123,6 +123,7 @@ require("nvim-treesitter.configs").setup({
     "foam",
     "fortran",
     "gitcommit",
+    "gitignore",
     "git_rebase",
     "gdscript",
     "go",
