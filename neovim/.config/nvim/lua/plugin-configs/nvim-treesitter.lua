@@ -136,6 +136,7 @@ require("nvim-treesitter.configs").setup({
     "hjson",
     "html",
     "http",
+    "ini",
     "java",
     "javascript",
     "jsdoc",
