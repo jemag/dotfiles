@@ -1,7 +1,6 @@
 { lib, config, pkgs, ... }:
 let cfg = config.cli;
-in
-{
+in {
   options = {
     cli.enable = lib.mkOption {
       type = lib.types.bool;
@@ -12,7 +11,6 @@ in
 
   config = lib.mkIf cfg.enable {
     #config contents
-
 
     programs = {
 
@@ -35,6 +33,11 @@ in
           pager =
             "less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse --ignore-case";
         };
+      };
+
+      java = {
+        enable = true;
+        package = pkgs.jdk22;
       };
 
     };
@@ -84,7 +87,6 @@ in
         htop
         ijq
         imagemagick
-        jdk22
         jq
         lazygit
         manix # search nix options
