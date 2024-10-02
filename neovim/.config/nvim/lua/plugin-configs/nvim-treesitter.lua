@@ -180,6 +180,7 @@ require("nvim-treesitter.configs").setup({
     "teal",
     "todotxt",
     "toml",
+    "tmux",
     "tsx",
     "typescript",
     "vala",
