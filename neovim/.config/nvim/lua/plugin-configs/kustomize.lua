@@ -3,9 +3,9 @@ require("kustomize").setup({
   enable_lua_snip = true,
 })
 
-vim.keymap.set("n", "<leader>kb", "<cmd>lua require('kustomize').build()<cr>", { noremap = true, desc = "kustomize build" })
-vim.keymap.set("n", "<leader>kk", "<cmd>lua require('kustomize').kinds()<cr>", { noremap = true, desc = "kustomize kinds" })
-vim.keymap.set("n", "<leader>kl", "<cmd>lua require('kustomize').list_resources()<cr>", { noremap = true, desc = "kustomize list resources" })
-vim.keymap.set("n", "<leader>kp", "<cmd>lua require('kustomize').print_resources()<cr>", { noremap = true, desc = "kustomize print resources" })
-vim.keymap.set("n", "<leader>kv", "<cmd>lua require('kustomize').validate()<cr>", { noremap = true, desc = "kustomize validate" })
-vim.keymap.set("n", "<leader>kd", "<cmd>lua require('kustomize').deprecations()<cr>", { noremap = true, desc = "kustomize deprecations" })
+vim.keymap.set("n", "<leader>kb", "<cmd>KustomizeBuild<cr>", { noremap = true, desc = "kustomize build" })
+vim.keymap.set("n", "<leader>kk", "<cmd>KustomizeListKinds<cr>", { noremap = true, desc = "kustomize kinds" })
+vim.keymap.set("n", "<leader>kl", "<cmd>KustomizeListResources<cr>", { noremap = true, desc = "kustomize list resources" })
+vim.keymap.set("n", "<leader>kp", "<cmd>KustomizePrintResources<cr>", { noremap = true, desc = "kustomize print resources" })
+vim.keymap.set("n", "<leader>kv", "<cmd>KustomizeValidate<cr>", { noremap = true, desc = "kustomize validate" })
+vim.keymap.set("n", "<leader>kd", "<cmd>KustomizeDeprecations<cr>", { noremap = true, desc = "kustomize deprecations" })
