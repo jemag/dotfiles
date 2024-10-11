@@ -7,11 +7,6 @@ require("kubectl").setup({
     bin = "kubediff", -- or any other binary
   },
   namespace = "All",
-  notifications = {
-    enabled = true,
-    verbose = false,
-    blend = 100,
-  },
   hints = true,
   context = true,
   float_size = {
