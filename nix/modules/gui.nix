@@ -79,6 +79,7 @@ in
       bitwarden
       chromium
       deluge
+      ente-auth
       feh
       flameshot
       firefox
