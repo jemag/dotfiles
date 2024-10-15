@@ -95,6 +95,7 @@ in {
         nix-search-cli # search nixpkgs
         nix-tree # browse dependency graphs of Nix derivations
         nixfmt-classic
+        nushell
         parallel
         ripgrep
         rustup
