@@ -9,6 +9,11 @@ require("kubectl").setup({
   namespace = "All",
   hints = true,
   context = true,
+  logs = {
+    prefix = false,
+    timestamps = true,
+    since = "1h",
+  },
   float_size = {
     -- Almost fullscreen:
     -- width = 1.0,
