@@ -13,6 +13,7 @@ require("kustomize").setup({
     trivy = {
         cmd = "trivy",
         args = { "-q", "config" },
+        timeout = 20000,
         },
   },
 })
