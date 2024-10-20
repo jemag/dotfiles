@@ -79,11 +79,11 @@ in
       bitwarden
       chromium
       deluge
-      ente-auth
       feh
       flameshot
       firefox
       fira-code-nerdfont
+      ksnip
       libreoffice-fresh
       onlyoffice-desktopeditors
       neovim-qt
