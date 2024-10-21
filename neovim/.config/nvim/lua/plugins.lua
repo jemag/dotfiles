@@ -925,47 +925,54 @@ require("lazy").setup({
     ft = { "latex", "tex", "plaintex" },
   },
   {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require("plugin-configs.nvim-cmp")
-    end,
-    dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "onsails/lspkind-nvim" },
-      { "lukas-reineke/cmp-rg" },
-      { "rcarriga/cmp-dap" },
-    },
-  },
-  {
     "supermaven-inc/supermaven-nvim",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
           accept_suggestion = "<C-f>",
           clear_suggestion = "<C-]>",
-          accept_word = "<C-j>",
+          accept_word = "<C-e>",
         },
       })
     end,
   },
   {
-    "Gelio/cmp-natdat",
+    "Saghen/blink.cmp",
     config = function()
-      require("cmp_natdat").setup()
+      require("plugin-configs.blink")
     end,
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
+    version = 'v0.*',
   },
-  {
-    "hrsh7th/cmp-cmdline",
-    config = function()
-      require("plugin-configs.cmp-cmdline")
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   config = function()
+  --     require("plugin-configs.nvim-cmp")
+  --   end,
+  --   dependencies = {
+  --     { "hrsh7th/cmp-nvim-lsp" },
+  --     { "saadparwaiz1/cmp_luasnip" },
+  --     { "hrsh7th/cmp-buffer" },
+  --     { "hrsh7th/cmp-path" },
+  --     { "onsails/lspkind-nvim" },
+  --     { "lukas-reineke/cmp-rg" },
+  --     { "rcarriga/cmp-dap" },
+  --   },
+  -- },
+  -- {
+  --   "Gelio/cmp-natdat",
+  --   config = function()
+  --     require("cmp_natdat").setup()
+  --   end,
+  --   dependencies = {
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  -- },
+  -- {
+  --   "hrsh7th/cmp-cmdline",
+  --   config = function()
+  --     require("plugin-configs.cmp-cmdline")
+  --   end,
+  -- },
 
   {
     "honza/dockerfile.vim",
