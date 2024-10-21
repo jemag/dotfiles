@@ -36,11 +36,13 @@
       ])
       buildkit
       calicoctl
+      cilium-cli
       cmctl
       cosign
       cri-tools
       dockle
       falcoctl
+      hubble
       k9s
       krew
       kube-linter
