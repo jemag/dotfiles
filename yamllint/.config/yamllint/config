@@ -8,4 +8,4 @@ rules:
   line-length: disable
   indentation:
     spaces: 2
-    indent-sequences: consistent
+    indent-sequences: whatever  # seems to mess when there is a list of list, using whatever to prevent double indentation of list of list
