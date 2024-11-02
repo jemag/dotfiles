@@ -122,8 +122,7 @@ M.on_attach = function(client, bufnr)
 end
 
 local function getCapabilities()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities())
+  local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
   --NOTE: Disabled dynamicRegistration for better performance, see: https://github.com/neovim/neovim/issues/23291
   capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
   return capabilities
