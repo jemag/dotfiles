@@ -1,19 +1,13 @@
 require("blink-cmp").setup({
   keymap = {
-    show = "<C-space>",
-    hide = "<Esc>",
-    accept = "<C-y>",
-    -- select_and_accept = {},
-    select_prev = { "<Up>", "<C-p>" },
-    select_next = { "<Down>", "<C-n>" },
-
-    show_documentation = "<C-space>",
-    hide_documentation = "<C-space>",
-    scroll_documentation_up = "<C-u>",
-    scroll_documentation_down = "<C-d>",
-
-    snippet_forward = "<C-j>",
-    snippet_backward = "<C-k>",
+    ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+    ["<Esc>"] = { "hide" },
+    ["<C-y>"] = { "select_and_accept" },
+    ["<C-n>"] = { "select_next", "fallback" },
+    ["<C-p>"] = { "select_prev", "fallback" },
+    ["<C-d>"] = { "scroll_documentation_down" },
+    ["<C-u>"] = { "scroll_documentation_up" },
+    ["<C-j>"] = { "snippet_forward", "fallback" },
   },
   -- accept = {
   --   auto_brackets = {
