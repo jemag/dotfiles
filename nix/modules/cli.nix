@@ -37,7 +37,7 @@ in {
 
       java = {
         enable = true;
-        package = pkgs.jdk22;
+        package = pkgs.jdk21;
       };
 
     };
