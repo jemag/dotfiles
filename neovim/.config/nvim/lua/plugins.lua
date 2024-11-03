@@ -843,6 +843,12 @@ require("lazy").setup({
     "ThePrimeagen/vim-be-good",
   },
   {
+    "andrewferrier/debugprint.nvim",
+    config = function()
+      require("plugin-configs.debugprint")
+    end,
+  },
+  {
     "ThePrimeagen/refactoring.nvim",
     config = function()
       require("plugin-configs.refactoring")

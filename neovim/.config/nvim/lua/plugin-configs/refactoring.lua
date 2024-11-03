@@ -75,36 +75,3 @@ vim.keymap.set("n", "<leader>rb", [[ <Cmd>lua require('refactoring').refactor('E
 vim.keymap.set("n", "<leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
   { desc = "Inline variable" })
 
--- Print function
--- You can also use below = true here to to change the position of the printf
--- statement (or set two remaps for either one). This remap must be made in normal mode.
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rp",
-  ":lua require('refactoring').debug.printf({below = false})<CR>",
-  { noremap = true, desc = "Print function call" }
-)
-
--- Print var
--- Remap in normal mode and passing { normal = true } will automatically find the variable under the cursor and print it
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rv",
-  ":lua require('refactoring').debug.print_var({ normal = true })<CR>",
-  { noremap = true, desc = "Print variable" }
-)
--- Remap in visual mode will print whatever is in the visual selection
-vim.api.nvim_set_keymap(
-  "v",
-  "<leader>rv",
-  ":lua require('refactoring').debug.print_var({})<CR>",
-  { noremap = true, desc = "Print variable" }
-)
-
--- Cleanup function: this remap should be made in normal mode
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rC",
-  ":lua require('refactoring').debug.cleanup({})<CR>",
-  { noremap = true, desc = "Clean up print statements" }
-)

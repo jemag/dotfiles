@@ -21,6 +21,7 @@
   "darcula-dark.nvim": { "branch": "main", "commit": "05222521b8246d976abae6d55356335530e133ba" },
   "darcula-solid.nvim": { "branch": "main", "commit": "d950b9ca20096313c435a93e57af7815766f3d3d" },
   "darkplus.nvim": { "branch": "main", "commit": "6101ffce60682208e9e076710299d189ce11c40d" },
+  "debugprint.nvim": { "branch": "main", "commit": "9202716a0a73fafea2a82887fd6fca5235e72429" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dockerfile.vim": { "branch": "master", "commit": "b8c574928e503c0e94ad06647cff28b7c566af29" },
   "doom-one.vim": { "branch": "master", "commit": "31cf41fdf753b1d99d3ec1d50d44f42af8f1c2c8" },
