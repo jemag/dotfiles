@@ -31,7 +31,6 @@ local tools = {
   "jsonnet-language-server",
   "lua-language-server",
   "marksman",
-  "rnix-lsp",
   "prettierd",
   "pyright",
   "rust-analyzer",
@@ -52,6 +51,8 @@ require("mason-tool-installer").setup({
 
 local lspconfig = require("lspconfig")
 local installed_servers = require("mason-lspconfig").get_installed_servers()
+local manually_installed_servers = {"nixd"}
+vim.list_extend(installed_servers, manually_installed_servers)
 
 local function setup_servers()
   for _, name in pairs(installed_servers) do
