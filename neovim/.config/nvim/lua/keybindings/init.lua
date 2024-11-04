@@ -58,6 +58,8 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, des
 
 vim.keymap.set("n", "<c-i>", "<c-i>")
 
+vim.api.nvim_set_keymap("n", "<Right>", "<cmd>lopen<cr>", { noremap = true, silent = true, desc = "Opoen location list" })
+vim.api.nvim_set_keymap("n", "<Left>", "<cmd>lclose<cr>", { noremap = true, silent = true, desc = "Close location list" })
 vim.api.nvim_set_keymap("n", "<Up>", "<cmd>copen<cr>", { noremap = true, silent = true, desc = "Open quickfix" })
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>cclose<cr>", { noremap = true, silent = true, desc = "Close quickfix" })
 
