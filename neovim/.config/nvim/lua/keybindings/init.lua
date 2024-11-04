@@ -58,8 +58,6 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, des
 
 vim.keymap.set("n", "<c-i>", "<c-i>")
 
-vim.api.nvim_set_keymap("n", "<Right>", "<cmd>cnext<cr>", { noremap = true, silent = true, desc = "Next quickfix item" })
-vim.api.nvim_set_keymap("n", "<Left>", "<cmd>cprev<cr>", { noremap = true, silent = true, desc = "Prev quickfix item" })
 vim.api.nvim_set_keymap("n", "<Up>", "<cmd>copen<cr>", { noremap = true, silent = true, desc = "Open quickfix" })
 vim.api.nvim_set_keymap("n", "<Down>", "<cmd>cclose<cr>", { noremap = true, silent = true, desc = "Close quickfix" })
 
