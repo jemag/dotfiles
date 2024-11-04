@@ -90,6 +90,7 @@ require("telescope").setup({
         ["<esc>"] = actions.close,
         ["<F6>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist,
+        ["<C-l>"] = actions.send_to_loclist,
         ["<C-y>"] = custom_actions.yank_entry,
         ["<C-v>"] = pick_vertical,
         ["<C-x>"] = pick_horizontal,
