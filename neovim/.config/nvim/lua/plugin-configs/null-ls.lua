@@ -25,12 +25,12 @@ null_ls.setup({
         "less",
         "html",
         "json",
-        "yaml",
         "markdown",
         "graphql",
         "solidity",
       },
     }),
+    formatting.yamlfmt,
     formatting.nixfmt,
     formatting.black.with({ extra_args = { "--fast" } }),
     -- stylua cmd must be in path (can install through pacman)

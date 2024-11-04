@@ -4,7 +4,8 @@ alias kgg='kubectl api-resources --no-headers | fzf | awk '\''{print $1}'\'' | x
 alias kyg=kubectl-get-yaml-fzf
 alias kdg=kubectl-describe-fzf
 alias keg=kubectl-edit-fzf
-alias kex="kubectl explore"
+alias kex="kubectl explain"
+alias kexp="kubectl explore"
 
 alias kcx="kubectx"
 alias kns="kubens"
@@ -130,7 +131,7 @@ alias kpf="kubectl port-forward"
 
 # Tools for accessing all information
 alias kga='kubectl get all'
-alias kac=kubectl-get-all # get everything in all namespaces including crds
+alias kall=kubectl-get-all # get everything in all namespaces including crds
 alias kgaa='kubectl get all --all-namespaces'
 
 # Logs

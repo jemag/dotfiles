@@ -5,8 +5,10 @@ set -eo pipefail
 namespace=$1 #optional
 
 ns="-A"
+namespaced=""
 if [ ! -z $namespace ]; then
   ns="-n $namespace"
+  namespaced="--namespaced"
 fi
 
-kubectl api-resources --verbs=list -o name | grep -vE "events" | sort | paste -d, -s - | xargs kubectl get $ns --ignore-not-found --show-kind
+kubectl api-resources --verbs=list $namespaced -o name | grep -vE "events" | sort | paste -d, -s - | xargs kubectl get $ns --ignore-not-found --show-kind

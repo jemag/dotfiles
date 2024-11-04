@@ -32,6 +32,7 @@ vim.api.nvim_set_keymap(
   "<cmd>call HorizontalScrollMode('L')<cr>",
   { noremap = true, silent = true, desc = "Right half-screen scroll" }
 )
+vim.keymap.set({ "n", "x" }, "<cr>", '<nop>', { desc = "disable <cr> in normal and visual mode" })
 -- Testing centering cursor
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Scroll half down with cursor centered" })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Scroll half up with cursor centered" })
