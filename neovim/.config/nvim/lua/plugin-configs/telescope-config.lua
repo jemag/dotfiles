@@ -118,7 +118,7 @@ require("telescope").setup({
   pickers = {
     -- Your special builtin config goes in here
     buffers = {
-      sort_lastused = true,
+      sort_lastused = false,
       sort_mru = true,
       mappings = {
         i = {
