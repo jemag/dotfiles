@@ -171,6 +171,14 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/snacks.nvim",
+    priority = 1300,
+    lazy = false,
+    config = function()
+      require("plugin-configs.snacks")
+    end,
+  },
+  {
     "folke/trouble.nvim",
     config = function()
       require("plugin-configs.trouble")
@@ -395,7 +403,6 @@ require("lazy").setup({
       require("plugin-configs.nvim-autopairs")
     end,
   },
-  { "LunarVim/bigfile.nvim" },
   {
     "nvim-neotest/neotest",
     config = function()
@@ -627,7 +634,7 @@ require("lazy").setup({
   { "nvim-tree/nvim-web-devicons" },
   {
     "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
+    priority = 2000, -- this plugin needs to run before anything else
     opts = {
       rocks = { "magick" },
     },
@@ -947,7 +954,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.blink")
     end,
-    version = 'v0.*',
+    version = "v0.*",
   },
   -- {
   --   "hrsh7th/nvim-cmp",
