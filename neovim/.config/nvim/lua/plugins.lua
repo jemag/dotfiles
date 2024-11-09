@@ -237,6 +237,13 @@ require("lazy").setup({
     end,
   },
   {
+    "meznaric/key-analyzer.nvim",
+    cmd = "KeyAnalyzer",
+    config = function()
+      require("key-analyzer").setup()
+    end,
+  },
+  {
     "mrjones2014/legendary.nvim",
     config = function()
       vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })

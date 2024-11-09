@@ -47,6 +47,7 @@
   "jsonpath.nvim": { "branch": "main", "commit": "2d889eb9c39893e030e902b854122a1615c042ea" },
   "kanagawa.nvim": { "branch": "master", "commit": "ad3dddecd606746374ba4807324a08331dfca23c" },
   "kdl.vim": { "branch": "main", "commit": "b84d7d3a15d8d30da016cf9e98e2cfbe35cddee5" },
+  "key-analyzer.nvim": { "branch": "main", "commit": "4b3a317467d22360491854d3fed3688c7ffa8a3e" },
   "kubectl.nvim": { "branch": "main", "commit": "2189970da33b84bfdee4b41e174e2b0ccb21d004" },
   "kustomize.nvim": { "branch": "main", "commit": "19d38745cc36529ea837c92b148ed135365e8509" },
   "lake.nvim": { "branch": "main", "commit": "42e371fdd5bf174e4d95cde96ec2ccde37ee17b5" },
