@@ -1,11 +1,8 @@
 local tools = {
   "angular-language-server",
-  -- "ansible-language-server",
-  -- "azure-pipelines-language-server",
   "bash-language-server",
-  "black",
-  "shfmt",
   "bicep-lsp",
+  "black",
   "clangd",
   "delve",
   "dockerfile-language-server",
@@ -20,8 +17,8 @@ local tools = {
   "gopls",
   "gotests",
   "gotestsum",
-  "html-lsp",
   "helm-ls",
+  "html-lsp",
   "iferr",
   "impl",
   "java-debug-adapter",
@@ -34,6 +31,7 @@ local tools = {
   "prettierd",
   "pyright",
   "rust-analyzer",
+  "shfmt",
   "solargraph",
   "stylua",
   "terraform-ls",
@@ -41,8 +39,10 @@ local tools = {
   "typescript-language-server",
   "vim-language-server",
   "yaml-language-server",
-  "yamllint",
   "yamlfmt",
+  "yamllint",
+  -- "ansible-language-server",
+  -- "azure-pipelines-language-server",
 }
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
@@ -51,7 +51,7 @@ require("mason-tool-installer").setup({
 
 local lspconfig = require("lspconfig")
 local installed_servers = require("mason-lspconfig").get_installed_servers()
-local manually_installed_servers = {"nixd"}
+local manually_installed_servers = {"nixd", "nushell"}
 vim.list_extend(installed_servers, manually_installed_servers)
 
 local function setup_servers()

@@ -157,6 +157,7 @@ require("nvim-treesitter.configs").setup({
     "ninja",
     "nix",
     "norg",
+    "nu",
     "ocaml",
     "ocaml_interface",
     "ocamllex",
