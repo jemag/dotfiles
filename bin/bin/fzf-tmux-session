@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Allow the user to select projects via fzf
+SELECTED_DIRECTORY=$(zoxide query -l | fzf --prompt="Project: " -m -1 -q "$1" --reverse --height 50%)
+
+if [ -n "$SELECTED_DIRECTORY" ]; then
+  # Set the IFS to \n to iterate over \n delimited projects
+  IFS=$'\n'
+
+    # Start only the first project and attach directly
+    for DIRECTORY in $SELECTED_DIRECTORY; do
+      SHORTENED_DIRECTORY=$(basename $DIRECTORY)
+      echo $SHORTENED_DIRECTORY
+      if ! tmux has-session -t=$SHORTENED_DIRECTORY 2> /dev/null; then
+        tmux new-session -ds $SHORTENED_DIRECTORY -c $DIRECTORY -n $SHORTENED_DIRECTORY
+        tmux switch-client -t $SHORTENED_DIRECTORY
+      fi
+    done
+fi
+
