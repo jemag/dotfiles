@@ -4,7 +4,7 @@ name: obsidian
 # root: /mnt/c/Users/brassarddesjardinsa/obsidian
 
 windows:
-  - obs:
+  - obsidian:
       layout: tiled
       panes:
         - working-memory:
