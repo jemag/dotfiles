@@ -78,6 +78,7 @@ $env.ENV_CONVERSIONS = {
 $env.NU_LIB_DIRS = [
     ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
     ($nu.data-dir | path join 'completions') # default home for nushell completions
+    ($nu.default-config-dir | path join 'modules') # customer folder for custom modules
 ]
 
 # Directories to search for plugin binaries when calling register

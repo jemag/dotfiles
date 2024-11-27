@@ -896,3 +896,5 @@ $env.config = {
         }
     ]
 }
+
+use aliases.nu *
