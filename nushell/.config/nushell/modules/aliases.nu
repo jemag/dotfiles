@@ -1,5 +1,5 @@
-export alias ll = ls -las
-export alias la = ls -la
+export alias ll = ls -ls
+export alias la = ls -las
 export alias tf = terraform
 export alias tg = terragrunt
 export alias g = git
