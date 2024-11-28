@@ -403,19 +403,19 @@ $env.config = {
                 ]
             }
         }
-        {
-            name: ide_completion_menu
-            modifier: control
-            keycode: char_n
-            mode: [emacs vi_normal vi_insert]
-            event: {
-                until: [
-                    { send: menu name: ide_completion_menu }
-                    { send: menunext }
-                    { edit: complete }
-                ]
-            }
-        }
+        # {
+        #     name: ide_completion_menu
+        #     modifier: control
+        #     keycode: char_t
+        #     mode: [emacs vi_normal vi_insert]
+        #     event: {
+        #         until: [
+        #             { send: menu name: ide_completion_menu }
+        #             { send: menunext }
+        #             { edit: complete }
+        #         ]
+        #     }
+        # }
         {
             name: history_menu
             modifier: control
@@ -535,13 +535,12 @@ $env.config = {
             }
         }
         {
-            name: move_right_or_take_history_hint
+            name: move_right
             modifier: none
             keycode: right
             mode: [emacs, vi_normal, vi_insert]
             event: {
                 until: [
-                    { send: historyhintcomplete }
                     { send: menuright }
                     { send: right }
                 ]
@@ -582,20 +581,8 @@ $env.config = {
         }
         {
             name: move_to_line_end_or_take_history_hint
-            modifier: none
-            keycode: end
-            mode: [emacs, vi_normal, vi_insert]
-            event: {
-                until: [
-                    { send: historyhintcomplete }
-                    { edit: movetolineend }
-                ]
-            }
-        }
-        {
-            name: move_to_line_end_or_take_history_hint
             modifier: control
-            keycode: char_e
+            keycode: char_f
             mode: [emacs, vi_normal, vi_insert]
             event: {
                 until: [
@@ -633,7 +620,7 @@ $env.config = {
         {
             name: move_down
             modifier: control
-            keycode: char_t
+            keycode: char_n
             mode: [emacs, vi_normal, vi_insert]
             event: {
                 until: [
@@ -707,19 +694,6 @@ $env.config = {
                 until: [
                     { send: menuleft }
                     { send: left }
-                ]
-            }
-        }
-        {
-            name: move_right_or_take_history_hint
-            modifier: control
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintcomplete }
-                    { send: menuright }
-                    { send: right }
                 ]
             }
         }
