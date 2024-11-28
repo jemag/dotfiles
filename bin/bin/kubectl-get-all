@@ -1,14 +1,21 @@
-#!/bin/zsh
+#!/bin/bash
 
 set -eo pipefail
 
-namespace=$1 #optional
+# Read the namespace from the first argument (optional)
+namespace=$1
 
+# Default to all namespaces
 ns="-A"
 namespaced=""
-if [ ! -z $namespace ]; then
-  ns="-n $namespace"
-  namespaced="--namespaced"
+
+if [ -n "$namespace" ]; then
+  ns="-n $namespace" # Set the namespace flag
+  namespaced="--namespaced"  # Restrict to namespaced resources
 fi
 
-kubectl api-resources --verbs=list $namespaced -o name | grep -vE "events" | sort | paste -d, -s - | xargs kubectl get $ns --ignore-not-found --show-kind
+# List resources and fetch them
+kubectl api-resources --verbs=list $namespaced -o name \
+  | grep -vE "events" \
+  | sort \
+  | xargs -I {} kubectl get {} $ns --ignore-not-found --show-kind
