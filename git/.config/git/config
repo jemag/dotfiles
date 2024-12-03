@@ -67,6 +67,9 @@
 	cle = forgit clean
 	#############
 	d = diff
+	dn = !git diff --name-status | sort
+	dnc = !git diff --name-status --cached | sort
+	dsc = diff --stat --cached
 	df = forgit diff
 	dp = diff --patience
 	dc = diff --cached
