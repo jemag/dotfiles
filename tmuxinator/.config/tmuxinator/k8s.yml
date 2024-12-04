@@ -69,8 +69,8 @@ windows:
         - kubie_sc2gdev:
             - kubie ctx aks-dev-admin
             - kubie ns argocd
-        - kubie_sc2gstaging:
-            - kubie ctx aks-staging-admin
+        - kubie_sc2gtest:
+            - kubie ctx aks-test-admin
             - kubie ns argocd
         - kubie_sc2gprod:
             - kubie ctx aks-prod-admin
