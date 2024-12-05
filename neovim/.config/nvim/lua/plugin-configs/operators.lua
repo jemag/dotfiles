@@ -21,8 +21,8 @@ require("mini.operators").setup({
 
   -- Sort text
   sort = {
-    prefix = "gs",
+    prefix = "",
   },
 })
 vim.keymap.set({ "n" }, "cX", "cx$", { remap = true, desc = "Exchange until end of line" })
-vim.keymap.set({ "n" }, "gS", "gs$", { remap = true, desc = "Sort until end of line" })
+-- vim.keymap.set({ "n" }, "gS", "gs$", { remap = true, desc = "Sort until end of line" })

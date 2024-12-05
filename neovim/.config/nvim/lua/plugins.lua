@@ -87,10 +87,16 @@ require("lazy").setup({
     end,
     ft = { "yaml", "json" },
   },
+  -- {
+  --   "AckslD/nvim-trevJ.lua",
+  --   config = function()
+  --     require("plugin-configs.nvim-trevJ")
+  --   end,
+  -- },
   {
-    "AckslD/nvim-trevJ.lua",
+    "wurli/split.nvim",
     config = function()
-      require("plugin-configs.nvim-trevJ")
+      require("plugin-configs.split")
     end,
   },
   {
@@ -871,16 +877,6 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  },
-  {
-    "dpayne/CodeGPT.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require("codegpt.config")
-    end,
   },
   {
     "jackMort/ChatGPT.nvim",
