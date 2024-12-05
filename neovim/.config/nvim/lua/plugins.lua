@@ -326,28 +326,6 @@ require("lazy").setup({
   },
   { "airblade/vim-rooter" },
   {
-    "yujinyuz/gitpad.nvim",
-    config = function()
-      require("gitpad").setup({
-        default_text = "",
-        on_attach = function(bufnr)
-          -- You can also define a function to be called when the gitpad window is opened, by setting the `on_attach` option:
-          -- This is just an example
-          vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<Cmd>wq<CR>", { noremap = true, silent = true })
-        end,
-      })
-    end,
-    keys = {
-      {
-        "<localleader>tg",
-        function()
-          require("gitpad").toggle_gitpad() -- or require('gitpad').toggle_gitpad({ title = 'Project notes' })
-        end,
-        desc = "gitpad project",
-      },
-    },
-  },
-  {
     "epwalsh/obsidian.nvim",
     config = function()
       require("plugin-configs.obsidian")
