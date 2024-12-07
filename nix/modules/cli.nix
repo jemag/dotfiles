@@ -100,6 +100,7 @@ in {
         parallel
         ripgrep
         rustup
+        sesh
         socat
         starship
         stow
