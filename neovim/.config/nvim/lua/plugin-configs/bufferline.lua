@@ -1,6 +1,7 @@
 require("bufferline").setup({
   options = {
     numbers = "ordinal",
+    auto_toggle_bufferline = false,
   },
 })
 
