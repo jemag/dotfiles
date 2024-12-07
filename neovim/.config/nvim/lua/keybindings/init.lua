@@ -10,6 +10,15 @@ local toggle_diagnostic = function()
 
 end
 
+local toggle_tabline = function()
+  local current_tabline = vim.o.showtabline
+  if current_tabline == 0 then
+    vim.o.showtabline = 2
+  else
+    vim.o.showtabline = 0
+  end
+end
+
 vim.keymap.set("n", "i", function()
   if #vim.fn.getline(".") == 0 then
     return [["_cc]]
@@ -165,6 +174,9 @@ vim.keymap.set("n", "\\C", "<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>", { de
 vim.keymap.set("n", "\\d", function()
   print(toggle_diagnostic())
 end, { desc = "Toggle diagnostic" })
+vim.keymap.set("n", "\\t", function()
+  toggle_tabline()
+end, { desc = "Toggle tabline" })
 vim.keymap.set(
   "n",
   "\\h",
