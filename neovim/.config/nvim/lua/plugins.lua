@@ -1143,6 +1143,7 @@ require("lazy").setup({
       require("plugin-configs.operators")
       require("plugin-configs.mini-ai")
       require("plugin-configs.bracketed")
+      require("plugin-configs.trailspace")
     end,
     version = false,
   },

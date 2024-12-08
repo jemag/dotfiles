@@ -132,8 +132,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   callback = function()
     set_default_colors()
   end,
+  desc = "Set default colors",
 })
-
-vim.cmd([[match errorMsg /\s\+$/]])
 
 return M
