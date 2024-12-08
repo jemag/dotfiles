@@ -40,6 +40,9 @@ require("lualine").setup({
     component_separators = { "", "" },
     section_separators = { "", "" },
     disabled_filetypes = {},
+    refresh = {
+      statusline = 500,
+    },
   },
   sections = {
     lualine_a = {
@@ -48,24 +51,24 @@ require("lualine").setup({
     lualine_b = {
       "branch",
       "diff",
-      -- {
-      --   require("tmux-status").tmux_session,
-      --   cond = require("tmux-status").show,
-      --   padding = { left = 3 },
-      --   separator = { left = "|", right = "|" },
-      -- },
+      {
+        require("tmux-status").tmux_session,
+        -- cond = require("tmux-status").show,
+        separator = { left = "|", right = "|" },
+      },
     },
     lualine_c = {
 
-      -- {
-      --   -- require("tmux-status").tmux_windows,
-      --   function()
-      --     local text = require("tmux-status").tmux_render_format("window_index")..":"..require("tmux-status").tmux_render_format("window_name")
-      --     return text
-      --   end,
-      --   cond = require("tmux-status").show,
-      --   padding = { left = 3 },
-      -- },
+      {
+        require("tmux-status").tmux_windows,
+        -- function()
+        --   local text = require("tmux-status").tmux_render_format("window_index")..":"..require("tmux-status").tmux_render_format("window_name")
+        --   return text
+        -- end,
+        -- cond = require("tmux-status").show,
+        padding = { left = 3 },
+        separator = { left = "|" },
+      },
     },
     lualine_x = {
       {

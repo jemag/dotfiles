@@ -106,7 +106,6 @@ vim.keymap.set("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside 
 -- Search visually selected text (slightly better than builtins in Neovim>=0.8)
 vim.keymap.set("x", "*", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]])
 vim.keymap.set("x", "#", [[y?\V<C-R>=escape(@", '?\')<CR><CR>]])
--- NOTE: could potentially use 'go' and 'gO' as well if we wanted to keep letter 'o' with leader key for more keybinds
 vim.api.nvim_set_keymap(
   "n",
   "<cr>o",

@@ -380,7 +380,7 @@ require("lazy").setup({
     end,
   },
   {
-    "christopher-francisco/tmux-status.nvim",
+    "jemag/tmux-status.nvim",
     lazy = true,
     config = function()
       require("plugin-configs.tmux-status")

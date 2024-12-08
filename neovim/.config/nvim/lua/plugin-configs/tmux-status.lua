@@ -1,5 +1,4 @@
-require("tmux-status").setup(
- {
+require("tmux-status").setup({
   window = {
     separator = " | ",
     icon_zoom = "",
@@ -7,10 +6,10 @@ require("tmux-status").setup(
     icon_bell = "",
     icon_mute = "",
     icon_activity = "",
-    text = "name",
+    text = "index_and_name",
   },
   session = {
-    icon = ""
+    icon = "",
   },
   datetime = {
     icon = "󱑍",
@@ -20,14 +19,31 @@ require("tmux-status").setup(
     icon = "󰂎",
   },
   colors = {
-    window_active = "#e69875",
-    window_inactive = "#859289",
-    window_inactive_recent = "#3f5865",
-    session = "#a7c080",
-    datetime = "#7a8478",
-    battery = "#7a8478",
+    window_active = {
+      fg = "#FFA759",
+      bg = "#242b38",
+    },
+    window_inactive = {
+      fg = "#FFD580",
+      bg = "#242b38",
+    },
+    window_inactive_recent = {
+      fg = "#5F687A",
+      bg = "#242b38",
+    },
+    session = {
+      fg = "#A6CC70",
+      bg = "#242b38",
+    },
+    datetime = {
+      fg = "#7a8478",
+      bg = "#242b38",
+    },
+    battery = {
+      fg = "#7a8478",
+      bg = "#242b38",
+    },
   },
-  force_show = false,        -- Force components to be shown regardless of Tmux status
-  manage_tmux_status = true, -- Set to false if you do NOT want the plugin to turn Tmux status on/off
-}
-)
+  force_show = false, -- Force components to be shown regardless of Tmux status
+  manage_tmux_status = false, -- Set to false if you do NOT want the plugin to turn Tmux status on/off
+})
