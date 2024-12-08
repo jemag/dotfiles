@@ -35,6 +35,11 @@ in {
         };
       };
 
+      man = {
+        enable = true;
+        generateCaches = true;
+      };
+
       java = {
         enable = true;
         package = pkgs.jdk21;
