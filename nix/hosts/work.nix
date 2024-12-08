@@ -132,5 +132,10 @@
       enableZshIntegration = true;
     };
 
+    man = {
+      enable = true;
+      generateCaches = true;
+    };
+
   };
 }
