@@ -79,7 +79,15 @@ require("lualine").setup({
       },
     },
     lualine_y = {
-      { "encoding" },
+      {
+        "datetime",
+        style = "%Y-%m-%d %R",
+        separator = { left = "", right = "" },
+        color = { bg = "#F27983", fg = "#1e1e2e" },
+      },
+      {
+        "encoding" ,
+      },
       fileformat,
       { "filetype" },
     },
