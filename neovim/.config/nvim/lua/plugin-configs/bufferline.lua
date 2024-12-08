@@ -20,8 +20,8 @@ end
 local function close_hidden_buffers()
   local bufinfos = vim.fn.getbufinfo({ buflisted = true }) or {}
   for _, bufinfo in ipairs(bufinfos) do
-    if bufinfo.hidden == 1 then
-      vim.api.nvim_buf_delete(bufinfo.bufnr, { force = true })
+    if bufinfo.hidden == 1 and bufinfo.changed == 0 then
+        vim.cmd("bd " .. bufinfo.bufnr)
     end
   end
 end
