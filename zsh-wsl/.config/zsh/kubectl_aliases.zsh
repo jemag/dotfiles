@@ -108,6 +108,10 @@ alias kdeld='kubectl delete deployment'
 alias ksd='kubectl scale deployment'
 alias krsd='kubectl rollout status deployment'
 
+# Run temporary debug pod
+alias krd='kubectl run -it --restart=Never --image=markeijsermans/debug --rm=true'
+alias krt='kubectl run -it --restart=Never --rm=true'
+
 # Rollout management.
 alias kgrs='kubectl get replicaset'
 alias kdrs='kubectl describe replicaset'
