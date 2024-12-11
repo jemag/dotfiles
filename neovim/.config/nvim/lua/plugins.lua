@@ -66,6 +66,7 @@ require("lazy").setup({
     lazy = true,
     keys = {
       { "<leader>kt", '<cmd>lua require("kubectl").toggle()<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
+      -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
     },
   },
   {
@@ -777,6 +778,9 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neogit")
     end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
   },
   {
     "ThePrimeagen/git-worktree.nvim",

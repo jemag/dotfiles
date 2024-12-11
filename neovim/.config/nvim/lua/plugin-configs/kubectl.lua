@@ -12,7 +12,7 @@ require("kubectl").setup({
   logs = {
     prefix = false,
     timestamps = true,
-    since = "1h",
+    since = "24h",
   },
   float_size = {
     -- Almost fullscreen:
@@ -28,4 +28,18 @@ require("kubectl").setup({
     row = 5,
   },
   obj_fresh = 0, -- highlight if creation newer than number (in minutes)
+})
+local group = vim.api.nvim_create_augroup("kubectl_custom_mappings", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = group,
+  pattern = "k8s_*",
+  callback = function(ev)
+    local k = vim.keymap.set
+    local opts = { buffer = ev.buf }
+    print('inside k8s filetype au')
+
+    -- Global
+    k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers)", opts) -- Toggle headers
+
+  end,
 })

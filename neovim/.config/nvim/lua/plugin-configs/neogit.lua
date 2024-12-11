@@ -5,6 +5,7 @@ neogit.setup({
   -- customize displayed signs
   integrations = {
     diffview = true,
+    telescope = true
   },
   mappings = {
     popup = {
