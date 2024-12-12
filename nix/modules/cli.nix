@@ -74,6 +74,7 @@ in {
       packages = with pkgs; [
         bat
         btop
+        cmake
         delta
         difftastic
         dig
