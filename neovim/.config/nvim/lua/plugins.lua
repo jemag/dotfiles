@@ -726,12 +726,6 @@ require("lazy").setup({
      Git
     ####################### ]]
   {
-    "tpope/vim-fugitive",
-    config = function()
-      require("plugin-configs.fugitive")
-    end,
-  },
-  {
     "sindrets/diffview.nvim",
     config = function()
       require("plugin-configs.diffview")

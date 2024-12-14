@@ -1,7 +1,7 @@
 require("kubectl").setup({
   auto_refresh = {
     enabled = true,
-    interval = 5000, -- milliseconds
+    interval = 300, -- milliseconds
   },
   diff = {
     bin = "kubediff", -- or any other binary
@@ -39,7 +39,9 @@ vim.api.nvim_create_autocmd("FileType", {
     print('inside k8s filetype au')
 
     -- Global
+    -- k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers) | <Plug>(kubectl.refresh)", opts) -- Toggle headers
     k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers)", opts) -- Toggle headers
+    -- k("n", "<localleader>th", "<Plug>(kubectl.view_overview)", opts) -- Toggle headers
 
   end,
 })
