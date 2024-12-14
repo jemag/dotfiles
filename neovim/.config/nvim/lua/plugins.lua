@@ -750,8 +750,7 @@ require("lazy").setup({
     end,
     cmd = "Octo",
     keys = {
-      { "<leader>go", "<cmd>Octo actions<cr>", desc = "Octo action" ,
-      },
+      { "<leader>go", "<cmd>Octo actions<cr>", desc = "Octo action" },
     },
   },
   {
