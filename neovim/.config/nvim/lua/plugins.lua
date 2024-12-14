@@ -1137,10 +1137,16 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugin-configs.which-key")
+    end,
+  },
+  {
     "echasnovski/mini.nvim",
     config = function()
       require("plugin-configs.indentscope")
-      require("plugin-configs.clue")
       require("plugin-configs.operators")
       require("plugin-configs.mini-ai")
       require("plugin-configs.bracketed")
