@@ -749,7 +749,10 @@ require("lazy").setup({
       require("plugin-configs.octo")
     end,
     cmd = "Octo",
-    keys = { "<leader>go" },
+    keys = {
+      { "<leader>go", "<cmd>Octo actions<cr>", desc = "Octo action" ,
+      },
+    },
   },
   {
     "linrongbin16/gitlinker.nvim",
