@@ -47,7 +47,6 @@ windows:
       layout: tiled
       panes:
         - kubectl.nvim:
-            - n +'lua require("kubectl").toggle()'
   - unclass:
       layout: tiled
       panes:
