@@ -54,6 +54,15 @@ require("diffview").setup({
     end,
   }, -- See ':h diffview-config-hooks'
 })
+local function get_default_branch_name()
+  local res = vim.system({ "git", "rev-parse", "--verify", "main" }, { capture_output = true }):wait()
+  return res.code == 0 and "main" or "master"
+end
+
+vim.keymap.set("n", "<leader>gb", function()
+  vim.cmd("DiffviewOpen " .. get_default_branch_name())
+end, { desc = "Diff against master" })
+
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Diff view" })
 vim.keymap.set("v", "<leader>gd", "<Esc><cmd>'<,'>DiffviewFileHistory --follow<cr>", { desc = "Range history" })
 vim.keymap.set("n", "<leader>gc", ":DiffviewOpen ", { desc = "Diff custom" })
