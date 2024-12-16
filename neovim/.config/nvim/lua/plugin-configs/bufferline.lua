@@ -60,9 +60,9 @@ vim.keymap.set({ "n", "x" }, "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { desc
 vim.keymap.set({ "n", "x" }, "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { desc = "move next" })
 vim.keymap.set({ "n", "x" }, "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", { desc = "delete buffers to the left" })
 vim.keymap.set({ "n", "x" }, "<leader>bL", "<cmd>BufferLineCloseRight<cr>", { desc = "delete buffers to the right" })
-vim.keymap.set({ "n", "x" }, "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Toggle buffer pin" })
-vim.keymap.set({ "n", "x" }, "<leader>bP", close_all_but_pinned, { desc = "Close all unpinned" })
-vim.keymap.set({ "n", "x" }, "<leader>bs", "<cmd>BufferLinePick<cr>", { desc = "Magic buffer select" })
+-- vim.keymap.set({ "n", "x" }, "<leader>bp", "<cmd>BufferLineTogglePin<cr>", { desc = "Toggle buffer pin" })
+-- vim.keymap.set({ "n", "x" }, "<leader>bP", close_all_but_pinned, { desc = "Close all unpinned" })
+-- vim.keymap.set({ "n", "x" }, "<leader>bs", "<cmd>BufferLinePick<cr>", { desc = "Magic buffer select" })
 vim.keymap.set({ "n", "x" }, "<leader>bv", close_hidden_buffers, { desc = "Close non-visible buffers" })
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
