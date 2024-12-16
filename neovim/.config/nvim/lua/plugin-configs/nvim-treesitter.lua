@@ -113,6 +113,7 @@ require("nvim-treesitter.configs").setup({
     "cuda",
     "d",
     "dart",
+    "diff",
     "devicetree",
     "dockerfile",
     "elixir",
