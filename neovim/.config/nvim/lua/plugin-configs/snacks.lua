@@ -12,6 +12,7 @@ require("snacks").setup({
   statuscolumn = {
     enabled = false,
   },
+  scroll = {},
   scratch = {
     ft = function()
       return "markdown"

@@ -72,6 +72,7 @@ in {
       };
 
       packages = with pkgs; [
+        aider-chat
         bat
         btop
         cmake
