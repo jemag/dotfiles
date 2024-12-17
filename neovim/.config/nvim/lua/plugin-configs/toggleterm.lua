@@ -2,6 +2,7 @@ require("toggleterm").setup({
   shading_factor = "0",
   hide_numbers = false,
   direction = "float",
+  auto_scroll = false,
   start_in_insert = true,
   persist_mode = false,
   on_open = function(t)
