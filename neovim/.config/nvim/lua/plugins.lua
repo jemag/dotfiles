@@ -221,6 +221,10 @@ require("lazy").setup({
     config = function()
       require("spelunk").setup({
         enable_persist = true,
+        base_mappings = {
+          next_bookmark = "]b",
+          prev_bookmark = "[b",
+        }
       })
     end,
   },
