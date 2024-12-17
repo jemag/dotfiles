@@ -41,10 +41,12 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
+alias kn="n +'lua require(\"kubectl\").toggle()'"
 alias y="yazi"
 alias hm="home-manager"
-alias ns="nix-search"
+alias ns="nix-search -r"
 alias :q="exit"
+alias :qa="exit"
 alias digs="dig +short"
 alias dign="dig +noall +answer"
 alias digy="dig +yaml"
