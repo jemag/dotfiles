@@ -11,7 +11,7 @@ windows:
             - cd ~/Projects/TerraformModules/
         - automation:
             - cd ~/Projects/Automation/
-  - argo-platform:
+  - argocd:
       layout: even-horizontal
       panes:
         - argocd:
