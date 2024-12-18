@@ -133,7 +133,7 @@
   "snacks.nvim": { "branch": "main", "commit": "d2b5680359ee8feb34b095fd574b4f9b3f013629" },
   "sonokai": { "branch": "master", "commit": "fd42b20963c34dfc1744ac31f6a6efe78f4edad2" },
   "spaceduck": { "branch": "main", "commit": "350491f19343b24fa85809242089caa02d4dadce" },
-  "spelunk.nvim": { "branch": "main", "commit": "e939dfc826859c3af5cdbc2a75c4e12f78af09a4" },
+  "spelunk.nvim": { "branch": "main", "commit": "2f9d5e254cd6aff977d3d32bc83dc81582ab5bfa" },
   "split.nvim": { "branch": "main", "commit": "31863f96e3c36a48dd86b814ff05fa8d644e77a3" },
   "startuptime.vim": { "branch": "master", "commit": "dfa57f522d6f61793fe5fea65bca7484751b8ca2" },
   "stay-in-place.nvim": { "branch": "main", "commit": "0628b6db8970fc731abf9608d6f80659b58932c9" },
