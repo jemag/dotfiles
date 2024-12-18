@@ -42,7 +42,7 @@ vim.opt.fillchars = {
   vert = "┃", -- BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
 }
 vim.opt.ruler = false
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 vim.g.editorconfig = true
 
 vim.opt.spelllang = { "en", "fr" }
