@@ -14,7 +14,7 @@ windows:
   - argo-platform:
       layout: even-horizontal
       panes:
-        - argo-platform:
+        - argocd:
             - cd ~/Projects/ArgoPlatform/master
   - wiki:
       layout: even-horizontal
