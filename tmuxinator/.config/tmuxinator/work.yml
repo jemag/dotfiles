@@ -28,8 +28,3 @@ windows:
             - cd ~/Projects/SystemInformer/
         - argoexample:
             - cd ~/Projects/ArgoExample/
-  - images:
-      layout: even-horizontal
-      panes:
-        - images:
-            - cd ~/Projects/Images/
