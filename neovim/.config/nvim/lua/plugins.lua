@@ -31,7 +31,11 @@ require("lazy").setup({
     event = "FileType qf",
     ---@module "quicker"
     ---@type quicker.SetupOptions
-    opts = {},
+    opts = {
+      highlight = {
+        load_buffers = false
+      }
+    },
   },
   {
     url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
