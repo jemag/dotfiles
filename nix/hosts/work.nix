@@ -58,6 +58,7 @@
       kyverno
       maven
       mkcert
+      pack
       powershell
       skopeo
       sonar-scanner-cli
