@@ -14,7 +14,7 @@ require("blink-cmp").setup({
   --     enabled = true,
   --   },
   -- },
-  windows = {
+  completion = {
     documentation = {
       -- Controls whether the documentation window will automatically show when selecting a completion item
       auto_show = true,
