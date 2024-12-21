@@ -37,7 +37,6 @@ wk.add({
     { "<localleader>m", group = "+misc" },
     { "<localleader>ms", group = "+schema" },
     { "<localleader>mp", group = "+paste image" },
-    { "<localleader>n", group = "+notes" },
     { "<localleader>p", group = "+project" },
     { "<localleader>ps", group = "+session" },
     { "<localleader>s", group = "+misc search" },
