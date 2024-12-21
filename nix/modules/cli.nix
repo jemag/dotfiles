@@ -105,7 +105,6 @@ in {
         nixfmt-classic
         nushell
         parallel
-        pack
         ripgrep
         rustup
         sesh
