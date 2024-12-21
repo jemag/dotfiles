@@ -271,13 +271,6 @@ require("lazy").setup({
       require("key-analyzer").setup()
     end,
   },
-  {
-    "mrjones2014/legendary.nvim",
-    config = function()
-      vim.keymap.set("n", "<localleader>sK", "<cmd>Legendary<cr>", { desc = "Legendary keymaps" })
-    end,
-    keys = { "<localleader>sK" },
-  },
   { "stevearc/dressing.nvim" },
   {
     "ryanmsnyder/toggleterm-manager.nvim",

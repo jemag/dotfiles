@@ -227,4 +227,3 @@ vim.keymap.set("x", "<localleader>md", function()
   vim.cmd.diffthis()
 end, { desc = "Diff selection with clipboard" })
 
-require("legendary").setup()
