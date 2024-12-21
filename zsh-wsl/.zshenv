@@ -1,5 +1,5 @@
 typeset -U path
-export JAVA_HOME=/usr/lib/jvm/default
+# export JAVA_HOME=/usr/lib/jvm/default
 export EDITOR=nvim
 export OBSIDIAN_VAULT="/mnt/c/Users/brassarddesjardinsa/OneDrive - DFO-MPO/Obsidian"
 export GIT_EDITOR=nvim
