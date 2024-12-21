@@ -7,7 +7,7 @@ require("snacks").setup({
     enabled = false,
   },
   quickfile = {
-    enabled = false,
+    enabled = true,
   },
   statuscolumn = {
     enabled = false,
