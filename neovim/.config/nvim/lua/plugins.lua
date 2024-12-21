@@ -228,7 +228,7 @@ require("lazy").setup({
         base_mappings = {
           next_bookmark = "]b",
           prev_bookmark = "[b",
-        }
+        },
       })
     end,
   },
@@ -662,12 +662,12 @@ require("lazy").setup({
     enabled = vim.fn.getenv("WSL_INTEROP") == nil,
   },
   {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("plugin-configs.nvim-colorizer")
-    end,
+    "eero-lehtinen/oklch-color-picker.nvim",
+    event = "VeryLazy",
+    opts = {},
     keys = {
-      { "<localleader>tC", "<cmd>ColorizerToggle<cr>", desc = "Colorizer" },
+      -- One handed keymap recommended, you will be using the mouse
+      { "<localleader>mc", "<cmd>ColorPickOklch<cr>", desc = "Color pick under cursor" },
     },
   },
 
