@@ -301,7 +301,6 @@ vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vi
 vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 vim.keymap.set("n", "<leader>sz", "<cmd>Telescope luasnip<cr>", { desc = "Snippets" })
 vim.keymap.set("n", "<leader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
-vim.keymap.set("n", "z=", "<cmd>Telescope spell_suggest<cr>", { desc = "Spell suggest" })
 
 vim.keymap.set("n", "<leader>sC", function()
   require("telescope").extensions.diff.diff_files({ hidden = true })
