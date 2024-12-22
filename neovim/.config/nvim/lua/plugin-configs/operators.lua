@@ -16,7 +16,7 @@ require("mini.operators").setup({
 
   -- Replace text with register
   replace = {
-    prefix = "s",
+    prefix = "",
   },
 
   -- Sort text
