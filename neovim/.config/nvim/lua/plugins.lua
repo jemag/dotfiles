@@ -347,12 +347,6 @@ require("lazy").setup({
     end,
   },
   {
-    "LeonHeidelbach/trailblazer.nvim",
-    config = function()
-      require("plugin-configs.trailblazer")
-    end,
-  },
-  {
     "glacambre/firenvim",
     build = function()
       vim.fn["firenvim#install"](0)
