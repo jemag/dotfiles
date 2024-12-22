@@ -7,7 +7,7 @@ require("arrow").setup({
     edit = "e",
     delete_mode = "d",
     clear_all_items = "C",
-    toggle = "s",
+    toggle = "a",
     open_vertical = "v",
     open_horizontal = "x",
     quit = "q",
