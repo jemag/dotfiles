@@ -232,6 +232,14 @@ require("lazy").setup({
       require("plugin-configs.snipe")
     end,
   },
+  -- {
+  --   "kungfusheep/snipe-spell.nvim",
+  --   dependencies = "leath-dub/snipe.nvim",
+  --   config = true,
+  --   keys = {
+  --     { "z=", "<cmd>SnipeSpell <cr>", desc = "Snipe Spellchecker" },
+  --   },
+  -- },
   {
     -- "tomasky/bookmarks.nvim",
     "ten3roberts/bookmarks.nvim",
