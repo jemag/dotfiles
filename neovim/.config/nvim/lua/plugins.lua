@@ -233,12 +233,6 @@ require("lazy").setup({
     end,
   },
   {
-    "otavioschwanck/arrow.nvim",
-    config = function()
-      require("plugin-configs.arrow")
-    end,
-  },
-  {
     -- "tomasky/bookmarks.nvim",
     "ten3roberts/bookmarks.nvim",
     branch = "feat-scoped-bookmarks",
