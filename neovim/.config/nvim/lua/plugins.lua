@@ -33,8 +33,8 @@ require("lazy").setup({
     ---@type quicker.SetupOptions
     opts = {
       highlight = {
-        load_buffers = false
-      }
+        load_buffers = false,
+      },
     },
   },
   {
