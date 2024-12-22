@@ -223,13 +223,13 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter", -- Optional: for showing grammar context
     },
     config = function()
-      require("spelunk").setup({
-        enable_persist = true,
-        base_mappings = {
-          next_bookmark = "]b",
-          prev_bookmark = "[b",
-        },
-      })
+      require("plugin-configs.spelunk")
+    end,
+  },
+  {
+    "leath-dub/snipe.nvim",
+    config = function()
+      require("plugin-configs.snipe")
     end,
   },
   {
