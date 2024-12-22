@@ -129,6 +129,7 @@
   "sj.nvim": { "branch": "main", "commit": "7ca6186a9ce1588ded42cd9d67582ace0f9a9242" },
   "smart-splits.nvim": { "branch": "master", "commit": "49c397120944ebb89fbb11126b7edce36be8bdad" },
   "snacks.nvim": { "branch": "main", "commit": "98df370703b3c47a297988f3e55ce99628639590" },
+  "snipe-spell.nvim": { "branch": "main", "commit": "973b3d70ea026d9b43b56c4834c19ee85b3b1372" },
   "snipe.nvim": { "branch": "main", "commit": "9dc03ff9abf5c3939e1cc3f601b8285b6175b145" },
   "sonokai": { "branch": "master", "commit": "fd42b20963c34dfc1744ac31f6a6efe78f4edad2" },
   "spaceduck": { "branch": "main", "commit": "350491f19343b24fa85809242089caa02d4dadce" },
