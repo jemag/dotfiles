@@ -824,7 +824,9 @@ require("lazy").setup({
     "utilyre/barbecue.nvim",
     name = "barbecue",
     config = function()
-      require("barbecue").setup()
+      require("barbecue").setup({
+        show_modified = true
+      })
     end,
     dependencies = {
       "SmiteshP/nvim-navic",
