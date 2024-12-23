@@ -4,4 +4,4 @@ require("snipe").setup({
   },
 })
 
-vim.keymap.set({ "n", "x" }, "<c-n>", require("snipe").open_buffer_menu, { desc = "Snipe buffer menu" })
+vim.keymap.set({ "n", "x" }, "<c-s>", require("snipe").open_buffer_menu, { desc = "Snipe buffer menu" })
