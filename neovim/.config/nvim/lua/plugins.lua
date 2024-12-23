@@ -80,7 +80,9 @@ require("lazy").setup({
     end,
   },
   {
-    "someone-stole-my-name/yaml-companion.nvim",
+    -- "someone-stole-my-name/yaml-companion.nvim",
+    "astephanh/yaml-companion.nvim",
+    branch = "kubernetes_crd_detection",
     dependencies = {
       { "neovim/nvim-lspconfig" },
       { "nvim-lua/plenary.nvim" },
