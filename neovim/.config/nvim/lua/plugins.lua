@@ -573,6 +573,14 @@ require("lazy").setup({
     event = "User LoadColorSchemes",
   },
   {
+    "0xstepit/flow.nvim",
+    tag = "v2.0.0",
+    event = "User LoadColorSchemes",
+    opts = {
+      -- Your configuration options here.
+    },
+  },
+  {
     "Shatur95/neovim-ayu",
     priority = 1000,
   },
