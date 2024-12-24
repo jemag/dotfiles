@@ -10,11 +10,12 @@ require("bookmarks").setup({
   },
   on_attach = function(bufnr)
     local bm = require("bookmarks")
-    vim.keymap.set("n", "mm", bm.bookmark_toggle, { desc = "toggle bookmark" }) -- add or remove bookmark at current line
+    vim.keymap.set("n", "mt", bm.bookmark_toggle, { desc = "toggle bookmark" }) -- add or remove bookmark at current line
     vim.keymap.set("n", "mi", bm.bookmark_ann, { desc = "annotate bookmark" }) -- add or edit mark annotation at current line
-    vim.keymap.set("n", "mc", bm.bookmark_clean,{ desc = "clean buffer bookmarks" }) -- clean all marks in local buffer
-    vim.keymap.set("n", "[m", bm.bookmark_prev,{ desc = "prev bookmark" }) -- jump to previous mark in local buffer
-    vim.keymap.set("n", "]m", bm.bookmark_next,{ desc = "next bookmark" }) -- jump to next mark in local buffer
+    vim.keymap.set("n", "mc", bm.bookmark_clean, { desc = "clean buffer bookmarks" }) -- clean all marks in local buffer
+    vim.keymap.set("n", "[m", bm.bookmark_prev, { desc = "prev bookmark" }) -- jump to previous mark in local buffer
+    vim.keymap.set("n", "]m", bm.bookmark_next, { desc = "next bookmark" }) -- jump to next mark in local buffer
+    -- vim.keymap.set("n", "mx", bm.bookmark_clear_all, { desc = "clear all bookmarks" }) -- jump to next mark in local buffer
     vim.keymap.set("n", "ml", "<cmd>Telescope bookmarks list<cr>", { desc = "List bookmarks" })
   end,
 })
