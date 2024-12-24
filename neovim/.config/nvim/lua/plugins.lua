@@ -244,8 +244,9 @@ require("lazy").setup({
   },
   {
     -- "tomasky/bookmarks.nvim",
-    "ten3roberts/bookmarks.nvim",
-    branch = "feat-scoped-bookmarks",
+    -- "ten3roberts/bookmarks.nvim",
+    "jemag/bookmarks.nvim",
+    -- branch = "feat-scoped-bookmarks",
     config = function()
       require("plugin-configs.bookmarks")
     end,
