@@ -5,4 +5,7 @@ require("spelunk").setup({
     next_bookmark = "]b",
     prev_bookmark = "[b",
   },
+  window_mappings = {
+    close = "<esc>",
+  }
 })
