@@ -26,6 +26,10 @@ vim.keymap.set("n", "i", function()
     return "i"
   end
 end, { expr = true, desc = "enter insert mode with proper indent" })
+
+vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+
 -- More convenient horizontal scrolling
 vim.api.nvim_set_keymap("n", "zh", "<cmd>call HorizontalScrollMode('h')<cr>", { noremap = true, silent = true, desc = "Left scroll" })
 vim.api.nvim_set_keymap("n", "zl", "<cmd>call HorizontalScrollMode('l')<cr>", { noremap = true, silent = true, desc = "Right scroll" })
