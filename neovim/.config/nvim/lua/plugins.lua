@@ -394,6 +394,20 @@ require("lazy").setup({
       require("plugin-configs.tmux-status")
     end,
   },
+  {
+    "jemag/nerdicons.nvim",
+    branch = "configurable-register",
+    -- "glepnir/nerdicons.nvim",
+    cmd = "NerdIcons",
+    config = function()
+      require("nerdicons").setup({
+        register = '"',
+      })
+    end,
+    keys = {
+      { "<leader>sI", "<cmd>NerdIcons<cr>", desc = "Pick nerd icon" },
+    },
+  },
   { "tweekmonster/startuptime.vim" },
   { "stevearc/profile.nvim" },
   {
@@ -828,7 +842,7 @@ require("lazy").setup({
     name = "barbecue",
     config = function()
       require("barbecue").setup({
-        show_modified = true
+        show_modified = true,
       })
     end,
     dependencies = {
