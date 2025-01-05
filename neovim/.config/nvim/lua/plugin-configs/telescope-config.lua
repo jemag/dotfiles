@@ -264,7 +264,7 @@ vim.keymap.set("n", "<leader>sE", function()
   vim.api.nvim_command("doautocmd User LoadColorSchemes")
   require("telescope.builtin").colorscheme({ enable_preview = true })
 end, { desc = "Colorschemes" })
-vim.keymap.set("n", "<leader>sf", function()
+vim.keymap.set("n", "<c-p>", function()
   require("telescope").extensions.menufacture.find_files({ hidden = true })
 end, { desc = "Files" })
 vim.keymap.set(
