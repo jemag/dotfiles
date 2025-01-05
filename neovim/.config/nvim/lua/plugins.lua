@@ -156,12 +156,6 @@ require("lazy").setup({
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("plugin-configs.nvim-notify")
-    end,
-  },
-  {
     "MagicDuck/grug-far.nvim",
     config = function()
       require("plugin-configs.grugfar")
