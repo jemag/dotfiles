@@ -48,6 +48,12 @@ require("possession").setup({
   },
 })
 vim.keymap.set({ "n" }, "<leader>L", "<cmd>SLoad<cr>", { desc = "Load session" })
-vim.keymap.set("n", "<localleader>pss", "<cmd>SSave<cr>", { desc = "Quick save" })
+vim.keymap.set("n", "<localleader>psq", "<cmd>SSave<cr>", { desc = "Quick save" })
+vim.keymap.set("n", "<localleader>pss", function()
+  local input = vim.fn.input("Save session as: ")
+  if input ~= "" then
+    vim.cmd("SSave " .. input)
+  end
+end, { desc = "Quick save" })
 vim.keymap.set("n", "<localleader>psS", "<cmd>Telescope possession list<cr>", { desc = "Search sessions" })
 vim.keymap.set("n", "<localleader>psj", "<cmd>SShow<cr>", { desc = "Show session" })
