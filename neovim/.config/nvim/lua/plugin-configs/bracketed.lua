@@ -5,4 +5,5 @@ require("mini.bracketed").setup({
   file = { suffix = "" },
   treesitter = { suffix = "" },
   comment = { suffix = "k" },
+  window = { suffix = "" },
 })

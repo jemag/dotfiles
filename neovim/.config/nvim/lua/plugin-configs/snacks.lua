@@ -1,6 +1,7 @@
 require("snacks").setup({
   styles = {
     notification_history = {
+      relative = "editor",
       border = "rounded",
       zindex = 100,
       width = 0.95,
@@ -14,6 +15,7 @@ require("snacks").setup({
       keys = { q = "close" },
     },
     notification = {
+      relative = "editor",
       wo = {
         wrap = true,
       },
@@ -37,6 +39,9 @@ require("snacks").setup({
       return "markdown"
     end,
   },
+  words = {
+    enabled = true,
+  },
 })
 
 vim.keymap.set("n", "<localleader>ts", function()
@@ -50,3 +55,9 @@ vim.keymap.set("n", "<localleader>tS", function()
 end, { desc = "Select scratch buffer" })
 vim.keymap.set("n", "<localleader>tN", require("snacks").notifier.hide, { desc = "Hide notifications" })
 vim.keymap.set("n", "<localleader>th", require("snacks").notifier.show_history, { desc = "Notifications history" })
+vim.keymap.set({ "n", "x", "t" }, "]w", function()
+  require("snacks").words.jump(vim.v.count1)
+end, { desc = "Jump to next word reference" })
+vim.keymap.set({ "n", "x", "t" }, "[w", function()
+  require("snacks").words.jump(-vim.v.count1)
+end, { desc = "Jump to prev word reference" })
