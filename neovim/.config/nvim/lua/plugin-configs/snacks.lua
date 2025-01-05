@@ -23,7 +23,7 @@ require("snacks").setup({
   },
   bigfile = {
     enabled = true,
-    size = 0.5 * 1024 * 1024, -- 0.5 MiB
+    size = 0.1 * 1024 * 1024, -- 0.1 MiB
   },
   notifier = {
     enabled = true,
