@@ -663,11 +663,11 @@ require("lazy").setup({
   },
   {
     "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
+    build = false,
     config = function()
       require("plugin-configs.image")
     end,
-    enabled = vim.fn.getenv("WSL_INTEROP") == nil,
+    enabled = vim.fn.getenv("WSL_INTEROP") == vim.NIL,
   },
   {
     "eero-lehtinen/oklch-color-picker.nvim",
