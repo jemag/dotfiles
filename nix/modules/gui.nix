@@ -95,6 +95,7 @@ in
       sxiv
       ticktick
       redshift
+      ueberzugpp
       zathura
     ];
   };
