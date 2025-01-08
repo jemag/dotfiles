@@ -8,7 +8,9 @@ require("blink-cmp").setup({
     ["<C-d>"] = { "scroll_documentation_down", "fallback" },
     ["<C-u>"] = { "scroll_documentation_up", "fallback" },
     ["<C-j>"] = { "snippet_forward", "fallback" },
+    ["<C-k>"] = { "snippet_backward", "fallback" },
     ["<C-f>"] = { "fallback" },
+    ['<C-b>'] = { function(cmp) cmp.show({ providers = { 'path' } }) end },
   },
   -- accept = {
   --   auto_brackets = {
