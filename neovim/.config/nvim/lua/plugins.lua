@@ -449,15 +449,6 @@ require("lazy").setup({
       require("plugin-configs.render-markdown")
     end,
   },
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   config = function ()
-  --     require("plugin-configs.markview")
-  --   end,
-  --   dependencies = {
-  --     "nvim-tree/nvim-web-devicons", -- Used by the code bloxks
-  --   },
-  -- },
   {
     "jbyuki/one-small-step-for-vimkind",
   },
@@ -683,13 +674,6 @@ require("lazy").setup({
     "jedrzejboczar/possession.nvim",
     config = function()
       require("plugin-configs.possession")
-    end,
-  },
-  -- TODO: Check if still needed
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("plugin-configs.project_nvim")
     end,
   },
   {

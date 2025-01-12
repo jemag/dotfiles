@@ -1,5 +1,0 @@
-vim.keymap.set("n", "<leader>vn", "<cmd>Vifm .<cr>", { desc = "Normal" })
-vim.keymap.set("n", "<leader>vv", "<cmd>VsplitVifm<cr>", { desc = "Vsplit" })
-vim.keymap.set("n", "<leader>vs", "<cmd>SplitVifm<cr>", { desc = "Split" })
-vim.keymap.set("n", "<leader>vd", "<cmd>DiffVifm<cr>", { desc = "Diff" })
-vim.keymap.set("n", "<leader>vt", "<cmd>TabVifm<cr>", { desc = "Tab" })

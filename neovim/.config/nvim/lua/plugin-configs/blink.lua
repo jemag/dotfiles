@@ -13,7 +13,7 @@ require("blink-cmp").setup({
     ['<C-b>'] = { function(cmp) cmp.show({ providers = { 'path' } }) end },
   },
   -- accept = {
-  --   auto_brackets = {
+
   --     enabled = true,
   --   },
   -- },
