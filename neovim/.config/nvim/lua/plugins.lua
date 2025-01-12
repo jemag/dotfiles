@@ -16,6 +16,9 @@ require("lazy").setup({
   {
     "tyru/capture.vim",
     cmd = "Capture",
+    keys = {
+      { "<localleader>tm", '<cmd>Capture messages<cr>', noremap = true, silent = true, desc = "Capture messages" },
+    },
   },
   --[[ #######################
      General
