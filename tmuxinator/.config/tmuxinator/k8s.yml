@@ -72,7 +72,7 @@ windows:
             - kubie ctx aks-test-admin
             - kubie ns argocd
         - kubie_sc2gprod:
-            - kubie ctx aks-prod-admin
+            - kubie ctx aks-prod
             - kubie ns argocd
   - sc2g-sandbox:
       layout: tiled
