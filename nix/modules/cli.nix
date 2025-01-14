@@ -94,6 +94,7 @@ in {
         htop
         ijq
         imagemagick
+        iotop-c
         jq
         lazygit
         manix # search nix options
@@ -117,6 +118,7 @@ in {
         ticker
         tmux
         tmuxinator
+        tokei
         tree-sitter
         trivy
         unzip
