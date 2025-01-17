@@ -77,6 +77,7 @@ in {
         btop
         cmake
         delta
+        devbox
         difftastic
         dig
         duf
