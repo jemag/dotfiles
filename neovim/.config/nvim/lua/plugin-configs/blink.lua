@@ -23,7 +23,18 @@ require("blink-cmp").setup({
       auto_show = true,
       auto_show_delay_ms = 500,
       update_delay_ms = 50,
+      window = {
+        border = "single"
+      },
     },
+      menu = {
+        border = "single",
+      },
+  },
+  signature = {
+    window = {
+      border = "single",
+    }
   },
   sources = {
     -- add lazydev to your completion providers
@@ -37,4 +48,15 @@ require("blink-cmp").setup({
       },
     },
   },
+})
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "highlight! link BlinkCmpMenu Normal",
+  desc = "Link BlinkCMPMenu to Normal",
+})
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "highlight! link BlinkCmpMenuBorder Normal",
+  desc = "Link BlinkCMPMenuBorder to Normal",
 })

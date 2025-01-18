@@ -127,6 +127,18 @@ local function set_default_colors()
 end
 
 set_default_colors()
+
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "highlight! link NormalFloat Normal",
+  desc = "Link NormalFloat to Normal",
+})
+vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+  pattern = "*",
+  command = "highlight! link Pmenu Normal",
+  desc = "Link Pmenu to Normal",
+})
+
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
   callback = function()
