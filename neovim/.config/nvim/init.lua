@@ -109,4 +109,11 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = "cmdwin_reset_maps",
   desc = "Remove some keybinds for command-line window",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	desc = "Automatically split help buffers to the right",
+	pattern = "help",
+	command = "wincmd L",
+})
+
 vim.cmd("filetype indent plugin on")
