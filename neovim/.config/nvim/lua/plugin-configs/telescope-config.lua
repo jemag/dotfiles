@@ -93,8 +93,8 @@ require("telescope").setup({
         ["<C-l>"] = actions.send_to_loclist,
         ["<C-y>"] = custom_actions.yank_entry,
         ["<C-v>"] = pick_vertical,
-        ["<C-x>"] = pick_horizontal,
-        ["<C-s>"] = pick_default,
+        ["<C-s>"] = pick_horizontal,
+        ["<C-e>"] = pick_default,
         -- ["<C-u>"] = false,
         -- Otherwise, just set the mapping to the function that you want it to be.
         -- ["<C-i>"] = actions.select_horizontal,
@@ -122,10 +122,10 @@ require("telescope").setup({
       sort_mru = true,
       mappings = {
         i = {
-          ["<c-e>"] = actions.delete_buffer,
+          ["<c-x>"] = actions.delete_buffer,
         },
         n = {
-          ["<c-e>"] = actions.delete_buffer,
+          ["<c-x>"] = actions.delete_buffer,
         },
       },
     },
