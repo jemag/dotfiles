@@ -1,8 +1,8 @@
 require("scrollview").setup({
   -- excluded_filetypes = {'nerdtree'},
   current_only = false,
-  winblend = 50,
-  winblend_gui = 50,
+  winblend = 30,
+  winblend_gui = 30,
   base = "right",
   signs_on_startup = {
     "conflicts",
