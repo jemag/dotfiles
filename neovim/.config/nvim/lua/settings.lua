@@ -177,3 +177,9 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   end,
   desc = "Hide colorcolumn in inactive window",
 })
+
+vim.api.nvim_create_user_command(
+  "Qa",
+  "qa",
+  {}
+)
