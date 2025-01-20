@@ -20,7 +20,7 @@ local toggle_tabline = function()
 end
 
 vim.keymap.set("n", "i", function()
-  if #vim.fn.getline(".") == 0 then
+  if #vim.fn.getline(".") == 0 and vim.bo.buftype ~= "terminal" then
     return [["_cc]]
   else
     return "i"
@@ -28,7 +28,7 @@ vim.keymap.set("n", "i", function()
 end, { expr = true, desc = "enter insert mode with proper indent" })
 
 vim.keymap.set("n", "a", function()
-  if #vim.fn.getline(".") == 0 then
+  if #vim.fn.getline(".") == 0 and vim.bo.buftype ~= "terminal" then
     return [["_cc]]
   else
     return "a"
