@@ -414,12 +414,6 @@ require("lazy").setup({
   { "tweekmonster/startuptime.vim" },
   { "stevearc/profile.nvim" },
   {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("plugin-configs.nvim-autopairs")
-    end,
-  },
-  {
     "nvim-neotest/neotest",
     config = function()
       require("plugin-configs.neotest")

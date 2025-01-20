@@ -136,7 +136,6 @@ _comp_options+=(globdots)
 ##########
 # zinit
 ##########
-zinit light "hlissner/zsh-autopair"
 # zinit load "denysdovhan/spaceship-prompt"
 zinit light "zsh-users/zsh-completions"
 # zinit load "jeffreytse/zsh-vi-mode"

@@ -18,6 +18,11 @@ require("blink-cmp").setup({
   --   },
   -- },
   completion = {
+    accept = {
+      auto_brackets = {
+        enabled = false,
+      },
+    },
     documentation = {
       -- Controls whether the documentation window will automatically show when selecting a completion item
       auto_show = true,
