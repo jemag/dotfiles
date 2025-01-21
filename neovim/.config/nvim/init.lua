@@ -112,7 +112,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "Automatically split help buffers to the right",
-	pattern = "help",
+	pattern = {"help", "man"},
 	command = "wincmd L",
 })
 
