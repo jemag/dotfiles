@@ -230,11 +230,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   end,
 })
 
-vim.keymap.set("n", "<leader>s/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in buffer" })
-vim.keymap.set("n", "<leader>s;", "<cmd>Telescope commands<cr>", { desc = "Commands" })
 vim.keymap.set("n", "<leader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
-vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "Open buffers" })
-vim.keymap.set("n", "<leader>sB", "<cmd>Telescope builtin include_extensions=true<cr>", { desc = "Telescope all" })
 vim.api.nvim_create_user_command(
   "DiffCommitLine",
   "lua require('telescope').extensions.advanced_git_search.diff_commit_line()",
@@ -250,57 +246,19 @@ vim.keymap.set(
   { desc = "Advanced Search inside commit contents" }
 )
 vim.keymap.set("n", "<leader>sgf", require("telescope").extensions.advanced_git_search.diff_branch_file, { desc = "Advanced Branch file" })
-vim.keymap.set("n", "<leader>sgB", "<cmd>Telescope git_bcommits<cr>", { desc = "Buffer commits" })
-vim.keymap.set("n", "<leader>sgc", "<cmd>Telescope git_commits<cr>", { desc = "Commits" })
 vim.keymap.set("n", "<leader>sgr", require("telescope").extensions.advanced_git_search.checkout_reflog, { desc = "Advanced Reflog" })
-vim.keymap.set(
-  "n",
-  "<leader>sd",
-  "<cmd>Telescope find_files hidden=true find_command=fd,--type,f, cwd=%:p:h<cr>",
-  { desc = "Current file directory" }
-)
-vim.keymap.set("n", "<leader>sD", "<cmd>Telescope live_grep cwd=%:p:h<cr>", { desc = "Current file directory text" })
-vim.keymap.set("n", "<leader>sE", function()
-  vim.api.nvim_command("doautocmd User LoadColorSchemes")
-  require("telescope.builtin").colorscheme({ enable_preview = true })
-end, { desc = "Colorschemes" })
-vim.keymap.set("n", "<leader>sf", function()
-  require("telescope").extensions.menufacture.find_files({ hidden = true })
-end, { desc = "Files" })
-vim.keymap.set(
-  "n",
-  "<leader>sF",
-  "<cmd>Telescope find_files hidden=true find_command=fd,--type,f,--no-ignore-vcs<cr>",
-  { desc = "Files, include ignored" }
-)
-vim.keymap.set("n", "<leader>sw", require("telescope").extensions.menufacture.grep_string, { desc = "Grep cursor word" })
-vim.keymap.set("n", "<leader>sgs", "<cmd>Telescope git_status<cr>", { desc = "Git status" })
+-- vim.keymap.set("n", "<leader>sf", function()
+--   require("telescope").extensions.menufacture.find_files({ hidden = true })
+-- end, { desc = "Files" })
 vim.keymap.set("n", "<leader>sgw", require('telescope').extensions.git_worktree.git_worktrees, { desc = "Switch worktree" })
 vim.keymap.set("n", "<leader>sgW", require('telescope').extensions.git_worktree.create_git_worktree, { desc = "Create worktree" })
-vim.keymap.set(
-  "n",
-  "<leader>sh",
-  "<cmd>lua require('telescope.builtin').command_history({sorter = require('telescope.sorters').get_substr_matcher()})<cr>",
-  { desc = "Command history" }
-)
-vim.keymap.set("n", "<leader>sH", "<cmd>Telescope command_history<cr>", { desc = "Fuzzy Command History" })
-vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>sl", "<cmd>Telescope loclist<cr>", { desc = "Location list" })
 vim.keymap.set("n", "<leader>sL", "<cmd>Telescope possession list<cr>", { desc = "Session list" })
-vim.keymap.set("n", "<leader>sm", "<cmd>Telescope man_pages<cr>", { desc = "Man pages" })
 vim.keymap.set("n", "<leader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
-vim.keymap.set("n", "<leader>sp", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
-vim.keymap.set("n", "<leader>sP", "<cmd>Telescope projects<cr>", { desc = "Projects" })
-vim.keymap.set("n", "<leader>sq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
 vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
-vim.keymap.set("n", "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "LSP symbols" })
-vim.keymap.set("n", "<leader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Dynamic symbols" })
 vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })
-vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Undo" })
 vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 vim.keymap.set("n", "<leader>sz", "<cmd>Telescope luasnip<cr>", { desc = "Snippets" })
-vim.keymap.set("n", "<leader>s.", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
 
 vim.keymap.set("n", "<leader>sC", function()
   require("telescope").extensions.diff.diff_files({ hidden = true })
