@@ -14,6 +14,8 @@ end
 vim.g.mapleader = " "
 vim.cmd([[ let maplocalleader = "\<bs>"]])
 require("filetypes")
+-- To disable smart_splits multiplexer integration
+vim.g.smart_splits_multiplexer_integration = false
 require("plugins")
 require("keybindings")
 require("globals")
