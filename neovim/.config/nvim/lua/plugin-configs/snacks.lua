@@ -47,24 +47,29 @@ snacks.setup({
     actions = {
       pick = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        picker.main = picked_window_id
-        picker:action("edit")
+        vim.schedule(function()
+          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+            or vim.api.nvim_get_current_win()
+          vim.api.nvim_set_current_win(picked_window_id)
+          vim.cmd("e " .. item._path)
+        end)
       end,
       pick_vsplit = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        picker.main = picked_window_id
-        picker:action("edit_vsplit")
+          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+            or vim.api.nvim_get_current_win()
+          vim.api.nvim_set_current_win(picked_window_id)
+          vim.cmd("vsplit " .. item._path)
+          picker.main = picked_window_id
       end,
       pick_split = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        picker.main = picked_window_id
-        picker:action("edit_split")
+        vim.schedule(function()
+          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+            or vim.api.nvim_get_current_win()
+          vim.api.nvim_set_current_win(picked_window_id)
+          vim.cmd("split " .. item._path)
+        end)
       end,
     },
     enabled = true,
