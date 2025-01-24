@@ -1,7 +1,5 @@
 require('smart-splits').setup({
   -- enable or disable the tmux Integration
-  multiplexer_integration = false,
-  log_level = 'error',
   cursor_follows_swapped_bufs = true,
 })
 -- moving between splits
