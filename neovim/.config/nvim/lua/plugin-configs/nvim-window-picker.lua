@@ -30,7 +30,7 @@ require("window-picker").setup({
     -- filter using buffer options
     bo = {
       -- if the file type is one of following, the window will be ignored
-      filetype = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview" },
+      filetype = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview", "snacks_picker_preview"},
 
       -- if the buffer type is one of following, the window will be ignored
       buftype = {"nofile", "prompt"},
