@@ -44,32 +44,30 @@ snacks.setup({
     enabled = true,
   },
   picker = {
+    -- layout = {
+    --   preset = "ivy",
+    -- },
     actions = {
       pick = function(picker, item)
         picker:close()
-        vim.schedule(function()
-          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-            or vim.api.nvim_get_current_win()
-          vim.api.nvim_set_current_win(picked_window_id)
-          vim.cmd("e " .. item._path)
-        end)
+        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+          or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+        picker:action("edit")
       end,
       pick_vsplit = function(picker, item)
         picker:close()
-          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-            or vim.api.nvim_get_current_win()
-          vim.api.nvim_set_current_win(picked_window_id)
-          vim.cmd("vsplit " .. item._path)
-          picker.main = picked_window_id
+        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+          or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+        picker:action("edit_vsplit")
       end,
       pick_split = function(picker, item)
         picker:close()
-        vim.schedule(function()
-          local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-            or vim.api.nvim_get_current_win()
-          vim.api.nvim_set_current_win(picked_window_id)
-          vim.cmd("split " .. item._path)
-        end)
+        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
+          or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+        picker:action("edit_split")
       end,
     },
     enabled = true,
@@ -138,7 +136,8 @@ vim.keymap.set("n", "<leader>sE", function()
 end, { desc = "Colorschemes" })
 vim.keymap.set("n", "<leader>sh", snacks.picker.command_history, { desc = "Fuzzy Command History" })
 vim.keymap.set("n", "<leader>sk", snacks.picker.keymaps, { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>sf", snacks.picker.files, { desc = "Files" })
+vim.keymap.set("n", "<leader>sf", function() snacks.picker.files({hidden = true}) end, { desc = "Files" })
+vim.keymap.set("n", "<leader>st", function() snacks.picker.grep({hidden = true}) end, { desc = "Grep" })
 vim.keymap.set("n", "<leader>sp", snacks.picker.help, { desc = "Help" })
 vim.keymap.set("n", "<leader>sP", snacks.picker.projects, { desc = "Projects" })
 vim.keymap.set("n", "<leader>sq", snacks.picker.qflist, { desc = "Quickfix" })
