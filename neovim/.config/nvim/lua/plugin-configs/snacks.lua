@@ -44,9 +44,11 @@ snacks.setup({
     enabled = true,
   },
   picker = {
-    -- layout = {
-    --   preset = "ivy",
-    -- },
+    formatters = {
+      file = {
+        truncate = 80,
+      },
+    },
     actions = {
       pick = function(picker, item)
         picker:close()
