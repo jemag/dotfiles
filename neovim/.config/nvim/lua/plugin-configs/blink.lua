@@ -10,7 +10,13 @@ require("blink-cmp").setup({
     ["<C-j>"] = { "snippet_forward", "fallback" },
     ["<C-k>"] = { "snippet_backward", "fallback" },
     ["<C-f>"] = { "fallback" },
-    ['<C-b>'] = { function(cmp) cmp.show({ providers = { 'path' } }) end },
+    ["up"] = { "fallback" },
+    ["down"] = { "fallback" },
+    ["<C-b>"] = {
+      function(cmp)
+        cmp.show({ providers = { "path" } })
+      end,
+    },
   },
   -- accept = {
 
@@ -29,17 +35,17 @@ require("blink-cmp").setup({
       auto_show_delay_ms = 500,
       update_delay_ms = 50,
       window = {
-        border = "single"
-      },
-    },
-      menu = {
         border = "single",
       },
+    },
+    menu = {
+      border = "single",
+    },
   },
   signature = {
     window = {
       border = "single",
-    }
+    },
   },
   sources = {
     -- add lazydev to your completion providers
