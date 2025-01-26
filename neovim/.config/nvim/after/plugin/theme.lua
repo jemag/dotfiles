@@ -124,6 +124,8 @@ local function set_default_colors()
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
   vim.api.nvim_set_hl(0, "LspInlayHint", { bg = M.colors.selection_border })
   vim.api.nvim_set_hl(0, "LineNr", { fg = M.colors.comment })
+  vim.api.nvim_set_hl(0, "WinBar", { fg = M.colors.fg, bg = M.colors.bg })
+  vim.api.nvim_set_hl(0, "WinBarNC", { fg = M.colors.fg, bg = M.colors.bg })
 end
 
 set_default_colors()

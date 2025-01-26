@@ -90,7 +90,7 @@ require("lualine").setup({
         color = { bg = "#F27983", fg = "#1e1e2e" },
       },
       {
-        "encoding" ,
+        "encoding",
       },
       fileformat,
       { "filetype" },

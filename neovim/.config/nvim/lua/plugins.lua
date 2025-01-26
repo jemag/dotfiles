@@ -391,6 +391,12 @@ require("lazy").setup({
     end,
   },
   {
+    "Bekaboo/dropbar.nvim",
+    config = function()
+      require("plugin-configs.dropbar")
+    end,
+  },
+  {
     "jemag/tmux-status.nvim",
     lazy = true,
     config = function()
@@ -818,19 +824,19 @@ require("lazy").setup({
       require("lsp")
     end,
   },
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    config = function()
-      require("barbecue").setup({
-        show_modified = true,
-      })
-    end,
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-  },
+  -- {
+  --   "utilyre/barbecue.nvim",
+  --   name = "barbecue",
+  --   config = function()
+  --     require("barbecue").setup({
+  --       show_modified = true,
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "SmiteshP/nvim-navic",
+  --     "nvim-tree/nvim-web-devicons", -- optional dependency
+  --   },
+  -- },
   {
     "AckslD/nvim-FeMaco.lua",
     config = function()
