@@ -27,7 +27,7 @@
   "firenvim": { "branch": "master", "commit": "f8a5fa6f1ed42536490acf0840497c40331c184f" },
   "flow.nvim": { "branch": "main", "commit": "e1791cf20969e07e52e44d1f3e40bcfda2521e6a" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
-  "fzf": { "branch": "master", "commit": "7220d8233e81291db8bda3d4eb5286ca45f07be0" },
+  "fzf": { "branch": "master", "commit": "c13228f34623b856bd22a963959f4655cbfac947" },
   "fzf.vim": { "branch": "master", "commit": "556f45e79ae5e3970054fee4c4373472604a1b4e" },
   "garbage-day.nvim": { "branch": "main", "commit": "750ef08ae6031ee3683014c5349144340c08ead6" },
   "git-conflict.nvim": { "branch": "main", "commit": "a1badcd070d176172940eb55d9d59029dad1c5a6" },
