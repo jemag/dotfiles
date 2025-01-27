@@ -42,6 +42,7 @@
       cri-tools
       dockle
       falcoctl
+      grafana-loki
       hubble
       k9s
       krew
