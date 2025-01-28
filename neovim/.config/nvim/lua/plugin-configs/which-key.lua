@@ -22,7 +22,6 @@ wk.add({
     { "<leader>i", group = "+insert" },
     { "<leader>ib", group = "+comment box" },
     { "<leader>k", group = "+kubernetes" },
-    { "<leader>i", group = "+insert" },
     { "<leader>l", group = "+language" },
     { "<leader>m", group = "+bookmarks" },
     { "<leader>n", group = "+neotest" },
