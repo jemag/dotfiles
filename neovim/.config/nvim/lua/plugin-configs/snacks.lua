@@ -79,6 +79,8 @@ snacks.setup({
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
           ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+          ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
+          ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
           ["<c-v>"] = { "pick_vsplit", mode = { "i", "n" } },
           ["<c-s>"] = { "pick_split", mode = { "i", "n" } },
           ["<c-e>"] = { "pick", mode = { "i", "n" } },
