@@ -255,7 +255,7 @@ vim.keymap.set("n", "<leader>sgW", require('telescope').extensions.git_worktree.
 vim.keymap.set("n", "<leader>sL", "<cmd>Telescope possession list<cr>", { desc = "Session list" })
 vim.keymap.set("n", "<leader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
 vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
-vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })
+-- vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 vim.keymap.set("n", "<leader>sz", "<cmd>Telescope luasnip<cr>", { desc = "Snippets" })
