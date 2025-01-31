@@ -44,6 +44,37 @@ snacks.setup({
     enabled = true,
   },
   picker = {
+    explorer = {
+      finder = "explorer",
+      sort = { fields = { "sort" } },
+      tree = true,
+      supports_live = true,
+      follow_file = true,
+      focus = "list",
+      auto_close = false,
+      jump = { close = false },
+      layout = { preset = "sidebar", preview = false },
+      formatters = { file = { filename_only = true } },
+      matcher = { sort_empty = true },
+      config = function(opts)
+        return require("snacks.picker.source.explorer").setup(opts)
+      end,
+      win = {
+        list = {
+          keys = {
+            ["<BS>"] = "explorer_up",
+            ["a"] = "explorer_add",
+            ["d"] = "explorer_del",
+            ["r"] = "explorer_rename",
+            ["c"] = "explorer_copy",
+            ["m"] = "explorer_move",
+            ["y"] = "explorer_yank",
+            ["<c-c>"] = "explorer_cd",
+            ["."] = "explorer_focus",
+          },
+        },
+      },
+    },
     formatters = {
       file = {
         truncate = 80,
@@ -140,8 +171,12 @@ vim.keymap.set("n", "<leader>sE", function()
 end, { desc = "Colorschemes" })
 vim.keymap.set("n", "<leader>sh", snacks.picker.command_history, { desc = "Fuzzy Command History" })
 vim.keymap.set("n", "<leader>sk", snacks.picker.keymaps, { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>sf", function() snacks.picker.files({hidden = true}) end, { desc = "Files" })
-vim.keymap.set("n", "<leader>st", function() snacks.picker.grep({hidden = true}) end, { desc = "Grep" })
+vim.keymap.set("n", "<leader>sf", function()
+  snacks.picker.files({ hidden = true })
+end, { desc = "Files" })
+vim.keymap.set("n", "<leader>st", function()
+  snacks.picker.grep({ hidden = true })
+end, { desc = "Grep" })
 vim.keymap.set("n", "<leader>sp", snacks.picker.help, { desc = "Help" })
 vim.keymap.set("n", "<leader>sP", snacks.picker.projects, { desc = "Projects" })
 vim.keymap.set("n", "<leader>sq", snacks.picker.qflist, { desc = "Quickfix" })
@@ -152,7 +187,7 @@ vim.keymap.set("n", "<leader>s.", snacks.picker.resume, { desc = "Resume" })
 vim.keymap.set("n", "<leader>se", snacks.picker.icons, { desc = "Emoji" })
 vim.keymap.set("n", "<leader>sF", function()
   snacks.picker.files({ hidden = true, ignored = true })
-end, { desc = "Files include ingored" })
+end, { desc = "Files include ignored" })
 vim.keymap.set("n", "<leader>sT", function()
   snacks.picker.grep({ hidden = true, ignored = true })
 end, { desc = "Grep include ingored" })
