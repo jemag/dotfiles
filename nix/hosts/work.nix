@@ -47,6 +47,7 @@
       k9s
       krew
       kube-linter
+      kubecolor
       kubeconform
       kubectl
       kubectx

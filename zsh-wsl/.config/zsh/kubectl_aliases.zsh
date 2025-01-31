@@ -1,11 +1,11 @@
 # This command is used a LOT both below and in daily life
-alias k=kubectl
-alias kgg='kubectl api-resources --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl get'
+alias k=kubecolor
+alias kgg='kubecolor api-resources --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubecolor get'
 alias kyg=kubectl-get-yaml-fzf
 alias kdg=kubectl-describe-fzf
 alias keg=kubectl-edit-fzf
-alias kex="kubectl explain"
-alias kexp="kubectl explore"
+alias kex="kubecolor explain"
+alias kexp="kubecolor explore"
 
 alias kcx="kubectx"
 alias kns="kubens"
@@ -13,204 +13,204 @@ alias kbx="kubie ctx"
 alias kbs="kubie ns"
 alias kt="kubetail"
 alias ky="kyverno"
-# Execute a kubectl command against all namespaces
-alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
+# Execute a kubecolor command against all namespaces
+alias kca='_kca(){ kubecolor "$@" --all-namespaces;  unset -f _kca; }; _kca'
 
 # Generic ones
-alias kd="kubectl describe"
-alias ke="kubectl edit"
-alias kg="kubectl get"
+alias kd="kubecolor describe"
+alias ke="kubecolor edit"
+alias kg="kubecolor get"
 # Apply a YML file
-alias kaf='kubectl apply -f'
+alias kaf='kubecolor apply -f'
 
 # Drop into an interactive terminal on a container
-alias keti='kubectl exec -t -i'
+alias keti='kubecolor exec -t -i'
 
 # Manage configuration quickly to switch contexts between local, dev ad staging.
-alias kcuc='kubectl config use-context'
-alias kcsc='kubectl config set-context'
-alias kcdc='kubectl config delete-context'
-alias kccc='kubectl config current-context'
-alias kcgc='kubectl config get-contexts'
+alias kcuc='kubecolor config use-context'
+alias kcsc='kubecolor config set-context'
+alias kcdc='kubecolor config delete-context'
+alias kccc='kubecolor config current-context'
+alias kcgc='kubecolor config get-contexts'
 
 # General aliases
-alias kdel='kubectl delete'
-alias kdelf='kubectl delete -f'
+alias kdel='kubecolor delete'
+alias kdelf='kubecolor delete -f'
 
 # Pod management.
-alias kgp='kubectl get pods'
-alias kgpa='kubectl get pods --all-namespaces'
+alias kgp='kubecolor get pods'
+alias kgpa='kubecolor get pods --all-namespaces'
 alias kgpw='kgp --watch'
 alias kgpwide='kgp -o wide'
-alias kep='kubectl edit pods'
-alias kdp='kubectl describe pods'
-alias kdpp='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl describe pods'
-alias kdelp='kubectl delete pods'
-alias kgpall='kubectl get pods --all-namespaces -o wide'
+alias kep='kubecolor edit pods'
+alias kdp='kubecolor describe pods'
+alias kdpp='kubecolor get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubecolor describe pods'
+alias kdelp='kubecolor delete pods'
+alias kgpall='kubecolor get pods --all-namespaces -o wide'
 # get pod by label: kgpl "app=myapp" -n myns
 alias kgpl='kgp -l'
 # get pod by namespace: kgpn kube-system"
 alias kgpn='kgp -n'
 
 # Service management.
-alias kgs='kubectl get svc'
-alias kgsa='kubectl get svc --all-namespaces'
+alias kgs='kubecolor get svc'
+alias kgsa='kubecolor get svc --all-namespaces'
 alias kgsw='kgs --watch'
 alias kgswide='kgs -o wide'
-alias kes='kubectl edit svc'
-alias kds='kubectl describe svc'
-alias kdels='kubectl delete svc'
+alias kes='kubecolor edit svc'
+alias kds='kubecolor describe svc'
+alias kdels='kubecolor delete svc'
 
 # Endpoint management.
-alias kge='kubectl get endpoints'
-alias kgea='kubectl get endpoints --all-namespaces'
+alias kge='kubecolor get endpoints'
+alias kgea='kubecolor get endpoints --all-namespaces'
 alias kgew='kge --watch'
 alias kgewide='kge -o wide'
-alias kee='kubectl edit endpoints'
-alias kde='kubectl describe endpoints'
-alias kdele='kubectl delete endpoints'
+alias kee='kubecolor edit endpoints'
+alias kde='kubecolor describe endpoints'
+alias kdele='kubecolor delete endpoints'
 
 # Ingress management
-alias kgi='kubectl get ingress'
-alias kgia='kubectl get ingress --all-namespaces'
-alias kei='kubectl edit ingress'
-alias kdi='kubectl describe ingress'
-alias kdeli='kubectl delete ingress'
+alias kgi='kubecolor get ingress'
+alias kgia='kubecolor get ingress --all-namespaces'
+alias kei='kubecolor edit ingress'
+alias kdi='kubecolor describe ingress'
+alias kdeli='kubecolor delete ingress'
 
 # Namespace management
-alias kgns='kubectl get namespaces'
-alias kens='kubectl edit namespace'
-alias kdns='kubectl describe namespace'
-alias kdelns='kubectl delete namespace'
-alias kcn='kubectl config set-context --current --namespace'
+alias kgns='kubecolor get namespaces'
+alias kens='kubecolor edit namespace'
+alias kdns='kubecolor describe namespace'
+alias kdelns='kubecolor delete namespace'
+alias kcn='kubecolor config set-context --current --namespace'
 
 # ConfigMap management
-alias kgcm='kubectl get configmaps'
-alias kgcma='kubectl get configmaps --all-namespaces'
-alias kecm='kubectl edit configmap'
-alias kdcm='kubectl describe configmap'
-alias kdelcm='kubectl delete configmap'
+alias kgcm='kubecolor get configmaps'
+alias kgcma='kubecolor get configmaps --all-namespaces'
+alias kecm='kubecolor edit configmap'
+alias kdcm='kubecolor describe configmap'
+alias kdelcm='kubecolor delete configmap'
 
 # Secret management
-alias kgsec='kubectl get secret'
-alias kgseca='kubectl get secret --all-namespaces'
-alias kesec='kubectl edit secret'
-alias kdsec='kubectl describe secret'
-alias kdelsec='kubectl delete secret'
+alias kgsec='kubecolor get secret'
+alias kgseca='kubecolor get secret --all-namespaces'
+alias kesec='kubecolor edit secret'
+alias kdsec='kubecolor describe secret'
+alias kdelsec='kubecolor delete secret'
 
 # External secrets
-alias kges='kubectl get es'
-alias kgesa='kubectl get es --all-namespaces'
-alias kees='kubectl describe es'
-alias kdes='kubectl describe es'
-alias kdeles='kubectl delete es'
+alias kges='kubecolor get es'
+alias kgesa='kubecolor get es --all-namespaces'
+alias kees='kubecolor describe es'
+alias kdes='kubecolor describe es'
+alias kdeles='kubecolor delete es'
 
 # Deployment management.
-alias kgd='kubectl get deployment'
-alias kgda='kubectl get deployment --all-namespaces'
+alias kgd='kubecolor get deployment'
+alias kgda='kubecolor get deployment --all-namespaces'
 alias kgdw='kgd --watch'
 alias kgdwide='kgd -o wide'
-alias ked='kubectl edit deployment'
-alias kdd='kubectl describe deployment'
-alias kdeld='kubectl delete deployment'
-alias ksd='kubectl scale deployment'
-alias krsd='kubectl rollout status deployment'
+alias ked='kubecolor edit deployment'
+alias kdd='kubecolor describe deployment'
+alias kdeld='kubecolor delete deployment'
+alias ksd='kubecolor scale deployment'
+alias krsd='kubecolor rollout status deployment'
 
 # Run temporary debug pod
-alias krd='kubectl run -it --restart=Never --image=markeijsermans/debug --rm=true'
-alias krt='kubectl run -it --restart=Never --rm=true'
+alias krd='kubecolor run -it --restart=Never --image=markeijsermans/debug --rm=true'
+alias krt='kubecolor run -it --restart=Never --rm=true'
 
 # Rollout management.
-alias kgrs='kubectl get replicaset'
-alias kdrs='kubectl describe replicaset'
-alias kers='kubectl edit replicaset'
-alias krh='kubectl rollout history'
-alias kru='kubectl rollout undo'
+alias kgrs='kubecolor get replicaset'
+alias kdrs='kubecolor describe replicaset'
+alias kers='kubecolor edit replicaset'
+alias krh='kubecolor rollout history'
+alias kru='kubecolor rollout undo'
 
 # Statefulset management.
-alias kgss='kubectl get statefulset'
-alias kgssa='kubectl get statefulset --all-namespaces'
+alias kgss='kubecolor get statefulset'
+alias kgssa='kubecolor get statefulset --all-namespaces'
 alias kgssw='kgss --watch'
 alias kgsswide='kgss -o wide'
-alias kess='kubectl edit statefulset'
-alias kdss='kubectl describe statefulset'
-alias kdelss='kubectl delete statefulset'
-alias ksss='kubectl scale statefulset'
-alias krsss='kubectl rollout status statefulset'
+alias kess='kubecolor edit statefulset'
+alias kdss='kubecolor describe statefulset'
+alias kdelss='kubecolor delete statefulset'
+alias ksss='kubecolor scale statefulset'
+alias krsss='kubecolor rollout status statefulset'
 
 # Port forwarding
-alias kpf="kubectl port-forward"
+alias kpf="kubecolor port-forward"
 
 # Tools for accessing all information
-alias kga='kubectl get all'
+alias kga='kubecolor get all'
 alias kall=kubectl-get-all # get everything in all namespaces including crds
-alias kgaa='kubectl get all --all-namespaces'
+alias kgaa='kubecolor get all --all-namespaces'
 
 # Logs
-alias kl='kubectl logs'
-alias klg='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl logs'
-alias klgp='kubectl get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubectl logs -p'
-alias kl1h='kubectl logs --since 1h'
-alias kl1m='kubectl logs --since 1m'
-alias kl1s='kubectl logs --since 1s'
-alias klf='kubectl logs -f'
-alias klf1h='kubectl logs --since 1h -f'
-alias klf1m='kubectl logs --since 1m -f'
-alias klf1s='kubectl logs --since 1s -f'
+alias kl='kubecolor logs'
+alias klg='kubecolor get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubecolor logs'
+alias klgp='kubecolor get pods --no-headers | fzf | awk '\''{print $1}'\'' | xargs kubecolor logs -p'
+alias kl1h='kubecolor logs --since 1h'
+alias kl1m='kubecolor logs --since 1m'
+alias kl1s='kubecolor logs --since 1s'
+alias klf='kubecolor logs -f'
+alias klf1h='kubecolor logs --since 1h -f'
+alias klf1m='kubecolor logs --since 1m -f'
+alias klf1s='kubecolor logs --since 1s -f'
 
 # File copy
-alias kcp='kubectl cp'
+alias kcp='kubecolor cp'
 
 # Node Management
-alias kgno='kubectl get nodes'
-alias keno='kubectl edit node'
-alias kdno='kubectl describe node'
-alias kdelno='kubectl delete node'
+alias kgno='kubecolor get nodes'
+alias keno='kubecolor edit node'
+alias kdno='kubecolor describe node'
+alias kdelno='kubecolor delete node'
 
 # PVC management.
-alias kgpvc='kubectl get pvc'
-alias kgpvca='kubectl get pvc --all-namespaces'
+alias kgpvc='kubecolor get pvc'
+alias kgpvca='kubecolor get pvc --all-namespaces'
 alias kgpvcw='kgpvc --watch'
-alias kepvc='kubectl edit pvc'
-alias kdpvc='kubectl describe pvc'
-alias kdelpvc='kubectl delete pvc'
+alias kepvc='kubecolor edit pvc'
+alias kdpvc='kubecolor describe pvc'
+alias kdelpvc='kubecolor delete pvc'
 
 # Service account management.
-alias kdsa="kubectl describe sa"
-alias kdelsa="kubectl delete sa"
+alias kdsa="kubecolor describe sa"
+alias kdelsa="kubecolor delete sa"
 
 # DaemonSet management.
-alias kgds='kubectl get daemonset'
+alias kgds='kubecolor get daemonset'
 alias kgdsw='kgds --watch'
-alias keds='kubectl edit daemonset'
-alias kdds='kubectl describe daemonset'
-alias kdelds='kubectl delete daemonset'
+alias keds='kubecolor edit daemonset'
+alias kdds='kubecolor describe daemonset'
+alias kdelds='kubecolor delete daemonset'
 
 # Network policy management.
-alias kgnp='kubectl get netpol'
+alias kgnp='kubecolor get netpol'
 alias kgnpw='kgnp --watch'
-alias kenp='kubectl edit netpol'
-alias kdnp='kubectl describe netpol'
-alias kdelnp='kubectl delete netpol'
+alias kenp='kubecolor edit netpol'
+alias kdnp='kubecolor describe netpol'
+alias kdelnp='kubecolor delete netpol'
 
 # CronJob management.
-alias kgcj='kubectl get cronjob'
-alias kecj='kubectl edit cronjob'
-alias kdcj='kubectl describe cronjob'
-alias kdelcj='kubectl delete cronjob'
+alias kgcj='kubecolor get cronjob'
+alias kecj='kubecolor edit cronjob'
+alias kdcj='kubecolor describe cronjob'
+alias kdelcj='kubecolor delete cronjob'
 
 # Job management.
-alias kgj='kubectl get job'
-alias kej='kubectl edit job'
-alias kdj='kubectl describe job'
-alias kdelj='kubectl delete job'
+alias kgj='kubecolor get job'
+alias kej='kubecolor edit job'
+alias kdj='kubecolor describe job'
+alias kdelj='kubecolor delete job'
 
 # calico network policies
-alias kgnc='kubectl get networkpolicies.crd.projectcalico.org'
-alias kdnc='kubectl describe networkpolicies.crd.projectcalico.org'
-alias kenc='kubectl edit networkpolicies.crd.projectcalico.org'
-alias kdelnc='kubectl delete networkpolicies.crd.projectcalico.org'
-alias kgng='kubectl get globalnetworkpolicies.crd.projectcalico.org'
-alias kdng='kubectl describe globalnetworkpolicies.crd.projectcalico.org'
-alias keng='kubectl edit globalnetworkpolicies.crd.projectcalico.org'
-alias kdelng='kubectl delete globalnetworkpolicies.crd.projectcalico.org'
+alias kgnc='kubecolor get networkpolicies.crd.projectcalico.org'
+alias kdnc='kubecolor describe networkpolicies.crd.projectcalico.org'
+alias kenc='kubecolor edit networkpolicies.crd.projectcalico.org'
+alias kdelnc='kubecolor delete networkpolicies.crd.projectcalico.org'
+alias kgng='kubecolor get globalnetworkpolicies.crd.projectcalico.org'
+alias kdng='kubecolor describe globalnetworkpolicies.crd.projectcalico.org'
+alias keng='kubecolor edit globalnetworkpolicies.crd.projectcalico.org'
+alias kdelng='kubecolor delete globalnetworkpolicies.crd.projectcalico.org'
