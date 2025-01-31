@@ -202,7 +202,6 @@ require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
 require("telescope").load_extension("advanced_git_search")
-require("telescope").load_extension("luasnip")
 require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('bookmarks')
 
@@ -258,7 +257,6 @@ vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live
 -- vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
 vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
-vim.keymap.set("n", "<leader>sz", "<cmd>Telescope luasnip<cr>", { desc = "Snippets" })
 
 vim.keymap.set("n", "<leader>sC", function()
   require("telescope").extensions.diff.diff_files({ hidden = true })
