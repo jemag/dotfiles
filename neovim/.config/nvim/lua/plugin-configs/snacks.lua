@@ -149,6 +149,7 @@ vim.keymap.set("n", "<leader>ss", snacks.picker.lsp_symbols, { desc = "LSP Symbo
 vim.keymap.set("n", "<leader>sS", snacks.picker.lsp_workspace_symbols, { desc = "LSP Workspace Symbols" })
 vim.keymap.set("n", "<leader>su", snacks.picker.undo, { desc = "Undo" })
 vim.keymap.set("n", "<leader>s.", snacks.picker.resume, { desc = "Resume" })
+vim.keymap.set("n", "<leader>se", snacks.picker.icons, { desc = "Emoji" })
 vim.keymap.set("n", "<leader>sF", function()
   snacks.picker.files({ hidden = true, ignored = true })
 end, { desc = "Files include ingored" })
