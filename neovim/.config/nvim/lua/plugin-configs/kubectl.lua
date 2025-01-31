@@ -36,8 +36,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(ev)
     local k = vim.keymap.set
     local opts = { buffer = ev.buf }
-    print('inside k8s filetype au')
-
     -- Global
     -- k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers) | <Plug>(kubectl.refresh)", opts) -- Toggle headers
     k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers)", opts) -- Toggle headers
