@@ -97,8 +97,24 @@ in {
         imagemagick
         iotop-c
         jq
+        k9s
+        k3d
+        krew
+        kube-linter
+        kubecolor
+        kubeconform
+        kubectl
+        kubectx
+        kubelogin
+        kubent
+        kubernetes-helm
+        kubeshark
+        kubie
+        kustomize
+        kyverno
         lazygit
         manix # search nix options
+        mkcert
         netmask
         nixd
         nix-health # check health of nix installation
@@ -123,6 +139,7 @@ in {
         tree-sitter
         trivy
         unzip
+        velero
         viddy
         whois
         yamllint

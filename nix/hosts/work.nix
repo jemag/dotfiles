@@ -44,22 +44,7 @@
       falcoctl
       grafana-loki
       hubble
-      k9s
-      krew
-      kube-linter
-      kubecolor
-      kubeconform
-      kubectl
-      kubectx
-      kubelogin
-      kubent
-      kubernetes-helm
-      kubeshark
-      kubie
-      kustomize
-      kyverno
       maven
-      mkcert
       pack
       powershell
       skopeo
@@ -71,7 +56,6 @@
       terragrunt
       tflint
       tshark
-      velero
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
 

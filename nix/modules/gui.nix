@@ -82,7 +82,7 @@ in
       feh
       flameshot
       firefox
-      fira-code-nerdfont
+      nerd-fonts.fira-code
       ksnip
       libreoffice-fresh
       onlyoffice-desktopeditors
