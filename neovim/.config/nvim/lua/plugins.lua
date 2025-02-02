@@ -110,12 +110,6 @@ require("lazy").setup({
     end,
   },
   {
-    "s1n7ax/nvim-window-picker",
-    config = function()
-      require("plugin-configs.nvim-window-picker")
-    end,
-  },
-  {
     "mrjones2014/smart-splits.nvim",
     config = function()
       require("plugin-configs.smart-splits")
