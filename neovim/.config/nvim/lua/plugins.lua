@@ -572,6 +572,13 @@ require("lazy").setup({
     event = "User LoadColorSchemes",
   },
   {
+    "WTFox/jellybeans.nvim",
+    event = "User LoadColorSchemes",
+    config = function()
+      require("jellybeans").setup()
+    end,
+  },
+  {
     "briones-gabriel/darcula-solid.nvim",
     event = "User LoadColorSchemes",
     dependencies = {
