@@ -1,3 +1,5 @@
+local filter_windows = require("utils").filter_windows
+
 local snacks = require("snacks")
 snacks.setup({
   styles = {
@@ -83,24 +85,27 @@ snacks.setup({
     actions = {
       pick = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        vim.api.nvim_set_current_win(picked_window_id)
-        picker:action("edit")
+        local win = snacks.picker.util.pick_win({ filter = filter_windows })
+        if win ~= nil then
+          vim.api.nvim_set_current_win(win)
+          picker:action("edit")
+        end
       end,
       pick_vsplit = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        vim.api.nvim_set_current_win(picked_window_id)
-        picker:action("edit_vsplit")
+        local win = snacks.picker.util.pick_win({ filter = filter_windows })
+        if win ~= nil then
+          vim.api.nvim_set_current_win(win)
+          picker:action("edit_vsplit")
+        end
       end,
       pick_split = function(picker, item)
         picker:close()
-        local picked_window_id = require("window-picker").pick_window({ autoselect_one = true, include_current_win = true })
-          or vim.api.nvim_get_current_win()
-        vim.api.nvim_set_current_win(picked_window_id)
-        picker:action("edit_split")
+        local win = snacks.picker.util.pick_win({ filter = filter_windows })
+        if win ~= nil then
+          vim.api.nvim_set_current_win(win)
+          picker:action("edit_split")
+        end
       end,
     },
     enabled = true,
@@ -112,9 +117,9 @@ snacks.setup({
           ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
           ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
           ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
-          ["<c-v>"] = { { "pick_win", "edit_vsplit" }, mode = { "i", "n" } },
-          ["<c-s>"] = { { "pick_win", "edit_split" }, mode = { "i", "n" } },
-          ["<c-e>"] = { { "pick_win", "edit" }, mode = { "i", "n" } },
+          ["<c-v>"] = { "pick_vsplit", mode = { "i", "n" } },
+          ["<c-s>"] = { "pick_split", mode = { "i", "n" } },
+          ["<c-e>"] = { "pick", mode = { "i", "n" } },
         },
       },
       list = {
@@ -214,19 +219,19 @@ end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>sw", snacks.picker.grep_word, { desc = "Grep word" })
 
 local function switch_window()
-  local window = snacks.picker.util.pick_win()
+  local window = snacks.picker.util.pick_win({ filter = filter_windows })
   if window ~= nil then
     vim.api.nvim_set_current_win(window)
   end
 end
 local function close_window()
-  local window = snacks.picker.util.pick_win()
+  local window = snacks.picker.util.pick_win({ filter = filter_windows })
   if window ~= nil then
     vim.api.nvim_win_close(window, false)
   end
 end
 local function swap_window()
-  local picked_window = snacks.picker.util.pick_win()
+  local picked_window = snacks.picker.util.pick_win({ filter = filter_windows })
   if picked_window ~= nil then
     local picked_buffer = vim.api.nvim_win_get_buf(picked_window)
     local current_buffer = vim.api.nvim_get_current_buf()

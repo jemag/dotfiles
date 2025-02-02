@@ -1,3 +1,5 @@
+local filter_windows = require("utils").filter_windows
+
 require("neo-tree").setup({
   source_selector = {
     winbar = true,
@@ -98,9 +100,9 @@ require("neo-tree").setup({
       ["<cr>"] = "open",
       ["<c-s>"] = "pick_split",
       ["<c-v>"] = "pick_vsplit",
+      ["<c-e>"] = "pick",
       ["tn"] = "open_tabnew",
       ["t"] = "none",
-      ["<c-e>"] = "pick",
       ["w"] = "none",
       ["<esc>"] = "none",
       ["C"] = "close_node",
@@ -232,7 +234,7 @@ require("neo-tree").setup({
     commands = {
       pick = function(state)
         local path = state.tree:get_node().path
-        local win = require("snacks").picker.util.pick_win()
+        local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
         if win ~= nil then
           vim.api.nvim_set_current_win(win)
           vim.cmd("edit " .. path)
@@ -240,7 +242,7 @@ require("neo-tree").setup({
       end,
       pick_split = function(state)
         local path = state.tree:get_node().path
-        local win = require("snacks").picker.util.pick_win()
+        local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
         if win ~= nil then
           vim.api.nvim_set_current_win(win)
           vim.cmd("split " .. path)
@@ -248,7 +250,7 @@ require("neo-tree").setup({
       end,
       pick_vsplit = function(state)
         local path = state.tree:get_node().path
-        local win = require("snacks").picker.util.pick_win()
+        local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
         if win ~= nil then
           vim.api.nvim_set_current_win(win)
           vim.cmd("vsplit " .. path)

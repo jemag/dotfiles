@@ -23,4 +23,27 @@ function M.windo_restore_win(windo_str)
   vim.api.nvim_set_current_win(cur_win)
 end
 
+
+--- Useful for pick_win filtering of windows
+---@param win number
+---@param buf number
+---@return boolean
+function M.filter_windows(win, buf)
+  local filetype = vim.bo[buf].filetype
+  local buftype = vim.bo[buf].buftype
+  local excluded_buftypes = { "nofile", "prompt" }
+  local excluded_filetypes = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview", "snacks_picker_preview" }
+  for _, item in ipairs(excluded_filetypes) do
+    if item == filetype then
+      return false
+    end
+  end
+  for _, item in ipairs(excluded_buftypes) do
+    if item == buftype then
+      return false
+    end
+  end
+  return true
+end
+
 return M

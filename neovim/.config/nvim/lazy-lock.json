@@ -128,7 +128,7 @@
   "scope.nvim": { "branch": "main", "commit": "e1799fa37178382fc228245c41af5547e3f95182" },
   "sj.nvim": { "branch": "main", "commit": "7ca6186a9ce1588ded42cd9d67582ace0f9a9242" },
   "smart-splits.nvim": { "branch": "master", "commit": "fc7bb00fe67ab504356bed4310d23c2e4cb4b06b" },
-  "snacks.nvim": { "branch": "main", "commit": "d504b50379f60cd28beb500dff2fdda18eb45e36" },
+  "snacks.nvim": { "branch": "main", "commit": "2528fcb02ceab7b19ee72a94b93c620259881e65" },
   "snipe-spell.nvim": { "branch": "main", "commit": "973b3d70ea026d9b43b56c4834c19ee85b3b1372" },
   "snipe.nvim": { "branch": "main", "commit": "0d0a482ac713370196e4fc0025d5aaac5030104d" },
   "sonokai": { "branch": "master", "commit": "4ea2553ca140e8b8378a7dfb8eefbb103594c96d" },
