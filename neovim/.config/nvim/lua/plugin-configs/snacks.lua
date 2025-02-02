@@ -112,9 +112,9 @@ snacks.setup({
           ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
           ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
           ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
-          ["<c-v>"] = { {"pick_win", "edit_vsplit"}, mode = { "i", "n" } },
-          ["<c-s>"] = {{"pick_win", "edit_split"}, mode = { "i", "n" } },
-          ["<c-e>"] = {{"pick_win", "edit"}, mode = { "i", "n" } },
+          ["<c-v>"] = { { "pick_win", "edit_vsplit" }, mode = { "i", "n" } },
+          ["<c-s>"] = { { "pick_win", "edit_split" }, mode = { "i", "n" } },
+          ["<c-e>"] = { { "pick_win", "edit" }, mode = { "i", "n" } },
         },
       },
       list = {
@@ -195,7 +195,7 @@ vim.keymap.set("n", "<leader>sd", function()
   snacks.picker.files({ hidden = true, ignored = true, cwd = vim.fn.expand("%:p:h") })
 end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>sz", function()
-  snacks.picker.files({ hidden = true, ignored = false, cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") })
+  snacks.picker.files({ hidden = true, ignored = false, cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
 end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>si", function()
   vim.ui.input({ prompt = "Files in dir: " }, function(input)
@@ -212,3 +212,30 @@ vim.keymap.set("n", "<leader>sD", function()
   snacks.picker.grep({ hidden = true, ignored = true, cwd = vim.fn.expand("%:p:h") })
 end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>sw", snacks.picker.grep_word, { desc = "Grep word" })
+
+local function switch_window()
+  local window = snacks.picker.util.pick_win()
+  if window ~= nil then
+    vim.api.nvim_set_current_win(window)
+  end
+end
+local function close_window()
+  local window = snacks.picker.util.pick_win()
+  if window ~= nil then
+    vim.api.nvim_win_close(window, false)
+  end
+end
+local function swap_window()
+  local picked_window = snacks.picker.util.pick_win()
+  if picked_window ~= nil then
+    local picked_buffer = vim.api.nvim_win_get_buf(picked_window)
+    local current_buffer = vim.api.nvim_get_current_buf()
+    local current_window = vim.api.nvim_get_current_win()
+    vim.api.nvim_win_set_buf(picked_window, current_buffer)
+    vim.api.nvim_win_set_buf(current_window, picked_buffer)
+  end
+end
+
+vim.keymap.set("n", "<c-w>S", swap_window, { desc = "Swap window by id" })
+vim.keymap.set("n", "<c-w>m", switch_window, { desc = "Move to window by id" })
+vim.keymap.set("n", "<c-w>Q", close_window, { desc = "Close window by id" })
