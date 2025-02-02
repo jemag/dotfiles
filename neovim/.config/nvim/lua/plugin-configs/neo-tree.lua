@@ -235,7 +235,7 @@ require("neo-tree").setup({
       end,
       grep = function(state)
         local path = state.tree:get_node().path
-        require("snacks").picker.files({ cwd = path })
+        require("snacks").picker.grep({ cwd = path })
       end,
     },
   },
