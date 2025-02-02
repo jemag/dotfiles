@@ -1,26 +1,3 @@
-local function getTelescopeOpts(state, path)
-  return {
-    cwd = path,
-    search_dirs = { path },
-    attach_mappings = function(prompt_bufnr, map)
-      local actions = require("telescope.actions")
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local action_state = require("telescope.actions.state")
-        local selection = action_state.get_selected_entry()
-        local filename = selection.filename
-        if filename == nil then
-          filename = selection[1]
-        end
-        -- any way to open the file without triggering auto-close event of neo-tree?
-        require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
-      end)
-      return true
-    end,
-  }
-end
-
-local savedview
 require("neo-tree").setup({
   source_selector = {
     winbar = true,
@@ -167,7 +144,7 @@ require("neo-tree").setup({
   nesting_rules = {},
   filesystem = {
     follow_current_file = {
-      enabled = false
+      enabled = false,
     },
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
@@ -195,15 +172,15 @@ require("neo-tree").setup({
         {
           "container",
           content = {
-            { "name",        zindex = 10 },
+            { "name", zindex = 10 },
             {
               "symlink_target",
               zindex = 10,
               highlight = "NeoTreeSymbolicLinkTarget",
             },
-            { "clipboard",   zindex = 10 },
-            { "diagnostics", errors_only = true, zindex = 20,     align = "right",          hide_when_expanded = true },
-            { "git_status",  zindex = 20,        align = "right", hide_when_expanded = true },
+            { "clipboard", zindex = 10 },
+            { "diagnostics", errors_only = true, zindex = 20, align = "right", hide_when_expanded = true },
+            { "git_status", zindex = 20, align = "right", hide_when_expanded = true },
           },
         },
       },
@@ -222,11 +199,11 @@ require("neo-tree").setup({
               zindex = 10,
               highlight = "NeoTreeSymbolicLinkTarget",
             },
-            { "clipboard",   zindex = 10 },
-            { "bufnr",       zindex = 10 },
-            { "modified",    zindex = 20, align = "right" },
+            { "clipboard", zindex = 10 },
+            { "bufnr", zindex = 10 },
+            { "modified", zindex = 20, align = "right" },
             { "diagnostics", zindex = 20, align = "right" },
-            { "git_status",  zindex = 20, align = "right" },
+            { "git_status", zindex = 20, align = "right" },
           },
         },
       },
@@ -241,9 +218,8 @@ require("neo-tree").setup({
     -- instead of relying on nvim autocmd events.
     window = {
       mappings = {
-        ["tf"] = "telescope_find",
-        ["tg"] = "telescope_grep",
-        ["tr"] = "telescope_rawgrep",
+        ["tf"] = "find_files",
+        ["tg"] = "grep",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
@@ -253,20 +229,13 @@ require("neo-tree").setup({
       },
     },
     commands = {
-      telescope_find = function(state)
-        local node = state.tree:get_node()
-        local path = node:get_id()
-        require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+      find_files = function(state)
+        local path = state.tree:get_node().path
+        require("snacks").picker.files({ cwd = path })
       end,
-      telescope_grep = function(state)
-        local node = state.tree:get_node()
-        local path = node:get_id()
-        require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
-      end,
-      telescope_rawgrep = function(state)
-        local node = state.tree:get_node()
-        local path = node:get_id()
-        require("telescope").extensions.live_grep_args.live_grep_args(getTelescopeOpts(state, path))
+      grep = function(state)
+        local path = state.tree:get_node().path
+        require("snacks").picker.files({ cwd = path })
       end,
     },
   },
