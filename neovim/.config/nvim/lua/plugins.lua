@@ -77,6 +77,12 @@ require("lazy").setup({
     },
   },
   {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("plugin-configs.nvim-window-picker")
+    end,
+  },
+  {
     "Allaman/kustomize.nvim",
     config = function()
       require("plugin-configs.kustomize")

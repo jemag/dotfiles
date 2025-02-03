@@ -83,29 +83,21 @@ snacks.setup({
       },
     },
     actions = {
-      pick = function(picker, item)
-        picker:close()
-        local win = snacks.picker.util.pick_win({ filter = filter_windows })
-        if win ~= nil then
-          vim.api.nvim_set_current_win(win)
-          picker:action("edit")
+      pick_win_updated = function(picker, item)
+
+        picker.layout:hide()
+        local win = snacks.picker.util.pick_win({ main = picker.main, filter = filter_windows })
+
+        if not win then
+          picker.layout:unhide()
+          return true
         end
-      end,
-      pick_vsplit = function(picker, item)
-        picker:close()
-        local win = snacks.picker.util.pick_win({ filter = filter_windows })
-        if win ~= nil then
-          vim.api.nvim_set_current_win(win)
-          picker:action("edit_vsplit")
-        end
-      end,
-      pick_split = function(picker, item)
-        picker:close()
-        local win = snacks.picker.util.pick_win({ filter = filter_windows })
-        if win ~= nil then
-          vim.api.nvim_set_current_win(win)
-          picker:action("edit_split")
-        end
+        picker.main = win
+        vim.defer_fn(function()
+          if not picker.closed then
+            picker.layout:unhide()
+          end
+        end, 100)
       end,
     },
     enabled = true,
@@ -117,9 +109,9 @@ snacks.setup({
           ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
           ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
           ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
-          ["<c-v>"] = { "pick_vsplit", mode = { "i", "n" } },
-          ["<c-s>"] = { "pick_split", mode = { "i", "n" } },
-          ["<c-e>"] = { "pick", mode = { "i", "n" } },
+          ["<c-v>"] = {{ "pick_win_updated", "edit_vsplit" }, mode = { "i", "n" } },
+          ["<c-s>"] = {{ "pick_win_updated", "edit_split"}, mode = { "i", "n" } },
+          ["<c-e>"] = {{  "pick_win_updated", "edit" }, mode = { "i", "n" } },
         },
       },
       list = {
