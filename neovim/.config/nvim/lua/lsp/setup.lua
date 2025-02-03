@@ -35,19 +35,9 @@ local function configure_diagnostics()
   vim.diagnostic.config(config)
 end
 
-local function set_handlers()
-  vim.lsp.handlers["textDocument/definition"] = require("telescope.builtin").lsp_definitions
-  vim.lsp.handlers["textDocument/typeDefinition"] = require("telescope.builtin").lsp_type_definitions
-  vim.lsp.handlers["textDocument/implementation"] = require("telescope.builtin").lsp_implementations
-  vim.lsp.handlers["textDocument/references"] = require("telescope.builtin").lsp_references
-  vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
-  vim.lsp.handlers["workspace/symbol"] = require("telescope.builtin").lsp_workspace_symbols
-end
-
 M.init = function()
   define_signs()
   configure_diagnostics()
-  set_handlers()
   -- vim.lsp.set_log_level(0)
 end
 
