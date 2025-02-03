@@ -1,4 +1,6 @@
 local utils = require("utils")
+local filter_windows = utils.filter_windows
+
 local toggle_diagnostic = function()
   local buf_id = vim.api.nvim_get_current_buf()
 
@@ -7,7 +9,6 @@ local toggle_diagnostic = function()
   else
     vim.diagnostic.enable(true, { bufnr = buf_id })
   end
-
 end
 
 local toggle_tabline = function()
@@ -53,7 +54,7 @@ vim.api.nvim_set_keymap(
   "<cmd>call HorizontalScrollMode('L')<cr>",
   { noremap = true, silent = true, desc = "Right half-screen scroll" }
 )
-vim.keymap.set({ "n", "x" }, "<cr>", '<nop>', { desc = "disable <cr> in normal and visual mode" })
+vim.keymap.set({ "n", "x" }, "<cr>", "<nop>", { desc = "disable <cr> in normal and visual mode" })
 -- Testing centering cursor
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Scroll half down with cursor centered" })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Scroll half up with cursor centered" })
@@ -206,20 +207,45 @@ vim.keymap.set("n", "\\W", function()
   utils.windo_restore_win("set nowrap")
 end, { desc = "Set 'nowrap'" })
 
--- Diffs
-vim.keymap.set("n", "<localleader>md", function()
-  local split_filenames = {}
-  for _, buf in ipairs(vim.fn.getbufinfo()) do
-    if buf.hidden == 0 and buf.listed == 1 then
-      table.insert(split_filenames, buf.name)
+--- Get list of active buffeers from current list of windows
+---@param windows number[]
+---@return number[]
+local function get_shown_buffers(windows)
+  local buf_numbers = {}
+  for _, win in ipairs(windows) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    local bufinfo = vim.fn.getbufinfo(buf)[1]
+    if bufinfo.hidden == 0 and bufinfo.listed == 1 then
+      buf_numbers[#buf_numbers + 1] = buf
     end
   end
-  if #split_filenames == 2 then
-    vim.cmd.tabnew(split_filenames[1])
-    vim.cmd("vertical diffsplit " .. split_filenames[2])
+  return buf_numbers
+end
+
+-- Diffs between current windows
+vim.keymap.set("n", "<localleader>md", function()
+  local windows = vim.api.nvim_list_wins()
+  local buf_numbers = get_shown_buffers(windows)
+  if #buf_numbers == 2 then
+    vim.cmd.tabnew(vim.fn.getbufinfo(buf_numbers[1])[1].name)
+    vim.cmd("vertical diffsplit " .. vim.fn.getbufinfo(buf_numbers[2])[1].name)
     vim.cmd.normal({ args = { "gg" }, bang = true })
   else
-    vim.notify("Can't diff with more than 2 files open")
+    local first_win = require("snacks").picker.util.pick_win({ filter = filter_windows })
+    if first_win == nil then
+      return
+    end
+    local second_win = require("snacks").picker.util.pick_win({ filter = filter_windows })
+    if second_win == nil then
+      return
+    end
+      local first_bufnumber = vim.api.nvim_win_get_buf(first_win)
+      local second_bufnumber = vim.api.nvim_win_get_buf(second_win)
+      local first_buf = vim.fn.getbufinfo(first_bufnumber)[1]
+      local second_buf = vim.fn.getbufinfo(second_bufnumber)[1]
+      vim.cmd.tabnew(first_buf.name)
+      vim.cmd("vertical diffsplit " .. second_buf.name)
+      vim.cmd.normal({ args = { "gg" }, bang = true })
   end
 end, { desc = "Diff between open files" })
 
@@ -238,4 +264,3 @@ vim.keymap.set("x", "<localleader>md", function()
   vim.bo.buftype = "nowrite"
   vim.cmd.diffthis()
 end, { desc = "Diff selection with clipboard" })
-
