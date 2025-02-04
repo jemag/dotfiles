@@ -1113,6 +1113,11 @@ require("lazy").setup({
       require("plugin-configs.vim-terraform")
     end,
   },
+  {
+    "fei6409/log-highlight.nvim",
+    config = function()
+      require("log-highlight").setup({})
+    end,
 
   {
     "jvirtanen/vim-hcl",
