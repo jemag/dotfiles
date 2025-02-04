@@ -228,7 +228,6 @@ require("neo-tree").setup({
         ["/"] = "none",
         ["f"] = "filter_as_you_type",
         ["<c-f>"] = "clear_filter",
-        ["p"] = "pick",
       },
     },
     commands = {
