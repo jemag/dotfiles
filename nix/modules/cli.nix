@@ -85,6 +85,7 @@ in {
         entr
         eza
         fd
+        fx
         fzf
         gh
         glow
@@ -97,6 +98,7 @@ in {
         imagemagick
         iotop-c
         jq
+        jqp
         k9s
         k3d
         krew
