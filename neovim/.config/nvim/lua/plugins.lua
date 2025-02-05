@@ -1118,6 +1118,7 @@ require("lazy").setup({
     config = function()
       require("log-highlight").setup({})
     end,
+  },
 
   {
     "jvirtanen/vim-hcl",
