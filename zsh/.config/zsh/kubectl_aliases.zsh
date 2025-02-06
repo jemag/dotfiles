@@ -214,3 +214,15 @@ alias kgng='kubecolor get globalnetworkpolicies.crd.projectcalico.org'
 alias kdng='kubecolor describe globalnetworkpolicies.crd.projectcalico.org'
 alias keng='kubecolor edit globalnetworkpolicies.crd.projectcalico.org'
 alias kdelng='kubecolor delete globalnetworkpolicies.crd.projectcalico.org'
+
+# persistent volumes
+alias kgpv='kubecolor get persistentvolume'
+alias kepv='kubecolor edit persistentvolume'
+alias kdpv='kubecolor describe persistentvolume'
+alias kdelpv='kubecolor delete persistentvolume'
+
+# storage classes
+alias kgsc='kubecolor get storageclass'
+alias kesc='kubecolor edit storageclass'
+alias kdsc='kubecolor describe storageclass'
+alias kdelsc='kubecolor delete storageclass'
