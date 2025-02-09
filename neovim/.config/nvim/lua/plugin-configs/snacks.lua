@@ -46,33 +46,35 @@ snacks.setup({
     enabled = true,
   },
   picker = {
-    explorer = {
-      finder = "explorer",
-      sort = { fields = { "sort" } },
-      tree = true,
-      supports_live = true,
-      follow_file = true,
-      focus = "list",
-      auto_close = false,
-      jump = { close = false },
-      layout = { preset = "sidebar", preview = false },
-      formatters = { file = { filename_only = true } },
-      matcher = { sort_empty = true },
-      config = function(opts)
-        return require("snacks.picker.source.explorer").setup(opts)
-      end,
-      win = {
-        list = {
-          keys = {
-            ["<BS>"] = "explorer_up",
-            ["a"] = "explorer_add",
-            ["d"] = "explorer_del",
-            ["r"] = "explorer_rename",
-            ["c"] = "explorer_copy",
-            ["m"] = "explorer_move",
-            ["y"] = "explorer_yank",
-            ["<c-c>"] = "explorer_cd",
-            ["."] = "explorer_focus",
+    sources = {
+      explorer = {
+        finder = "explorer",
+        sort = { fields = { "sort" } },
+        tree = true,
+        supports_live = true,
+        follow_file = true,
+        focus = "list",
+        auto_close = false,
+        jump = { close = false },
+        layout = { preset = "sidebar", preview = false },
+        formatters = { file = { filename_only = true } },
+        matcher = { sort_empty = true },
+        config = function(opts)
+          return require("snacks.picker.source.explorer").setup(opts)
+        end,
+        win = {
+          list = {
+            keys = {
+              ["<BS>"] = "explorer_up",
+              ["a"] = "explorer_add",
+              ["d"] = "explorer_del",
+              ["r"] = "explorer_rename",
+              ["c"] = "explorer_copy",
+              ["m"] = "explorer_move",
+              ["y"] = "explorer_yank",
+              ["<c-c>"] = "explorer_cd",
+              ["."] = "explorer_focus",
+            },
           },
         },
       },
@@ -84,7 +86,6 @@ snacks.setup({
     },
     actions = {
       pick_win_updated = function(picker, item)
-
         picker.layout:hide()
         local win = snacks.picker.util.pick_win({ main = picker.main, filter = filter_windows })
 
@@ -109,9 +110,9 @@ snacks.setup({
           ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
           ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
           ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
-          ["<c-v>"] = {{ "pick_win_updated", "edit_vsplit" }, mode = { "i", "n" } },
-          ["<c-s>"] = {{ "pick_win_updated", "edit_split"}, mode = { "i", "n" } },
-          ["<c-e>"] = {{  "pick_win_updated", "edit" }, mode = { "i", "n" } },
+          ["<c-v>"] = { { "pick_win_updated", "edit_vsplit" }, mode = { "i", "n" } },
+          ["<c-s>"] = { { "pick_win_updated", "edit_split" }, mode = { "i", "n" } },
+          ["<c-e>"] = { { "pick_win_updated", "edit" }, mode = { "i", "n" } },
         },
       },
       list = {
@@ -236,3 +237,13 @@ end
 vim.keymap.set("n", "<c-w>S", swap_window, { desc = "Swap window by id" })
 vim.keymap.set("n", "<c-w>m", switch_window, { desc = "Move to window by id" })
 vim.keymap.set("n", "<c-w>Q", close_window, { desc = "Close window by id" })
+
+-- Since we cannot use smart-splits wrapping navigation in a floating window
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "snacks_picker_list",
+  callback = function()
+    vim.keymap.set("n", "<c-l>", "<c-w><c-l>", { buffer = 0, desc = "navigate right window" })
+    vim.keymap.set("n", "<c-h>", "<c-w><c-h>", { buffer = 0, desc = "navigate left window" })
+  end,
+  desc = "Snacks picker list floating window navigate away",
+})
