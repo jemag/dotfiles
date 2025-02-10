@@ -66,5 +66,5 @@ theme:
       showSeparator: true
       compact: false
 pager:
-  diff: ""
+  diff: "delta"
 confirmQuit: false
