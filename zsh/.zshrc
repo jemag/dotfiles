@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 alias ls="eza -g --time-style long-iso --icons=always"
 alias kn="n +'lua require(\"kubectl\").toggle()'"
 alias ig="kubectl gadget"
+alias gd="gh-dash"
 alias y="yazi"
 alias hm="home-manager"
 alias ns="nix-search -r"
