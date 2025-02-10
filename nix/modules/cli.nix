@@ -88,6 +88,7 @@ in {
         fx
         fzf
         gh
+        gh-dash
         glow
         go
         gobuster
