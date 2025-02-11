@@ -25,7 +25,7 @@ defaults:
     width: 50
   prsLimit: 20
   issuesLimit: 20
-  view: prs
+  view: issues
   layout:
     prs:
       updatedAt:
