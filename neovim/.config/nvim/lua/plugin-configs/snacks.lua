@@ -113,6 +113,7 @@ snacks.setup({
           ["<c-v>"] = { { "pick_win_updated", "edit_vsplit" }, mode = { "i", "n" } },
           ["<c-s>"] = { { "pick_win_updated", "edit_split" }, mode = { "i", "n" } },
           ["<c-e>"] = { { "pick_win_updated", "edit" }, mode = { "i", "n" } },
+          ["<c-t>"] = {  "edit_tab", mode = { "i", "n" } },
         },
       },
       list = {
