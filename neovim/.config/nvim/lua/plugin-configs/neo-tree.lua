@@ -101,6 +101,7 @@ require("neo-tree").setup({
       ["<c-s>"] = "pick_split",
       ["<c-v>"] = "pick_vsplit",
       ["<c-e>"] = "pick",
+      ["<c-t>"] = "open_tabnew",
       ["tn"] = "open_tabnew",
       ["t"] = "none",
       ["w"] = "none",
