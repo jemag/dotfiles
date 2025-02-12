@@ -96,6 +96,7 @@ in {
         helix
         htop
         ijq
+        ipcalc
         imagemagick
         iotop-c
         jq
