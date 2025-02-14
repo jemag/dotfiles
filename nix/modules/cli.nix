@@ -97,6 +97,7 @@ in {
         htop
         ijq
         ipcalc
+        iperf
         imagemagick
         iotop-c
         jq
