@@ -349,6 +349,12 @@ require("lazy").setup({
     end,
   },
   {
+    "jake-stewart/multicursor.nvim",
+    config = function()
+      require("plugin-configs.multicursor")
+    end,
+  },
+  {
     "glacambre/firenvim",
     build = function()
       vim.fn["firenvim#install"](0)
