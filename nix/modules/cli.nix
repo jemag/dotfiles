@@ -104,6 +104,7 @@ in {
         jqp
         k9s
         k3d
+        kind
         krew
         kube-linter
         kubecolor
