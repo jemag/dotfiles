@@ -72,7 +72,7 @@ require("lazy").setup({
     end,
     lazy = true,
     keys = {
-      { "<leader>kt", '<cmd>lua require("kubectl").toggle()<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
+      { "<leader>kt", '<cmd>lua require("kubectl").toggle({tab = true})<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
       -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
     },
   },
