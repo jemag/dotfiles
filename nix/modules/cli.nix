@@ -94,6 +94,7 @@ in {
         gobuster
         gradle
         helix
+        hurl
         htop
         ijq
         ipcalc
@@ -139,6 +140,8 @@ in {
         tealdeer
         thefuck
         ticker
+        # xml formatter
+        html-tidy
         tmux
         tmuxinator
         tokei

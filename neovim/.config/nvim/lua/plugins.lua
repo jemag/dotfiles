@@ -852,6 +852,13 @@ require("lazy").setup({
     "ThePrimeagen/vim-be-good",
   },
   {
+    "jellydn/hurl.nvim",
+    config = function()
+      require("plugin-configs.hurl")
+    end,
+    ft = "hurl",
+  },
+  {
     "andrewferrier/debugprint.nvim",
     config = function()
       require("plugin-configs.debugprint")
