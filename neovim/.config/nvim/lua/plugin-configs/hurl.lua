@@ -1,6 +1,7 @@
 require("hurl").setup({
   -- Show debugging info
   debug = false,
+  auto_close = false,
   -- Show notification on run
   show_notification = false,
   -- Show response in popup or split
@@ -31,8 +32,8 @@ vim.keymap.set({ "n" }, "<localleader>hA", "<cmd>HurlRunner<CR>", { desc = "Run 
 vim.keymap.set({ "n" }, "<localleader>ha", "<cmd>HurlRunnerAt<CR>", { desc = "Run Api request" })
 vim.keymap.set({ "n" }, "<localleader>he", "<cmd>HurlRunnerToEntry<CR>", { desc = "Run Api request to entry" })
 vim.keymap.set({ "n" }, "<localleader>hE", "<cmd>HurlRunnerToEnd<CR>", { desc = "Run Api request from current entry to end" })
-vim.keymap.set({ "n" }, "<localleader>hm", "<cmd>HurlToggleMode<CR>", { desc = "Hurl Toggle Mode" })
-vim.keymap.set({ "n" }, "<localleader>hM", "<cmd>HurlManageVariable<CR>", { desc = "Hurl Manage Variable" })
+vim.keymap.set({ "n" }, "<localleader>hM", "<cmd>HurlToggleMode<CR>", { desc = "Hurl Toggle Mode" })
+vim.keymap.set({ "n" }, "<localleader>hm", "<cmd>HurlManageVariable<CR>", { desc = "Hurl Manage Variable" })
 vim.keymap.set({ "n" }, "<localleader>hv", "<cmd>HurlVerbose<CR>", { desc = "Run Api in verbose mode" })
 vim.keymap.set({ "n" }, "<localleader>hV", "<cmd>HurlVeryVerbose<CR>", { desc = "Run Api in very verbose mode" })
 vim.keymap.set({ "v" }, "<localleader>hr", ":HurlRunner<CR>", { desc = "Hurl Runner" })
