@@ -1,3 +1,5 @@
+[init]
+	defaultBranch = main
 [user]
 	name = alexandre desjardins
 	email = alexandre.bd@tutanota.com
