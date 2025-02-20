@@ -646,7 +646,7 @@ require("lazy").setup({
     opts = {
       rocks = { "magick" },
     },
-    enabled = vim.fn.getenv("WSL_INTEROP") == nil,
+    enabled = vim.fn.getenv("WSL_INTEROP") == vim.NIL,
   },
   {
     "3rd/image.nvim",
@@ -859,6 +859,24 @@ require("lazy").setup({
     ft = "hurl",
   },
   {
+    "github/copilot.vim",
+    config = function()
+      require("plugin-configs.copilot-vim")
+    end,
+    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugin-configs.codecompanion")
+    end,
+    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
+  },
+  {
     "andrewferrier/debugprint.nvim",
     config = function()
       require("plugin-configs.debugprint")
@@ -951,6 +969,7 @@ require("lazy").setup({
         },
       })
     end,
+    enabled = vim.fn.getenv("WSL_INTEROP") == vim.NIL,
   },
   {
     "Saghen/blink.cmp",
