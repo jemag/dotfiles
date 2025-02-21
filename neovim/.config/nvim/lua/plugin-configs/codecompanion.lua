@@ -9,4 +9,5 @@ require("codecompanion").setup({
   },
 })
 
-  vim.keymap.set({"i", "n"}, "<F10>", "<Cmd>CodeCompanionChat toggle<CR>", { desc = "Toggle CodeCompanionChat"})
+  vim.keymap.set({"i", "n", "x"}, "<F10>", "<Cmd>CodeCompanionChat toggle<CR>", { desc = "Toggle CodeCompanionChat"})
+  vim.keymap.set({"n", "x"}, "<leader>aa", "<Cmd>CodeCompanionActions <CR>", { desc = "Toggle CodeCompanionActions"})
