@@ -893,22 +893,6 @@ require("lazy").setup({
     },
   },
   {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup({
-        keymaps = {
-          submit = "<CR>",
-        },
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  {
     "nvimtools/none-ls.nvim",
     config = function()
       require("plugin-configs.null-ls")
