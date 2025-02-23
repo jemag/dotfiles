@@ -1072,6 +1072,13 @@ require("lazy").setup({
     end,
   },
   {
+     "maskudo/devdocs.nvim",
+    lazy = false,
+    config = function ()
+      require("plugin-configs.devdocs")
+    end
+  },
+  {
     "Myzel394/easytables.nvim",
     ft = { "markdown", "pandoc.markdown" },
     config = function()
