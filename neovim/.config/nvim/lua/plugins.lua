@@ -1072,11 +1072,17 @@ require("lazy").setup({
     end,
   },
   {
-     "maskudo/devdocs.nvim",
-    lazy = false,
+    "caliguIa/zendiagram.nvim",
     config = function ()
+      require("plugin-configs.zendiagram")
+    end,
+  },
+  {
+    "maskudo/devdocs.nvim",
+    lazy = false,
+    config = function()
       require("plugin-configs.devdocs")
-    end
+    end,
   },
   {
     "Myzel394/easytables.nvim",
