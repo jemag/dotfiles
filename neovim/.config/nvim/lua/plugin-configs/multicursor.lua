@@ -32,7 +32,7 @@ set({ "n", "v" }, "<leader>cD", mc.duplicateCursors, { desc = "Duplicate cursors
 set("n", "<leader>cr", mc.restoreCursors)
 
 -- Align cursor columns.
-set("n", "<leader>ca", mc.alignCursors)
+set("n", "<leader>ca", mc.alignCursors, { desc = "Align cursors" })
 
 -- Append/insert for each line of visual selections.
 set("v", "I", mc.insertVisual)
