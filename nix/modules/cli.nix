@@ -88,6 +88,7 @@ in {
         fx
         fzf
         gh
+        ghostscript
         gh-dash
         glow
         go
@@ -121,6 +122,7 @@ in {
         kyverno
         lazygit
         manix # search nix options
+        mermaid-cli
         mkcert
         netmask
         nixd
