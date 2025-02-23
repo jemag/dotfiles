@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(ev)
     local k = vim.keymap.set
     local opts = { buffer = ev.buf }
+    vim.wo.relativenumber = true
     -- Global
     -- k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers) | <Plug>(kubectl.refresh)", opts) -- Toggle headers
     k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers)", opts) -- Toggle headers
