@@ -1,4 +1,5 @@
 local filter_windows = require("utils").filter_windows
+local isNotWSL = vim.fn.getenv("WSL_INTEROP") == vim.NIL
 
 local snacks = require("snacks")
 snacks.setup({
@@ -27,6 +28,13 @@ snacks.setup({
   bigfile = {
     enabled = true,
     size = 0.3 * 1024 * 1024, -- 0.3 MiB
+  },
+  image = {
+    enabled = isNotWSL,
+    doc = {
+      enabled = true,
+      inline = false,
+    },
   },
   notifier = {
     enabled = true,
