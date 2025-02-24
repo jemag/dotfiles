@@ -186,6 +186,7 @@ require("nvim-treesitter.configs").setup({
     "tmux",
     "tsx",
     "typescript",
+    "typst",
     "vala",
     "vim",
     "vimdoc",
