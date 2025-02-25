@@ -57,7 +57,7 @@ local function toggle_profile()
     prof.start("*")
   end
 end
-vim.keymap.set("", "<f1>", toggle_profile)
+-- vim.keymap.set("", "<f1>", toggle_profile)
 
 -- function to do continuous horizontal scrolling
 vim.cmd([[ 

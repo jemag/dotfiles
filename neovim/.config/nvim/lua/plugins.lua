@@ -423,7 +423,7 @@ require("lazy").setup({
     end,
   },
   { "tweekmonster/startuptime.vim" },
-  { "stevearc/profile.nvim" },
+  -- { "stevearc/profile.nvim" },
   {
     "nvim-neotest/neotest",
     config = function()
