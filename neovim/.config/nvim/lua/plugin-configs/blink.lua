@@ -1,4 +1,17 @@
 require("blink-cmp").setup({
+  cmdline = {
+    enabled = true,
+    completion = {
+      menu = {
+        auto_show = true,
+      },
+    list = {
+      selection = {
+        auto_insert = false,
+      },
+    },
+    }
+  },
   appearance = {
     use_nvim_cmp_as_default = true,
   },
@@ -30,6 +43,11 @@ require("blink-cmp").setup({
     accept = {
       auto_brackets = {
         enabled = false,
+      },
+    },
+    list = {
+      selection = {
+        auto_insert = false,
       },
     },
     documentation = {
