@@ -402,6 +402,16 @@ $env.config = {
                 ]
             }
         }
+        {
+          name: fuzzy_file
+          modifier: control
+          keycode: char_t
+          mode: [emacs, vi_normal, vi_insert]
+          event: {
+            send: executehostcommand
+            cmd: "commandline edit --append (fzf --height 50% -1 --layout=reverse --multi --inline-info --preview 'bat --style=numbers --color=always --line-range :500 {}')"
+          }
+        }
         # {
         #     name: ide_completion_menu
         #     modifier: control
