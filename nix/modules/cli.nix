@@ -148,7 +148,8 @@ in {
         tmux
         tmuxinator
         tokei
-        tree-sitter
+        # NOTE: temporarily removed since version is too old for nvim
+        # tree-sitter
         trivy
         unzip
         velero
