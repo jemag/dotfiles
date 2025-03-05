@@ -412,6 +412,28 @@ $env.config = {
             cmd: "commandline edit --append (fzf --height 50% -1 --layout=reverse --multi --inline-info --preview 'bat --style=numbers --color=always --line-range :500 {}')"
           }
         }
+        {
+            name: fuzzy_history
+            modifier: control
+            keycode: char_r
+            mode: [emacs, vi_normal, vi_insert]
+            event: [
+                {
+                    send: ExecuteHostCommand
+                    cmd: "commandline edit (
+                              history
+                              | where exit_status == 0
+                              | get command
+                              | reverse
+                              | uniq
+                              | str join (char -i 0)
+                              | fzf --read0 --height 40% --reverse --inline-info +s --bind 'tab:down' --bind 'shift-tab:up' -q (commandline)
+                              | decode utf-8
+                              | str trim
+                          )"
+                }
+            ]
+        }
         # {
         #     name: ide_completion_menu
         #     modifier: control
@@ -425,13 +447,6 @@ $env.config = {
         #         ]
         #     }
         # }
-        {
-            name: history_menu
-            modifier: control
-            keycode: char_r
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: history_menu }
-        }
         {
             name: help_menu
             modifier: none
