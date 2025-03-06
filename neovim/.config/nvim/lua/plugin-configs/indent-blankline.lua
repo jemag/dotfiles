@@ -40,4 +40,3 @@ require("ibl").setup({
     enabled = false,
   },
 })
-vim.api.nvim_set_keymap("n", "<localleader>ti", "<cmd>IBLToggle<CR>", { noremap = true, silent = true, desc = "Toggle indentblankline" })

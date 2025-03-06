@@ -163,6 +163,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.grugfar")
     end,
+    lazy = true,
     keys = {
       { "<leader>rg", "<cmd>GrugFar<CR>", desc = " GrugFar" },
     },
@@ -291,7 +292,7 @@ require("lazy").setup({
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
     keys = {
       { "<localleader>tC", "<cmd>CsvViewToggle<cr>", desc = "Toggle CSV View" },
-    }
+    },
   },
   {
     "ryanmsnyder/toggleterm-manager.nvim",
@@ -879,6 +880,19 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.codecompanion")
     end,
+    lazy = true,
+    keys = {
+      {
+        "<F10>",
+        "<Cmd>CodeCompanionChat toggle<CR>",
+        desc = "Toggle CodeCompanionChat",
+      },
+      {
+        "<leader>aa",
+        "<Cmd>CodeCompanionActions <CR>",
+        desc = "Toggle CodeCompanionActions",
+      },
+    },
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
@@ -1059,7 +1073,7 @@ require("lazy").setup({
   },
   {
     "caliguIa/zendiagram.nvim",
-    config = function ()
+    config = function()
       require("plugin-configs.zendiagram")
     end,
   },
@@ -1069,6 +1083,10 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.devdocs")
     end,
+    keys = {
+      { "<localleader>dg", "<cmd>DevDocs get<cr>", desc = "Devdocs get" },
+      { "<localleader>di", "<cmd>DevDocs install<cr>", desc = "Devdocs install" },
+    },
   },
   {
     "Myzel394/easytables.nvim",
@@ -1119,9 +1137,13 @@ require("lazy").setup({
   },
   {
     "lukas-reineke/indent-blankline.nvim",
+    lazy = true,
     config = function()
       require("plugin-configs.indent-blankline")
     end,
+    keys = {
+      { "<localleader>ti", "<cmd>IBLToggle<CR>", noremap = true, silent = true, desc = "Toggle indentblankline" },
+    },
   },
   {
     "liuchengxu/vista.vim",
