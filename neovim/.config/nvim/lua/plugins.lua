@@ -662,6 +662,8 @@ require("lazy").setup({
   {
     "eero-lehtinen/oklch-color-picker.nvim",
     event = "VeryLazy",
+    -- NOTE: pin to this commit since latest version currently keep downloading the color picker
+    commit = "988699aa31922e53ef6a7367eb453bf8d23168ae",
     opts = {},
     keys = {
       -- One handed keymap recommended, you will be using the mouse
