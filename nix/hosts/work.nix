@@ -50,6 +50,7 @@
       skopeo
       sonar-scanner-cli
       step-cli
+      swaks # Swiss Army Knife for SMTP testing
       tanka
       termshark
       terraform
