@@ -44,6 +44,8 @@
       falcoctl
       grafana-loki
       hubble
+      jsonnet
+      jsonnet-bundler
       maven
       pack
       powershell
