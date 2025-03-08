@@ -884,7 +884,7 @@ require("lazy").setup({
     keys = {
       {
         "<F10>",
-        mode = {"n", "x"},
+        mode = {"n", "x", "i"},
         "<Cmd>CodeCompanionChat toggle<CR>",
         desc = "Toggle CodeCompanionChat",
       },
