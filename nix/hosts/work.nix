@@ -42,9 +42,9 @@
       cri-tools
       dockle
       falcoctl
+      go-jsonnet
       grafana-loki
       hubble
-      jsonnet
       jsonnet-bundler
       maven
       pack
