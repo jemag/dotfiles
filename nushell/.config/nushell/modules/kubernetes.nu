@@ -47,7 +47,9 @@ export alias kgpw = kgp --watch
 export alias kgpwide = kgp -o wide
 export alias kep = kubecolor edit pods
 export alias kdp = kubecolor describe pods
-export alias kdpp = kubecolor get pods --no-headers | fzf | awk \''{print $1}'\'' | xargs kubecolor describe pods'
+export def kdpp [] {
+  kubecolor get pods --no-headers | fzf | awk '{print $1}' | xargs kubecolor describe pods
+}
 export alias kdelp = kubecolor delete pods
 export alias kgpall = kubecolor get pods --all-namespaces -o wide
 # get pod by label: kgpl "app=myapp" -n myns
@@ -151,8 +153,12 @@ export alias kgaa = kubecolor get all --all-namespaces
 
 # Logs
 export alias kl = kubecolor logs
-export alias klg = kubecolor get pods --no-headers | fzf | awk \''{print $1}'\'' | xargs kubecolor logs'
-export alias klgp = kubecolor get pods --no-headers | fzf | awk \''{print $1}'\'' | xargs kubecolor logs -p'
+export def klg [] {
+  kubecolor get pods --no-headers | fzf | awk '{print $1}' | xargs kubecolor logs
+}
+export def klgp [] {
+  kubecolor get pods --no-headers | fzf | awk '{print $1}' | xargs kubecolor logs -p
+}
 export alias kl1h = kubecolor logs --since 1h
 export alias kl1m = kubecolor logs --since 1m
 export alias kl1s = kubecolor logs --since 1s
