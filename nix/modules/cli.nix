@@ -131,6 +131,7 @@ in {
         nix-tree # browse dependency graphs of Nix derivations
         nixfmt-classic
         nushell
+        nufmt
         parallel
         ripgrep
         rustup
