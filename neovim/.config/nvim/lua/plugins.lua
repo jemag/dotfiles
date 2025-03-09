@@ -914,9 +914,15 @@ require("lazy").setup({
     },
   },
   {
-    "nvimtools/none-ls.nvim",
+    "stevearc/conform.nvim",
     config = function()
-      require("plugin-configs.null-ls")
+      require("plugin-configs.conform")
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    config = function()
+      require("plugin-configs.nvim-lint")
     end,
   },
   {
