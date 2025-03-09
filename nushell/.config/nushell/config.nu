@@ -434,19 +434,6 @@ $env.config = {
                 }
             ]
         }
-        # {
-        #     name: ide_completion_menu
-        #     modifier: control
-        #     keycode: char_t
-        #     mode: [emacs vi_normal vi_insert]
-        #     event: {
-        #         until: [
-        #             { send: menu name: ide_completion_menu }
-        #             { send: menunext }
-        #             { edit: complete }
-        #         ]
-        #     }
-        # }
         {
             name: help_menu
             modifier: none
@@ -896,6 +883,7 @@ $env.config = {
 }
 
 use aliases.nu *
+use kubernetes.nu *
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 source ~/.cache/nu/zoxide/zoxide.nu
