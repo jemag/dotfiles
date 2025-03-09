@@ -16,6 +16,7 @@ require("conform").setup({
     python = { "isort", "black" },
     lua = { "stylua" },
     sh = { "shfmt" },
+    nu = { "nufmt" },
   },
   formatters = {
     shfmt = {
