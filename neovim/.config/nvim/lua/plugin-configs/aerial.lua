@@ -1,4 +1,17 @@
 require("aerial").setup({
+  filter_kind = {
+    "Class",
+    "Constructor",
+    "Enum",
+    "Function",
+    "Interface",
+    "Module",
+    "Method",
+    "Struct",
+
+    "Field", -- For jsonnet
+    "Variable", -- For jsonnet
+  },
   layout = {
     min_width = 25,
     default_direction = "right",
