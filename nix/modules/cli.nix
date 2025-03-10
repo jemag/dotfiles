@@ -75,6 +75,7 @@ in {
         aider-chat
         bat
         btop
+        carapace
         cmake
         delta
         devbox
