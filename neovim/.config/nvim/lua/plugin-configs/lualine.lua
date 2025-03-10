@@ -52,24 +52,25 @@ require("lualine").setup({
       "branch",
       "diff",
       "spelunk",
-      {
-        require("tmux-status").tmux_session,
-        -- cond = require("tmux-status").show,
-        separator = { left = "|", right = "|" },
-      },
+      -- NOTE: disable tmux status for now due to slowdowns
+      -- {
+      --   require("tmux-status").tmux_session,
+      --   -- cond = require("tmux-status").show,
+      --   separator = { left = "|", right = "|" },
+      -- },
     },
     lualine_c = {
 
-      {
-        require("tmux-status").tmux_windows,
-        -- function()
-        --   local text = require("tmux-status").tmux_render_format("window_index")..":"..require("tmux-status").tmux_render_format("window_name")
-        --   return text
-        -- end,
-        -- cond = require("tmux-status").show,
-        padding = { left = 3 },
-        separator = { left = "|" },
-      },
+      -- {
+      --   require("tmux-status").tmux_windows,
+      --   -- function()
+      --   --   local text = require("tmux-status").tmux_render_format("window_index")..":"..require("tmux-status").tmux_render_format("window_name")
+      --   --   return text
+      --   -- end,
+      --   -- cond = require("tmux-status").show,
+      --   padding = { left = 3 },
+      --   separator = { left = "|" },
+      -- },
     },
     lualine_x = {
       {

@@ -416,13 +416,13 @@ require("lazy").setup({
       require("plugin-configs.lualine")
     end,
   },
-  {
-    "jemag/tmux-status.nvim",
-    lazy = true,
-    config = function()
-      require("plugin-configs.tmux-status")
-    end,
-  },
+  -- {
+  --   "jemag/tmux-status.nvim",
+  --   lazy = true,
+  --   config = function()
+  --     require("plugin-configs.tmux-status")
+  --   end,
+  -- },
   { "tweekmonster/startuptime.vim" },
   -- { "stevearc/profile.nvim" },
   {
@@ -906,7 +906,7 @@ require("lazy").setup({
     keys = {
       {
         "<F10>",
-        mode = {"n", "x", "i"},
+        mode = { "n", "x", "i" },
         "<Cmd>CodeCompanionChat toggle<CR>",
         desc = "Toggle CodeCompanionChat",
       },
