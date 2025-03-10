@@ -403,13 +403,23 @@ $env.config = {
             }
         }
         {
+          name: fuzzy_dir
+          modifier: alt
+          keycode: char_c
+          mode: [emacs, vi_normal, vi_insert]
+          event: {
+            send: executehostcommand
+            cmd: "commandline edit --append (fd --type d |fzf --height 50% -1 --layout=reverse --multi --inline-info --preview 'eza --tree --color=always {} | head -n 200')"
+          }
+        }
+        {
           name: fuzzy_file
           modifier: control
           keycode: char_t
           mode: [emacs, vi_normal, vi_insert]
           event: {
             send: executehostcommand
-            cmd: "commandline edit --append (fzf --height 50% -1 --layout=reverse --multi --inline-info --preview 'bat --style=numbers --color=always --line-range :500 {}')"
+            cmd: "commandline edit --insert (fzf --height 50% -1 --layout=reverse --multi --inline-info --preview 'bat --style=numbers --color=always --line-range :500 {}')"
           }
         }
         {

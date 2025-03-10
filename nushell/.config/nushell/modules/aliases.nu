@@ -19,7 +19,7 @@ export alias sue = sudoedit
 export alias sup = sudo --preserve-env=PATH
 export alias grep = grep --color
 export alias tp = tmuxinator-fzf-start.sh
-export alias ll = ls -l
+export alias ll = ls -la
 export def lld [] {
   ls -l | sort-by modified
 }
@@ -27,8 +27,8 @@ export def lad [] {
   ls -la | sort-by modified
 }
 export alias lt = eza -T
-export alias l = ls -l
-export alias la = ls -la
+export alias l = ls
+export alias la = ls -a
 export alias ta = tmux attach -t
 export def tlf [] {
   tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr }
