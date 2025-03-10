@@ -59,19 +59,3 @@ require("gitlinker").setup({
   -- write logs to file
   file_log = false,
 })
--- browse
-vim.keymap.set({ "n", "x" }, "<leader>gly", "<cmd>GitLink<cr>", { silent = true, noremap = true, desc = "Copy git permlink to clipboard" })
-vim.keymap.set({ "n", "x" }, "<leader>glg", "<cmd>GitLink!<cr>", { silent = true, noremap = true, desc = "Open git permlink in browser" })
--- blame
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>glb",
-  "<cmd>GitLink blame<cr>",
-  { silent = true, noremap = true, desc = "Copy git blame link to clipboard" }
-)
-vim.keymap.set(
-  { "n", "x" },
-  "<leader>glB",
-  "<cmd>GitLink! blame<cr>",
-  { silent = true, noremap = true, desc = "Open git blame link in browser" }
-)

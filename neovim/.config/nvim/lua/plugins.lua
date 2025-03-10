@@ -773,6 +773,28 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.gitlinker")
     end,
+    lazy = true,
+    keys = {
+      { mode = { "n", "x" }, "<leader>gly", "<cmd>GitLink<cr>", silent = true, noremap = true, desc = "Copy git permlink to clipboard" },
+      { mode = { "n", "x" }, "<leader>glg", "<cmd>GitLink!<cr>", silent = true, noremap = true, desc = "Open git permlink in browser" },
+      -- blame
+      {
+        mode = { "n", "x" },
+        "<leader>glb",
+        "<cmd>GitLink blame<cr>",
+        silent = true,
+        noremap = true,
+        desc = "Copy git blame link to clipboard",
+      },
+      {
+        mode = { "n", "x" },
+        "<leader>glB",
+        "<cmd>GitLink! blame<cr>",
+        silent = true,
+        noremap = true,
+        desc = "Open git blame link in browser",
+      },
+    },
   },
   {
     "Willem-J-an/adopure.nvim",
