@@ -51,7 +51,8 @@ require("lualine").setup({
     lualine_b = {
       "branch",
       "diff",
-      "spelunk",
+      -- NOTE: disable spelunk due to slowdowns
+      -- "spelunk",
       -- NOTE: disable tmux status for now due to slowdowns
       -- {
       --   require("tmux-status").tmux_session,
