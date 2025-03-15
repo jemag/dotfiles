@@ -816,7 +816,7 @@ require("lazy").setup({
     },
   },
   {
-    "ThePrimeagen/git-worktree.nvim",
+    "afonsofrancof/worktrees.nvim",
     config = function()
       require("plugin-configs.worktree")
     end,
