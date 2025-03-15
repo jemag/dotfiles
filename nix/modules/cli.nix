@@ -98,6 +98,7 @@ in {
         helix
         hurl
         htop
+        isort
         ijq
         ipcalc
         iperf
