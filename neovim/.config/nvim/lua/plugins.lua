@@ -894,6 +894,13 @@ require("lazy").setup({
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    lazy = true,
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+  },
+  {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
