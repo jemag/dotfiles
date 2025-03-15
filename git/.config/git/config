@@ -77,7 +77,7 @@
 	dc = diff --cached
 	dk = diff --check
 	dck = diff --cached --check
-	dt = difftool
+	dt = "! args=$@;nvim -c \"DiffviewOpen $args\""
 	dct = difftool --cached
 	#############
 	f = fetch
