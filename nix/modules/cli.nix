@@ -138,6 +138,7 @@ in {
         ripgrep
         rustup
         sesh
+        smassh
         socat
         starship
         stow
