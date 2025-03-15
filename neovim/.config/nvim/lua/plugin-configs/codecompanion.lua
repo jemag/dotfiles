@@ -1,4 +1,9 @@
 require("codecompanion").setup({
+  display = {
+    chat = {
+      show_settings = false,
+    },
+  },
   adapters = {
     opts = {
       show_defaults = false,
