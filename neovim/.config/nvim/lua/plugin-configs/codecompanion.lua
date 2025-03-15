@@ -1,10 +1,13 @@
 require("codecompanion").setup({
-  adapter = {
+  adapters = {
+    opts = {
+      show_defaults = false,
+    },
     copilot = function()
       return require("codecompanion.adapters").extend("copilot", {
         schema = {
           model = {
-            default = "claude-3.7-sonnet",
+            default = "claude-3.5-sonnet",
           },
         },
       })
