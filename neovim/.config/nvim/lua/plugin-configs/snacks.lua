@@ -207,6 +207,16 @@ end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>sz", function()
   snacks.picker.files({ hidden = true, ignored = false, cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
 end, { desc = "Files current directory" })
+vim.keymap.set("n", "<leader>sx", function()
+  vim.ui.input({ prompt = "Files in dir: " }, function(input)
+    snacks.picker.files({ hidden = true, ignored = true, cwd = input })
+  end)
+end, { desc = "Files based on input dir" })
+vim.keymap.set("n", "<leader>sX", function()
+  vim.ui.input({ prompt = "Grep in dir: " }, function(input)
+    snacks.picker.grep({ hidden = true, ignored = true, cwd = input })
+  end)
+end, { desc = "Grep based on input dir" })
 
 vim.keymap.set("n", "<leader>sD", function()
   snacks.picker.grep({ hidden = true, ignored = true, cwd = vim.fn.expand("%:p:h") })
@@ -281,7 +291,8 @@ vim.keymap.set("n", "<leader>si", function()
         dirs = { item.file },
       })
     end,
-  })
+  }),
+  { desc = "Search files in directory" }
 end)
 
 vim.keymap.set("n", "<leader>sI", function()
@@ -297,4 +308,5 @@ vim.keymap.set("n", "<leader>sI", function()
       })
     end,
   })
+  { desc = "Search text in directory" }
 end)
