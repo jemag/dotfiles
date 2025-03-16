@@ -121,7 +121,7 @@ snacks.setup({
           ["<c-v>"] = { { "pick_win_updated", "edit_vsplit" }, mode = { "i", "n" } },
           ["<c-s>"] = { { "pick_win_updated", "edit_split" }, mode = { "i", "n" } },
           ["<c-e>"] = { { "pick_win_updated", "edit" }, mode = { "i", "n" } },
-          ["<c-t>"] = {  "edit_tab", mode = { "i", "n" } },
+          ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
         },
       },
       list = {
@@ -207,16 +207,6 @@ end, { desc = "Files current directory" })
 vim.keymap.set("n", "<leader>sz", function()
   snacks.picker.files({ hidden = true, ignored = false, cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy") })
 end, { desc = "Files current directory" })
-vim.keymap.set("n", "<leader>si", function()
-  vim.ui.input({ prompt = "Files in dir: " }, function(input)
-    snacks.picker.files({ hidden = true, ignored = true, cwd = input })
-  end)
-end, { desc = "Files based on input dir" })
-vim.keymap.set("n", "<leader>sI", function()
-  vim.ui.input({ prompt = "Grep in dir: " }, function(input)
-    snacks.picker.grep({ hidden = true, ignored = true, cwd = input })
-  end)
-end, { desc = "Grep based on input dir" })
 
 vim.keymap.set("n", "<leader>sD", function()
   snacks.picker.grep({ hidden = true, ignored = true, cwd = vim.fn.expand("%:p:h") })
@@ -259,3 +249,52 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
   desc = "Snacks picker list floating window navigate away",
 })
+
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     customer pickers                    │
+--          ╰─────────────────────────────────────────────────────────╯
+local function get_directories()
+  local directories = {}
+
+  local handle = io.popen("fd --type directory --full-path '.'")
+  if handle then
+    for line in handle:lines() do
+      table.insert(directories, { text = line, file = line })
+    end
+    handle:close()
+  else
+    print("Failed to execute fd command")
+  end
+
+  return directories
+end
+
+vim.keymap.set("n", "<leader>si", function()
+  local Snacks = require("snacks")
+  local dirs = get_directories()
+
+  return Snacks.picker({
+    items = dirs,
+    confirm = function(picker, item)
+      picker:close()
+      Snacks.picker.pick("files", {
+        dirs = { item.file },
+      })
+    end,
+  })
+end)
+
+vim.keymap.set("n", "<leader>sI", function()
+  local Snacks = require("snacks")
+  local dirs = get_directories()
+
+  return Snacks.picker({
+    items = dirs,
+    confirm = function(picker, item)
+      picker:close()
+      Snacks.picker.pick("grep", {
+        dirs = { item.file },
+      })
+    end,
+  })
+end)
