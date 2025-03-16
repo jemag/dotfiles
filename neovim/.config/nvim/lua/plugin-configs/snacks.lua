@@ -158,6 +158,8 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   desc = "Link SnacksPickerDir to Conceal",
 })
 
+-- profile mappings
+vim.keymap.set("n", "<localleader>tp", snacks.profiler.toggle, { desc = "Toggle profiler" })
 -- picker mappings
 vim.keymap.set("n", "<leader>s/", snacks.picker.lines, { desc = "Find in buffer" })
 vim.keymap.set("n", "<leader>s;", snacks.picker.commands, { desc = "Commands" })
