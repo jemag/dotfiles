@@ -1,16 +1,30 @@
 require("blink-cmp").setup({
   cmdline = {
     enabled = true,
+    keymap = {
+      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<C-y>"] = { "select_and_accept" },
+      ["<C-n>"] = { "select_next", "fallback" },
+      ["<C-p>"] = { "select_prev", "fallback" },
+      ["<C-f>"] = { "fallback" },
+      ["up"] = { "fallback" },
+      ["down"] = { "fallback" },
+      ["<C-b>"] = {
+        function(cmp)
+          cmp.show({ providers = { "path" } })
+        end,
+      },
+    },
     completion = {
       menu = {
         auto_show = true,
       },
-    list = {
-      selection = {
-        auto_insert = false,
+      list = {
+        selection = {
+          auto_insert = false,
+        },
       },
     },
-    }
   },
   appearance = {
     use_nvim_cmp_as_default = true,
