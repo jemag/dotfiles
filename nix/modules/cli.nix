@@ -95,6 +95,7 @@ in {
         go
         gobuster
         gradle
+        grafana-alloy
         helix
         hurl
         htop
