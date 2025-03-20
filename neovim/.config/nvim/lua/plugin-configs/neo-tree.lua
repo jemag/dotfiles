@@ -146,6 +146,7 @@ require("neo-tree").setup({
   },
   nesting_rules = {},
   filesystem = {
+    bind_to_cwd = false,
     follow_current_file = {
       enabled = false,
     },
