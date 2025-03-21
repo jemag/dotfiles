@@ -291,9 +291,8 @@ vim.keymap.set("n", "<leader>si", function()
         dirs = { item.file },
       })
     end,
-  }),
-  { desc = "Search files in directory" }
-end)
+  })
+end, { desc = "Search files in directory" })
 
 vim.keymap.set("n", "<leader>sI", function()
   local Snacks = require("snacks")
@@ -308,5 +307,4 @@ vim.keymap.set("n", "<leader>sI", function()
       })
     end,
   })
-  { desc = "Search text in directory" }
-end)
+end, { desc = "Search text in directory" })
