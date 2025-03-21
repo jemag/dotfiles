@@ -361,7 +361,7 @@ require("lazy").setup({
       { "nvim-telescope/telescope.nvim" },
     },
   },
-  { "airblade/vim-rooter" },
+  -- { "airblade/vim-rooter" },
   {
     "epwalsh/obsidian.nvim",
     config = function()
