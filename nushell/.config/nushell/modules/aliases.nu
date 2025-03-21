@@ -60,4 +60,4 @@ export alias yaya = yay -Syu --aur --sudoloop              # update only AUR pkg
 export alias parua = paru -Syua --sudoloop             # update only AUR pkgs (paru)
 export def ap [] {
   apropos -s 1 . | fzf --preview="man {1}" --preview-window=up | awk '{print $1}' | xargs man
-  }
+}
