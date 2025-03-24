@@ -145,7 +145,7 @@ in {
         stow
         stylua
         tealdeer
-        tectonic
+        # tectonic
         thefuck
         ticker
         # xml formatter
