@@ -63,24 +63,24 @@ local function map_keys(client, bufnr)
   end, { desc = "Toggle inlay hints", silent = true })
   vim.keymap.set("n", "<leader>lq", "<cmd>lua vim.diagnostic.setqflist()<CR>", { desc = "Diagnostic to quickfix", buffer = bufnr })
   vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<CR>", { desc = "Continue", buffer = bufnr })
-  vim.keymap.set("n", "<leader>de", "<cmd>lua require('dap.ui.widgets').hover()<CR>", { desc = "Eval expression", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dT", "<cmd>lua require('dapui').toggle({reset = true})<CR>", { desc = "Toggle dap ui", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dap.ui.widgets').hover()<CR>", { desc = "Eval expression", buffer = bufnr })
+  vim.keymap.set("n", "<leader>de", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dt", "<cmd>lua require('dapui').toggle({reset = true})<CR>", { desc = "Toggle dap ui", buffer = bufnr })
   vim.keymap.set(
     "n",
     "<leader>dv",
     "<cmd>lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>",
     { desc = "Scope variables widget", buffer = bufnr }
   )
-  vim.keymap.set("n", "<leader>dso", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step over", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsi", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step into", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsO", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Step out", buffer = bufnr })
+  vim.keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Step over", buffer = bufnr })
+  vim.keymap.set("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step into", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Step out", buffer = bufnr })
   vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle breakpoint", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtc", "<cmd>Telescope dap commands<CR>", { desc = "Dap commands", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtC", "<cmd>Telescope dap configurations<CR>", { desc = "Dap configurations", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtf", "<cmd>Telescope dap frames<CR>", { desc = "Dap frames", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtl", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "List breakpoints", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dtv", "<cmd>Telescope dap variables<CR>", { desc = "Dap variables", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsc", "<cmd>Telescope dap commands<CR>", { desc = "Dap commands", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsC", "<cmd>Telescope dap configurations<CR>", { desc = "Dap configurations", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsf", "<cmd>Telescope dap frames<CR>", { desc = "Dap frames", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsl", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "List breakpoints", buffer = bufnr })
+  vim.keymap.set("n", "<leader>dsv", "<cmd>Telescope dap variables<CR>", { desc = "Dap variables", buffer = bufnr })
   vim.keymap.set(
     "n",
     "<leader>dB",

@@ -979,6 +979,7 @@ require("lazy").setup({
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { plugins = { "nvim-dap-ui" }, types = true }
       },
     },
   },
@@ -1018,37 +1019,6 @@ require("lazy").setup({
     end,
     version = "v0.*",
   },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   config = function()
-  --     require("plugin-configs.nvim-cmp")
-  --   end,
-  --   dependencies = {
-  --     { "hrsh7th/cmp-nvim-lsp" },
-  --     { "saadparwaiz1/cmp_luasnip" },
-  --     { "hrsh7th/cmp-buffer" },
-  --     { "hrsh7th/cmp-path" },
-  --     { "onsails/lspkind-nvim" },
-  --     { "lukas-reineke/cmp-rg" },
-  --     { "rcarriga/cmp-dap" },
-  --   },
-  -- },
-  -- {
-  --   "Gelio/cmp-natdat",
-  --   config = function()
-  --     require("cmp_natdat").setup()
-  --   end,
-  --   dependencies = {
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  -- },
-  -- {
-  --   "hrsh7th/cmp-cmdline",
-  --   config = function()
-  --     require("plugin-configs.cmp-cmdline")
-  --   end,
-  -- },
-
   {
     "honza/dockerfile.vim",
     ft = { "Dockerfile" },

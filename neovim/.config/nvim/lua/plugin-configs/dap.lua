@@ -12,10 +12,10 @@ dap.configurations["lua"] = {
     name = "Attach to running Neovim instance",
   },
 }
-vim.keymap.set({ "n" }, "<leader>dol", function()
+vim.keymap.set({ "n" }, "<leader>dal", function()
   require("osv").launch({ port = 8086 })
 end, { desc = "Launch lua adapter" })
-vim.keymap.set({ "n" }, "<leader>dor", require("osv").run_this , { desc = "Run this lua file" })
-vim.keymap.set({ "n" }, "<leader>dos", function()
+vim.keymap.set({ "n" }, "<leader>dar", require("osv").run_this , { desc = "Run this lua file" })
+vim.keymap.set({ "n" }, "<leader>das", function()
   require("osv").stop()
 end, { desc = "Stop lua adapter" })
