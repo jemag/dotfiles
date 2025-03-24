@@ -5,6 +5,7 @@ return {
         enable = true,
         disable = {
           "different-requires",
+          "missing-fields",
         },
         globals = {
           "P",
