@@ -4,7 +4,7 @@ name: reference
 root: ~/
 
 windows:
-  - zsh:
+  - ref:
       layout: tiled
       panes:
         - cd ~/Projects/github-reference
