@@ -1017,7 +1017,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.blink")
     end,
-    version = "v0.*",
+    version = "v1.*",
   },
   {
     "honza/dockerfile.vim",
