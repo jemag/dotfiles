@@ -80,6 +80,16 @@ alias tf="terraform"
 alias mirrorback="sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
 alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vifm="vifmrun"
+
+tk() {
+  if [[ "$1" == "show" ]]; then
+    shift
+    command tk show --dangerous-allow-redirect "$@"
+  else
+    command tk "$@"
+  fi
+}
+
 alias g="git"
 alias tmuxa="tmux attach -t"
 alias ..="cd .."
