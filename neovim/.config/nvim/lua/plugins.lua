@@ -128,6 +128,9 @@ require("lazy").setup({
   {
     "google/vim-jsonnet",
     ft = { "jsonnet" },
+    config = function ()
+      vim.g.jsonnet_fmt_on_save = 0
+    end
   },
   {
     "svban/YankAssassin.nvim",
