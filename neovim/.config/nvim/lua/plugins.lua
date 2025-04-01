@@ -840,6 +840,9 @@ require("lazy").setup({
     opts = {
       grace_period = 300,
       timeout = 3000,
+      excluded_lsp_clients = {
+        "null-ls", "jdtls", "marksman", "lua_ls", "jsonnet_ls"
+      },
     },
   },
   {
