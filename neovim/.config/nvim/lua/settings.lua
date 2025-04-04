@@ -45,7 +45,7 @@ vim.opt.fillchars = {
 vim.opt.ruler = false
 vim.opt.showtabline = 0
 vim.g.editorconfig = true
-vim.o.smartindent = true
+vim.o.cindent = true
 
 vim.opt.spelllang = { "en", "fr" }
 vim.opt.history = 2000
