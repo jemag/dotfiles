@@ -156,6 +156,9 @@ require("lazy").setup({
     },
   },
   {
+    "bullets-vim/bullets.vim",
+  },
+  {
     "haya14busa/vim-asterisk",
     config = function()
       require("plugin-configs.vim-asterisk")
