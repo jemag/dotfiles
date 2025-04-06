@@ -639,6 +639,10 @@ require("lazy").setup({
     event = "User LoadColorSchemes",
   },
   {
+    "egerhether/heatherfield.nvim",
+    event = "User LoadColorSchemes",
+  },
+  {
     "franbach/miramare",
     event = "User LoadColorSchemes",
   },
