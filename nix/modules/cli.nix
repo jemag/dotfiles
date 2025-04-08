@@ -150,6 +150,9 @@ in {
         ticker
         # xml formatter
         html-tidy
+        tcpdump
+        termshark
+        tshark
         tmux
         tmuxinator
         tokei

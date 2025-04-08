@@ -34,6 +34,7 @@
         azure-cli.extensions.azure-devops
         azure-cli.extensions.fzf
       ])
+      # azure-storage-azcopy
       buildkit
       calicoctl
       cilium-cli
@@ -54,11 +55,9 @@
       step-cli
       swaks # Swiss Army Knife for SMTP testing
       tanka
-      termshark
       terraform
       terragrunt
       tflint
-      tshark
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
 
