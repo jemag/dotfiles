@@ -3,9 +3,13 @@ require("obsidian").setup({
   dir = vault_dir,
 
   -- Optional, completion.
+  picker = {
+    name = "snacks.pick",
+  },
   completion = {
     -- If using nvim-cmp, otherwise set to false
     nvim_cmp = false,
+    blink = true,
     -- Trigger completion at 2 chars
     min_chars = 2,
   },
@@ -139,7 +143,7 @@ vim.keymap.set("n", "<leader>or", "<cmd>ObsidianRename<cr>", { desc = "Rename no
 vim.keymap.set("n", "<leader>os", function()
   require("snacks.picker").files({ cwd = vim.env.OBSIDIAN_VAULT, args = { "--glob", "*.md"  }})
 end, { desc = "Quick switch" })
-vim.keymap.set("n", "<leader>oS", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Obidian.nvim quick switch" })
+vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Obidian.nvim quick switch" })
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<cr>", { desc = "Tags" })
 vim.keymap.set("n", "<leader>oT", "<cmd>ObsidianTemplate<cr>", { desc = "Template" })
 vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday" })

@@ -369,7 +369,7 @@ require("lazy").setup({
   },
   -- { "airblade/vim-rooter" },
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     config = function()
       require("plugin-configs.obsidian")
     end,
