@@ -86,6 +86,12 @@ require("blink-cmp").setup({
     -- add lazydev to your completion providers
     default = { "lazydev", "lsp", "path", "snippets", "buffer" },
     providers = {
+      cmdline = {
+        -- ignores cmdline completions when executing shell commands
+        enabled = function()
+          return vim.fn.getcmdtype() ~= ":" or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!?|term")
+        end,
+      },
       lazydev = {
         name = "LazyDev",
         module = "lazydev.integrations.blink",
