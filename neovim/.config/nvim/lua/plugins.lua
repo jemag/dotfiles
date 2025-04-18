@@ -133,6 +133,12 @@ require("lazy").setup({
     end
   },
   {
+    "Duologic/nvim-jsonnet",
+    config = function()
+      require("plugin-configs.nvim-jsonnet")
+    end,
+  },
+  {
     "svban/YankAssassin.nvim",
     config = function()
       require("YankAssassin").setup({
