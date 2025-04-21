@@ -126,14 +126,8 @@ require("lazy").setup({
     ft = { "json" },
   },
   {
-    "google/vim-jsonnet",
-    ft = { "jsonnet" },
-    config = function ()
-      vim.g.jsonnet_fmt_on_save = 0
-    end
-  },
-  {
-    "Duologic/nvim-jsonnet",
+    "jemag/nvim-jsonnet",
+    branch = "local-setup",
     config = function()
       require("plugin-configs.nvim-jsonnet")
     end,
