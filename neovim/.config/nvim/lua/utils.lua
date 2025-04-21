@@ -55,7 +55,6 @@ local function create_temp_split(split_cmd)
   local buf = vim.api.nvim_get_current_buf()
   vim.api.nvim_set_option_value("buftype", "nofile", { buf = buf })
   vim.api.nvim_set_option_value("bufhidden", "wipe", { buf = buf })
-  vim.api.nvim_set_option_value("filetype", "json", { buf = buf })
   return buf;
 end
 
