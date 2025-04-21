@@ -33,6 +33,7 @@ wk.add({
     { "<leader>t", group = "+terminal" },
     { "<leader>u", group = "+unique" },
     { "<leader>w", group = "+window" },
+    { "<localleader>j", group = "+json" },
     { "<localleader>m", group = "+misc" },
     { "<localleader>ms", group = "+schema" },
     { "<localleader>mp", group = "+paste image" },
@@ -41,5 +42,6 @@ wk.add({
     { "<localleader>s", group = "+misc search" },
     { "<localleader>t", group = "+toggle" },
     { "<localleader>tm", group = "+markdown" },
+    { "<localleader>y", group = "+yaml" },
   },
 })

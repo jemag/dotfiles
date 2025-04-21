@@ -16,7 +16,3 @@ require("nvim-jsonnet").setup({
   jsonnet_debugger_bin = "jsonnet-debugger",
   jsonnet_debugger_args = { "-s", "-d", "-J", "vendor", "-J", "lib" },
 })
-
-vim.keymap.set({ "n", "x" }, "<localleader>j", function()
-  require("nvim-jsonnet").eval({})
-end, { desc = "JsonnetFmt" })

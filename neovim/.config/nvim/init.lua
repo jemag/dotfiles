@@ -14,6 +14,7 @@ end
 vim.g.mapleader = " "
 vim.cmd([[ let maplocalleader = "\<bs>"]])
 require("filetypes")
+require("json-yaml")
 -- To disable smart_splits multiplexer integration
 vim.g.smart_splits_multiplexer_integration = false
 require("plugins")
