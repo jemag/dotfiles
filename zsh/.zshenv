@@ -29,4 +29,4 @@ export PATH=$PATH:$GRAILS_HOME/bin
 export PATH=$PATH:/home/jemag/.local/bin
 export PATH=$PATH:/home/jemag/.yarn/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export KUBECTL_EXTERNAL_DIFF=delta
+export KUBECTL_EXTERNAL_DIFF="difft --color=always"
