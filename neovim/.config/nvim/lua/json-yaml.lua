@@ -1,9 +1,16 @@
 local utils = require("utils")
 
-vim.api.nvim_create_user_command("YamlToJson", function()
-  -- Get visual selection range
-  local start_line = vim.fn.line("'<")
-  local end_line = vim.fn.line("'>")
+vim.api.nvim_create_user_command("YamlToJson", function(opts)
+  -- If visual selection, use that range otherwise use entire file
+  local start_line, end_line
+  -- no items in range = no visual selection
+  if opts.range == 0 then
+    start_line = 1
+    end_line = vim.api.nvim_buf_line_count(0)
+  else
+    start_line = opts.line1
+    end_line = opts.line2
+  end
 
   -- Get the selected text
   local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
@@ -22,12 +29,14 @@ vim.api.nvim_create_user_command("YamlToJson", function()
   end
 
   -- Convert using yq and capture the output
-  local out = vim.system({
-    "yq",
-    "-P",
-    "-o=json",
-    tmp_file,
-  }, { text = true }):wait()
+  local out = vim
+    .system({
+      "yq",
+      "-P",
+      "-o=json",
+      tmp_file,
+    }, { text = true })
+    :wait()
 
   if out.code ~= 0 then
     print("response.code=" .. out.code)
@@ -47,10 +56,17 @@ vim.api.nvim_create_user_command("YamlToJson", function()
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(json, "\n"))
 end, { range = true })
 
-vim.api.nvim_create_user_command("JsonToYaml", function()
-  -- Get visual selection range
-  local start_line = vim.fn.line("'<")
-  local end_line = vim.fn.line("'>")
+vim.api.nvim_create_user_command("JsonToYaml", function(opts)
+  -- If visual selection, use that range otherwise use entire file
+  local start_line, end_line
+  -- no items in range = no visual selection
+  if opts.range == 0 then
+    start_line = 1
+    end_line = vim.api.nvim_buf_line_count(0)
+  else
+    start_line = opts.line1
+    end_line = opts.line2
+  end
 
   -- Get the selected text
   local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
@@ -69,13 +85,14 @@ vim.api.nvim_create_user_command("JsonToYaml", function()
   end
 
   -- Convert using yq and capture the output
-  local out = vim.system({
-    "yq",
-    "-P",
-    "-o=yaml",
-    tmp_file,
-  }, { text = true }):wait()
-
+  local out = vim
+    .system({
+      "yq",
+      "-P",
+      "-o=yaml",
+      tmp_file,
+    }, { text = true })
+    :wait()
 
   if out.code ~= 0 then
     print("response.code=" .. out.code)
