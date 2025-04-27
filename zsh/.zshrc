@@ -255,7 +255,7 @@ bindkey -v '^?' backward-delete-char
 bindkey '^f' autosuggest-accept
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey "^X^E" edit-command-line
+bindkey "^O" edit-command-line
 
 # remove lines from history with this function
 histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
