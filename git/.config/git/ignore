@@ -1,0 +1,24 @@
+.envrc
+.env
+
+# jsonnet
+vendor/
+
+# java
+*.class
+.gradle
+build/
+out/
+target/
+
+
+# javascript/typescript
+node_modules
+dist
+
+# golang
+/bin/
+
+# zig
+.zig-cache/
+zig-out/
