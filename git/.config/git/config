@@ -1,9 +1,15 @@
 [init]
 	defaultBranch = main
+[gpg]
+  format = ssh
+
+[commit]
+    gpgSign = true
 [user]
 	name = alexandre desjardins
 	email = alexandre.bd@tutanota.com
 	username = jemag
+  signingkey = ~/ssh/id_rsa.pub
 [credential]
   helper = /usr/lib/git-core/git-credential-libsecret
 [core]
