@@ -108,8 +108,8 @@ vim.keymap.set("n", "<leader>rs", ":%s/<c-r><c-w>//<Left>", { desc = "Replace wo
 vim.keymap.set("x", "<leader>rs", '"sy:%s/<C-r>s//<Left>', { desc = "Replace word in file" })
 
 
-vim.keymap.set("x", "<localleader>yj", ":YamlToJson<cr>", { desc = "Convert YAML to JSON" })
-vim.keymap.set("x", "<localleader>jy", ":JsonToYaml<cr>", { desc = "Convert JSON to YAML" })
+vim.keymap.set({"n", "x"}, "<localleader>yj", ":YamlToJson<cr>", { desc = "Convert YAML to JSON" })
+vim.keymap.set({"n", "x"}, "<localleader>jy", ":JsonToYaml<cr>", { desc = "Convert JSON to YAML" })
 
 vim.keymap.set("x", "Q", ":norm @q<cr>", { desc = "apply macro 'q' over current visual selection" })
 
