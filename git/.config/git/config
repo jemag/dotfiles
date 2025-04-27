@@ -2,20 +2,24 @@
 	defaultBranch = main
 [gpg]
   format = ssh
-
+[blame]
+    coloring = highlightRecent
+[color "blame"]
+  highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
 [commit]
     gpgSign = true
 [user]
 	name = alexandre desjardins
 	email = alexandre.bd@tutanota.com
 	username = jemag
-  signingkey = ~/ssh/id_rsa.pub
+  signingkey = ~/.ssh/id_rsa.pub
 [credential]
   helper = /usr/lib/git-core/git-credential-libsecret
 [core]
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = bat
+  compression = 9
 [pager]
   diff = delta
 [interactive]
@@ -32,15 +36,20 @@
   file-decoration-style = none
 [push]
 	default = simple
-	# excludesfile = ~/.gitignore
+  autoSetupRemote = true
 [pull]
   rebase = true
 [rebase]
   autoStash = true
 [web]
 	browser = firefox
-# [diff]
-# 	tool = vimdiff
+[diff]
+  renames = copies  # detect copies as renames in diffs
+  interHunkContext = 10  # merge near hunks in diffs
+# URL shortcuts
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
 [merge]
   tool = vimdiff
 [mergetool]
