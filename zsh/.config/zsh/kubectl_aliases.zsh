@@ -5,6 +5,7 @@ alias kyg=kubectl-get-yaml-fzf
 alias kdg=kubectl-describe-fzf
 alias keg=kubectl-edit-fzf
 alias kex="kubecolor explain"
+alias ker="kubecolor explain --recursive=true"
 alias kexp="kubecolor explore"
 
 alias kcx="kubectx"
