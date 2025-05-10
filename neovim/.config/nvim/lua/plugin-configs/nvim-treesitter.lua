@@ -1,9 +1,10 @@
 require("nvim-treesitter.configs").setup({
   indent = {
-    enable = function(lang)
-      local enabled_languages = { "nu"}
-      return vim.tbl_contains(enabled_languages, lang)
-    end
+    enable = false,
+    -- enable = function(lang)
+    --   local enabled_languages = { "nu", "jsonnet" }
+    --   return vim.tbl_contains(enabled_languages, lang)
+    -- end,
   },
   highlight = {
     enable = true, -- false will disable the whole extension
