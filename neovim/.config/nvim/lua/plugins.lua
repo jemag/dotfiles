@@ -92,6 +92,7 @@ require("lazy").setup({
     -- "someone-stole-my-name/yaml-companion.nvim",
     "astephanh/yaml-companion.nvim",
     branch = "kubernetes_crd_detection",
+    lazy = true,
     dependencies = {
       { "neovim/nvim-lspconfig" },
       { "nvim-lua/plenary.nvim" },
@@ -127,6 +128,8 @@ require("lazy").setup({
   },
   {
     "jemag/nvim-jsonnet",
+    lazy = true,
+    ft = "jsonnet",
     branch = "local-setup",
     config = function()
       require("plugin-configs.nvim-jsonnet")
@@ -847,7 +850,11 @@ require("lazy").setup({
       grace_period = 300,
       timeout = 3000,
       excluded_lsp_clients = {
-        "null-ls", "jdtls", "marksman", "lua_ls", "jsonnet_ls"
+        "null-ls",
+        "jdtls",
+        "marksman",
+        "lua_ls",
+        "jsonnet_ls",
       },
     },
   },
@@ -930,7 +937,7 @@ require("lazy").setup({
         desc = "Toggle CodeCompanionChat",
       },
       {
-        mode = {"n", "x"},
+        mode = { "n", "x" },
         "<leader>aa",
         "<Cmd>CodeCompanionActions <CR>",
         desc = "Toggle CodeCompanionActions",
@@ -991,7 +998,7 @@ require("lazy").setup({
         -- See the configuration section for more details
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { plugins = { "nvim-dap-ui" }, types = true }
+        { plugins = { "nvim-dap-ui" }, types = true },
       },
     },
   },
@@ -1075,9 +1082,11 @@ require("lazy").setup({
   },
   {
     "olexsmir/gopher.nvim",
+    lazy = true,
     config = function()
       require("plugin-configs.gopher")
     end,
+    ft = { "go" },
     dependencies = { -- dependencies
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
