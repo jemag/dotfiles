@@ -47,11 +47,17 @@ local tools = {
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
   ensure_installed = tools,
+  run_on_start = false,
+  integrations = {
+    ["mason-lspconfig"] = false,
+    ["mason-null-ls"] = false,
+    ["mason-nvim-dap"] = false,
+  },
 })
 
 local lspconfig = require("lspconfig")
 local installed_servers = require("mason-lspconfig").get_installed_servers()
-local manually_installed_servers = {"nixd", "nushell"}
+local manually_installed_servers = { "nixd", "nushell" }
 vim.list_extend(installed_servers, manually_installed_servers)
 
 local function setup_servers()
