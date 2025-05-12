@@ -44,7 +44,10 @@ local tools = {
   -- "ansible-language-server",
   -- "azure-pipelines-language-server",
 }
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {},
+  automatic_enable = false,
+})
 require("mason-tool-installer").setup({
   ensure_installed = tools,
   run_on_start = false,
