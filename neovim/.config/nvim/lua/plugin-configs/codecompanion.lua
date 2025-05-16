@@ -13,6 +13,7 @@ require("codecompanion").setup({
         schema = {
           model = {
             default = "claude-3.5-sonnet",
+            -- default = "gemini-2.5-pro",
           },
         },
       })
