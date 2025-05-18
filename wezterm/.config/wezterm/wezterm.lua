@@ -34,7 +34,7 @@ return {
     },
   },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
-  font_size = 10.0, -- [12.0]
+  font_size = 9.0, -- [12.0]
   max_fps = 250,
 
   -- Colors
