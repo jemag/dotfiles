@@ -68,6 +68,12 @@ vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "C without yank" })
 vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "x without yank" })
 vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "X without yank" })
 vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
+
+vim.keymap.set("n", "dm", function()
+  local char = vim.fn.getcharstr()
+  vim.cmd("delmarks " .. char)
+end, { noremap = true, desc = "Delete mark" })
+
 vim.keymap.set("n", "gm", function()
   if vim.v.count == 0 then
     vim.api.nvim_feedkeys("^", "n", false)
@@ -241,13 +247,13 @@ vim.keymap.set("n", "<localleader>md", function()
     if second_win == nil then
       return
     end
-      local first_bufnumber = vim.api.nvim_win_get_buf(first_win)
-      local second_bufnumber = vim.api.nvim_win_get_buf(second_win)
-      local first_buf = vim.fn.getbufinfo(first_bufnumber)[1]
-      local second_buf = vim.fn.getbufinfo(second_bufnumber)[1]
-      vim.cmd.tabnew(first_buf.name)
-      vim.cmd("vertical diffsplit " .. second_buf.name)
-      vim.cmd.normal({ args = { "gg" }, bang = true })
+    local first_bufnumber = vim.api.nvim_win_get_buf(first_win)
+    local second_bufnumber = vim.api.nvim_win_get_buf(second_win)
+    local first_buf = vim.fn.getbufinfo(first_bufnumber)[1]
+    local second_buf = vim.fn.getbufinfo(second_bufnumber)[1]
+    vim.cmd.tabnew(first_buf.name)
+    vim.cmd("vertical diffsplit " .. second_buf.name)
+    vim.cmd.normal({ args = { "gg" }, bang = true })
   end
 end, { desc = "Diff between open files" })
 
