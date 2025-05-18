@@ -943,7 +943,6 @@ require("lazy").setup({
         desc = "Toggle CodeCompanionActions",
       },
     },
-    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
     "andrewferrier/debugprint.nvim",
