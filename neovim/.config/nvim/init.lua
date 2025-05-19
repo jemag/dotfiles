@@ -20,6 +20,7 @@ vim.g.smart_splits_multiplexer_integration = false
 require("plugins")
 require("keybindings")
 require("globals")
+require("marks")
 
 vim.opt.exrc = true
 vim.opt.secure = true
