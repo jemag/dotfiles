@@ -236,12 +236,6 @@ require("lazy").setup({
     end,
   },
   {
-    "leath-dub/snipe.nvim",
-    config = function()
-      require("plugin-configs.snipe")
-    end,
-  },
-  {
     "kungfusheep/snipe-spell.nvim",
     dependencies = "leath-dub/snipe.nvim",
     config = true,

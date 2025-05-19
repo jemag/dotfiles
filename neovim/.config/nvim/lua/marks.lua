@@ -18,7 +18,7 @@ local function jump_to_mark(mark)
 end
 
 -- Add a trail mark
-function add_trail()
+local function add_trail()
   local next_mark
 
   if #mark_stack < #trail_marks then
@@ -35,7 +35,7 @@ function add_trail()
 end
 
 -- Remove the last mark in the stack
-function remove_trail()
+local function remove_trail()
   if #mark_stack == 0 then
     print("Trail mark stack is already empty.")
     return
@@ -50,7 +50,7 @@ function remove_trail()
 end
 
 -- Go to previous mark (with wrap-around)
-function previous_mark()
+local function previous_mark()
   if #mark_stack == 0 then
     print("No trail marks to navigate.")
     return
@@ -66,7 +66,7 @@ function previous_mark()
 end
 
 -- Go to next mark (with wrap-around)
-function next_mark()
+local function next_mark()
   if #mark_stack == 0 then
     print("No trail marks to navigate.")
     return
@@ -77,19 +77,19 @@ function next_mark()
   print("Jumped to mark " .. mark_stack[current_index])
 end
 
-function delete_global_marks()
+local function delete_global_marks()
   for _, mark in ipairs(trail_marks) do
     delete_global_mark(mark)
   end
 end
 
-function clear_marks()
+local function clear_marks()
   delete_global_marks()
   mark_stack = {}
   current_index = 0
 end
 
-function pop_mark()
+local function pop_mark()
   if #mark_stack == 0 then
     print("No trail marks to navigate.")
     return
@@ -104,8 +104,8 @@ end
 
 delete_global_marks()
 
-vim.keymap.set("n", "<leader>mt", add_trail, { desc = "Add trail mark" })
+vim.keymap.set("n", "<c-s>", add_trail, { desc = "Set trail mark" })
 vim.keymap.set("n", "<leader>mr", remove_trail, { desc = "Remove trail mark" })
-vim.keymap.set("n", "<leader>mp", pop_mark, { desc = "Pop trail mark" })
+vim.keymap.set("n", "<c-p>", pop_mark, { desc = "Pop trail mark" })
 vim.keymap.set("n", "[m", previous_mark, { desc = "Previous trail mark" })
 vim.keymap.set("n", "]m", next_mark, { desc = "Next trail mark" })
