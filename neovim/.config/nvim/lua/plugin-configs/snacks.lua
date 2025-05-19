@@ -27,7 +27,7 @@ snacks.setup({
   },
   bigfile = {
     enabled = true,
-    size = 0.3 * 1024 * 1024, -- 0.3 MiB
+    size = 0.5 * 1024 * 1024, -- 0.5 MiB
   },
   image = {
     enabled = isNotWSL,
@@ -44,6 +44,8 @@ snacks.setup({
   },
   statuscolumn = {
     enabled = false,
+    left = { "mark"}, -- priority of signs on the left (high to low)
+    right = {},
   },
   scratch = {
     ft = function()
