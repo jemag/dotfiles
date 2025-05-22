@@ -10,7 +10,6 @@ require("conform").setup({
     json = { "prettier" },
     markdown = { "prettier" },
     graphql = { "prettier" },
-
     yaml = { "yamlfmt" },
     nix = { "nixfmt" },
     python = { "isort", "black" },
