@@ -86,6 +86,7 @@ in
       ksnip
       libreoffice-fresh
       onlyoffice-desktopeditors
+      python313Packages.pylatexenc
       neovim-qt
       obsidian
       pandoc
