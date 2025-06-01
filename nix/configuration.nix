@@ -45,7 +45,16 @@
   # services.xserver.enable = true;
 
 
-  
+ # systemd.user.services.spice-vdagent-client = {
+ #   description = "Spice VDAgent Client";
+ #   wantedBy = [ "graphical-session.target" ];
+ #   serviceConfig = {
+ #     ExecStart = "${pkgs.spice-vdagent}/bin/spice-vdagent-client";
+ #     Restart = "on-failure";
+ #     RestartSec = 5;
+ #   };
+ # };
+ # systemd.user.services.spice-vdagent-client.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -108,14 +117,15 @@
     libtool
     neovim
     git
+    spice-vdagent
     wezterm
     vlc
     wget
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-gtk
   ];
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.videoDrivers = [ "qxl" ];
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
   fonts.packages = with pkgs; [
     fira-code
     fira
