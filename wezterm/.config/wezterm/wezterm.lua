@@ -8,29 +8,29 @@ return {
 
   -- Fonts
   font = wezterm.font_with_fallback({
-    "FiraMono Nerd Font",
+    "FiraCode Nerd Font Mono",
     -- "JetBrains Mono",
   }),
   font_rules = {
     {
       intensity = "Normal",
       italic = false,
-      font = wezterm.font("FiraMono Nerd Font"),
+      font = wezterm.font("FiraCode Nerd Font Mono"),
     },
     {
       intensity = "Bold",
       italic = false,
-      font = wezterm.font("FiraMono Nerd Font", { weight = "Bold" }),
+      font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Bold" }),
     },
     {
       intensity = "Bold",
       italic = true,
-      font = wezterm.font("JetBrainsMonoNL NFM", { weight = "Bold", italic = true }),
+      font = wezterm.font("JetBrains Mono NL", { weight = "Bold", italic = true }),
     },
     {
       intensity = "Normal",
       italic = true,
-      font = wezterm.font("JetBrainsMonoNL NFM", { italic = true }),
+      font = wezterm.font("JetBrains Mono NL", { italic = true }),
     },
   },
   -- font  	= wezterm.font("JetBrains Mono", {weight="Bold",italic=true})	, -- [JetBrains Mono] Name with parameters
