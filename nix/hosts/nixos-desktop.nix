@@ -37,6 +37,7 @@
         epub-thumbnailer
         mangohud
         qbittorrent
+        firefox
         xdg-desktop-portal
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
