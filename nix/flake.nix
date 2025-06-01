@@ -30,6 +30,10 @@
           inherit pkgs;
           modules = [ ./hosts/desktop.nix ];
         };
+        "jemag@nixos-vm" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/desktop.nix ];
+        };
       };
     };
 }

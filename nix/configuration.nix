@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -72,6 +75,8 @@
   };
 
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -95,6 +100,11 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    gnumake
+    gcc
+    autoconf
+    automake
+    libtool
     neovim
     git
     wezterm
