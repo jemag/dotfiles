@@ -110,6 +110,8 @@
     wezterm
     vlc
     wget
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
   ];
   services.xserver.displayManager.gdm.enable = true;
   fonts.packages = with pkgs; [
@@ -131,6 +133,14 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
