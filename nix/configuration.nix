@@ -81,6 +81,7 @@
     enable = true;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
+      gnome-keyring
       swaylock
       swayidle
       wl-clipboard
@@ -111,6 +112,7 @@
     vlc
     wget
     xdg-desktop-portal
+    xdg-desktop-portal-wlr
     xdg-desktop-portal-gtk
   ];
   services.xserver.displayManager.gdm.enable = true;
@@ -135,12 +137,19 @@
   services.openssh.enable = true;
 
   xdg.portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal
-        pkgs.xdg-desktop-portal-gtk
-      ];
+    config = {
+      sway = {
+        "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+      };
     };
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    wlr.enable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
