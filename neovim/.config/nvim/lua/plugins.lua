@@ -376,6 +376,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.obsidian")
     end,
+    enabled = vim.fn.getenv("OBSIDIAN_VAULT") ~= vim.NIL,
   },
   {
     "jake-stewart/multicursor.nvim",
