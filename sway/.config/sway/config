@@ -236,7 +236,7 @@ bindsym $mod+F6 exec playerctl play-pause
 bindsym $mod+F7 exec playerctl next
 
 #TOGGLE POLYBAR
-bindsym $mod+t exec ~/dotfiles/polybar/.config/polybar/toggle-polybar.sh
+# bindsym $mod+t exec ~/dotfiles/polybar/.config/polybar/toggle-polybar.sh
 
 # GAP VARIABLES
 set $inner 13
@@ -275,6 +275,7 @@ smart_gaps on
 # switch to previous window
 exec --no-startup-id /home/jemag/.config/sway/sway-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
+exec --no-startup-id waybar
 bindsym $mod+Tab workspace back_and_forth
 # exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 # exec_always feh --bg-scale --no-xinerama ~/wallpapers/wallhaven-mountain.png
@@ -289,3 +290,5 @@ for_window [title="Pebbles"] floating enable
 for_window [title="Uno Calculator"] floating enable
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+
+include /etc/sway/config.d/*
