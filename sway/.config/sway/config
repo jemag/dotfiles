@@ -275,7 +275,6 @@ smart_gaps on
 # switch to previous window
 exec --no-startup-id /home/jemag/.config/sway/sway-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
-exec --no-startup-id waybar
 bindsym $mod+Tab workspace back_and_forth
 # exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 # exec_always feh --bg-scale --no-xinerama ~/wallpapers/wallhaven-mountain.png
