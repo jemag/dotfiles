@@ -15,8 +15,13 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-    in
-    {
+    in {
+      nixosConfigurations = {
+        nixos-vm = lib.nixosSystem {
+          inherit system;
+          modules = [ ./configuration.nix ];
+        };
+      };
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
