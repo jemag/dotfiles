@@ -28,3 +28,8 @@ windows:
             - cd ~/Projects/SystemInformer/
         - argoexample:
             - cd ~/Projects/ArgoExample/
+  - jsonnet:
+      layout: even-horizontal
+      panes:
+        - kubernetes-platform:
+            - cd ~/Projects/kubernetes-platform/
