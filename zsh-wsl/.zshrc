@@ -42,6 +42,7 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
 alias ch="checkov"
+alias dv="devbox"
 alias kn="n +'lua require(\"kubectl\").toggle()'"
 alias ny="n +'set ft=yaml'"
 alias nj="n +'set ft=json'"
