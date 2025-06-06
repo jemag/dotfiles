@@ -34,6 +34,7 @@
         azure-cli.extensions.azure-devops
         azure-cli.extensions.fzf
       ])
+      azure-storage-azcopy
       # azure-storage-azcopy
       buildkit
       calicoctl
