@@ -127,6 +127,7 @@ in {
         manix # search nix options
         mermaid-cli
         mkcert
+	neovim
         netmask
         nixd
         nix-health # check health of nix installation
@@ -146,7 +147,6 @@ in {
         stylua
         tealdeer
         # tectonic
-        thefuck
         ticker
         # xml formatter
         html-tidy
