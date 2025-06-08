@@ -327,8 +327,6 @@ source <(kustomize completion zsh)
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 stty -ixon
