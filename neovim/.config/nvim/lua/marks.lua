@@ -109,3 +109,32 @@ vim.keymap.set("n", "<leader>mr", remove_trail, { desc = "Remove trail mark" })
 vim.keymap.set("n", "<c-p>", pop_mark, { desc = "Pop trail mark" })
 vim.keymap.set("n", "[m", previous_mark, { desc = "Previous trail mark" })
 vim.keymap.set("n", "]m", next_mark, { desc = "Next trail mark" })
+
+-- Annotation setup
+
+local annotations = {}
+
+-- local function add_annotation()
+--   local lnum = vim.api.nvim_win_get_cursor(0)[1]
+--   local bufnr = vim.api.nvim_get_current_buf()
+--   local signlines = { {
+--     type = "ann",
+--     lnum = lnum,
+--   } }
+--   local mark = M.bookmark_line(lnum, bufnr)
+--   vim.ui.input({ prompt = "Edit:", default = mark.a }, function(answer)
+--     if answer == nil then
+--       return
+--     end
+--     local line = api.nvim_buf_get_lines(bufnr, lnum - 1, lnum, false)[1]
+--     signs:remove(bufnr, lnum)
+--     local text = config.keywords[string.sub(answer or "", 1, 2)]
+--     if text then
+--       signlines[1]["text"] = text
+--     end
+--     signs:add(bufnr, signlines)
+--     updateBookmarks(bufnr, lnum, line, answer)
+--   end)
+-- end
+--
+-- add_annotation()
