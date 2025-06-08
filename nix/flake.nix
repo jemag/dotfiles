@@ -19,7 +19,11 @@
       nixosConfigurations = {
         nixos-vm = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [
+            (nixpkgs
+              + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            ./configuration.nix
+          ];
         };
       };
       homeConfigurations = {
