@@ -63,6 +63,7 @@ local installed_servers = require("mason-lspconfig").get_installed_servers()
 local manually_installed_servers = { "nixd", "nushell" }
 vim.list_extend(installed_servers, manually_installed_servers)
 
+-- TODO: investigate if we want to only setup servers when opening a file of that type
 local function setup_servers()
   for _, name in pairs(installed_servers) do
     local opts = require("lsp.configs.generic").get_config()
