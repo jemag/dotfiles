@@ -13,6 +13,7 @@
   "bullets.vim": { "branch": "master", "commit": "8f3259e807c40b91d247f612823295ab99777a65" },
   "capture.vim": { "branch": "master", "commit": "857ee11cfe1193948d3d45dcb8d511fded8533fb" },
   "catppuccin": { "branch": "main", "commit": "8162a4bd9afb42837a655e404d1f937a87ba95e6" },
+  "charleston.nvim": { "branch": "main", "commit": "5fa54518f059a425f67967b17ff2e3ade14899b4" },
   "ci_dark": { "branch": "master", "commit": "3acf3a52921708c4c7c6c8ca8590e63bf86d0eff" },
   "codecompanion.nvim": { "branch": "main", "commit": "d5a1ebbd3f4679123f685c1ccf740d3765af0325" },
   "comment-box.nvim": { "branch": "main", "commit": "06bb771690bc9df0763d14769b779062d8f12bc5" },
