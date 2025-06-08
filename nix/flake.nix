@@ -17,7 +17,7 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       nixosConfigurations = {
-        nixos-vm = lib.nixosSystem {
+        nixos = lib.nixosSystem {
           inherit system;
           modules = [
             (nixpkgs
