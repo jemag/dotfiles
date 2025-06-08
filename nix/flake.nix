@@ -17,13 +17,19 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        live = lib.nixosSystem {
           inherit system;
           modules = [
             (nixpkgs
               + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
             ./configuration.nix
           ];
+        };
+      };
+      nixosConfigurations = {
+        nixos = lib.nixosSystem {
+          inherit system;
+          modules = [ ./configuration.nix ];
         };
       };
       homeConfigurations = {
