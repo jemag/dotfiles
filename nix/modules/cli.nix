@@ -127,13 +127,14 @@ in {
         manix # search nix options
         mermaid-cli
         mkcert
-	neovim
+        neovim
         netmask
         nixd
         nix-health # check health of nix installation
         nix-search-cli # search nixpkgs
         nix-tree # browse dependency graphs of Nix derivations
         nixfmt-classic
+        nodejs
         nushell
         nufmt
         parallel
