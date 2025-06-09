@@ -45,7 +45,7 @@
           inherit pkgs;
           modules = [ ./hosts/desktop.nix ];
         };
-        "jemag@nixos-vm" = home-manager.lib.homeManagerConfiguration {
+        "jemag@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/nixos-desktop.nix ];
         };
