@@ -124,7 +124,7 @@
     wget
   ];
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.videoDrivers = [ "qxl" ];
+  services.xserver.videoDrivers = [ "intel" ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
   fonts.packages = with pkgs; [

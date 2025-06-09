@@ -38,6 +38,7 @@
         mangohud
         qbittorrent
         firefox
+        nwg-displays
         xdg-desktop-portal
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
