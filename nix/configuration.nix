@@ -116,6 +116,7 @@
     autoconf
     automake
     libtool
+    mesa
     neovim
     git
     spice-vdagent
@@ -123,8 +124,17 @@
     vlc
     wget
   ];
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.xserver.videoDrivers = [ "intel" ];
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      vaapiIntel
+      libvdpau-va-gl
+      intel-media-driver
+    ];
+    };
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
   fonts.packages = with pkgs; [
