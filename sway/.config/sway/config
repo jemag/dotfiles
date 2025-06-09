@@ -4,7 +4,6 @@
 set $mod Mod4
 
 output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output Virtual-1 resolution 1920x1080 position 1920,0
 
 input "type:keyboard" {
   repeat_rate 50
@@ -133,20 +132,18 @@ bindsym $mod+0 workspace $workspace10
 # switch to previous workspace
 bindsym $mod+a workspace back_and_forth
 # set monitors
-set $monitor_two DVI-D-0
-set $monitor_one DP-0
 #
 ## bind workspaces to monitors
-workspace $workspace1 output $monitor_one
-workspace $workspace2 output $monitor_one
-workspace $workspace3 output $monitor_one
-workspace $workspace4 output $monitor_one
-workspace $workspace5 output $monitor_one
-workspace $workspace6 output $monitor_one
-workspace $workspace7 output $monitor_one
-workspace $workspace8 output $monitor_one
-workspace $workspace9 output $monitor_one
-workspace $workspace10 output $monitor_one
+# workspace $workspace1 output $monitor_one
+# workspace $workspace2 output $monitor_one
+# workspace $workspace3 output $monitor_one
+# workspace $workspace4 output $monitor_one
+# workspace $workspace5 output $monitor_one
+# workspace $workspace6 output $monitor_one
+# workspace $workspace7 output $monitor_one
+# workspace $workspace8 output $monitor_one
+# workspace $workspace9 output $monitor_one
+# workspace $workspace10 output $monitor_one
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -291,3 +288,4 @@ for_window [title="Microsoft Teams Notification" class="microsoft teams - previe
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 
 include /etc/sway/config.d/*
+include ~/.config/sway/outputs
