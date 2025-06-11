@@ -33,3 +33,13 @@ windows:
       panes:
         - kubernetes-platform:
             - cd ~/Projects/kubernetes-platform/
+  - helm-charts:
+      layout: even-horizontal
+      panes:
+        - helm-charts:
+            - cd ~/Projects/helm-charts/
+  - pipelines:
+      layout: even-horizontal
+      panes:
+        - pipelines:
+            - cd ~/Projects/pipelines/
