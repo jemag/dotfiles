@@ -247,7 +247,6 @@ gaps outer $outer
 bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
 bindsym $mod+Shift+g gaps inner all set 0; gaps outer all set 0
 smart_borders on
-# default_border normal
 
 # TOGGLE PICOM
 bindsym $mod+z exec picom
@@ -258,6 +257,10 @@ bindsym $mod+Shift+z exec pkill picom
 # new_window pixel 3
 # new_float pixel 3
 hide_edge_borders smart_no_gaps
+default_border none
+default_floating_border none
+titlebar_padding 1
+titlebar_border_thickness 0
 smart_gaps on
 
 
