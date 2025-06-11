@@ -35,6 +35,7 @@
         brave
         element-desktop
         epub-thumbnailer
+        vulkan-tools
         mangohud
         qbittorrent
         firefox
