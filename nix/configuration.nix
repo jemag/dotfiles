@@ -111,7 +111,7 @@
       wmenu
       foot
     ];
-  }; 
+  };
   programs.waybar.enable = true;
 
   # List packages installed in system profile.
@@ -133,9 +133,9 @@
   ];
   services.displayManager.gdm.enable = true;
   services.xserver.videoDrivers = [ "intel" ];
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       vaapiIntel
       libvdpau-va-gl
