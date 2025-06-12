@@ -15,7 +15,8 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
           schema = {
             model = {
               -- default = "claude-3.5-sonnet",
-              default = "gpt-4.1",
+              default = "claude-3.7-sonnet",
+              -- default = "gpt-4.1",
               -- default = "gemini-2.5-pro",
             },
           },
