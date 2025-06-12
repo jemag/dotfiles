@@ -18,6 +18,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.disable_ipv6" = true;
+    "net.ipv6.conf.default.disable_ipv6" = true;
+    "net.ipv6.conf.lo.disable_ipv6" = true;
+  };
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems.zfs = lib.mkForce false;
