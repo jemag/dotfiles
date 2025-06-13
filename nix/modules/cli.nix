@@ -74,6 +74,7 @@ in {
       packages = with pkgs; [
         aider-chat
         bat
+        bash
         btop
         carapace
         cmake
