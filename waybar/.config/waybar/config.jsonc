@@ -1,9 +1,9 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
+	"modules-left": ["custom/launcher","cpu","memory","custom/media"],
 	"modules-center": ["sway/workspaces"],
 	// "modules-right": ["custom/updates","custom/wallpaper","backlight","pulseaudio","clock", "battery","custom/power"],
-	"modules-right": ["backlight","clock", "battery"],
+	"modules-right": ["backlight","clock", "battery", "tray"],
 	
 	// "pulseaudio": {
 	// 	"tooltip": false,
@@ -65,7 +65,7 @@
         "max-length": 20,
         "format-icons": {
             "spotify": " ",
-            "default": " "
+            "default": "🎵 "
         },
         "escape": true,
         // "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",

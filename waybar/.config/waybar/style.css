@@ -1,6 +1,7 @@
 /* @define-color custom #95E6CB; */
 @define-color teal #95E6CB;
 @define-color orange #FFAD66;
+@define-color bright-orange #F29668;
 @define-color pale-yellow #FFD173;
 @define-color yellow #FFCC66;
 @define-color red #FF6666;
@@ -9,8 +10,8 @@
 
 * {
 	border: none;
-  margin: 2 2 2 2;
-	border-radius: 10px;
+  margin: 2px 6px 2px 6px;
+	border-radius: 20px;
   font-family: "FiraCode Nerd Font Mono" ;
 	font-size: 12px;
 	min-height: 10px;
@@ -38,7 +39,7 @@ window#waybar.hidden {
 	margin-top: 6px;
 	margin-left: 12px;
 	font-size: 4px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	background: #161320;
 	transition: none;
@@ -82,7 +83,7 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -94,7 +95,7 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #1A1826;
@@ -106,7 +107,7 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -140,7 +141,7 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -151,7 +152,7 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -163,7 +164,7 @@ window#waybar.hidden {
 	margin-top: 6px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -174,7 +175,7 @@ window#waybar.hidden {
 	margin-top: 6px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -186,12 +187,12 @@ window#waybar.hidden {
 	margin-top: 6px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
 	color: @teal;
-	background: #161320;
+	background: transparent;
 }
 
 #custom-launcher {
@@ -202,8 +203,8 @@ window#waybar.hidden {
 	padding-right: 5px;
 	border-radius: 10px;
 	transition: none;
-    color: #89DCEB;
-    background: #161320;
+    color: @blue;
+    background: transparent;
 }
 
 #custom-power {
@@ -213,7 +214,7 @@ window#waybar.hidden {
 	margin-right: 8px;
 	padding-left: 10px;
 	padding-right: 5px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -225,23 +226,11 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
 	background: #C9CBFF;
-}
-
-#custom-updates {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #E8A2AF;
 }
 
 #custom-media {
@@ -249,9 +238,9 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 6px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #F2CDCD;
+	background: @bright-orange;
 }
