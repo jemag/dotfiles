@@ -1,3 +1,9 @@
 configuration {
+  show-icons: true;
+  terminal: "wezterm";
+  disable-history: false;
+  hide-scrollbar: true;
+  display-drun: "";
+  drun-display-format: "{icon} {name}";
 }
-@theme "~/.config/rofi/themes/gruvbox/gruvbox-dark.rasi"
+@theme "~/.local/share/rofi/themes/ayu-mirage.rasi"

@@ -1,0 +1,84 @@
+/**
+ * Ayu Mirage theme ported for rofi
+ *
+ * See man page for reference:
+ * https://github.com/davatorium/rofi/blob/next/doc/rofi-theme.5.markdown#name-1
+ */
+
+/**
+ * Window
+ */
+
+* {
+  accentcolor: #ffcc66;
+  backgroundcolor: #1f2430f3;
+  separatorcolor: transparent;
+  foregroundcolor: #bfbab0;
+  selectioncolor: #000000;
+  selectionbackgroundcolor: #95E6CB;
+
+  background-color: transparent;
+  text-color: @foregroundcolor;
+}
+
+#window {
+  font: "FiraCode Nerd Font Mono 10";
+  location: 0;
+  background-color: @backgroundcolor;
+  border-color: @accentcolor;
+  border: 1;
+  border-radius: 0;
+  padding: 16 14;
+  width: 640;
+}
+
+/**
+ * Input box
+ */
+
+#element {
+  spacing: 2;
+  padding: 8;
+}
+
+#element-text {
+  text-color: @foregroundcolor;
+}
+
+#element-text.selected {
+  text-color: @selectioncolor;
+}
+
+#element.selected.normal {
+  background-color: @selectionbackgroundcolor;
+}
+
+#element.selected.active {
+  text-color: @selectioncolor;
+}
+
+#inputbar {
+  border: none;
+  children: [prompt, entry];
+}
+
+#prompt {
+  color: @accentcolor;
+  padding: 2 8 8;
+}
+
+#entry {
+  padding: 2 8 8;
+}
+
+/**
+ * List
+ */
+
+element-icon {
+  size: 24px;
+}
+
+element-text {
+  padding: 2 4 2 4;
+}
