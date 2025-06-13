@@ -90,6 +90,7 @@ in
       neovim-qt
       obsidian
       pandoc
+      playerctl
       qalculate-gtk
       signal-desktop
       spotify
