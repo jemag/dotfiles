@@ -15,7 +15,7 @@
   separatorcolor: transparent;
   foregroundcolor: #bfbab0;
   selectioncolor: #000000;
-  selectionbackgroundcolor: #95E6CB;
+  selectionbackgroundcolor: #F28779;
 
   background-color: transparent;
   text-color: @foregroundcolor;
