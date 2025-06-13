@@ -103,6 +103,7 @@
       swayidle
       wl-clipboard
       wf-recorder
+      xwayland
       mako
       grim
       slurp
