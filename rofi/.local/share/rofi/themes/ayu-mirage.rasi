@@ -26,15 +26,11 @@
   location: 0;
   background-color: @backgroundcolor;
   border-color: @accentcolor;
-  border: 1;
-  border-radius: 0;
-  padding: 16 14;
+  border: 1px;
+  border-radius: 5px;
+  padding: 0 0;
   width: 640;
 }
-
-/**
- * Input box
- */
 
 #element {
   spacing: 2;
@@ -60,15 +56,15 @@
 #inputbar {
   border: none;
   children: [prompt, entry];
+  padding: 8 8 8 8;
 }
 
 #prompt {
   color: @accentcolor;
-  padding: 2 8 8;
 }
 
-#entry {
-  padding: 2 8 8;
+prompt, entry, element-icon, element-text {
+    vertical-align: 0.5;
 }
 
 /**
@@ -79,6 +75,9 @@ element-icon {
   size: 24px;
 }
 
-element-text {
-  padding: 2 4 2 4;
+listview {
+  lines: 10;
+  columns: 1;
+  dynamic: true;
+  spacing: 2px;
 }
