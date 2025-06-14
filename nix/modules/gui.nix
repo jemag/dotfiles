@@ -13,6 +13,7 @@ in
   config = lib.mkIf cfg.enable {
     #config contents
 
+    services.blueman-applet.enable = true;
     xdg = {
       mimeApps = {
         enable = true;
@@ -92,6 +93,7 @@ in
       pandoc
       playerctl
       pavucontrol
+      pulseaudio
       qalculate-gtk
       signal-desktop
       spotify
