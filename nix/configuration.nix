@@ -108,6 +108,7 @@
       gnome-keyring
       swaylock
       swayidle
+      autotiling
       wl-clipboard
       wf-recorder
       xwayland
