@@ -19,7 +19,8 @@ in {
       };
       cursorTheme = {
         package = pkgs.bibata-cursors;
-        name = "Bibata Original Classic";
+        name = "Bibata-Original-Classic";
+        size = 42;
       };
     };
 
@@ -99,6 +100,12 @@ in {
           "inode/directory" = [ "pcmanfm.desktop" ];
         };
       };
+    };
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic";
+      size = 42;
     };
     home.packages = with pkgs; [
       arandr
