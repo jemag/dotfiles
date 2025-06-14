@@ -91,6 +91,7 @@ in
       obsidian
       pandoc
       playerctl
+      pavucontrol
       qalculate-gtk
       signal-desktop
       spotify
