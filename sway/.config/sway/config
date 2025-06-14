@@ -283,10 +283,11 @@ smart_gaps on
 
 client.background $bg
 
-## class border backgr. text indicator child_border
-client.focused         	$red  $bg  $fg $teal $red
-client.focused_inactive	$yellow $bg	$yellow $teal $clear
-client.unfocused       	$yellow $bg	$yellow $teal $clear
+## class border background text indicator child_border
+client.focused         	$red  $pale-yellow $bg $teal $red
+client.focused_inactive	$yellow $bg	$fg $teal $clear
+client.unfocused       	$yellow $bg	$fg $teal $clear
+# client.focused_tab_title $red $red $yellow $teal $red
 # client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
@@ -294,7 +295,6 @@ client.unfocused       	$yellow $bg	$yellow $teal $clear
 exec --no-startup-id /home/jemag/.config/sway/sway-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
 bindsym $mod+Tab workspace back_and_forth
-exec_always autotiling -l 2
 # exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 # exec_always feh --bg-scale --no-xinerama ~/wallpapers/wallhaven-mountain.png
 
