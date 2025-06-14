@@ -1,4 +1,5 @@
 /* @define-color custom #95E6CB; */
+@define-color bg #1F2430;
 @define-color teal #95E6CB;
 @define-color orange #FFAD66;
 @define-color bright-orange #F29668;
@@ -18,7 +19,7 @@
   font-family: "FiraCode Nerd Font Mono" ;
 	font-size: 12px;
 	min-height: 5px;
-  background: #1f2430
+  background: @bg
 }
 
 window#waybar {
@@ -40,11 +41,11 @@ window#waybar.hidden {
 }
 #workspaces {
 	margin-top: 2px;
-	margin-left: 12px;
-	font-size: 4px;
+	margin-left: 4px;
+	font-size: 1px;
 	margin-bottom: 2px;
 	border-radius: 10px;
-	background: #161320;
+	background: @bg;
 	transition: none;
 }
 
@@ -65,9 +66,9 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-	color: #ABE9B3;
-    border-top: 2px solid #ABE9B3;
-    border-bottom: 2px solid #ABE9B3;
+	color: @teal;
+    border-top: 2px solid @teal;
+    border-bottom: 2px solid @teal;
 }
 
 #workspaces button:hover {
@@ -143,7 +144,7 @@ window#waybar.hidden {
 
 #backlight {
 	margin-top: 2px;
-	margin-left: 8px;
+	margin-left: 2px;
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 2px;
@@ -154,7 +155,7 @@ window#waybar.hidden {
 }
 #clock {
 	margin-top: 2px;
-	margin-left: 8px;
+	margin-left: 2px;
 	padding-left: 10px;
 	padding-right: 10px;
 	margin-bottom: 2px;
@@ -162,7 +163,6 @@ window#waybar.hidden {
 	transition: none;
 	color: #161320;
 	background: @teal;
-	/*background: #1A1826;*/
 }
 
 #memory {
@@ -215,8 +215,8 @@ window#waybar.hidden {
 #custom-power {
 	font-size:16px;
 	margin-top: 2px;
-	margin-left: 8px;
-	margin-right: 8px;
+	margin-left: 2px;
+	margin-right: 4px;
 	padding-left: 10px;
 	padding-right: 5px;
 	margin-bottom: 2px;
@@ -235,7 +235,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #C9CBFF;
+	background: @bg;
 }
 
 #custom-media {
