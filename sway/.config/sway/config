@@ -2,6 +2,17 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
+set $bg #1F2430
+set $fg #CCCAC2
+set $teal #95E6CB
+set $orange #FFAD66
+set $bright-orange #F29668
+set $pale-yellow #FFD173
+set $yellow #FFCC66
+set $red #FF6666
+set $blue #5CCFE6
+set $purple #D3B8F9
+set $clear #ffffff00
 
 output * bg ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png fill
 
@@ -263,18 +274,19 @@ bindsym $mod+Shift+z exec pkill picom
 # new_window pixel 3
 # new_float pixel 3
 hide_edge_borders smart_no_gaps
-default_border none
-default_floating_border none
+default_border pixel 3
+# default_floating_border none
 titlebar_padding 1
 titlebar_border_thickness 0
 smart_gaps on
 
 
-# client.background	$background_i3wmthemer
-#
-# client.focused         	$color05_i3wmthemer	#FFCF76	$color00_i3wmthemer	#FFCF76		#FFCF76
-# client.unfocused       	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
-# client.focused_inactive	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
+client.background $bg
+
+## class border backgr. text indicator child_border
+client.focused         	$red  $bg  $fg $teal $red
+client.focused_inactive	$yellow $bg	$yellow $teal $clear
+client.unfocused       	$yellow $bg	$yellow $teal $clear
 # client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
