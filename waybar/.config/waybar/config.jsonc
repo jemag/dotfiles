@@ -65,10 +65,9 @@
         "max-length": 20,
         "format-icons": {
             "spotify": " ",
-            "default": "🎵 "
+            "default": " "
         },
         "escape": true,
-        // "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause"
     },
     "custom/launcher":{

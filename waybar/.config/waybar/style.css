@@ -10,11 +10,14 @@
 
 * {
 	border: none;
-  margin: 2px 6px 2px 6px;
-	border-radius: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+	border-radius: 30px;
   font-family: "FiraCode Nerd Font Mono" ;
 	font-size: 12px;
-	min-height: 10px;
+	min-height: 5px;
   background: #1f2430
 }
 
@@ -27,7 +30,7 @@ window#waybar.hidden {
 }
 
 #window {
-	margin-top: 6px;
+	margin-top: 2px;
 	padding-left: 10px;
 	padding-right: 10px;
 	border-radius: 10px;
@@ -36,10 +39,10 @@ window#waybar.hidden {
 	background: transparent;
 }
 #workspaces {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 12px;
 	font-size: 4px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	background: #161320;
 	transition: none;
@@ -48,8 +51,10 @@ window#waybar.hidden {
 #workspaces button {
 	transition: none;
 	color: @teal;
-	font-size: 16px;
+	font-size: 12px;
 	border-radius: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #workspaces button.occupied {
@@ -79,11 +84,11 @@ window#waybar.hidden {
 }
 
 #network {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -91,11 +96,11 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #1A1826;
@@ -103,11 +108,11 @@ window#waybar.hidden {
 }
 
 #battery {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -137,22 +142,22 @@ window#waybar.hidden {
 }
 
 #backlight {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
 	background: @yellow;
 }
 #clock {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -161,10 +166,10 @@ window#waybar.hidden {
 }
 
 #memory {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -172,10 +177,10 @@ window#waybar.hidden {
 	background: @purple;
 }
 #cpu {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -184,10 +189,10 @@ window#waybar.hidden {
 }
 
 #tray {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
@@ -196,8 +201,8 @@ window#waybar.hidden {
 }
 
 #custom-launcher {
-	font-size: 24px;
-	margin-top: 6px;
+	font-size: 16px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 5px;
@@ -208,13 +213,13 @@ window#waybar.hidden {
 }
 
 #custom-power {
-	font-size: 20px;
-	margin-top: 6px;
+	font-size:16px;
+	margin-top: 2px;
 	margin-left: 8px;
 	margin-right: 8px;
 	padding-left: 10px;
 	padding-right: 5px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -222,11 +227,11 @@ window#waybar.hidden {
 }
 
 #custom-wallpaper {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
@@ -234,11 +239,11 @@ window#waybar.hidden {
 }
 
 #custom-media {
-	margin-top: 6px;
+	margin-top: 2px;
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
