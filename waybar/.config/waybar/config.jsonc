@@ -2,8 +2,7 @@
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","custom/media"],
 	"modules-center": ["sway/workspaces"],
-	// "modules-right": ["custom/updates","custom/wallpaper","backlight","pulseaudio","clock", "battery","custom/power"],
-	"modules-right": ["backlight","clock", "pulseaudio", "battery", "tray"],
+	"modules-right": ["network", "backlight","clock", "pulseaudio", "battery", "tray"],
 
   "pulseaudio": {
     "tooltip": false,
@@ -16,11 +15,11 @@
     }
   },
 
-  // "network": {
-  // 	// "format-wifi": "{essid}",
-  // 	"format-ethernet": "{ifname}",
-  //    "format-icons": ["x"],
-  // },
+  "network": {
+  	"format-wifi": "{essid} - {ipaddr}",
+    "family": "ipv4",
+  	"format-ethernet": "{ipaddr}",
+  },
   "backlight": {
     "tooltip": false,
     "format": " {}%",
@@ -46,7 +45,6 @@
   },
   "clock": {
     "format": "{:%Y-%m-%dT%H:%M}"
-        // "format": "{: %I:%M %p   %d/%m/%Y}"
   },
   "cpu": {
     "interval": 15,
@@ -75,19 +73,4 @@
     "on-click": "rofi -show drun",
     "on-click-right": "pkill rofi"
   },
-    // "custom/power":{
-    //     "format": " ",
-    //     "on-click": "bash ~/.config/rofi/leave/leave.sh",
-    // },
-    // "custom/updates":{
-    //     "format": "{} Update(s)",
-    //     "exec": "checkupdates | wc -l",
-    //     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-    //     "interval": 15,
-    //     "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
-    // },
-    // "custom/wallpaper":{
-    //     "format":" ",
-    //     "on-click": "bash ~/.config/system_scripts/pkill_bc"
-    // }
 }
