@@ -119,6 +119,7 @@ in {
       feh
       flameshot
       firefox
+      gtk3
       nerd-fonts.fira-code
       ksnip
       libreoffice-fresh
