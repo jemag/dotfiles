@@ -4,27 +4,23 @@
 	"modules-center": ["sway/workspaces"],
 	// "modules-right": ["custom/updates","custom/wallpaper","backlight","pulseaudio","clock", "battery","custom/power"],
 	"modules-right": ["backlight","clock", "pulseaudio", "battery", "tray"],
-	// "pulseaudio": {
-	// 	"tooltip": false,
-	// 	"scroll-step": 5,
-	// 	"format": "{icon} {volume}%",
-	// 	"format-muted": "{icon} {volume}%",
-	// 	"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-	// 	"format-icons": {
-	// 		"default": ["", "", ""]
-	// 	}
-	// },
 
-	// "network": {
-	// 	// "format-wifi": "{essid}",
-	// 	"format-ethernet": "{ifname}",
-	//    "format-icons": ["x"],
-	// },
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal"
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "<span font='16px'>{icon}</span> {volume}%",
+    "format-muted": "{icon} {volume}%",
+    "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    
+      "default": ["", "", ""]
+    }
   },
+
+  // "network": {
+  // 	// "format-wifi": "{essid}",
+  // 	"format-ethernet": "{ifname}",
+  //    "format-icons": ["x"],
+  // },
   "backlight": {
     "tooltip": false,
     "format": " {}%",
