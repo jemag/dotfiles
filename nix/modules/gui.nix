@@ -13,6 +13,10 @@ in {
     #config contents
     gtk = {
       enable = true;
+      theme = {
+        package = pkgs.ayu-theme-gtk;
+        name = "Ayu-Dark";
+        };
       iconTheme = {
         package = pkgs.papirus-icon-theme;
         name = "Papirus";
@@ -20,7 +24,7 @@ in {
       cursorTheme = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Classic";
-        size = 42;
+        size = 22;
       };
     };
 
@@ -105,7 +109,7 @@ in {
       gtk.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Classic";
-      size = 42;
+      size = 22;
     };
     home.packages = with pkgs; [
       arandr
