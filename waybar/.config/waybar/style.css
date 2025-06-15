@@ -1,5 +1,6 @@
 /* @define-color custom #95E6CB; */
 @define-color bg #1F2430;
+@define-color fg #CCCAC2;
 @define-color teal #95E6CB;
 @define-color orange #FFAD66;
 @define-color bright-orange #F29668;
@@ -80,9 +81,14 @@ tooltip label {
 #workspaces button.focused {
   font-weight: bold;
 	color: @teal;
-    border-top: 2px solid @teal;
-    border-bottom: 2px solid @teal;
+  background: @purple;
 }
+
+#workspaces button.focused label {
+    background: @purple;
+    color: @bg;
+}
+
 
 #workspaces button:hover {
 	transition: none;
