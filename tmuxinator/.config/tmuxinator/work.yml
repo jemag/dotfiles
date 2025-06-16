@@ -38,8 +38,3 @@ windows:
       panes:
         - helm-charts:
             - cd ~/Projects/helm-charts/
-  - pipelines:
-      layout: even-horizontal
-      panes:
-        - pipelines:
-            - cd ~/Projects/pipelines/
