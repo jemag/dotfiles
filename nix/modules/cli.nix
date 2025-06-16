@@ -146,7 +146,6 @@ in {
         stylua
         tealdeer
         # tectonic
-        thefuck
         ticker
         # xml formatter
         html-tidy
