@@ -47,6 +47,8 @@ vim.opt.showtabline = 1
 vim.g.editorconfig = true
 vim.o.smartindent = true
 vim.o.cindent = false
+-- NOTE: use _ as word delimiter
+vim.opt.iskeyword:remove("_")
 
 vim.opt.spelllang = { "en", "fr" }
 vim.opt.history = 2000
