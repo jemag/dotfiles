@@ -229,7 +229,7 @@ bindsym $mod+r mode "resize"
 # set_from_resource	$color14_i3wmthemer	color14
 # set_from_resource	$color15_i3wmthemer	color15
 
-bindsym $mod+shift+x exec swaylock -i ~/wallpapers/mars-plutot.png
+bindsym $mod+shift+x exec swaylock -i ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png
 bindsym Print exec flameshot gui
 
 #AUDIO KEYBINDS
