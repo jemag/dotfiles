@@ -298,7 +298,7 @@ client.unfocused       	$yellow $bg	$fg $teal $clear
 # client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
 # startup
 # switch to previous window
-exec --no-startup-id /home/jemag/.config/sway/sway-switch-window-script.sh
+exec --no-startup-id ~/.config/sway/scripts/sway-switch-window-script.sh
 exec --no-startup-id /usr/bin/amixer -c 0 sset "Auto-Mute Mode" Disabled
 bindsym $mod+Tab workspace back_and_forth
 # exec_always --no-startup-id sh ~/.config/polybar/launch.sh
