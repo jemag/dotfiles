@@ -274,10 +274,7 @@ bindsym $mod+g gaps inner all set $inner; gaps outer all set $outer
 bindsym $mod+Shift+g gaps inner all set 0; gaps outer all set 0
 smart_borders on
 
-# TOGGLE PICOM
-bindsym $mod+z exec picom
-bindsym $mod+Shift+z exec pkill picom
-
+bindsym $mod+t exec /home/jemag/.config/sway/scripts/toggle-waybar.sh
 # window
 
 # new_window pixel 3
