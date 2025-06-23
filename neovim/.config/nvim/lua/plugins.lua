@@ -674,17 +674,15 @@ require("lazy").setup({
     ####################### ]]
   { "nvim-tree/nvim-web-devicons" },
   {
-    "eero-lehtinen/oklch-color-picker.nvim",
-    event = "VeryLazy",
-    -- NOTE: pin to this commit since latest version currently keep downloading the color picker
-    commit = "988699aa31922e53ef6a7367eb453bf8d23168ae",
-    opts = {},
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup()
+    end,
+    cmd = {"CccConvert", "CccPick", "CccHighlighterToggle"},
     keys = {
-      -- One handed keymap recommended, you will be using the mouse
-      { "<localleader>mc", "<cmd>ColorPickOklch<cr>", desc = "Color pick under cursor" },
+      { "<localleader>to", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
     },
   },
-
   {
     "jedrzejboczar/possession.nvim",
     config = function()
