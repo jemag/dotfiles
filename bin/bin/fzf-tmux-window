@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OUTPUT_FORMAT="#{window_name}"
 FZF_COMMAND="fzf-tmux -p --with-nth=2"

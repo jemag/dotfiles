@@ -1,4 +1,4 @@
- #!/bin/bash
+ #!/usr/bin/env bash
 
 JAR="$HOME/dev/jdtls-1.7.0/plugins/org.eclipse.equinox.launcher_*.jar"
 java \

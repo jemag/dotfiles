@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 xdopath=$(which xdo)
 if [ $? -ne 0 ]; then

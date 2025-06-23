@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # epochMillis: print the amount of millis since epoch time on the std output stream.
 epochMillis(){

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 _complete_update_tags() {
 	local cur tags commits
