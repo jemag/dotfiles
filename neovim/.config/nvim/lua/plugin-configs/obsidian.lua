@@ -22,22 +22,6 @@ require("obsidian").setup({
     enable = false,
   },
   new_notes_subdir = "current_dir",
-  mappings = {
-    -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-    ["gf"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true, desc = "Follow link" },
-    },
-    -- Toggle check-boxes.
-    ["<leader>oC"] = {
-      action = function()
-        return require("obsidian").util.toggle_checkbox()
-      end,
-      opts = { buffer = true, desc = "Toggle checkbox"},
-    },
-  },
   -- Optional, customize how note file names are generated given the ID, target directory, and title.
   ---@param spec { id: string, dir: obsidian.Path, title: string|? }
   ---@return string|obsidian.Path The full path to the new note.
@@ -147,3 +131,12 @@ vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Obid
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<cr>", { desc = "Tags" })
 vim.keymap.set("n", "<leader>oT", "<cmd>ObsidianTemplate<cr>", { desc = "Template" })
 vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday" })
+vim.api.nvim_create_autocmd("User", {
+  pattern = "ObsidianNoteEnter",
+  callback = function(ev)
+    vim.keymap.set("n", "<leader>oC", "<cmd>Obsidian toggle_checkbox<cr>", {
+      buffer = ev.buf,
+      desc = "Toggle checkbox",
+    })
+  end,
+})
