@@ -11,6 +11,18 @@ require("nvim-surround").setup({
     delete = "ds",
     change = "cs",
   },
+  surrounds = {
+    ["C"] = {
+      add = function()
+        local config = require("nvim-surround.config")
+        local result = config.get_input("Custom pattern: ")
+        return {
+          { result },
+          { result },
+        }
+      end,
+    },
+  },
   highlight = { -- Highlight text-objects before surrounding them
     duration = 0,
   },
