@@ -14,6 +14,13 @@ in {
 
     programs = {
 
+    neovim = {
+        enable = true;
+        extraPackages = with pkgs; [
+          lua-language-server
+        ];
+      };
+
       gh = {
         enable = true;
         settings = {
@@ -76,6 +83,7 @@ in {
         bat
         bash
         btop
+        cachix
         carapace
         cmake
         delta
@@ -128,7 +136,6 @@ in {
         manix # search nix options
         mermaid-cli
         mkcert
-        neovim
         netmask
         nixd
         nix-health # check health of nix installation

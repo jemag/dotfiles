@@ -13,6 +13,9 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+  nix.settings = {
+    trusted-users = ["jemag"];
+    };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -134,7 +137,6 @@
     automake
     libtool
     mesa
-    neovim
     git
     spice-vdagent
     wezterm
