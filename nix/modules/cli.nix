@@ -23,7 +23,7 @@ in {
           bash-language-server
           bicep-lsp
           clang-tools # contains clangd
-          docker-language-server
+          dockerfile-language-server-nodejs
           gopls
           helm-ls
           jdt-language-server
@@ -35,6 +35,7 @@ in {
           terraform-ls
           tinymist
           typescript-language-server
+          vscode-json-languageserver
           yaml-language-server
         ];
       };
