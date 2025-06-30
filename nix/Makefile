@@ -8,7 +8,7 @@ update:
 # build current home-manager setup
 .PHONY: switch
 switch:
-		home-manager switch --flake . -L
+		nh switch --flake .
 
 .PHONY: news
 news:

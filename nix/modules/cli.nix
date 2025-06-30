@@ -136,6 +136,7 @@ in {
         manix # search nix options
         mermaid-cli
         mkcert
+        nh
         netmask
         nixd
         nix-health # check health of nix installation
