@@ -151,16 +151,17 @@ bindsym $mod+a workspace back_and_forth
 # set monitors
 #
 ## bind workspaces to monitors
-# workspace $workspace1 output $monitor_one
-# workspace $workspace2 output $monitor_one
-# workspace $workspace3 output $monitor_one
-# workspace $workspace4 output $monitor_one
-# workspace $workspace5 output $monitor_one
-# workspace $workspace6 output $monitor_one
-# workspace $workspace7 output $monitor_one
-# workspace $workspace8 output $monitor_one
-# workspace $workspace9 output $monitor_one
-# workspace $workspace10 output $monitor_one
+# TODO: configure this in nix instead per PC
+workspace $workspace1 output "HDMI-A-1"
+workspace $workspace2 output "HDMI-A-1"
+workspace $workspace3 output "HDMI-A-1"
+workspace $workspace4 output "HDMI-A-1"
+workspace $workspace5 output "HDMI-A-1"
+workspace $workspace6 output "HDMI-A-1"
+workspace $workspace7 output "HDMI-A-1"
+workspace $workspace8 output "HDMI-A-1"
+workspace $workspace9 output "HDMI-A-1"
+workspace $workspace10 output "LVDS-1"
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
