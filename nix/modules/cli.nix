@@ -14,10 +14,28 @@ in {
 
     programs = {
 
-    neovim = {
+      neovim = {
         enable = true;
+        #NOTE: currently missing vscode-html-languageserver (html lsp)
         extraPackages = with pkgs; [
+          angular-language-server
+          ansible-language-server
+          bash-language-server
+          bicep-lsp
+          clang-tools # contains clangd
+          docker-language-server
+          gopls
+          helm-ls
+          jdt-language-server
+          jsonnet-language-server
           lua-language-server
+          marksman
+          nixd
+          rust-analyzer
+          terraform-ls
+          tinymist
+          typescript-language-server
+          yaml-language-server
         ];
       };
 
@@ -138,7 +156,6 @@ in {
         mkcert
         nh
         netmask
-        nixd
         nix-health # check health of nix installation
         nix-search-cli # search nixpkgs
         nix-tree # browse dependency graphs of Nix derivations
