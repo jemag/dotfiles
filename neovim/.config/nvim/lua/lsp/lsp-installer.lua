@@ -63,56 +63,91 @@ local installed_servers = require("mason-lspconfig").get_installed_servers()
 local manually_installed_servers = { "nixd", "nushell" }
 vim.list_extend(installed_servers, manually_installed_servers)
 
+local function setup_default_config()
+  local function on_init(client)
+    if client.config.settings then
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+  end
+
+  vim.lsp.config("*", {
+    flags = {
+      debounce_text_changes = 150,
+      allow_incremental_sync = true,
+    },
+    capabilities = require("lsp.handlers").capabilities,
+    on_attach = require("lsp.handlers").on_attach,
+    on_init = on_init,
+  })
+end
+
 local function setup_servers()
-  for _, name in pairs(installed_servers) do
-    local opts = require("lsp.configs.generic").get_config()
+  -- for _, name in pairs(installed_servers) do
+  --   local opts = require("lsp.configs.generic").get_config()
+  --
+  --   if name == "jsonls" then
+  --     local jsonls_opts = require("lsp.configs.jsonls")
+  --     opts = vim.tbl_deep_extend("force", opts, jsonls_opts)
+  --   end
+  --   if name == "clangd" then
+  --     local clangd_opts = require("lsp.configs.clangd")
+  --     opts = vim.tbl_deep_extend("force", opts, clangd_opts)
+  --   end
+  --   if name == "gopls" then
+  --     local gopls_opts = require("lsp.configs.gopls")
+  --     opts = vim.tbl_deep_extend("force", opts, gopls_opts)
+  --   end
+  --   if name == "jsonnet_ls" then
+  --     local jsonnetls_opts = require("lsp.configs.jsonnnetls")
+  --     opts = vim.tbl_deep_extend("force", opts, jsonnetls_opts)
+  --   end
+  --   if name == "yamlls" then
+  --     local yamlls_opts = require("yaml-companion").setup({
+  --       lspconfig = {
+  --         on_attach = require("lsp.handlers").on_attach,
+  --         settings = {
+  --           yaml = {
+  --             format = {
+  --               enable = false,
+  --             },
+  --           },
+  --         },
+  --       },
+  --     })
+  --     opts = yamlls_opts
+  --   end
+  --   if name == "jdtls" then
+  --     goto continue
+  --   end
+  --   if name == "ansiblels" then
+  --     local ansiblels_opts = require("lsp.configs.ansiblels")
+  --     opts = vim.tbl_deep_extend("force", opts, ansiblels_opts)
+  --   end
+  --   if name == "lua_ls" then
+  --     -- Don't extend default opts because of the lua-dev setup
+  --     opts = require("lsp.configs.lua_ls")
+  --   end
+  --
+  --   lspconfig[name].setup(opts)
+  --   ::continue::
+  -- end
+  local configs_dir = "lsp.configs"
+  local config_path = vim.fn.stdpath("config") .. "/lua/" .. configs_dir:gsub("%.", "/")
 
-    if name == "jsonls" then
-      local jsonls_opts = require("lsp.configs.jsonls")
-      opts = vim.tbl_deep_extend("force", opts, jsonls_opts)
+  for name, type in vim.fs.dir(config_path) do
+    if type == "file" and name:match("%.lua$") then
+      local server_name = name:gsub("%.lua$", "")
+      local ok, config = pcall(require, "lsp.configs" .. "." .. server_name)
+      if ok then
+        vim.lsp.enable(server_name)
+        vim.lsp.config(server_name, config)
+        lspconfig[server_name].setup(config)
+      else
+        vim.notify("Failed to load config for " .. server_name, vim.log.levels.ERROR)
+      end
     end
-    if name == "clangd" then
-      local clangd_opts = require("lsp.configs.clangd")
-      opts = vim.tbl_deep_extend("force", opts, clangd_opts)
-    end
-    if name == "gopls" then
-      local gopls_opts = require("lsp.configs.gopls")
-      opts = vim.tbl_deep_extend("force", opts, gopls_opts)
-    end
-    if name == "jsonnet_ls" then
-      local jsonnetls_opts = require("lsp.configs.jsonnnetls")
-      opts = vim.tbl_deep_extend("force", opts, jsonnetls_opts)
-    end
-    if name == "yamlls" then
-      local yamlls_opts = require("yaml-companion").setup({
-        lspconfig = {
-          on_attach = require("lsp.handlers").on_attach,
-          settings = {
-            yaml = {
-              format = {
-                enable = false,
-              },
-            },
-          },
-        },
-      })
-      opts = yamlls_opts
-    end
-    if name == "jdtls" then
-      goto continue
-    end
-    if name == "ansiblels" then
-      local ansiblels_opts = require("lsp.configs.ansiblels")
-      opts = vim.tbl_deep_extend("force", opts, ansiblels_opts)
-    end
-    if name == "lua_ls" then
-      -- Don't extend default opts because of the lua-dev setup
-      opts = require("lsp.configs.lua_ls")
-    end
-
-    lspconfig[name].setup(opts)
-    ::continue::
   end
 end
 
+setup_default_config()
 setup_servers()
