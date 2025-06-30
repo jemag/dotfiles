@@ -141,7 +141,6 @@ local function setup_servers()
       if ok then
         vim.lsp.enable(server_name)
         vim.lsp.config(server_name, config)
-        lspconfig[server_name].setup(config)
       else
         vim.notify("Failed to load config for " .. server_name, vim.log.levels.ERROR)
       end
@@ -149,5 +148,28 @@ local function setup_servers()
   end
 end
 
+local function setup_default_config_servers()
+  local default_config_servers = {
+    "angularls",
+    "bashls",
+    "bicep",
+    "dockerls",
+    "html",
+    "marksman",
+    "nixd",
+    "nushell",
+    "rust_analyzer",
+    "terraformls",
+    "tinymist",
+    "ts_ls",
+    "yamlls",
+  }
+
+  for _, server_name in ipairs(default_config_servers) do
+    vim.lsp.enable(server_name)
+  end
+end
+
 setup_default_config()
+setup_default_config_servers()
 setup_servers()
