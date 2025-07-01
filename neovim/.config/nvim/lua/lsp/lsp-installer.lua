@@ -152,7 +152,6 @@ local function setup_default_config_servers()
   local default_config_servers = {
     "angularls",
     "bashls",
-    "bicep",
     "dockerls",
     "golangci_lint_ls",
     "html",
