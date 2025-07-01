@@ -5,17 +5,17 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
   nix.settings = {
-    trusted-users = ["jemag"];
-    };
+    trusted-users = [ "jemag" ];
+    auto-optimise-store = true;
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -33,8 +33,10 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
-  networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.wireless.enable =
+    false; # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
   networking.enableIPv6 = false;
 
   # Set your time zone.
@@ -55,17 +57,16 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
- # systemd.user.services.spice-vdagent-client = {
- #   description = "Spice VDAgent Client";
- #   wantedBy = [ "graphical-session.target" ];
- #   serviceConfig = {
- #     ExecStart = "${pkgs.spice-vdagent}/bin/spice-vdagent-client";
- #     Restart = "on-failure";
- #     RestartSec = 5;
- #   };
- # };
- # systemd.user.services.spice-vdagent-client.enable = true;
+  # systemd.user.services.spice-vdagent-client = {
+  #   description = "Spice VDAgent Client";
+  #   wantedBy = [ "graphical-session.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.spice-vdagent}/bin/spice-vdagent-client";
+  #     Restart = "on-failure";
+  #     RestartSec = 5;
+  #   };
+  # };
+  # systemd.user.services.spice-vdagent-client.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -96,9 +97,7 @@
   users.users.jemag = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-    ];
+    packages = with pkgs; [ tree ];
   };
 
   # programs.firefox.enable = true;
@@ -148,12 +147,8 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiIntel
-      libvdpau-va-gl
-      intel-media-driver
-    ];
-    };
+    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl intel-media-driver ];
+  };
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
   fonts.packages = with pkgs; [
@@ -178,9 +173,7 @@
 
   xdg.portal = {
     config = {
-      sway = {
-        "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
-      };
+      sway = { "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ]; };
     };
     enable = true;
     extraPortals = [
