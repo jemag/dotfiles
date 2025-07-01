@@ -61,6 +61,7 @@ in {
           shfmt
           yamlfmt
           yamllint
+          lombok
         ];
       };
 
@@ -134,7 +135,7 @@ in {
         difftastic
         dig
         dotnet-aspnetcore
-        prettierd
+        prettier
         stylua
         tflint
         yamlfmt
@@ -183,6 +184,9 @@ in {
         kustomize
         kyverno
         lazygit
+        lua5_1
+        luarocks
+        python3
         manix # search nix options
         mermaid-cli
         mkcert
@@ -197,9 +201,11 @@ in {
         nufmt
         parallel
         ripgrep
+        ruby
         rustup
         sesh
         smassh
+        sqlite
         socat
         starship
         stow
