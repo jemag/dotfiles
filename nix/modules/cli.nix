@@ -23,7 +23,6 @@ in {
           ansible-language-server
           bash-language-server
           bicep-lsp
-          clang-tools # contains clangd
           dockerfile-language-server-nodejs
           gopls
           helm-ls
@@ -42,6 +41,9 @@ in {
           golangci-lint-langserver
           solargraph
           vim-language-server
+          # others
+          vscode-extensions.vscjava.vscode-java-debug
+          vscode-extensions.vscjava.vscode-java-test
           # linters/formatters
           black
           delve
@@ -55,11 +57,8 @@ in {
           gotestsum
           iferr
           impl
-          prettierd
           pyright
           shfmt
-          stylua
-          tflint
           yamlfmt
           yamllint
         ];
@@ -134,6 +133,13 @@ in {
         devbox
         difftastic
         dig
+        dotnet-aspnetcore
+        prettierd
+        stylua
+        tflint
+        yamlfmt
+        yamllint
+        clang-tools # contains clangd
         duf
         dust
         entr
