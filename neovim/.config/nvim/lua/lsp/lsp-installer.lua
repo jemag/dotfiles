@@ -21,8 +21,8 @@ local tools = {
   "html-lsp",
   "iferr",
   "impl",
-  "java-debug-adapter",
-  "java-test",
+  "java-debug-adapter", -- missing
+  "java-test",-- missing
   "jdtls",
   "json-lsp",
   "jsonnet-language-server",
@@ -154,14 +154,17 @@ local function setup_default_config_servers()
     "bashls",
     "bicep",
     "dockerls",
+    "golangci_lint_ls",
     "html",
     "marksman",
     "nixd",
     "nushell",
     "rust_analyzer",
+    "solargraph",
     "terraformls",
     "tinymist",
     "ts_ls",
+    "vimls",
     "yamlls",
   }
 

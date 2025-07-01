@@ -18,6 +18,7 @@ in {
         enable = true;
         #NOTE: currently missing vscode-html-languageserver (html lsp)
         extraPackages = with pkgs; [
+          # language servers
           angular-language-server
           ansible-language-server
           bash-language-server
@@ -35,8 +36,32 @@ in {
           terraform-ls
           tinymist
           typescript-language-server
-          vscode-json-languageserver
+          vscode-langservers-extracted
+          # vscode-json-languageserver
           yaml-language-server
+          golangci-lint-langserver
+          solargraph
+          vim-language-server
+          # linters/formatters
+          black
+          delve
+          editorconfig-checker
+          gofumpt
+          gotools
+          golangci-lint
+          golines
+          gomodifytags
+          gotests
+          gotestsum
+          iferr
+          impl
+          prettierd
+          pyright
+          shfmt
+          stylua
+          tflint
+          yamlfmt
+          yamllint
         ];
       };
 
@@ -172,7 +197,6 @@ in {
         socat
         starship
         stow
-        stylua
         tealdeer
         # tectonic
         ticker
