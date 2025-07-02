@@ -11,10 +11,10 @@ windows:
             - cd ~/Projects/TerraformModules/
         - automation:
             - cd ~/Projects/Automation/
-  - argocd:
+  - argoplatform:
       layout: even-horizontal
       panes:
-        - argocd:
+        - argoplatform:
             - cd ~/Projects/ArgoPlatform/master
   - wiki:
       layout: even-horizontal
@@ -28,7 +28,7 @@ windows:
             - cd ~/Projects/SystemInformer/
         - argoexample:
             - cd ~/Projects/ArgoExample/
-  - jsonnet:
+  - kubernetes-platform:
       layout: even-horizontal
       panes:
         - kubernetes-platform:

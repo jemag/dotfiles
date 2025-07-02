@@ -104,18 +104,18 @@ windows:
         - kubie_sandbox:
             - kubie ctx aks-dev-admin
             - kubie ns argocd
-  - unclass-dev:
+  - sc2g-test:
       layout: tiled
       panes:
         - kubie_sandbox:
-            - kubie ctx aksdev-admin
+            - kubie ctx aks-test-admin
             - kubie ns argocd
         - kubie_sandbox:
-            - kubie ctx aksdev-admin
+            - kubie ctx aks-test-admin
             - kubie ns argocd
         - kubie_sandbox:
-            - kubie ctx aksdev-admin
+            - kubie ctx aks-test-admin
             - kubie ns argocd
         - kubie_sandbox:
-            - kubie ctx aksdev-admin
+            - kubie ctx aks-test-admin
             - kubie ns argocd
