@@ -25,8 +25,7 @@ local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
 vim.list_extend(
   bundles,
-  vim.split(vim.fn.glob(mason_path ..
-    "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")
+  vim.split(vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")
 )
 -- print(vim.inspect(bundles))
 
@@ -45,7 +44,7 @@ M.get_config = function()
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
       "-Dlog.protocol=true",
       "-Dlog.level=ALL",
-      "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+      "-javaagent:" .. "/nix/store/9xnw0vx6d1y2j23jq51jk3lz0ymv5pg9-lombok-1.18.38/share/java/lombok.jar",
       "-Xms1g",
       "--add-modules=ALL-SYSTEM",
       "--add-opens",
@@ -55,14 +54,17 @@ M.get_config = function()
 
       -- 💀
       "-jar",
-      vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+      vim.fn.glob(
+        "/nix/store/vdqlz8dqd3n8iq24j4vbypi8fbjrggcc-jdt-language-server-1.47.0/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
+      ),
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
       -- Must point to the                                                     Change this to
       -- eclipse.jdt.ls installation                                           the actual version
 
       -- 💀
       "-configuration",
-      home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
+      -- "$(nix eval --raw nixpkgs#jdt-language-server)/share/java/jdtls/config_linux",
+      "$(nix eval --raw nixpkgs#jdt-language-server)/share/java/jdtls/config_linux",
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
       -- Must point to the                      Change to one of `linux`, `win` or `mac`
       -- eclipse.jdt.ls installation            Depending on your system.
@@ -95,7 +97,7 @@ M.get_config = function()
             {
               name = "JavaSE-11",
               path = "/usr/lib/jvm/java-11-openjdk/",
-              default = true
+              default = true,
             },
             -- {
             --   name = "JavaSE-17",
