@@ -101,6 +101,7 @@ in {
         htop
         isort
         ijq
+        inotify-tools # for nvim lsp performance
         ipcalc
         iperf
         imagemagick
