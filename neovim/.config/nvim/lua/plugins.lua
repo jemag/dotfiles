@@ -1044,10 +1044,20 @@ require("lazy").setup({
   },
   {
     "cuducos/yaml.nvim",
-    ft = { "yaml" }, -- optional
+    opts = {
+      ft = { "yaml", "yaml.helm-values" },
+    },
+    ft = { "yaml", "yaml.helm-values" }, -- optional
+    keys = {
+      { "<localleader>yv", "<cmd>YAMLView<cr>", desc = "Yaml view" },
+      { "<localleader>yyk", "<cmd>YAMLYankKey +<cr>", desc = "Yank key" },
+      { "<localleader>yyv", "<cmd>YAMLYankValue +<cr>", desc = "Yank value" },
+      { "<localleader>yyf", "<cmd>YAMLYank +<cr>", desc = "Yank full" },
+      { "<localleader>ys", "<cmd>YAMLSnacks<cr>", desc = "Yaml search" },
+    },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter" },
-      { "nvim-telescope/telescope.nvim" }, -- optional
+      { "folke/snacks.nvim" }, -- optional
     },
   },
   {
