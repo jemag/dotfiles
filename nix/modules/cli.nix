@@ -135,6 +135,7 @@ in {
         nixfmt-classic
         nushell
         nufmt
+        opencode
         parallel
         ripgrep
         rustup
