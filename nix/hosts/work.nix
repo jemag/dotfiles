@@ -47,6 +47,7 @@
       go-jsonnet
       grafana-loki
       hubble
+      jfrog-cli
       jsonnet-bundler
       maven
       pack
