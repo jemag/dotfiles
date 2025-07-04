@@ -64,7 +64,7 @@ M.get_config = function()
       -- 💀
       "-configuration",
       -- "$(nix eval --raw nixpkgs#jdt-language-server)/share/java/jdtls/config_linux",
-      "$(nix eval --raw nixpkgs#jdt-language-server)/share/java/jdtls/config_linux",
+      "/nix/store/vdqlz8dqd3n8iq24j4vbypi8fbjrggcc-jdt-language-server-1.47.0/share/java/jdtls/config_linux",
       -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
       -- Must point to the                      Change to one of `linux`, `win` or `mac`
       -- eclipse.jdt.ls installation            Depending on your system.
