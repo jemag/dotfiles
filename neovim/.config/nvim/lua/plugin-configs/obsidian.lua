@@ -1,5 +1,6 @@
 local vault_dir = vim.env.OBSIDIAN_VAULT
 require("obsidian").setup({
+  legacy_commands = false,
   workspaces = {
     {
       name = "obsidian",
@@ -125,20 +126,19 @@ end, { desc = "Set checkbox", noremap = true })
 vim.keymap.set({ "n", "v" }, "<leader>oc", function()
   toggle_checkbox(" ")
 end, { desc = "Clear checkbox", noremap = true })
-vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<cr>", { desc = "Backlinks" })
-vim.keymap.set("x", "<leader>oe", ":ObsidianExtractNote<cr>", { desc = "Extract to note" })
-vim.keymap.set("n", "<leader>og", "<cmd>ObsidianSearch<cr>", { desc = "Grep in notes" })
-vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New note" })
-vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<cr>", { desc = "Open" })
-vim.keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<cr>", { desc = "Paste img" })
-vim.keymap.set("n", "<leader>or", "<cmd>ObsidianRename<cr>", { desc = "Rename note" })
+vim.keymap.set("n", "<leader>ob", "<cmd>Obsidian backlinks<cr>", { desc = "Backlinks" })
+vim.keymap.set("x", "<leader>oe", ":Obsidian extract_note<cr>", { desc = "Extract to note" })
+vim.keymap.set("n", "<leader>og", "<cmd>Obsidian search<cr>", { desc = "Grep in notes" })
+vim.keymap.set("n", "<leader>on", "<cmd>Obsidian new<cr>", { desc = "New note" })
+vim.keymap.set("n", "<leader>oo", "<cmd>Obsidian open<cr>", { desc = "Open" })
+vim.keymap.set("n", "<leader>or", "<cmd>Obsidian rename<cr>", { desc = "Rename note" })
 vim.keymap.set("n", "<leader>os", function()
   require("snacks.picker").files({ cwd = vim.env.OBSIDIAN_VAULT, args = { "--glob", "*.md" } })
 end, { desc = "Quick switch" })
-vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Obidian.nvim quick switch" })
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<cr>", { desc = "Tags" })
-vim.keymap.set("n", "<leader>oT", "<cmd>ObsidianTemplate<cr>", { desc = "Template" })
-vim.keymap.set("n", "<leader>oy", "<cmd>ObsidianYesterday<cr>", { desc = "Yesterday" })
+vim.keymap.set("n", "<leader>oq", "<cmd>Obsidian quick_switch<cr>", { desc = "Obidian.nvim quick switch" })
+vim.keymap.set("n", "<leader>ot", "<cmd>Obsidian tags<cr>", { desc = "Tags" })
+vim.keymap.set("n", "<leader>oT", "<cmd>Obsidian new_from_template<cr>", { desc = "Template" })
+vim.keymap.set("n", "<leader>oy", "<cmd>Obsidian yesterday<cr>", { desc = "Yesterday" })
 vim.api.nvim_create_autocmd("User", {
   pattern = "ObsidianNoteEnter",
   callback = function(ev)
