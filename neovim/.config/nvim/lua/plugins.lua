@@ -70,6 +70,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.kubectl")
     end,
+    dependencies = "saghen/blink.download",
     lazy = true,
     keys = {
       { "<leader>kt", '<cmd>lua require("kubectl").toggle({tab = true})<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
