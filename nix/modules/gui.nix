@@ -28,6 +28,13 @@ in {
       };
     };
 
+    qt = {
+      enable = true;
+      platformTheme = {
+          name = "gtk3";
+        };
+    };
+
     services.blueman-applet.enable = true;
     xdg = {
       mimeApps = {
