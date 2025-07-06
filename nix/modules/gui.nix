@@ -125,6 +125,7 @@ in {
       libreoffice-fresh
       onlyoffice-desktopeditors
       python313Packages.pylatexenc
+      mission-center
       neovim-qt
       obsidian
       pandoc
