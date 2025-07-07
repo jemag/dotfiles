@@ -92,7 +92,8 @@
     #  /etc/profiles/per-user/jemag/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      # EDITOR = "emacs";
+      JAVA_DEBUG_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar";
+      JAVA_TEST_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
     };
   };
 

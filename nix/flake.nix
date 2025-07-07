@@ -24,6 +24,10 @@
       pkgs = import nixpkgs { inherit system; };
       javaLspScript = pkgs.writeShellScriptBin "javaLspScript" ''
         set -ev
+        JDTLS_CONFIG_DIR=~/jdtls-config
+        mkdir -p $JDTLS_CONFIG_DIR
+        cp -r ${pkgs.jdt-language-server}/share/java/jdtls/config_linux/* $JDTLS_CONFIG_DIR/
+        chmod -R 755 $JDTLS_CONFIG_DIR
 
         java \
         -Declipse.application=org.eclipse.jdt.ls.core.id1 \
@@ -39,7 +43,7 @@
         --add-opens \
         java.base/java.lang=ALL-UNNAMED \
         -jar ${pkgs.jdt-language-server}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar \
-        -configuration ${pkgs.jdt-language-server}/share/java/jdtls/config_linux \
+        -configuration $JDTLS_CONFIG_DIR \
         -data \
         ~/workspace/
       '';
