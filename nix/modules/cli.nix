@@ -42,7 +42,6 @@ in {
 
       neovim = {
         enable = true;
-        #NOTE: currently missing vscode-html-languageserver (html lsp)
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
@@ -62,7 +61,6 @@ in {
           tinymist
           typescript-language-server
           vscode-langservers-extracted
-          # vscode-json-languageserver
           yaml-language-server
           golangci-lint-langserver
           solargraph
