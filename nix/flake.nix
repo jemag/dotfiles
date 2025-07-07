@@ -22,6 +22,27 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      javaLspScript = pkgs.writeShellScriptBin "javaLspScript" ''
+        set -ev
+
+        java \
+        -Declipse.application=org.eclipse.jdt.ls.core.id1 \
+        -Dosgi.bundles.defaultStartLevel=4 \
+        -Declipse.product=org.eclipse.jdt.ls.core.product \
+        -Dlog.protocol=true \
+        -Dlog.level=ALL \
+        -javaagent:"${pkgs.lombok}/share/java/lombok.jar" \
+        -Xms1g \
+        --add-modules=ALL-SYSTEM \
+        --add-opens \
+        java.base/java.util=ALL-UNNAMED \
+        --add-opens \
+        java.base/java.lang=ALL-UNNAMED \
+        -jar ${pkgs.jdt-language-server}/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar \
+        -configuration ${pkgs.jdt-language-server}/share/java/jdtls/config_linux \
+        -data \
+        ~/workspace/
+      '';
     in {
       nixosConfigurations = {
         live = lib.nixosSystem {
@@ -54,7 +75,10 @@
         };
         "jemag@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/nixos-desktop.nix ];
+          modules = [
+            ./hosts/nixos-desktop.nix
+            ({ config, ... }: { home.packages = [ javaLspScript ]; })
+          ];
         };
       };
     };
