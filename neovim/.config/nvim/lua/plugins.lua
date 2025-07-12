@@ -915,6 +915,10 @@ require("lazy").setup({
       require("plugin-configs.codecompanion")
     end,
     lazy = true,
+    dependencies = {
+      --other plugins
+      "ravitemer/codecompanion-history.nvim",
+    },
     keys = {
       {
         "<F10>",

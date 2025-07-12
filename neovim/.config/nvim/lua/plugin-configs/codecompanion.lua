@@ -1,6 +1,11 @@
 if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
   -- NOTE: for work use
   require("codecompanion").setup({
+    extensions = {
+      history = {
+        enabledd = true,
+      },
+    },
     display = {
       chat = {
         show_settings = false,
@@ -15,7 +20,8 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
           schema = {
             model = {
               -- default = "claude-3.5-sonnet",
-              default = "claude-3.7-sonnet",
+              -- default = "claude-3.7-sonnet",
+              default = "claude-sonnet-4",
               -- default = "gpt-4.1",
               -- default = "gemini-2.5-pro",
             },
