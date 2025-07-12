@@ -28,6 +28,13 @@ snacks.setup({
   bigfile = {
     enabled = true,
     size = 0.5 * 1024 * 1024, -- 0.5 MiB
+    setup = function(_)
+      vim.cmd("SupermavenStop")
+      local ok, api = pcall(require, "supermaven-nvim.api")
+      if ok then
+        api.stop()
+      end
+    end,
   },
   image = {
     enabled = isNotWSL,
@@ -44,7 +51,7 @@ snacks.setup({
   },
   statuscolumn = {
     enabled = false,
-    left = { "mark"}, -- priority of signs on the left (high to low)
+    left = { "mark" }, -- priority of signs on the left (high to low)
     right = {},
   },
   scratch = {
