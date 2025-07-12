@@ -41,6 +41,7 @@ zle -N down-line-or-beginning-search
 # aliases
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
+alias oc="opencode"
 alias ch="checkov"
 alias dv="devbox"
 alias kn="n +'lua require(\"kubectl\").toggle()'"
