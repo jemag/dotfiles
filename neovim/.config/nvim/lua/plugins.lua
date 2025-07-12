@@ -907,17 +907,14 @@ require("lazy").setup({
   },
   {
     "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
     config = function()
       require("plugin-configs.codecompanion")
     end,
     lazy = true,
     dependencies = {
-      --other plugins
       "ravitemer/codecompanion-history.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
     keys = {
       {
