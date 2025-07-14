@@ -38,7 +38,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems.zfs = lib.mkForce false;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "thinkpad"; # Define your hostname.
   # Pick only one of the below networking options.
   networking.wireless.enable =
     false; # Enables wireless support via wpa_supplicant.

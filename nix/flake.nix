@@ -34,7 +34,7 @@
         };
       };
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        thinkpad = lib.nixosSystem {
           inherit system;
           modules = [ ./hosts/thinkpad/configuration.nix ];
         };
@@ -52,7 +52,7 @@
           inherit pkgs;
           modules = [ ./hosts/desktop.nix ];
         };
-        "jemag@nixos" = home-manager.lib.homeManagerConfiguration {
+        "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/thinkpad/home.nix ];
         };
