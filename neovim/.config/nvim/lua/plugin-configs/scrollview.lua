@@ -12,7 +12,6 @@ require("scrollview").setup({
     "search",
     "spell",
     "textwidth",
-    "trail",
   },
 })
 
