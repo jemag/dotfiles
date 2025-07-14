@@ -36,7 +36,7 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
-          modules = [ ./configuration.nix ];
+          modules = [ ./hosts/thinkpad/configuration.nix ];
         };
       };
       homeConfigurations = {
@@ -54,7 +54,7 @@
         };
         "jemag@nixos" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/nixos-desktop.nix ];
+          modules = [ ./hosts/thinkpad/home.nix ];
         };
       };
     };

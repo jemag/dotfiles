@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ../modules/cli.nix ../modules/gui.nix ];
+  imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
 
   gui.enable = true;
   nixpkgs = {
@@ -31,12 +31,6 @@
     # environment.
     packages = with pkgs;
       [
-        anki-bin
-        brave
-        element-desktop
-        epub-thumbnailer
-        mangohud
-        qbittorrent
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 
