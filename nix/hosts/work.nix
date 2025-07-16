@@ -52,6 +52,7 @@
       maven
       pack
       powershell
+      radare2
       skopeo
       sonar-scanner-cli
       step-cli
