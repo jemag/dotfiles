@@ -39,6 +39,7 @@
       buildkit
       calicoctl
       cilium-cli
+      checkov
       cmctl
       cosign
       cri-tools
