@@ -154,8 +154,8 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-      enabled = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
+      open = false;
     };
   hardware.graphics = {
     enable = true;

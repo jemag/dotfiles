@@ -38,6 +38,10 @@
           inherit system;
           modules = [ ./hosts/thinkpad/configuration.nix ];
         };
+        desktop = lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/desktop/configuration.nix ];
+        };
       };
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
