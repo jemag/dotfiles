@@ -144,6 +144,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/stylua/.config/stylua.toml";
         };
+        ".config/nvim" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
+        };
       };
 
       packages = with pkgs;
