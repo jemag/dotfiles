@@ -27,6 +27,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/home/jemag/F" = {
+    device = "/dev/disk/by-uuid/bdca2d6b-8307-4468-89b4-10368b678506";
+    fsType = "ext4";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/6CF6-3768";
     fsType = "vfat";
