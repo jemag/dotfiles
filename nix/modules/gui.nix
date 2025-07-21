@@ -116,6 +116,14 @@ in {
         source = config.lib.file.mkOutOfStoreSymlink
           "${config.home.homeDirectory}/dotfiles/mako/.config/mako";
       };
+      ".config/rofi" = {
+        source = config.lib.file.mkOutOfStoreSymlink
+          "${config.home.homeDirectory}/dotfiles/rofi/.config/rofi";
+      };
+      ".local/share/rofi" = {
+        source = config.lib.file.mkOutOfStoreSymlink
+          "${config.home.homeDirectory}/dotfiles/rofi/.local/share/rofi";
+      };
     };
     home.sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
