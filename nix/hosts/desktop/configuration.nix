@@ -112,6 +112,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.sway = {
     enable = true;
+    extraOptions = [ "--unsupported-gpu" ];
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
       gnome-keyring
