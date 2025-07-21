@@ -125,6 +125,7 @@
       wf-recorder
       xwayland
       mako
+      libnotify
       grim
       slurp
       dmenu
