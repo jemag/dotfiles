@@ -14,6 +14,7 @@ in {
     gtk = {
       enable = true;
       theme = {
+
         package = pkgs.ayu-theme-gtk;
         name = "Ayu-Dark";
       };
@@ -110,9 +111,15 @@ in {
         };
       };
     };
+    home.file = {
+      ".config/mako" = {
+        source = config.lib.file.mkOutOfStoreSymlink
+          "${config.home.homeDirectory}/dotfiles/mako/.config/mako";
+      };
+    };
     home.sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
-      GTK_THEME =  "Ayu-Dark";
+      GTK_THEME = "Ayu-Dark";
       XDG_THEME_PREFERENCE = "dark";
     };
     home.pointerCursor = {

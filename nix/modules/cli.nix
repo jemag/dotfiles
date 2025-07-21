@@ -120,6 +120,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/kubie/.kube/kubie.yaml";
         };
+        ".config/tmuxinator" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/tmuxinator/.config/tmuxinator";
+        };
       };
 
       packages = with pkgs; builtins.attrValues myPkgs ++ [
