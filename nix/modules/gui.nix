@@ -147,6 +147,7 @@ in {
       zathura
       element-desktop
       epub-thumbnailer
+      pcmanfm
       vulkan-tools
       nwg-displays
       xdg-desktop-portal
