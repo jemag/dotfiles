@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ../modules/cli.nix ../modules/gui.nix ];
+  imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
 
   nixpkgs = {
     config = {

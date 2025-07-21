@@ -1,5 +1,7 @@
 { lib, config, pkgs, ... }:
-let cfg = config.cli;
+let
+  cfg = config.cli;
+  myPkgs = import ../pkgs { inherit pkgs; };
 in {
   options = {
     cli.enable = lib.mkOption {
@@ -13,6 +15,55 @@ in {
     #config contents
 
     programs = {
+
+      neovim = {
+        enable = true;
+        extraPackages = with pkgs; [
+          # language servers
+          angular-language-server
+          ansible-language-server
+          bash-language-server
+          bicep-lsp
+          dockerfile-language-server-nodejs
+          gopls
+          helm-ls
+          jdt-language-server
+          jsonnet-language-server
+          lua-language-server
+          marksman
+          nixd
+          rust-analyzer
+          terraform-ls
+          tinymist
+          typescript-language-server
+          vscode-langservers-extracted
+          yaml-language-server
+          golangci-lint-langserver
+          solargraph
+          vim-language-server
+          # others
+          vscode-extensions.vscjava.vscode-java-debug
+          vscode-extensions.vscjava.vscode-java-test
+          # linters/formatters
+          black
+          delve
+          editorconfig-checker
+          gofumpt
+          gotools
+          golangci-lint
+          golines
+          gomodifytags
+          gotests
+          gotestsum
+          iferr
+          impl
+          pyright
+          shfmt
+          yamlfmt
+          yamllint
+          lombok
+        ];
+      };
 
       gh = {
         enable = true;
@@ -71,16 +122,25 @@ in {
         };
       };
 
-      packages = with pkgs; [
+      packages = with pkgs; builtins.attrValues myPkgs ++ [
         aider-chat
         bat
+        bash
         btop
+        cachix
         carapace
         cmake
         delta
         devbox
         difftastic
         dig
+        dotnet-aspnetcore
+        prettier
+        stylua
+        tflint
+        yamlfmt
+        yamllint
+        clang-tools # contains clangd
         duf
         dust
         entr
@@ -125,27 +185,32 @@ in {
         kustomize
         kyverno
         lazygit
+        lua5_1
+        luarocks
+        python3
         manix # search nix options
         mermaid-cli
         mkcert
+        nh
         netmask
-        nixd
         nix-health # check health of nix installation
         nix-search-cli # search nixpkgs
         nix-tree # browse dependency graphs of Nix derivations
         nixfmt-classic
+        nodejs
         nushell
         nufmt
         opencode
         parallel
         ripgrep
+        ruby
         rustup
         sesh
         smassh
+        sqlite
         socat
         starship
         stow
-        stylua
         tealdeer
         # tectonic
         ticker
@@ -157,8 +222,7 @@ in {
         tmux
         tmuxinator
         tokei
-        # NOTE: temporarily removed since version is too old for nvim
-        # tree-sitter
+        tree-sitter
         trivy
         unzip
         velero

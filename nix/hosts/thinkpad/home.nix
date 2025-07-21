@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ../modules/cli.nix ../modules/gui.nix ];
+  imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
 
   gui.enable = true;
   nixpkgs = {
@@ -35,8 +35,14 @@
         brave
         element-desktop
         epub-thumbnailer
+        vulkan-tools
         mangohud
         qbittorrent
+        firefox
+        nwg-displays
+        xdg-desktop-portal
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
         # # Adds the 'hello' command to your environment. It prints a friendly
         # # "Hello, world!" when run.
 
@@ -86,7 +92,8 @@
     #  /etc/profiles/per-user/jemag/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      # EDITOR = "emacs";
+      JAVA_DEBUG_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar";
+      JAVA_TEST_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
     };
   };
 

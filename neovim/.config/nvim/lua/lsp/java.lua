@@ -1,7 +1,8 @@
 local M = {}
 
 function Start_jdt()
-  require("jdtls").start_or_attach(require("lsp.configs.jdtls-conf").get_config())
+  local config = require("lsp.jdtls-config").get_config()
+  require("jdtls").start_or_attach(config)
 end
 
 M.setup = function()

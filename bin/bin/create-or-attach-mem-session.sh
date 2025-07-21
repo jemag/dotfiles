@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if ! (tmux ls | grep -qi mem) ; then
   tmuxinator start mem --suppress-tmux-version-warning

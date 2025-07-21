@@ -17,60 +17,20 @@ local function on_init(client)
   end
 end
 
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = WORKSPACE_PATH .. project_name
-
 local bundles = {}
-local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
-vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
-vim.list_extend(
-  bundles,
-  vim.split(vim.fn.glob(mason_path ..
-    "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")
-)
--- print(vim.inspect(bundles))
+local debug_bundles = vim.split(vim.fn.glob(vim.fn.getenv("JAVA_DEBUG_BUNDLE")), "\n")
+local test_bundles = vim.split(vim.fn.glob(vim.fn.getenv("JAVA_TEST_BUNDLE")), "\n")
+vim.list_extend(bundles, debug_bundles)
+vim.list_extend(bundles, test_bundles)
+
 
 local extendedClientCapabilities = require("jdtls").extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 M.get_config = function()
   return {
+    -- javaLspScript is created from nix setup
     cmd = {
-
-      -- 💀
-      "java", -- or '/path/to/java11_or_newer/bin/java'
-      -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
-      "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-      "-Dosgi.bundles.defaultStartLevel=4",
-      "-Declipse.product=org.eclipse.jdt.ls.core.product",
-      "-Dlog.protocol=true",
-      "-Dlog.level=ALL",
-      "-javaagent:" .. home .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
-      "-Xms1g",
-      "--add-modules=ALL-SYSTEM",
-      "--add-opens",
-      "java.base/java.util=ALL-UNNAMED",
-      "--add-opens",
-      "java.base/java.lang=ALL-UNNAMED",
-
-      -- 💀
-      "-jar",
-      vim.fn.glob(home .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
-      -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-      -- Must point to the                                                     Change this to
-      -- eclipse.jdt.ls installation                                           the actual version
-
-      -- 💀
-      "-configuration",
-      home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
-      -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-      -- Must point to the                      Change to one of `linux`, `win` or `mac`
-      -- eclipse.jdt.ls installation            Depending on your system.
-
-      -- 💀
-      -- See `data directory configuration` section in the README
-      "-data",
-      workspace_dir,
+      "javaLspScript",
     },
     flags = {
       debounce_text_changes = 150,
@@ -89,20 +49,20 @@ M.get_config = function()
     settings = {
       java = {
         signatureHelp = { enabled = true },
-        configuration = {
-          updateBuildConfiguration = "interactive",
-          runtimes = {
-            {
-              name = "JavaSE-11",
-              path = "/usr/lib/jvm/java-11-openjdk/",
-              default = true
-            },
-            -- {
-            --   name = "JavaSE-17",
-            --   path = "/usr/lib/jvm/java-17-openjdk/",
-            -- },
-          },
-        },
+        -- configuration = {
+        --   updateBuildConfiguration = "interactive",
+        --   runtimes = {
+        --     {
+        --       name = "JavaSE-11",
+        --       path = "/usr/lib/jvm/java-11-openjdk/",
+        --       default = true,
+        --     },
+        --     -- {
+        --     --   name = "JavaSE-17",
+        --     --   path = "/usr/lib/jvm/java-17-openjdk/",
+        --     -- },
+        --   },
+        -- },
 
         eclipse = {
           downloadSources = true,

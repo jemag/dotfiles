@@ -377,6 +377,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.obsidian")
     end,
+    enabled = vim.fn.getenv("OBSIDIAN_VAULT") ~= vim.NIL,
   },
   {
     "jake-stewart/multicursor.nvim",
@@ -674,17 +675,15 @@ require("lazy").setup({
     ####################### ]]
   { "nvim-tree/nvim-web-devicons" },
   {
-    "eero-lehtinen/oklch-color-picker.nvim",
-    event = "VeryLazy",
-    -- NOTE: pin to this commit since latest version currently keep downloading the color picker
-    commit = "988699aa31922e53ef6a7367eb453bf8d23168ae",
-    opts = {},
+    "uga-rosa/ccc.nvim",
+    config = function()
+      require("ccc").setup()
+    end,
+    cmd = {"CccConvert", "CccPick", "CccHighlighterToggle"},
     keys = {
-      -- One handed keymap recommended, you will be using the mouse
-      { "<localleader>mc", "<cmd>ColorPickOklch<cr>", desc = "Color pick under cursor" },
+      { "<localleader>to", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
     },
   },
-
   {
     "jedrzejboczar/possession.nvim",
     config = function()
@@ -734,7 +733,7 @@ require("lazy").setup({
     dependencies = {
       { "nvim-telescope/telescope-live-grep-args.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'" },
       { "tsakirist/telescope-lazy.nvim" },
       { "debugloop/telescope-undo.nvim" },
       { "aaronhallaert/ts-advanced-git-search.nvim" },
@@ -808,16 +807,6 @@ require("lazy").setup({
         desc = "Open git blame link in browser",
       },
     },
-  },
-  {
-    "Willem-J-an/adopure.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      vim.g.adopure = {}
-    end,
   },
   {
     "NeogitOrg/neogit",
