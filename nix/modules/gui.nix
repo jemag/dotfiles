@@ -110,6 +110,11 @@ in {
         };
       };
     };
+    home.sessionVariables = {
+      XDG_CURRENT_DESKTOP = "sway";
+      GTK_THEME =  "Ayu-Dark";
+      XDG_THEME_PREFERENCE = "dark";
+    };
     home.pointerCursor = {
       gtk.enable = true;
       package = pkgs.bibata-cursors;
