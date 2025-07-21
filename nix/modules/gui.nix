@@ -16,7 +16,7 @@ in {
       theme = {
         package = pkgs.ayu-theme-gtk;
         name = "Ayu-Dark";
-        };
+      };
       iconTheme = {
         package = pkgs.papirus-icon-theme;
         name = "Papirus";
@@ -30,9 +30,7 @@ in {
 
     qt = {
       enable = true;
-      platformTheme = {
-          name = "gtk3";
-        };
+      platformTheme = { name = "gtk3"; };
     };
 
     services.blueman-applet.enable = true;
@@ -147,6 +145,13 @@ in {
       redshift
       ueberzugpp
       zathura
+      element-desktop
+      epub-thumbnailer
+      vulkan-tools
+      nwg-displays
+      xdg-desktop-portal
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
     ];
   };
 }
