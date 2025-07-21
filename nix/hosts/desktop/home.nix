@@ -32,8 +32,6 @@
     packages = with pkgs; [
       anki-bin
       brave
-      element-desktop
-      epub-thumbnailer
       mangohud
       qbittorrent
       protonplus
