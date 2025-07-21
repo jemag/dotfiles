@@ -22,6 +22,11 @@
     fsType = "ntfs"; # or btrfs, xfs, vfat, etc.
   };
 
+  fileSystems."/home/jemag/G" = {
+    device = "/dev/disk/by-uuid/c0e760c0-f53b-4bf4-a26f-6eb7d2451795";
+    fsType = "ext4";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/6CF6-3768";
     fsType = "vfat";
