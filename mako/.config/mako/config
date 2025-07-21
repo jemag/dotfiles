@@ -1,2 +1,25 @@
+font=FiraMono Nerd Font
+background-color=#1F2430
+text-color=#CCCAC2
+border-color=#95E6CB
+border-size=2
+border-radius=6
+padding=8
 default-timeout=5000
+max-icon-size=64
+icons=1
+anchor=top-right
+width=400
+height=200
+margin=10
+layer=overlay
+output=*
+
+[urgency=high]
+border-color=#FF6666
+default-timeout=10000
+
+[urgency=low]
+border-color=#5CCFE6
+default-timeout=3000
 
