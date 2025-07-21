@@ -11,6 +11,12 @@ in {
 
   config = lib.mkIf cfg.enable {
     #config contents
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+      };
+    };
     gtk = {
       enable = true;
       theme = {
