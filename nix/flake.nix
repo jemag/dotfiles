@@ -52,9 +52,9 @@
           inherit pkgs;
           modules = [ ./hosts/work.nix ];
         };
-        "jemag@archhome" = home-manager.lib.homeManagerConfiguration {
+        "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/desktop.nix ];
+          modules = [ ./hosts/desktop/home.nix ];
         };
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
