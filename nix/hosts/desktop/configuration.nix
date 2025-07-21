@@ -110,6 +110,9 @@
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+  programs.steam = {
+      enable = true;
+    };
   programs.sway = {
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
