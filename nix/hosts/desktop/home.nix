@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
@@ -55,17 +55,27 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
-      # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-      # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-      # # symlink to the Nix store copy.
-      # ".screenrc".source = dotfiles/screenrc;
-
-      # # You can also set the file content immediately.
-      # ".gradle/gradle.properties".text = ''
-      #   org.gradle.console=verbose
-      #   org.gradle.daemon.idletimeout=3600000
-      # '';
-    };
+        ".config/wezterm" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/wezterm/.config/wezterm";
+        };
+        ".config/waybar" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/waybar/.config/waybar";
+        };
+        ".config/sway" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
+        };
+        ".zshrc" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/zsh/.zshrc";
+        };
+        ".zshenv" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/zsh/.zshenv";
+        };
+      };
 
     # Home Manager can also manage your environment variables through
     # 'home.sessionVariables'. These will be explicitly sourced when using a

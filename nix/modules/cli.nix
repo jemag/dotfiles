@@ -124,121 +124,142 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/tmuxinator/.config/tmuxinator";
         };
+        ".config/yamlfmt" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/yamlfmt/.config/yamlfmt";
+        };
+        ".config/zsh" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
+        };
+        ".config/starship.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/zsh/.config/starship.toml";
+        };
+        ".config/ticker" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/ticker/.config/ticker";
+        };
+        ".config/stylua.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/stylua/.config/stylua.toml";
+        };
       };
 
-      packages = with pkgs; builtins.attrValues myPkgs ++ [
-        aider-chat
-        bat
-        bash
-        btop
-        cachix
-        carapace
-        cmake
-        delta
-        devbox
-        difftastic
-        dig
-        dotnet-aspnetcore
-        prettier
-        stylua
-        tflint
-        yamlfmt
-        yamllint
-        clang-tools # contains clangd
-        duf
-        dust
-        entr
-        eza
-        fd
-        fx
-        fzf
-        gh
-        ghostscript
-        gh-dash
-        glow
-        go
-        gobuster
-        gradle
-        grafana-alloy
-        helix
-        hurl
-        htop
-        isort
-        ijq
-        inotify-tools # for nvim lsp performance
-        ipcalc
-        iperf
-        imagemagick
-        iotop-c
-        jq
-        jqp
-        k9s
-        k3d
-        kind
-        krew
-        kube-linter
-        kubecolor
-        kubeconform
-        kubectl
-        kubectx
-        kubelogin
-        kubent
-        kubernetes-helm
-        kubeshark
-        kubie
-        kustomize
-        kyverno
-        lazygit
-        lua5_1
-        luarocks
-        python3
-        manix # search nix options
-        mermaid-cli
-        mkcert
-        nh
-        netmask
-        nix-health # check health of nix installation
-        nix-search-cli # search nixpkgs
-        nix-tree # browse dependency graphs of Nix derivations
-        nixfmt-classic
-        nodejs
-        nushell
-        nufmt
-        opencode
-        parallel
-        ripgrep
-        ruby
-        rustup
-        sesh
-        smassh
-        sqlite
-        socat
-        starship
-        stow
-        tealdeer
-        # tectonic
-        ticker
-        # xml formatter
-        html-tidy
-        tcpdump
-        termshark
-        tshark
-        tmux
-        tmuxinator
-        tokei
-        tree-sitter
-        trivy
-        unzip
-        velero
-        viddy
-        whois
-        yamllint
-        yazi
-        yq-go
-        zellij
-        zoxide
-        zsh-forgit
-      ];
+      packages = with pkgs;
+        builtins.attrValues myPkgs ++ [
+          aider-chat
+          bat
+          bash
+          btop
+          cachix
+          carapace
+          cmake
+          delta
+          devbox
+          difftastic
+          dig
+          dotnet-aspnetcore
+          prettier
+          stylua
+          tflint
+          yamlfmt
+          yamllint
+          clang-tools # contains clangd
+          duf
+          dust
+          entr
+          eza
+          fd
+          fx
+          fzf
+          gh
+          ghostscript
+          gh-dash
+          glow
+          go
+          gobuster
+          gradle
+          grafana-alloy
+          helix
+          hurl
+          htop
+          isort
+          ijq
+          inotify-tools # for nvim lsp performance
+          ipcalc
+          iperf
+          imagemagick
+          iotop-c
+          jq
+          jqp
+          k9s
+          k3d
+          kind
+          krew
+          kube-linter
+          kubecolor
+          kubeconform
+          kubectl
+          kubectx
+          kubelogin
+          kubent
+          kubernetes-helm
+          kubeshark
+          kubie
+          kustomize
+          kyverno
+          lazygit
+          lua5_1
+          luarocks
+          python3
+          manix # search nix options
+          mermaid-cli
+          mkcert
+          nh
+          netmask
+          nix-health # check health of nix installation
+          nix-search-cli # search nixpkgs
+          nix-tree # browse dependency graphs of Nix derivations
+          nixfmt-classic
+          nodejs
+          nushell
+          nufmt
+          opencode
+          parallel
+          ripgrep
+          ruby
+          rustup
+          sesh
+          smassh
+          sqlite
+          socat
+          starship
+          stow
+          tealdeer
+          # tectonic
+          ticker
+          # xml formatter
+          html-tidy
+          tcpdump
+          termshark
+          tshark
+          tmux
+          tmuxinator
+          tokei
+          tree-sitter
+          trivy
+          unzip
+          velero
+          viddy
+          whois
+          yamllint
+          yazi
+          yq-go
+          zellij
+          zoxide
+          zsh-forgit
+        ];
 
     };
   };
