@@ -17,7 +17,13 @@ require("lazy").setup({
     "tyru/capture.vim",
     cmd = "Capture",
     keys = {
-      { "<localleader>tM", "<cmd>Capture messages<cr>", noremap = true, silent = true, desc = "Capture messages" },
+      {
+        "<localleader>tM",
+        "<cmd>Capture messages<cr>",
+        noremap = true,
+        silent = true,
+        desc = "Capture messages",
+      },
     },
   },
   --[[ #######################
@@ -73,7 +79,13 @@ require("lazy").setup({
     dependencies = "saghen/blink.download",
     lazy = true,
     keys = {
-      { "<leader>kt", '<cmd>lua require("kubectl").toggle({tab = true})<cr>', noremap = true, silent = true, desc = "Toggle kubectl.nvim" },
+      {
+        "<leader>kt",
+        '<cmd>lua require("kubectl").toggle({tab = true})<cr>',
+        noremap = true,
+        silent = true,
+        desc = "Toggle kubectl.nvim",
+      },
       -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
     },
   },
@@ -679,7 +691,7 @@ require("lazy").setup({
     config = function()
       require("ccc").setup()
     end,
-    cmd = {"CccConvert", "CccPick", "CccHighlighterToggle"},
+    cmd = { "CccConvert", "CccPick", "CccHighlighterToggle" },
     keys = {
       { "<localleader>to", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
     },
@@ -733,7 +745,10 @@ require("lazy").setup({
     dependencies = {
       { "nvim-telescope/telescope-live-grep-args.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'" },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release",
+      },
       { "tsakirist/telescope-lazy.nvim" },
       { "debugloop/telescope-undo.nvim" },
       { "aaronhallaert/ts-advanced-git-search.nvim" },
@@ -787,8 +802,22 @@ require("lazy").setup({
     end,
     lazy = true,
     keys = {
-      { mode = { "n", "x" }, "<leader>gly", "<cmd>GitLink<cr>", silent = true, noremap = true, desc = "Copy git permlink to clipboard" },
-      { mode = { "n", "x" }, "<leader>glg", "<cmd>GitLink!<cr>", silent = true, noremap = true, desc = "Open git permlink in browser" },
+      {
+        mode = { "n", "x" },
+        "<leader>gly",
+        "<cmd>GitLink<cr>",
+        silent = true,
+        noremap = true,
+        desc = "Copy git permlink to clipboard",
+      },
+      {
+        mode = { "n", "x" },
+        "<leader>glg",
+        "<cmd>GitLink!<cr>",
+        silent = true,
+        noremap = true,
+        desc = "Open git permlink in browser",
+      },
       -- blame
       {
         mode = { "n", "x" },
