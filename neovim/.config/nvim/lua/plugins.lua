@@ -950,6 +950,18 @@ require("lazy").setup({
     },
   },
   {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "bundled_build.lua", -- Bundles `mcp-hub` binary along with the neovim plugin
+    config = function()
+      require("mcphub").setup({
+        use_bundled_binary = true, -- Use local `mcp-hub` binary
+      })
+    end,
+  },
+  {
     "andrewferrier/debugprint.nvim",
     config = function()
       require("plugin-configs.debugprint")

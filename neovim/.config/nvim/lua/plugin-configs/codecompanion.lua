@@ -5,6 +5,14 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
       history = {
         enabledd = true,
       },
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          make_vars = true,
+          make_slash_commands = true,
+          show_result_in_chat = true,
+        },
+      },
     },
     display = {
       chat = {
@@ -44,6 +52,19 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
 else
   -- NOTE: for home use
   require("codecompanion").setup({
+    extensions = {
+      history = {
+        enabledd = true,
+      },
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          make_vars = true,
+          make_slash_commands = true,
+          show_result_in_chat = true,
+        },
+      },
+    },
     display = {
       chat = {
         show_settings = false,
