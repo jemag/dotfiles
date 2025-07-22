@@ -94,6 +94,14 @@
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh-wsl/.config/zsh";
         };
+        ".config/paru" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/paru/.config/paru";
+        };
+        ".config/powershell" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/powershell/.config/powershell";
+        };
     };
 
     # Home Manager can also manage your environment variables through

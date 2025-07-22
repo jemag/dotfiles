@@ -128,6 +128,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/yamlfmt/.config/yamlfmt";
         };
+        ".config/yamllint" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/yamllint/.config/yamllint";
+        };
         ".config/starship.toml" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh/.config/starship.toml";
