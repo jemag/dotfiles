@@ -46,11 +46,11 @@
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/laptop.nix ];
+          modules = [ ./hosts/laptop/home.nix ];
         };
         "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./hosts/work.nix ];
+          modules = [ ./hosts/work/home.nix ];
         };
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
