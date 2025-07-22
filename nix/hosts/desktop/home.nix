@@ -75,6 +75,10 @@
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh/.zshenv";
         };
+        ".config/zsh" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
+        };
       };
 
     # Home Manager can also manage your environment variables through

@@ -128,10 +128,6 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/yamlfmt/.config/yamlfmt";
         };
-        ".config/zsh" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
-        };
         ".config/starship.toml" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh/.config/starship.toml";
@@ -147,6 +143,10 @@ in {
         ".config/nvim" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
+        };
+        ".config/containers" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
       };
 
