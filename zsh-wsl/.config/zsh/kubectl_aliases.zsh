@@ -12,7 +12,6 @@ alias kcx="kubectx"
 alias kns="kubens"
 alias kbx="kubie ctx"
 alias kbs="kubie ns"
-alias kt="kubetail"
 alias ky="kyverno"
 # Execute a kubecolor command against all namespaces
 alias kca='_kca(){ kubecolor "$@" --all-namespaces;  unset -f _kca; }; _kca'

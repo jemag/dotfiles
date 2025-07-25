@@ -168,7 +168,6 @@ zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit light "zsh-users/zsh-autosuggestions"
 # Syntax Highlighting (should always be at the end)
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light johanhaleby/kubetail
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
