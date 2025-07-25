@@ -88,3 +88,7 @@ clancher
 nodepool
 ArcGIS
 OCI
+distroless
+build-time
+SBOMs
+Powershell
