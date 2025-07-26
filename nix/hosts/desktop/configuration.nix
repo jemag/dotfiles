@@ -45,6 +45,10 @@
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
   networking.enableIPv6 = false;
+  networking.interfaces.enp39s0.ipv4.addresses = [{
+    address = "192.168.1.112";
+    prefixLength = 24;
+  }];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
