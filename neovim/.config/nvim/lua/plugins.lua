@@ -901,7 +901,7 @@ require("lazy").setup({
     },
   },
   {
-    "ThePrimeagen/vim-be-good",
+    "szymonwilczek/vim-be-better",
   },
   {
     "jellydn/hurl.nvim",
