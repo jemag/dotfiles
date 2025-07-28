@@ -238,17 +238,17 @@ require("lazy").setup({
       require("plugin-configs.bufferline")
     end,
   },
-  {
-    "EvWilson/spelunk.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- For window drawing utilities
-      "nvim-telescope/telescope.nvim", -- Optional: for fuzzy search capabilities
-      "nvim-treesitter/nvim-treesitter", -- Optional: for showing grammar context
-    },
-    config = function()
-      require("plugin-configs.spelunk")
-    end,
-  },
+  -- {
+  --   "EvWilson/spelunk.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim", -- For window drawing utilities
+  --     "nvim-telescope/telescope.nvim", -- Optional: for fuzzy search capabilities
+  --     "nvim-treesitter/nvim-treesitter", -- Optional: for showing grammar context
+  --   },
+  --   config = function()
+  --     require("plugin-configs.spelunk")
+  --   end,
+  -- },
   {
     "leath-dub/snipe.nvim",
     config = function()

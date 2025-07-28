@@ -1,3 +1,4 @@
+-- Trailblazer replacement using last 10 global marks
 local trail_marks = { "Z", "Y", "X", "W", "V", "U", "T", "S", "R", "Q" }
 local mark_stack = {} -- stack of used marks
 local current_index = 0 -- pointer to current mark in stack (0 = none selected)
@@ -136,3 +137,87 @@ local annotations = {}
 -- end
 --
 -- add_annotation()
+
+--[[
+  Arrow replacement
+  Uses m{1-9} to set marks in a file and then '{1-9} to jump to them
+
+  Original idea from:
+  https://github.com/neovim/neovim/discussions/33335
+--]]
+
+-- Convert a mark number (1-9) to its corresponding character (G-P)
+local function delete_mark(mark)
+  if string.match(mark, "[a-z]") then
+    vim.api.nvim_buf_del_mark(0, mark)
+  else
+    vim.api.nvim_del_mark(mark)
+  end
+end
+
+local function mark2char(mark)
+  if mark:match("[1-9]") then
+    local char = string.char(mark + 70)
+    print(char)
+    return char
+  end
+  return mark
+end
+
+local function char2mark(char)
+  local mark = string.byte(char) - string.byte("G") + 1
+  return mark
+end
+
+-- List bookmarks in the session
+local function list_marks()
+  local snacks = require("snacks")
+  return snacks.picker.marks({
+    transform = function(item)
+      if item.label and item.label:match("^[G-P]$") and item then
+        local original_label = item.label
+        item.label = "" .. char2mark(original_label) .. ""
+        item.text = string.gsub(item.text, "^.", char2mark(original_label))
+        return item
+      end
+      return false
+    end,
+  })
+end
+
+-- Add Marks ------------------------------------------------------------------
+vim.keymap.set("n", "m", function()
+  local mark = vim.fn.getcharstr()
+  local char = mark2char(mark)
+  vim.cmd("mark " .. char)
+  if mark:match("[1-9]") then
+    vim.notify("Added mark " .. mark, vim.log.levels.INFO, { title = "Marks" })
+  else
+    vim.fn.feedkeys("m" .. mark, "n")
+  end
+end, { desc = "Add mark" })
+
+-- Go To Marks ----------------------------------------------------------------
+vim.keymap.set("n", "'", function()
+  local mark = vim.fn.getcharstr()
+
+  vim.fn.feedkeys("'" .. mark2char(mark), "n")
+end, { desc = "Go to mark" })
+
+-- List Marks -----------------------------------------------------------------
+vim.keymap.set("n", "<c-n>", function()
+  list_marks()
+end, { desc = "List marks" })
+
+-- Delete Marks ---------------------------------------------------------------
+vim.keymap.set("n", "dm", function()
+  local mark = vim.fn.getcharstr()
+  delete_mark(mark2char(mark))
+  vim.notify("Deleted mark " .. mark, vim.log.levels.INFO, { title = "Marks" })
+end, { desc = "Delete mark" })
+
+vim.keymap.set("n", "<Leader>mD", function()
+  vim.cmd("delmarks G-P")
+  vim.notify("Deleted all marks", vim.log.levels.INFO, { title = "Marks" })
+end, { desc = "Delete all marks" })
+
