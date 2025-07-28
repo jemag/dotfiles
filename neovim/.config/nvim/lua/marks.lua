@@ -7,12 +7,10 @@ local function set_global_mark(mark)
   vim.cmd("normal! m" .. mark)
 end
 
--- Delete a mark from all buffers
 local function delete_global_mark(mark)
   vim.cmd.delmarks(mark)
 end
 
--- Jump to a global mark
 local function jump_to_mark(mark)
   vim.cmd("normal! `" .. mark)
 end
@@ -37,7 +35,7 @@ end
 -- Remove the last mark in the stack
 local function remove_trail()
   if #mark_stack == 0 then
-    print("Trail mark stack is already empty.")
+    vim.notify("Trail stack is empty.", vim.log.levels.INFO)
     return
   end
 
@@ -46,13 +44,13 @@ local function remove_trail()
   if current_index > #mark_stack then
     current_index = #mark_stack
   end
-  print("Removed global mark " .. last_mark)
+  vim.notify("Removed global mark " .. last_mark, vim.log.levels.INFO)
 end
 
 -- Go to previous mark (with wrap-around)
 local function previous_mark()
   if #mark_stack == 0 then
-    print("No trail marks to navigate.")
+    vim.notify("No trail marks to navigate.", vim.log.levels.INFO)
     return
   end
 
@@ -68,7 +66,7 @@ end
 -- Go to next mark (with wrap-around)
 local function next_mark()
   if #mark_stack == 0 then
-    print("No trail marks to navigate.")
+    vim.notify("Trail stack is empty.", vim.log.levels.INFO)
     return
   end
 
@@ -91,7 +89,7 @@ end
 
 local function pop_mark()
   if #mark_stack == 0 then
-    print("No trail marks to navigate.")
+    vim.notify("No trail marks left to navigate.", vim.log.levels.INFO)
     return
   end
   -- navigate to mark first
