@@ -667,6 +667,10 @@ require("lazy").setup({
     event = "User LoadColorSchemes",
   },
   {
+    "RomanAverin/charleston.nvim",
+    event = "User LoadColorSchemes",
+  },
+  {
     "chuling/ci_dark",
     event = "User LoadColorSchemes",
   },
