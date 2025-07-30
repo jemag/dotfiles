@@ -44,11 +44,21 @@
     false; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.ensureProfiles.profiles = {
+    "wired-1" = {
+      connection.type = "ethernet";
+      connection.id = "wired-1";
+      connection.interface-name =
+        "enp39s0"; # Make sure this matches your interface
+      connection.autoconnect = true;
+
+      ipv4.method = "manual";
+      ipv4.addresses = "192.168.1.112/24";
+      ipv4.gateway = "192.168.1.254";
+      # ipv4.dns = "8.8.8.8";
+    };
+  };
   networking.enableIPv6 = false;
-  networking.interfaces.enp39s0.ipv4.addresses = [{
-    address = "192.168.1.112";
-    prefixLength = 24;
-  }];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
