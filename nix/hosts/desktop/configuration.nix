@@ -124,9 +124,7 @@
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  programs.steam = {
-      enable = true;
-    };
+  programs.steam = { enable = true; };
   programs.sway = {
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
@@ -150,9 +148,7 @@
   };
   programs.waybar.enable = true;
 
-  virtualisation.docker = {
-      enable = true;
-    };
+  virtualisation.docker = { enable = true; };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -175,11 +171,38 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # NOTE: password for the user must be configured using smbpasswd -a jemag
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    openFirewall = true;
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "invalid users" = [ "root" ];
+        "passwd program" = "/run/wrappers/bin/passwd %u";
+        security = "user";
+        "guest ok" = "no";
+      };
+      jemag = {
+        browseable = "yes";
+        comment = "Home directories";
+        path = "/home/jemag";
+        "read only" = "yes";
+        "valid users" = "jemag";
+      };
+    };
+  };
+  services.samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
-      open = false;
-    };
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    open = false;
+  };
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -221,7 +244,8 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
