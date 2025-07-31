@@ -1129,12 +1129,6 @@ require("lazy").setup({
     end,
   },
   {
-    "caliguIa/zendiagram.nvim",
-    config = function()
-      require("plugin-configs.zendiagram")
-    end,
-  },
-  {
     "maskudo/devdocs.nvim",
     lazy = false,
     config = function()
