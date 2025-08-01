@@ -244,6 +244,7 @@ in {
           socat
           starship
           stow
+          taplo
           tealdeer
           # tectonic
           ticker
