@@ -1018,6 +1018,8 @@ require("lazy").setup({
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         { plugins = { "nvim-dap-ui" }, types = true },
+        { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "lazy.nvim", words = { "LazyNvim" } },
       },
     },
   },
