@@ -1,5 +1,6 @@
 local filter_windows = require("utils").filter_windows
 local isNotWSL = vim.fn.getenv("WSL_INTEROP") == vim.NIL
+local marks = require("marks")
 
 local snacks = require("snacks")
 snacks.setup({
@@ -91,6 +92,21 @@ snacks.setup({
               ["y"] = "explorer_yank",
               ["<c-c>"] = "explorer_cd",
               ["."] = "explorer_focus",
+            },
+          },
+        },
+      },
+      marks = {
+        actions = {
+          delete_mark = function(picker, item)
+            marks.delete_mark(item.label)
+            picker:find()
+          end,
+        },
+        win = {
+          input = {
+            keys = {
+              ["<c-x>"] = { "delete_mark", mode = { "i", "n" } },
             },
           },
         },
