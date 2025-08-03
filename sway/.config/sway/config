@@ -284,19 +284,14 @@ hide_edge_borders smart_no_gaps
 default_border pixel 3
 # default_floating_border none
 titlebar_padding 1
-titlebar_border_thickness 0
+titlebar_border_thickness 1
 smart_gaps on
 
-
-client.background $bg
-
 ## class border background text indicator child_border
-client.focused         	$red  $pale-yellow $bg $teal $red
+client.focused         	$yellow  $pale-yellow $bg $teal $red
 client.focused_inactive	$yellow $bg	$fg $teal $clear
-client.unfocused       	$yellow $bg	$fg $teal $clear
-# client.focused_tab_title $red $red $yellow $teal $red
-# client.urgent		#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
-# client.placeholder	#FFCF76	$background_i3wmthemer	#FFCF76	$color00_i3wmthemer		$color00_i3wmthemer
+client.unfocused       	$orange $bg	$fg $teal $clear
+
 # startup
 # switch to previous window
 exec --no-startup-id ~/.config/sway/scripts/sway-switch-window-script.sh
