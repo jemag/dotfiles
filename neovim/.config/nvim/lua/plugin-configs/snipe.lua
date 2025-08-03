@@ -5,7 +5,7 @@ snipe.setup({
   },
 })
 
-vim.keymap.set({ "n", "x" }, "<c-s>", snipe.open_buffer_menu, { desc = "Snipe buffer menu" })
+-- vim.keymap.set({ "n", "x" }, "<c-s>", snipe.open_buffer_menu, { desc = "Snipe buffer menu" })
 snipe.ui_select_menu = require("snipe.menu"):new { position = "center" }
 snipe.ui_select_menu:add_new_buffer_callback(function (m)
   vim.keymap.set("n", "<esc>", function ()
