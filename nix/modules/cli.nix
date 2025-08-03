@@ -216,6 +216,9 @@ in {
           kubeshark
           kubie
           kustomize
+          go-jsonnet
+          jsonnet-bundler
+          tanka
           kyverno
           lazygit
           lua5_1
