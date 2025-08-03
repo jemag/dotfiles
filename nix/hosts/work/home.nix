@@ -45,11 +45,9 @@
       cri-tools
       dockle
       falcoctl
-      go-jsonnet
       grafana-loki
       hubble
       jfrog-cli
-      jsonnet-bundler
       maven
       pack
       powershell
@@ -58,7 +56,6 @@
       sonar-scanner-cli
       step-cli
       swaks # Swiss Army Knife for SMTP testing
-      tanka
       terraform
       terragrunt
       tflint

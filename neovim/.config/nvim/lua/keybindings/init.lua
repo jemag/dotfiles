@@ -67,12 +67,6 @@ vim.keymap.set({ "n", "x" }, "c", '"_c', { desc = "c without yank" })
 vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "C without yank" })
 vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "x without yank" })
 vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "X without yank" })
-vim.api.nvim_set_keymap("n", "'", "`", { noremap = true, silent = true, desc = "Exact position mark" })
-
-vim.keymap.set("n", "dm", function()
-  local char = vim.fn.getcharstr()
-  vim.cmd("delmarks " .. char)
-end, { noremap = true, desc = "Delete mark" })
 
 vim.keymap.set("n", "gm", function()
   if vim.v.count == 0 then

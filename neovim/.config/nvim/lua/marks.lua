@@ -1,3 +1,105 @@
+-- TODO: add option to delete marks from both trail and arrow feature?
+--[[
+  Arrow replacement
+  Uses m{1-9} to set marks in a file and then '{1-9} to jump to them
+
+  Original idea from:
+  https://github.com/neovim/neovim/discussions/33335
+--]]
+
+-- Convert a mark number (1-9) to its corresponding character (G-P)
+local M = {}
+
+local function mark2char(mark)
+  if mark:match("[1-9]") then
+    local char = string.char(mark + 70)
+    print(char)
+    return char
+  end
+  return mark
+end
+
+function M.delete_mark(mark)
+local mark2delete = mark2char(mark)
+  if string.match(mark2delete, "[a-z]") then
+    vim.api.nvim_buf_del_mark(0, mark2delete)
+  else
+    vim.api.nvim_del_mark(mark2delete)
+  end
+end
+
+local function char2mark(char)
+  local mark = string.byte(char) - string.byte("G") + 1
+  return mark
+end
+
+-- List bookmarks in the session
+local function list_numbered_marks()
+  local snacks = require("snacks")
+  return snacks.picker.marks({
+    transform = function(item)
+      if item.label and item.label:match("^[G-P]$") and item then
+        local original_label = item.label
+        item.label = "" .. char2mark(original_label) .. ""
+        item.text = string.gsub(item.text, "^.", char2mark(original_label))
+        return item
+      end
+      return false
+    end,
+  })
+end
+
+-- Add Marks ------------------------------------------------------------------
+vim.keymap.set("n", "m", function()
+  local mark = vim.fn.getcharstr()
+  local char = mark2char(mark)
+  vim.cmd("mark " .. char)
+  if mark:match("[1-9]") then
+    vim.notify("Added mark " .. mark, vim.log.levels.INFO, { title = "Marks" })
+  else
+    vim.fn.feedkeys("m" .. mark, "n")
+  end
+end, { desc = "Add mark" })
+
+-- Go To Marks ----------------------------------------------------------------
+vim.keymap.set("n", "'", function()
+  local mark = vim.fn.getcharstr()
+  print('DEBUGPRINT[4]: marks.lua:66: mark=' .. vim.inspect(mark))
+  local new_mark = mark2char(mark)
+
+  vim.fn.feedkeys("`" .. new_mark, "n")
+end, { desc = "Go to mark" })
+
+vim.keymap.set("n", "`", function()
+  local mark = vim.fn.getcharstr()
+  print('DEBUGPRINT[4]: marks.lua:66: mark=' .. vim.inspect(mark))
+  local new_mark = mark2char(mark)
+
+  vim.fn.feedkeys("`" .. new_mark, "n")
+end, { desc = "Go to mark" })
+
+-- List Marks -----------------------------------------------------------------
+vim.keymap.set("n", "<c-n>", function()
+  list_numbered_marks()
+end, { desc = "List numbered marks" })
+
+-- Delete Marks ---------------------------------------------------------------
+vim.keymap.set("n", "dm", function()
+  local mark = vim.fn.getcharstr()
+  M.delete_mark(mark)
+  vim.notify("Deleted mark " .. mark, vim.log.levels.INFO, { title = "Marks" })
+end, { desc = "Delete mark" })
+
+vim.keymap.set("n", "<Leader>mD", function()
+  vim.cmd("delmarks G-P")
+  vim.notify("Deleted all marks", vim.log.levels.INFO, { title = "Marks" })
+end, { desc = "Delete all marks" })
+
+
+
+
+
+-- Trailblazer replacement using last 10 global marks
 local trail_marks = { "Z", "Y", "X", "W", "V", "U", "T", "S", "R", "Q" }
 local mark_stack = {} -- stack of used marks
 local current_index = 0 -- pointer to current mark in stack (0 = none selected)
@@ -5,10 +107,6 @@ local current_index = 0 -- pointer to current mark in stack (0 = none selected)
 -- Set a global mark at current cursor position
 local function set_global_mark(mark)
   vim.cmd("normal! m" .. mark)
-end
-
-local function delete_global_mark(mark)
-  vim.cmd.delmarks(mark)
 end
 
 local function jump_to_mark(mark)
@@ -40,7 +138,7 @@ local function remove_trail()
   end
 
   local last_mark = table.remove(mark_stack)
-  delete_global_mark(last_mark)
+  M.delete_mark(last_mark)
   if current_index > #mark_stack then
     current_index = #mark_stack
   end
@@ -75,16 +173,22 @@ local function next_mark()
   print("Jumped to mark " .. mark_stack[current_index])
 end
 
-local function delete_global_marks()
+local function clear_trail_marks()
   for _, mark in ipairs(trail_marks) do
-    delete_global_mark(mark)
+    M.delete_mark(mark)
   end
 end
 
-local function clear_marks()
-  delete_global_marks()
-  mark_stack = {}
-  current_index = 0
+local function list_trail_marks()
+  local snacks = require("snacks")
+  return snacks.picker.marks({
+    transform = function(item)
+      if item.label and item.label:match("^[Q-Z]$") and item then
+        return item
+      end
+      return false
+    end,
+  })
 end
 
 local function pop_mark()
@@ -95,18 +199,18 @@ local function pop_mark()
   -- navigate to mark first
   local mark = mark_stack[current_index]
   jump_to_mark(mark)
-  delete_global_mark(mark)
+  M.delete_mark(mark)
   table.remove(mark_stack, current_index)
   current_index = current_index - 1
 end
 
-delete_global_marks()
-
 vim.keymap.set("n", "<c-s>", add_trail, { desc = "Set trail mark" })
 vim.keymap.set("n", "<leader>mr", remove_trail, { desc = "Remove trail mark" })
+vim.keymap.set("n", "<leader>mc", clear_trail_marks, { desc = "Clear trail marks" })
 vim.keymap.set("n", "<c-p>", pop_mark, { desc = "Pop trail mark" })
 vim.keymap.set("n", "[m", previous_mark, { desc = "Previous trail mark" })
 vim.keymap.set("n", "]m", next_mark, { desc = "Next trail mark" })
+vim.keymap.set("n", "mt", list_trail_marks, { desc = "List trail marks" })
 
 -- Annotation setup
 
@@ -136,3 +240,6 @@ local annotations = {}
 -- end
 --
 -- add_annotation()
+-- clear_trail_marks()
+
+return M

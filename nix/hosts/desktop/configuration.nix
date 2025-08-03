@@ -44,11 +44,21 @@
     false; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.ensureProfiles.profiles = {
+    "wired-1" = {
+      connection.type = "ethernet";
+      connection.id = "wired-1";
+      connection.interface-name =
+        "enp39s0"; # Make sure this matches your interface
+      connection.autoconnect = true;
+
+      ipv4.method = "manual";
+      ipv4.addresses = "192.168.1.112/24";
+      ipv4.gateway = "192.168.1.254";
+      # ipv4.dns = "8.8.8.8";
+    };
+  };
   networking.enableIPv6 = false;
-  networking.interfaces.enp39s0.ipv4.addresses = [{
-    address = "192.168.1.112";
-    prefixLength = 24;
-  }];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -114,9 +124,7 @@
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  programs.steam = {
-      enable = true;
-    };
+  programs.steam = { enable = true; };
   programs.sway = {
     enable = true;
     extraOptions = [ "--unsupported-gpu" ];
@@ -140,9 +148,7 @@
   };
   programs.waybar.enable = true;
 
-  virtualisation.docker = {
-      enable = true;
-    };
+  virtualisation.docker = { enable = true; };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -165,11 +171,38 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # NOTE: password for the user must be configured using smbpasswd -a jemag
+  services.samba = {
+    enable = true;
+    securityType = "user";
+    openFirewall = true;
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "invalid users" = [ "root" ];
+        "passwd program" = "/run/wrappers/bin/passwd %u";
+        security = "user";
+        "guest ok" = "no";
+      };
+      jemag = {
+        browseable = "yes";
+        comment = "Home directories";
+        path = "/home/jemag";
+        "read only" = "yes";
+        "valid users" = "jemag";
+      };
+    };
+  };
+  services.samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
-      open = false;
-    };
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    open = false;
+  };
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -211,7 +244,8 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -165,7 +165,8 @@ zinit light "zsh-users/zsh-completions"
 zinit light Aloxaf/fzf-tab
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zinit light "zsh-users/zsh-autosuggestions"
+zinit wait lucid atload'_zsh_autosuggest_start; unalias zi' light-mode for \
+    zsh-users/zsh-autosuggestions
 # Syntax Highlighting (should always be at the end)
 zinit light zdharma-continuum/fast-syntax-highlighting
 
