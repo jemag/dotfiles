@@ -1,3 +1,5 @@
+-- TODO: add snacks.picker to search only the trail marks
+-- TODO: add option to delete marks from both trail and arrow feature?
 -- Trailblazer replacement using last 10 global marks
 local trail_marks = { "Z", "Y", "X", "W", "V", "U", "T", "S", "R", "Q" }
 local mark_stack = {} -- stack of used marks
@@ -82,6 +84,19 @@ local function delete_global_marks()
   end
 end
 
+local function list_trail_marks()
+  local snacks = require("snacks")
+  return snacks.picker.marks({
+    transform = function(item)
+      if item.label and item.label:match("^[Q-Z]$") and item then
+        local original_label = item.label
+        return item
+      end
+      return false
+    end,
+  })
+end
+
 local function clear_marks()
   delete_global_marks()
   mark_stack = {}
@@ -108,6 +123,7 @@ vim.keymap.set("n", "<leader>mr", remove_trail, { desc = "Remove trail mark" })
 vim.keymap.set("n", "<c-p>", pop_mark, { desc = "Pop trail mark" })
 vim.keymap.set("n", "[m", previous_mark, { desc = "Previous trail mark" })
 vim.keymap.set("n", "]m", next_mark, { desc = "Next trail mark" })
+vim.keymap.set("n", "mt", list_trail_marks, { desc = "List trail marks" })
 
 -- Annotation setup
 
@@ -170,7 +186,7 @@ local function char2mark(char)
 end
 
 -- List bookmarks in the session
-local function list_marks()
+local function list_numbered_marks()
   local snacks = require("snacks")
   return snacks.picker.marks({
     transform = function(item)
@@ -206,8 +222,8 @@ end, { desc = "Go to mark" })
 
 -- List Marks -----------------------------------------------------------------
 vim.keymap.set("n", "<c-n>", function()
-  list_marks()
-end, { desc = "List marks" })
+  list_numbered_marks()
+end, { desc = "List numbered marks" })
 
 -- Delete Marks ---------------------------------------------------------------
 vim.keymap.set("n", "dm", function()
@@ -220,4 +236,3 @@ vim.keymap.set("n", "<Leader>mD", function()
   vim.cmd("delmarks G-P")
   vim.notify("Deleted all marks", vim.log.levels.INFO, { title = "Marks" })
 end, { desc = "Delete all marks" })
-
