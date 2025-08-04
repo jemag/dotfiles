@@ -169,6 +169,7 @@ in {
       sxiv
       ticktick
       redshift
+      gammastep
       ueberzugpp
       zathura
       element-desktop
