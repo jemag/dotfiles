@@ -199,6 +199,7 @@ in {
           iperf
           imagemagick
           iotop-c
+          jc # tool for converting popular bash clis output to json
           jq
           jqp
           k9s
