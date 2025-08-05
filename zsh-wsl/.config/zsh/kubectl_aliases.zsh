@@ -226,3 +226,19 @@ alias kgsc='kubecolor get storageclass'
 alias kesc='kubecolor edit storageclass'
 alias kdsc='kubecolor describe storageclass'
 alias kdelsc='kubecolor delete storageclass'
+
+# grafana-operator
+alias kggraf='kubecolor get grafanas.grafana.integreatly.org'
+alias kdelgraf='kubecolor delete grafanas.grafana.integreatly.org'
+alias kegraf='kubecolor edit grafanas.grafana.integreatly.org'
+alias kdgraf='kubecolor describe grafanas.grafana.integreatly.org'
+
+alias kgdash='kubecolor get grafanadashboards'
+alias kdelgdash='kubecolor delete grafanadashboards'
+alias kedash='kubecolor edit grafanadashboards'
+alias kddash='kubecolor describe grafanadashboards'
+
+alias kgdata='kubecolor get grafanadatasources'
+alias kdeldata='kubecolor delete grafanadatasources'
+alias kedata='kubecolor edit grafanadatasources'
+alias kddata='kubecolor describe grafanadatasources'
