@@ -40,6 +40,8 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Global
     -- k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers) | <Plug>(kubectl.refresh)", opts) -- Toggle headers
     k("n", "<localleader>th", "<Plug>(kubectl.toggle_headers)", opts) -- Toggle headers
+    k("i", "<c-n>", "<Plug>(kubectl.tab)", opts) -- Toggle headers
+    k("i", "<c-p>", "<Plug>(kubectl.shift_tab)", opts) -- Toggle headers
     vim.defer_fn(function()
       for i = 1, 6 do
         pcall(vim.keymap.del, "n", tostring(i), opts)
