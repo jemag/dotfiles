@@ -234,7 +234,7 @@ alias kegraf='kubecolor edit grafanas.grafana.integreatly.org'
 alias kdgraf='kubecolor describe grafanas.grafana.integreatly.org'
 
 alias kgdash='kubecolor get grafanadashboards'
-alias kdelgdash='kubecolor delete grafanadashboards'
+alias kdeldash='kubecolor delete grafanadashboards'
 alias kedash='kubecolor edit grafanadashboards'
 alias kddash='kubecolor describe grafanadashboards'
 
