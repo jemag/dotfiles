@@ -101,7 +101,7 @@ alias kdelsec='kubecolor delete secret'
 # External secrets
 alias kges='kubecolor get es'
 alias kgesa='kubecolor get es --all-namespaces'
-alias kees='kubecolor describe es'
+alias kees='kubecolor edit es'
 alias kdes='kubecolor describe es'
 alias kdeles='kubecolor delete es'
 
