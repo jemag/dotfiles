@@ -13,8 +13,9 @@ set $red #FF6666
 set $blue #5CCFE6
 set $purple #D3B8F9
 set $clear #ffffff00
+set $wallpaper ~/wallpapers/nix-bright.png
 
-output * bg ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png fill
+output * bg $wallpaper fill
 
 input "type:keyboard" {
   repeat_rate 50
@@ -230,15 +231,15 @@ bindsym $mod+r mode "resize"
 # set_from_resource	$color14_i3wmthemer	color14
 # set_from_resource	$color15_i3wmthemer	color15
 
-bindsym $mod+shift+x exec swaylock -i ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png
+bindsym $mod+shift+x exec swaylock -i $wallpaper
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 600 'swaylock -f -i ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png' \
+         timeout 600 'swaylock -f -i $wallpaper' \
          timeout 700 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -i ~/wallpapers/a_woman_with_long_hair_wearing_sunglasses.png'
+         before-sleep 'swaylock -f -i $wallpaper'
 
 bindsym Print exec flameshot gui
 
