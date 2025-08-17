@@ -1242,6 +1242,16 @@ require("lazy").setup({
     ft = { "markdown", "text", "tex" },
   },
   {
+    "chomosuke/typst-preview.nvim",
+    version = "1.*",
+    ft = { "typst" },
+    opts = {
+      dependencies_bin = {
+        ["tinymist"] = "/home/jemag/.nix-profile/bin/tinymist",
+      },
+    },
+  },
+  {
     "folke/zen-mode.nvim",
     config = function()
       require("plugin-configs.zen-mode")
