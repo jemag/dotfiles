@@ -34,7 +34,6 @@ in {
           nixd
           rust-analyzer
           terraform-ls
-          tinymist
           typescript-language-server
           vscode-langservers-extracted
           yaml-language-server
@@ -170,6 +169,7 @@ in {
           dotnet-aspnetcore
           prettier
           stylua
+          tinymist
           tflint
           yamlfmt
           yamllint
@@ -262,6 +262,7 @@ in {
           tokei
           tree-sitter
           trivy
+          typst
           unzip
           velero
           viddy
