@@ -1,6 +1,9 @@
 local vault_dir = vim.env.OBSIDIAN_VAULT
 require("obsidian").setup({
   legacy_commands = false,
+  footer = {
+    enabled = false,
+  },
   workspaces = {
     {
       name = "obsidian",
@@ -15,7 +18,8 @@ require("obsidian").setup({
   completion = {
     -- If using nvim-cmp, otherwise set to false
     nvim_cmp = false,
-    blink = true,
+    blink = false,
+    create_new = false,
     -- Trigger completion at 2 chars
     min_chars = 2,
   },
