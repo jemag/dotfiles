@@ -15,6 +15,7 @@ wk.add({
     { "<leader>ds", group = "+telescope" },
     { "<leader>f", group = "+format" },
     { "<leader>g", group = "+git" },
+    { "<leader>gd", group = "+git diff" },
     { "<leader>gh", group = "+git history" },
     { "<leader>gl", group = "+git linker" },
     { "<leader>gm", group = "+git merge" },
