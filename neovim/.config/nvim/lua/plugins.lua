@@ -46,12 +46,6 @@ require("lazy").setup({
       },
     },
   },
-  {
-    url = "https://gitlab.com/yorickpeterse/nvim-pqf.git",
-    config = function()
-      require("pqf").setup()
-    end,
-  },
   -- Scope buffers to their specific tab
   {
     "tiagovla/scope.nvim",
@@ -90,6 +84,7 @@ require("lazy").setup({
       -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
     },
   },
+  --TODO: remove in favor of snacks pick_win, need to remove from telescope
   {
     "s1n7ax/nvim-window-picker",
     config = function()
@@ -118,16 +113,10 @@ require("lazy").setup({
     end,
     ft = { "yaml", "json" },
   },
-  -- {
-  --   "AckslD/nvim-trevJ.lua",
-  --   config = function()
-  --     require("plugin-configs.nvim-trevJ")
-  --   end,
-  -- },
   {
-    "wurli/split.nvim",
+    "AckslD/nvim-trevJ.lua",
     config = function()
-      require("plugin-configs.split")
+      require("plugin-configs.nvim-trevJ")
     end,
   },
   {
@@ -225,43 +214,11 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/noice.nvim",
-    lazy = false,
-    config = function()
-      require("plugin-configs.noice")
-    end,
-  },
-  {
     "akinsho/bufferline.nvim",
     lazy = false,
     config = function()
       require("plugin-configs.bufferline")
     end,
-  },
-  -- {
-  --   "EvWilson/spelunk.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim", -- For window drawing utilities
-  --     "nvim-telescope/telescope.nvim", -- Optional: for fuzzy search capabilities
-  --     "nvim-treesitter/nvim-treesitter", -- Optional: for showing grammar context
-  --   },
-  --   config = function()
-  --     require("plugin-configs.spelunk")
-  --   end,
-  -- },
-  {
-    "leath-dub/snipe.nvim",
-    config = function()
-      require("plugin-configs.snipe")
-    end,
-  },
-  {
-    "kungfusheep/snipe-spell.nvim",
-    dependencies = "leath-dub/snipe.nvim",
-    config = true,
-    keys = {
-      { "z=", "<cmd>SnipeSpell <cr>", desc = "Snipe Spellchecker" },
-    },
   },
   {
     -- "tomasky/bookmarks.nvim",
@@ -291,27 +248,10 @@ require("lazy").setup({
     end,
   },
   {
-    "meznaric/key-analyzer.nvim",
-    cmd = "KeyAnalyzer",
-    config = function()
-      require("key-analyzer").setup()
-    end,
-  },
-  {
     "hat0uma/csvview.nvim",
-    opts = {
-      parser = { comments = { "#", "//" } },
-      keymaps = {
-        -- Text objects for selecting fields
-        textobject_field_inner = { "if", mode = { "o", "x" } },
-        textobject_field_outer = { "af", mode = { "o", "x" } },
-        -- Excel-like navigation:
-        -- Use <Tab> and <S-Tab> to move horizontally between fields.
-        -- Note: In terminals, you may need to enable CSI-u mode to use <S-Tab> and <S-Enter>.
-        jump_next_field_end = { "<Tab>", mode = { "n", "v" } },
-        jump_prev_field_end = { "<S-Tab>", mode = { "n", "v" } },
-      },
-    },
+    config = function()
+      require("plugin-configs.csvview")
+    end,
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
     keys = {
       { "<localleader>tC", "<cmd>CsvViewToggle<cr>", desc = "Toggle CSV View" },
@@ -334,57 +274,12 @@ require("lazy").setup({
       require("plugin-configs.toggleterm")
     end,
   },
-  -- use({
-  --   "/home/jemag/Projects/github-reference/numToStr/FTerm.nvim/",
-  --   config = function()
-  --     require("FTerm").setup({
-  --       on_stdout = function(t, job, data, name)
-  --         print("terminal/n")
-  --         print(vim.inspect(t))
-  --         print("job/n")
-  --         print(vim.inspect(job))
-  --         print("data/n")
-  --         print(vim.inspect(data))
-  --         print("name/n")
-  --         print(vim.inspect(name))
-  --       end,
-  --       border = "double",
-  --       dimensions = {
-  --         height = 0.9,
-  --         width = 0.9,
-  --       },
-  --     })
-  --   end,
-  -- })
-  -- ({
-  --   dir = "/home/jemag/Projects/multi-term.nvim/",
-  --   config = function()
-  --     require("multi-term").setup({
-  --       on_stdout = function(t, job, data, name)
-  --         print("terminal/n")
-  --         print(vim.inspect(t))
-  --         print("job/n")
-  --         print(vim.inspect(job))
-  --         print("data/n")
-  --         print(vim.inspect(data))
-  --         print("name/n")
-  --         print(vim.inspect(name))
-  --       end,
-  --       border = "double",
-  --       dimensions = {
-  --         height = 0.9,
-  --         width = 0.9,
-  --       },
-  --     })
-  --   end
-  -- }),
   {
     "jemag/telescope-diff.nvim",
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
     },
   },
-  -- { "airblade/vim-rooter" },
   {
     "obsidian-nvim/obsidian.nvim",
     config = function()
@@ -522,44 +417,6 @@ require("lazy").setup({
     end,
   },
   {
-    "2giosangmitom/nightfall.nvim",
-    event = "User LoadColorSchemes",
-    opts = {},
-  },
-  {
-    "fynnfluegge/monet.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "oxfist/night-owl.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "antonk52/lake.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "bluz71/vim-nightfly-colors",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "tiagovla/tokyodark.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "NTBBloodbath/sweetie.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "AlexvZyl/nordic.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "pineapplegiant/spaceduck",
-    event = "User LoadColorSchemes",
-    branch = "main",
-  },
-  {
     "rebelot/kanagawa.nvim",
     event = "User LoadColorSchemes",
     config = function()
@@ -577,114 +434,16 @@ require("lazy").setup({
     end,
   },
   {
-    "martinsione/darkplus.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "catppuccin/nvim",
-    event = "User LoadColorSchemes",
-    name = "catppuccin",
-    config = function()
-      vim.g.catppuccin_flavour = "mocha"
-    end,
-  },
-  {
     "EdenEast/nightfox.nvim",
     event = "User LoadColorSchemes",
-  },
-  {
-    "luisiacc/gruvbox-baby",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "folke/lsp-colors.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "sainnhe/sonokai",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "0xstepit/flow.nvim",
-    tag = "v2.0.0",
-    event = "User LoadColorSchemes",
-    opts = {
-      -- Your configuration options here.
-    },
   },
   {
     "Shatur95/neovim-ayu",
     priority = 1000,
   },
   {
-    "xiantang/darcula-dark.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "WTFox/jellybeans.nvim",
-    event = "User LoadColorSchemes",
-    config = function()
-      require("jellybeans").setup()
-    end,
-  },
-  {
-    "briones-gabriel/darcula-solid.nvim",
-    event = "User LoadColorSchemes",
-    dependencies = {
-      { "rktjmp/lush.nvim" },
-    },
-  },
-  {
-    "romgrk/doom-one.vim",
-    event = "User LoadColorSchemes",
-  },
-  {
     "habamax/vim-gruvbit",
     event = "User LoadColorSchemes",
-  },
-  {
-    "kyazdani42/blue-moon",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "JoosepAlviste/palenightfall.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "gruvbox-community/gruvbox",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "shaunsingh/nord.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "egerhether/heatherfield.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "franbach/miramare",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "RomanAverin/charleston.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "chuling/ci_dark",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "olimorris/onedarkpro.nvim",
-    event = "User LoadColorSchemes",
-  },
-  {
-    "folke/tokyonight.nvim",
-    event = "User LoadColorSchemes",
-    opts = {
-      style = "storm",
-      dim_inactive = false,
-    },
   },
 
   --[[ #######################
@@ -756,6 +515,7 @@ require("lazy").setup({
       },
       { "tsakirist/telescope-lazy.nvim" },
       { "debugloop/telescope-undo.nvim" },
+      -- TODO: use snacks picker integration instead and move keybinds away from telescope
       { "aaronhallaert/ts-advanced-git-search.nvim" },
       { "molecule-man/telescope-menufacture" },
     },
