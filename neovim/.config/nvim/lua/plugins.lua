@@ -294,27 +294,12 @@ require("lazy").setup({
     end,
   },
   {
-    "glacambre/firenvim",
-    build = function()
-      vim.fn["firenvim#install"](0)
-    end,
-    config = function()
-      require("plugin-configs.firenvim")
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     build = function()
       vim.cmd([[TSUpdate]])
     end,
     config = function()
       require("plugin-configs.nvim-treesitter")
-    end,
-  },
-  {
-    "Kasama/nvim-custom-diagnostic-highlight",
-    config = function()
-      require("nvim-custom-diagnostic-highlight").setup({})
     end,
   },
   {
@@ -335,15 +320,7 @@ require("lazy").setup({
       require("plugin-configs.lualine")
     end,
   },
-  -- {
-  --   "jemag/tmux-status.nvim",
-  --   lazy = true,
-  --   config = function()
-  --     require("plugin-configs.tmux-status")
-  --   end,
-  -- },
   { "tweekmonster/startuptime.vim" },
-  -- { "stevearc/profile.nvim" },
   {
     "nvim-neotest/neotest",
     config = function()
@@ -485,16 +462,6 @@ require("lazy").setup({
      Search Plugins
     ####################### ]]
   {
-    "junegunn/fzf.vim",
-    config = function()
-      vim.cmd("source ~/.config/nvim/plugin-configs/fzf.vim")
-    end,
-    dependencies = {
-      "junegunn/fzf",
-    },
-  },
-
-  {
     "HakonHarnes/img-clip.nvim",
     config = function()
       require("plugin-configs.img-clip")
@@ -633,6 +600,7 @@ require("lazy").setup({
       require("lsp")
     end,
   },
+  -- TODO: replace with something not deprecated
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
@@ -759,17 +727,6 @@ require("lazy").setup({
     end,
   },
   {
-    "williamboman/mason.nvim",
-    config = function()
-      require("plugin-configs.mason")
-    end,
-    dependencies = {
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-    },
-  },
-  { "williamboman/mason-lspconfig.nvim" },
-
-  {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
     opts = {
@@ -871,6 +828,7 @@ require("lazy").setup({
       require("plugin-configs.nvim-dap-go")
     end,
   },
+  -- TODO: investigate if we still want this plugin
   {
     "olexsmir/gopher.nvim",
     lazy = true,
@@ -916,16 +874,6 @@ require("lazy").setup({
       require("plugin-configs.markdown-preview")
     end,
   },
-
-  {
-    "jtratner/vim-flavored-markdown",
-    ft = { "markdown", "pandoc.markdown", "rmd" },
-  },
-
-  {
-    "nelstrom/vim-markdown-folding",
-    ft = { "markdown", "pandoc.markdown", "rmd" },
-  },
   {
     "stevearc/stickybuf.nvim",
     lazy = false,
@@ -964,14 +912,12 @@ require("lazy").setup({
       require("plugin-configs.vista")
     end,
   },
-
-  {
-    "majutsushi/tagbar",
-    config = function()
-      require("plugin-configs.tagbar")
-    end,
-  },
-
+  -- {
+  --   "majutsushi/tagbar",
+  --   config = function()
+  --     require("plugin-configs.tagbar")
+  --   end,
+  -- },
   {
     "towolf/vim-helm",
     ft = { "helm" },
@@ -988,7 +934,6 @@ require("lazy").setup({
       require("log-highlight").setup({})
     end,
   },
-
   {
     "jvirtanen/vim-hcl",
     ft = { "hcl" },
