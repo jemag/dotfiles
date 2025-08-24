@@ -65,3 +65,10 @@ require("todo-comments").setup({
   },
 })
 vim.keymap.set("n", "<localleader>st", "<cmd>TodoTelescope<cr>", { desc = "TODOs" })
+vim.keymap.set("n", "]T", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[T", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
