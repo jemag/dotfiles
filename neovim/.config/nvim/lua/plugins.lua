@@ -1045,7 +1045,6 @@ require("lazy").setup({
       require("plugin-configs.bracketed")
       require("plugin-configs.trailspace")
     end,
-    version = false,
   },
   {
     "kylechui/nvim-surround",
