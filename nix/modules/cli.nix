@@ -30,6 +30,7 @@ in {
           jdt-language-server
           jsonnet-language-server
           lua-language-server
+          emmylua-ls
           marksman
           nixd
           rust-analyzer
@@ -102,6 +103,10 @@ in {
         ".config/.ripgreprc" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/ripgrep/.config/.ripgreprc";
+        };
+        ".config/emmylua_ls/.emmyrc.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/emmylua_ls/.config/emmylua_ls/.emmyrc.json";
         };
         ".config/delta/themes/themes.gitconfig" = {
           source = config.lib.file.mkOutOfStoreSymlink
