@@ -301,9 +301,14 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.nvim-treesitter")
     end,
+    branch = 'main',
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function()
+      require("plugin-configs.nvim-treesitter-textobjects")
+    end,
+    branch = 'main',
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
