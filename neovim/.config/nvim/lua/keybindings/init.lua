@@ -166,6 +166,17 @@ vim.api.nvim_set_keymap("x", "<cr>P", '"+P', { noremap = true, silent = true, de
 
 vim.keymap.set({ "n", "x" }, "<localleader>nw", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
 
+vim.keymap.set({ "n", "x" }, "<leader>1", "<cmd>tabn 1<cr>", { desc = "Tab 1" })
+vim.keymap.set({ "n", "x" }, "<leader>2", "<cmd>tabn 2<cr>", { desc = "Tab 2" })
+vim.keymap.set({ "n", "x" }, "<leader>3", "<cmd>tabn 3<cr>", { desc = "Tab 3" })
+vim.keymap.set({ "n", "x" }, "<leader>4", "<cmd>tabn 4<cr>", { desc = "Tab 4" })
+vim.keymap.set({ "n", "x" }, "<leader>5", "<cmd>tabn 5<cr>", { desc = "Tab 5" })
+vim.keymap.set({ "n", "x" }, "<leader>6", "<cmd>tabn 6<cr>", { desc = "Tab 6" })
+vim.keymap.set({ "n", "x" }, "<leader>7", "<cmd>tabn 7<cr>", { desc = "Tab 7" })
+vim.keymap.set({ "n", "x" }, "<leader>8", "<cmd>tabn 8<cr>", { desc = "Tab 8" })
+vim.keymap.set({ "n", "x" }, "<leader>9", "<cmd>tabn 9<cr>", { desc = "Tab 9" })
+vim.keymap.set({ "n", "x" }, "<leader>0", "<cmd>tabn 10<cr>", { desc = "Tab 10" })
+
 vim.keymap.set("n", "]t", function()
   vim.cmd.tabnext()
 end, { desc = "Next tab" })
