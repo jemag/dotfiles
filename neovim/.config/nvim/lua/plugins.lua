@@ -126,6 +126,12 @@ require("lazy").setup({
     end,
   },
   {
+    "folke/noice.nvim",
+    config = function()
+      require("plugin-configs.noice")
+    end,
+  },
+  {
     "phelipetls/jsonpath.nvim",
     ft = { "json" },
   },
