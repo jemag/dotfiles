@@ -118,7 +118,7 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
   end
 end
 
