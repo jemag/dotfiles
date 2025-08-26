@@ -8,14 +8,13 @@ require("nvim-treesitter-textobjects").setup({
     },
   },
 })
--- NOTE: SELECT keybinds
+-- select keybinds
 vim.keymap.set({ "n", "x", "o" }, "af", function()
   require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
 end, { desc = "Select around function" })
 vim.keymap.set({ "n", "x", "o" }, "if", function()
   require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
 end, { desc = "Select inner function" })
--- o for object
 vim.keymap.set({ "n", "x", "o" }, "ao", function()
   require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
 end, { desc = "Select around class" })
@@ -58,7 +57,7 @@ end, { desc = "Select around call" })
 vim.keymap.set({ "n", "x", "o" }, "im", function()
   require("nvim-treesitter-textobjects.select").select_textobject("@call.inner", "textobjects")
 end, { desc = "Select inner call" })
--- NOTE move keybinds
+-- move keybinds
 vim.keymap.set({ "n", "x", "o" }, "]f", function()
   require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer")
 end, { desc = "Next function start" })
