@@ -172,6 +172,7 @@ in {
           difftastic
           dig
           dotnet-aspnetcore
+          exercism
           prettier
           stylua
           tinymist
