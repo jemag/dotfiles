@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
   "runtime": {
     "version": "LuaJIT",
     "requirePattern": [
@@ -8,11 +9,11 @@
       "?/lua/?/init.lua"
     ]
   },
+  "diagnostics": {
+    "disable": ["missing-fields"]
+  },
   "workspace": {
-    "library": [
-      "$VIMRUNTIME",
-      "$LLS_Addons/luvit"
-    ],
+    "library": ["$VIMRUNTIME", "$LLS_Addons/luvit"],
     "ignoreGlobs": ["**/*_spec.lua"]
   }
 }
