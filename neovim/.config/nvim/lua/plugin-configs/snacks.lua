@@ -147,6 +147,11 @@ snacks.setup({
           ["<c-s>"] = { { "pick_win_updated", "edit_split" }, mode = { "i", "n" } },
           ["<c-e>"] = { { "pick_win_updated", "edit" }, mode = { "i", "n" } },
           ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
+          ["<a-f>"] = { "toggle_follow", mode = { "i", "n" } },
+          ["<a-d>"] = { "toggle_hidden", mode = { "i", "n" } },
+          ["<a-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+          ["<a-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+          ["<a-p>"] = { "toggle_preview", mode = { "i", "n" } },
         },
       },
       list = {
