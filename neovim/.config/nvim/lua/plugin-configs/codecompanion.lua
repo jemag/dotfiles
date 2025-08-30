@@ -20,22 +20,24 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
       },
     },
     adapters = {
-      opts = {
-        show_defaults = false,
-      },
-      copilot = function()
-        return require("codecompanion.adapters").extend("copilot", {
-          schema = {
-            model = {
-              -- default = "claude-3.5-sonnet",
-              -- default = "claude-3.7-sonnet",
-              default = "claude-sonnet-4",
-              -- default = "gpt-4.1",
-              -- default = "gemini-2.5-pro",
+      http = {
+        opts = {
+          show_defaults = false,
+        },
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                -- default = "claude-3.5-sonnet",
+                -- default = "claude-3.7-sonnet",
+                default = "claude-sonnet-4",
+                -- default = "gpt-4.1",
+                -- default = "gemini-2.5-pro",
+              },
             },
-          },
-        })
-      end,
+          })
+        end,
+      },
     },
     strategies = {
       chat = {
@@ -71,21 +73,23 @@ else
       },
     },
     adapters = {
-      opts = {
-        show_defaults = false,
-      },
-      gemini = function()
-        return require("codecompanion.adapters").extend("gemini", {
-          env = {
-            api_key = vim.fn.getenv("GEMINI_API_KEY"),
-          },
-          schema = {
-            model = {
-              default = "gemini-2.0-flash",
+      http = {
+        opts = {
+          show_defaults = false,
+        },
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            env = {
+              api_key = vim.fn.getenv("GEMINI_API_KEY"),
             },
-          },
-        })
-      end,
+            schema = {
+              model = {
+                default = "gemini-2.0-flash",
+              },
+            },
+          })
+        end,
+      },
     },
     strategies = {
       chat = {
