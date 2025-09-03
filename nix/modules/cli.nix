@@ -156,6 +156,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
+        ".config/harper-ls" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
+        };
       };
 
       packages = with pkgs;
@@ -173,6 +177,7 @@ in {
           dig
           dotnet-aspnetcore
           exercism
+          harper
           prettier
           stylua
           tinymist
