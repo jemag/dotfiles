@@ -307,14 +307,14 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.nvim-treesitter")
     end,
-    branch = 'main',
+    branch = "main",
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
       require("plugin-configs.nvim-treesitter-textobjects")
     end,
-    branch = 'main',
+    branch = "main",
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
@@ -510,6 +510,16 @@ require("lazy").setup({
   --[[ #######################
      Git
     ####################### ]]
+  {
+    "aaronhallaert/ts-advanced-git-search.nvim",
+    cmd = { "AdvancedGitSearch" },
+    config = function()
+      require("plugin-configs.advanced-git-search")
+    end,
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+  },
   {
     "sindrets/diffview.nvim",
     config = function()

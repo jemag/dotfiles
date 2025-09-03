@@ -145,9 +145,6 @@ require("telescope").setup({
     },
   },
   extensions = {
-    advanced_git_search = {
-      diff_plugin = "diffview",
-    },
     aerial = {
       -- Display symbols as <root>.<parent>.<symbol>
       show_nesting = {
@@ -201,7 +198,6 @@ require("telescope").load_extension("aerial")
 require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
-require("telescope").load_extension("advanced_git_search")
 require('telescope').load_extension('bookmarks')
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
@@ -229,22 +225,6 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
 })
 
 vim.keymap.set("n", "<leader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
-vim.api.nvim_create_user_command(
-  "DiffCommitLine",
-  "lua require('telescope').extensions.advanced_git_search.diff_commit_line()",
-  { range = true }
-)
-
-vim.api.nvim_set_keymap("v", "<leader>sgl", ":DiffCommitLine<CR>", { noremap = true, desc = "Advanced line diff" })
-vim.keymap.set("n", "<leader>sgb", require("telescope").extensions.advanced_git_search.diff_commit_file, { desc = "Advanced buffer diff" })
-vim.keymap.set(
-  "n",
-  "<leader>sgi",
-  require("telescope").extensions.advanced_git_search.search_log_content,
-  { desc = "Advanced Search inside commit contents" }
-)
-vim.keymap.set("n", "<leader>sgf", require("telescope").extensions.advanced_git_search.diff_branch_file, { desc = "Advanced Branch file" })
-vim.keymap.set("n", "<leader>sgr", require("telescope").extensions.advanced_git_search.checkout_reflog, { desc = "Advanced Reflog" })
 -- vim.keymap.set("n", "<leader>sf", function()
 --   require("telescope").extensions.menufacture.find_files({ hidden = true })
 -- end, { desc = "Files" })
