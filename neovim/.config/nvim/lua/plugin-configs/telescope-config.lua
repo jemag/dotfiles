@@ -228,7 +228,6 @@ vim.keymap.set("n", "<leader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search 
 -- vim.keymap.set("n", "<leader>sf", function()
 --   require("telescope").extensions.menufacture.find_files({ hidden = true })
 -- end, { desc = "Files" })
-vim.keymap.set("n", "<leader>sL", "<cmd>Telescope possession list<cr>", { desc = "Session list" })
 vim.keymap.set("n", "<leader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
 vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
 -- vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })

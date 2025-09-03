@@ -5,14 +5,6 @@ require("possession").setup({
   silent = false,
   load_silent = true,
   debug = false,
-  commands = {
-    save = "SSave",
-    load = "SLoad",
-    delete = "SDelete",
-    show = "SShow",
-    list = "SList",
-    migrate = "SMigrate",
-  },
   hooks = {
     before_save = function(name)
       return {}
@@ -47,13 +39,17 @@ require("possession").setup({
     tabby = true,
   },
 })
-vim.keymap.set({ "n" }, "<leader>L", "<cmd>SLoad<cr>", { desc = "Load session" })
-vim.keymap.set("n", "<localleader>psq", "<cmd>SSave<cr>", { desc = "Quick save" })
-vim.keymap.set("n", "<localleader>pss", function()
+vim.keymap.set({ "n" }, "<localleader>pl", "<cmd>PossessionLoadCwd<cr>", { desc = "Load cwd session" })
+vim.keymap.set({ "n" }, "<localleader>pL", "<cmd>PossessionLoad<cr>", { desc = "Load session" })
+vim.keymap.set("n", "<localleader>pq", "<cmd>PossessionSaveCwd<cr>", { desc = "Quick save" })
+vim.keymap.set("n", "<localleader>ps", function()
   local input = vim.fn.input("Save session as: ")
   if input ~= "" then
-    vim.cmd("SSave " .. input)
+    vim.cmd("PossessionSave " .. input)
   end
 end, { desc = "Quick save" })
-vim.keymap.set("n", "<localleader>psS", "<cmd>Telescope possession list<cr>", { desc = "Search sessions" })
-vim.keymap.set("n", "<localleader>psj", "<cmd>SShow<cr>", { desc = "Show session" })
+vim.keymap.set("n", "<localleader>pp", "<cmd>PossessionPick<cr>", { desc = "Session pick" })
+vim.keymap.set("n", "<localleader>pc", "<cmd>PossessionClose<cr>", { desc = "Session close" })
+vim.keymap.set("n", "<localleader>pO", "<cmd>PossessionList<cr>", { desc = "Output all sessions" })
+vim.keymap.set("n", "<localleader>po", "<cmd>PossessionListCwd<cr>", { desc = "Output cwd sessions" })
+vim.keymap.set("n", "<localleader>pj", "<cmd>SShow<cr>", { desc = "Show session" })
