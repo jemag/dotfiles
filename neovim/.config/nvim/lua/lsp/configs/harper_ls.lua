@@ -5,10 +5,10 @@ return {
       isolateEnglish = false,
       dialect = "American",
       maxFileLength = 120000,
-      ignoredLintsPath = {},
       linters = {
         AvoidCurses = false,
-      }
+        SentenceCapitalization = false,
+      },
     },
   },
 }
