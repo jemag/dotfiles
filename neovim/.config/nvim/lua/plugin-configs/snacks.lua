@@ -118,7 +118,7 @@ snacks.setup({
       },
     },
     actions = {
-      pick_win_updated = function(picker, item)
+      pick_win_updated = function(picker, _)
         picker.layout:hide()
         local win = snacks.picker.util.pick_win({ main = picker.main, filter = filter_windows })
 
@@ -310,14 +310,13 @@ local function get_directories()
 end
 
 vim.keymap.set("n", "<leader>si", function()
-  local Snacks = require("snacks")
   local dirs = get_directories()
 
-  return Snacks.picker({
+  return snacks.picker({
     items = dirs,
     confirm = function(picker, item)
       picker:close()
-      Snacks.picker.pick("files", {
+      snacks.picker.pick("files", {
         dirs = { item.file },
       })
     end,
@@ -325,14 +324,13 @@ vim.keymap.set("n", "<leader>si", function()
 end, { desc = "Search files in directory" })
 
 vim.keymap.set("n", "<leader>sI", function()
-  local Snacks = require("snacks")
   local dirs = get_directories()
 
-  return Snacks.picker({
+  return snacks.picker({
     items = dirs,
     confirm = function(picker, item)
       picker:close()
-      Snacks.picker.pick("grep", {
+      snacks.picker.pick("grep", {
         dirs = { item.file },
       })
     end,
