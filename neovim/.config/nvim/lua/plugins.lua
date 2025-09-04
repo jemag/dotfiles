@@ -84,13 +84,6 @@ require("lazy").setup({
       -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
     },
   },
-  --TODO: remove in favor of snacks pick_win, need to remove from telescope
-  {
-    "s1n7ax/nvim-window-picker",
-    config = function()
-      require("plugin-configs.nvim-window-picker")
-    end,
-  },
   {
     "Allaman/kustomize.nvim",
     config = function()
@@ -105,10 +98,8 @@ require("lazy").setup({
     dependencies = {
       { "neovim/nvim-lspconfig" },
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-      require("telescope").load_extension("yaml_schema")
       require("plugin-configs.yaml-companion")
     end,
     ft = { "yaml", "json" },
@@ -379,12 +370,6 @@ require("lazy").setup({
       require("plugin-configs.nvim-dap-virtual-text")
     end,
   },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-    config = function()
-      require("telescope").load_extension("dap")
-    end,
-  },
   { "mfussenegger/nvim-jdtls" },
   { "lambdalisue/suda.vim" },
 
@@ -478,26 +463,6 @@ require("lazy").setup({
       require("plugin-configs.img-clip")
     end,
   },
-  { "nvim-telescope/telescope-media-files.nvim" },
-  {
-    "nvim-telescope/telescope.nvim",
-    config = function()
-      require("plugin-configs.telescope-config")
-    end,
-    dependencies = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config Release",
-      },
-      { "tsakirist/telescope-lazy.nvim" },
-      { "debugloop/telescope-undo.nvim" },
-      -- TODO: use snacks picker integration instead and move keybinds away from telescope
-      { "aaronhallaert/ts-advanced-git-search.nvim" },
-      { "molecule-man/telescope-menufacture" },
-    },
-  },
 
   --[[ #######################
      Database
@@ -528,9 +493,6 @@ require("lazy").setup({
   },
   {
     "wintermute-cell/gitignore.nvim",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
   },
   {
     "akinsho/git-conflict.nvim",
@@ -595,9 +557,6 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neogit")
     end,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
   },
   {
     "afonsofrancof/worktrees.nvim",

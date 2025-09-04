@@ -145,14 +145,6 @@ require("telescope").setup({
     },
   },
   extensions = {
-    aerial = {
-      -- Display symbols as <root>.<parent>.<symbol>
-      show_nesting = {
-        ["_"] = false, -- This key will be the default
-        json = true, -- You can set the option for specific filetypes
-        yaml = true,
-      },
-    },
     undo = {
       use_delta = true,
       use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
@@ -194,7 +186,6 @@ require("telescope").load_extension("diff")
 -- require('telescope').load_extension('fzy_native')
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("live_grep_args")
-require("telescope").load_extension("aerial")
 require("telescope").load_extension("lazy")
 require("telescope").load_extension("undo")
 require("telescope").load_extension("menufacture")
@@ -224,15 +215,13 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   end,
 })
 
-vim.keymap.set("n", "<leader>sa", "<cmd>Telescope aerial<cr>", { desc = "Search aerial" })
 -- vim.keymap.set("n", "<leader>sf", function()
 --   require("telescope").extensions.menufacture.find_files({ hidden = true })
 -- end, { desc = "Files" })
-vim.keymap.set("n", "<leader>sM", "<cmd>Telescope media_files<cr>", { desc = "Media files" })
-vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
+-- vim.keymap.set("n", "<leader>sr", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Raw rg" })
 -- vim.keymap.set("n", "<leader>st", require("telescope").extensions.menufacture.live_grep, { desc = "Live grep" })
-vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
-vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
+-- vim.keymap.set("n", "<leader>sV", "<cmd>Telescope vim_options<cr>", { desc = "Vim options" })
+-- vim.keymap.set("n", "<leader>sY", "<cmd>Telescope filetypes<cr>", { desc = "File types" })
 
 vim.keymap.set("n", "<leader>sC", function()
   require("telescope").extensions.diff.diff_files({ hidden = true })

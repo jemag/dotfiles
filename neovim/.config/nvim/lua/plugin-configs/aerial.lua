@@ -24,3 +24,4 @@ require("aerial").setup({
   end,
 })
 vim.keymap.set("n", "<localleader>ta", "<cmd>AerialToggle!<CR>", { desc = "Toggle aerial" })
+vim.keymap.set("n", "<leader>sa",require("aerial").snacks_picker, { desc = "Search aerial" })
