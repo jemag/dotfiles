@@ -29,6 +29,8 @@ local ensure_installed = {
   "git_rebase",
   "gdscript",
   "go",
+  "gosum",
+  "gotmpl",
   "gomod",
   "gowork",
   "graphql",
