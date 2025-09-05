@@ -337,7 +337,7 @@ vim.keymap.set("n", "<leader>sI", function()
   })
 end, { desc = "Search text in directory" })
 
-vim.keymap.set("n", "<f6>", function()
+vim.keymap.set({"n", "t"}, "<f6>", function()
   return snacks.picker({
     finder = function()
       local toggleterm = require("toggleterm.terminal")
