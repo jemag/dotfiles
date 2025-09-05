@@ -336,3 +336,51 @@ vim.keymap.set("n", "<leader>sI", function()
     end,
   })
 end, { desc = "Search text in directory" })
+
+vim.keymap.set("n", "<f6>", function()
+  return snacks.picker({
+    finder = function()
+      local toggleterm = require("toggleterm.terminal")
+      local terms = toggleterm.get_all()
+
+      local items = {}
+      for _, term in pairs(terms) do
+        local item = {}
+        item.text = tostring(term.display_name or "noname")
+        item.label = tostring(term.display_name or "noname")
+        item.value = term
+        table.insert(items, item)
+      end
+      return items
+    end,
+    confirm = function(picker, item)
+      picker:close()
+      local term = item.value
+      term:toggle()
+    end,
+    actions = {
+      delete_term = function(picker, item)
+        local term = item.value
+        term:shutdown()
+        picker:find()
+      end,
+      rename_term = function(picker, item)
+        local term = item.value
+        local prompt = string.format("Rename terminal %s: ", term.display_name)
+        vim.ui.input({ prompt = prompt }, function(name)
+          term.display_name = name
+        end)
+        picker:find()
+      end,
+    },
+    win = {
+      input = {
+        keys = {
+          ["<c-x>"] = { "delete_term", mode = { "i", "n" } },
+          ["<c-r>"] = { "rename_term", mode = { "i", "n" } },
+          ["<f6>"] = { "close", mode = { "i", "n" } },
+        },
+      },
+    },
+  })
+end, { desc = "Toggle terminal" })

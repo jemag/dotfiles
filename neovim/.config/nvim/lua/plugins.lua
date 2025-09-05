@@ -255,22 +255,12 @@ require("lazy").setup({
     },
   },
   {
-    "ryanmsnyder/toggleterm-manager.nvim",
-    dependencies = {
-      "akinsho/nvim-toggleterm.lua",
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- only needed because it's a dependency of telescope
-    },
-    config = function()
-      require("plugin-configs.toggleterm-manager")
-    end,
-  },
-  {
     "akinsho/toggleterm.nvim",
     config = function()
       require("plugin-configs.toggleterm")
     end,
   },
+  -- TODO: replace with custom snack picker then we can remove telescope dependency altogether
   {
     "jemag/telescope-diff.nvim",
     dependencies = {
