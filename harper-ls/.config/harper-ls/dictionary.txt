@@ -1,9 +1,16 @@
 DFO
 Fortinet
 IPs
+LogQL
 NAT
+OS
 SSC
+VMs
+csv
+datasource
+datasources
 fortigate
 fortimanager
+json
 sc2g
 vnet
