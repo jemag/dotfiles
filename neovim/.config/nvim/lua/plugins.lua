@@ -467,7 +467,6 @@ require("lazy").setup({
     ####################### ]]
   {
     "aaronhallaert/ts-advanced-git-search.nvim",
-    cmd = { "AdvancedGitSearch" },
     config = function()
       require("plugin-configs.advanced-git-search")
     end,
