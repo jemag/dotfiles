@@ -5,6 +5,7 @@ LogQL
 NAT
 OS
 SSC
+TOSP
 VMs
 csv
 datasource
@@ -12,5 +13,6 @@ datasources
 fortigate
 fortimanager
 json
+resourcequotas
 sc2g
 vnet
