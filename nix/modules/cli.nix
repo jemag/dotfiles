@@ -265,6 +265,7 @@ in {
           ticker
           # xml formatter
           html-tidy
+          mitmproxy
           tcpdump
           termshark
           tshark
