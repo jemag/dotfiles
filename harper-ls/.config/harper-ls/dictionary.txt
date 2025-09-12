@@ -1,10 +1,14 @@
 AKS
+Base64
+DER
 DFO
 Fortinet
 IPs
 LogQL
 NAT
 OS
+OpenSSL
+PEM
 SP
 SSC
 TODO
@@ -25,8 +29,11 @@ loki
 mTLS
 mixin
 msteam
+nginx
+passthrough
 promtail
 resourcequotas
 sc2g
 tigera
 vnet
+x509
