@@ -8,6 +8,7 @@ return {
       linters = {
         AvoidCurses = false,
         SentenceCapitalization = false,
+        LongSentences = false,
       },
     },
   },
