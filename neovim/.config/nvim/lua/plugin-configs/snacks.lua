@@ -29,6 +29,7 @@ snacks.setup({
   bigfile = {
     enabled = true,
     size = 0.5 * 1024 * 1024, -- 0.5 MiB
+    line_length = 10000,
     setup = function(_)
       vim.cmd("SupermavenStop")
       local ok, api = pcall(require, "supermaven-nvim.api")
