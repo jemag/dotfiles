@@ -52,7 +52,6 @@
   "mini.nvim": { "branch": "main", "commit": "228a8c34fae1d778e895ad06e4158f65e85828bc" },
   "monokai-pro.nvim": { "branch": "master", "commit": "1ac671f6da720cba967d28d25c2f16b8b4e18808" },
   "multicursor.nvim": { "branch": "main", "commit": "0c6ceae228bf209e8b8717df9de500770c4e7022" },
-  "neo-tree.nvim": { "branch": "main", "commit": "e345ad863aa0255cb472ff414f6f10a9ceafac15" },
   "neogen": { "branch": "main", "commit": "d7f9461727751fb07f82011051338a9aba07581d" },
   "neogit": { "branch": "master", "commit": "add70101fab5913cad33ab2f84f1a6ee092e7220" },
   "neotest": { "branch": "master", "commit": "2cf3544fb55cdd428a9a1b7154aea9c9823426e8" },

@@ -234,18 +234,18 @@ require("lazy").setup({
       require("plugin-configs.bookmarks")
     end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "main",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
-      { "MunifTanjim/nui.nvim" },
-    },
-    config = function()
-      require("plugin-configs.neo-tree")
-    end,
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   branch = "main",
+  --   dependencies = {
+  --     { "nvim-lua/plenary.nvim" },
+  --     { "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
+  --     { "MunifTanjim/nui.nvim" },
+  --   },
+  --   config = function()
+  --     require("plugin-configs.neo-tree")
+  --   end,
+  -- },
   {
     "dstein64/nvim-scrollview",
     config = function()
