@@ -36,6 +36,9 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "amd_pstate=disable" # not supported by 3700x
+  ];
   boot.supportedFilesystems.zfs = lib.mkForce false;
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -203,9 +206,9 @@
     };
   };
   services.samba-wsdd = {
-      enable = true;
-      openFirewall = true;
-    };
+    enable = true;
+    openFirewall = true;
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
