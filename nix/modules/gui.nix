@@ -170,6 +170,7 @@ in {
       ticktick
       redshift
       gammastep
+      showmethekey
       ueberzugpp
       zathura
       element-desktop
@@ -177,6 +178,7 @@ in {
       pcmanfm
       vulkan-tools
       nwg-displays
+      obs-studio
       xdg-desktop-portal
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
