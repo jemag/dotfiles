@@ -88,6 +88,10 @@
   #   };
   # };
   # systemd.user.services.spice-vdagent-client.enable = true;
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -95,6 +99,11 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+
+  services.logind.settings.Login = {
+    IdleAction = "ignore";
+    IdleActionSec = 0;
+  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
