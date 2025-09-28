@@ -218,6 +218,14 @@ require("lazy").setup({
     end,
   },
   {
+    "A7Lavinraj/fyler.nvim",
+    dependencies = { "nvim-mini/mini.icons" },
+    -- branch = "stable",
+    config = function()
+      require("plugin-configs.fyler")
+    end
+  },
+  {
     -- "tomasky/bookmarks.nvim",
     -- "ten3roberts/bookmarks.nvim",
     "jemag/bookmarks.nvim",

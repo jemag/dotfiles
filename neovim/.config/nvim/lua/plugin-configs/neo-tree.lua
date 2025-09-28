@@ -292,7 +292,7 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set({ "n" }, "<localleader>te", "<cmd>Neotree show toggle left<cr>", { desc = "Toggle neotree" })
-vim.keymap.set({ "n" }, "<localleader>tc", "<cmd>Neotree close<cr>", { desc = "Close neotree" })
-vim.keymap.set({ "n" }, "<leader>e", "<cmd>Neotree filesystem focus toggle left<cr>", { desc = "Neotree explorer" })
-vim.keymap.set({ "n" }, "<leader>E", "<cmd>Neotree filesystem focus reveal left<cr>", { desc = "Neotree show file" })
+-- vim.keymap.set({ "n" }, "<localleader>te", "<cmd>Neotree show toggle left<cr>", { desc = "Toggle neotree" })
+-- vim.keymap.set({ "n" }, "<localleader>tc", "<cmd>Neotree close<cr>", { desc = "Close neotree" })
+-- vim.keymap.set({ "n" }, "<leader>e", "<cmd>Neotree filesystem focus toggle left<cr>", { desc = "Neotree explorer" })
+-- vim.keymap.set({ "n" }, "<leader>E", "<cmd>Neotree filesystem focus reveal left<cr>", { desc = "Neotree show file" })

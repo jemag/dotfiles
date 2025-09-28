@@ -32,7 +32,7 @@ function M.filter_windows(win, buf)
   local filetype = vim.bo[buf].filetype
   local buftype = vim.bo[buf].buftype
   local excluded_buftypes = { "nofile", "prompt" }
-  local excluded_filetypes = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview", "snacks_picker_preview" }
+  local excluded_filetypes = { "notify", "neo-tree", "neo-tree-popup", "quickfix", "scrollview", "snacks_picker_preview", "Fyler" }
   for _, item in ipairs(excluded_filetypes) do
     if item == filetype then
       return false
