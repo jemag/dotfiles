@@ -223,7 +223,7 @@ require("lazy").setup({
     -- branch = "stable",
     config = function()
       require("plugin-configs.fyler")
-    end
+    end,
   },
   {
     -- "tomasky/bookmarks.nvim",
@@ -443,7 +443,6 @@ require("lazy").setup({
       require("plugin-configs.easyalign")
     end,
   },
-
   {
     "mbbill/undotree",
     config = function()
