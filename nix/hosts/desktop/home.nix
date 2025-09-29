@@ -67,6 +67,10 @@
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
         };
+        ".config/niri" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/niri/.config/niri";
+        };
         ".zshrc" = {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh/.zshrc";

@@ -132,7 +132,7 @@ in {
       };
     };
     home.sessionVariables = {
-      XDG_CURRENT_DESKTOP = "sway";
+      XDG_CURRENT_DESKTOP = "niri";
       GTK_THEME = "Ayu-Dark";
       XDG_THEME_PREFERENCE = "dark";
     };

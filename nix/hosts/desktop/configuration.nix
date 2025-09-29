@@ -137,27 +137,17 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.steam = { enable = true; };
-  programs.sway = {
-    enable = true;
-    extraOptions = [ "--unsupported-gpu" ];
-    wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-      gnome-keyring
-      swaylock
-      swayidle
-      wl-clipboard
-      wf-recorder
-      xwayland
-      mako
-      libnotify
-      grim
-      slurp
-      dmenu
-      rofi
-      wmenu
-      foot
-    ];
-  };
+  programs.niri.enable = true;
+  # programs.sway = {
+  #   enable = true;
+  #   extraOptions = [ "--unsupported-gpu" ];
+  #   wrapperFeatures.gtk = true;
+  #   extraPackages = with pkgs; [
+  #     dmenu
+  #     wmenu
+  #     foot
+  #   ];
+  # };
   programs.waybar.enable = true;
 
   virtualisation.docker = { enable = true; };
@@ -178,6 +168,20 @@
     wezterm
     vlc
     wget
+    pciutils
+    mako
+    wl-clipboard
+    wf-recorder
+    gnome-keyring
+    xwayland
+    grim
+    rofi
+    fuzzel
+    slurp
+    libnotify
+    xwayland-satellite
+    swaylock
+    swayidle
   ];
   services.displayManager.gdm.enable = true;
 
@@ -242,14 +246,16 @@
   xdg.portal = {
     config = {
       sway = { "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ]; };
+      niri = { "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ]; };
     };
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+      # pkgs.xdg-desktop-portal-wlr
     ];
-    wlr.enable = true;
+    # wlr.enable = true;
   };
 
   # Open ports in the firewall.
