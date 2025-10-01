@@ -41,6 +41,7 @@
       cilium-cli
       # Note: temporarily disabled due to cyclonedx-python-lib issue
       # checkov
+      memcached
       cmctl
       cosign
       cri-tools
