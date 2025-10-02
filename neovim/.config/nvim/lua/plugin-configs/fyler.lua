@@ -80,12 +80,7 @@ vim.keymap.set({ "n" }, "<localleader>tc", function()
   end
 end, { desc = "Close Fyler" })
 vim.keymap.set({ "n" }, "<leader>e", function()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "Fyler" then
-      return vim.api.nvim_win_close(win, false)
-    end
-  end
-  fyler.open({ kind = "split_left_most" })
+  fyler.toggle({kind = "split_left_most"})
 end, { desc = "Toggle fyler" })
 vim.keymap.set({ "n" }, "<leader>E", function()
   fyler.open({ kind = "split_left_most" })
