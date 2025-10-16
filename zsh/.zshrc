@@ -191,8 +191,8 @@ key=(
 [[ -n "${key[PageDown]}"  ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
 [[ -n "${key[Home]}"      ]] && bindkey -M vicmd "${key[Home]}" beginning-of-line
 [[ -n "${key[End]}"       ]] && bindkey -M vicmd "${key[End]}" end-of-line
-bindkey -M vicmd "k" up-line-or-beginning-search
-bindkey -M vicmd "j" down-line-or-beginning-search
+bindkey -M vicmd "k" vi-up-line-or-history
+bindkey -M vicmd "j" vi-down-line-or-history
 bindkey -v
 bindkey 'jk' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
