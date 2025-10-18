@@ -17,6 +17,7 @@ require("stickybuf").setup({
       or filetype == "neotest-summary"
       or filetype == "vista_kind"
       or filetype == "neo-tree"
+      or filetype == "Fyler"
     then
       return "filetype"
     elseif bufname:match("Neogit.*Popup") then

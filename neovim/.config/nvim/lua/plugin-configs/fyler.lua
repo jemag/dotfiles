@@ -80,7 +80,7 @@ vim.keymap.set({ "n" }, "<localleader>tc", function()
   end
 end, { desc = "Close Fyler" })
 vim.keymap.set({ "n" }, "<leader>e", function()
-  fyler.toggle({kind = "split_left_most"})
+  fyler.toggle({ kind = "split_left_most" })
 end, { desc = "Toggle fyler" })
 vim.keymap.set({ "n" }, "<leader>E", function()
   fyler.open({ kind = "split_left_most" })
