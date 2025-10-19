@@ -23,7 +23,7 @@ require("obsidian").setup({
     -- Trigger completion at 2 chars
     min_chars = 2,
   },
-  finder = "telescope.nvim",
+  finder = "snacks.pick",
   open_notes_in = "current",
   attachments = {
     img_folder = "_resources",

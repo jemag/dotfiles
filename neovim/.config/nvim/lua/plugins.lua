@@ -268,13 +268,6 @@ require("lazy").setup({
       require("plugin-configs.toggleterm")
     end,
   },
-  -- TODO: replace with custom snack picker then we can remove telescope dependency altogether
-  {
-    "jemag/telescope-diff.nvim",
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-  },
   {
     "obsidian-nvim/obsidian.nvim",
     config = function()
@@ -379,7 +372,6 @@ require("lazy").setup({
       require("monokai-pro").setup({
         terminal_colors = false,
         background_clear = {
-          "telescope",
           "floaterm",
           "neo-tree",
           "bufferline",
