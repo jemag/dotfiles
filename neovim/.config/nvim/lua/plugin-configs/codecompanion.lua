@@ -42,6 +42,15 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
     strategies = {
       chat = {
         adapter = "copilot",
+        keymaps = {
+          options = {
+            modes = { n = "g?" },
+            callback = "keymaps.options",
+            description = "Options",
+            hide = true,
+            opts = { nowait = true },
+          },
+        },
       },
       inline = {
         adapter = "copilot",
