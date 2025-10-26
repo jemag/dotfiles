@@ -21,7 +21,6 @@ in {
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
-          ansible-language-server
           bash-language-server
           bicep-lsp
           dockerfile-language-server-nodejs
