@@ -180,6 +180,7 @@
     wget
   ];
   services.displayManager.gdm.enable = true;
+  services.mullvad-vpn.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

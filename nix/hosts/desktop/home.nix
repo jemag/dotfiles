@@ -34,6 +34,8 @@
       brave
       mangohud
       qbittorrent
+      mullvad-vpn
+      mullvad-browser
       ghostty
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
