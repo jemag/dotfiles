@@ -273,6 +273,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.obsidian")
     end,
+    version = "*",
     enabled = vim.fn.getenv("OBSIDIAN_VAULT") ~= vim.NIL,
   },
   {
