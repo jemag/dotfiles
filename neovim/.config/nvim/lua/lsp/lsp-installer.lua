@@ -41,6 +41,7 @@ local function setup_default_config_servers()
     "dockerls",
     "golangci_lint_ls",
     "html",
+    "helm_ls",
     "marksman",
     "nixd",
     "nushell",
