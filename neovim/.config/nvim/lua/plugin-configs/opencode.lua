@@ -9,7 +9,7 @@ vim.keymap.set({ "n", "x" }, "<leader>aO", function()
   require("opencode").prompt("@this")
 end, { desc = "Add to opencode" })
 
-vim.keymap.set("n", "<F11>", function()
+vim.keymap.set({"n", "x", "t", "i"}, "<F11>", function()
   require("opencode").toggle()
 end, { desc = "Toggle opencode" })
 
