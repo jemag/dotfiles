@@ -38,3 +38,10 @@ windows:
       panes:
         - helm-charts:
             - cd ~/Projects/helm-charts/
+  - loki:
+      layout: even-horizontal
+      panes:
+        - loki-temp:
+            - cd ~/temp/loki/
+        - loki-proxy:
+            - cd ~/Projects/loki-proxy/
