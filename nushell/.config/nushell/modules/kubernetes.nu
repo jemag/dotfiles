@@ -13,7 +13,6 @@ export alias kcx = kubectx
 export alias kns = kubens
 export alias kbx = kubie ctx
 export alias kbs = kubie ns
-export alias kt = kubetail
 export alias ky = kyverno
 
 # Execute a kubecolor command against all namespaces
