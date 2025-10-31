@@ -43,7 +43,7 @@
       # checkov
       memcached
       cmctl
-      cosign
+      # cosign
       cri-tools
       dockle
       falcoctl
