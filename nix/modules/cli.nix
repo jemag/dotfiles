@@ -248,7 +248,7 @@ in {
           nix-search-cli # search nixpkgs
           nix-tree # browse dependency graphs of Nix derivations
           nixfmt-classic
-          nodejs
+          nodejs_24
           nushell
           nufmt
           opencode
