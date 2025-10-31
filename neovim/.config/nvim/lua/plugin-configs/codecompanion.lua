@@ -15,6 +15,9 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
       },
     },
     display = {
+      action_palette = {
+        provider = "snacks",
+      },
       chat = {
         show_settings = false,
       },
