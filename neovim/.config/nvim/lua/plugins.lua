@@ -613,9 +613,14 @@ require("lazy").setup({
     ft = "hurl",
   },
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    dependencies = {
+      "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+    },
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      require("plugin-configs.copilot-vim")
+      require("plugin-configs.copilot-lua")
     end,
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
