@@ -4,6 +4,9 @@ local marks = require("marks")
 
 local snacks = require("snacks")
 snacks.setup({
+  terminal = {
+    enabled = true,
+  },
   styles = {
     notification_history = {
       relative = "editor",

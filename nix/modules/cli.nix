@@ -159,6 +159,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
         };
+        ".config/opencode" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
+        };
       };
 
       packages = with pkgs;

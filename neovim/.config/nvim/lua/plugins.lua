@@ -627,6 +627,12 @@ require("lazy").setup({
     cmd = { "Typr", "TyprStats" },
   },
   {
+    "NickvanDyke/opencode.nvim",
+    config = function()
+      require("plugin-configs.opencode")
+    end,
+  },
+  {
     "olimorris/codecompanion.nvim",
     config = function()
       require("plugin-configs.codecompanion")
@@ -646,8 +652,8 @@ require("lazy").setup({
       },
       {
         mode = { "n", "x" },
-        "<leader>aa",
-        "<Cmd>CodeCompanionActions <CR>",
+        "<leader>ac",
+        "<Cmd>CodeCompanionActions<CR>",
         desc = "Toggle CodeCompanionActions",
       },
     },
