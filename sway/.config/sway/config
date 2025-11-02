@@ -20,6 +20,8 @@ output * bg $wallpaper fill
 input "type:keyboard" {
   repeat_rate 50
   repeat_delay 200
+  xkb_layout "us,ca"
+  xkb_options grp:win_space_toggle
 }
 
 input "type:pointer" {
