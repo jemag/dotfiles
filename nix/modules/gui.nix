@@ -144,7 +144,7 @@ in {
     };
     home.packages = with pkgs; [
       arandr
-      bitwarden
+      bitwarden-desktop
       chromium
       deluge
       feh
