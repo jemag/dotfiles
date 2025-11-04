@@ -14,7 +14,7 @@ require("copilot").setup({
     },
   },
   nes = {
-    enabled = true,
+    enabled = false,
     auto_trigger = false,
     keymap = {
       accept_and_goto = false,
