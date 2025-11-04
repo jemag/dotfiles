@@ -350,8 +350,8 @@ vim.keymap.set({"n", "t"}, "<f6>", function()
       local items = {}
       for _, term in pairs(terms) do
         local item = {}
-        item.text = tostring(term.display_name or "noname")
-        item.label = tostring(term.display_name or "noname")
+        item.text = tostring(term.display_name or term.dir)
+        item.label = tostring(term.display_name or term.dir)
         item.value = term
         table.insert(items, item)
       end
