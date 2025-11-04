@@ -5,7 +5,8 @@ neogit.setup({
   -- customize displayed signs
   integrations = {
     diffview = true,
-    telescope = true,
+    telescope = false,
+    snacks = true,
   },
   disable_line_numbers = false,
   disable_relative_line_numbers = false,
