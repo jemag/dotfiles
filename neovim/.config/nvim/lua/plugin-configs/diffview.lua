@@ -51,9 +51,6 @@ require("diffview").setup({
       -- Change local options in diff buffers
       vim.opt_local.wrap = true
       vim.opt_local.list = true
-      for _, client in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
-        vim.lsp.buf_detach_client(0, client.id)
-      end
     end,
   }, -- See ':h diffview-config-hooks'
 })
