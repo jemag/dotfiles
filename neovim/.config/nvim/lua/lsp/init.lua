@@ -1,3 +1,2 @@
-require("lsp.setup").init()
-require("lsp.lsp-installer")
+require("lsp.setup")
 require("lsp.java").setup()
