@@ -636,7 +636,6 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.opencode")
     end,
-    commit = "2e66ef8ced76f1000b39ce93c40ec21dd98261b6",
   },
   {
     "olimorris/codecompanion.nvim",
