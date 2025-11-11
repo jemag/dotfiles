@@ -23,7 +23,7 @@ in {
           angular-language-server
           bash-language-server
           bicep-lsp
-          dockerfile-language-server-nodejs
+          dockerfile-language-server
           gopls
           helm-ls
           jdt-language-server
