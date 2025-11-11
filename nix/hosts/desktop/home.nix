@@ -35,6 +35,9 @@
       mangohud
       qbittorrent
       mullvad-vpn
+      protonup-qt
+      wineWowPackages.full
+      winetricks
       mullvad-browser
       ghostty
       # # Adds the 'hello' command to your environment. It prints a friendly
