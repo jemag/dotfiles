@@ -178,6 +178,7 @@ in {
           devbox
           difftastic
           dig
+          netcat-gnu
           dotnet-aspnetcore
           exercism
           harper
