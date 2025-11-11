@@ -139,7 +139,6 @@
   programs.steam = { enable = true; };
   programs.sway = {
     enable = true;
-    extraOptions = [ "--unsupported-gpu" ];
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
       gnome-keyring
@@ -211,11 +210,8 @@
     openFirewall = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
-    open = false;
-  };
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
