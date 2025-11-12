@@ -31,7 +31,8 @@
     "agent_cycle_reverse": "shift+tab",
     "input_clear": "ctrl+c",
     "input_paste": "ctrl+v",
-    "input_submit": "enter",
-    "input_newline": "shift+enter,ctrl+j"
+    "input_submit": "ctrl+s",
+    //NOTE: may need to change back to `enter` once upstream issue is fixed (https://github.com/sst/opencode/issues/3675)
+    "input_newline": "return,ctrl+j"
   }
 }
