@@ -82,8 +82,10 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<c-i>", "<c-i>")
 
 -- frees up <c-a> and <c-x> for other uses
-vim.keymap.set({"n", "x"}, "+", "<C-a>", { desc = "Increment", noremap = true })
-vim.keymap.set({"n", "x"}, "-", "<C-x>", { desc = "Decrement", noremap = true })
+vim.keymap.set({"n"}, "+", "<C-a>", { desc = "Increment", noremap = true })
+vim.keymap.set({"n"}, "-", "<C-x>", { desc = "Decrement", noremap = true })
+vim.keymap.set({"x"}, "+", "<C-a>gv", { desc = "Increment", noremap = true })
+vim.keymap.set({"x"}, "-", "<C-x>gv", { desc = "Decrement", noremap = true })
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>lopen<cr>", { noremap = true, silent = true, desc = "Opoen location list" })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>lclose<cr>", { noremap = true, silent = true, desc = "Close location list" })
