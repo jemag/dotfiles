@@ -47,7 +47,7 @@ vim.keymap.set("n", "<localleader>ps", function()
   if input ~= "" then
     vim.cmd("PossessionSave " .. input)
   end
-end, { desc = "Quick save" })
+end, { desc = "Save" })
 vim.keymap.set("n", "<localleader>pp", "<cmd>PossessionPick<cr>", { desc = "Session pick" })
 vim.keymap.set("n", "<localleader>pc", "<cmd>PossessionClose<cr>", { desc = "Session close" })
 vim.keymap.set("n", "<localleader>pO", "<cmd>PossessionList<cr>", { desc = "Output all sessions" })
