@@ -17,6 +17,9 @@ fyler.setup({
           },
           split_left_most = {
             width = "20%",
+            win_opts = {
+              winfixwidth = true,
+            },
           },
         },
       },
