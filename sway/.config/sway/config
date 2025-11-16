@@ -310,6 +310,7 @@ for_window [title="Pebbles"] floating enable
 for_window [title="Uno Calculator"] floating enable
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+for_window [all] inhibit_idle fullscreen
 
 include /etc/sway/config.d/*
 include ~/.config/sway/outputs
