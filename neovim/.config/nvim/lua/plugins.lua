@@ -218,9 +218,9 @@ require("lazy").setup({
     end,
   },
   {
-    "A7Lavinraj/fyler.nvim",
+    "jemag/fyler.nvim",
+    branch = "mapping-options",
     dependencies = { "nvim-mini/mini.icons" },
-    -- branch = "stable",
     config = function()
       require("plugin-configs.fyler")
     end,

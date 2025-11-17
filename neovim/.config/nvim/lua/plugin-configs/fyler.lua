@@ -1,3 +1,4 @@
+---@diagnostic disable: assign-type-mismatch
 local filter_windows = require("utils").filter_windows
 local fyler = require("fyler")
 
@@ -6,6 +7,9 @@ fyler.setup({
     finder = {
       follow_current_file = false,
       close_on_select = false,
+      watcher = {
+        enabled = true,
+      },
       win = {
         kind = "split_left_most",
         kinds = {
@@ -76,6 +80,9 @@ fyler.setup({
           local path = node_entry.path
           require("snacks").picker.grep({ cwd = path })
         end,
+      },
+      mappings_opts = {
+        nowait = true,
       },
     },
   },
