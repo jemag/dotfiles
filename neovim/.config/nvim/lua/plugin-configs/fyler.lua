@@ -98,8 +98,12 @@ vim.keymap.set({ "n" }, "<leader>e", function()
   fyler.toggle({ kind = "split_left_most" })
 end, { desc = "Toggle fyler" })
 vim.keymap.set({ "n" }, "<leader>E", function()
+  local filename = vim.api.nvim_buf_get_name(0)
   fyler.open({ kind = "split_left_most" })
-  vim.defer_fn(function()
-    fyler.track_buffer()
-  end, 75)
+  fyler.track_buffer(filename)
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "fyler" then
+      return vim.api.nvim_set_current_win(win)
+    end
+  end
 end, { desc = "Fyler show file" })
