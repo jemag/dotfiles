@@ -31,9 +31,8 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                -- default = "claude-3.5-sonnet",
-                -- default = "claude-3.7-sonnet",
-                default = "claude-sonnet-4",
+                -- default = "claude-sonnet-4",
+                default = "claude-sonnet-4.5",
                 -- default = "gpt-4.1",
                 -- default = "gemini-2.5-pro",
               },
