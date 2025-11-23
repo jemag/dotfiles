@@ -43,6 +43,7 @@ zle -N down-line-or-beginning-search
 alias ls="eza -g --time-style long-iso --icons=always"
 alias cg="chainctl"
 alias oc="opencode"
+alias ol="ollama"
 alias ch="checkov"
 alias dv="devbox"
 alias kn="n +'lua require(\"kubectl\").toggle()'"

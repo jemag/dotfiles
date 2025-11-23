@@ -42,6 +42,7 @@ zle -N down-line-or-beginning-search
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
 alias oc="opencode"
+alias ol="ollama"
 alias kn="n +'lua require(\"kubectl\").toggle()'"
 alias dv="devbox"
 alias ig="kubectl gadget"
