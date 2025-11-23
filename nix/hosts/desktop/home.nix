@@ -84,6 +84,10 @@
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
         };
+        ".ollama" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/ollama/.ollama";
+        };
       };
 
     # Home Manager can also manage your environment variables through

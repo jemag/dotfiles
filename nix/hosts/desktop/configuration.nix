@@ -108,6 +108,11 @@
     IdleActionSec = 0;
   };
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm"; # ← IMPORTANT for AMD
+  };
+
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
@@ -174,6 +179,7 @@
     libtool
     mesa
     git
+    rocmPackages.rocm-smi
     wezterm
     vlc
     wget
