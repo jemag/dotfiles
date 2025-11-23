@@ -111,6 +111,7 @@
   services.ollama = {
     enable = true;
     acceleration = "rocm"; # ← IMPORTANT for AMD
+    package = pkgs.ollama-rocm;
   };
 
   # Enable sound.
@@ -179,7 +180,12 @@
     libtool
     mesa
     git
+    rocmPackages.clr
+    rocmPackages.rocblas
+    rocmPackages.hipblas
     rocmPackages.rocm-smi
+    rocmPackages.rocminfo
+    llama-cpp-rocm
     wezterm
     vlc
     wget

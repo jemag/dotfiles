@@ -32,6 +32,7 @@ in {
           emmylua-ls
           marksman
           nixd
+          lsof
           rust-analyzer
           terraform-ls
           typescript-language-server
