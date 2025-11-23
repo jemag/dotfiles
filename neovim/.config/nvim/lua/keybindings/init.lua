@@ -56,12 +56,12 @@ vim.api.nvim_set_keymap(
 )
 vim.keymap.set({ "n", "x" }, "<cr>", "<nop>", { desc = "disable <cr> in normal and visual mode" })
 -- Testing centering cursor
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Scroll half down with cursor centered" })
-vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Scroll half up with cursor centered" })
-vim.api.nvim_set_keymap("n", "<C-f>", "<C-f>zz", { noremap = true, silent = true, desc = "Scroll down with cursor centered" })
-vim.api.nvim_set_keymap("n", "<C-b>", "<C-b>zz", { noremap = true, silent = true, desc = "Scroll up with cursor centered" })
-vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true, desc = "Next match centered" })
-vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "Previous match centered" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll half down with cursor centered" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll half up with cursor centered" })
+vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Scroll full page down with cursor centered" })
+vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Scroll full page up with cursor centered" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search match centered and unfolded" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search match centered and unfolded" })
 
 vim.keymap.set({ "n", "x" }, "c", '"_c', { desc = "c without yank" })
 vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "C without yank" })
