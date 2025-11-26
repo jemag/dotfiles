@@ -481,6 +481,13 @@ require("lazy").setup({
     end,
   },
   {
+    "bkoropoff/clipipe",
+    config = function()
+      require("plugin-configs.clipipe")
+    end,
+    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
+  },
+  {
     "wintermute-cell/gitignore.nvim",
   },
   {
