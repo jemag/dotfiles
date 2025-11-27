@@ -18,6 +18,12 @@ in {
 
       neovim = {
         enable = true;
+        extraWrapperArgs = [
+          "--prefix"
+          "LD_LIBRARY_PATH"
+          ":"
+          "${pkgs.libgcc.lib}/lib"
+        ];
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
@@ -26,6 +32,7 @@ in {
           dockerfile-language-server
           gopls
           helm-ls
+          libgcc.lib
           jdt-language-server
           jsonnet-language-server
           lua-language-server
