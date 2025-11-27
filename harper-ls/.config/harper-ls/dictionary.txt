@@ -7,11 +7,13 @@ ClusterSecretStore
 DER
 DFO
 Fortinet
+GitOps
 GrafanaDashboard
 GrafanaDatasource
 IPs
 JOSE
 JWK
+Jsonnet
 KV
 LogQL
 MiB
