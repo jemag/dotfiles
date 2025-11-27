@@ -475,6 +475,10 @@ require("lazy").setup({
     },
   },
   {
+    "esmuellert/vscode-diff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+  },
+  {
     "sindrets/diffview.nvim",
     config = function()
       require("plugin-configs.diffview")
