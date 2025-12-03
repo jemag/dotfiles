@@ -258,6 +258,7 @@ in {
           nix-tree # browse dependency graphs of Nix derivations
           nixfmt-classic
           nodejs_24
+          bun
           nushell
           nufmt
           opencode
