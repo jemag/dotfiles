@@ -26,6 +26,12 @@ require("lazy").setup({
       },
     },
   },
+  {
+    "NStefan002/screenkey.nvim",
+    cmd = "Screenkey",
+    lazy = true,
+    version = "*", -- or branch = "main", to use the latest commit
+  },
   --[[ #######################
      General
     ####################### ]]
@@ -479,7 +485,7 @@ require("lazy").setup({
     dependencies = { "MunifTanjim/nui.nvim" },
     config = function()
       require("plugin-configs.vscode-diff")
-    end
+    end,
   },
   {
     "sindrets/diffview.nvim",
