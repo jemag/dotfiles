@@ -13,12 +13,9 @@ vim.keymap.set({"n", "x"}, "<localleader>nC", "<Plug>(MarkdownPlusClearFormattin
 vim.keymap.set("x", "<localleader>nw", "<Plug>(MarkdownPlusCodeBlock)", { desc = "Convert selection to code block" })
 
 -- Headers & TOC Navigation
-vim.keymap.set("n", "]]", "<Plug>(MarkdownPlusNextHeader)", { desc = "Jump to next header" })
-vim.keymap.set("n", "[[", "<Plug>(MarkdownPlusPrevHeader)", { desc = "Jump to previous header" })
 vim.keymap.set("n", "<localleader>nht", "<Plug>(MarkdownPlusGenerateTOC)", { desc = "Generate table of contents" })
 vim.keymap.set("n", "<localleader>nhu", "<Plug>(MarkdownPlusUpdateTOC)", { desc = "Update existing table of contents" })
 vim.keymap.set("n", "<localleader>nhT", "<Plug>(MarkdownPlusOpenTocWindow)", { desc = "Open navigable TOC window" })
-vim.keymap.set("n", "gd", "<Plug>(MarkdownPlusFollowLink)", { desc = "Follow TOC link to header" })
 
 -- Header Levels (H1-H6)
 for i = 1, 6 do
@@ -28,7 +25,6 @@ end
 -- Links Management
 vim.keymap.set("n", "<localleader>nl", "<Plug>(MarkdownPlusInsertLink)", { desc = "Insert new markdown link" })
 vim.keymap.set("x", "<localleader>nl", "<Plug>(MarkdownPlusSelectionToLink)", { desc = "Convert selection to link" })
-vim.keymap.set("n", "<localleader>ne", "<Plug>(MarkdownPlusEditLink)", { desc = "Edit link under cursor" })
 vim.keymap.set("n", "<localleader>nR", "<Plug>(MarkdownPlusConvertToReference)", { desc = "Convert to reference-style link" })
 vim.keymap.set("n", "<localleader>nI", "<Plug>(MarkdownPlusConvertToInline)", { desc = "Convert to inline link" })
 vim.keymap.set("n", "<localleader>na", "<Plug>(MarkdownPlusAutoLinkURL)", { desc = "Auto-convert URL to markdown link" })
@@ -44,19 +40,17 @@ vim.keymap.set("i", "<CR>", "<Plug>(MarkdownPlusListEnter)", { desc = "Auto-cont
 vim.keymap.set("i", "<Tab>", "<Plug>(MarkdownPlusListIndent)", { desc = "Indent list item" })
 vim.keymap.set("i", "<S-Tab>", "<Plug>(MarkdownPlusListOutdent)", { desc = "Outdent list item" })
 vim.keymap.set("i", "<BS>", "<Plug>(MarkdownPlusListBackspace)", { desc = "Smart backspace for lists" })
-vim.keymap.set("i", "<C-t>", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox in insert mode" })
+vim.keymap.set("i", "<C-b>", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox in insert mode" })
 
 -- List Management (Normal & Visual Mode)
 vim.keymap.set("n", "<localleader>nr", "<Plug>(MarkdownPlusRenumberLists)", { desc = "Renumber ordered lists" })
-vim.keymap.set("n", "<localleader>nd", "<Plug>(MarkdownPlusDebugLists)", { desc = "Debug list groups" })
 vim.keymap.set("n", "o", "<Plug>(MarkdownPlusNewListItemBelow)", { desc = "Create new list item below" })
 vim.keymap.set("n", "O", "<Plug>(MarkdownPlusNewListItemAbove)", { desc = "Create new list item above" })
-vim.keymap.set("n", "<localleader>nx", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox on current line" })
-vim.keymap.set("x", "<localleader>nx", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkboxes in selection" })
+vim.keymap.set({"n", "x"}, "<localleader>nx", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox on current line" })
 
 -- Quotes Management (Normal & Visual Mode)
 vim.keymap.set("n", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)", { desc = "Toggle blockquote on current line" })
-vim.keymap.set("x", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)<esc>", { desc = "Toggle blockquote on selected lines" })
+vim.keymap.set("x", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)", { desc = "Toggle blockquote on selected lines" })
 
 -- Callouts/Admonitions (Normal & Visual Mode)
 vim.keymap.set("n", "<localleader>nQi", "<Plug>(MarkdownPlusInsertCallout)", { desc = "Insert callout (prompts for type)" })

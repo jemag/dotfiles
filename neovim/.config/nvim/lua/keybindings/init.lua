@@ -170,7 +170,7 @@ vim.api.nvim_set_keymap("n", "<cr>P", '"+P', { noremap = true, silent = true, de
 vim.api.nvim_set_keymap("x", "<cr>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
 vim.api.nvim_set_keymap("x", "<cr>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
 
-vim.keymap.set({ "n", "x" }, "<localleader>nw", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
+vim.keymap.set({ "n", "x" }, "<localleader>nW", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
 
 vim.keymap.set({ "n", "x" }, "<leader>1", "<cmd>tabn 1<cr>", { desc = "Tab 1" })
 vim.keymap.set({ "n", "x" }, "<leader>2", "<cmd>tabn 2<cr>", { desc = "Tab 2" })
