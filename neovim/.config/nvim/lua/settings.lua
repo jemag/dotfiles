@@ -101,6 +101,7 @@ vim.opt.matchtime = 1
 vim.opt.wildignore = vim.opt.wildignore + "*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*"
 vim.opt.conceallevel = 2
 vim.opt.diffopt = { "filler", "internal", "closeoff", "hiddenoff", "algorithm:histogram", "linematch:60" }
+vim.opt.winborder = "rounded"
 local cursorlineAugroup = "CursorLineOnlyInActiveWindow"
 vim.api.nvim_create_augroup(cursorlineAugroup, { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
