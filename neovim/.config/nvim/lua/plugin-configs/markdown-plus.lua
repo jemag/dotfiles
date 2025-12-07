@@ -14,27 +14,25 @@ vim.keymap.set("x", "<localleader>nw", "<Plug>(MarkdownPlusCodeBlock)")
 
 vim.keymap.set("n", "]]", "<Plug>(MarkdownPlusNextHeader)")
 vim.keymap.set("n", "[[", "<Plug>(MarkdownPlusPrevHeader)")
-vim.keymap.set("n", "<leader>h+", "<Plug>(MarkdownPlusPromoteHeader)")
-vim.keymap.set("n", "<leader>h-", "<Plug>(MarkdownPlusDemoteHeader)")
-vim.keymap.set("n", "<leader>ht", "<Plug>(MarkdownPlusGenerateTOC)")
-vim.keymap.set("n", "<leader>hu", "<Plug>(MarkdownPlusUpdateTOC)")
-vim.keymap.set("n", "<leader>hT", "<Plug>(MarkdownPlusOpenTocWindow)")
+vim.keymap.set("n", "<localleader>nht", "<Plug>(MarkdownPlusGenerateTOC)")
+vim.keymap.set("n", "<localleader>nhu", "<Plug>(MarkdownPlusUpdateTOC)")
+vim.keymap.set("n", "<localleader>nhT", "<Plug>(MarkdownPlusOpenTocWindow)")
 vim.keymap.set("n", "gd", "<Plug>(MarkdownPlusFollowLink)")  -- Follow TOC link
 
 -- Header levels (H1-H6)
 for i = 1, 6 do
-  vim.keymap.set("n", "<leader>h" .. i, "<Plug>(MarkdownPlusHeader" .. i .. ")")
+  vim.keymap.set("n", "<localleader>nh" .. i, "<Plug>(MarkdownPlusHeader" .. i .. ")")
 end
 
 vim.keymap.set("n", "<localleader>nl", "<Plug>(MarkdownPlusInsertLink)")
-vim.keymap.set("v", "<localleader>nl", "<Plug>(MarkdownPlusSelectionToLink)")
+vim.keymap.set("x", "<localleader>nl", "<Plug>(MarkdownPlusSelectionToLink)")
 vim.keymap.set("n", "<localleader>ne", "<Plug>(MarkdownPlusEditLink)")
 vim.keymap.set("n", "<localleader>nR", "<Plug>(MarkdownPlusConvertToReference)")
 vim.keymap.set("n", "<localleader>nI", "<Plug>(MarkdownPlusConvertToInline)")
 vim.keymap.set("n", "<localleader>na", "<Plug>(MarkdownPlusAutoLinkURL)")
 
 vim.keymap.set("n", "<localleader>nL", "<Plug>(MarkdownPlusInsertImage)")
-vim.keymap.set("v", "<localleader>nL", "<Plug>(MarkdownPlusSelectionToImage)")
+vim.keymap.set("x", "<localleader>nL", "<Plug>(MarkdownPlusSelectionToImage)")
 vim.keymap.set("n", "<localleader>nE", "<Plug>(MarkdownPlusEditImage)")
 vim.keymap.set("n", "<localleader>nA", "<Plug>(MarkdownPlusToggleImageLink)")
 
@@ -58,7 +56,7 @@ vim.keymap.set("x", "<localleader>nx", "<Plug>(MarkdownPlusToggleCheckbox)")
 -- Normal mode
 vim.keymap.set("n", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)")
 -- Visual mode
-vim.keymap.set("x", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)")
+vim.keymap.set("x", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)<esc>")
 
 -- Normal mode - Insert callout
 vim.keymap.set("n", "<localleader>nQi", "<Plug>(MarkdownPlusInsertCallout)")
