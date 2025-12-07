@@ -110,7 +110,6 @@
 
   services.ollama = {
     enable = true;
-    acceleration = "rocm"; # ← IMPORTANT for AMD
     package = pkgs.ollama-rocm;
   };
 
