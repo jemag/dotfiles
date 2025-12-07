@@ -15,3 +15,5 @@ require("easytables").setup({
     vim.api.nvim_buf_set_keymap(buf, "n", "<C-Down>", ":SwapWithLowerRow<CR>", {})
   end,
 })
+
+vim.api.nvim_create_user_command("EasyTablesExport", "ExportTable", {})
