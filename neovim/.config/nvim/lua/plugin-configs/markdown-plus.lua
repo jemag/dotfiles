@@ -102,15 +102,15 @@ vim.keymap.set("n", "<leader>tdc", "<Plug>(markdown-plus-table-delete-column)")
 vim.keymap.set("n", "<leader>tyc", "<Plug>(markdown-plus-table-duplicate-column)")
 
 -- Additional table operations
-vim.keymap.set("n", "<leader>ta", "<Plug>(markdown-plus-table-toggle-alignment)")
+vim.keymap.set("n", "<leader>ta", "<Plug>(markdown-plus-table-toggle-cell-alignment)")
 vim.keymap.set("n", "<leader>tx", "<Plug>(markdown-plus-table-clear-cell)")
 vim.keymap.set("n", "<leader>tmh", "<Plug>(markdown-plus-table-move-column-left)")
 vim.keymap.set("n", "<leader>tml", "<Plug>(markdown-plus-table-move-column-right)")
 vim.keymap.set("n", "<leader>tmk", "<Plug>(markdown-plus-table-move-row-up)")
 vim.keymap.set("n", "<leader>tmj", "<Plug>(markdown-plus-table-move-row-down)")
 vim.keymap.set("n", "<leader>tt", "<Plug>(markdown-plus-table-transpose)")
-vim.keymap.set("n", "<leader>tsa", "<Plug>(markdown-plus-table-sort-asc)")
-vim.keymap.set("n", "<leader>tsd", "<Plug>(markdown-plus-table-sort-desc)")
+vim.keymap.set("n", "<leader>tsa", "<Plug>(markdown-plus-table-sort-ascending)")
+vim.keymap.set("n", "<leader>tsd", "<Plug>(markdown-plus-table-sort-descending)")
 vim.keymap.set("n", "<leader>tvx", "<Plug>(markdown-plus-table-to-csv)")
 vim.keymap.set("n", "<leader>tvi", "<Plug>(markdown-plus-table-from-csv)")
 
