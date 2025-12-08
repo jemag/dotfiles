@@ -5,35 +5,35 @@ require("markdown-plus").setup({
   filetypes = {"markdown", "text", "txt"},
 })
 -- Text Formatting (Normal & Visual Mode)
-vim.keymap.set({"n", "x"}, "<localleader>nb", "<Plug>(MarkdownPlusBold)", { desc = "Toggle bold formatting" })
-vim.keymap.set({"n", "x"}, "<localleader>ni", "<Plug>(MarkdownPlusItalic)", { desc = "Toggle italic formatting" })
-vim.keymap.set({"n", "x"}, "<localleader>ns", "<Plug>(MarkdownPlusStrikethrough)", { desc = "Toggle strikethrough formatting" })
-vim.keymap.set({"n", "x"}, "<localleader>nc", "<Plug>(MarkdownPlusCode)", { desc = "Toggle inline code formatting" })
-vim.keymap.set({"n", "x"}, "<localleader>nC", "<Plug>(MarkdownPlusClearFormatting)", { desc = "Clear all formatting" })
-vim.keymap.set("x", "<localleader>nw", "<Plug>(MarkdownPlusCodeBlock)", { desc = "Convert selection to code block" })
+vim.keymap.set({"n", "x"}, "<leader>nb", "<Plug>(MarkdownPlusBold)", { desc = "Toggle bold formatting" })
+vim.keymap.set({"n", "x"}, "<leader>ni", "<Plug>(MarkdownPlusItalic)", { desc = "Toggle italic formatting" })
+vim.keymap.set({"n", "x"}, "<leader>ns", "<Plug>(MarkdownPlusStrikethrough)", { desc = "Toggle strikethrough formatting" })
+vim.keymap.set({"n", "x"}, "<leader>nc", "<Plug>(MarkdownPlusCode)", { desc = "Toggle inline code formatting" })
+vim.keymap.set({"n", "x"}, "<leader>nC", "<Plug>(MarkdownPlusClearFormatting)", { desc = "Clear all formatting" })
+vim.keymap.set("x", "<leader>nw", "<Plug>(MarkdownPlusCodeBlock)", { desc = "Convert selection to code block" })
 
 -- Headers & TOC Navigation
-vim.keymap.set("n", "<localleader>nht", "<Plug>(MarkdownPlusGenerateTOC)", { desc = "Generate table of contents" })
-vim.keymap.set("n", "<localleader>nhu", "<Plug>(MarkdownPlusUpdateTOC)", { desc = "Update existing table of contents" })
-vim.keymap.set("n", "<localleader>nhT", "<Plug>(MarkdownPlusOpenTocWindow)", { desc = "Open navigable TOC window" })
+vim.keymap.set("n", "<leader>nht", "<Plug>(MarkdownPlusGenerateTOC)", { desc = "Generate table of contents" })
+vim.keymap.set("n", "<leader>nhu", "<Plug>(MarkdownPlusUpdateTOC)", { desc = "Update existing table of contents" })
+vim.keymap.set("n", "<leader>nhT", "<Plug>(MarkdownPlusOpenTocWindow)", { desc = "Open navigable TOC window" })
 
 -- Header Levels (H1-H6)
 for i = 1, 6 do
-  vim.keymap.set("n", "<localleader>nh" .. i, "<Plug>(MarkdownPlusHeader" .. i .. ")", { desc = "Set header level to H" .. i })
+  vim.keymap.set("n", "<leader>nh" .. i, "<Plug>(MarkdownPlusHeader" .. i .. ")", { desc = "Set header level to H" .. i })
 end
 
 -- Links Management
-vim.keymap.set("n", "<localleader>nl", "<Plug>(MarkdownPlusInsertLink)", { desc = "Insert new markdown link" })
-vim.keymap.set("x", "<localleader>nl", "<Plug>(MarkdownPlusSelectionToLink)", { desc = "Convert selection to link" })
-vim.keymap.set("n", "<localleader>nR", "<Plug>(MarkdownPlusConvertToReference)", { desc = "Convert to reference-style link" })
-vim.keymap.set("n", "<localleader>nI", "<Plug>(MarkdownPlusConvertToInline)", { desc = "Convert to inline link" })
-vim.keymap.set("n", "<localleader>na", "<Plug>(MarkdownPlusAutoLinkURL)", { desc = "Auto-convert URL to markdown link" })
+vim.keymap.set("n", "<leader>nl", "<Plug>(MarkdownPlusInsertLink)", { desc = "Insert new markdown link" })
+vim.keymap.set("x", "<leader>nl", "<Plug>(MarkdownPlusSelectionToLink)", { desc = "Convert selection to link" })
+vim.keymap.set("n", "<leader>nR", "<Plug>(MarkdownPlusConvertToReference)", { desc = "Convert to reference-style link" })
+vim.keymap.set("n", "<leader>nI", "<Plug>(MarkdownPlusConvertToInline)", { desc = "Convert to inline link" })
+vim.keymap.set("n", "<leader>na", "<Plug>(MarkdownPlusAutoLinkURL)", { desc = "Auto-convert URL to markdown link" })
 
 -- Images Management
-vim.keymap.set("n", "<localleader>nL", "<Plug>(MarkdownPlusInsertImage)", { desc = "Insert new markdown image" })
-vim.keymap.set("x", "<localleader>nL", "<Plug>(MarkdownPlusSelectionToImage)", { desc = "Convert selection to image" })
-vim.keymap.set("n", "<localleader>nE", "<Plug>(MarkdownPlusEditImage)", { desc = "Edit image under cursor" })
-vim.keymap.set("n", "<localleader>nA", "<Plug>(MarkdownPlusToggleImageLink)", { desc = "Toggle between link and image" })
+vim.keymap.set("n", "<leader>nL", "<Plug>(MarkdownPlusInsertImage)", { desc = "Insert new markdown image" })
+vim.keymap.set("x", "<leader>nL", "<Plug>(MarkdownPlusSelectionToImage)", { desc = "Convert selection to image" })
+vim.keymap.set("n", "<leader>nE", "<Plug>(MarkdownPlusEditImage)", { desc = "Edit image under cursor" })
+vim.keymap.set("n", "<leader>nA", "<Plug>(MarkdownPlusToggleImageLink)", { desc = "Toggle between link and image" })
 
 -- List Management (Insert Mode)
 vim.keymap.set("i", "<CR>", "<Plug>(MarkdownPlusListEnter)", { desc = "Auto-continue list or break out" })
@@ -43,31 +43,30 @@ vim.keymap.set("i", "<BS>", "<Plug>(MarkdownPlusListBackspace)", { desc = "Smart
 vim.keymap.set("i", "<C-b>", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox in insert mode" })
 
 -- List Management (Normal & Visual Mode)
-vim.keymap.set("n", "<localleader>nr", "<Plug>(MarkdownPlusRenumberLists)", { desc = "Renumber ordered lists" })
+vim.keymap.set("n", "<leader>nr", "<Plug>(MarkdownPlusRenumberLists)", { desc = "Renumber ordered lists" })
 vim.keymap.set("n", "o", "<Plug>(MarkdownPlusNewListItemBelow)", { desc = "Create new list item below" })
 vim.keymap.set("n", "O", "<Plug>(MarkdownPlusNewListItemAbove)", { desc = "Create new list item above" })
-vim.keymap.set({"n", "x"}, "<localleader>nx", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox on current line" })
+vim.keymap.set({"n", "x"}, "<leader>nx", "<Plug>(MarkdownPlusToggleCheckbox)", { desc = "Toggle checkbox on current line" })
 
 -- Quotes Management (Normal & Visual Mode)
-vim.keymap.set("n", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)", { desc = "Toggle blockquote on current line" })
-vim.keymap.set("x", "<localleader>nq", "<Plug>(MarkdownPlusToggleQuote)", { desc = "Toggle blockquote on selected lines" })
+vim.keymap.set({"n", "x"}, "<leader>nq", "<Plug>(MarkdownPlusToggleQuote)", { desc = "Toggle blockquote" })
 
 -- Callouts/Admonitions (Normal & Visual Mode)
-vim.keymap.set("n", "<localleader>nQi", "<Plug>(MarkdownPlusInsertCallout)", { desc = "Insert callout (prompts for type)" })
-vim.keymap.set("x", "<localleader>nQi", "<Plug>(MarkdownPlusInsertCallout)", { desc = "Wrap selection in callout" })
-vim.keymap.set("n", "<localleader>nQt", "<Plug>(MarkdownPlusToggleCalloutType)", { desc = "Toggle/cycle callout type" })
-vim.keymap.set("n", "<localleader>nQc", "<Plug>(MarkdownPlusConvertToCallout)", { desc = "Convert blockquote to callout" })
-vim.keymap.set("n", "<localleader>nQb", "<Plug>(MarkdownPlusConvertToBlockquote)", { desc = "Convert callout to blockquote" })
+vim.keymap.set("n", "<leader>nQi", "<Plug>(MarkdownPlusInsertCallout)", { desc = "Insert callout (prompts for type)" })
+vim.keymap.set("x", "<leader>nQi", "<Plug>(MarkdownPlusInsertCallout)", { desc = "Wrap selection in callout" })
+vim.keymap.set("n", "<leader>nQt", "<Plug>(MarkdownPlusToggleCalloutType)", { desc = "Toggle/cycle callout type" })
+vim.keymap.set("n", "<leader>nQc", "<Plug>(MarkdownPlusConvertToCallout)", { desc = "Convert blockquote to callout" })
+vim.keymap.set("n", "<leader>nQb", "<Plug>(MarkdownPlusConvertToBlockquote)", { desc = "Convert callout to blockquote" })
 
 -- Footnotes Management
-vim.keymap.set("n", "<localleader>nfi", "<Plug>(MarkdownPlusFootnoteInsert)", { desc = "Insert new footnote" })
-vim.keymap.set("n", "<localleader>nfe", "<Plug>(MarkdownPlusFootnoteEdit)", { desc = "Edit footnote definition" })
-vim.keymap.set("n", "<localleader>nfd", "<Plug>(MarkdownPlusFootnoteDelete)", { desc = "Delete footnote (ref & definition)" })
-vim.keymap.set("n", "<localleader>nfg", "<Plug>(MarkdownPlusFootnoteGotoDefinition)", { desc = "Go to footnote definition" })
-vim.keymap.set("n", "<localleader>nfr", "<Plug>(MarkdownPlusFootnoteGotoReference)", { desc = "Go to footnote reference(s)" })
-vim.keymap.set("n", "<localleader>nfn", "<Plug>(MarkdownPlusFootnoteNext)", { desc = "Navigate to next footnote" })
-vim.keymap.set("n", "<localleader>nfp", "<Plug>(MarkdownPlusFootnotePrev)", { desc = "Navigate to previous footnote" })
-vim.keymap.set("n", "<localleader>nfl", "<Plug>(MarkdownPlusFootnoteList)", { desc = "List all footnotes" })
+vim.keymap.set("n", "<leader>nfi", "<Plug>(MarkdownPlusFootnoteInsert)", { desc = "Insert new footnote" })
+vim.keymap.set("n", "<leader>nfe", "<Plug>(MarkdownPlusFootnoteEdit)", { desc = "Edit footnote definition" })
+vim.keymap.set("n", "<leader>nfd", "<Plug>(MarkdownPlusFootnoteDelete)", { desc = "Delete footnote (ref & definition)" })
+vim.keymap.set("n", "<leader>nfg", "<Plug>(MarkdownPlusFootnoteGotoDefinition)", { desc = "Go to footnote definition" })
+vim.keymap.set("n", "<leader>nfr", "<Plug>(MarkdownPlusFootnoteGotoReference)", { desc = "Go to footnote reference(s)" })
+vim.keymap.set("n", "<leader>nfn", "<Plug>(MarkdownPlusFootnoteNext)", { desc = "Navigate to next footnote" })
+vim.keymap.set("n", "<leader>nfp", "<Plug>(MarkdownPlusFootnotePrev)", { desc = "Navigate to previous footnote" })
+vim.keymap.set("n", "<leader>nfl", "<Plug>(MarkdownPlusFootnoteList)", { desc = "List all footnotes" })
 
 -- Tables - Basic Operations
 vim.keymap.set("n", "<leader>tc", "<Plug>(markdown-plus-table-create)", { desc = "Create table interactively" })
