@@ -96,6 +96,14 @@ tk() {
   fi
 }
 
+tfs() {
+  terraform show -json aks-tfplan | jq -r '
+  .resource_changes[] |
+  select(.change.actions != ["no-op"]) |
+  "\(.change.actions | join(",")): \(.address)"
+'
+}
+
 alias g="git"
 alias tmuxa="tmux attach -t"
 alias ..="cd .."
