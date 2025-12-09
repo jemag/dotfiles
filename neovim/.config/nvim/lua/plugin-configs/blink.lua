@@ -9,11 +9,11 @@ require("blink-cmp").setup({
       ["<C-f>"] = { "fallback" },
       ["up"] = { "fallback" },
       ["down"] = { "fallback" },
-      ["<C-b>"] = {
-        function(cmp)
-          cmp.show({ providers = { "path" } })
-        end,
-      },
+      -- ["<C-b>"] = {
+      --   function(cmp)
+      --     cmp.show({ providers = { "path" } })
+      --   end,
+      -- },
     },
     completion = {
       menu = {
@@ -42,11 +42,11 @@ require("blink-cmp").setup({
     ["<C-f>"] = { "fallback" },
     ["up"] = { "fallback" },
     ["down"] = { "fallback" },
-    ["<C-b>"] = {
-      function(cmp)
-        cmp.show({ providers = { "path" } })
-      end,
-    },
+    -- ["<C-b>"] = {
+    --   function(cmp)
+    --     cmp.show({ providers = { "path" } })
+    --   end,
+    -- },
   },
   -- accept = {
 

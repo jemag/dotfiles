@@ -24,50 +24,50 @@ require("neotest").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>ns", function()
+vim.keymap.set("n", "<localleader>ns", function()
   require("neotest").run.stop()
 end, { desc = "Stop unit" })
 
-vim.keymap.set("n", "<leader>nru", function()
+vim.keymap.set("n", "<localleader>nru", function()
   require("neotest").run.run()
 end, { desc = "Unit" })
 
-vim.keymap.set("n", "<leader>nrf", function()
+vim.keymap.set("n", "<localleader>nrf", function()
   require("neotest").run.run(vim.fn.expand("%"))
 end, { desc = "File" })
 
-vim.keymap.set("n", "<leader>nrp", function()
+vim.keymap.set("n", "<localleader>nrp", function()
   require("neotest").run.run(vim.fn.getcwd())
 end, { desc = "Project" })
 
-vim.keymap.set("n", "<leader>nrd", function()
+vim.keymap.set("n", "<localleader>nrd", function()
   require("neotest").run.run(vim.fn.expand("%:p:h"))
 end, { desc = "Directory" })
 
-vim.keymap.set("n", "<leader>nwu", function()
+vim.keymap.set("n", "<localleader>nwu", function()
   require("neotest").watch.toggle()
 end, { desc = "Unit" })
 
-vim.keymap.set("n", "<leader>nwf", function()
+vim.keymap.set("n", "<localleader>nwf", function()
   require("neotest").watch.toggle(vim.fn.expand("%"))
 end, { desc = "File" })
 
-vim.keymap.set("n", "<leader>nwp", function()
+vim.keymap.set("n", "<localleader>nwp", function()
   require("neotest").watch.toggle(vim.fn.getcwd())
 end, { desc = "Project" })
 
-vim.keymap.set("n", "<leader>nwd", function()
+vim.keymap.set("n", "<localleader>nwd", function()
   require("neotest").watch.toggle(vim.fn.expand("%:p:h"))
 end, { desc = "Directory" })
 
-vim.keymap.set("n", "<leader>nD", function()
+vim.keymap.set("n", "<localleader>nD", function()
   require("neotest").run.run({ strategy = "dap" })
 end, { desc = "Unit in debugger" })
 
-vim.keymap.set("n", "<leader>nt", function()
+vim.keymap.set("n", "<localleader>nt", function()
   require("neotest").summary.toggle()
 end, { desc = "neotest summary" })
 
-vim.keymap.set("n", "<leader>nT", function()
+vim.keymap.set("n", "<localleader>nT", function()
   require("neotest").output_panel.toggle()
 end, { desc = "output panel" })

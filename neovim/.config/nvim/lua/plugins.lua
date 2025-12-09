@@ -165,9 +165,6 @@ require("lazy").setup({
     },
   },
   {
-    "bullets-vim/bullets.vim",
-  },
-  {
     "haya14busa/vim-asterisk",
     config = function()
       require("plugin-configs.vim-asterisk")
@@ -859,6 +856,13 @@ require("lazy").setup({
       { "<localleader>dg", "<cmd>DevDocs get<cr>", desc = "Devdocs get" },
       { "<localleader>di", "<cmd>DevDocs install<cr>", desc = "Devdocs install" },
     },
+  },
+  {
+    "yousefhadder/markdown-plus.nvim",
+    config = function()
+      require("plugin-configs.markdown-plus")
+    end,
+    ft = { "markdown", "text", "txt" },
   },
   {
     "Myzel394/easytables.nvim",
