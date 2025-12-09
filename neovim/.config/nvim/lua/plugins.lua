@@ -164,9 +164,6 @@ require("lazy").setup({
       { "L3MON4D3/LuaSnip" },
     },
   },
-  -- {
-  --   "bullets-vim/bullets.vim",
-  -- },
   {
     "haya14busa/vim-asterisk",
     config = function()
