@@ -99,7 +99,7 @@ vim.keymap.set("n", "<leader>zvx", "<Plug>(markdown-plus-table-to-csv)", { desc 
 vim.keymap.set("n", "<leader>zvi", "<Plug>(markdown-plus-table-from-csv)", { desc = "Convert CSV to table" })
 
 -- Tables - Insert Mode Navigation with proper override options
--- vim.keymap.set("i", "<A-h>", "<Plug>(markdown-plus-table-move-left)", { desc = "Move to cell on the left" })
--- vim.keymap.set("i", "<A-l>", "<Plug>(markdown-plus-table-move-right)", { desc = "Move to cell on the right" })
--- vim.keymap.set("i", "<A-j>", "<Plug>(markdown-plus-table-move-down)", { desc = "Move to cell below" })
--- vim.keymap.set("i", "<A-k>", "<Plug>(markdown-plus-table-move-up)", { desc = "Move to cell above" })
+vim.keymap.set("i", "<C-Left>", "<Plug>(markdown-plus-table-nav-left)", { desc = "Move to cell on the left" })
+vim.keymap.set("i", "<C-Right>", "<Plug>(markdown-plus-table-nav-right)", { desc = "Move to cell on the right" })
+vim.keymap.set("i", "<C-Down>", "<Plug>(markdown-plus-table-nav-down)", { desc = "Move to cell below" })
+vim.keymap.set("i", "<C-Up>", "<Plug>(markdown-plus-table-nav-up)", { desc = "Move to cell above" })
