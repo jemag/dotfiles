@@ -222,7 +222,7 @@ require("lazy").setup({
   },
   {
     "A7Lavinraj/fyler.nvim",
-    dependencies = { "nvim-mini/mini.icons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugin-configs.fyler")
     end,
