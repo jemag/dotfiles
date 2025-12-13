@@ -343,6 +343,22 @@ require("lazy").setup({
     end,
   },
   {
+    "brianhuster/live-preview.nvim",
+    config = function()
+      require("livepreview.config").set({
+        picker = "vim.ui.select",
+      })
+    end,
+    cmd = {"LivePreview"},
+    keys = {
+      { "<localleader>tmp", "<cmd>LivePreview start<cr>", desc = "Preview markdown" },
+      { "<localleader>tmP", "<cmd>LivePreview close<cr>", desc = "Stop markdown preview" },
+    },
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     config = function()
@@ -869,14 +885,6 @@ require("lazy").setup({
     ft = { "markdown", "pandoc.markdown" },
     config = function()
       require("plugin-configs.easytables")
-    end,
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown", "pandoc.markdown", "rmd" },
-    build = "cd app & npm install",
-    config = function()
-      require("plugin-configs.markdown-preview")
     end,
   },
   {
