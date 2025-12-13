@@ -68,6 +68,11 @@ vim.keymap.set({ "n", "x" }, "C", '"_C', { desc = "C without yank" })
 vim.keymap.set({ "n", "x" }, "x", '"_x', { desc = "x without yank" })
 vim.keymap.set({ "n", "x" }, "X", '"_X', { desc = "X without yank" })
 
+vim.keymap.set("n", "<c-w>]", function()
+  vim.cmd("vsplit")
+  vim.lsp.buf.definition()
+end, { desc = "Open definition in vsplit" })
+
 vim.keymap.set("n", "gm", function()
   if vim.v.count == 0 then
     vim.api.nvim_feedkeys("^", "n", false)
@@ -82,10 +87,10 @@ vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true, silent = true, des
 vim.keymap.set("n", "<c-i>", "<c-i>")
 
 -- frees up <c-a> and <c-x> for other uses
-vim.keymap.set({"n"}, "+", "<C-a>", { desc = "Increment", noremap = true })
-vim.keymap.set({"n"}, "-", "<C-x>", { desc = "Decrement", noremap = true })
-vim.keymap.set({"x"}, "+", "<C-a>gv", { desc = "Increment", noremap = true })
-vim.keymap.set({"x"}, "-", "<C-x>gv", { desc = "Decrement", noremap = true })
+vim.keymap.set({ "n" }, "+", "<C-a>", { desc = "Increment", noremap = true })
+vim.keymap.set({ "n" }, "-", "<C-x>", { desc = "Decrement", noremap = true })
+vim.keymap.set({ "x" }, "+", "<C-a>gv", { desc = "Increment", noremap = true })
+vim.keymap.set({ "x" }, "-", "<C-x>gv", { desc = "Decrement", noremap = true })
 
 vim.api.nvim_set_keymap("n", "<Right>", "<cmd>lopen<cr>", { noremap = true, silent = true, desc = "Opoen location list" })
 vim.api.nvim_set_keymap("n", "<Left>", "<cmd>lclose<cr>", { noremap = true, silent = true, desc = "Close location list" })
