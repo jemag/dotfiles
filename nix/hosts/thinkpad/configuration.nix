@@ -154,7 +154,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl intel-media-driver ];
+    extraPackages = with pkgs; [ intel-vaapi-driver libvdpau-va-gl intel-media-driver ];
   };
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;

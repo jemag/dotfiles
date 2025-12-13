@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, llm-agents, ... }:
 let
   cfg = config.cli;
   myPkgs = import ../pkgs { inherit pkgs; };
@@ -261,7 +261,7 @@ in {
           bun
           nushell
           nufmt
-          opencode
+          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
           parallel
           ripgrep
           ruby

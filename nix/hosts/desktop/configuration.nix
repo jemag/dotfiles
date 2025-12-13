@@ -197,7 +197,6 @@
   # NOTE: password for the user must be configured using smbpasswd -a jemag
   services.samba = {
     enable = true;
-    securityType = "user";
     openFirewall = true;
     settings = {
       global = {

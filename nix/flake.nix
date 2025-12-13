@@ -16,9 +16,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, llm-agents, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -30,7 +35,7 @@
           modules = [
             (nixpkgs
               + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
-            ./configuration.nix
+            ./hosts/desktop/configuration.nix
           ];
         };
         thinkpad = lib.nixosSystem {
@@ -45,18 +50,22 @@
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/laptop/home.nix ];
         };
         "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/work/home.nix ];
         };
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/desktop/home.nix ];
         };
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/thinkpad/home.nix ];
         };
       };
