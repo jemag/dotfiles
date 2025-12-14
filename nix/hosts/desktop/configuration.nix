@@ -194,6 +194,24 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.syncthing = {
+    enable = true;
+    user = "jemag";
+    dataDir = "/home/jemag";
+    configDir = "/home/jemag/.config/syncthing";
+    openDefaultPorts = true;
+    settings = {
+      gui = {
+        user = "jemag";
+      };
+    };
+    folders = {
+      "Obsidian" = {
+        path = "/home/jemag/H/obsidian";
+      };
+    };
+  };
+
   # NOTE: password for the user must be configured using smbpasswd -a jemag
   services.samba = {
     enable = true;
