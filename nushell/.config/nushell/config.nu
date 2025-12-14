@@ -897,4 +897,4 @@ use kubernetes.nu *
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 source ~/.cache/nu/zoxide/zoxide.nu
-source ~/.cache/carapace/init.nu
+source ~/.cache/carapace/carapace.nu

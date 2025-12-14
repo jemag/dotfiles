@@ -171,6 +171,18 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
         };
+        ".config/nushell/config.nu" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
+        };
+        ".config/nushell/env.nu" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/env.nu";
+        };
+        ".config/nushell/modules" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/modules";
+        };
       };
 
       packages = with pkgs;
