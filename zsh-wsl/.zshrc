@@ -73,7 +73,7 @@ alias ll="ls -l"
 alias lld="ls -l --sort=date"
 alias lad="ls -la --sort=date"
 alias lt="ls -T"
-alias lt="ls -T"
+alias lta="ls -Ta"
 alias l="ls -l"
 alias la="ls -la"
 alias lh="ls -lh"
@@ -168,7 +168,7 @@ _comp_options+=(globdots)
 # zinit
 ##########
 # zinit load "denysdovhan/spaceship-prompt"
-zinit light "zsh-users/zsh-completions"
+# zinit light "zsh-users/zsh-completions"
 # zinit load "jeffreytse/zsh-vi-mode"
 # zinit load "softmoth/zsh-vim-mode"
 zinit light Aloxaf/fzf-tab
@@ -240,6 +240,9 @@ zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
 zmodload zsh/complist
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # This will be our new default `ctrl+w` command
 my-backward-delete-word() {
@@ -355,14 +358,14 @@ export NODE_BIN="$(npm config get prefix)/bin"
 export LIBGL_ALWAYS_INDIRECT=1
 export $(dbus-launch)
 export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
-source <(kubectl completion zsh)
-source <(kustomize completion zsh)
-source <(velero completion zsh)
-source <(argo completion zsh)
-source <(kyverno completion zsh)
-source <(trivy completion zsh)
+# source <(kubectl completion zsh)
+# source <(kustomize completion zsh)
+# source <(velero completion zsh)
+# source <(argo completion zsh)
+# source <(kyverno completion zsh)
+# source <(trivy completion zsh)
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
-source /usr/share/bash-completion/completions/az
+# source /usr/share/bash-completion/completions/az
 source ~/.config/zsh/update-tags.sh.bash
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"

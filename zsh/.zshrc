@@ -44,6 +44,8 @@ alias ls="eza -g --time-style long-iso --icons=always"
 alias oc="opencode"
 alias ol="ollama"
 alias kn="n +'lua require(\"kubectl\").toggle()'"
+alias ny="n +'set ft=yaml'"
+alias nj="n +'set ft=json'"
 alias dv="devbox"
 alias ig="kubectl gadget"
 alias gd="gh-dash"
@@ -78,6 +80,24 @@ alias tf="terraform"
 alias mirrorback="sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
 alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vifm="vifmrun"
+
+tk() {
+  if [[ "$1" == "show" ]]; then
+    shift
+    command tk show --dangerous-allow-redirect "$@"
+  else
+    command tk "$@"
+  fi
+}
+
+tfs() {
+  terraform show -json aks-tfplan | jq -r '
+  .resource_changes[] |
+  select(.change.actions != ["no-op"]) |
+  "\(.change.actions | join(",")): \(.address)"
+'
+}
+
 alias g="git"
 alias tmuxa="tmux attach -t"
 alias ..="cd .."
@@ -142,7 +162,7 @@ _comp_options+=(globdots)
 # zinit
 ##########
 # zinit load "denysdovhan/spaceship-prompt"
-zinit light "zsh-users/zsh-completions"
+# zinit light "zsh-users/zsh-completions"
 # zinit load "jeffreytse/zsh-vi-mode"
 # zinit load "softmoth/zsh-vim-mode"
 zinit light Aloxaf/fzf-tab
@@ -213,6 +233,9 @@ zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zmodload zsh/complist
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # This will be our new default `ctrl+w` command
 my-backward-delete-word() {
@@ -324,8 +347,8 @@ export PATH="/home/jemag/.local/share/bob/nvim-bin:$PATH"
 export PATH="/home/jemag/.nix-profile/bin:$PATH"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
-source <(kubectl completion zsh)
-source <(kustomize completion zsh)
+# source <(kubectl completion zsh)
+# source <(kustomize completion zsh)
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
