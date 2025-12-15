@@ -36,6 +36,8 @@ vim.keymap.set("n", "a", function()
   end
 end, { expr = true, desc = "enter insert mode with proper indent" })
 
+vim.keymap.set("n", "vil", "^vg_", { desc = "Visual inner line" })
+
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
