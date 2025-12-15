@@ -219,6 +219,12 @@
           path = "/home/jemag/syncthing/camera";
           devices = [ "pixel7" ];
         };
+        "pictures" = {
+          id = "o2cnd-52gae";
+          type = "receiveonly";
+          path = "/home/jemag/syncthing/pictures";
+          devices = [ "pixel7" ];
+        };
       };
       gui = { user = "jemag"; };
     };
