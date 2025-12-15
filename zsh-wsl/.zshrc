@@ -1,4 +1,4 @@
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -36,6 +36,7 @@ bindkey -M visual S add-surround
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+export PATH="$HOME/.nix-profile/bin:$PATH"
 
 ###########
 # aliases
@@ -353,19 +354,29 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="/home/jemag/.local/share/bob/nvim-bin:$PATH"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
-# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
- export DISPLAY=':0'
-export LIBGL_ALWAYS_INDIRECT=1
-export $(dbus-launch)
-export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
-# source <(kubectl completion zsh)
-# source <(kustomize completion zsh)
-# source <(velero completion zsh)
-# source <(argo completion zsh)
-# source <(kyverno completion zsh)
-# source <(trivy completion zsh)
+export JSONNET_PATH="lib/:vendor/"
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+  zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
+  export DISPLAY=':0'
+  export LIBGL_ALWAYS_INDIRECT=1
+  export $(dbus-launch)
+  export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
+  # source <(velero completion zsh)
+  # source <(argo completion zsh)
+  # source <(kyverno completion zsh)
+  # source <(trivy completion zsh)
+  # source /usr/share/bash-completion/completions/az
+  source ~/.config/zsh/update-tags.sh.bash
+  source <(register-python-argcomplete checkov)
+  complete -o nospace -C tk tk
+  # source <(kubectl completion zsh)
+  # source <(kustomize completion zsh)
+  # source <(velero completion zsh)
+  # source <(argo completion zsh)
+  # source <(kyverno completion zsh)
+  # source <(trivy completion zsh)
+fi
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
-# source /usr/share/bash-completion/completions/az
 source ~/.config/zsh/update-tags.sh.bash
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
@@ -374,9 +385,7 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 compdef kubecolor=kubectl
 stty -ixon
-# zprof
 
-complete -o nospace -C /usr/bin/tk tk
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -387,3 +396,4 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+# zprof
