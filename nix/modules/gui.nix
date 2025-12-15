@@ -176,6 +176,7 @@ in {
       element-desktop
       epub-thumbnailer
       pcmanfm
+      kdePackages.dolphin
       vulkan-tools
       nwg-displays
       obs-studio
