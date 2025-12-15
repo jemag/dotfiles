@@ -18,12 +18,8 @@ in {
 
       neovim = {
         enable = true;
-        extraWrapperArgs = [
-          "--prefix"
-          "LD_LIBRARY_PATH"
-          ":"
-          "${pkgs.libgcc.lib}/lib"
-        ];
+        extraWrapperArgs =
+          [ "--prefix" "LD_LIBRARY_PATH" ":" "${pkgs.libgcc.lib}/lib" ];
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
