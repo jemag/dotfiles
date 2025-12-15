@@ -201,14 +201,26 @@
     configDir = "/home/jemag/.config/syncthing";
     openDefaultPorts = true;
     settings = {
-      gui = {
-        user = "jemag";
+      devices = {
+        "pixel7" = {
+          id =
+            "MLDSSJM-36Q55MM-VHAGYWU-M52PYOA-UQAILWA-BM6MG5D-NVYA5UZ-YJSGHA6";
+        };
       };
-    };
-    folders = {
-      "Obsidian" = {
-        path = "/home/jemag/H/obsidian";
+      folders = {
+        "obsidian" = {
+          id = "obsidian";
+          path = "/home/jemag/H/obsidian";
+          devices = [ "pixel7" ];
+        };
+        "camera" = {
+          id = "pixel_7_n5v1-photos";
+          type = "receiveonly";
+          path = "/home/jemag/syncthing/camera";
+          devices = [ "pixel7" ];
+        };
       };
+      gui = { user = "jemag"; };
     };
   };
 
