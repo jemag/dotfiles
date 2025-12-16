@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Date: 2023-06-06
+# Author: Caroline Tippins
+# Description: This script updates a git tag to either the most recent commit
+# or optionally to a commit sha, and creates a backup tag.
+
+# Script safety
+set -Eeuo pipefail
+
+# Verify the number of arguments
+if [[ $# -lt 1 ]]; then
+	echo "Error: insufficient arguments."
+	echo "Usage: ./update_tag.sh <tag_name> [commit_sha]"
+	exit 1
+fi
+
+# Inputs
+tag_name="$1"
+if [[ $# -eq 2 ]]; then
+	commit_sha="$2"
+fi
+
+# Check if current tag exists to create backup tag
+if git rev-parse -q --verify "${tag_name}" >/dev/null; then
+	# Delete backup tag from remote if the tag exists
+	if git rev-parse -q --verify "${tag_name}-last" >/dev/null; then
+		git push origin --delete "${tag_name}-last"
+	fi
+
+	# Update the backup tag to the current tag
+	git tag -f "${tag_name}-last" "$tag_name"
+
+	# Push the updated input tag and backup tag to git remote
+	git push origin "${tag_name}-last"
+
+	# Delete current input tag from remote
+	git push origin --delete "$tag_name"
+fi
+
+# Point input tag to current or to optionally provided commit sha
+if [[ $# -eq 2 && -n $commit_sha ]]; then
+	git tag -f "$tag_name" "$commit_sha"
+else
+	git tag -f "$tag_name"
+fi
+
+# Push the updated input tag and backup tag to git remote
+git push origin "$tag_name"
