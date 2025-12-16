@@ -45,3 +45,8 @@ windows:
             - cd ~/temp/loki/
         - loki-proxy:
             - cd ~/Projects/loki-proxy/
+  - frontend:
+      layout: even-horizontal
+      panes:
+        - frontend:
+            - cd ~/Projects/frontend-example/
