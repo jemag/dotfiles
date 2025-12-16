@@ -34,6 +34,8 @@
         azure-cli.extensions.azure-devops
         azure-cli.extensions.fzf
       ])
+      cyclonedx-cli
+      syft
       azure-storage-azcopy
       # azure-storage-azcopy
       buildkit
