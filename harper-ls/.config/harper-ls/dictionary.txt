@@ -1,6 +1,7 @@
 APS
 Assyst
 Base64
+CNAME
 Caro
 Chainguard
 ClusterSecretStore
