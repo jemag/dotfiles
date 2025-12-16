@@ -179,6 +179,7 @@
     libtool
     mesa
     git
+    kdePackages.dolphin
     rocmPackages.clr
     rocmPackages.rocblas
     rocmPackages.hipblas
@@ -189,6 +190,10 @@
     vlc
     wget
   ];
+
+# Fix for Dolphin lacking file associations
+  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+
   services.displayManager.gdm.enable = true;
   services.mullvad-vpn.enable = true;
 
