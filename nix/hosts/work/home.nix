@@ -36,6 +36,7 @@
       ])
       cyclonedx-cli
       syft
+      oras
       azure-storage-azcopy
       # azure-storage-azcopy
       buildkit
