@@ -136,7 +136,7 @@
   "vim-toml": { "branch": "main", "commit": "1b63257680eeb65677eb1ca5077809a982756d58" },
   "vista.vim": { "branch": "master", "commit": "1e90efad6e32c4f7d16b1ca8f49bf63d0693802e" },
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" },
-  "vscode-diff.nvim": { "branch": "main", "commit": "74aa6534680abd8cf23c5b2cd5abd02ddff233c4" },
+  "vscode-diff.nvim": { "branch": "main", "commit": "f44272d1bdb114df2e05c4ac4b91312eac506bf4" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "worktrees.nvim": { "branch": "main", "commit": "61dcbfdc30c26cba43cc7eaa920c51547434421b" },
   "xml.vim": { "branch": "master", "commit": "764068c37f7e228b99c4878f7e0506799cde87fe" },
