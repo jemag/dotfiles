@@ -23,6 +23,7 @@ fyler.setup({
             width = "50",
             win_opts = {
               winfixwidth = true,
+              relativenumber = true,
             },
           },
         },
