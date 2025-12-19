@@ -601,7 +601,6 @@ require("lazy").setup({
     config = function()
       require("lsp")
     end,
-    commit = "e5c61b02f33b5c6538be25b2696b33b4cc91e667",
   },
   -- TODO: replace with something not deprecated
   {
