@@ -379,6 +379,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.render-markdown")
     end,
+    lazy = true,
+    ft = { "markdown", "rmd" },
   },
   {
     "jbyuki/one-small-step-for-vimkind",
@@ -514,6 +516,11 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.vscode-diff")
     end,
+    lazy = true,
+    keys = {
+      { "<leader>gdv", "<cmd>CodeDiff<cr>", desc = "CodeDiff" },
+      { "<leader>gdV", ":CodeDiff ", desc = "CodeDiff custom" },
+    },
   },
   {
     "sindrets/diffview.nvim",
@@ -596,6 +603,29 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neogit")
     end,
+    lazy = true,
+    keys = {
+      {
+        "<localleader>tn",
+        "<cmd>Neogit<cr>",
+        desc = "Neogit",
+      },
+      {
+        "<leader>gc",
+        "<cmd>Neogit commit<cr>",
+        desc = "Neogit commit",
+      },
+      {
+        "<leader>gP",
+        "<cmd>Neogit push<cr>",
+        desc = "Neogit push",
+      },
+      {
+        "<leader>gp",
+        "<cmd>Neogit pull<cr>",
+        desc = "Neogit pull",
+      },
+    },
   },
   {
     "afonsofrancof/worktrees.nvim",
