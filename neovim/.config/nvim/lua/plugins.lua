@@ -92,9 +92,18 @@ require("lazy").setup({
   },
   {
     "Allaman/kustomize.nvim",
+    lazy = true,
     config = function()
       require("plugin-configs.kustomize")
     end,
+    keys = {
+      { "<leader>kb", "<cmd>KustomizeBuild<cr>", desc = "kustomize build" },
+      { "<leader>kk", "<cmd>KustomizeListKinds<cr>", desc = "kustomize kinds" },
+      { "<leader>kl", "<cmd>KustomizeListResources<cr>", desc = "kustomize list resources" },
+      { "<leader>kp", "<cmd>KustomizePrintResources<cr>", desc = "kustomize print resources" },
+      { "<leader>kv", "<cmd>KustomizeValidate<cr>", desc = "kustomize validate" },
+      { "<leader>kd", "<cmd>KustomizeDeprecations<cr>", desc = "kustomize deprecations" },
+    },
   },
   {
     -- "someone-stole-my-name/yaml-companion.nvim",
