@@ -364,7 +364,8 @@ require("lazy").setup({
         picker = "vim.ui.select",
       })
     end,
-    cmd = {"LivePreview"},
+    lazy = true,
+    cmd = { "LivePreview" },
     keys = {
       { "<localleader>tmp", "<cmd>LivePreview start<cr>", desc = "Preview markdown" },
       { "<localleader>tmP", "<cmd>LivePreview close<cr>", desc = "Stop markdown preview" },

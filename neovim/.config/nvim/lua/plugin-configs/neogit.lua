@@ -23,7 +23,3 @@ neogit.setup({
     },
   },
 })
-vim.keymap.set("n", "<localleader>tn", "<cmd>Neogit<cr>", { desc = "Neogit" })
-vim.keymap.set("n", "<leader>gc", "<cmd>Neogit commit<cr>", { desc = "commit" })
-vim.keymap.set("n", "<leader>gP", "<cmd>Neogit push<cr>", { desc = "push" })
-vim.keymap.set("n", "<leader>gp", "<cmd>Neogit pull<cr>", { desc = "pull" })
