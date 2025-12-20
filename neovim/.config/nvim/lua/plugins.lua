@@ -289,6 +289,17 @@ require("lazy").setup({
     end,
     version = "*",
     enabled = vim.fn.getenv("OBSIDIAN_VAULT") ~= vim.NIL,
+    lazy = true,
+    ft = "markdown",
+    keys = {
+      {
+        "<leader>os",
+        function()
+          require("snacks.picker").files({ cwd = vim.env.OBSIDIAN_VAULT, args = { "--glob", "*.md" } })
+        end,
+        desc = "Quick switch",
+      },
+    },
   },
   {
     "jake-stewart/multicursor.nvim",
