@@ -124,20 +124,10 @@ local function set_default_colors()
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
   vim.api.nvim_set_hl(0, "LspInlayHint", { bg = M.colors.selection_border })
   vim.api.nvim_set_hl(0, "LineNr", { fg = M.colors.comment })
+  vim.cmd("highlight! link NormalFloat Normal")
 end
 
 set_default_colors()
-
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-  pattern = "*",
-  command = "highlight! link NormalFloat Normal",
-  desc = "Link NormalFloat to Normal",
-})
--- vim.api.nvim_create_autocmd({ "ColorScheme" }, {
---   pattern = "*",
---   command = "highlight! link Pmenu Normal",
---   desc = "Link Pmenu to Normal",
--- })
 
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   pattern = "*",
