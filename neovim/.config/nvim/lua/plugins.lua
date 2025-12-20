@@ -214,6 +214,7 @@ require("lazy").setup({
     end,
   },
   {
+    event = "VeryLazy",
     "folke/trouble.nvim",
     config = function()
       require("plugin-configs.trouble")
@@ -233,6 +234,7 @@ require("lazy").setup({
     end,
   },
   {
+    event = "VeryLazy",
     "A7Lavinraj/fyler.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -277,6 +279,7 @@ require("lazy").setup({
     },
   },
   {
+    event = "VeryLazy",
     "akinsho/toggleterm.nvim",
     config = function()
       require("plugin-configs.toggleterm")
@@ -302,6 +305,7 @@ require("lazy").setup({
     },
   },
   {
+    event = "VeryLazy",
     "jake-stewart/multicursor.nvim",
     config = function()
       require("plugin-configs.multicursor")
@@ -472,6 +476,7 @@ require("lazy").setup({
     },
   },
   {
+    event = "VeryLazy",
     "jedrzejboczar/possession.nvim",
     config = function()
       require("plugin-configs.possession")
@@ -815,6 +820,7 @@ require("lazy").setup({
     },
   },
   {
+    event = "VeryLazy",
     "L3MON4D3/LuaSnip",
     config = function()
       require("plugin-configs.luasnip")
