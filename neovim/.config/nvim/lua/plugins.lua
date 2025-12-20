@@ -762,6 +762,7 @@ require("lazy").setup({
   },
   {
     "ThePrimeagen/refactoring.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.refactoring")
     end,
@@ -820,6 +821,7 @@ require("lazy").setup({
   },
   {
     "supermaven-inc/supermaven-nvim",
+    event = "VeryLazy",
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {

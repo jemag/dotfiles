@@ -98,18 +98,33 @@ local ensure_installed = {
   "yaml",
 } -- one of "all", "language", or a list of languages
 
-local already_installed = require("nvim-treesitter").get_installed()
-local parsers_to_install = vim
-  .iter(ensure_installed)
-  :filter(function(parser)
-    return not vim.tbl_contains(already_installed, parser)
-  end)
-  :totable()
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyDone",
+  once = true,
+  callback = function()
+    require("nvim-treesitter").install(ensure_installed)
+  end,
+})
 
-require("nvim-treesitter").install(parsers_to_install)
+local ignored_filetypes = {
+  "checkhealth",
+  "lazy",
+  "mason",
+  "snacks_dashboard",
+  "snacks_notif",
+  "snacks_win",
+  "snacks_input",
+  "snacks_picker_input",
+  "undotree",
+  "vscode-diff-explorer",
+  "fyler",
+}
 
 vim.api.nvim_create_autocmd("FileType", {
-  callback = function()
+  callback = function(event)
+    if vim.tbl_contains(ignored_filetypes, event.match) then
+      return
+    end
     pcall(vim.treesitter.start) -- errors for filetypes with no parser
   end,
   desc = "Enable treesitter highlighting",
