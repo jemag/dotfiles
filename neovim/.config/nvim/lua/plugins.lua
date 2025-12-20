@@ -157,8 +157,11 @@ require("lazy").setup({
         enabled = true,
         snippet_engine = "luasnip",
       })
-      vim.keymap.set({ "n", "x" }, "<leader>in", "<cmd>Neogen<cr>", { desc = "Neogen" })
     end,
+    lazy = true,
+    keys = {
+      { "<leader>in", "<cmd>Neogen<cr>", mode = { "n", "x" }, desc = "Neogen" },
+    },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter" },
       { "L3MON4D3/LuaSnip" },
