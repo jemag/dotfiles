@@ -508,6 +508,7 @@ require("lazy").setup({
   },
   {
     "bkoropoff/clipipe",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.clipipe")
     end,
@@ -863,7 +864,7 @@ require("lazy").setup({
   },
   {
     "maskudo/devdocs.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require("plugin-configs.devdocs")
     end,
