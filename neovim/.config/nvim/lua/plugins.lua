@@ -321,9 +321,11 @@ require("lazy").setup({
   },
   {
     "Isrothy/lualine-diagnostic-message",
+    event = "VeryLazy",
   },
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.lualine")
     end,
@@ -334,6 +336,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neotest")
     end,
+    event = "VeryLazy",
     dependencies = {
       "sidlatau/neotest-dart",
       "Issafalcon/neotest-dotnet",
@@ -517,6 +520,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.diffview")
     end,
+    event = "VeryLazy",
   },
   {
     "bkoropoff/clipipe",
@@ -710,6 +714,7 @@ require("lazy").setup({
   },
   {
     "ravitemer/mcphub.nvim",
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
