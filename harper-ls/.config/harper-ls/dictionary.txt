@@ -1,12 +1,15 @@
 APS
 Assyst
 Base64
+CD
 CNAME
 Caro
 Chainguard
 ClusterSecretStore
+CycloneDX
 DER
 DFO
+Dockle
 Fortinet
 GitOps
 GrafanaDashboard
@@ -19,6 +22,7 @@ KV
 LogQL
 MiB
 NAT
+OCI
 OS
 OpenSSL
 OpenTelemetry
@@ -26,11 +30,13 @@ PEM
 PoC
 PriorityClasses
 SAN
+SBOM
 SP
 SPs
 SSC
 TODO
 TOSP
+Trivy
 VMs
 aks
 authz
