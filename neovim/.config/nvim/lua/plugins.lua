@@ -892,13 +892,7 @@ require("lazy").setup({
       ft = { "yaml", "yaml.helm-values" },
     },
     ft = { "yaml", "yaml.helm-values" }, -- optional
-    keys = {
-      { "<localleader>yv", "<cmd>YAMLView<cr>", desc = "Yaml view" },
-      { "<localleader>yyk", "<cmd>YAMLYankKey +<cr>", desc = "Yank key" },
-      { "<localleader>yyv", "<cmd>YAMLYankValue +<cr>", desc = "Yank value" },
-      { "<localleader>yyf", "<cmd>YAMLYank +<cr>", desc = "Yank full" },
-      { "<localleader>ys", "<cmd>YAMLSnacks<cr>", desc = "Yaml search" },
-    },
+    keys = require("keybindings.lazy-keybinds").yaml_nvim,
     dependencies = {
       { "nvim-treesitter/nvim-treesitter" },
       { "folke/snacks.nvim" }, -- optional
