@@ -782,10 +782,11 @@ require("lazy").setup({
   },
   {
     "ThePrimeagen/refactoring.nvim",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       require("plugin-configs.refactoring")
     end,
+    keys = require("keybindings.lazy-keybinds").refactoring,
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
@@ -828,7 +829,7 @@ require("lazy").setup({
   },
   {
     "L3MON4D3/LuaSnip",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
       require("plugin-configs.luasnip")
     end,
