@@ -766,7 +766,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    build = "bundled_build.lua", -- Bundles `mcp-hub` binary along with the neovim plugin
+    build = "bundled_build.lua", -- Bundles `mcp-hub` binary along with the Neovim plugin
     config = function()
       require("plugin-configs.mcphub")
     end,

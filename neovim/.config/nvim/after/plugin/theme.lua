@@ -120,6 +120,7 @@ M.border = {
 
 local function set_default_colors()
   vim.api.nvim_set_hl(0, "Search", { bg = M.colors.search, fg = M.colors.bg })
+  vim.api.nvim_set_hl(0, "WinBar", { bg = M.colors.bg, fg = M.colors.fg })
   vim.api.nvim_set_hl(0, "CurSearch", { bg = M.colors.special, fg = M.colors.bg })
   vim.api.nvim_set_hl(0, "TermCursor", { reverse = true })
   vim.api.nvim_set_hl(0, "LspInlayHint", { bg = M.colors.selection_border })
