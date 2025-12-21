@@ -214,14 +214,15 @@ require("lazy").setup({
     end,
   },
   {
-    event = "VeryLazy",
     "folke/trouble.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.trouble")
     end,
   },
   {
     "woosaaahh/sj.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.sj")
     end,
@@ -245,6 +246,7 @@ require("lazy").setup({
     -- "tomasky/bookmarks.nvim",
     -- "ten3roberts/bookmarks.nvim",
     "jemag/bookmarks.nvim",
+    lazy = true,
     -- branch = "feat-scoped-bookmarks",
     config = function()
       require("plugin-configs.bookmarks")
@@ -252,6 +254,7 @@ require("lazy").setup({
   },
   {
     "dstein64/nvim-scrollview",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.scrollview")
     end,
@@ -284,15 +287,7 @@ require("lazy").setup({
     enabled = vim.fn.getenv("OBSIDIAN_VAULT") ~= vim.NIL,
     lazy = true,
     ft = "markdown",
-    keys = {
-      {
-        "<leader>os",
-        function()
-          require("snacks.picker").files({ cwd = vim.env.OBSIDIAN_VAULT, args = { "--glob", "*.md" } })
-        end,
-        desc = "Quick switch",
-      },
-    },
+    keys = require("keybindings.lazy-keybinds").obsidian,
   },
   {
     "jake-stewart/multicursor.nvim",
@@ -342,7 +337,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.neotest")
     end,
-    event = "VeryLazy",
+    lazy = true,
+    keys = require("keybindings.lazy-keybinds").neotest,
     dependencies = {
       "sidlatau/neotest-dart",
       "Issafalcon/neotest-dotnet",
@@ -766,7 +762,7 @@ require("lazy").setup({
   },
   {
     "ravitemer/mcphub.nvim",
-    event = "VeryLazy",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -774,6 +770,9 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.mcphub")
     end,
+    keys = {
+      { "<localleader>tH", "<cmd>MCPHub<cr>", desc = "McpHub" },
+    },
   },
   {
     "andrewferrier/debugprint.nvim",
