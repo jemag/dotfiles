@@ -234,8 +234,8 @@ require("lazy").setup({
     end,
   },
   {
-    event = "VeryLazy",
     "A7Lavinraj/fyler.nvim",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugin-configs.fyler")
@@ -250,18 +250,6 @@ require("lazy").setup({
       require("plugin-configs.bookmarks")
     end,
   },
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   branch = "main",
-  --   dependencies = {
-  --     { "nvim-lua/plenary.nvim" },
-  --     { "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
-  --     { "MunifTanjim/nui.nvim" },
-  --   },
-  --   config = function()
-  --     require("plugin-configs.neo-tree")
-  --   end,
-  -- },
   {
     "dstein64/nvim-scrollview",
     config = function()
@@ -273,6 +261,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.csvview")
     end,
+    lazy = true,
+    ft = { "csv" },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
     keys = {
       { "<localleader>tC", "<cmd>CsvViewToggle<cr>", desc = "Toggle CSV View" },
@@ -305,8 +295,8 @@ require("lazy").setup({
     },
   },
   {
-    event = "VeryLazy",
     "jake-stewart/multicursor.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.multicursor")
     end,
@@ -330,6 +320,7 @@ require("lazy").setup({
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.rainbow-delimiters")
     end,
@@ -368,6 +359,7 @@ require("lazy").setup({
   },
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.dap")
     end,
@@ -403,18 +395,20 @@ require("lazy").setup({
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.nvim-dap-ui")
     end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.nvim-dap-virtual-text")
     end,
   },
-  { "mfussenegger/nvim-jdtls" },
-  { "lambdalisue/suda.vim" },
+  { "mfussenegger/nvim-jdtls", lazy = true, ft = { "java" } },
+  { "lambdalisue/suda.vim", event = "VeryLazy" },
 
   -- Themes
   {
@@ -470,6 +464,7 @@ require("lazy").setup({
     config = function()
       require("ccc").setup()
     end,
+    lazy = true,
     cmd = { "CccConvert", "CccPick", "CccHighlighterToggle" },
     keys = {
       { "<localleader>to", "<cmd>CccHighlighterToggle<cr>", desc = "Toggle colorizer" },
@@ -490,9 +485,13 @@ require("lazy").setup({
   },
   {
     "mbbill/undotree",
+    lazy = true,
     config = function()
       require("plugin-configs.undotree")
     end,
+    keys = {
+      { "<localleader>tu", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
+    },
   },
 
   { "tpope/vim-repeat" },
@@ -501,6 +500,7 @@ require("lazy").setup({
     ####################### ]]
   {
     "HakonHarnes/img-clip.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.img-clip")
     end,
@@ -513,6 +513,7 @@ require("lazy").setup({
   {
     "tpope/vim-dadbod",
     cmd = "DB",
+    lazy = true,
   },
   --[[ #######################
      Git
@@ -555,7 +556,7 @@ require("lazy").setup({
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
-    "wintermute-cell/gitignore.nvim",
+    "wintermute-cell/gitignore.nvim", cmd = "GitIgnore", lazy = true,
   },
   {
     "akinsho/git-conflict.nvim",
@@ -568,6 +569,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.octo")
     end,
+    lazy = true,
     cmd = "Octo",
     keys = {
       { "<leader>go", "<cmd>Octo actions<cr>", desc = "Octo action" },
@@ -652,6 +654,7 @@ require("lazy").setup({
   },
   {
     "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.gitsigns")
     end,
