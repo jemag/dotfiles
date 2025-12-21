@@ -454,7 +454,7 @@ require("lazy").setup({
   --[[ #######################
      Interface
     ####################### ]]
-  { "nvim-tree/nvim-web-devicons" },
+  { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
   {
     "uga-rosa/ccc.nvim",
     config = function()
@@ -475,9 +475,10 @@ require("lazy").setup({
   },
   {
     "junegunn/vim-easy-align",
-    config = function()
-      require("plugin-configs.easyalign")
-    end,
+    lazy = true,
+    keys = {
+      { "<leader>fe", "<Plug>(EasyAlign)", desc = "Easy align" },
+    },
   },
   {
     "mbbill/undotree",
@@ -558,6 +559,7 @@ require("lazy").setup({
   },
   {
     "akinsho/git-conflict.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.git-conflict")
     end,
@@ -646,6 +648,7 @@ require("lazy").setup({
   },
   {
     "afonsofrancof/worktrees.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.worktree")
     end,
@@ -689,6 +692,7 @@ require("lazy").setup({
   },
   {
     "b0o/schemastore.nvim",
+    event = "VeryLazy",
   },
   {
     "mfussenegger/nvim-treehopper",
@@ -701,6 +705,8 @@ require("lazy").setup({
   },
   {
     "szymonwilczek/vim-be-better",
+    lazy = true,
+    cmd = { "VimBeBetter" },
   },
   {
     "jellydn/hurl.nvim",

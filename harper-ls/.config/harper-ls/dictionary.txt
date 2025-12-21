@@ -61,6 +61,7 @@ mTLS
 mixin
 msteam
 nginx
+nvim
 oauth
 oauth2
 passthrough

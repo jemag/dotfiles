@@ -11,6 +11,7 @@ wk.add({
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
     { "<leader>b", group = "+buffer" },
     { "<leader>d", group = "+debug" },
+    { "<leader>dd", group = "+debug print" },
     { "<leader>da", group = "+lua adapter" },
     { "<leader>ds", group = "+telescope" },
     { "<leader>f", group = "+format" },
