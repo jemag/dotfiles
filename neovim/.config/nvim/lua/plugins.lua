@@ -556,7 +556,9 @@ require("lazy").setup({
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
-    "wintermute-cell/gitignore.nvim", cmd = "GitIgnore", lazy = true,
+    "wintermute-cell/gitignore.nvim",
+    cmd = "GitIgnore",
+    lazy = true,
   },
   {
     "akinsho/git-conflict.nvim",
@@ -792,12 +794,14 @@ require("lazy").setup({
   },
   {
     "stevearc/conform.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.conform")
     end,
   },
   {
     "mfussenegger/nvim-lint",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.nvim-lint")
     end,
@@ -810,6 +814,7 @@ require("lazy").setup({
   },
   {
     "folke/lazydev.nvim",
+    event = "VeryLazy",
     ft = "lua", -- only load on lua files
     opts = {
       library = {
@@ -823,8 +828,8 @@ require("lazy").setup({
     },
   },
   {
-    event = "VeryLazy",
     "L3MON4D3/LuaSnip",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.luasnip")
     end,
@@ -834,6 +839,7 @@ require("lazy").setup({
   },
   {
     "evesdropper/luasnip-latex-snippets.nvim",
+    lazy = true,
     dependencies = {
       { "L3MON4D3/LuaSnip" },
     },
@@ -858,7 +864,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.blink")
     end,
-    version = "v1.*",
+    version = "*",
   },
   {
     "honza/dockerfile.vim",
@@ -908,6 +914,8 @@ require("lazy").setup({
   },
   {
     "leoluz/nvim-dap-go",
+    lazy = true,
+    ft = { "go" },
     config = function()
       require("plugin-configs.nvim-dap-go")
     end,
@@ -966,6 +974,7 @@ require("lazy").setup({
   },
   {
     "stevearc/aerial.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.aerial")
     end,
@@ -975,9 +984,14 @@ require("lazy").setup({
     ####################### ]]
   {
     "LudoPinelli/comment-box.nvim",
-    config = function()
-      require("plugin-configs.comment-box")
-    end,
+    lazy = true,
+    keys = {
+      { "<leader>ibl", "<cmd>CBlcbox<cr>", desc = "Left aligned box" },
+      { "<leader>ibc", "<cmd>CBccbox<cr>", desc = "Centered box" },
+      { "<leader>ibr", "<cmd>CBrcbox<cr>", desc = "Right aligned box" },
+      { "<leader>ibd", "<cmd>CBd<cr>", desc = "Delete box" },
+      { "<leader>il", "<cmd>CBcline<cr>", desc = "Centered line" },
+    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -991,16 +1005,15 @@ require("lazy").setup({
   },
   {
     "liuchengxu/vista.vim",
+    lazy = true,
     config = function()
       require("plugin-configs.vista")
     end,
+    keys = {
+      { "<localleader>tv", "<cmd>Vista!!<cr>", desc = "Vista bar" },
+      { "<localleader>sv", "<cmd>Vista finder<cr>", desc = "Vista finder" },
+    },
   },
-  -- {
-  --   "majutsushi/tagbar",
-  --   config = function()
-  --     require("plugin-configs.tagbar")
-  --   end,
-  -- },
   {
     "towolf/vim-helm",
     ft = { "helm" },
@@ -1010,6 +1023,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.vim-terraform")
     end,
+    ft = { "tf", "tfvars", "hcl" },
   },
   {
     "fei6409/log-highlight.nvim",
@@ -1041,18 +1055,27 @@ require("lazy").setup({
   },
   {
     "folke/zen-mode.nvim",
+    lazy = true,
     config = function()
       require("plugin-configs.zen-mode")
     end,
+    keys = {
+      { "<localleader>tz", "<cmd>ZenMode<cr>", desc = "Zen mode" },
+    },
   },
   {
     "junegunn/Limelight.vim",
+    lazy = true,
     config = function()
       require("plugin-configs.limelight")
     end,
+    keys = {
+      { "<localleader>tL", "<cmd>Limelight!!<cr>", desc = "Limelight" },
+    },
   },
   {
     "gbprod/substitute.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.substitute")
     end,
@@ -1066,6 +1089,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.indentscope")
       require("plugin-configs.operators")
@@ -1076,6 +1100,7 @@ require("lazy").setup({
   },
   {
     "kylechui/nvim-surround",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.nvim-surround")
     end,
