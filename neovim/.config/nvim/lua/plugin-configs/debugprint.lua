@@ -1,20 +1,20 @@
 require("debugprint").setup({
   keymaps = {
     normal = {
-      plain_below = "g?p",
-      plain_above = "g?P",
-      variable_below = "g?v",
-      variable_above = "g?V",
+      plain_below = "<leader>ddp",
+      plain_above = "<leader>ddP",
+      variable_below = "<leader>ddv",
+      variable_above = "<leader>ddV",
       variable_below_alwaysprompt = nil,
       variable_above_alwaysprompt = nil,
-      textobj_below = "g?o",
-      textobj_above = "g?O",
-      toggle_comment_debug_prints = "g?t",
-      delete_debug_prints = "g?d",
+      textobj_below = "<leader>ddo",
+      textobj_above = "<leader>ddO",
+      toggle_comment_debug_prints = "<leader>ddt",
+      delete_debug_prints = "<leader>ddd",
     },
     visual = {
-      variable_below = "g?v",
-      variable_above = "g?V",
+      variable_below = "<leader>ddv",
+      variable_above = "<leader>ddV",
     },
   },
   commands = {
