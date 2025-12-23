@@ -236,7 +236,7 @@ require("lazy").setup({
   },
   {
     "A7Lavinraj/fyler.nvim",
-    event = "VeryLazy",
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("plugin-configs.fyler")
