@@ -64,6 +64,8 @@ nginx
 nvim
 oauth
 oauth2
+opencode
+oras
 passthrough
 promtail
 resourcequotas
