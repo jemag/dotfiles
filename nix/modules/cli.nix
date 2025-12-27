@@ -38,6 +38,7 @@ in {
           lsof
           rust-analyzer
           terraform-ls
+          typescript-go
           typescript-language-server
           vscode-langservers-extracted
           yaml-language-server
