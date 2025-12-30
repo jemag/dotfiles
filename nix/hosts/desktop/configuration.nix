@@ -28,12 +28,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
-  boot.kernel.sysctl = {
-    "net.ipv6.conf.all.disable_ipv6" = true;
-    "net.ipv6.conf.default.disable_ipv6" = true;
-    "net.ipv6.conf.lo.disable_ipv6" = true;
-  };
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
@@ -46,21 +40,6 @@
   # Pick only one of the below networking options.
   networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  networking.networkmanager.ensureProfiles.profiles = {
-    "wired-1" = {
-      connection.type = "ethernet";
-      connection.id = "wired-1";
-      connection.interface-name =
-        "enp39s0"; # Make sure this matches your interface
-      connection.autoconnect = true;
-
-      ipv4.method = "manual";
-      # ipv4.addresses = "192.168.8.220/24";
-      ipv4.gateway = "192.168.8.1";
-      # ipv4.dns = "8.8.8.8";
-    };
-  };
-  networking.enableIPv6 = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -197,7 +176,7 @@
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.displayManager.gdm.enable = true;
-  services.mullvad-vpn.enable = true;
+  # services.mullvad-vpn.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -307,7 +286,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
+  # networking.firewall.allowPing = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
