@@ -111,6 +111,7 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
+    environmentVariables = { OLLAMA_CONTEXT_LENGTH = "32000"; };
   };
 
   # Enable sound.
@@ -134,7 +135,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jemag = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups =
+      [ "wheel" "docker" "render" "video" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ tree ];
   };
 
@@ -191,8 +193,9 @@
     wget
   ];
 
-# Fix for Dolphin lacking file associations
-  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  # Fix for Dolphin lacking file associations
+  environment.etc."xdg/menus/applications.menu".source =
+    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.displayManager.gdm.enable = true;
   services.mullvad-vpn.enable = true;
