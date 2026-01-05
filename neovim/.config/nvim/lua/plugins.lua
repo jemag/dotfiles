@@ -893,7 +893,7 @@ require("lazy").setup({
     ft = { "xml" },
   },
   {
-    "cuducos/yaml.nvim",
+    "https://tangled.org/cuducos.me/yaml.nvim",
     opts = {
       ft = { "yaml", "yaml.helm-values" },
     },
