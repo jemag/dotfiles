@@ -3,7 +3,7 @@ if vim.fn.getenv("WSL_INTEROP") ~= vim.NIL then
   require("codecompanion").setup({
     extensions = {
       history = {
-        enabledd = true,
+        enabled = true,
       },
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
