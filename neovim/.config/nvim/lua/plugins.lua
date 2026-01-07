@@ -526,10 +526,10 @@ require("lazy").setup({
     },
   },
   {
-    "esmuellert/vscode-diff.nvim",
+    "esmuellert/codediff.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     config = function()
-      require("plugin-configs.vscode-diff")
+      require("plugin-configs.codediff")
     end,
     lazy = true,
     keys = {
