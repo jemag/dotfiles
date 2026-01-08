@@ -445,6 +445,24 @@ require("lazy").setup({
   {
     "Shatur95/neovim-ayu",
     priority = 1000,
+    config = function()
+      require("ayu").setup({
+        overrides = function()
+          local c = require("ayu.colors")
+          return {
+            RenderMarkdownCode = { bg = c.selection_inactive },
+            RenderMarkdownCodeBorder = { bg = c.selection_bg },
+            RenderMarkdownCodeInline = { fg = c.tag, bg = c.selection_inactive },
+            ["@markup.heading"] = { fg = c.keyword, bold = true },
+            ["@markup.strong"] = { fg = c.keyword, bold = true },
+            ["@markup.italic"] = { fg = c.keyword, italic = true },
+            ["@markup.list"] = { fg = c.vcs_added },
+            ["@markup.raw"] = { fg = c.tag, bg = c.selection_inactive },
+            ["@markup.quote"] = { fg = c.constant, italic = true },
+          }
+        end,
+      })
+    end,
   },
   {
     "habamax/vim-gruvbit",
