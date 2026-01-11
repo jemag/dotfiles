@@ -92,7 +92,7 @@ require("lazy").setup({
   {
     "Allaman/tf.nvim",
     opts = {},
-    ft = {"terraform", "tf", "tfvars", "hcl" },
+    ft = { "terraform", "tf", "tfvars", "hcl" },
     keys = {
       { "<localleader>dt", "<cmd>TerraformDocOpen<cr>", desc = "Open terraform docs" },
     },
@@ -496,11 +496,17 @@ require("lazy").setup({
     },
   },
   {
-    event = "VeryLazy",
-    "jedrzejboczar/possession.nvim",
+    "stevearc/resession.nvim",
     config = function()
-      require("plugin-configs.possession")
+      require("plugin-configs.resession")
     end,
+    dependencies = { "tiagovla/scope.nvim" },
+    event = "VeryLazy",
+    keys = {
+      { "<localleader>ps", "<cmd>lua require('resession').save()<cr>", desc = "Save session" },
+      { "<localleader>pl", "<cmd>lua require('resession').load()<cr>", desc = "Load session" },
+      { "<localleader>pd", "<cmd>lua require('resession').delete()<cr>", desc = "Delete session" },
+    },
   },
   {
     "junegunn/vim-easy-align",
