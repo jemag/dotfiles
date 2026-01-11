@@ -1,6 +1,6 @@
 -- bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -44,8 +44,6 @@ require("lazy").setup({
   {
     "stevearc/quicker.nvim",
     event = "FileType qf",
-    ---@module "quicker"
-    ---@type quicker.SetupOptions
     opts = {
       highlight = {
         load_buffers = false,
@@ -59,6 +57,7 @@ require("lazy").setup({
       require("scope").setup()
     end,
   },
+  { "serhez/bento.nvim", opts = {} },
   {
     "smjonas/live-command.nvim",
     config = function()
@@ -88,6 +87,14 @@ require("lazy").setup({
         desc = "Toggle kubectl.nvim",
       },
       -- { 'go', '<Plug>(kubectl.view_overview)', ft = 'k8s_*' },
+    },
+  },
+  {
+    "Allaman/tf.nvim",
+    opts = {},
+    ft = {"terraform", "tf", "tfvars", "hcl" },
+    keys = {
+      { "<localleader>dt", "<cmd>TerraformDocOpen<cr>", desc = "Open terraform docs" },
     },
   },
   {
@@ -437,6 +444,10 @@ require("lazy").setup({
         },
       })
     end,
+  },
+  {
+    "serhez/teide.nvim",
+    event = "User LoadColorSchemes",
   },
   {
     "EdenEast/nightfox.nvim",

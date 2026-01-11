@@ -44,6 +44,7 @@ wk.add({
     { "<leader>zs", group = "+sort" },
     { "<leader>zv", group = "+csv" },
     { "<leader>zm", group = "+move" },
+    { "<localleader>d", group = "+dev" },
     { "<localleader>j", group = "+json" },
     { "<localleader>m", group = "+misc" },
     { "<localleader>n", group = "+neotest" },
