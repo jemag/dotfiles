@@ -142,6 +142,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
   desc = "Set format options for all filetypes",
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = "capture",
+  callback = function()
+    vim.schedule(function()
+      vim.opt_local.filetype = "log"
+    end)
+  end,
+  desc = "Set filetype for capture buffer to log",
+})
 
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
