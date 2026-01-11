@@ -114,13 +114,8 @@ require("lazy").setup({
   },
   {
     -- "someone-stole-my-name/yaml-companion.nvim",
-    "astephanh/yaml-companion.nvim",
-    branch = "kubernetes_crd_detection",
+    "mosheavni/yaml-companion.nvim",
     lazy = true,
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-      { "nvim-lua/plenary.nvim" },
-    },
     config = function()
       require("plugin-configs.yaml-companion")
     end,

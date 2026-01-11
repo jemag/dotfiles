@@ -75,7 +75,7 @@ local function enable_lsp_servers()
     "clangd",
     "bicep",
     "ansiblels",
-    "yamlls",
+    -- "yamlls",
   }
 
   for _, server_name in ipairs(lsp_servers) do
