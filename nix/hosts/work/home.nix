@@ -42,8 +42,7 @@
       buildkit
       calicoctl
       cilium-cli
-      # Note: temporarily disabled due to cyclonedx-python-lib issue
-      # checkov
+      checkov
       memcached
       cmctl
       cosign
