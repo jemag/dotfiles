@@ -26,7 +26,7 @@ require("obsidian").setup({
   finder = "snacks.pick",
   open_notes_in = "current",
   attachments = {
-    img_folder = "_resources",
+    folder = "_resources",
   },
   ui = {
     enable = false,
