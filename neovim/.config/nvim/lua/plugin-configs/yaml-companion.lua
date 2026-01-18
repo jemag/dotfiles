@@ -11,10 +11,11 @@ local function print_schema_name()
 end
 
 local cfg = require("yaml-companion").setup({
-  -- Add any options here, or leave empty to use the default settings
-  -- lspconfig = {
-  --   settings = { ... }
-  -- },
+  cluster_crds = {
+    enabled = true, -- Enable cluster CRD features
+    fallback = true, -- Auto-fallback to cluster when Datree doesn't have schema
+    cache_ttl = 86400, -- Cache expiration in seconds (default: 24h, 0 = never expire)
+  },
 })
 vim.lsp.config("yamlls", cfg)
 vim.lsp.enable("yamlls")
@@ -22,6 +23,18 @@ vim.lsp.enable("yamlls")
 vim.keymap.set("n", "<localleader>yg", function()
   print_schema_name()
 end, { desc = "get json/yaml schema name" })
+
+vim.keymap.set("n", "<localleader>yd", function()
+  require("yaml-companion").open_datree_crd_select()
+end, { desc = "datree schema modeline" })
+
+vim.keymap.set("n", "<localleader>yC", function()
+require("yaml-companion").fetch_cluster_crd(0)
+end, { desc = "fetch cluster schema automatically" })
+
+vim.keymap.set("n", "<localleader>yc", function()
+require("yaml-companion").open_cluster_crd_select()
+end, { desc = "Select schema from cluster" })
 
 vim.keymap.set("n", "<localleader>yd", function()
   require("yaml-companion").open_datree_crd_select()
