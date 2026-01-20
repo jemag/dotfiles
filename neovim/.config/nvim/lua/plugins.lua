@@ -75,7 +75,7 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.kubectl")
     end,
-    version = "*",
+    tag = "v2.25.2",
     dependencies = "saghen/blink.download",
     lazy = true,
     keys = {
