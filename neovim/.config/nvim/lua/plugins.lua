@@ -57,7 +57,6 @@ require("lazy").setup({
       require("scope").setup()
     end,
   },
-  -- { "serhez/bento.nvim", opts = {} },
   {
     "smjonas/live-command.nvim",
     config = function()
