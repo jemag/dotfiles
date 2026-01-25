@@ -50,6 +50,7 @@
       dockle
       falcoctl
       grafana-loki
+      grafana-alloy
       hubble
       jfrog-cli
       maven

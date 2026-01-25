@@ -220,8 +220,6 @@ in {
           go
           gobuster
           gradle
-          grafana-alloy
-          helix
           hurl
           htop
           isort
@@ -265,7 +263,7 @@ in {
           nix-health # check health of nix installation
           nix-search-cli # search nixpkgs
           nix-tree # browse dependency graphs of Nix derivations
-          nixfmt-classic
+          nixfmt
           nodejs_24
           bun
           nushell
