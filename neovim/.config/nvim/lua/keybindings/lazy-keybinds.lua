@@ -2,33 +2,18 @@ M = {}
 
 M.yaml_nvim = function()
   vim.keymap.set("n", "<localleader>yv", "<cmd>YAMLView<cr>", { desc = "Yaml view" })
-  vim.keymap.set(
-    "n",
-    "<localleader>yyk",
-    function()
-      require("yaml_nvim").yank_key("+")
-      require("yaml_nvim").yank_key('"')
-    end,
-    { desc = "Yank key" }
-  )
-  vim.keymap.set(
-    "n",
-    "<localleader>yyv",
-    function()
-      require("yaml_nvim").yank_value("+")
-      require("yaml_nvim").yank_value('"')
-    end,
-    { desc = "Yank value" }
-  )
-  vim.keymap.set(
-    "n",
-    "<localleader>yyf",
-    function()
-      require("yaml_nvim").yank("+")
-      require("yaml_nvim").yank('"')
-    end,
-    { desc = "Yank full" }
-  )
+  vim.keymap.set("n", "<localleader>yyk", function()
+    require("yaml_nvim").yank_key("+")
+    require("yaml_nvim").yank_key('"')
+  end, { desc = "Yank key" })
+  vim.keymap.set("n", "<localleader>yyv", function()
+    require("yaml_nvim").yank_value("+")
+    require("yaml_nvim").yank_value('"')
+  end, { desc = "Yank value" })
+  vim.keymap.set("n", "<localleader>yyf", function()
+    require("yaml_nvim").yank("+")
+    require("yaml_nvim").yank('"')
+  end, { desc = "Yank full" })
   vim.keymap.set("n", "<localleader>ys", "<cmd>YAMLSnacks<cr>", { desc = "Yaml search" })
 end
 
