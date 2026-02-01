@@ -2,10 +2,16 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -88,7 +94,12 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
-    environmentVariables = { OLLAMA_CONTEXT_LENGTH = "32000"; };
+    environmentVariables = {
+      OLLAMA_CONTEXT_LENGTH = "32000";
+      OLLAMA_KEEP_ALIVE = "24h";
+      OLLAMA_NUM_GPU_LAYERS = "999";
+      HCC_AMDGPU_TARGET = "gfx1200";
+    };
   };
 
   # Enable sound.
@@ -112,15 +123,21 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jemag = {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "docker" "render" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "render"
+      "video"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ tree ];
   };
 
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  programs.steam = { enable = true; };
+  programs.steam = {
+    enable = true;
+  };
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -143,7 +160,9 @@
   };
   programs.waybar.enable = true;
 
-  virtualisation.docker = { enable = true; };
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -188,8 +207,7 @@
     settings = {
       devices = {
         "pixel7" = {
-          id =
-            "MLDSSJM-36Q55MM-VHAGYWU-M52PYOA-UQAILWA-BM6MG5D-NVYA5UZ-YJSGHA6";
+          id = "MLDSSJM-36Q55MM-VHAGYWU-M52PYOA-UQAILWA-BM6MG5D-NVYA5UZ-YJSGHA6";
         };
       };
       folders = {
@@ -211,7 +229,9 @@
           devices = [ "pixel7" ];
         };
       };
-      gui = { user = "jemag"; };
+      gui = {
+        user = "jemag";
+      };
     };
   };
 
@@ -269,7 +289,9 @@
 
   xdg.portal = {
     config = {
-      sway = { "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ]; };
+      sway = {
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
     };
     enable = true;
     extraPortals = [
@@ -312,4 +334,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
