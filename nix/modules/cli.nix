@@ -180,6 +180,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/modules";
         };
+        ".psqlrc" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/psql/.psqlrc";
+        };
       };
 
       packages = with pkgs;
