@@ -1,7 +1,9 @@
 APS
+ArgoCD
 Assyst
 Base64
 CD
+CDOS
 CNAME
 Caro
 Chainguard
@@ -20,6 +22,7 @@ JWK
 Jsonnet
 KV
 LogQL
+MSTeams
 MiB
 NAT
 OCI
@@ -28,6 +31,7 @@ OpenSSL
 OpenTelemetry
 PEM
 PoC
+Powershell
 PriorityClasses
 SAN
 SBOM
@@ -36,6 +40,7 @@ SPs
 SSC
 TODO
 TOSP
+Terragrunt
 Trivy
 VMs
 aks
