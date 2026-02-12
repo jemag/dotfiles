@@ -34,10 +34,12 @@ snacks.setup({
     size = 0.5 * 1024 * 1024, -- 0.5 MiB
     line_length = 10000,
     setup = function(_)
-      vim.cmd("SupermavenStop")
-      local ok, api = pcall(require, "supermaven-nvim.api")
-      if ok then
-        api.stop()
+      if isNotWSL then
+        vim.cmd("SupermavenStop")
+        local ok, api = pcall(require, "supermaven-nvim.api")
+        if ok then
+          api.stop()
+        end
       end
     end,
   },
@@ -341,7 +343,7 @@ vim.keymap.set("n", "<leader>sI", function()
   })
 end, { desc = "Search text in directory" })
 
-vim.keymap.set({"n", "t"}, "<f6>", function()
+vim.keymap.set({ "n", "t" }, "<f6>", function()
   return snacks.picker({
     finder = function()
       local toggleterm = require("toggleterm.terminal")
