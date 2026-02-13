@@ -1,7 +1,10 @@
+ACR
 APS
+AlertManager
 ArgoCD
 Assyst
 Base64
+Blackbox
 CD
 CDOS
 CNAME
