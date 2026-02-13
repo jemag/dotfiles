@@ -57,6 +57,9 @@
       pack
       powershell
       radare2
+      regsync
+      regbot
+      regctl
       skopeo
       sonar-scanner-cli
       step-cli
