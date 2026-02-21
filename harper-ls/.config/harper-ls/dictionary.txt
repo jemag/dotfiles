@@ -39,6 +39,7 @@ PriorityClasses
 SAN
 SBOM
 SP
+SPDX
 SPs
 SSC
 TODO
@@ -46,6 +47,7 @@ TOSP
 Terragrunt
 Trivy
 VMs
+WIF
 aks
 authz
 configmap
