@@ -207,7 +207,7 @@
     settings = {
       devices = {
         "pixel7" = {
-          id = "MLDSSJM-36Q55MM-VHAGYWU-M52PYOA-UQAILWA-BM6MG5D-NVYA5UZ-YJSGHA6";
+          id = "RPTKM3C-B57PYYP-4PLM32G-XQPHDH4-JPMVDQ5-GPJWZLA-3QKKWVT-B2J7QAE";
         };
       };
       folders = {
@@ -216,18 +216,18 @@
           path = "/home/jemag/H/obsidian";
           devices = [ "pixel7" ];
         };
-        "camera" = {
-          id = "pixel_7_n5v1-photos";
-          type = "receiveonly";
-          path = "/home/jemag/syncthing/camera";
-          devices = [ "pixel7" ];
-        };
-        "pictures" = {
-          id = "o2cnd-52gae";
-          type = "receiveonly";
-          path = "/home/jemag/syncthing/pictures";
-          devices = [ "pixel7" ];
-        };
+        # "camera" = {
+        #   id = "pixel_7_n5v1-photos";
+        #   type = "receiveonly";
+        #   path = "/home/jemag/syncthing/camera";
+        #   devices = [ "pixel7" ];
+        # };
+        # "pictures" = {
+        #   id = "o2cnd-52gae";
+        #   type = "receiveonly";
+        #   path = "/home/jemag/syncthing/pictures";
+        #   devices = [ "pixel7" ];
+        # };
       };
       gui = {
         user = "jemag";
