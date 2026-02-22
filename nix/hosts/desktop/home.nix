@@ -36,7 +36,7 @@
       qbittorrent
       mullvad-vpn
       protonup-qt
-      wineWowPackages.full
+      wineWow64Packages.full
       winetricks
       mullvad-browser
       ghostty
