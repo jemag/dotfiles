@@ -91,16 +91,16 @@
     IdleActionSec = 0;
   };
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    environmentVariables = {
-      OLLAMA_CONTEXT_LENGTH = "32000";
-      OLLAMA_KEEP_ALIVE = "24h";
-      OLLAMA_NUM_GPU_LAYERS = "999";
-      HCC_AMDGPU_TARGET = "gfx1200";
-    };
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-rocm;
+  #   environmentVariables = {
+  #     OLLAMA_CONTEXT_LENGTH = "32000";
+  #     OLLAMA_KEEP_ALIVE = "24h";
+  #     OLLAMA_NUM_GPU_LAYERS = "999";
+  #     HCC_AMDGPU_TARGET = "gfx1200";
+  #   };
+  # };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -178,12 +178,11 @@
     mesa
     git
     kdePackages.dolphin
-    rocmPackages.clr
-    rocmPackages.rocblas
-    rocmPackages.hipblas
-    rocmPackages.rocm-smi
-    rocmPackages.rocminfo
-    llama-cpp-rocm
+    # rocmPackages.clr
+    # rocmPackages.rocblas
+    # rocmPackages.rocm-smi
+    # rocmPackages.rocminfo
+    # llama-cpp-rocm
     wezterm
     vlc
     wget
