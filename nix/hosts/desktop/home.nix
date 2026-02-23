@@ -1,7 +1,15 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
+  imports = [
+    ../../modules/cli.nix
+    ../../modules/gui.nix
+  ];
 
   gui.enable = true;
   nixpkgs = {
@@ -30,15 +38,15 @@
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = with pkgs; [
+      android-tools
+      usbutils
       anki-bin
       brave
       mangohud
       qbittorrent
-      mullvad-vpn
       protonup-qt
       wineWow64Packages.full
       winetricks
-      mullvad-browser
       ghostty
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
@@ -60,35 +68,28 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
-        ".config/wezterm" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/wezterm/.config/wezterm";
-        };
-        ".config/waybar" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/waybar/.config/waybar";
-        };
-        ".config/sway" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
-        };
-        ".zshrc" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh/.zshrc";
-        };
-        ".zshenv" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh/.zshenv";
-        };
-        ".config/zsh" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
-        };
-        ".ollama" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/ollama/.ollama";
-        };
+      ".config/wezterm" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/wezterm/.config/wezterm";
       };
+      ".config/waybar" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar/.config/waybar";
+      };
+      ".config/sway" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
+      };
+      ".zshrc" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.zshrc";
+      };
+      ".zshenv" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.zshenv";
+      };
+      ".config/zsh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
+      };
+      ".ollama" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ollama/.ollama";
+      };
+    };
 
     # Home Manager can also manage your environment variables through
     # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -113,8 +114,12 @@
 
   programs = {
     # Let Home Manager install and manage itself.
-    home-manager = { enable = true; };
-    lutris = { enable = true; };
+    home-manager = {
+      enable = true;
+    };
+    lutris = {
+      enable = true;
+    };
 
     direnv = {
       enable = true;

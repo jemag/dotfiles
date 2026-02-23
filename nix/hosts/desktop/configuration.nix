@@ -177,6 +177,8 @@
     libtool
     mesa
     git
+    mullvad-vpn
+    mullvad-browser
     kdePackages.dolphin
     # rocmPackages.clr
     # rocmPackages.rocblas
@@ -193,7 +195,8 @@
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.displayManager.gdm.enable = true;
-  # services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   nixpkgs.config.allowUnfree = true;
 
