@@ -273,6 +273,7 @@ in {
           nushell
           nufmt
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
+          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
           parallel
           ripgrep
           ruby
