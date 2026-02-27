@@ -174,6 +174,14 @@ vim.api.nvim_create_autocmd("VimResized", {
   desc = "Automatically resize windows when the host window size changes.",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+  desc = "Auto-enter insert mode when entering a terminal buffer",
+})
+
 local colorcolumnAugroup = "CursorColumnOnlyInActiveWindow"
 vim.api.nvim_create_augroup(colorcolumnAugroup, { clear = true })
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
