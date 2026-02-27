@@ -202,6 +202,7 @@ in {
           netcat-gnu
           dotnet-aspnetcore
           exercism
+          mise
           harper
           prettier
           stylua
