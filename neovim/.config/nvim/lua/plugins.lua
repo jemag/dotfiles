@@ -763,10 +763,16 @@ require("lazy").setup({
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
+  -- {
+  --   "NickvanDyke/opencode.nvim",
+  --   config = function()
+  --     require("plugin-configs.opencode")
+  --   end,
+  -- },
   {
-    "NickvanDyke/opencode.nvim",
+    "sudo-tee/opencode.nvim",
     config = function()
-      require("plugin-configs.opencode")
+      require("plugin-configs.sudo-opencode")
     end,
   },
   {
