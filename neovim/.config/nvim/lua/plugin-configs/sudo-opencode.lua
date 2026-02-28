@@ -1,7 +1,7 @@
 require("opencode").setup({
   preferred_picker = "snacks", -- 'telescope', 'fzf', 'mini.pick', 'snacks', 'select', if nil, it will use the best available picker. Note mini.pick does not support multiple selections
   preferred_completion = "blink", -- 'blink', 'nvim-cmp','vim_complete' if nil, it will use the best available completion
-  default_global_keymaps = true, -- If false, disables all default global keymaps
+  default_global_keymaps = false, -- If false, disables all default global keymaps
   default_mode = "plan", -- 'build' or 'plan' or any custom configured. @see [OpenCode Agents](https://opencode.ai/docs/modes/)
   default_system_prompt = nil, -- Custom system prompt to use for all sessions. If nil, uses the default built-in system prompt
   keymap_prefix = "<localleader>o", -- Default keymap prefix for global keymaps change to your preferred prefix and it will be applied to all keymaps starting with <leader>o
@@ -47,10 +47,10 @@ require("opencode").setup({
       ["#"] = { "context_items", mode = "i" }, -- Manage context items (current file, selection, diagnostics, mentioned files)
       ["<M-v>"] = { "paste_image", mode = "i" }, -- Paste image from clipboard as attachment
       ["<C-i>"] = { "focus_input", mode = { "n", "i" } }, -- Focus on input window and enter insert mode at the end of the input from the output window
-      -- ["<tab>"] = { "toggle_pane", mode = { "n", "i" } }, -- Toggle between input and output panes
+      -- ["<tab>"] = { false }, -- Toggle between input and output panes
       ["<up>"] = { "prev_prompt_history", mode = { "n", "i" } }, -- Navigate to previous prompt in history
       ["<down>"] = { "next_prompt_history", mode = { "n", "i" } }, -- Navigate to next prompt in history
-      ["<tab>"] = { "switch_mode",  mode = { "n", "i" } }, -- Switch between modes (build/plan)
+      ["<M-m>"] = { "switch_mode", mode = { "n", "i" } }, -- Switch between modes (build/plan)
       ["<M-r>"] = { "cycle_variant", mode = { "n", "i" } }, -- Cycle through available model variants
       ["<C-h>"] = {
         function()
