@@ -41,7 +41,7 @@
  # ];
   boot.supportedFilesystems.zfs = lib.mkForce false;
 
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "nixvm"; # Define your hostname.
   systemd.network.enable = false;
   # Pick only one of the below networking options.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
