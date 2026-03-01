@@ -42,3 +42,14 @@ require("obsidian").setup({
   end,
   wiki_link_func = "prepend_note_path",
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "ObsidianNoteEnter",
+  callback = function(ev)
+    -- remove the default mappings
+    vim.keymap.del("n", "<CR>", { buffer = true })
+
+    -- replace with my own
+    vim.keymap.set("n", "<leader><cr>", require("obsidian.api").smart_action, { expr = true, buffer = true })
+  end,
+})
