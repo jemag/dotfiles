@@ -130,6 +130,9 @@ in {
         source = config.lib.file.mkOutOfStoreSymlink
           "${config.home.homeDirectory}/dotfiles/rofi/.local/share/rofi";
       };
+      "wallpapers" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/wallpapers/wallpapers";
+      };
     };
     home.sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
