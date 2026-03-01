@@ -54,6 +54,10 @@
           inherit system;
           modules = [ ./hosts/desktop/configuration.nix ];
         };
+        nixvm = lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/nixvm/configuration.nix ];
+        };
       };
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
