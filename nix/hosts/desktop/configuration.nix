@@ -179,6 +179,7 @@
     gcc
     autoconf
     automake
+    bitwarden-cli
     libtool
     mesa
     git
