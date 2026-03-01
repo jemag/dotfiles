@@ -1,8 +1,10 @@
 {
   description = "Home manager configuration";
   nixConfig = {
-    extra-substituters =
-      [ "https://cache.nixos.org" "https://nix-community.cachix.org" ];
+    extra-substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+    ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -23,19 +25,25 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, llm-agents, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      llm-agents,
+      ...
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-    in {
+    in
+    {
       nixosConfigurations = {
         live = lib.nixosSystem {
           inherit system;
           modules = [
-            (nixpkgs
-              + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
-            ./hosts/desktop/configuration.nix
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            ./modules/live-iso.nix
           ];
         };
         thinkpad = lib.nixosSystem {
