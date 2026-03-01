@@ -41,6 +41,7 @@ require("opencode").setup({
       ["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" } }, -- Submit prompt (normal mode and insert mode)
       ["<esc>"] = { "close" }, -- Close UI windows
       ["<C-c>"] = { "cancel" }, -- Cancel opencode request while it is running
+      ["<localleader>os"] = { "select_session" }, -- Select and load a opencode session
       ["~"] = { "mention_file", mode = "i" }, -- Pick a file and add to context. See File Mentions section
       ["@"] = { "mention", mode = "i" }, -- Insert mention (file/agent)
       ["/"] = { "slash_commands", mode = "i" }, -- Pick a command to run in the input window
@@ -132,7 +133,7 @@ require("opencode").setup({
     output = {
       tools = {
         show_output = true, -- Show tools output [diffs, cmd output, etc.] (default: true)
-        show_reasoning_output = true, -- Show reasoning/thinking steps output (default: true)
+        show_reasoning_output = false, -- Show reasoning/thinking steps output (default: true)
       },
       rendering = {
         markdown_debounce_ms = 250, -- Debounce time for markdown rendering on new data (default: 250ms)
@@ -143,7 +144,7 @@ require("opencode").setup({
       min_height = 0.10, -- min height of prompt input as percentage of window height
       max_height = 0.25, -- max height of prompt input as percentage of window height
       text = {
-        wrap = false, -- Wraps text inside input window
+        wrap = true, -- Wraps text inside input window
       },
       -- Auto-hide input window when prompt is submitted or focus switches to output window
       auto_hide = false,
