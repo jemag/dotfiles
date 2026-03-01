@@ -76,6 +76,11 @@
           extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/thinkpad/home.nix ];
         };
+        "jemag@nixvm" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          modules = [ ./hosts/nixvm/home.nix ];
+        };
       };
     };
 }
