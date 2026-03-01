@@ -200,6 +200,9 @@
   environment.etc."xdg/menus/applications.menu".source =
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
   services.displayManager.gdm.enable = true;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
