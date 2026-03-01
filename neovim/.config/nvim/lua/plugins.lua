@@ -546,7 +546,6 @@ require("lazy").setup({
     ####################### ]]
   {
     "aaronhallaert/advanced-git-search.nvim",
-    branch = "bugfix/snacks_required_cmd",
     config = function()
       require("plugin-configs.advanced-git-search")
     end,
