@@ -184,6 +184,10 @@ in {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.home.homeDirectory}/dotfiles/psql/.psqlrc";
         };
+        "bin" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.home.homeDirectory}/dotfiles/bin/bin";
+        };
       };
 
       packages = with pkgs;

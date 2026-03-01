@@ -89,6 +89,9 @@
       ".ollama" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ollama/.ollama";
       };
+      ".tmux.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
+      };
     };
 
     # Home Manager can also manage your environment variables through
