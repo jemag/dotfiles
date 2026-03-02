@@ -24,3 +24,4 @@ kubie/.kube/kubectx
 kubie/.kube/kubens
 *profile*.log
 gh/.config/gh/hosts.yml
+AGENTS.md
