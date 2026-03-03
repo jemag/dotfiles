@@ -33,6 +33,7 @@
       (azure-cli.withExtensions [
         azure-cli.extensions.azure-devops
         azure-cli.extensions.fzf
+        azure-cli.extensions.resource-graph
       ])
       cyclonedx-cli
       syft
