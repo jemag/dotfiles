@@ -172,6 +172,7 @@ in {
       sxiv
       ticktick
       redshift
+      sioyek
       gammastep
       showmethekey
       ueberzugpp
