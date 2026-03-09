@@ -206,6 +206,7 @@ in {
           netcat-gnu
           dotnet-aspnetcore
           exercism
+          lsof
           mise
           harper
           prettier
