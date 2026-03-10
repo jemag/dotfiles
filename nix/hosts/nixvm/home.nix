@@ -7,8 +7,8 @@
 
 {
   imports = [
-    ../../modules/cli.nix
-    ../../modules/gui.nix
+    ../../modules/home-manager/cli.nix
+    ../../modules/home-manager/gui.nix
   ];
 
   gui.enable = true;

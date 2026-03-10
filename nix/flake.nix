@@ -43,7 +43,7 @@
           inherit system;
           modules = [
             (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
-            ./modules/live-iso.nix
+            ./modules/nixos/live-iso.nix
           ];
         };
         thinkpad = lib.nixosSystem {

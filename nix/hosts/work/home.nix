@@ -1,7 +1,15 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ ../../modules/cli.nix ../../modules/gui.nix ];
+  imports = [
+    ../../modules/home-manager/cli.nix
+    ../../modules/home-manager/gui.nix
+  ];
 
   nixpkgs = {
     config = {
@@ -88,26 +96,21 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
-        ".zshrc" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh-wsl/.zshrc";
-        };
-        ".zshenv" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh-wsl/.zshenv";
-        };
-        ".config/zsh" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh-wsl/.config/zsh";
-        };
-        ".config/paru" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/paru/.config/paru";
-        };
-        ".config/powershell" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/powershell/.config/powershell";
-        };
+      ".zshrc" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh-wsl/.zshrc";
+      };
+      ".zshenv" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh-wsl/.zshenv";
+      };
+      ".config/zsh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh-wsl/.config/zsh";
+      };
+      ".config/paru" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/paru/.config/paru";
+      };
+      ".config/powershell" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/powershell/.config/powershell";
+      };
     };
 
     # Home Manager can also manage your environment variables through
@@ -133,7 +136,9 @@
 
   programs = {
     # Let Home Manager install and manage itself.
-    home-manager = { enable = true; };
+    home-manager = {
+      enable = true;
+    };
 
     direnv = {
       enable = true;

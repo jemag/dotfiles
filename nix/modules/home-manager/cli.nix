@@ -1,8 +1,15 @@
-{ lib, config, pkgs, llm-agents, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  llm-agents,
+  ...
+}:
 let
   cfg = config.cli;
-  myPkgs = import ../pkgs { inherit pkgs; };
-in {
+  myPkgs = import ../../pkgs { inherit pkgs; };
+in
+{
   options = {
     cli.enable = lib.mkOption {
       type = lib.types.bool;
@@ -18,8 +25,12 @@ in {
 
       neovim = {
         enable = true;
-        extraWrapperArgs =
-          [ "--prefix" "LD_LIBRARY_PATH" ":" "${pkgs.libgcc.lib}/lib" ];
+        extraWrapperArgs = [
+          "--prefix"
+          "LD_LIBRARY_PATH"
+          ":"
+          "${pkgs.libgcc.lib}/lib"
+        ];
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
@@ -85,8 +96,7 @@ in {
       bat = {
         enable = true;
         config = {
-          pager =
-            "less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse --ignore-case";
+          pager = "less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse --ignore-case";
         };
       };
 
@@ -105,93 +115,74 @@ in {
 
       file = {
         ".config/.ripgreprc" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/ripgrep/.config/.ripgreprc";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ripgrep/.config/.ripgreprc";
         };
         ".config/emmylua_ls/.emmyrc.json" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/emmylua_ls/.config/emmylua_ls/.emmyrc.json";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/emmylua_ls/.config/emmylua_ls/.emmyrc.json";
         };
         ".config/delta/themes/themes.gitconfig" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/delta/.config/delta/themes/themes.gitconfig";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/delta/.config/delta/themes/themes.gitconfig";
         };
         ".config/dive/dive.yaml" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/dive/.config/dive/dive.yaml";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dive/.config/dive/dive.yaml";
         };
         ".config/git/config" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/git/.config/git/config";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/git/.config/git/config";
         };
         ".kube/kubie.yaml" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/kubie/.kube/kubie.yaml";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/kubie/.kube/kubie.yaml";
         };
         ".config/tmuxinator" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/tmuxinator/.config/tmuxinator";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmuxinator/.config/tmuxinator";
         };
         ".config/yamlfmt" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/yamlfmt/.config/yamlfmt";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yamlfmt/.config/yamlfmt";
         };
         ".config/yamllint" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/yamllint/.config/yamllint";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yamllint/.config/yamllint";
         };
         ".config/starship.toml" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/zsh/.config/starship.toml";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.config/starship.toml";
         };
         ".config/ticker" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/ticker/.config/ticker";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ticker/.config/ticker";
         };
         ".config/stylua.toml" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/stylua/.config/stylua.toml";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stylua/.config/stylua.toml";
         };
         ".config/nvim" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
         };
         ".config/containers" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
         ".config/harper-ls" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
         };
         ".config/opencode" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
         };
         ".config/nushell/config.nu" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
         };
         ".config/nushell/env.nu" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/env.nu";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/env.nu";
         };
         ".config/nushell/modules" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/modules";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/modules";
         };
         ".psqlrc" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/psql/.psqlrc";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/psql/.psqlrc";
         };
         "bin" = {
-          source = config.lib.file.mkOutOfStoreSymlink
-            "${config.home.homeDirectory}/dotfiles/bin/bin";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/bin/bin";
         };
       };
 
-      packages = with pkgs;
-        builtins.attrValues myPkgs ++ [
+      packages =
+        with pkgs;
+        builtins.attrValues myPkgs
+        ++ [
           aider-chat
           bat
           bash
