@@ -36,9 +36,12 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
- # boot.kernelParams = [
- #   "amd_pstate=disable" # not supported by 3700x
- # ];
+  boot.kernelParams = [
+    "zswap.enabled=1" # enables zswap
+    "zswap.compressor=lz4" # compression algorithm
+    "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
+    "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
+  ];
   boot.supportedFilesystems.zfs = lib.mkForce false;
 
   networking.hostName = "nixvm"; # Define your hostname.
@@ -209,70 +212,70 @@
 
   nixpkgs.config.allowUnfree = true;
 
- # services.syncthing = {
- #   enable = true;
- #   user = "jemag";
- #   dataDir = "/home/jemag";
- #   configDir = "/home/jemag/.config/syncthing";
- #   openDefaultPorts = true;
- #   settings = {
- #     devices = {
- #       "pixel7" = {
- #         id = "RPTKM3C-B57PYYP-4PLM32G-XQPHDH4-JPMVDQ5-GPJWZLA-3QKKWVT-B2J7QAE";
- #       };
- #     };
- #     folders = {
- #       "obsidian" = {
- #         id = "obsidian";
- #         path = "/home/jemag/H/obsidian";
- #         devices = [ "pixel7" ];
- #       };
- #       # "camera" = {
- #       #   id = "pixel_7_n5v1-photos";
- #       #   type = "receiveonly";
- #       #   path = "/home/jemag/syncthing/camera";
- #       #   devices = [ "pixel7" ];
- #       # };
- #       # "pictures" = {
- #       #   id = "o2cnd-52gae";
- #       #   type = "receiveonly";
- #       #   path = "/home/jemag/syncthing/pictures";
- #       #   devices = [ "pixel7" ];
- #       # };
- #     };
- #     gui = {
- #       user = "jemag";
- #     };
- #   };
- # };
+  # services.syncthing = {
+  #   enable = true;
+  #   user = "jemag";
+  #   dataDir = "/home/jemag";
+  #   configDir = "/home/jemag/.config/syncthing";
+  #   openDefaultPorts = true;
+  #   settings = {
+  #     devices = {
+  #       "pixel7" = {
+  #         id = "RPTKM3C-B57PYYP-4PLM32G-XQPHDH4-JPMVDQ5-GPJWZLA-3QKKWVT-B2J7QAE";
+  #       };
+  #     };
+  #     folders = {
+  #       "obsidian" = {
+  #         id = "obsidian";
+  #         path = "/home/jemag/H/obsidian";
+  #         devices = [ "pixel7" ];
+  #       };
+  #       # "camera" = {
+  #       #   id = "pixel_7_n5v1-photos";
+  #       #   type = "receiveonly";
+  #       #   path = "/home/jemag/syncthing/camera";
+  #       #   devices = [ "pixel7" ];
+  #       # };
+  #       # "pictures" = {
+  #       #   id = "o2cnd-52gae";
+  #       #   type = "receiveonly";
+  #       #   path = "/home/jemag/syncthing/pictures";
+  #       #   devices = [ "pixel7" ];
+  #       # };
+  #     };
+  #     gui = {
+  #       user = "jemag";
+  #     };
+  #   };
+  # };
 
   # NOTE: password for the user must be configured using smbpasswd -a jemag
- # services.samba = {
- #   enable = true;
- #   openFirewall = true;
- #   settings = {
- #     global = {
- #       workgroup = "WORKGROUP";
- #       "invalid users" = [ "root" ];
- #       "passwd program" = "/run/wrappers/bin/passwd %u";
- #       security = "user";
- #       "guest ok" = "no";
- #     };
- #     jemag = {
- #       browseable = "yes";
- #       comment = "Home directories";
- #       path = "/home/jemag";
- #       "read only" = "yes";
- #       "valid users" = "jemag";
- #     };
- #   };
- # };
- # services.samba-wsdd = {
- #   enable = true;
- #   openFirewall = true;
- # };
+  # services.samba = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   settings = {
+  #     global = {
+  #       workgroup = "WORKGROUP";
+  #       "invalid users" = [ "root" ];
+  #       "passwd program" = "/run/wrappers/bin/passwd %u";
+  #       security = "user";
+  #       "guest ok" = "no";
+  #     };
+  #     jemag = {
+  #       browseable = "yes";
+  #       comment = "Home directories";
+  #       path = "/home/jemag";
+  #       "read only" = "yes";
+  #       "valid users" = "jemag";
+  #     };
+  #   };
+  # };
+  # services.samba-wsdd = {
+  #   enable = true;
+  #   openFirewall = true;
+  # };
 
- # services.xserver.videoDrivers = [ "amdgpu" ];
+  # services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.graphics = {
     enable = true;
