@@ -188,7 +188,7 @@ require("opencode").setup({
     },
   },
   context = {
-    enabled = true, -- Enable automatic context capturing
+    enabled = false, -- Enable automatic context capturing
     cursor_data = {
       enabled = false, -- Include cursor position and line content in the context
       context_lines = 5, -- Number of lines before and after cursor to include in context
@@ -200,7 +200,7 @@ require("opencode").setup({
       only_closest = false, -- If true, only diagnostics for cursor/selection
     },
     current_file = {
-      enabled = true, -- Include current file path and content in the context
+      enabled = false, -- Include current file path and content in the context
       show_full_path = true,
     },
     files = {
