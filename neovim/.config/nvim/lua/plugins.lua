@@ -778,11 +778,10 @@ require("lazy").setup({
     enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
-    "nvzone/typr",
-    dependencies = "nvzone/volt",
+    "rodolfo-arg/neotype",
     lazy = true,
     opts = {},
-    cmd = { "Typr", "TyprStats" },
+    cmd = { "NeoTypeStart"},
   },
   -- {
   --   "NickvanDyke/opencode.nvim",
