@@ -1,4 +1,5 @@
 require("render-markdown").setup({
+  debounce = 250,
   enabled = true,
   code = {
     -- Turn on / off code block & inline code rendering
