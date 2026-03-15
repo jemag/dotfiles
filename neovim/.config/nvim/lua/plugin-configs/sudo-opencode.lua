@@ -137,6 +137,8 @@ require("opencode").setup({
       },
       rendering = {
         markdown_debounce_ms = 250, -- Debounce time for markdown rendering on new data (default: 250ms)
+        event_throttle_ms = 40,
+        event_collapsing = true,
         on_data_rendered = nil, -- Called when new data is rendered; set to false to disable default RenderMarkdown/Markview behavior
       },
     },
