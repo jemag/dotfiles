@@ -16,7 +16,7 @@ local function configure_diagnostics()
     -- disable virtual text
     virtual_text = false,
     -- show signs
-    update_in_insert = true,
+    update_in_insert = false,
     underline = true,
     severity_sort = true,
     float = {
