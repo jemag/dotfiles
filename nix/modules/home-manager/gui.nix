@@ -160,7 +160,7 @@ in {
       onlyoffice-desktopeditors
       python313Packages.pylatexenc
       mission-center
-      neovim-qt
+      # neovim-qt
       obsidian
       pandoc
       playerctl
