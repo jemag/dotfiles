@@ -42,6 +42,9 @@ require("lualine").setup({
     disabled_filetypes = {},
     refresh = {
       statusline = 500,
+      tabline = 500,
+      winbar = 500,
+      refresh_time = 40,
     },
   },
   sections = {
