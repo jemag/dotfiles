@@ -113,6 +113,13 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+    extraConfig.pipewire."98-crackling-fix" = {
+      "context.properties" = {
+        "default.clock.quantum" = 512;
+        "default.clock.min-quantum" = 512;
+        "default.clock.max-quantum" = 8192;
+      };
+    };
   };
 
   hardware.bluetooth = {
