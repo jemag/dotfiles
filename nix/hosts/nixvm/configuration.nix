@@ -37,6 +37,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
+    "preempt=full"
     "zswap.enabled=1" # enables zswap
     "zswap.compressor=zstd" # compression algorithm
     "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
