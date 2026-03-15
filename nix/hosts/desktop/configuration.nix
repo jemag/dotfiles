@@ -147,6 +147,15 @@
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
+  systemd.services.libvirt-network-default = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "libvirtd.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.libvirt}/bin/virsh net-info default || ${pkgs.libvirt}/bin/virsh net-start default'";
+    };
+  };
 
   # programs.firefox.enable = true;
   programs.zsh.enable = true;
