@@ -40,7 +40,10 @@ require("obsidian").setup({
     -- Keep the title as-is
     return title
   end,
-  wiki_link_func = "prepend_note_path",
+  link = {
+    format = "relative",
+    style= "markdown",
+  },
 })
 
 vim.api.nvim_create_autocmd("User", {
