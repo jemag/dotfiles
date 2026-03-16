@@ -40,6 +40,7 @@ require("obsidian").setup({
     -- Keep the title as-is
     return title
   end,
+
   link = {
     format = "relative",
     style= "markdown",
