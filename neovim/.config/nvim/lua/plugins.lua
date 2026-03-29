@@ -97,9 +97,6 @@ require("lazy").setup({
       "folke/snacks.nvim", -- snacks is the default picker
     },
     ft = { "terraform", "tf", "tfvars", "hcl" },
-    keys = {
-      { "<localleader>dtd", ":TFDocs ", desc = "Open terraform docs" },
-    },
   },
   {
     "Allaman/tf.nvim",

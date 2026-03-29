@@ -51,6 +51,7 @@
   "lualine-diagnostic-message": { "branch": "master", "commit": "e8244c4d1f088e21bb05021f164ed903093b168b" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "luasnip-latex-snippets.nvim": { "branch": "main", "commit": "53d96674d56f8489288e8db9b24c381d422e16a5" },
+  "lume": { "branch": "main", "commit": "90e195dc574aa680594983566a396446e6b12b1b" },
   "markdown-plus.nvim": { "branch": "main", "commit": "80719e2f48ba461095f23b2290610cd2fb0bca99" },
   "mcphub.nvim": { "branch": "main", "commit": "7cd5db330f41b7bae02b2d6202218a061c3ebc1f" },
   "mini.nvim": { "branch": "main", "commit": "debd726e1b620e9934d554c2772de2e99cd3ccbe" },
