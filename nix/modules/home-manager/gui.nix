@@ -19,6 +19,7 @@ in {
     };
     gtk = {
       enable = true;
+      gtk4.theme = config.gtk.theme;
       theme = {
 
         package = pkgs.ayu-theme-gtk;
