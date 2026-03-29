@@ -95,10 +95,10 @@ in {
         };
         defaultApplications = {
           "application/json" = [ "nvim-qt.desktop" ];
-          "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+          "application/pdf" = [ "sioyek.desktop" ];
           "application/x-yaml" = [ "nvim-qt.desktop" ];
-          "image/jpeg" = [ "sxiv.desktop" ];
-          "image/png" = [ "sxiv.desktop" ];
+          "image/jpeg" = [ "org.kde.gwenview.desktop" ];
+          "image/png" = [ "org.kde.gwenview.desktop" ];
           "text/markdown" = [ "nvim-qt.desktop" ];
           "text/plain" = [ "nvim-qt.desktop" ];
           "x-schema-handler/msteams" = [ "teams.desktop" ];
@@ -160,8 +160,9 @@ in {
       libreoffice-fresh
       onlyoffice-desktopeditors
       python313Packages.pylatexenc
+      kdePackages.gwenview
       mission-center
-      # neovim-qt
+      neovim-qt
       obsidian
       pandoc
       playerctl
