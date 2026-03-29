@@ -263,6 +263,7 @@ in
           netmask
           nix-health # check health of nix installation
           nix-search-cli # search nixpkgs
+          nxv # search nix package versions
           nix-tree # browse dependency graphs of Nix derivations
           nixfmt
           nodejs_24

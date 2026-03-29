@@ -2,6 +2,7 @@ typeset -U path
 # export JAVA_HOME=/usr/lib/jvm/default
 export EDITOR=nvim
 export OBSIDIAN_VAULT="/home/jemag/H/obsidian"
+export NXV_API_URL=https://nxv.urandom.io
 export GIT_EDITOR=nvim
 export VISUAL=nvim
 export DIFFPROG="nvim -d"
