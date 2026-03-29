@@ -188,6 +188,16 @@ require("lazy").setup({
     },
   },
   {
+    "lettertwo/occurrence.nvim",
+    config = function()
+      require("plugin-configs.occurrence")
+    end,
+    lazy = false,
+    ---@module "occurrence"
+    ---@type occurrence.Options
+    -- opts = {} -- setup is optional; the defaults will work out of the box.
+  },
+  {
     "haya14busa/vim-asterisk",
     config = function()
       require("plugin-configs.vim-asterisk")
