@@ -89,11 +89,24 @@ require("lazy").setup({
     },
   },
   {
+    "cablecreek/tf-docs.nvim",
+    config = function()
+      require("plugin-configs.tf-docs")
+    end,
+    dependencies = {
+      "folke/snacks.nvim", -- snacks is the default picker
+    },
+    ft = { "terraform", "tf", "tfvars", "hcl" },
+    keys = {
+      { "<localleader>dtd", ":TFDocs ", desc = "Open terraform docs" },
+    },
+  },
+  {
     "Allaman/tf.nvim",
     opts = {},
     ft = { "terraform", "tf", "tfvars", "hcl" },
     keys = {
-      { "<localleader>dt", "<cmd>TerraformDocOpen<cr>", desc = "Open terraform docs" },
+      { "<localleader>dtc", "<cmd>TerraformDocOpen<cr>", desc = "Cursor terraform docs" },
     },
   },
   {
@@ -781,7 +794,7 @@ require("lazy").setup({
     "rodolfo-arg/neotype",
     lazy = true,
     opts = {},
-    cmd = { "NeoTypeStart"},
+    cmd = { "NeoTypeStart" },
   },
   -- {
   --   "NickvanDyke/opencode.nvim",
