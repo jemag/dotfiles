@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  nixpkgs-c06b4ae3,
   ...
 }:
 
@@ -38,10 +39,10 @@
     # environment.
     packages = with pkgs; [
       argocd
-      (azure-cli.withExtensions [
-        azure-cli.extensions.azure-devops
-        azure-cli.extensions.fzf
-        azure-cli.extensions.resource-graph
+      (nixpkgs-c06b4ae3.azure-cli.withExtensions [
+        nixpkgs-c06b4ae3.azure-cli.extensions.azure-devops
+        nixpkgs-c06b4ae3.azure-cli.extensions.fzf
+        nixpkgs-c06b4ae3.azure-cli.extensions.resource-graph
       ])
       cyclonedx-cli
       syft

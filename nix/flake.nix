@@ -14,6 +14,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixpkgs-c06b4ae3 = {
+      url = "github:nixos/nixpkgs/c06b4ae3d6599a672a6210b7021d699c351eebda";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +32,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-c06b4ae3,
       home-manager,
       llm-agents,
       ...
@@ -67,7 +72,9 @@
         };
         "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents nixpkgs-c06b4ae3;
+          };
           modules = [ ./hosts/work/home.nix ];
         };
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
