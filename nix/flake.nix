@@ -13,6 +13,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-release-25.11";
 
     nixpkgs-c06b4ae3 = {
       url = "github:nixos/nixpkgs/c06b4ae3d6599a672a6210b7021d699c351eebda";
@@ -42,6 +43,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
+      pkgs-stable = import nixpkgs-c06b4ae3 { inherit system; };
     in
     {
       nixosConfigurations = {
@@ -76,6 +78,7 @@
           extraSpecialArgs = {
             inherit (inputs) llm-agents;
             inherit pkgs-c06b4ae3;
+            inherit pkgs-stable;
           };
           modules = [ ./hosts/work/home.nix ];
         };

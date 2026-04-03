@@ -3,6 +3,7 @@
   config,
   pkgs,
   pkgs-c06b4ae3,
+  pkgs-stable,
   ...
 }:
 
@@ -52,7 +53,7 @@
       buildkit
       calicoctl
       cilium-cli
-      checkov
+      pkgs-stable.checkov
       memcached
       cmctl
       cosign
