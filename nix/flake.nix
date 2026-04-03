@@ -41,6 +41,7 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
     in
     {
       nixosConfigurations = {
@@ -73,7 +74,8 @@
         "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents nixpkgs-c06b4ae3;
+            inherit (inputs) llm-agents;
+            inherit pkgs-c06b4ae3;
           };
           modules = [ ./hosts/work/home.nix ];
         };
