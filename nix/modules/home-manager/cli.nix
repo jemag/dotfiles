@@ -183,7 +183,6 @@ in
         with pkgs;
         builtins.attrValues myPkgs
         ++ [
-          aider-chat
           bat
           bash
           btop
