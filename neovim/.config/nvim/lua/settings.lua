@@ -1,3 +1,4 @@
+require("vim._core.ui2").enable({ enable = true })
 vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.backupdir = "/home/jemag/.local/state/nvim/backup//,."
@@ -201,8 +202,4 @@ vim.api.nvim_create_autocmd({ "WinLeave" }, {
   desc = "Hide colorcolumn in inactive window",
 })
 
-vim.api.nvim_create_user_command(
-  "Qa",
-  "qa",
-  {}
-)
+vim.api.nvim_create_user_command("Qa", "qa", {})
