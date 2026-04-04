@@ -14,19 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "tyru/capture.vim",
-    cmd = "Capture",
-    keys = {
-      {
-        "<localleader>tM",
-        "<cmd>Capture messages<cr>",
-        noremap = true,
-        silent = true,
-        desc = "Capture messages",
-      },
-    },
-  },
-  {
     "NStefan002/screenkey.nvim",
     cmd = "Screenkey",
     lazy = true,

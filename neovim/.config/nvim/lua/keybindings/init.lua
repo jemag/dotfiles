@@ -148,6 +148,8 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "Append line above" }
 )
 
+vim.api.nvim_set_keymap("n", "<localleader>tM", "<cmd>messages<cr>", { noremap = true, silent = true, desc = "Messages" })
+
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true, silent = true, desc = "Yank till end of line" })
 
 vim.api.nvim_set_keymap("i", "<c-w>", "<c-s-w>", { noremap = true })
