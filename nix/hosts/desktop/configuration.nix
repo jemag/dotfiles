@@ -51,10 +51,11 @@
   systemd.services.libvirt-network-default = {
     wantedBy = [ "multi-user.target" ];
     after = [ "libvirtd.service" ];
+    requires = [ "libvirtd.service" ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.libvirt}/bin/virsh net-info default || ${pkgs.libvirt}/bin/virsh net-start default'";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.libvirt}/bin/virsh net-start default || true'";
     };
   };
 
