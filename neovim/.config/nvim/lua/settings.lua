@@ -62,7 +62,7 @@ vim.opt.timeoutlen = 500
 -- keep same scroll view when jumping
 vim.opt.jumpoptions = "stack,view"
 vim.opt.ttimeoutlen = 10
-vim.opt.updatetime = 100
+vim.opt.updatetime = 500
 vim.opt.undofile = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
