@@ -69,6 +69,10 @@
           inherit system;
           modules = [ ./hosts/nixvm/configuration.nix ];
         };
+        homelab = lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/homelab/configuration.nix ];
+        };
       };
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
@@ -99,6 +103,11 @@
           inherit pkgs;
           extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/nixvm/home.nix ];
+        };
+        "jemag@homelab" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          modules = [ ./hosts/homelab/home.nix ];
         };
       };
     };
