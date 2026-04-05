@@ -25,7 +25,7 @@ local signature_cfg = {
 }
 
 local function peek_definition()
-  local params = vim.lsp.util.make_position_params()
+  local params = vim.lsp.util.make_position_params(0, "utf-8")
   return vim.lsp.buf_request(0, "textDocument/definition", params, function(_, result)
     if result == nil or vim.tbl_isempty(result) then
       return nil
@@ -40,16 +40,16 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "gD", snacks.picker.lsp_declarations, { desc = "Declaration", buffer = bufnr })
   vim.keymap.set("n", "gd", snacks.picker.lsp_definitions, { desc = "Definition", buffer = bufnr })
   vim.keymap.set("n", "K", function()vim.lsp.buf.hover({border = "single"}) end, { desc = "Hover", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lp", peek_definition, { desc = "Peek definition", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lr", snacks.picker.lsp_references, { desc = "References", buffer = bufnr })
+  vim.keymap.set("n", "grp", peek_definition, { desc = "Peek definition", buffer = bufnr })
+  vim.keymap.set("n", "grr", snacks.picker.lsp_references, { desc = "References", buffer = bufnr })
   vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr })
   vim.keymap.set("i", "<C-q>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { desc = "Signature help", buffer = bufnr, silent = true })
-  vim.keymap.set("n", "<leader>li", snacks.picker.lsp_implementations, { desc = "Implementation", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lt", snacks.picker.lsp_type_definitions, { desc = "Type definition", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lw", snacks.picker.lsp_symbols, { desc = "Document Symbol", buffer = bufnr })
+  vim.keymap.set("n", "gri", snacks.picker.lsp_implementations, { desc = "Implementation", buffer = bufnr })
+  vim.keymap.set("n", "grt", snacks.picker.lsp_type_definitions, { desc = "Type definition", buffer = bufnr })
+  vim.keymap.set("n", "gO", snacks.picker.lsp_symbols, { desc = "Document Symbol", buffer = bufnr })
   vim.keymap.set("n", "<leader>lW", snacks.picker.lsp_workspace_symbols, { desc = "Workspace symbol", buffer = bufnr })
-  vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action", buffer = bufnr })
-  vim.keymap.set("n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
+  vim.keymap.set("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action", buffer = bufnr })
+  vim.keymap.set("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename", buffer = bufnr })
   -- Default keybindg to show diagnostics is now <c-w>d
   vim.keymap.set(
     "n",
