@@ -90,6 +90,7 @@
       bash
       git
       bitwarden-cli
+      jq
     ];
 
     system.stateVersion = "25.05";
