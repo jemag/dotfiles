@@ -4,51 +4,29 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports =
+    [ (modulesPath + "/profiles/qemu-guest.nix")
+    ];
 
-  boot.initrd.availableKernelModules =
-    [ "nvme" "ahci" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/aa5fb0f2-4401-446f-b35d-d5f3db51ed38";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/77080854-9311-44f0-b3a1-0adfee074ebd";
+      fsType = "ext4";
+    };
 
-  fileSystems."/home/jemag/H" = {
-    device = "/dev/disk/by-uuid/2CB4CF71B4CF3C58";
-    fsType = "ntfs"; # or btrfs, xfs, vfat, etc.
-  };
-
-  fileSystems."/home/jemag/G" = {
-    device = "/dev/disk/by-uuid/c0e760c0-f53b-4bf4-a26f-6eb7d2451795";
-    fsType = "ext4";
-  };
-
-  fileSystems."/home/jemag/F" = {
-    device = "/dev/disk/by-uuid/bdca2d6b-8307-4468-89b4-10368b678506";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/6CF6-3768";
-    fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/E006-C211";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/e59d6823-7ad8-47d0-a912-fd48b1d6bd58"; }];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp39s0.useDHCP = lib.mkDefault true;
+    [ { device = "/dev/disk/by-uuid/6e7a9550-efaa-41da-ba72-8eb1fe4008ee"; }
+    ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
