@@ -31,11 +31,15 @@
     };
   };
 
-  users.users.jemag.extraGroups = [
-    "wheel"
-    "docker"
-  ];
-
+  users.users.jemag = {
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYd83e4sGijxVajgzH4CpvvJ6YBUwHQViUI3zRyqvQD"
+    ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
+  };
 
   virtualisation.docker.enable = true;
 
@@ -50,6 +54,16 @@
     wget
   ];
 
+  services.openssh = {
+    enable = true;
+    ports = [ 5432 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "jemag" ];
+    };
+  };
 
   # services.syncthing = {
   #   enable = true;
