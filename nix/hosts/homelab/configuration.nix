@@ -114,7 +114,7 @@
   #   openFirewall = true;
   # };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.firewall.enable = true;
 }
