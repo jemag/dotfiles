@@ -8,9 +8,9 @@
 {
   imports = [
     ../../modules/home-manager/cli.nix
+    ../../modules/home-manager/gui.nix
   ];
 
-  gui.enable = true;
   nixpkgs = {
     config = {
       allowUnfree = true;
