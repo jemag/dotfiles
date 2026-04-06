@@ -92,6 +92,7 @@
     autoconf
     automake
     libtool
+    lm_sensors
     mesa
     mullvad-vpn
     mullvad-browser

@@ -51,6 +51,7 @@
     autoconf
     automake
     libtool
+    lm_sensors
     wget
   ];
 
