@@ -9,7 +9,7 @@
     [
         {
             "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
+            "keys": "ctrl+shift+c"
         },
         {
             "id": "Terminal.FindText",
@@ -17,7 +17,7 @@
         },
         {
             "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+v"
+            "keys": "ctrl+shift+v"
         },
         {
             "id": "Terminal.DuplicatePaneAuto",
@@ -96,7 +96,7 @@
         "background": "#1f2430",
         "foreground": "#cbccc6",
         "black": "#191e2a",
-        "red": "#ff3333",
+        "red": "#ed8274",
         "green": "#bae67e",
         "yellow": "#ffd580",
         "blue": "#73d0ff",
@@ -104,7 +104,7 @@
         "cyan": "#95e6cb",
         "white": "#c7c7c7",
         "brightBlack": "#686868",
-        "brightRed": "#ff3333",
+        "brightRed": "#f28779",
         "brightGreen": "#bae67e",
         "brightYellow": "#ffd580",
         "brightBlue": "#73d0ff",
