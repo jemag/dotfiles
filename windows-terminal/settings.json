@@ -1,119 +1,113 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": [],
-    "copyFormatting": "none",
-    "copyOnSelect": false,
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-    "keybindings":
-    [
-        {
-            "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+shift+v"
-        },
-        {
-            "id": "Terminal.DuplicatePaneAuto",
-            "keys": "alt+shift+d"
-        },
-        {
-            "id": null,
-            "keys": "f11"
-        },
-        {
-            "id": "Terminal.ToggleFullscreen",
-            "keys": "alt+enter"
-        }
-    ],
-    "launchMode": "maximizedFocus",
-    "newTabMenu":
-    [
-        {
-            "type": "remainingProfiles"
-        }
-    ],
-    "profiles":
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [],
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "keybindings": [
     {
-        "defaults":
-        {
-            "colorScheme": "Ayu Mirage",
-            "font":
-            {
-                "face": "FiraMono Nerd Font",
-                "size": 9
-            }
-        },
-        "list":
-        [
-            {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "Command Prompt"
-            },
-            {
-                "guid": "{4207819e-2a8b-5888-a587-af70ca0eb602}",
-                "hidden": false,
-                "name": "archwsl",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{e636fd95-8db6-56fc-969f-5647553fa92b}",
-                "hidden": false,
-                "name": "wsl-vpnkit",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            }
-        ]
+      "id": "Terminal.CopyToClipboard",
+      "keys": "ctrl+shift+c"
     },
-    "schemes": [
     {
-        "name": "Ayu Mirage",
-        "background": "#1f2430",
-        "foreground": "#cbccc6",
-        "black": "#191e2a",
-        "red": "#ed8274",
-        "green": "#bae67e",
-        "yellow": "#ffd580",
-        "blue": "#73d0ff",
-        "purple": "#d4bfff",
-        "cyan": "#95e6cb",
-        "white": "#c7c7c7",
-        "brightBlack": "#686868",
-        "brightRed": "#f28779",
-        "brightGreen": "#bae67e",
-        "brightYellow": "#ffd580",
-        "brightBlue": "#73d0ff",
-        "brightPurple": "#d4bfff",
-        "brightCyan": "#95e6cb",
-        "brightWhite": "#ffffff",
-        "cursorColor": "#ffcc66",
-        "selectionBackground": "#33415e"
+      "id": "Terminal.FindText",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "id": "Terminal.PasteFromClipboard",
+      "keys": "ctrl+shift+v"
+    },
+    {
+      "id": "Terminal.DuplicatePaneAuto",
+      "keys": "alt+shift+d"
+    },
+    {
+      "id": null,
+      "keys": "f11"
+    },
+    {
+      "id": "Terminal.ToggleFullscreen",
+      "keys": "alt+enter"
     }
-],
-    "themes": []
+  ],
+  "launchMode": "maximizedFocus",
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Ayu Mirage",
+      "font": {
+        "face": "FiraMono Nerd Font",
+        "size": 9
+      }
+    },
+    "list": [
+      {
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{4207819e-2a8b-5888-a587-af70ca0eb602}",
+        "hidden": false,
+        "name": "archwsl",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+        "hidden": false,
+        "name": "Arch",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{e636fd95-8db6-56fc-969f-5647553fa92b}",
+        "hidden": false,
+        "name": "wsl-vpnkit",
+        "source": "Windows.Terminal.Wsl"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "name": "Ayu Mirage",
+      "background": "#1f2430",
+      "foreground": "#cbccc6",
+      "black": "#191e2a",
+      "red": "#ed8274",
+      "green": "#bae67e",
+      "yellow": "#ffd580",
+      "blue": "#73d0ff",
+      "purple": "#d4bfff",
+      "cyan": "#95e6cb",
+      "white": "#c7c7c7",
+      "brightBlack": "#686868",
+      "brightRed": "#f28779",
+      "brightGreen": "#bae67e",
+      "brightYellow": "#ffd580",
+      "brightBlue": "#73d0ff",
+      "brightPurple": "#d4bfff",
+      "brightCyan": "#95e6cb",
+      "brightWhite": "#ffffff",
+      "cursorColor": "#ffcc66",
+      "selectionBackground": "#33415e"
+    }
+  ],
+  "themes": []
 }
