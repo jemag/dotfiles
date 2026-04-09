@@ -1,6 +1,32 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
+    "drawio": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "drawio-mcp-server",
+        "--editor",
+        "--http-port",
+        "3030"
+      ],
+      "enabled": false,
+      "timeout": 60000
+    },
+    "excalidraw": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/jemag/Projects/mcp_excalidraw/dist/index.js"
+      ],
+      "enabled": false,
+      "environment": {
+        "EXPRESS_SERVER_URL": "http://localhost:3000",
+        "ENABLE_CANVAS_SYNC": "true"
+      },
+      "timeout": 60000
+    },
     "whisker": {
       "type": "local",
       "command": [
@@ -10,6 +36,19 @@
       "environment": {
         "KUBECONFIG": "/home/jemag/.kube/config"
       },
+      "enabled": false
+    },
+    "aks": {
+      "type": "local",
+      "command": [
+        "/usr/local/bin/aks-mcp",
+        "--transport",
+        "stdio",
+        "--access-level",
+        "readonly",
+        "--enabled-components",
+        "az_cli,monitor,fleet,network,compute,detectors,advisor,inspektorgadget,kubectl"
+      ],
       "enabled": false
     }
   }
