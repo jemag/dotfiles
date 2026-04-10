@@ -1,7 +1,7 @@
 # ~/.tmuxinator/psql.yml
 
 name: k8s
-root: ~/
+root: ~/Projects/kubernetes-debugging/
 
 # Optional tmux socket
 # socket_name: foo
