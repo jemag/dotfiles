@@ -66,6 +66,9 @@
       ".config/zsh" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.config/zsh";
       };
+      ".tmux.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
+      };
     };
 
     # Home Manager can also manage your environment variables through
