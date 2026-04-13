@@ -53,7 +53,24 @@
     libtool
     lm_sensors
     wget
+    k3s
   ];
+
+  services.k3s = {
+    enable = true;
+    role = "server";
+    # NOTE: current token should be auto-generated, which means we'll need to share it with other agents
+    # tokenFile = /var/lib/rancher/k3s/server/token;
+    extraFlags = toString ([
+      "--write-kubeconfig-mode \"0644\""
+      "--cluster-init"
+      "--disable servicelb"
+      "--disable traefik"
+      "--disable local-storage"
+      # NOTE: this is only for agents, not the serer
+      # "--server https://homelab:6443"
+    ]);
+  };
 
   services.openssh = {
     enable = true;
