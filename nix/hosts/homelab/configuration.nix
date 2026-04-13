@@ -64,9 +64,12 @@
     extraFlags = toString ([
       "--write-kubeconfig-mode \"0644\""
       "--cluster-init"
-      "--disable servicelb"
-      "--disable traefik"
-      "--disable local-storage"
+      "--disable=servicelb"
+      "--disable=traefik"
+      "--disable=local-storage"
+      "--flannel-backend=none"
+      "--cluster-cidr=10.42.0.0/16"
+      "--disable-network-policy"
       # NOTE: this is only for agents, not the serer
       # "--server https://homelab:6443"
     ]);
