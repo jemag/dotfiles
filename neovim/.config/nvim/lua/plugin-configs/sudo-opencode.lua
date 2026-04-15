@@ -131,6 +131,7 @@ require("opencode").setup({
       overrides = {}, -- Optional per-key overrides, see section below
     },
     output = {
+      max_messages = 25,
       tools = {
         show_output = true, -- Show tools output [diffs, cmd output, etc.] (default: true)
         show_reasoning_output = false, -- Show reasoning/thinking steps output (default: true)

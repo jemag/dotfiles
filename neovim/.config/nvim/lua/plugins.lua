@@ -801,7 +801,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.sudo-opencode")
     end,
-    commit = "ed0c07815e867f3b71f4e012de4781cc24fb29e5",
+    -- commit = "ed0c07815e867f3b71f4e012de4781cc24fb29e5",
+    branch = "feat/max_messages"
   },
   {
     "olimorris/codecompanion.nvim",
