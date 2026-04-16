@@ -1,8 +1,25 @@
 # zmodload zsh/zprof
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+
+# Ensure we're on the Linux filesystem, not Windows
+if [[ "$ZINIT_HOME" == /mnt/* ]]; then
+    ZINIT_HOME="/home/${USER}/.local/share/zinit/zinit.git"
+fi
+
+if [[ ! -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+    ZINIT_LOCK="${ZINIT_HOME}.lock"
+    if mkdir "$ZINIT_LOCK" 2>/dev/null; then
+        # Got the lock - do the clone
+        rm -rf "$ZINIT_HOME"
+        mkdir -p "$(dirname $ZINIT_HOME)"
+        git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && sync
+        rmdir "$ZINIT_LOCK" 2>/dev/null
+    else
+        # Another shell is cloning - wait for it
+        while [[ -d "$ZINIT_LOCK" ]]; do sleep 0.5; done
+    fi
+fi
+[[ -f "${ZINIT_HOME}/zinit.zsh" ]] && source "${ZINIT_HOME}/zinit.zsh"
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 # ci"
