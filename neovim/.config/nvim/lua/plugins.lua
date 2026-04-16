@@ -790,19 +790,11 @@ require("lazy").setup({
     opts = {},
     cmd = { "NeoTypeStart" },
   },
-  -- {
-  --   "NickvanDyke/opencode.nvim",
-  --   config = function()
-  --     require("plugin-configs.opencode")
-  --   end,
-  -- },
   {
     "sudo-tee/opencode.nvim",
     config = function()
       require("plugin-configs.sudo-opencode")
     end,
-    -- commit = "ed0c07815e867f3b71f4e012de4781cc24fb29e5",
-    branch = "feat/max_messages"
   },
   {
     "olimorris/codecompanion.nvim",
