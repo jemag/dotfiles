@@ -113,6 +113,9 @@
       ".config/powershell" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/powershell/.config/powershell";
       };
+      ".tmux.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux-wsl/.tmux.conf";
+      };
     };
 
     # Home Manager can also manage your environment variables through

@@ -255,6 +255,7 @@ in
           lua5_1
           luarocks
           python3
+          python3Packages.argcomplete
           manix # search nix options
           mermaid-cli
           mkcert
