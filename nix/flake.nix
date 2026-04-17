@@ -80,7 +80,7 @@
           extraSpecialArgs = { inherit (inputs) llm-agents; };
           modules = [ ./hosts/laptop/home.nix ];
         };
-        "jemag@WSQCIML9079824" = home-manager.lib.homeManagerConfiguration {
+        "jemag@WSQCIML9115246" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents;
