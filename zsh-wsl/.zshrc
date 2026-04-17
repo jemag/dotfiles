@@ -377,7 +377,7 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   export DISPLAY=':0'
   export LIBGL_ALWAYS_INDIRECT=1
   export $(dbus-launch)
-  export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
+  # export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
   # source <(velero completion zsh)
   # source <(argo completion zsh)
   # source <(kyverno completion zsh)
