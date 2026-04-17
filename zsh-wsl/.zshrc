@@ -262,6 +262,10 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
+# Override carapace's kubecolor bridge with native kubectl completion
+source <(kubecolor completion zsh)
+compdef kubecolor=kubectl
+
 # This will be our new default `ctrl+w` command
 my-backward-delete-word() {
     # Copy the global WORDCHARS variable to a local variable. That way any
@@ -400,7 +404,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-compdef kubecolor=kubectl
 stty -ixon
 
 
