@@ -59,6 +59,29 @@
   services.k3s = {
     enable = true;
     role = "server";
+    autoDeployCharts = {
+      tigera-operator = {
+        name = "tigera-operator";
+        extraFieldDefinitions = {
+          spec = {
+            bootstrap = true;
+          };
+        };
+        hash = "sha256-VX+qqdMvqDlH7DPzpHKFJ34ZmF7fr9+esurmdU8SBso=";
+        repo = "https://docs.tigera.io/calico/charts";
+        version = "v3.31.5";
+        targetNamespace = "tigera-operator";
+        createNamespace = true;
+        values = {
+          installation = {
+            kubernetesProvider = "";
+            cni = {
+              type = "Calico";
+            };
+          };
+        };
+      };
+    };
     # NOTE: current token should be auto-generated, which means we'll need to share it with other agents
     # tokenFile = /var/lib/rancher/k3s/server/token;
     extraFlags = toString ([
