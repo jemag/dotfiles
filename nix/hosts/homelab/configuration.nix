@@ -81,6 +81,29 @@
           };
         };
       };
+      argo-cd = {
+        name = "argo-cd";
+        hash = "sha256-2u2U/iCgJ3LFh4w2dKSXbaLF2au5oeIDVpkYnCnfjgk=";
+        repo = "https://argoproj.github.io/argo-helm"; # or OCI: oci://ghcr.io/argoproj/argo-helm/argo-cd
+        version = "9.5.0";
+        targetNamespace = "argocd";
+        createNamespace = true;
+        values = {
+          repoServer = {
+            env = [
+              {
+                name = "GRPC_ENABLE_LOOKUP_USING_IP";
+                value = "false";
+              }
+            ];
+            livenessProbe = {
+              timeoutSeconds = 15;
+              initialDelaySeconds = 30;
+              periodSeconds = 20;
+            };
+          };
+        };
+      };
     };
     # NOTE: current token should be auto-generated, which means we'll need to share it with other agents
     # tokenFile = /var/lib/rancher/k3s/server/token;
