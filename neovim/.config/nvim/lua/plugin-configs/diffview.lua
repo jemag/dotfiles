@@ -31,9 +31,9 @@ require("diffview").setup({
         single_file = {
           diff_merges = "combined",
         },
-      },
-      multi_file = {
-        diff_merges = "first-parent",
+        multi_file = {
+          diff_merges = "first-parent",
+        },
       },
     },
     win_config = { -- See ':h diffview-config-win_config'

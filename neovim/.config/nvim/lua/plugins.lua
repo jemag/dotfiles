@@ -595,7 +595,7 @@ require("lazy").setup({
     },
   },
   {
-    "sindrets/diffview.nvim",
+    "dlyongemallo/diffview.nvim",
     config = function()
       require("plugin-configs.diffview")
     end,
