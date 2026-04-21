@@ -850,8 +850,7 @@ require("lazy").setup({
     end,
     keys = require("keybindings.lazy-keybinds").refactoring,
     dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-treesitter/nvim-treesitter" },
+      { "lewis6991/async.nvim" },
     },
   },
   {
