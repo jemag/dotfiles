@@ -103,7 +103,6 @@ in {
           "text/plain" = [ "nvim-qt.desktop" ];
           "x-schema-handler/msteams" = [ "teams.desktop" ];
           "x-scheme-handler/jetbrains" = [ "jetbrains-toolbox.desktop" ];
-          "x-scheme-handler/msteams" = [ "teams.desktop" ];
           "x-scheme-handler/http" = [ "firefox.desktop" ];
           "x-scheme-handler/https" = [ "firefox.desktop" ];
           "x-scheme-handler/chrome" = [ "firefox.desktop" ];

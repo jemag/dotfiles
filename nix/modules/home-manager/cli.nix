@@ -305,7 +305,6 @@ in
           velero
           viddy
           whois
-          yamllint
           yazi
           yq-go
           zellij
