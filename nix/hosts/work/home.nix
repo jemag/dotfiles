@@ -71,7 +71,6 @@
       regsync
       regbot
       regctl
-      wslu
       skopeo
       sonar-scanner-cli
       step-cli
