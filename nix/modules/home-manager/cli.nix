@@ -25,6 +25,9 @@ in
 
       neovim = {
         enable = true;
+        sideloadInitLua = true;
+        withRuby = true;
+        withPython3 = true;
         extraWrapperArgs = [
           "--prefix"
           "LD_LIBRARY_PATH"
