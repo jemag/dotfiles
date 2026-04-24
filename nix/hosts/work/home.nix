@@ -46,6 +46,7 @@
         pkgs-c06b4ae3.azure-cli.extensions.resource-graph
       ])
       cyclonedx-cli
+      postgresql
       syft
       oras
       azure-storage-azcopy
