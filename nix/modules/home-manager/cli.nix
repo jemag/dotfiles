@@ -191,6 +191,7 @@ in
           btop
           cachix
           carapace
+          less
           cmake
           delta
           devbox
