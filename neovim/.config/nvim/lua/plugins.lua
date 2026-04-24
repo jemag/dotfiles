@@ -350,17 +350,17 @@ require("lazy").setup({
       require("plugin-configs.rainbow-delimiters")
     end,
   },
-  {
-    "Isrothy/lualine-diagnostic-message",
-    event = "VeryLazy",
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("plugin-configs.lualine")
-    end,
-  },
+  -- {
+  --   "Isrothy/lualine-diagnostic-message",
+  --   event = "VeryLazy",
+  -- },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("plugin-configs.lualine")
+  --   end,
+  -- },
   { "tweekmonster/startuptime.vim" },
   {
     "nvim-neotest/neotest",
