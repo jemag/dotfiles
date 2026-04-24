@@ -163,7 +163,6 @@ in {
       mission-center
       neovim-qt
       obsidian
-      pandoc
       playerctl
       pavucontrol
       pulseaudio

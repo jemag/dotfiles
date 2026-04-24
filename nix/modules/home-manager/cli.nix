@@ -194,6 +194,7 @@ in
           cmake
           delta
           devbox
+          pandoc
           difftastic
           dig
           netcat-gnu
