@@ -989,6 +989,37 @@ require("lazy").setup({
     },
   },
   {
+    "fredrikaverpil/godoc.nvim",
+    version = "*",
+    cmd = { "GoDoc" },
+    ft = "godoc",
+    keys = {
+      { "<localleader>dG", "<cmd>GoDoc<cr>", desc = "GoDoc" },
+    },
+    opts = {
+      adapters = {
+        {
+          name = "go",
+          opts = {
+            command = "GoDoc",
+            get_syntax_info = function()
+              return {
+                filetype = "godoc",
+                language = "",
+              }
+            end,
+          },
+        },
+      },
+      window = {
+        type = "vsplit",
+      },
+      picker = {
+        type = "snacks",
+      },
+    },
+  },
+  {
     "plasticboy/vim-markdown",
     ft = { "markdown", "pandoc.markdown", "rmd" },
     config = function()
