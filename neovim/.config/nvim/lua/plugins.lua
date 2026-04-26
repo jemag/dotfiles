@@ -1000,28 +1000,9 @@ require("lazy").setup({
     keys = {
       { "<localleader>dd", "<cmd>GoDoc<cr>", desc = "GoDoc" },
     },
-    opts = {
-      adapters = {
-        {
-          name = "go",
-          opts = {
-            command = "GoDoc",
-            get_syntax_info = function()
-              return {
-                filetype = "godoc",
-                language = "godoc",
-              }
-            end,
-          },
-        },
-      },
-      window = {
-        type = "vsplit",
-      },
-      picker = {
-        type = "snacks",
-      },
-    },
+    config = function()
+      require("plugin-configs.godoc")
+    end,
   },
   {
     "plasticboy/vim-markdown",
