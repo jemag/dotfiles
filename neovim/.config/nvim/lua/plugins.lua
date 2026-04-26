@@ -782,7 +782,8 @@ require("lazy").setup({
     config = function()
       require("plugin-configs.copilot-lua")
     end,
-    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
+    enabled = false,
+    -- enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
   },
   {
     "rodolfo-arg/neotype",
@@ -991,10 +992,13 @@ require("lazy").setup({
   {
     "fredrikaverpil/godoc.nvim",
     version = "*",
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter", branch = "main" },
+    },
     cmd = { "GoDoc" },
     ft = "godoc",
     keys = {
-      { "<localleader>dG", "<cmd>GoDoc<cr>", desc = "GoDoc" },
+      { "<localleader>dd", "<cmd>GoDoc<cr>", desc = "GoDoc" },
     },
     opts = {
       adapters = {
@@ -1005,7 +1009,7 @@ require("lazy").setup({
             get_syntax_info = function()
               return {
                 filetype = "godoc",
-                language = "",
+                language = "godoc",
               }
             end,
           },

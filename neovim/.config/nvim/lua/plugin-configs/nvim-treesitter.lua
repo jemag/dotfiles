@@ -96,6 +96,17 @@ local ensure_installed = {
   "yaml",
 } -- one of "all", "language", or a list of languages
 
+-- Register custom godoc parser (not part of nvim-treesitter builtins)
+require("nvim-treesitter.parsers").godoc = {
+  install_info = {
+    url = "https://github.com/fredrikaverpil/tree-sitter-godoc",
+    files = { "src/parser.c" },
+    branch = "main",
+  },
+  filetype = "godoc",
+}
+vim.treesitter.language.register("godoc", "godoc")
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyDone",
   once = true,
