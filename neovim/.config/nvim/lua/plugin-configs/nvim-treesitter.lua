@@ -29,6 +29,7 @@ local ensure_installed = {
   "git_rebase",
   "gdscript",
   "go",
+  "godoc",
   "gosum",
   "gotmpl",
   "gomod",
@@ -96,8 +97,7 @@ local ensure_installed = {
   "yaml",
 } -- one of "all", "language", or a list of languages
 
--- Register custom godoc parser (not part of nvim-treesitter builtins)
-require("nvim-treesitter.parsers").godoc = {
+local parser_config = {
   install_info = {
     url = "https://github.com/fredrikaverpil/tree-sitter-godoc",
     files = { "src/parser.c" },
@@ -105,7 +105,26 @@ require("nvim-treesitter.parsers").godoc = {
   },
   filetype = "godoc",
 }
+
+require("nvim-treesitter.parsers").godoc = parser_config
+-- Map godoc filetype to use godoc parser
 vim.treesitter.language.register("godoc", "godoc")
+
+-- Enable :TSInstall godoc, :TSUpdate godoc
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    require("nvim-treesitter.parsers").godoc = parser_config
+  end,
+})
+
+-- Enable godoc filetype for .godoc files (optional)
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.godoc",
+  callback = function()
+    vim.bo.filetype = "godoc"
+  end,
+})
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "LazyDone",

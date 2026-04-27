@@ -993,7 +993,12 @@ require("lazy").setup({
     "fredrikaverpil/godoc.nvim",
     version = "*",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter", branch = "main" },
+      {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        build = ":TSUpdate godoc go", -- install/update parsers
+      },
+      { "fredrikaverpil/tree-sitter-godoc" },
     },
     cmd = { "GoDoc" },
     ft = "godoc",
