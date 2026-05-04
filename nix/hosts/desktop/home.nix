@@ -92,6 +92,9 @@
       ".tmux.conf" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
       };
+      ".ssh/config" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ssh/.ssh/config";
+      };
     };
 
     # Home Manager can also manage your environment variables through
