@@ -35,3 +35,11 @@ vim.keymap.set({ "n" }, "<localleader>mpg", function()
     },
   })
 end, { desc = "Paste image into prompted directory" })
+vim.keymap.set({ "n" }, "<localleader>mpA", function()
+  require("img-clip").pasteImage({
+    use_absolute_path = false,
+    dir_path = "_attachments",
+    prompt_for_file_name = true,
+    show_dir_path_in_prompt = true,
+  })
+end, { desc = "Paste image into _attachments directory" })
