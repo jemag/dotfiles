@@ -174,16 +174,17 @@ require("lazy").setup({
       { "L3MON4D3/LuaSnip" },
     },
   },
-  {
-    "lettertwo/occurrence.nvim",
-    config = function()
-      require("plugin-configs.occurrence")
-    end,
-    lazy = false,
-    ---@module "occurrence"
-    ---@type occurrence.Options
-    -- opts = {} -- setup is optional; the defaults will work out of the box.
-  },
+  -- TODO: Investigate whether we should keep or not, currently conflicts with native `do` keybind
+  -- {
+  --   "lettertwo/occurrence.nvim",
+  --   config = function()
+  --     require("plugin-configs.occurrence")
+  --   end,
+  --   lazy = false,
+  --   ---@module "occurrence"
+  --   ---@type occurrence.Options
+  --   -- opts = {} -- setup is optional; the defaults will work out of the box.
+  -- },
   {
     "haya14busa/vim-asterisk",
     config = function()
