@@ -839,14 +839,6 @@ require("lazy").setup({
     },
   },
   {
-    "tadaa/vimade",
-    opts = {
-      recipe = { "default", { animate = false } },
-      fadelevel = 0.65,
-      ncmode = "windows"
-    },
-  },
-  {
     "andrewferrier/debugprint.nvim",
     config = function()
       require("plugin-configs.debugprint")
