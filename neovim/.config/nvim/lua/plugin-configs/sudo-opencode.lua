@@ -249,3 +249,15 @@ require("opencode").setup({
     instructions = nil, -- Use built-in instructions if nil
   },
 })
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function(ev)
+    if vim.bo[ev.buf].filetype == "opencode_output" then
+      local win = vim.api.nvim_get_current_win()
+      vim.defer_fn(function()
+        vim.api.nvim_set_option_value("relativenumber", true, { win = win })
+      end, 500)
+    end
+  end,
+  desc = "Set relativenumber for opencode",
+})
