@@ -38,7 +38,7 @@ fyler.setup({
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
-            vim.cmd("edit " .. path)
+            vim.cmd("edit " .. vim.fn.fnameescape(path))
           end
         end,
         ["<c-s>"] = function(self)
@@ -50,7 +50,7 @@ fyler.setup({
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
-            vim.cmd("split " .. path)
+            vim.cmd("split " .. vim.fn.fnameescape(path))
           end
         end,
         ["<c-v>"] = function(self)
@@ -62,7 +62,7 @@ fyler.setup({
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
-            vim.cmd("vsplit " .. path)
+            vim.cmd("vsplit " .. vim.fn.fnameescape(path))
           end
         end,
         ["tf"] = function(self)
