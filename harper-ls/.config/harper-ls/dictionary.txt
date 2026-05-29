@@ -1,10 +1,10 @@
 ACR
+ALPN
 APS
 AlertManager
 ArgoCD
 Assyst
 Base64
-Blackbox
 CD
 CDOS
 CNAME
@@ -24,6 +24,7 @@ GitOps
 GrafanaDashboard
 GrafanaDatasource
 HTTPRoute
+HTTPRoutes
 IPs
 Ingester
 JOSE
@@ -56,7 +57,9 @@ VMs
 WIF
 aks
 authz
+blackbox
 configmap
+conntrack
 crds
 csv
 datasource
