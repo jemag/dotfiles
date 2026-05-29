@@ -24,12 +24,38 @@ require("marks")
 
 vim.opt.exrc = true
 vim.opt.secure = true
+-- Restore cursor to last position in buffer (replaces archived ethanholz/nvim-lastplace)
+local lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal" }
+local lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit", "floaterm" }
+
+local function restore_cursor()
+  if vim.tbl_contains(lastplace_ignore_buftype, vim.bo.buftype) then
+    return
+  end
+  if vim.tbl_contains(lastplace_ignore_filetype, vim.bo.filetype) then
+    return
+  end
+  local mark = vim.api.nvim_buf_get_mark(0, '"')
+  local line_count = vim.api.nvim_buf_line_count(0)
+  if mark[1] > 0 and mark[1] <= line_count then
+    pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    pcall(vim.cmd, "normal! zz")
+  end
+end
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = vim.api.nvim_create_augroup("lastplace", { clear = true }),
+  callback = restore_cursor,
+})
+
 vim.schedule(function()
   local workspace_path = vim.fn.getcwd()
   local cache_dir = vim.fn.stdpath("data")
   local unique_id = vim.fn.fnamemodify(workspace_path, ":t") .. "_" .. vim.fn.sha256(workspace_path):sub(1, 8) ---@type string
   local shadafile = cache_dir .. "/myshada/" .. unique_id .. ".shada"
   vim.opt.shadafile = shadafile
+  pcall(vim.cmd, "rshada!")
+  restore_cursor()
 end)
 
 require("settings")

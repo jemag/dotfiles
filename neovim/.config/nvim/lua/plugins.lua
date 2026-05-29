@@ -201,12 +201,7 @@ require("lazy").setup({
       { "<leader>rg", "<cmd>GrugFar<CR>", desc = " GrugFar" },
     },
   },
-  {
-    "ethanholz/nvim-lastplace",
-    config = function()
-      require("plugin-configs.nvim-lastplace")
-    end,
-  },
+
   {
     "folke/todo-comments.nvim",
     lazy = false,
