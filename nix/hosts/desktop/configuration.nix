@@ -107,7 +107,15 @@
   environment.etc."xdg/menus/applications.menu".source =
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
-  services.displayManager.gdm.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.sway}/bin/sway";
+        user = "greeter";
+      };
+    };
+  };
   # services.mullvad-vpn.enable = true;
   # services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
