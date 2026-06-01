@@ -45,6 +45,7 @@
       mangohud
       qbittorrent
       protonup-qt
+      llama-cpp-rocm
       wineWow64Packages.full
       winetricks
       ghostty

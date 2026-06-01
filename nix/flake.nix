@@ -13,7 +13,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs/release-25.11";
     };
@@ -44,7 +43,7 @@
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs { inherit system; overlays = import ./overlays.nix; };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
       pkgs-stable = import nixpkgs-c06b4ae3 { inherit system; };
     in

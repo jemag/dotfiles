@@ -277,6 +277,7 @@ in
           nufmt
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
+          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.nanocoder
           parallel
           ripgrep
           ruby
