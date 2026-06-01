@@ -94,8 +94,9 @@
     libtool
     lm_sensors
     mesa
-    mullvad-vpn
-    mullvad-browser
+    # WARNING: mullvad can break networking even when reverting to preivious generation
+    # mullvad-vpn
+    # mullvad-browser
     kdePackages.dolphin
     wezterm
     vlc
@@ -107,8 +108,8 @@
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   services.displayManager.gdm.enable = true;
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  # services.mullvad-vpn.enable = true;
+  # services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   services.syncthing = {
     enable = true;
