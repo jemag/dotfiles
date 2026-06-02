@@ -1,0 +1,28 @@
+{
+  "nanocoder": {
+    "providers": [
+      {
+        "name": "OpenRouter",
+        "models": ["openrouter/free"],
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "openrouter": {
+          "provider": {
+            "allow_fallbacks": true
+          }
+        }
+      },
+      {
+        "name": "llama-cpp",
+        "baseUrl": "http://localhost:8080/v1",
+        "models": ["unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q2_K_XL"],
+        "requestTimeout": -1,
+        "socketTimeout": -1,
+        "connectionPool": {
+          "idleTimeout": 30000,
+          "cumulativeMaxIdleTimeout": 3600000
+        }
+      }
+    ]
+  }
+}

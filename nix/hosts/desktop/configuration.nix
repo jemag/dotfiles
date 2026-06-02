@@ -101,6 +101,12 @@
     wezterm
     vlc
     wget
+    python314Packages.huggingface-hub
+    rocmPackages.clr
+    rocmPackages.rocblas
+    rocmPackages.rocm-smi
+    rocmPackages.rocminfo
+    llama-cpp-rocm
   ];
 
   # Fix for Dolphin lacking file associations

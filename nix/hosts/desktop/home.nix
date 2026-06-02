@@ -45,7 +45,6 @@
       mangohud
       qbittorrent
       protonup-qt
-      llama-cpp-rocm
       wineWow64Packages.full
       winetricks
       ghostty
@@ -95,6 +94,9 @@
       };
       ".ssh/config" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ssh/.ssh/config";
+      };
+      ".config/nanocoder/agents.config.json" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nanocoder/.config/nanocoder/agents.config.json";
       };
     };
 
