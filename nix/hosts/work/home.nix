@@ -65,6 +65,7 @@
       grafana-alloy
       hubble
       jfrog-cli
+      egctl
       maven
       pack
       powershell
