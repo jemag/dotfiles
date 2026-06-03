@@ -7,6 +7,9 @@
   ...
 }:
 
+let
+  myPkgs = import ../../pkgs { inherit pkgs; };
+in
 {
   imports = [
     ../../modules/home-manager/cli.nix
@@ -139,6 +142,15 @@
     sessionVariables = {
       # EDITOR = "vi";
     };
+
+    activation.opencode-model-router = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      PLUGIN_DIR="${config.home.homeDirectory}/.local/share/opencode-plugins/opencode-model-router"
+      rm -rf "$PLUGIN_DIR"
+      mkdir -p "$PLUGIN_DIR"
+      cp -r "${myPkgs.opencode-model-router}/src" "$PLUGIN_DIR/src"
+      cp "${myPkgs.opencode-model-router}/package.json" "$PLUGIN_DIR/package.json"
+      ln -sf "${config.home.homeDirectory}/dotfiles/opencode/opencode-model-router-tiers.json" "$PLUGIN_DIR/tiers.json"
+    '';
   };
 
   programs = {
