@@ -357,7 +357,7 @@ require("lazy").setup({
   --     require("plugin-configs.lualine")
   --   end,
   -- },
-  { "tweekmonster/startuptime.vim" },
+  { "tweekmonster/startuptime.vim", cmd = "StartupTime" },
   {
     "nvim-neotest/neotest",
     config = function()
@@ -835,6 +835,7 @@ require("lazy").setup({
   },
   {
     "andrewferrier/debugprint.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugin-configs.debugprint")
     end,
@@ -1099,6 +1100,7 @@ require("lazy").setup({
   },
   {
     "fei6409/log-highlight.nvim",
+    ft = "log",
     config = function()
       require("log-highlight").setup({})
     end,
