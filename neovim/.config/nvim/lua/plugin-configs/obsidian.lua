@@ -15,14 +15,6 @@ require("obsidian").setup({
   picker = {
     name = "snacks.pick",
   },
-  completion = {
-    -- If using nvim-cmp, otherwise set to false
-    nvim_cmp = false,
-    blink = false,
-    create_new = false,
-    -- Trigger completion at 2 chars
-    min_chars = 2,
-  },
   finder = "snacks.pick",
   open_notes_in = "current",
   attachments = {
