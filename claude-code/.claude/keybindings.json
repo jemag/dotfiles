@@ -1,0 +1,23 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Chat",
+      "bindings": {
+        "enter": "chat:newline",
+        "ctrl+j": null,
+        "ctrl+s": "chat:submit",
+        "tab": "chat:cycleMode",
+        "shift+tab": null
+      }
+    }
+  ,
+    {
+      "context": "Autocomplete",
+      "bindings": {
+        "ctrl+y": "autocomplete:accept"
+      }
+    }
+  ]
+}
