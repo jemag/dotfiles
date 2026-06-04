@@ -60,6 +60,7 @@ export PATH="$HOME/.nix-profile/bin:$PATH"
 ###########
 alias ls="eza -g --time-style long-iso --icons=always"
 alias cg="chainctl"
+alias c="claude"
 alias oc="opencode"
 alias ol="ollama"
 alias ch="checkov"
