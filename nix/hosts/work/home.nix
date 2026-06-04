@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  llm-agents,
   pkgs-c06b4ae3,
   pkgs-stable,
   ...
@@ -49,6 +50,7 @@ in
         pkgs-c06b4ae3.azure-cli.extensions.resource-graph
       ])
       cyclonedx-cli
+      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       postgresql
       syft
       oras
@@ -145,9 +147,13 @@ in
 
     activation.opencode-model-router = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       PLUGIN_DIR="${config.home.homeDirectory}/.local/share/opencode-plugins/opencode-model-router"
-      rm -rf "$PLUGIN_DIR"
+      if [ -d "$PLUGIN_DIR" ]; then
+        chmod -R u+w "$PLUGIN_DIR"
+        rm -rf "$PLUGIN_DIR"
+      fi
       mkdir -p "$PLUGIN_DIR"
       cp -r "${myPkgs.opencode-model-router}/src" "$PLUGIN_DIR/src"
+      chmod -R u+w "$PLUGIN_DIR/src"
       cp "${myPkgs.opencode-model-router}/package.json" "$PLUGIN_DIR/package.json"
       ln -sf "${config.home.homeDirectory}/dotfiles/opencode/opencode-model-router-tiers.json" "$PLUGIN_DIR/tiers.json"
     '';
