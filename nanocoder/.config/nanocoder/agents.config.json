@@ -1,5 +1,12 @@
 {
   "nanocoder": {
+    "autoCompact": {
+      "enabled": true,
+      "threshold": 85,
+      "strategy": "mechanical",
+      "mode": "conservative",
+      "notifyUser": true
+    },
     "providers": [
       {
         "name": "OpenRouter",
@@ -15,7 +22,10 @@
       {
         "name": "llama-cpp",
         "baseUrl": "http://localhost:8080/v1",
-        "models": ["unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q2_K_XL"],
+        "models": [
+          "unsloth/gemma-4-12b-it-GGUF:UD-Q6_K_XL",
+          "unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q2_K_XL"
+        ],
         "requestTimeout": -1,
         "socketTimeout": -1,
         "connectionPool": {
