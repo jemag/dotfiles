@@ -357,7 +357,6 @@ require("lazy").setup({
   --     require("plugin-configs.lualine")
   --   end,
   -- },
-  { "tweekmonster/startuptime.vim", cmd = "StartupTime" },
   {
     "nvim-neotest/neotest",
     config = function()
