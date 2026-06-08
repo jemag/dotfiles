@@ -352,6 +352,9 @@ export NODE_BIN="$(npm config get prefix)/bin"
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+preexec () {
+  echo -n "\\x1b]133;A\\x1b\\"
+}
 eval "$(zoxide init zsh)"
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
