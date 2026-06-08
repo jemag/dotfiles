@@ -16,6 +16,7 @@
     {
       "context": "Autocomplete",
       "bindings": {
+        "enter": "autocomplete:accept",
         "ctrl+y": "autocomplete:accept"
       }
     }
