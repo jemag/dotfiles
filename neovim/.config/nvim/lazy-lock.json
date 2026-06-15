@@ -26,7 +26,7 @@
   "dockerfile.vim": { "branch": "master", "commit": "b8c574928e503c0e94ad06647cff28b7c566af29" },
   "easytables.nvim": { "branch": "master", "commit": "4d7b4d98ab315b90156614e16e0a2b6dbbf2a108" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
-  "fyler.nvim": { "branch": "main", "commit": "e87911e6c21d099225063f5aa672e00f6dbb5976" },
+  "fyler.nvim": { "branch": "main", "commit": "ee77d461609581697374f2926bca3d1896f9fa91" },
   "git-conflict.nvim": { "branch": "main", "commit": "a1badcd070d176172940eb55d9d59029dad1c5a6" },
   "gitignore.nvim": { "branch": "master", "commit": "0344f643768c4d64af4add8c1bdddf6f7d4c9010" },
   "gitlinker.nvim": { "branch": "master", "commit": "a1b74070bbd5e50128190c85b09f1431ea5fbd83" },
