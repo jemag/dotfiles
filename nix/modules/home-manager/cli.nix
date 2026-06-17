@@ -198,6 +198,7 @@ in
           pandoc
           difftastic
           dig
+          doggo
           netcat-gnu
           dotnet-aspnetcore
           exercism
