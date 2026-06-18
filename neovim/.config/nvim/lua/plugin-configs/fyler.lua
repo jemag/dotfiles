@@ -115,22 +115,12 @@ vim.keymap.set({ "n" }, "<leader>e", function()
   fyler.toggle({ kind = "split_left_most" })
 end, { desc = "Toggle fyler" })
 
-vim.keymap.set({ "n" }, "<leader>E", function()
-  local filename = vim.api.nvim_buf_get_name(0)
-  finder = require("fyler.finder")
-  local inst = finder.instance_get_or_nil()
-  if inst then
-    if inst.win_id and vim.api.nvim_win_is_valid(inst.win_id) then
-      vim.api.nvim_set_current_win(inst.win_id)
-    end
-    inst:follow({ target_path = filename })
-  else
-    fyler.open({ kind = "split_left_most" })
-    vim.defer_fn(function()
-      local new_inst = finder.instance_get_or_nil()
-      if new_inst then
-        new_inst:follow({ target_path = filename })
-      end
-    end, 25)
-  end
-end, { desc = "Fyler show file" })
+vim.keymap.set('n', '<leader>E', function()
+  local buf_name = vim.api.nvim_buf_get_name(0)
+  fyler.open()
+  vim.schedule(function()
+    local inst = require('fyler.finder').instance_get_or_nil()
+    if not inst then return end
+    inst:follow({ target_path = buf_name })
+  end)
+end, { desc = 'Fyler show file' })
