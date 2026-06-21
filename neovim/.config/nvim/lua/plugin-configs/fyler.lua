@@ -3,107 +3,124 @@ local filter_windows = require("utils").filter_windows
 local fyler = require("fyler")
 
 fyler.setup({
-  views = {
-    finder = {
-      follow_current_file = false,
-      close_on_select = false,
-      watcher = {
-        enabled = true,
-      },
-      win = {
-        kind = "split_left_most",
-        kinds = {
-          float = {
-            height = "70%",
-            width = "70%",
-            top = "10%",
-            left = "15%",
-          },
-          split_left_most = {
-            width = "50",
-            win_opts = {
-              winfixwidth = true,
-              relativenumber = true,
-            },
-          },
-        },
-      },
-      mappings = {
-        ["<c-e>"] = function(self)
-          local node_entry = self:cursor_node_entry()
-          if not node_entry then
+  follow_current_file = false,
+  kind = "split_left_most",
+  integrations = {
+    icon = "nvim_web_devicons",
+  },
+  kind_presets = {
+    floating = {
+      height = "70%",
+      width = "70%",
+      row = "center",
+      col = "center",
+    },
+    split_left_most = {
+      width = 50,
+    },
+  },
+  win_opts = {
+    winfixwidth = true,
+    relativenumber = true,
+  },
+  mappings = {
+    n = {
+      ["-"] = { action = "visit", args = { parent = true } },
+      ["."] = { action = "visit", args = { cursor = true } },
+      ["<BS>"] = { action = "shrink", args = { parent = true } },
+      ["<C-r>"] = { action = "refresh" },
+      ["<C-t>"] = { action = "select", args = { tabedit = true } },
+      ["<CR>"] = { action = "select" },
+      ["="] = { action = "visit" },
+      ["g."] = { action = "toggle_ui", args = { "hidden_items" } },
+      ["gi"] = { action = "toggle_ui", args = { "indent_guides" } },
+      ["q"] = { action = "close" },
+      ["<C-e>"] = {
+        action = function(self)
+          local node_data = require("fyler.finder").parse_cursor_line(self)
+          if not node_data then
             return
           end
-          local path = node_entry.path
+          local path = node_data.full_path
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
             vim.cmd("edit " .. vim.fn.fnameescape(path))
           end
         end,
-        ["<c-s>"] = function(self)
-          local node_entry = self:cursor_node_entry()
-          if not node_entry then
+      },
+      ["<C-s>"] = {
+        action = function(self)
+          local node_data = require("fyler.finder").parse_cursor_line(self)
+          if not node_data then
             return
           end
-          local path = node_entry.path
+          local path = node_data.full_path
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
             vim.cmd("split " .. vim.fn.fnameescape(path))
           end
         end,
-        ["<c-v>"] = function(self)
-          local node_entry = self:cursor_node_entry()
-          if not node_entry then
+      },
+      ["<C-v>"] = {
+        action = function(self)
+          local node_data = require("fyler.finder").parse_cursor_line(self)
+          if not node_data then
             return
           end
-          local path = node_entry.path
+          local path = node_data.full_path
           local win = require("snacks").picker.util.pick_win({ filter = filter_windows })
           if win ~= nil then
             vim.api.nvim_set_current_win(win)
             vim.cmd("vsplit " .. vim.fn.fnameescape(path))
           end
         end,
-        ["tf"] = function(self)
-          local node_entry = self:cursor_node_entry()
-          if not node_entry then
+      },
+      ["tf"] = {
+        action = function(self)
+          local node_data = require("fyler.finder").parse_cursor_line(self)
+          if not node_data then
             return
           end
-          local path = node_entry.path
+          local path = node_data.full_path
           require("snacks").picker.files({ cwd = path })
         end,
-        ["tg"] = function(self)
-          local node_entry = self:cursor_node_entry()
-          if not node_entry then
+      },
+      ["tg"] = {
+        action = function(self)
+          local node_data = require("fyler.finder").parse_cursor_line(self)
+          if not node_data then
             return
           end
-          local path = node_entry.path
+          local path = node_data.full_path
           require("snacks").picker.grep({ cwd = path })
         end,
-      },
-      mappings_opts = {
-        nowait = true,
       },
     },
   },
 })
+
+local finder = require("fyler.finder")
+
 vim.keymap.set({ "n" }, "<localleader>tc", function()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
-    if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "fyler" then
+    if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "fyler_finder" then
       return vim.api.nvim_win_close(win, false)
     end
   end
 end, { desc = "Close Fyler" })
+
 vim.keymap.set({ "n" }, "<leader>e", function()
   fyler.toggle({ kind = "split_left_most" })
 end, { desc = "Toggle fyler" })
-vim.keymap.set({ "n" }, "<leader>E", function()
-  local filename = vim.api.nvim_buf_get_name(0)
-  fyler.close()
-  vim.defer_fn(function()
-    fyler.open()
-    fyler.focus()
-    fyler.navigate(filename)
-  end, 25)
-end, { desc = "Fyler show file" })
+
+vim.keymap.set('n', '<leader>E', function()
+  local buf_name = vim.api.nvim_buf_get_name(0)
+  fyler.open()
+  vim.schedule(function()
+    local inst = require('fyler.finder').instance_get_or_nil()
+    if not inst then return end
+    inst:follow({ target_path = buf_name })
+  end)
+end, { desc = 'Fyler show file' })
