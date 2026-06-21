@@ -40,6 +40,7 @@
     {
       nixpkgs,
       nixpkgs-c06b4ae3,
+      nixpkgs-stable,
       home-manager,
       ...
     }@inputs:
@@ -51,7 +52,7 @@
         overlays = import ./overlays.nix;
       };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
-      pkgs-stable = import nixpkgs-c06b4ae3 { inherit system; };
+      pkgs-stable = import nixpkgs-stable { inherit system; };
     in
     {
       nixosConfigurations = {
@@ -89,8 +90,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-c06b4ae3;
-            inherit pkgs-stable;
+            inherit pkgs-c06b4ae3 pkgs-stable;
           };
           modules = [ ./hosts/work/home.nix ];
         };
