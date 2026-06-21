@@ -1,0 +1,13 @@
+# Font
+font-family = FiraCode Nerd Font Mono
+font-size = 9
+
+# Colors
+theme = Ayu Mirage
+
+# Window
+background-opacity = 1.0
+confirm-close-surface = false
+
+# Full screen
+keybind = alt+enter=toggle_fullscreen
