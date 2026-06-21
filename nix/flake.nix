@@ -30,6 +30,10 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tuicr = {
+      url = "github:agavra/tuicr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,13 +41,15 @@
       nixpkgs,
       nixpkgs-c06b4ae3,
       home-manager,
-      llm-agents,
       ...
     }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; overlays = import ./overlays.nix; };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = import ./overlays.nix;
+      };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
       pkgs-stable = import nixpkgs-c06b4ae3 { inherit system; };
     in
@@ -76,13 +82,13 @@
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
           modules = [ ./hosts/laptop/home.nix ];
         };
         "jemag@WSQCIML9115246" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents;
+            inherit (inputs) llm-agents tuicr;
             inherit pkgs-c06b4ae3;
             inherit pkgs-stable;
           };
@@ -90,22 +96,22 @@
         };
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
           modules = [ ./hosts/desktop/home.nix ];
         };
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
           modules = [ ./hosts/thinkpad/home.nix ];
         };
         "jemag@nixvm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
           modules = [ ./hosts/nixvm/home.nix ];
         };
         "jemag@homelab" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents; };
+          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
           modules = [ ./hosts/homelab/home.nix ];
         };
       };
