@@ -70,7 +70,6 @@ local function enable_lsp_servers()
     "jsonls",
     "tinymist",
     "jsonnet_ls",
-    "harper_ls",
     "emmylua_ls",
     "clangd",
     "bicep",
@@ -81,6 +80,20 @@ local function enable_lsp_servers()
   for _, server_name in ipairs(lsp_servers) do
     vim.lsp.enable(server_name)
   end
+
+  vim.keymap.set("n", "<leader>lH", function()
+    local clients = vim.lsp.get_clients({ name = "harper_ls" })
+    if #clients > 0 then
+      vim.lsp.enable("harper_ls", false)
+      for _, client in ipairs(clients) do
+        client:stop()
+      end
+      vim.notify("Harper disabled")
+    else
+      vim.lsp.enable("harper_ls")
+      vim.notify("Harper enabled")
+    end
+  end, { desc = "Toggle Harper LSP" })
 end
 
 local function init()

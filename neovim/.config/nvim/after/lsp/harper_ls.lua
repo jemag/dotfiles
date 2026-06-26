@@ -1,5 +1,4 @@
 return {
-  filetypes = { "markdown" },
   settings = {
     ["harper-ls"] = {
       diagnosticSeverity = "hint",
