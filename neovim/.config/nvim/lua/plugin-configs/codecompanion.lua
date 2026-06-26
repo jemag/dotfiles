@@ -67,7 +67,7 @@ else
   require("codecompanion").setup({
     extensions = {
       history = {
-        enabledd = true,
+        enabled = true,
       },
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
