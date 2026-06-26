@@ -1,6 +1,6 @@
 require("scrollview").setup({
   -- excluded_filetypes = {'nerdtree'},
-  current_only = false,
+  current_only = true,
   winblend = 30,
   winblend_gui = 30,
   base = "right",
@@ -10,8 +10,6 @@ require("scrollview").setup({
     "diagnostics",
     "marks",
     "search",
-    "spell",
-    "textwidth",
   },
 })
 
