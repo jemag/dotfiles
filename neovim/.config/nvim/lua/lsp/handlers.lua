@@ -1,5 +1,4 @@
 local M = {}
-local border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 local signature_cfg = {
   bind = true, -- This is mandatory, otherwise border config won't get registered.
   -- If you want to hook lspsaga or other signature handler, pls set to false
@@ -97,15 +96,7 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.repl.run_last()<CR>", { desc = "Repl run last", buffer = bufnr })
 end
 
-local function set_hover_border(client)
-  local hp = client.server_capabilities.hoverProvider
-  if vim.fn.empty(hp) == 0 then
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
-  end
-end
-
 M.on_attach = function(client, bufnr)
-  set_hover_border(client)
   map_keys(client, bufnr)
   if client.name == "jdtls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })

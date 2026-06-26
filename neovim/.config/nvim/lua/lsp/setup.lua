@@ -34,7 +34,7 @@ end
 local function setup_default_lsp_config()
   local function on_init(client)
     if client.config.settings then
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+      client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
     end
   end
 
