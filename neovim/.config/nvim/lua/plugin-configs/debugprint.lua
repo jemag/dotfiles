@@ -1,4 +1,5 @@
 require("debugprint").setup({
+  highlight_lines = false,
   keymaps = {
     normal = {
       plain_below = "<leader>ddp",
