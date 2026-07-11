@@ -925,7 +925,7 @@ require("lazy").setup({
           accept_word = "<C-e>",
         },
       })
-      vim.keymap.set("n", "<localleader>tA", "<cmd>SupermavenToggle<cr>")
+      vim.keymap.set("n", "<localleader>tA", "<cmd>SupermavenToggle<cr>", { desc = "Toggle Ai completion"})
       pcall(vim.cmd, "SupermavenStop")
     end,
     enabled = vim.fn.getenv("WSL_INTEROP") == vim.NIL,
