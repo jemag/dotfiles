@@ -1,6 +1,14 @@
-{ lib, config, pkgs, ... }:
-let cfg = config.gui;
-in {
+{
+  lib,
+  config,
+  pkgs,
+  pkgs-stable,
+  ...
+}:
+let
+  cfg = config.gui;
+in
+{
   options = {
     gui.enable = lib.mkOption {
       type = lib.types.bool;
@@ -14,7 +22,9 @@ in {
     dconf = {
       enable = true;
       settings = {
-        "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
       };
     };
     gtk = {
@@ -38,7 +48,9 @@ in {
 
     qt = {
       enable = true;
-      platformTheme = { name = "gtk3"; };
+      platformTheme = {
+        name = "gtk3";
+      };
     };
 
     services.blueman-applet.enable = true;
@@ -63,21 +75,28 @@ in {
               "wine-extension-pdf.desktop"
             ];
             "application/vnd.ms-visio.drawing" = [ "libreoffice-draw.desktop" ];
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
-              [
-                "onlyoffice-desktopeditors.desktop"
-                "libreoffice-writer.desktop"
-              ];
-            "application/x-bittorrent" =
-              [ "org.qbittorrent.qBittorrent.desktop" "deluge.desktop" ];
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [
+              "onlyoffice-desktopeditors.desktop"
+              "libreoffice-writer.desktop"
+            ];
+            "application/x-bittorrent" = [
+              "org.qbittorrent.qBittorrent.desktop"
+              "deluge.desktop"
+            ];
             "application/x-xopp" = [ "com.github.xournalpp.xournalpp.desktop" ];
             "image/jpeg" = [ "sxiv.desktop" ];
             "image/png" = [ "sxiv.desktop" ];
             "text/calendar" = [ "firefox-developer-edition.desktop" ];
-            "text/plain" = [ "nvim-qt.desktop" "wine-extension-txt.desktop" ];
+            "text/plain" = [
+              "nvim-qt.desktop"
+              "wine-extension-txt.desktop"
+            ];
             "text/x-java-source" = [ "nvim-qt.desktop" ];
             "text/x-log" = [ "nvim-qt.desktop" ];
-            "text/yaml" = [ "nvim-qt.desktop" "gvim.desktop" ];
+            "text/yaml" = [
+              "nvim-qt.desktop"
+              "gvim.desktop"
+            ];
             "text/csv" = [ "libreoffice-calc.desktop" ];
             "x-scheme-handler/http" = [ "firefox.desktop" ];
             "x-scheme-handler/https" = [ "firefox.desktop" ];
@@ -119,16 +138,13 @@ in {
     };
     home.file = {
       ".config/mako" = {
-        source = config.lib.file.mkOutOfStoreSymlink
-          "${config.home.homeDirectory}/dotfiles/mako/.config/mako";
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/mako/.config/mako";
       };
       ".config/rofi" = {
-        source = config.lib.file.mkOutOfStoreSymlink
-          "${config.home.homeDirectory}/dotfiles/rofi/.config/rofi";
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/rofi/.config/rofi";
       };
       ".local/share/rofi" = {
-        source = config.lib.file.mkOutOfStoreSymlink
-          "${config.home.homeDirectory}/dotfiles/rofi/.local/share/rofi";
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/rofi/.local/share/rofi";
       };
       "wallpapers" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/wallpapers/wallpapers";
@@ -146,47 +162,50 @@ in {
       name = "Bibata-Original-Classic";
       size = 22;
     };
-    home.packages = with pkgs; [
-      arandr
-      bitwarden-desktop
-      chromium
-      deluge
-      feh
-      flameshot
-      firefox
-      gtk3
-      nerd-fonts.fira-code
-      ksnip
-      libreoffice-fresh
-      onlyoffice-desktopeditors
-      python313Packages.pylatexenc
-      kdePackages.gwenview
-      mission-center
-      neovim-qt
-      obsidian
-      playerctl
-      pavucontrol
-      pulseaudio
-      qalculate-gtk
-      signal-desktop
-      spotify
-      sxiv
-      ticktick
-      redshift
-      sioyek
-      gammastep
-      showmethekey
-      ueberzugpp
-      zathura
-      element-desktop
-      epub-thumbnailer
-      pcmanfm
-      vulkan-tools
-      nwg-displays
-      obs-studio
-      xdg-desktop-portal
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-gtk
-    ];
+    home.packages =
+      (with pkgs; [
+        bitwarden-desktop
+        chromium
+        deluge
+        feh
+        flameshot
+        firefox
+        gtk3
+        nerd-fonts.fira-code
+        ksnip
+        libreoffice-fresh
+        onlyoffice-desktopeditors
+        python313Packages.pylatexenc
+        kdePackages.gwenview
+        mission-center
+        neovim-qt
+        obsidian
+        playerctl
+        pavucontrol
+        pulseaudio
+        qalculate-gtk
+        signal-desktop
+        spotify
+        sxiv
+        ticktick
+        redshift
+        sioyek
+        gammastep
+        showmethekey
+        ueberzugpp
+        zathura
+        element-desktop
+        epub-thumbnailer
+        pcmanfm
+        vulkan-tools
+        nwg-displays
+        obs-studio
+        xdg-desktop-portal
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ])
+      ++ (with pkgs-stable; [
+        arandr
+      ]);
   };
 }

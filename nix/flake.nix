@@ -96,7 +96,10 @@
         };
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-stable;
+          };
           modules = [ ./hosts/desktop/home.nix ];
         };
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {

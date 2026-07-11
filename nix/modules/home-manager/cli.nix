@@ -279,7 +279,14 @@ in
           nufmt
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
-          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.nanocoder
+          (llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.nanocoder.overrideAttrs (old: {
+            pnpmDeps = pkgs.fetchPnpmDeps {
+              inherit (old) pname version src;
+              pnpm = pkgs.pnpm_11;
+              fetcherVersion = 4;
+              hash = "sha256-c7xuLNsFpiftUgv9zVNJBwXelkc9MS+cbmaOfmq2JN4=";
+            };
+          }))
           tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
           parallel
           ripgrep
