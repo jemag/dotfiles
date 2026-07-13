@@ -18,6 +18,46 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs = {
+      firefox = {
+        enable = true;
+        configPath = ".mozilla/firefox";
+        profiles.default = {
+
+          id = 0;
+          name = "default";
+          isDefault = true;
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "browser.tabs.insertAfterCurrent" = true;
+            "browser.tabs.warnOnClose" = false;
+            "browser.tabs.warnOnCloseOtherTabs" = false;
+            "browser.tabs.warnOnQuit" = false;
+            "browser.warnOnQuitShortcut" = false;
+            "browser.sessionstore.resume_from_crash" = true;
+            "browser.display.background_color" = "#282828";
+            "ui.context_menus.after_mouseup" = true;
+            "signon.rememberSignons" = false;
+            "spellchecker.dictionary" = "en-US,fr-CA";
+          };
+          userChrome = ''
+            tabbrowser tabpanels { background-color: rgb(19,19,20) !important; }
+            browser { background-color: #131314 !important; }
+            .tabbrowser-tab { visibility: collapse; }
+            .titlebar-button { height: 27px !important; }
+            #nav-bar { margin-top: -42px; margin-right: 140px; box-shadow: none !important; }
+            [uidensity="compact"]:root .titlebar-button { height: 32px !important; }
+            [uidensity="compact"]:root #nav-bar { margin-top: -32px; }
+            #titlebar-spacer,
+            #titlebar-buttonbox-container { background-color: var(--chrome-secondary-background-color); }
+            .titlebar-color { background-color: var(--toolbar-bgcolor); }
+            #main-window[inFullscreen="true"] #sidebar-box,
+            #main-window[inFullscreen="true"] #sidebar-box + splitter { visibility: collapse; }
+            #sidebar-box #sidebar-header { display: none !important; }
+          '';
+        };
+      };
+    };
     #config contents
     dconf = {
       enable = true;
@@ -169,7 +209,6 @@ in
         deluge
         feh
         flameshot
-        firefox
         gtk3
         nerd-fonts.fira-code
         ksnip
