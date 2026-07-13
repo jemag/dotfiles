@@ -39,6 +39,8 @@ in
             "ui.context_menus.after_mouseup" = true;
             "signon.rememberSignons" = false;
             "spellchecker.dictionary" = "en-US,fr-CA";
+            "browser.toolbars.bookmarks.showOtherBookmarks" = false;
+            "browser.toolbars.bookmarks.visibility" = "never";
           };
           userChrome = ''
             tabbrowser tabpanels { background-color: rgb(19,19,20) !important; }
