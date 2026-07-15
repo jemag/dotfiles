@@ -18,3 +18,4 @@ require("trouble").setup({
 })
 vim.keymap.set("n", "<localleader>ttd", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Trouble diagnostics" })
 vim.keymap.set("n", "<localleader>tts", "<cmd>Trouble symbols toggle<cr>", { desc = "Trouble symbols" })
+vim.keymap.set("n", "<localleader> ttt", "<cmd>Trouble todo toggle<cr>", { desc = "Trouble TODOs" })
