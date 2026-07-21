@@ -26,6 +26,16 @@ in
 
           id = 0;
           name = "default";
+          search = {
+            default = "qwant";
+            engines = {
+              "qwant" = {
+                urls = [ { template = "https://www.qwant.com/?q={searchTerms}"; } ];
+                icon = "https://www.qwant.com/favicon.ico";
+                definedAliases = [ "@qw" ];
+              };
+            };
+          };
           isDefault = true;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
