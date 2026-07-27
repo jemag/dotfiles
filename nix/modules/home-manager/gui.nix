@@ -27,6 +27,9 @@ in
           id = 0;
           name = "default";
           search = {
+            # Firefox replaces the search config symlink on every launch, so
+            # activation must be allowed to overwrite it unconditionally.
+            force = true;
             default = "qwant";
             engines = {
               "qwant" = {
