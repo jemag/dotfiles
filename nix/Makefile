@@ -8,7 +8,7 @@ update:
 # build current home-manager setup
 .PHONY: switch
 switch:
-		nh home switch .
+		nh home switch . --show-activation-logs
 
 .PHONY: news
 news:
