@@ -4,6 +4,7 @@
   pkgs,
   llm-agents,
   tuicr,
+  pkgs-stable,
   ...
 }:
 let
@@ -304,7 +305,7 @@ in
           ticker
           # xml formatter
           html-tidy
-          mitmproxy
+          pkgs-stable.mitmproxy
           tcpdump
           termshark
           tshark
