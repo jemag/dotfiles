@@ -30,7 +30,7 @@ fyler.setup({
       ["<BS>"] = { action = "shrink", args = { parent = true } },
       ["<C-r>"] = { action = "refresh" },
       ["<C-t>"] = { action = "select", args = { tabedit = true } },
-      ["<CR>"] = { action = "select" },
+      ["<CR>"] = { action = "select", args = { pick = false} },
       ["="] = { action = "visit" },
       ["g."] = { action = "toggle_ui", args = { "hidden_items" } },
       ["gi"] = { action = "toggle_ui", args = { "indent_guides" } },
