@@ -101,8 +101,6 @@ fyler.setup({
   },
 })
 
-local finder = require("fyler.finder")
-
 vim.keymap.set({ "n" }, "<localleader>tc", function()
   for _, win in ipairs(vim.api.nvim_list_wins()) do
     if vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "fyler_finder" then
