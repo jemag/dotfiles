@@ -530,10 +530,19 @@ require("lazy").setup({
       require("plugin-configs.resession")
     end,
     dependencies = { "tiagovla/scope.nvim" },
-    event = "VeryLazy",
     keys = {
+      {
+        "<localleader>pq",
+        "<cmd>lua require('plugin-configs.resession').quick_save()<cr>",
+        desc = "Quick save session (project name)",
+      },
+      {
+        "<localleader>pl",
+        "<cmd>lua require('plugin-configs.resession').quick_load()<cr>",
+        desc = "Quick load session (project name)",
+      },
       { "<localleader>ps", "<cmd>lua require('resession').save()<cr>", desc = "Save session" },
-      { "<localleader>pl", "<cmd>lua require('resession').load()<cr>", desc = "Load session" },
+      { "<localleader>pL", "<cmd>lua require('resession').load()<cr>", desc = "Load session" },
       { "<localleader>pd", "<cmd>lua require('resession').delete()<cr>", desc = "Delete session" },
     },
   },

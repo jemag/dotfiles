@@ -17,3 +17,26 @@ resession.setup({
   end,
   extensions = { scope = {} }, -- add scope.nvim extension
 })
+
+local M = {}
+
+-- Name of the current project, derived from the cwd basename
+function M.project_name()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
+
+function M.quick_save()
+  local name = M.project_name()
+  resession.save(name, { notify = false })
+  vim.notify("Session saved: " .. name)
+end
+
+function M.quick_load()
+  local name = M.project_name()
+  local ok = pcall(resession.load, name, { silence_errors = false })
+  if not ok then
+    vim.notify("No session for project: " .. name, vim.log.levels.WARN)
+  end
+end
+
+return M
