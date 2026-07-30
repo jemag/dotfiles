@@ -196,6 +196,7 @@ in
           less
           cmake
           delta
+          delve
           devbox
           pandoc
           difftastic
