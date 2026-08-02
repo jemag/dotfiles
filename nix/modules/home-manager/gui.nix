@@ -87,7 +87,7 @@ in
       gtk4.theme = config.gtk.theme;
       theme = {
 
-        package = pkgs.ayu-theme-gtk;
+        package = pkgs-stable.ayu-theme-gtk;
         name = "Ayu-Dark";
       };
       iconTheme = {
