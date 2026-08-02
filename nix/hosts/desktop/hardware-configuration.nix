@@ -20,6 +20,7 @@
   fileSystems."/home/jemag/H" = {
     device = "/dev/disk/by-uuid/2CB4CF71B4CF3C58";
     fsType = "ntfs"; # or btrfs, xfs, vfat, etc.
+    noCheck = true;
   };
 
   fileSystems."/home/jemag/G" = {
