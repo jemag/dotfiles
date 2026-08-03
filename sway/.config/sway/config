@@ -293,7 +293,7 @@ smart_gaps on
 
 ## class border background text indicator child_border
 client.focused         	$yellow  $pale-yellow $bg $teal $red
-client.focused_inactive	$yellow $bg	$fg $teal $clear
+client.focused_inactive	$yellow $bright-orange	$bg $teal $red
 client.unfocused       	$orange $bg	$fg $teal $clear
 
 # startup
