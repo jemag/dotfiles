@@ -1028,13 +1028,6 @@ require("lazy").setup({
     end,
   },
   {
-    "plasticboy/vim-markdown",
-    ft = { "markdown", "pandoc.markdown", "rmd" },
-    config = function()
-      require("plugin-configs.vim-markdown")
-    end,
-  },
-  {
     "maskudo/devdocs.nvim",
     lazy = true,
     config = function()
