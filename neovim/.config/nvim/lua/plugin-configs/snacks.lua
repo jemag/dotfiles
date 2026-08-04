@@ -69,39 +69,13 @@ snacks.setup({
   words = {
     enabled = true,
   },
+  -- File tree is handled by fyler.nvim, so keep snacks from replacing netrw
+  -- or hijacking directory buffers.
+  explorer = {
+    enabled = false,
+  },
   picker = {
     sources = {
-      explorer = {
-        finder = "explorer",
-        sort = { fields = { "sort" } },
-        tree = true,
-        supports_live = true,
-        follow_file = true,
-        focus = "list",
-        auto_close = false,
-        jump = { close = false },
-        layout = { preset = "sidebar", preview = false },
-        formatters = { file = { filename_only = true } },
-        matcher = { sort_empty = true },
-        config = function(opts)
-          return require("snacks.picker.source.explorer").setup(opts)
-        end,
-        win = {
-          list = {
-            keys = {
-              ["<BS>"] = "explorer_up",
-              ["a"] = "explorer_add",
-              ["d"] = "explorer_del",
-              ["r"] = "explorer_rename",
-              ["c"] = "explorer_copy",
-              ["m"] = "explorer_move",
-              ["y"] = "explorer_yank",
-              ["<c-c>"] = "explorer_cd",
-              ["."] = "explorer_focus",
-            },
-          },
-        },
-      },
       marks = {
         actions = {
           delete_mark = function(picker, item)
