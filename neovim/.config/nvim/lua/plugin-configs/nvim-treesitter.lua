@@ -94,6 +94,7 @@ local ensure_installed = {
   "vim",
   "vimdoc",
   "vue",
+  "xml",
   "yaml",
 } -- one of "all", "language", or a list of languages
 
