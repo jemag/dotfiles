@@ -345,17 +345,6 @@ require("lazy").setup({
       require("plugin-configs.rainbow-delimiters")
     end,
   },
-  -- {
-  --   "Isrothy/lualine-diagnostic-message",
-  --   event = "VeryLazy",
-  -- },
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("plugin-configs.lualine")
-  --   end,
-  -- },
   {
     "Owen-Dechow/videre.nvim",
     cmd = "Videre",
@@ -947,24 +936,8 @@ require("lazy").setup({
     version = "*",
   },
   {
-    "honza/dockerfile.vim",
-    ft = { "Dockerfile" },
-  },
-  {
-    "imsnif/kdl.vim",
-    ft = { "kdl" },
-  },
-  {
     "mustache/vim-mustache-handlebars",
     ft = { "mustache" },
-  },
-  {
-    "cespare/vim-toml",
-    ft = { "toml" },
-  },
-  {
-    "vim-scripts/xml.vim",
-    ft = { "xml" },
   },
   {
     "https://tangled.org/cuducos.me/yaml.nvim",
@@ -981,10 +954,6 @@ require("lazy").setup({
   {
     "pearofducks/ansible-vim",
     ft = { "yaml", "ansible", "ansible_hosts" },
-  },
-  {
-    "elzr/vim-json",
-    ft = { "json" },
   },
   {
     "leoluz/nvim-dap-go",
@@ -1118,10 +1087,6 @@ require("lazy").setup({
     config = function()
       require("log-highlight").setup({})
     end,
-  },
-  {
-    "jvirtanen/vim-hcl",
-    ft = { "hcl" },
   },
 
   --[[ #######################
