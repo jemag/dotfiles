@@ -27,6 +27,7 @@ HTTPRoute
 HTTPRoutes
 IPs
 Ingester
+Inspektor
 JOSE
 JWK
 Jsonnet
@@ -45,6 +46,7 @@ Powershell
 PriorityClasses
 SAN
 SBOM
+SNI
 SP
 SPDX
 SPs
@@ -53,8 +55,10 @@ TODO
 TOSP
 Terragrunt
 Trivy
+UAT
 VMs
 WIF
+Wireshark
 aks
 authz
 blackbox
@@ -80,6 +84,7 @@ mTLS
 mixin
 msteam
 nginx
+non-empty
 nvim
 oauth
 oauth2
@@ -91,6 +96,7 @@ querier
 resourcequotas
 sc2g
 statefulset
+tcpdump
 tigera
 vnet
 x509
