@@ -37,7 +37,7 @@
   };
 
   services.blueman.enable = true;
-
+  powerManagement.cpuFreqGovernor = "performance";
   users.users.jemag.extraGroups = [
     "wheel"
     "docker"
