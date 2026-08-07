@@ -93,7 +93,6 @@
     automake
     libtool
     lm_sensors
-    mesa
     # WARNING: mullvad can break networking even when reverting to preivious generation
     # mullvad-vpn
     # mullvad-browser
