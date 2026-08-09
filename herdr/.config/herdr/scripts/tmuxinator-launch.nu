@@ -13,9 +13,14 @@
 # Idempotent: if a workspace with the project's label already exists, it is
 # focused and the script exits.
 #
-# Usage: tmuxinator-launch.nu <project-name>
+# Self-contained like the old tmuxinator-fzf-start.sh: with no argument, lists
+# the tmuxinator projects and fuzzy-picks one (or more) with fzf. With a
+# project name argument, builds it directly without prompting, so the script
+# can be called non-interactively from other scripts.
 #
-# Depends only on: herdr on PATH. YAML is parsed natively by `open`.
+# Usage: tmuxinator-launch.nu [project-name]
+#
+# Depends only on: herdr, fzf, nu on PATH. YAML is parsed natively by `open`.
 
 # Wait until the pane's shell process has spawned. Without this, commands
 # sent right after pane creation get dropped (no shell is listening yet).
@@ -123,7 +128,7 @@ def build_window_panes [root_pane: string, layout: string, panes: list] {
   }
 }
 
-def main [project: string] {
+def build_project [project: string] {
   let dir = ($env.TMUXINATOR_DIR? | default ($env.HOME | path join "dotfiles/tmuxinator/.config/tmuxinator"))
   let yaml_path = ($dir | path join $"($project).yml")
 
@@ -182,4 +187,39 @@ def main [project: string] {
   # Focus the workspace so the created layout is on screen.
   ^herdr workspace focus $workspace_id | ignore
   print -e $"launched tmuxinator project '($project)' into workspace '($workspace_id)'"
+}
+
+def main [project?: string] {
+  let dir = ($env.TMUXINATOR_DIR? | default ($env.HOME | path join "dotfiles/tmuxinator/.config/tmuxinator"))
+
+  if ($project != null) {
+    build_project $project
+    return
+  }
+
+  if not ($dir | path exists) {
+    print -e $"tmuxinator-launch.nu: tmuxinator directory not found: ($dir)"
+    exit 1
+  }
+
+  let projects = (
+    try {
+      ls $"($dir)/*.yml"
+      | get name
+      | path basename
+      | str replace -r '\.yml$' ''
+      | str join (char nl)
+      | ^fzf --prompt "Project: " -m -1 --reverse --height 50%
+    } catch {
+      "" # fzf returns non-zero on cancel (Esc)
+    }
+  )
+
+  if ($projects | is-empty) {
+    exit 0
+  }
+
+  for p in ($projects | lines) {
+    build_project ($p | str trim)
+  }
 }

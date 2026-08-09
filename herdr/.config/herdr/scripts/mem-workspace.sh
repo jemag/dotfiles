@@ -22,5 +22,5 @@ if herdr workspace list \
     >/dev/null
 else
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-  "$SCRIPT_DIR/tmuxinator-launch.sh" "$MEM_LABEL"
+  "$SCRIPT_DIR/tmuxinator-launch.nu" "$MEM_LABEL"
 fi

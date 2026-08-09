@@ -127,7 +127,7 @@ height = "20%"
 [[keys.command]]
 key = "prefix+v"
 type = "popup"
-command = "sh -c 'ls ~/dotfiles/tmuxinator/.config/tmuxinator/*.yml | xargs -n1 basename | sed s/.yml$// | fzf --reverse | xargs -r -I{} ~/.config/herdr/scripts/tmuxinator-launch.nu {}'"
+command = "~/.config/herdr/scripts/tmuxinator-launch.nu"
 description = "launch tmuxinator project"
 width = "60%"
 height = "50%"
