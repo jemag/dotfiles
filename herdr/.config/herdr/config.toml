@@ -57,8 +57,8 @@ split_vertical   = "prefix+|"
 split_horizontal = "prefix+minus"
 
 # Tabs (closest match to tmux windows)
-next_tab     = "prefix+n"
-previous_tab = "prefix+p"
+previous_tab = ["prefix+p", "alt+h"]
+next_tab     = ["prefix+n", "alt+l"]
 switch_tab   = "prefix+1..9"   # your M-1..M-9 select-window, prefixed
                                  # NOTE: indexed jumps only document 1..9 -- your
                                  # tmux M-0 -> window 10 bind has no confirmed
@@ -67,6 +67,7 @@ switch_tab   = "prefix+1..9"   # your M-1..M-9 select-window, prefixed
 # Zoom / close
 zoom       = "prefix+z"
 close_pane = "prefix+x"
+toggle_sidebar = "prefix+t"
 
 # Resize mode (replaces your bind -r H/J/K/L resize-pane block)
 # prefix+r enters resize mode; check `prefix+?` in-app for the exact
@@ -77,6 +78,8 @@ resize_mode = "prefix+r"
 copy_mode = "prefix+["
 
 # Workspace/session-level actions
+previous_workspace = "alt+k"
+next_workspace = "alt+j"
 new_workspace    = "prefix+shift+n"
 rename_workspace = "prefix+shift+w"
 close_workspace  = "prefix+shift+d"   # closest match to `bind C-x confirm kill-session`
@@ -84,7 +87,6 @@ goto             = "prefix+g"          # replaces your choose-tree AND fzf sessi
                                          # finder binds (s / C-s / f) -- built-in
                                          # searchable picker, try this before
                                          # rebuilding the fzf popup below
-toggle_sidebar   = "prefix+b"          # closest analog to `bind t` status bar toggle
 
 # ---------------------------------------------------------------------------
 # Custom command keybindings
@@ -138,15 +140,6 @@ command = "sh -c 'herdr pane read $HERDR_ACTIVE_PANE_ID --source recent-unwrappe
 description = "capture pane history"
 width = "85%"
 height = "85%"
-
-# Scratch terminal popup (bonus, not in your tmux config, but a common ask)
-[[keys.command]]
-key = "prefix+t"
-type = "popup"
-command = "exec \"${SHELL:-sh}\""
-description = "open scratch terminal"
-width = "80%"
-height = "80%"
 
 # ---------------------------------------------------------------------------
 # Theme -- approximates your status-bar color palette
