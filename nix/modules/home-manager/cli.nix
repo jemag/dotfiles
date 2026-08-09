@@ -161,6 +161,9 @@ in
         ".config/herdr/config.toml" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/.config/herdr/config.toml";
         };
+        ".config/herdr/scripts" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/.config/herdr/scripts";
+        };
         ".config/containers" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
