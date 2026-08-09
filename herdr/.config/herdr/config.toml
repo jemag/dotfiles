@@ -146,7 +146,7 @@ height = "85%"
 # ---------------------------------------------------------------------------
 
 [theme]
-name = "catppuccin"
+name = "ayu-mirage"
 
 [theme.custom]
 accent = "#fecb6e"   # your border_active_fg
