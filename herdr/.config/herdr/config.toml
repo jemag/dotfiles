@@ -44,10 +44,12 @@ directory = "~/.herdr/worktrees"
 prefix = "ctrl+a"
 
 # Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
-focus_pane_left  = "prefix+h"
-focus_pane_down  = "prefix+j"
-focus_pane_up    = "prefix+k"
-focus_pane_right = "prefix+l"
+# Bound as arrays so both "prefix then h" and "prefix then ctrl+h" work,
+# matching how your tmux config responded to either variant.
+focus_pane_left  = ["prefix+h", "prefix+ctrl+h"]
+focus_pane_down  = ["prefix+j", "prefix+ctrl+j"]
+focus_pane_up    = ["prefix+k", "prefix+ctrl+k"]
+focus_pane_right = ["prefix+l", "prefix+ctrl+l"]
 
 # Splits (your `bind | split-window -h` / `bind - split-window -v`)
 # split_vertical = side-by-side panes, split_horizontal = stacked panes
