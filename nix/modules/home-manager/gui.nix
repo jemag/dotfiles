@@ -30,8 +30,13 @@ in
             # Firefox replaces the search config symlink on every launch, so
             # activation must be allowed to overwrite it unconditionally.
             force = true;
-            default = "qwant";
+            default = "startpage";
             engines = {
+              "startpage" = {
+                urls = [ { template = "https://www.startpage.com/sp/search?query={searchTerms}"; } ];
+                icon = "https://www.startpage.com/favicon.ico";
+                definedAliases = [ "@sp" ];
+              };
               "qwant" = {
                 urls = [ { template = "https://www.qwant.com/?q={searchTerms}"; } ];
                 icon = "https://www.qwant.com/favicon.ico";
