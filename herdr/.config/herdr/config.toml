@@ -162,6 +162,9 @@ blue   = "#5ccfe6"   # your status_left_bg
 yellow = "#ffa759"   # your window_status_current_bg
 red    = "#f38ba8"
 
+[ui]
+pane_gaps = false
+
 # ---------------------------------------------------------------------------
 # Notifications (Herdr's replacement for tmux's visual-activity monitoring --
 # tells you when an agent finishes or gets blocked, instead of watching for
