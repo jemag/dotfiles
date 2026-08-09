@@ -122,11 +122,11 @@ height = "20%"
 
 # Predefined project launcher -- replaces tmuxinator-fzf-start.sh.
 # There's no built-in session templater, so this fuzzy-picks a tmuxinator
-# project (YAML) and builds a workspace from it with tmuxinator-launch.sh.
+# project (YAML) and builds a workspace from it with tmuxinator-launch.nu.
 [[keys.command]]
 key = "prefix+v"
 type = "popup"
-command = "sh -c 'ls ~/dotfiles/tmuxinator/.config/tmuxinator/*.yml | xargs -n1 basename | sed s/.yml$// | fzf --reverse | xargs -r -I{} ~/.config/herdr/scripts/tmuxinator-launch.sh {}'"
+command = "sh -c 'ls ~/dotfiles/tmuxinator/.config/tmuxinator/*.yml | xargs -n1 basename | sed s/.yml$// | fzf --reverse | xargs -r -I{} ~/.config/herdr/scripts/tmuxinator-launch.nu {}'"
 description = "launch tmuxinator project"
 width = "60%"
 height = "50%"
