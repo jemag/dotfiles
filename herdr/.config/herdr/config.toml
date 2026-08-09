@@ -42,6 +42,7 @@ directory = "~/.herdr/worktrees"
 [keys]
 # Prefix is Ctrl-a, matching your tmux setup
 prefix = "ctrl+a"
+settings = "prefix+shift+s"
 
 # Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
 # Bound as arrays so both "prefix then h" and "prefix then ctrl+h" work,
@@ -120,15 +121,31 @@ width = "50%"
 height = "20%"
 
 # Predefined project launcher -- replaces tmuxinator-fzf-start.sh.
-# There's no built-in session templater, so this fuzzy-picks a shell script
-# from ~/.config/herdr/projects/ that you write yourself, each one calling
-# `herdr workspace create` / `herdr tab create` / `herdr pane run` to lay
-# out that project's panes. See the example script referenced in chat.
+# There's no built-in session templater, so this fuzzy-picks a tmuxinator
+# project (YAML) and builds a workspace from it with tmuxinator-launch.sh.
 [[keys.command]]
-key = "prefix+shift+p"
+key = "prefix+v"
 type = "popup"
-command = "sh -c 'ls ~/.config/herdr/projects | fzf --reverse | xargs -r -I{} ~/.config/herdr/projects/{}'"
-description = "launch predefined project"
+command = "sh -c 'ls ~/dotfiles/tmuxinator/.config/tmuxinator/*.yml | xargs -n1 basename | sed s/.yml$// | fzf --reverse | xargs -r -I{} ~/.config/herdr/scripts/tmuxinator-launch.sh {}'"
+description = "launch tmuxinator project"
+width = "60%"
+height = "50%"
+
+# Mem workspace -- replaces create-or-attach-mem-session.sh (bind m)
+[[keys.command]]
+key = "prefix+shift+m"
+type = "popup"
+command = "~/.config/herdr/scripts/mem-workspace.sh"
+description = "open mem workspace"
+width = "40%"
+height = "20%"
+
+# Zoxide project picker -- replaces fzf-tmux-session (bind s)
+[[keys.command]]
+key = "prefix+s"
+type = "popup"
+command = "~/.config/herdr/scripts/zoxide-workspace.sh"
+description = "fuzzy open zoxide directory"
 width = "60%"
 height = "50%"
 
