@@ -1,0 +1,183 @@
+# ~/.config/herdr/config.toml
+#
+# Translated from https://github.com/jemag/dotfiles/blob/master/tmux/.tmux.conf
+#
+# A few things from the tmux config have NO direct equivalent here and are
+# called out in comments below instead of silently dropped:
+#   - synchronize-panes (bind S)              -> not found in Herdr docs
+#   - swap-window left/right (bind Left/Right) -> not found in Herdr docs
+#   - base-index / pane-base-index            -> not found in Herdr docs
+#   - status bar toggle (bind t)              -> closest analog is sidebar toggle (prefix+b)
+#   - tmuxinator-style predefined sessions     -> no built-in templater; see the
+#                                                 project-launcher script referenced below
+#
+# Also several tmux settings are simply unnecessary in Herdr and were left out:
+# default-terminal, terminal-overrides, allow-passthrough, escape-time,
+# set -g mouse on (mouse-native by default), set-clipboard / wl-copy piping
+# (clipboard integration is built in).
+
+onboarding = false
+
+# ---------------------------------------------------------------------------
+# Terminal defaults
+# ---------------------------------------------------------------------------
+
+[terminal]
+# Uncomment to force a specific shell instead of $SHELL
+# default_shell = "zsh"
+shell_mode = "auto"
+new_cwd = "follow"
+
+# ---------------------------------------------------------------------------
+# Worktrees (optional, only relevant if you use the Git worktree sidebar actions)
+# ---------------------------------------------------------------------------
+
+[worktrees]
+directory = "~/.herdr/worktrees"
+
+# ---------------------------------------------------------------------------
+# Keybindings
+# ---------------------------------------------------------------------------
+
+[keys]
+# Prefix is Ctrl-a, matching your tmux setup
+prefix = "ctrl+a"
+
+# Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Splits (your `bind | split-window -h` / `bind - split-window -v`)
+# split_vertical = side-by-side panes, split_horizontal = stacked panes
+split_vertical   = "prefix+|"
+split_horizontal = "prefix+minus"
+
+# Tabs (closest match to tmux windows)
+next_tab     = "prefix+n"
+previous_tab = "prefix+p"
+switch_tab   = "prefix+1..9"   # your M-1..M-9 select-window, prefixed
+                                 # NOTE: indexed jumps only document 1..9 -- your
+                                 # tmux M-0 -> window 10 bind has no confirmed
+                                 # equivalent here, check config reference
+
+# Zoom / close
+zoom       = "prefix+z"
+close_pane = "prefix+x"
+
+# Resize mode (replaces your bind -r H/J/K/L resize-pane block)
+# prefix+r enters resize mode; check `prefix+?` in-app for the exact
+# sub-keys once you're in that mode, they weren't itemized in the docs I read
+resize_mode = "prefix+r"
+
+# Copy mode (vi-style already, no mode-keys setting needed)
+copy_mode = "prefix+["
+
+# Workspace/session-level actions
+new_workspace    = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace  = "prefix+shift+d"   # closest match to `bind C-x confirm kill-session`
+goto             = "prefix+g"          # replaces your choose-tree AND fzf session
+                                         # finder binds (s / C-s / f) -- built-in
+                                         # searchable picker, try this before
+                                         # rebuilding the fzf popup below
+toggle_sidebar   = "prefix+b"          # closest analog to `bind t` status bar toggle
+
+# ---------------------------------------------------------------------------
+# Custom command keybindings
+# ---------------------------------------------------------------------------
+
+# Reload config -- replaces `bind r source-file ~/.tmux.conf`
+[[keys.command]]
+key = "prefix+shift+r"
+type = "shell"
+command = "herdr server reload-config"
+description = "reload herdr config"
+
+# Fuzzy workspace switcher -- only needed if you prefer this over the
+# built-in `goto` picker (prefix+g) above. Verify the output shape of
+# `herdr workspace list` on your machine and adjust the parsing if it's JSON.
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "sh -c 'herdr workspace list | fzf --reverse | xargs -r herdr workspace focus'"
+description = "fuzzy switch workspace"
+width = "70%"
+height = "60%"
+
+# New named workspace -- replaces `bind C command-prompt -p "New Session:"`
+[[keys.command]]
+key = "prefix+shift+c"
+type = "popup"
+command = "sh -c 'read -p \"New workspace: \" name && herdr workspace create --label \"$name\"'"
+description = "new named workspace"
+width = "50%"
+height = "20%"
+
+# Predefined project launcher -- replaces tmuxinator-fzf-start.sh.
+# There's no built-in session templater, so this fuzzy-picks a shell script
+# from ~/.config/herdr/projects/ that you write yourself, each one calling
+# `herdr workspace create` / `herdr tab create` / `herdr pane run` to lay
+# out that project's panes. See the example script referenced in chat.
+[[keys.command]]
+key = "prefix+shift+p"
+type = "popup"
+command = "sh -c 'ls ~/.config/herdr/projects | fzf --reverse | xargs -r -I{} ~/.config/herdr/projects/{}'"
+description = "launch predefined project"
+width = "60%"
+height = "50%"
+
+# Capture pane scrollback and open in $EDITOR -- replaces your P/e binds
+[[keys.command]]
+key = "prefix+e"
+type = "popup"
+command = "sh -c 'herdr pane read $HERDR_ACTIVE_PANE_ID --source recent-unwrapped --lines 1000 > ~/herdr.history && ${EDITOR:-vi} ~/herdr.history'"
+description = "capture pane history"
+width = "85%"
+height = "85%"
+
+# Scratch terminal popup (bonus, not in your tmux config, but a common ask)
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open scratch terminal"
+width = "80%"
+height = "80%"
+
+# ---------------------------------------------------------------------------
+# Theme -- approximates your status-bar color palette
+# ---------------------------------------------------------------------------
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#fecb6e"   # your border_active_fg
+green  = "#95e6cb"   # your status_right_bg
+blue   = "#5ccfe6"   # your status_left_bg
+yellow = "#ffa759"   # your window_status_current_bg
+red    = "#f38ba8"
+
+# ---------------------------------------------------------------------------
+# Notifications (Herdr's replacement for tmux's visual-activity monitoring --
+# tells you when an agent finishes or gets blocked, instead of watching for
+# generic pane activity)
+# ---------------------------------------------------------------------------
+
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+# ---------------------------------------------------------------------------
+# Agent session restore (not in tmux at all -- resumes agent conversations
+# across a server restart, roughly analogous to how tmux persists shells,
+# but agent-aware)
+# ---------------------------------------------------------------------------
+
+[session]
+resume_agents_on_restore = true

@@ -158,6 +158,9 @@ in
         ".config/nvim" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
         };
+        ".config/herdr/config.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/.config/herdr/config.toml";
+        };
         ".config/containers" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
@@ -205,6 +208,7 @@ in
           netcat-gnu
           dotnet-aspnetcore
           exercism
+          herdr
           lsof
           mise
           harper
