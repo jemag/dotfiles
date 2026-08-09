@@ -103,7 +103,7 @@ description = "reload herdr config"
 [[keys.command]]
 key = "prefix+f"
 type = "popup"
-command = "sh -c 'herdr workspace list | fzf --reverse | xargs -r herdr workspace focus'"
+command = "~/.config/herdr/scripts/workspace-switch.sh"
 description = "fuzzy switch workspace"
 width = "70%"
 height = "60%"
