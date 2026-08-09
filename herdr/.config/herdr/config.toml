@@ -43,6 +43,7 @@ directory = "~/.herdr/worktrees"
 # Prefix is Ctrl-a, matching your tmux setup
 prefix = "ctrl+a"
 settings = "prefix+shift+s"
+detach = "prefix+d"
 
 # Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
 # Bound as arrays so both "prefix then h" and "prefix then ctrl+h" work,
