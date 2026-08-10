@@ -211,7 +211,7 @@ in
           netcat-gnu
           dotnet-aspnetcore
           exercism
-          herdr
+          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.herdr
           lsof
           mise
           harper
