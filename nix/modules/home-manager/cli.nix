@@ -287,8 +287,6 @@ in
           nushell
           nufmt
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
-          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
-          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.nanocoder
           tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
           parallel
           ripgrep
