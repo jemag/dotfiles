@@ -796,36 +796,54 @@ require("lazy").setup({
     cmd = { "NeoTypeStart" },
   },
   {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    -- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,
+    -- so `:ClaudeCode` and friends work on a fresh start. Without it, a keys-only
+    -- spec defers loading until a <leader>a* mapping is pressed and the commands
+    -- would not exist yet.
+    cmd = {
+      "ClaudeCode",
+      "ClaudeCodeFocus",
+      "ClaudeCodeSelectModel",
+      "ClaudeCodeAdd",
+      "ClaudeCodeSend",
+      "ClaudeCodeTreeAdd",
+      "ClaudeCodeStatus",
+      "ClaudeCodeStart",
+      "ClaudeCodeStop",
+      "ClaudeCodeOpen",
+      "ClaudeCodeClose",
+      "ClaudeCodeDiffAccept",
+      "ClaudeCodeDiffDeny",
+      "ClaudeCodeCloseAllDiffs",
+    },
+    keys = {
+      { "<localleader>a", nil, desc = "AI/Claude Code" },
+      { "<F10>", "<cmd>ClaudeCode<cr>",mode = {"n", "t"}, desc = "Toggle Claude" },
+      { "<localleader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<localleader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<localleader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<localleader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<localleader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<localleader>as", "<cmd>ClaudeCodeSend<cr>", mode = "x", desc = "Send to Claude" },
+      {
+        "<localleader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw", "snacks_picker_list" },
+      },
+      -- Diff management
+      { "<localleader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<localleader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+    },
+  },
+  {
     "sudo-tee/opencode.nvim",
     config = function()
       require("plugin-configs.sudo-opencode")
     end,
-  },
-  {
-    "olimorris/codecompanion.nvim",
-    config = function()
-      require("plugin-configs.codecompanion")
-    end,
-    lazy = true,
-    dependencies = {
-      "ravitemer/codecompanion-history.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    keys = {
-      {
-        "<F10>",
-        mode = { "n", "x", "i" },
-        "<Cmd>CodeCompanionChat toggle<CR>",
-        desc = "Toggle CodeCompanionChat",
-      },
-      {
-        mode = { "n", "x" },
-        "<leader>ac",
-        "<Cmd>CodeCompanionActions<CR>",
-        desc = "Toggle CodeCompanionActions",
-      },
-    },
   },
   {
     "ravitemer/mcphub.nvim",
