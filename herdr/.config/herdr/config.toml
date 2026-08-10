@@ -62,7 +62,6 @@ split_horizontal = "prefix+minus"
 # Tabs (closest match to tmux windows)
 previous_tab = ["prefix+p", "alt+h"]
 next_tab     = ["prefix+n", "alt+l"]
-switch_tab   = "prefix+1..9"   # your M-1..M-9 select-window, prefixed
                                  # NOTE: indexed jumps only document 1..9 -- your
                                  # tmux M-0 -> window 10 bind has no confirmed
                                  # equivalent here, check config reference
@@ -81,6 +80,7 @@ resize_mode = "prefix+r"
 copy_mode = "prefix+["
 
 # Workspace/session-level actions
+switch_workspace   = "prefix+1..9"   # your M-1..M-9 select-window, prefixed
 previous_workspace = "alt+k"
 next_workspace = "alt+j"
 new_workspace    = "prefix+shift+n"
