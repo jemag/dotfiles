@@ -46,6 +46,9 @@ settings = "prefix+shift+s"
 detach = "prefix+d"
 last_pane = "prefix+b"
 
+# Agents
+focus_agent = "alt+1..9"
+
 # Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
 # Bound as arrays so both "prefix then h" and "prefix then ctrl+h" work,
 # matching how your tmux config responded to either variant.
