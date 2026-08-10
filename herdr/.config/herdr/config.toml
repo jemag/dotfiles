@@ -169,7 +169,7 @@ height = "50%"
 [[keys.command]]
 key = "prefix+e"
 type = "popup"
-command = "sh -c 'herdr pane read $HERDR_ACTIVE_PANE_ID --source recent-unwrapped --lines 1000 > ~/herdr.history && ${EDITOR:-vi} ~/herdr.history'"
+command = '''sh -c "herdr pane read $HERDR_ACTIVE_PANE_ID --source recent-unwrapped --lines 1000 --format ansi > ~/herdr.history && nvim +'lua Snacks.terminal.colorize(); vim.opt.relativenumber=true' ~/herdr.history"'''
 description = "capture pane history"
 width = "85%"
 height = "85%"
