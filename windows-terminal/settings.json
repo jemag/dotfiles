@@ -40,6 +40,7 @@
   "profiles": {
     "defaults": {
       "colorScheme": "Ayu Mirage",
+      "padding": "1",
       "scrollbarState": "hidden",
       "font": {
         "face": "FiraMono Nerd Font",
