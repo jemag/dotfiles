@@ -187,6 +187,7 @@ red    = "#f38ba8"
 
 [ui]
 pane_gaps = false
+host_cursor = "native"
 
 # ---------------------------------------------------------------------------
 # Notifications (Herdr's replacement for tmux's visual-activity monitoring --
