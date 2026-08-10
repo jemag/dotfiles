@@ -90,6 +90,7 @@ goto             = "prefix+g"          # replaces your choose-tree AND fzf sessi
                                          # searchable picker, try this before
                                          # rebuilding the fzf popup below
 
+workspace_picker = "prefix+ctrl+w"
 # ---------------------------------------------------------------------------
 # Custom command keybindings
 # ---------------------------------------------------------------------------
@@ -147,6 +148,16 @@ key = "prefix+s"
 type = "popup"
 command = "~/.config/herdr/scripts/zoxide-workspace.sh"
 description = "fuzzy open zoxide directory"
+width = "60%"
+height = "50%"
+
+# Fuzzy tab switcher -- replaces fzf-tmux-window (bind w). A herdr tab is the
+# equivalent of a tmux window; the script lists tabs across every workspace.
+[[keys.command]]
+key = "prefix+w"
+type = "popup"
+command = "~/.config/herdr/scripts/tab-switch.sh"
+description = "fuzzy switch tab"
 width = "60%"
 height = "50%"
 
