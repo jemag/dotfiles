@@ -24,6 +24,18 @@
         "matcher": "*"
       }
     ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' working",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
     "PreCompact": [
       {
         "hooks": [

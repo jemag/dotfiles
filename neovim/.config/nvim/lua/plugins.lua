@@ -798,7 +798,10 @@ require("lazy").setup({
   {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
-    config = true,
+    config = function()
+      require("plugin-configs.claude")
+    end,
+    event = "VeryLazy",
     -- `cmd` lets lazy.nvim create command stubs that load the plugin on first use,
     -- so `:ClaudeCode` and friends work on a fresh start. Without it, a keys-only
     -- spec defers loading until a <leader>a* mapping is pressed and the commands
