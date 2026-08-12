@@ -16,6 +16,9 @@ require("conform").setup({
     lua = { "stylua" },
     sh = { "shfmt" },
     nu = { "nufmt" },
+    terraform = { "terraform_fmt" },
+    ["terraform-vars"] = { "terraform_fmt" },
+    hcl = { "terraform_fmt" },
   },
   formatters = {
     shfmt = {

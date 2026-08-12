@@ -1096,13 +1096,6 @@ require("lazy").setup({
     ft = { "helm" },
   },
   {
-    "hashivim/vim-terraform",
-    config = function()
-      require("plugin-configs.vim-terraform")
-    end,
-    ft = { "tf", "tfvars", "hcl" },
-  },
-  {
     "fei6409/log-highlight.nvim",
     ft = "log",
     config = function()
