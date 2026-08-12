@@ -3,4 +3,5 @@
   javaLspScript = import ./java-lsp-script.nix { inherit pkgs; };
   opencode-model-router = import ./opencode-model-router.nix { inherit pkgs; };
   tcping = import ./tcping.nix { inherit pkgs; };
+  terragrunt-ls = import ./terragrunt-ls.nix { inherit pkgs; };
 }

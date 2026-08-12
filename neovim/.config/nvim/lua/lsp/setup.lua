@@ -63,6 +63,7 @@ local function enable_lsp_servers()
     "rust_analyzer",
     "solargraph",
     "terraformls",
+    "terragrunt_ls",
     "tinymist",
     "ts_ls",
     "vimls",
