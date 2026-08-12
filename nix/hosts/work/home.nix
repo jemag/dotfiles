@@ -52,6 +52,7 @@ in
       cyclonedx-cli
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli
+      prometheus-alertmanager
       postgresql
       syft
       oras
