@@ -125,12 +125,6 @@ in
       ".tmux.conf" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux-wsl/.tmux.conf";
       };
-      ".claude/keybindings.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/keybindings.json";
-      };
-      ".claude/settings.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/settings.json";
-      };
     };
 
     # Home Manager can also manage your environment variables through

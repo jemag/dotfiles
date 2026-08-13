@@ -173,6 +173,17 @@ in
         ".config/opencode" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
         };
+        ".claude/keybindings.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/keybindings.json";
+        };
+        ".claude/settings.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/settings.json";
+        };
+        # Shared agent skills: Claude Code reads ~/.claude/skills natively, and
+        # opencode discovers the same path via its Claude Code compat scope.
+        ".claude/skills" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/agent-skills/skills";
+        };
         ".config/nushell/config.nu" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
         };
