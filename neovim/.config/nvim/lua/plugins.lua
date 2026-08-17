@@ -797,6 +797,7 @@ require("lazy").setup({
   },
   {
     "coder/claudecode.nvim",
+    enabled = vim.fn.getenv("WSL_INTEROP") ~= vim.NIL,
     dependencies = { "folke/snacks.nvim" },
     config = function()
       require("plugin-configs.claude")
@@ -824,7 +825,7 @@ require("lazy").setup({
     },
     keys = {
       { "<localleader>a", nil, desc = "AI/Claude Code" },
-      { "<F10>", "<cmd>ClaudeCode<cr>",mode = {"n", "t"}, desc = "Toggle Claude" },
+      { "<F10>", "<cmd>ClaudeCode<cr>", mode = { "n", "t" }, desc = "Toggle Claude" },
       { "<localleader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
       { "<localleader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
       { "<localleader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
