@@ -10,7 +10,7 @@ This type is intentionally broad. Adapt the axes to the community kind. Not all 
 
 ## Step 2 axes — Community profile and size
 
-Fan out these 4 axes as sub-agents in a single message:
+Fan out these 4 axes as parallel sub-agents:
 
 | Agent | Axis | Key questions |
 | --- | --- | --- |

@@ -31,3 +31,6 @@ export PATH=$PATH:/home/jemag/.local/bin
 export PATH=$PATH:/home/jemag/.yarn/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export KUBECTL_EXTERNAL_DIFF="difft --color=always"
+# Enables opencode's built-in `websearch` tool (Exa-backed, no API key required).
+# Without this, websearch is only registered for the first-party `opencode` provider.
+export OPENCODE_ENABLE_EXA=1

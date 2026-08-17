@@ -1,9 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "github-copilot/claude-sonnet-4.5",
-  "plugin": [
-    "/home/jemag/.local/share/opencode-plugins/opencode-model-router"
-  ],
+  // "model": "github-copilot/claude-opus-4.6",
+  // "plugin": [
+  //   "/home/jemag/.local/share/opencode-plugins/opencode-model-router"
+  // ],
+  // Prompt before each websearch call. Queries are model-composed and leave the
+  // machine for Exa's hosted MCP service, so they are worth eyeballing.
+  // Set to "allow" to stop prompting once comfortable.
+  "permission": {
+    "websearch": "ask"
+  },
   "mcp": {
     "drawio": {
       "type": "local",

@@ -6,7 +6,7 @@ The axes below are a starting point — include any additional relevant findings
 
 ## Step 2 axes — Core market research
 
-Fan out these 4 axes as sub-agents in a single message:
+Fan out these 4 axes as parallel sub-agents:
 
 | Agent | Axis | Key questions |
 | --- | --- | --- |

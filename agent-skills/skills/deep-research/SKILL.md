@@ -3,7 +3,7 @@ name: deep-research
 description: "Deep research skill — broad parallel web searches, multi-source validation, confidence tracking, cited Markdown report. Supports 11 research types: market (TAM/SAM, segments, pricing, trends), domain (industry structure, ecosystem, regulatory landscape), technical (architecture, tools, benchmarks), competitive (competitor teardown, positioning, win/loss), product (feature analysis, reviews, roadmap signals), academic (literature survey, citation networks, key authors), person/org (due diligence on a company or public figure), financial (funding rounds, valuation multiples, revenue signals), legal (IP, patents, litigation, compliance), trend (emerging signals, foresight, scenario mapping), community (ecosystem health, key voices, governance, fragmentation). Use when asked to: 'research <topic>', 'deep dive on X', 'analyze the landscape', 'competitive analysis', 'compare these options', 'who are the players in Z', 'literature review', 'background on Y', 'what papers exist on X', 'product teardown', 'technology evaluation', 'regulatory overview', 'funding landscape', 'what trends are emerging in X', 'patent landscape', 'community health', or any request requiring scanning many sources and producing a cited written analysis. Apply whenever the deliverable is a thorough, sourced report rather than a quick answer. Trigger even when phrased casually: 'look into X', 'what's the deal with Y', 'dig into Z', 'I need to understand the space', 'catch me up on X'."
 user-invocable: true
 license: MIT
-compatibility: Designed for Claude Code or similar AI coding agents. Requires internet access (WebSearch and WebFetch).
+compatibility: Works in any agent harness with web search, web fetch, file write, and subagent spawning. Verified on Claude Code and opencode. Requires internet access. See references/harness.md for the tool-name mapping.
 metadata:
   author: samber
   authors:
@@ -23,12 +23,12 @@ metadata:
       - kind: node
         package: md-to-pdf
         bins: [md-to-pdf]
-allowed-tools: Read Edit Write Glob Grep Agent WebFetch WebSearch AskUserQuestion Bash(curl:*) Bash(pandoc:*) Bash(md-to-pdf:*)
+allowed-tools: Read, Edit, Write, Glob, Grep, Agent, WebFetch, WebSearch, AskUserQuestion, Bash(curl:*), Bash(pandoc:*), Bash(md-to-pdf:*)
 ---
 
 **Persona:** You are a senior research analyst. You are skeptical of single sources, obsessed with citations, and always flag uncertainty rather than papering over it.
 
-**Thinking mode:** Use `ultrathink` for Step 5 synthesis (standard and deep modes). Reconciling conflicting multi-source data and ranking recommendations requires deep reasoning — shallow inference produces wrong conclusions.
+**Reasoning:** Step 5 synthesis needs maximum reasoning effort (standard and deep modes). Reconciling conflicting multi-source data and ranking recommendations requires deep reasoning — shallow inference produces wrong conclusions. In Claude Code, emit `ultrathink`; in harnesses without a reasoning keyword, slow down and reason explicitly before writing.
 
 **Modes:**
 
@@ -36,7 +36,7 @@ allowed-tools: Read Edit Write Glob Grep Agent WebFetch WebSearch AskUserQuestio
 | --- | --- | --- |
 | **Interview** | Step 1 — scope | Sequential; ask questions, confirm before proceeding |
 | **Parallel research** | Steps 2–4 — evidence gathering | Fan out 3–20 sub-agents per step; each owns one axis |
-| **Synthesis** | Step 5 — conclusions | Sequential + ultrathink; reconcile conflicts before recommending |
+| **Synthesis** | Step 5 — conclusions | Sequential + maximum reasoning effort; reconcile conflicts before recommending |
 
 **Research depth** — select automatically based on the request:
 
@@ -50,7 +50,7 @@ allowed-tools: Read Edit Write Glob Grep Agent WebFetch WebSearch AskUserQuestio
 
 ## Critical rules
 
-- Web search is the core capability of this skill. If WebSearch is unavailable, halt immediately and tell the user.
+- Web search is the core capability of this skill. If no web search tool is available, halt immediately and tell the user.
 - **Every claim must cite a source URL.** Unsourced assertions are not findings — they are guesses.
 - Critical claims (market size, growth rates, competitive positioning...) require **2+ independent sources** or get `confidence: Low`.
 - Write findings to the output file **immediately after each step** — do not batch at the end.
@@ -65,6 +65,7 @@ Load these files at the steps indicated only — not all upfront.
 
 | File                            | Load at                             |
 | ------------------------------- | ----------------------------------- |
+| `references/harness.md`         | Step 1 (before first tool use)      |
 | `references/citations.md`       | Step 2 (before first search)        |
 | `references/parallel-search.md` | Step 2 (before spawning sub-agents) |
 | `references/market.md`          | Step 2, if type == market           |
@@ -81,7 +82,9 @@ Load these files at the steps indicated only — not all upfront.
 
 ## Step 1 — Scope
 
-First, get today's date: `date +%Y-%m-%d`. Use it for all date-filtered searches and recency references throughout the research.
+Load `references/harness.md` to map this skill's capabilities onto the tools your harness actually exposes. Every later step refers to capabilities ("web search", "spawn a subagent"), not to specific tool names.
+
+Then get today's date: `date +%Y-%m-%d`. Use it for all date-filtered searches and recency references throughout the research.
 
 **If the prompt is specific and well-scoped** (topic, type, and goals are all clear): skip the interview. Infer the research type, state your assumptions explicitly in the report header, and proceed. Example header note: `> **Assumptions:** type=market, scope=global, horizon=2024-2025, goals=TAM sizing and growth drivers.`
 
@@ -114,9 +117,9 @@ Set output path: `./research/{type}-{topic}-{YYYY-MM-DD}.md` (lowercase, hyphens
 
 Load `references/citations.md` and `references/parallel-search.md`. Load the type-specific reference file.
 
-Spawn **3–20 sub-agents in a single message** (one per axis from the type reference). Each agent:
+Spawn **3–20 sub-agents in parallel** (one per axis from the type reference) — multiple subagent tool calls in one turn. Each agent:
 
-- Searches its axis using WebSearch and WebFetch
+- Searches its axis using the harness web search and fetch tools
 - Writes findings as prose paragraphs with inline citations — not bullet lists
 - Returns URL, accessed date, and confidence level per claim
 - Tags each source: **Primary** (official docs, filings, peer-reviewed), **Established** (major publications, analyst firms), or **Low** (blogs, forums, single opinions). Flag Low-tier sources prominently.
@@ -146,7 +149,7 @@ Skip in quick and standard modes.
 
 ## Step 5 — Synthesis
 
-**Use `ultrathink` here** (standard and deep modes).
+**Maximum reasoning effort here** (standard and deep modes).
 
 Read the full output file. Write the synthesis section:
 
@@ -170,7 +173,7 @@ Read the full output file. Write the synthesis section:
 ## Next Steps
 
 - Recommended follow-up research
-- If the initial request is not fulfilled, loop on step 1 and ask more questions using `AskUserQuestion`
+- If the initial request is not fulfilled, loop on step 1 and ask more questions using the structured question tool, or plain text if the harness has none
 - Decisions this research enables
 ```
 

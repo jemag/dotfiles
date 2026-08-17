@@ -89,7 +89,7 @@
       "expected_output": "The report attempts to download the IPCC AR6 PDF via curl, cites specific chapters and sections (not just 'the IPCC says'), includes precise figures with chapter-level attribution, and goes beyond training data paraphrasing with direct URL references to the official ipcc.ch documents.",
       "files": [],
       "assertions": [
-        { "id": "6.1", "description": "attempts to download or fetch the IPCC AR6 document via curl or WebFetch rather than relying on training data" },
+        { "id": "6.1", "description": "attempts to download or fetch the IPCC AR6 document via curl or the harness fetch tool rather than relying on training data" },
         { "id": "6.2", "description": "cites specific chapters and sections of AR6 rather than attributing everything to 'the IPCC'" },
         { "id": "6.3", "description": "includes precise numeric figures with chapter-level attribution" },
         { "id": "6.4", "description": "references official ipcc.ch URLs rather than only secondary sources" },

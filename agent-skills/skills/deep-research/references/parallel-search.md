@@ -27,7 +27,7 @@ You are a research analyst. Your task: research one specific axis of a larger st
 **Geographic/time constraints:** {any from scope interview, or "none"}
 
 Instructions:
-1. Run web searches using WebSearch and WebFetch to find relevant sources.
+1. Run web searches using your harness's web search and fetch tools to find relevant sources.
 2. For each finding, note the source URL, access date, and confidence level (High/Medium/Low per the ladder below).
 3. Tag each source: **Primary** (official docs, government filings, peer-reviewed papers), **Established** (major publications, analyst firms with editorial process), or **Low** (blogs, forums, single opinions). Flag Low-tier sources visibly.
 4. Critical claims (numbers, market share, projections) need 2+ sources or get confidence: Low.
@@ -56,8 +56,10 @@ Output format:
 
 ## Choosing agent type
 
-- Use **`general-purpose`** for broad search + synthesis work (most research axes).
-- Use **`Explore`** only when the axis is about exploring an existing local codebase or file set — not for web research.
+Subagent type names differ per harness — see `references/harness.md`.
+
+- Use the **broad-research** type (`general-purpose` in Claude Code, `general` in opencode) for search + synthesis work — most research axes.
+- Use the **codebase-exploration** type (`Explore` / `explore`) only when the axis is about exploring an existing local codebase or file set — not for web research.
 
 ## Handling completions
 
