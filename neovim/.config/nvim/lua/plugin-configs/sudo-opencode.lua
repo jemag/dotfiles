@@ -8,7 +8,7 @@ require("opencode").setup({
   opencode_executable = "opencode", -- Name of your opencode binary
   keymap = {
     editor = {
-      -- ["<f11>"] = { "toggle", mode = { "n", "i" } }, -- Open opencode. Close if opened
+      ["<f11>"] = { "toggle", mode = { "n", "i" } }, -- Open opencode. Close if opened
       -- ["<localleader>oi"] = { "open_input" }, -- Opens and focuses on input window on insert mode
       -- ["<localleader>oI"] = { "open_input_new_session" }, -- Opens and focuses on input window on insert mode. Creates a new session
       -- ["<localleader>oo"] = { "open_output" }, -- Opens and focuses on output window
