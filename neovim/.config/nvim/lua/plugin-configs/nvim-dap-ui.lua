@@ -64,6 +64,15 @@ local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open({})
 end
+-- A failed launch (e.g. a Go build error) never emits `initialized`, so the UI
+-- would stay closed and the adapter's error output would be lost. Open it as
+-- soon as anything is written to stderr/console so the `console` element is
+-- visible with the actual failure details.
+dap.listeners.after.event_output["dapui_config"] = function(_, body)
+  if body and (body.category == "stderr" or body.category == "console") then
+    dapui.open({})
+  end
+end
 dap.listeners.before.event_terminated["dapui_config"] = function()
   dapui.close({})
 end

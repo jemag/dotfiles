@@ -65,6 +65,13 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>dE", "<cmd>lua require('dap.ui.widgets').hover()<CR>", { desc = "Eval expression", buffer = bufnr })
   vim.keymap.set("n", "<leader>de", "<cmd>lua require('dapui').eval()<CR>", { desc = "Dap ui eval", buffer = bufnr })
   vim.keymap.set("n", "<leader>dt", "<cmd>lua require('dapui').toggle({reset = true})<CR>", { desc = "Toggle dap ui", buffer = bufnr })
+  if vim.bo[bufnr].filetype == "go" then
+    -- Derives `program` from the enclosing package directory via treesitter,
+    -- so it is always a valid `mode = "test"` target.
+    vim.keymap.set("n", "<leader>dT", function()
+      require("dap-go").debug_test()
+    end, { desc = "Debug nearest test", buffer = bufnr })
+  end
   vim.keymap.set(
     "n",
     "<leader>dv",
