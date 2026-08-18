@@ -1,7 +1,7 @@
 typeset -U path
 # export JAVA_HOME=/usr/lib/jvm/default
 export EDITOR=nvim
-export OBSIDIAN_VAULT="/mnt/c/Users/brassarddesjardinsa/OneDrive - DFO-MPO/Obsidian"
+export OBSIDIAN_VAULT="/home/jemag/obsidian"
 export NXV_API_URL=https://nxv.urandom.io
 export GIT_EDITOR=nvim
 export VISUAL=nvim
