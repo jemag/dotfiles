@@ -90,7 +90,7 @@ require("lazy").setup({
     opts = {},
     ft = { "terraform", "tf", "tfvars", "hcl" },
     keys = {
-      { "<localleader>dtc", "<cmd>TerraformDocOpen<cr>", desc = "Cursor terraform docs" },
+      { "<localleader>dtC", "<cmd>TerraformDocOpen<cr>", desc = "Cursor terraform docs" },
     },
   },
   {

@@ -29,6 +29,23 @@ require("tf-docs").setup({
   providers = provider_list,
 })
 
+-- Workaround for https://github.com/cablecreek/tf-docs.nvim/issues/6
+-- TFDocsUnderCursor relies on <cword>, which honours 'iskeyword'. Since we drop
+-- "_" from iskeyword globally (settings.lua), "aws_key_pair" is truncated to a
+-- single segment and the lookup fails. Restore "_" for the duration of the call.
+local cursor = require("tf-docs.cursor")
+local orig_lookup = cursor.lookup
+cursor.lookup = function(...)
+  local saved = vim.bo.iskeyword
+  vim.bo.iskeyword = saved .. ",_"
+  local ok, err = pcall(orig_lookup, ...)
+  vim.bo.iskeyword = saved
+  if not ok then
+    error(err)
+  end
+end
+vim.keymap.set("n", "<localleader>dtc", "<cmd>TFDocsUnderCursor<cr>", { desc = "Terraform local docs under cursor" })
+
 local snacks = require("snacks")
 vim.keymap.set("n", "<localleader>dtd", function()
   snacks.picker({
@@ -39,4 +56,4 @@ vim.keymap.set("n", "<localleader>dtd", function()
       vim.cmd("TFDocs " .. item.value)
     end,
   })
-end, { desc = "Terraform provider docs" })
+end, { desc = "Terraform local provider docs" })
