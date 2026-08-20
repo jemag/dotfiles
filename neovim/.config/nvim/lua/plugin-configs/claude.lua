@@ -1,4 +1,8 @@
-require("claudecode").setup({})
+require("claudecode").setup({
+  terminal = {
+    split_width_percentage = 0.40
+  },
+})
 
 -- Release the herdr agent that claude-code/.claude/hooks/herdr-claude-shim.sh
 -- reports for a claude session running in one of our terminal buffers. That shim
