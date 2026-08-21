@@ -178,13 +178,18 @@ local function transact(ps)
 end
 
 local function copy_via_powershell(text)
-  local b64 = vim.base64.encode(text)
-  local response = transact(
-    "$t = [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('"
-      .. b64
-      .. "')); if ($t.Length -gt 0) { Set-Clipboard -Value $t }"
-  )
-  if response == nil then
+  local ps
+  if #text == 0 then
+    -- Set-Clipboard rejects an empty string ("Value cannot be null"), but $null
+    -- clears cleanly. Measured: both throw-and-clear and clear-quietly exist; this
+    -- is the variant that clears without raising.
+    ps = "Set-Clipboard -Value $null"
+  else
+    ps = "$t = [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('"
+      .. vim.base64.encode(text)
+      .. "')); Set-Clipboard -Value $t"
+  end
+  if transact(ps) == nil then
     vim.notify(("winclip: failed to copy %d bytes"):format(#text), vim.log.levels.WARN)
   end
 end
@@ -192,6 +197,14 @@ end
 function M.copy(lines)
   -- Windows apps expect CRLF; clipipe did this conversion in Rust.
   local text = table.concat(lines, "\r\n")
+
+  -- Clearing the clipboard has to go through the helper: an empty OSC 52 payload
+  -- is silently ignored by herdr/Windows Terminal (measured), which would leave the
+  -- previous contents in place and make a later paste return stale data.
+  if #text == 0 then
+    copy_via_powershell(text)
+    return
+  end
 
   -- Headless nvim has no UI, so nvim_ui_send goes nowhere.
   local has_ui = #vim.api.nvim_list_uis() > 0
