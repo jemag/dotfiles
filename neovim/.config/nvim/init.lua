@@ -21,6 +21,7 @@ require("plugins")
 require("keybindings")
 require("globals")
 require("marks")
+require("winclip")
 
 vim.opt.exrc = true
 vim.opt.secure = true
