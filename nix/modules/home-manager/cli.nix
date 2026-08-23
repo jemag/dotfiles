@@ -182,7 +182,10 @@ in
         # Shared agent skills: Claude Code reads ~/.claude/skills natively, and
         # opencode discovers the same path via its Claude Code compat scope.
         ".claude/skills" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/agent-skills/skills";
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ai-agents/skills";
+        };
+        ".claude/output-styles" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ai-agents/claude/output-styles";
         };
         ".config/nushell/config.nu" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
