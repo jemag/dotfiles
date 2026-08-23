@@ -177,10 +177,6 @@ height = "85%"
 # ---------------------------------------------------------------------------
 # Theme -- approximates your status-bar color palette
 # ---------------------------------------------------------------------------
-
-[theme]
-name = "ayu-mirage"
-
 [theme.custom]
 accent = "#fecb6e"   # your border_active_fg
 green  = "#95e6cb"   # your status_right_bg
