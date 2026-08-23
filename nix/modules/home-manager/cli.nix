@@ -170,8 +170,14 @@ in
         ".config/harper-ls" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
         };
-        ".config/opencode" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode";
+        ".config/opencode/agents" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/agents";
+        };
+        ".config/opencode/opencode.jsonc" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/opencode.jsonc";
+        };
+        ".config/opencode/tui.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/tui.json";
         };
         ".claude/keybindings.json" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/keybindings.json";
