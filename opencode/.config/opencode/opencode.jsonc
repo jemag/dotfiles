@@ -10,6 +10,31 @@
   "permission": {
     "websearch": "ask"
   },
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama-server (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        "unsloth/gemma-4-12b-it-GGUF:UD-Q6_K_XL": {
+          "name": "unsloth/gemma-4-12b-it-GGUF:UD-Q6_K_XL",
+          "limit": {
+            "context": 128000,
+            "output": 65536
+          }
+        },
+        "unsloth/gemma-4-E4B-it-GGUF:Q8_0": {
+          "name": "unsloth/gemma-4-E4B-it-GGUF:Q8_0",
+          "limit": {
+            "context": 128000,
+            "output": 65536
+          }
+        }
+      }
+    }
+  },
   "mcp": {
     "drawio": {
       "type": "local",
