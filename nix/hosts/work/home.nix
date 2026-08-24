@@ -44,6 +44,7 @@ in
     # environment.
     packages = with pkgs; [
       argocd
+      argonaut
       (pkgs-c06b4ae3.azure-cli.withExtensions [
         pkgs-c06b4ae3.azure-cli.extensions.azure-devops
         pkgs-c06b4ae3.azure-cli.extensions.fzf

@@ -123,6 +123,34 @@ tfs() {
 '
 }
 
+# argonaut reads the argocd token from ~/.config/argocd/config once at startup and never
+# refreshes it, while Entra ID id_tokens only live 65 min. Refresh every context before
+# launching, since argonaut can switch contexts from inside the TUI.
+argonaut() {
+  local contexts cur name_list ctx rc=0
+  local -a names
+  contexts=$(command argocd context) || return 1
+  cur=$(awk '$1 == "*" { print $(NF - 1) }' <<< "$contexts")
+  name_list=$(awk 'NR > 1 { print $(NF - 1) }' <<< "$contexts")
+  names=(${(f)name_list})
+  if (( ${#names} == 0 )); then
+    echo "argonaut: no argocd contexts - run 'ac login <server> --sso --grpc-web'" >&2
+    return 1
+  fi
+  for ctx in $names; do
+    command argocd account session-token --argocd-context "$ctx" > /dev/null && continue
+    echo "argonaut: token refresh failed for context $ctx" >&2
+    if [[ "$ctx" == "$cur" ]]; then
+      rc=1
+    fi
+  done
+  if (( rc )); then
+    echo "argonaut: run 'ac login $cur --sso --grpc-web' to re-authenticate" >&2
+    return 1
+  fi
+  command argonaut "$@"
+}
+
 alias g="git"
 alias tmuxa="tmux attach -t"
 alias ..="cd .."
