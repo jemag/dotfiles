@@ -24,7 +24,15 @@ in
     #config contents
 
     programs = {
-
+      nh = {
+        enable = true;
+        homeFlake = "${config.home.homeDirectory}/dotfiles/nix";
+        clean = {
+          enable = true;
+          dates = "weekly";
+          extraArgs = "--keep 3 --keep-since 7d --optimise";
+        };
+      };
       neovim = {
         enable = true;
         sideloadInitLua = true;
@@ -295,7 +303,6 @@ in
           manix # search nix options
           mermaid-cli
           mkcert
-          nh
           netmask
           nix-health # check health of nix installation
           nix-search-cli # search nixpkgs
