@@ -193,6 +193,11 @@ in
         ".claude/settings.json" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/settings.json";
         };
+        # Global user memory. Claude-specific, so it stays out of ai-agents/
+        # (opencode reads AGENTS.md, not CLAUDE.md).
+        ".claude/CLAUDE.md" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/CLAUDE.md";
+        };
         # Shared agent skills: Claude Code reads ~/.claude/skills natively, and
         # opencode discovers the same path via its Claude Code compat scope.
         ".claude/skills" = {
