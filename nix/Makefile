@@ -10,6 +10,15 @@ update:
 switch:
 		nh home switch . --show-activation-logs
 
+# build current nixos system setup
+.PHONY: os
+os:
+		nh os switch . --show-activation-logs
+
+# system then home
+.PHONY: all
+all: os switch
+
 .PHONY: news
 news:
 		home-manager news --flake .

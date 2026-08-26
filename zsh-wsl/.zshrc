@@ -102,8 +102,6 @@ alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-windo
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
-alias mirrorback="sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
-alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vifm="vifmrun"
 
 tk() {
@@ -164,13 +162,9 @@ alias ku="kustomize"
 alias vd="viddy "
 alias xo="xdg-open "
 alias psa="ps auxf"
-alias faur="paru -Slq | fzf -m --preview 'cat <(paru -Si {1}) <(paru -Fl {1} | awk \"{print $2}\")' | xargs -ro paru -S"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias psmem="ps auxf | sort -nr -k 4"
 alias pscpu="ps auxf | sort -nr -k 3"
-alias pacu="sudo pacman -Syu"                  # update only standard pkgs
-alias yaya="yay -Syu --aur --sudoloop"              # update only AUR pkgs (yay)
-alias parua="paru -Syua --sudoloop"             # update only AUR pkgs (paru)
 alias ap='apropos -s 1 . | fzf --preview='\''man {1}'\'' --preview-window=up | awk '\''{print $1}'\'' | xargs man'
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
@@ -408,8 +402,6 @@ export JSONNET_PATH="lib/:vendor/"
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
   export DISPLAY=':0'
-  export LIBGL_ALWAYS_INDIRECT=1
-  export $(dbus-launch)
   # export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
   # source <(velero completion zsh)
   # source <(argo completion zsh)
@@ -434,7 +426,6 @@ preexec () {
   echo -n "\\x1b]133;A\\x1b\\"
 }
 eval "$(zoxide init zsh)"
-export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 stty -ixon
 

@@ -117,9 +117,6 @@ in
       ".config/zsh" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh-wsl/.config/zsh";
       };
-      ".config/paru" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/paru/.config/paru";
-      };
       ".config/powershell" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/powershell/.config/powershell";
       };
@@ -161,6 +158,12 @@ in
       ln -sf "${config.home.homeDirectory}/dotfiles/opencode/opencode-model-router-tiers.json" "$PLUGIN_DIR/tiers.json"
     '';
   };
+
+  # Arch started this from its own ssh-agent.socket systemd preset; NixOS has no
+  # such preset. Socket is $XDG_RUNTIME_DIR/ssh-agent (no .socket suffix) and
+  # zsh-wsl/.zshenv exports it - HM's shell integration cannot, since zsh here is
+  # an out-of-store symlink rather than HM-managed.
+  services.ssh-agent.enable = true;
 
   programs = {
     # Let Home Manager install and manage itself.
