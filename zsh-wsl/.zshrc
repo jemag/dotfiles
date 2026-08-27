@@ -8,10 +8,13 @@ fi
 
 if [[ ! -f "${ZINIT_HOME}/zinit.zsh" ]]; then
     ZINIT_LOCK="${ZINIT_HOME}.lock"
+    # The lock sits beside ZINIT_HOME, so its parent has to exist before `mkdir`
+    # (no -p) can take the lock. On a fresh $HOME it does not: the lock silently
+    # fails, the wait loop below exits immediately, and zinit is never cloned.
+    mkdir -p "${ZINIT_HOME:h}"
     if mkdir "$ZINIT_LOCK" 2>/dev/null; then
         # Got the lock - do the clone
         rm -rf "$ZINIT_HOME"
-        mkdir -p "$(dirname $ZINIT_HOME)"
         git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && sync
         rmdir "$ZINIT_LOCK" 2>/dev/null
     else
