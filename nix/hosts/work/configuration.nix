@@ -65,6 +65,14 @@
   hardware.graphics.enable = lib.mkForce false;
 
   environment.systemPackages = with pkgs; [
+    dnsmasq
+    killall
+    gnumake
+    gcc
+    autoconf
+    automake
+    libtool
+    wget
     wsl-open # BROWSER in zsh-wsl/.zshenv, `wo` alias; replaces the removed wslu
     cifs-utils # was an explicit pacman package; for `sudo mount -t cifs`
     dotnet-sdk # Arch had dotnet-sdk; cli.nix only carries dotnet-aspnetcore
