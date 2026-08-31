@@ -19,3 +19,5 @@ vim.keymap.set({ "n" }, "<leader>das", function()
   require("osv").stop()
 end, { desc = "Stop lua adapter" })
 
+-- Go adapter + configurations (formerly provided by leoluz/nvim-dap-go).
+require("plugin-configs.dap-go")

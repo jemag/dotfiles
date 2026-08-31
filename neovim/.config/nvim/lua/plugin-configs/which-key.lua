@@ -48,6 +48,7 @@ wk.add({
     { "<localleader>m", group = "+misc" },
     { "<localleader>n", group = "+neotest" },
     { "<localleader>nr", group = "+neotest run" },
+    { "<localleader>nw", group = "+neotest watch" },
     { "<localleader>ms", group = "+schema" },
     { "<localleader>mp", group = "+paste image" },
     { "<localleader>p", group = "+project/session" },
