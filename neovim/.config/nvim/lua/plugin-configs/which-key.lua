@@ -13,7 +13,6 @@ wk.add({
     { "<leader>d", group = "+debug" },
     { "<leader>dd", group = "+debug print" },
     { "<leader>da", group = "+lua adapter" },
-    { "<leader>ds", group = "+telescope" },
     { "<leader>f", group = "+format" },
     { "<leader>g", group = "+git" },
     { "<leader>gd", group = "+git diff" },

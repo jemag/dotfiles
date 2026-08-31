@@ -82,11 +82,6 @@ local function map_keys(client, bufnr)
   vim.keymap.set("n", "<leader>di", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Step into", buffer = bufnr })
   vim.keymap.set("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Step out", buffer = bufnr })
   vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Toggle breakpoint", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsc", "<cmd>Telescope dap commands<CR>", { desc = "Dap commands", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsC", "<cmd>Telescope dap configurations<CR>", { desc = "Dap configurations", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsf", "<cmd>Telescope dap frames<CR>", { desc = "Dap frames", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsl", "<cmd>Telescope dap list_breakpoints<CR>", { desc = "List breakpoints", buffer = bufnr })
-  vim.keymap.set("n", "<leader>dsv", "<cmd>Telescope dap variables<CR>", { desc = "Dap variables", buffer = bufnr })
   vim.keymap.set(
     "n",
     "<leader>dB",
