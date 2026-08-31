@@ -1,0 +1,99 @@
+#!/usr/bin/env zsh
+# tgs - summarize a saved terragrunt/terraform plan.
+#
+# Terragrunt runs tofu/terraform inside .terragrunt-cache/<hash>/<hash>/, so a
+# `-out=tfplan` plan lands there rather than in the unit dir, and `show -json`
+# only works from that same dir (the provider schemas it needs live in that
+# dir's .terraform). This finds every matching plan under $PWD, keeps the newest
+# one per unit, and summarizes each - so `run --all` is covered too.
+
+emulate -L zsh
+setopt pipefail
+
+usage() {
+  cat <<'EOF'
+tgs - summarize saved terragrunt/terraform plans
+
+usage: tgs [plan-name | plan-path]
+
+Finds every matching plan file under the current directory - including the ones
+terragrunt hides in .terragrunt-cache/<hash>/<hash>/ - keeps the newest one per
+unit, and prints "action: address" for every changing resource.
+
+  tgs                   # every 'tfplan' under $PWD (single unit or run --all)
+  tgs aks-tfplan        # a different plan name
+  tgs foo/bar/tfplan    # one specific plan file
+
+env:
+  TG_PLAN_FILE   default plan name (default: tfplan)
+  TG_TF_PATH     tofu/terraform binary (default: tofu if present, else terraform)
+
+generating plans:
+  terragrunt plan -out=tfplan
+  terragrunt run --all plan --json-out-dir "$PWD/.tgplans"
+    ^ writes JSON plans outside the cache; no `show` needed to read them back.
+EOF
+}
+
+[[ "$1" == (-h|--help) ]] && { usage; exit 0 }
+
+typeset name="${1:-${TG_PLAN_FILE:-tfplan}}"
+typeset tf="${TG_TF_PATH:-$(command -v tofu || command -v terraform)}"
+typeset -A newest
+typeset f unit
+typeset -i rc=0
+
+if [[ -z "$tf" ]]; then
+  print -u2 "tgs: no tofu or terraform on PATH (set TG_TF_PATH)"
+  exit 1
+fi
+
+# "action: address" for every changing resource in a JSON plan read on stdin.
+changes() {
+  jq -r '
+  .resource_changes[] |
+  select(.change.actions != ["no-op"]) |
+  "\(.change.actions | join(",")): \(.address)"
+'
+}
+
+header() {
+  if [[ -t 1 ]]; then print -P "%F{cyan}==> $1%f"; else print "==> $1"; fi
+}
+
+if [[ -f "$name" ]]; then
+  newest[${name:h}]="$name"
+else
+  # .terragrunt-cache is hidden and gitignored, hence --hidden --no-ignore.
+  # Cache dirs accumulate stale plans, so keep only the newest per unit.
+  for f in ${(f)"$(fd --hidden --no-ignore --type f "^${name}"'(\.json)?$' . 2>/dev/null)"}; do
+    unit="${f%%/.terragrunt-cache/*}"
+    # not under a cache dir (e.g. a --json-out-dir tree): label it by its own dir
+    [[ "$unit" == "$f" ]] && unit="${f:h}"
+    if [[ -z "${newest[$unit]}" || "$f" -nt "${newest[$unit]}" ]]; then
+      newest[$unit]="$f"
+    fi
+  done
+fi
+
+if (( ${#newest} == 0 )); then
+  print -u2 "tgs: no '${name}' plan found under $PWD"
+  print -u2 "hint: terragrunt plan -out=${name}"
+  print -u2 "      terragrunt run --all plan --json-out-dir \"\$PWD/.tgplans\""
+  exit 1
+fi
+
+for unit in ${(ko)newest}; do
+  f="${newest[$unit]}"
+  (( ${#newest} > 1 )) && header "$unit"
+  if [[ "$f" == *.json || "$(head -c 1 -- "$f")" == "{" ]]; then
+    changes < "$f" || rc=1              # already JSON (--json-out-dir)
+  else
+    ( cd "${f:h}" && "$tf" show -json "${f:t}" ) | changes || {
+      rc=1
+      print -u2 "tgs: could not read ${f} - if it came from --out-dir, re-plan with --json-out-dir"
+    }
+  fi
+done
+
+exit $rc
