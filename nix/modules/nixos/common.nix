@@ -14,10 +14,24 @@
     auto-optimise-store = true;
   };
 
-  nix.gc = {
-    automatic = true;
+  # Generation-count retention, which nix.gc cannot express: it feeds
+  # nix-collect-garbage, which only offers age-based --delete-older-than.
+  #
+  # This is the nixpkgs NixOS module, not the home-manager module of the same
+  # name: it creates the root-run nh-clean.service, so unlike cli.nix's
+  # `nh clean user` it also prunes /nix/var/nix/profiles/system.
+  #
+  # programs.nh.enable is deliberately left off - clean.enable is gated
+  # independently of it, so no second nh lands on PATH and no NH_FLAKE is set,
+  # leaving home-manager's NH_HOME_FLAKE authoritative.
+  #
+  # No --optimise: auto-optimise-store above already hard-links identical paths
+  # as they enter the store, so a full nix-store --optimise pass would be heavy
+  # I/O for nothing.
+  programs.nh.clean = {
+    enable = true;
     dates = "daily";
-    options = "--delete-older-than +5";
+    extraArgs = "--keep 5 --keep-since 7d";
   };
 
   # overlays.nix is otherwise only applied to the flake-level `pkgs` used by
