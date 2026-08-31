@@ -368,7 +368,7 @@ require("lazy").setup({
       "sidlatau/neotest-dart",
       "Issafalcon/neotest-dotnet",
       "jfpedroza/neotest-elixir",
-      "nvim-neotest/neotest-go",
+      { "fredrikaverpil/neotest-golang", version = "*" },
       "nvim-neotest/nvim-nio",
       "rcasia/neotest-java",
       "nvim-neotest/neotest-jest",
@@ -968,14 +968,6 @@ require("lazy").setup({
   {
     "pearofducks/ansible-vim",
     ft = { "yaml", "ansible", "ansible_hosts" },
-  },
-  {
-    "leoluz/nvim-dap-go",
-    lazy = true,
-    ft = { "go" },
-    config = function()
-      require("plugin-configs.nvim-dap-go")
-    end,
   },
   -- TODO: investigate if we still want this plugin
   {

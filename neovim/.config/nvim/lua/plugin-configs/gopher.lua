@@ -9,8 +9,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>uE", "<cmd>GoTestsExp<Cr>", { buffer = true, desc = "Add Exported Tests" })
     vim.keymap.set("n", "<leader>ug", "<cmd>GoGenerate<Cr>", { buffer = true, desc = "Go Generate" })
     vim.keymap.set("n", "<leader>uf", "<cmd>GoGenerate %<Cr>", { buffer = true, desc = "Go Generate File" })
-    vim.keymap.set("n", "<leader>uT", "<cmd>lua require('dap-go').debug_test()<cr>",
-      { buffer = true, desc = "Debug Test" })
   end,
   group = gopher_keybinds,
 })
