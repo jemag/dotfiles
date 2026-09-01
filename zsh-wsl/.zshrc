@@ -398,7 +398,6 @@ export RPS1="$(vi_mode_prompt_info)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
-[ -n "$NODE_BIN" ] && export PATH="$PATH:$NODE_BIN"
 export JSONNET_PATH="lib/:vendor/"
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'

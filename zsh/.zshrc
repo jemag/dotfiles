@@ -344,7 +344,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 prepend_path "$HOME/.nix-profile/bin"
 export NODE_PATH="$(npm config get prefix)/lib/node_modules"
 export NODE_BIN="$(npm config get prefix)/bin"
-[ -n "$NODE_BIN" ] && export PATH="$PATH:$NODE_BIN"
 # source <(kubectl completion zsh)
 # source <(kustomize completion zsh)
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
