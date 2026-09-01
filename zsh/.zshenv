@@ -14,6 +14,7 @@ export GOBIN=$GOPATH/bin
 export CHROME_BIN=/usr/bin/chromium
 export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 export HELM_EXPERIMENTAL_OCI=1
+export HELM_REGISTRY_CONFIG=~/.docker/config.json
 export PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
