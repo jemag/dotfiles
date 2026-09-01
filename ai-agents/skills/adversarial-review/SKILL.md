@@ -237,26 +237,73 @@ mentioned in passing.
 Output, per candidate: `<ID> <file:line> — CONFIRMED | KILLED (<which check>)`, then
 `SURVIVING: <N> of <M>`.
 
-## Step 7 — Report (chat only)
+## Step 7 — Report
 
-**Write no files.** No report file, no metadata file, nothing in the working tree. Load
-`references/report-format.md` and print the report in chat, in that exact shape.
+The report is a markdown file. The chat gets a summary and the path, not the whole thing.
 
-Close with:
+**1. Choose the path.** Reports live outside the reviewed repo, so no repo ever needs an
+ignore rule:
 
 ```
+${XDG_STATE_HOME:-$HOME/.local/state}/adversarial-review/<repo>/<YYYY-MM-DD>-<target>.md
+```
+
+`<repo>` is the basename of `git rev-parse --show-toplevel`. Get the date from `date +%F` —
+never guess it, and never reuse a date seen earlier in the session. The `<target>` slug:
+
+| Target       | Slug                        |
+| ------------ | --------------------------- |
+| working tree | `working-tree`              |
+| staged       | `staged`                    |
+| a commit     | its short sha               |
+| a range      | `<short-a>..<short-b>`      |
+| a PR         | `pr-<n>`                    |
+| a path       | the path, slashes as dashes |
+
+Create the directory if needed. Re-running the same target on the same day overwrites the
+file — intended, since that is the re-review-after-fixes case and a stale report is worse than
+none.
+
+Outside a git repo, use the current directory's basename in place of `<repo>`.
+
+**2. Write the file.** Load `references/report-format.md` and follow it exactly. Only
+confirmed findings — never a candidate the gate killed in Step 6, not even as a footnote.
+
+**3. Print the summary in chat.** Not the file's contents:
+
+```
+REPORT: <absolute path>
 FINAL FINDINGS: <N>   SEVERITY: none|low|medium|high|critical
 FALSE POSITIVES ELIMINATED: <N>
 COVERAGE: <N of M change categories swept>
 GAPS: <what could not be verified, or none>
 ```
 
+Plus one line per finding — `<ID> <file:line> — <one-line statement>` — so the shape is
+visible without opening the file. The evidence, the call chains, and the gate reasoning live
+in the file only.
+
 Severity is the most severe single finding, or their combined implication: `critical` = data
 loss, security breach, or outage; `high` = crash, corruption, or user-visible breakage;
 `medium` = wrong results in a reachable edge case; `low` = maintainability or a hard-to-reach
 edge case.
 
-If the user wants the report persisted, offer to write it where they ask — never by default.
+**Zero findings still writes the file.** A clean report is evidence the analysis ran, and it
+is what you diff the next run against.
+
+**In `--fix` mode**, the file is written *before* any edit; after fixing, append:
+
+```
+## Fixes applied
+
+<date, and one line per finding: the ID, what changed, and the file:line it now lives at.>
+```
+
+Never silently rewrite the findings to match the fixed code — the report is a record of what
+was true when the analysis ran, and it must stay readable as one.
+
+**Only the orchestrator writes the file.** Subagents from Step 1 return finding blocks as
+text and write nothing. Six subagents each writing a report is the failure mode here.
 
 ## Step 8 — Feed the repo back
 
@@ -278,6 +325,7 @@ except for the default, which needs no confirmation.
 | `--subjective` | `--subjective` | "include style", "nitpick too", "also naming/duplication", "be picky", "full review not just bugs" |
 | `--quick`      | `--quick`      | "quick", "fast", "just a sanity check", "gut check", "before I commit", "don't go deep", "brief" |
 | `--fix`        | `--fix`        | "and fix them", "then apply the fixes", "fix what you find", "patch it"                          |
+| `--chat`       | `--chat`       | "just tell me", "don't write a file", "in chat", "no artifact"                                   |
 
 Behavior:
 
@@ -290,6 +338,8 @@ Behavior:
 - **`--fix`** — after the report is complete, apply the confirmed findings, one edit per
   finding, re-verifying each with a targeted read. The report always comes first: never edit
   before the user has seen what you found.
+- **`--chat`** — print the full report in chat and write no file. For a throwaway look where
+  an artifact would just be litter.
 
 Modes combine ("quick review, include style" = `--quick --subjective`).
 

@@ -1,11 +1,29 @@
-# Report format (chat output)
+# Report format
 
-Print in chat. **Write no files.** No emoji, no ALL-CAPS severity banners inside prose. Plain,
-quotable text — the author should be able to paste a finding into a PR comment unedited.
+The shape of the markdown report written at Step 7. No emoji, no ALL-CAPS severity banners
+inside prose. Plain, quotable text — the author should be able to paste a finding straight
+into a PR comment unedited. In `--chat` mode this same shape is printed instead of written.
 
-Open with one paragraph: what the change does, and the single most important thing found. If
-nothing was found, say that plainly and go straight to the closing block — no filler findings,
-no "minor observations" section.
+## Header
+
+The file opens with a metadata block, so it stands alone months later without the session
+that produced it:
+
+    # Regression analysis: <target>
+
+    | | |
+    | --- | --- |
+    | Target | `<the git ref, range, or PR, as resolved>` |
+    | Analyzed | `<YYYY-MM-DD>` |
+    | Mode | `<default / quick / subjective / fix>` |
+    | Findings | `<N>` |
+    | Severity | `<none / low / medium / high / critical>` |
+    | Coverage | `<N of M change categories>` |
+    | Gaps | `<what could not be verified, or none>` |
+
+Then one paragraph: what the change does, and the single most important thing found. If
+nothing was found, say that plainly and stop — no filler findings, no "minor observations"
+section padded to look thorough.
 
 Then one block per confirmed finding, most severe first:
 
@@ -47,5 +65,7 @@ Rules:
 - A `PRE-EXISTING` issue gets one line under a separate heading, or is omitted.
 - Never mention a candidate the gate killed — not as a footnote, not as "also considered".
 
-Close with the block from `SKILL.md` Step 7 (`FINAL FINDINGS` / `FALSE POSITIVES ELIMINATED` /
-`COVERAGE` / `GAPS`).
+Close the file with a `## Coverage` section: change categories swept (`N of M`), pattern files
+loaded, context gaps, and candidates eliminated by the false-positive gate. The counts in the
+header and in this section must agree — if they don't, the report was assembled carelessly and
+the reader has no reason to trust the findings either.
