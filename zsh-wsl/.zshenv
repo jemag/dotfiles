@@ -15,6 +15,13 @@ export GRAILS_HOME=/home/jemag/bin/grails-2.4.4
 export HELM_EXPERIMENTAL_OCI=1
 export HELM_REGISTRY_CONFIG=~/.docker/config.json
 export PATH
+
+prepend_path() {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) export PATH="$1:$PATH" ;;
+  esac
+}
 export _JAVA_AWT_WM_NONREPARENTING=1
 export AWT_TOOLKIT=MToolkit
 for _gembin in $HOME/.local/share/gem/ruby/*/bin(N); do path+=$_gembin; done
@@ -22,11 +29,10 @@ unset _gembin
 export PATH=$PATH:/home/jemag/bin
 export PATH=$PATH:/home/jemag/.cargo/bin
 export PATH=$PATH:$GOBIN
-export PATH=$PATH:$NODE_BIN
 export PATH=$PATH:$GRAILS_HOME/bin
 export PATH=$PATH:/home/jemag/.local/bin
 export PATH=$PATH:/home/jemag/.yarn/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+prepend_path "${KREW_ROOT:-$HOME/.krew}/bin"
 export BROWSER=wsl-open
 export KUBECTL_EXTERNAL_DIFF="difft --color=always"
 # Enables opencode's built-in `websearch` tool (Exa-backed, no API key required).
