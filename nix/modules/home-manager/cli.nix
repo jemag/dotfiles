@@ -30,7 +30,7 @@ in
         clean = {
           enable = true;
           dates = "weekly";
-          extraArgs = "--keep 3 --keep-since 7d --optimise";
+          extraArgs = "--keep 5 --keep-since 7d --optimise";
         };
       };
       neovim = {
@@ -319,7 +319,11 @@ in
           nushell
           nufmt
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
-          tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
+          # tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
+          # tuicr removed: its flake builds with naersk, which fetches each crate from
+          # https://crates.io/api/v1/crates/<name>/<ver>/download. That endpoint now
+          # returns 403 for curl/* User-Agents, so every crate download fails and
+          # nothing is cached upstream. Re-add if naersk moves to static.crates.io.
           parallel
           ripgrep
           ruby

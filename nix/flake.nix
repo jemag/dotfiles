@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,6 +84,11 @@
           inherit system;
           modules = [ ./hosts/homelab/configuration.nix ];
         };
+        work = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit (inputs) nixos-wsl; };
+          modules = [ ./hosts/work/configuration.nix ];
+        };
       };
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
@@ -87,6 +97,16 @@
           modules = [ ./hosts/laptop/home.nix ];
         };
         "jemag@WSQCIML9115246" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-c06b4ae3 pkgs-stable;
+          };
+          modules = [ ./hosts/work/home.nix ];
+        };
+        # NixOS-WSL replacement for the Arch instance above. Both keys point at
+        # the same module; drop the WSQCIML9115246 entry once Arch is retired.
+        "jemag@work" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;

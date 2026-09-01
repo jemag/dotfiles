@@ -8,10 +8,13 @@ fi
 
 if [[ ! -f "${ZINIT_HOME}/zinit.zsh" ]]; then
     ZINIT_LOCK="${ZINIT_HOME}.lock"
+    # The lock sits beside ZINIT_HOME, so its parent has to exist before `mkdir`
+    # (no -p) can take the lock. On a fresh $HOME it does not: the lock silently
+    # fails, the wait loop below exits immediately, and zinit is never cloned.
+    mkdir -p "${ZINIT_HOME:h}"
     if mkdir "$ZINIT_LOCK" 2>/dev/null; then
         # Got the lock - do the clone
         rm -rf "$ZINIT_HOME"
-        mkdir -p "$(dirname $ZINIT_HOME)"
         git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && sync
         rmdir "$ZINIT_LOCK" 2>/dev/null
     else
@@ -102,8 +105,6 @@ alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-windo
 alias n="nvim"
 alias jd="joplin --profile ~/.config/joplin-desktop"
 alias tf="terraform"
-alias mirrorback="sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup"
-alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 alias vifm="vifmrun"
 
 tk() {
@@ -164,13 +165,9 @@ alias ku="kustomize"
 alias vd="viddy "
 alias xo="xdg-open "
 alias psa="ps auxf"
-alias faur="paru -Slq | fzf -m --preview 'cat <(paru -Si {1}) <(paru -Fl {1} | awk \"{print $2}\")' | xargs -ro paru -S"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias psmem="ps auxf | sort -nr -k 4"
 alias pscpu="ps auxf | sort -nr -k 3"
-alias pacu="sudo pacman -Syu"                  # update only standard pkgs
-alias yaya="yay -Syu --aur --sudoloop"              # update only AUR pkgs (yay)
-alias parua="paru -Syua --sudoloop"             # update only AUR pkgs (paru)
 alias ap='apropos -s 1 . | fzf --preview='\''man {1}'\'' --preview-window=up | awk '\''{print $1}'\'' | xargs man'
 tmuxpopup() {
   LBUFFER+=${$(fd --type f --follow --hidden --exclude .git --exclude node_modules | fzf-tmux-popup --preview 'bat --style=numbers --color=always --line-range :500 {}')}
@@ -408,8 +405,6 @@ export JSONNET_PATH="lib/:vendor/"
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
   export DISPLAY=':0'
-  export LIBGL_ALWAYS_INDIRECT=1
-  export $(dbus-launch)
   # export BROWSER='/mnt/c/Program Files/Firefox Developer Edition/firefox.exe'
   # source <(velero completion zsh)
   # source <(argo completion zsh)
@@ -434,7 +429,6 @@ preexec () {
   echo -n "\\x1b]133;A\\x1b\\"
 }
 eval "$(zoxide init zsh)"
-export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 stty -ixon
 

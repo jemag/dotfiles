@@ -13,7 +13,7 @@ require("obsidian").setup({
 
   -- Optional, completion.
   picker = {
-    name = "snacks.pick",
+    name = "snacks.picker",
   },
   finder = "snacks.pick",
   open_notes_in = "current",
