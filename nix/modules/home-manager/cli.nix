@@ -124,6 +124,12 @@ in
       };
 
     };
+    # Register fonts from the home profile with fontconfig. Without this,
+    # `fc-list` is empty and anything that measures or rasterizes text
+    # headlessly (rsvg-convert, mermaid-cli's chromium) silently produces
+    # unlabeled or mis-sized output.
+    fonts.fontconfig.enable = true;
+
     home = {
 
       file = {
@@ -178,9 +184,6 @@ in
         ".config/harper-ls" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/harper-ls/.config/harper-ls";
         };
-        ".config/opencode/agents" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/agents";
-        };
         ".config/opencode/opencode.jsonc" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/opencode.jsonc";
         };
@@ -205,6 +208,15 @@ in
         };
         ".claude/output-styles" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ai-agents/claude/output-styles";
+        };
+        # Claude Code subagents. The prose bodies are shared with opencode via
+        # ai-agents/agents/, but CC subagent files can't include, so these are
+        # frontmatter + a duplicated body kept in sync by
+        # ai-agents/sync-claude-agents.sh. opencode pulls the same bodies in
+        # through `prompt: {file:...}` in opencode.jsonc — markdown agents
+        # would not work, their body is taken literally.
+        ".claude/agents" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ai-agents/claude/agents";
         };
         ".config/nushell/config.nu" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nushell/.config/nushell/config.nu";
@@ -306,7 +318,9 @@ in
           python3
           python3Packages.argcomplete
           manix # search nix options
+          dejavu_fonts # headless text rendering for mermaid-cli / rsvg-convert
           mermaid-cli
+          librsvg # rsvg-convert: SVG -> PNG for the diagram maker agents
           mkcert
           netmask
           nix-health # check health of nix installation

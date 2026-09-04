@@ -13,6 +13,14 @@ joplin/.config/joplin-desktop/settings.json
 joplin/.config/joplin-desktop/database.sqlite-journal
 .opencode/
 node_modules/
+# opencode runtime state. It only lands here on a host whose ~/.config/opencode
+# is still a stale whole-directory symlink into dotfiles — see
+# nix/docs/stale-home-manager-links.md. Tracked so the protection reaches every
+# host, unlike the per-directory .gitignore this replaces.
+opencode/.config/opencode/package*.json
+opencode/.config/opencode/bun.lock
+opencode/.config/opencode/plugins/
+opencode/.config/opencode/*.bak
 **/packer_compiled.vim
 **/packer_compiled.lua
 tmux-client-*.log

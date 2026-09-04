@@ -10,6 +10,86 @@
   "permission": {
     "websearch": "ask"
   },
+  // Agents are defined here rather than as markdown files in agents/, because
+  // `{file:...}` is only interpolated in this `prompt` field — in a markdown
+  // agent the body is taken literally, so `{file:...}` silently yields an
+  // empty system prompt. Bodies are shared with Claude Code via ai-agents/.
+  "agent": {
+    "teacher": {
+      "description": "Explains concepts and reviews code without editing the repo",
+      "mode": "primary",
+      "prompt": "{file:/home/jemag/dotfiles/ai-agents/prompts/teacher.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "ask"
+      }
+    },
+    "researcher": {
+      "description": "Web researcher — searches the web and synthesizes a sourced brief. Use to verify any fact before teaching it, or to scope a topic before planning a lesson.",
+      "mode": "subagent",
+      "temperature": 0.1,
+      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/researcher.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "read": "deny",
+        "task": "deny",
+        "websearch": "allow",
+        "webfetch": "allow"
+      }
+    },
+    "mermaid-maker": {
+      "description": "Authors ONE Mermaid diagram from a brief, renders it to a PNG, LOOKS at the result, iterates until correct and clean, and returns the filename. For structural/relational visuals — dependency graphs, flows, sequences, state machines, trees, ER, timelines.",
+      "mode": "subagent",
+      "model": "github-copilot/claude-sonnet-5",
+      "temperature": 0.2,
+      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/mermaid-maker.md}",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "task": "deny",
+        "websearch": "deny",
+        "webfetch": "deny",
+        "bash": {
+          "*": "deny",
+          "mkdir *": "allow",
+          "mmdc *": "allow",
+          "sed *": "allow",
+          "rsvg-convert *": "allow",
+          "mv *": "allow",
+          "rm viz/*": "allow",
+          "ls *": "allow",
+          "pwd": "allow",
+          "date*": "allow"
+        }
+      }
+    },
+    "svg-maker": {
+      "description": "Authors ONE hand-written SVG from a brief, renders it to a PNG, LOOKS at the result, iterates until correct and clean, and returns the filename. For spatial/geometric visuals Mermaid can't express — coordinate geometry, number lines, vectors, function plots, physical layouts.",
+      "mode": "subagent",
+      "model": "github-copilot/claude-sonnet-5",
+      "temperature": 0.2,
+      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/svg-maker.md}",
+      "permission": {
+        "edit": "allow",
+        "read": "allow",
+        "task": "deny",
+        "websearch": "deny",
+        "webfetch": "deny",
+        "bash": {
+          "*": "deny",
+          "mkdir *": "allow",
+          "rsvg-convert *": "allow",
+          "magick *": "allow",
+          "mv *": "allow",
+          "rm viz/*": "allow",
+          "ls *": "allow",
+          "pwd": "allow",
+          "date*": "allow"
+        }
+      }
+    }
+  },
   "provider": {
     "llama.cpp": {
       "npm": "@ai-sdk/openai-compatible",
