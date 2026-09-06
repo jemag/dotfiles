@@ -49,7 +49,6 @@
       mangohud
       qbittorrent
       protonup-qt
-      llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.nanocoder
       wineWow64Packages.full
       winetricks
