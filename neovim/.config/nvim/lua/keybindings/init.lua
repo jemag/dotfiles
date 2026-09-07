@@ -277,6 +277,10 @@ vim.keymap.set("n", "<localleader>md", function()
   end
 end, { desc = "Diff between open files" })
 
+vim.keymap.set("x", "<LeftRelease>", '"+ygv', { desc = "Auto-copy mouse selection" })
+vim.keymap.set("x", "<2-LeftRelease>", '"+ygv', { desc = "Auto-copy double-click selection" })
+vim.keymap.set("x", "<3-LeftRelease>", '"+ygv', { desc = "Auto-copy triple-click selection" })
+
 vim.keymap.set("x", "<localleader>md", function()
   vim.cmd('noau normal! "vy')
   local filetype = vim.bo.filetype
