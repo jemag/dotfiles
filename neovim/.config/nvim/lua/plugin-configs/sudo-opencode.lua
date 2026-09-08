@@ -261,3 +261,44 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
   desc = "Set relativenumber for opencode",
 })
+
+-- Release the herdr agent indicator when nvim exits.
+--
+-- The opencode plugin at ~/.config/opencode/plugins/herdr-nvim-agent-state.js
+-- reports lifecycle state to herdr, but it cannot release on its own: the server
+-- is killed with SIGTERM immediately followed by SIGKILL (opencode.nvim's
+-- opencode_server.lua kill_pid), so no in-process exit handler ever runs. herdr
+-- keeps reported agent state forever with no TTL, so without this the pane stays
+-- flagged as an opencode agent after nvim is gone.
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  group = vim.api.nvim_create_augroup("OpencodeHerdrRelease", { clear = true }),
+  callback = function()
+    if vim.env.HERDR_ENV ~= "1" then
+      return
+    end
+    local bin, pane = vim.env.HERDR_BIN_PATH, vim.env.HERDR_PANE_ID
+    if not bin or not pane then
+      return
+    end
+    -- The plugin stamps each report with Date.now() * 1000 (~microseconds).
+    -- herdr drops a release whose seq is not greater, so use epoch nanoseconds.
+    local seq = os.time() .. "000000000"
+    pcall(function()
+      vim
+        .system({
+          bin,
+          "pane",
+          "release-agent",
+          pane,
+          "--source",
+          "custom:opencode-nvim",
+          "--agent",
+          "opencode",
+          "--seq",
+          seq,
+        }, { text = true })
+        :wait(1000)
+    end)
+  end,
+  desc = "Clear herdr opencode agent state on exit",
+})
