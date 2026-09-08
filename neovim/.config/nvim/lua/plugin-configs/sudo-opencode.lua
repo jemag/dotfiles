@@ -97,7 +97,7 @@ require("opencode").setup({
     },
     session_picker = {
       rename_session = { "<C-r>" }, -- Rename selected session in the session picker
-      delete_session = { "<C-d>" }, -- Delete selected session in the session picker
+      delete_session = { "<C-x>" }, -- Delete selected sessions in the session picker (<C-d>/<C-u> left free for preview scroll)
       new_session = { "<C-s>" }, -- Create and switch to a new session in the session picker
     },
     timeline_picker = {
