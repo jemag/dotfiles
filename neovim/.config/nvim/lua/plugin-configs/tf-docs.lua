@@ -1,6 +1,18 @@
+-- tf-docs.nvim has no built-in adaptor for the azuredevops provider, so it is
+-- declared inline. microsoft/terraform-provider-azuredevops keeps its docs in
+-- the legacy layout: website/docs with r/ and d/ subdirectories.
+local azuredevops = {
+  name = "azuredevops",
+  repo_url = "https://github.com/microsoft/terraform-provider-azuredevops.git",
+  is_legacy_docs = true,
+  search_title = "Terraform AzureDevOps Docs",
+  file_extension = ".html.markdown",
+}
+
 local provider_list = {
   "azurerm",
   "azuread",
+  azuredevops,
   "null",
   "kubernetes",
   "local",
@@ -15,10 +27,12 @@ local provider_list = {
 
 local provider_snacks = {}
 for _, provider in ipairs(provider_list) do
+  -- entries are either a built-in provider name or a custom adaptor table
+  local name = type(provider) == "table" and provider.name or provider
   table.insert(provider_snacks, {
-    text = provider,
-    value = provider,
-    label = provider,
+    text = name,
+    value = name,
+    label = name,
   })
 end
 
