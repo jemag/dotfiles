@@ -254,6 +254,9 @@ in
           dig
           doggo
           netcat-gnu
+          mtr
+          traceroute
+          nmap
           dotnet-aspnetcore
           exercism
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.herdr
