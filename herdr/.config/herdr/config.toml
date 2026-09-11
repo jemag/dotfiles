@@ -189,17 +189,23 @@ pane_gaps = false
 host_cursor = "native"
 
 # ---------------------------------------------------------------------------
-# Notifications (Herdr's replacement for tmux's visual-activity monitoring --
-# tells you when an agent finishes or gets blocked, instead of watching for
-# generic pane activity)
+# Notifications -- disabled. Agent state changes are still visible as the
+# status indicators in the sidebar / tab bar; those are controlled separately
+# by ui.status_indicators ("dots" by default) and the `state_icon` token in
+# [ui.sidebar.agents].rows / [ui.sidebar.spaces].rows, none of which are
+# overridden here, so they keep their defaults.
 # ---------------------------------------------------------------------------
 
 [ui.toast]
-delivery = "herdr"
-delay_seconds = 1
+delivery = "off"          # was "herdr" (in-app popups)
 
+# Position kept for when toasts are turned back on; inert while delivery = "off".
 [ui.toast.herdr]
 position = "bottom-right"
+
+# Silence the state-change sounds for background workspaces (default is on).
+[ui.sound]
+enabled = false
 
 # ---------------------------------------------------------------------------
 # Agent session restore (not in tmux at all -- resumes agent conversations
