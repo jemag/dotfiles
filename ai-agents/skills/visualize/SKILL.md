@@ -67,7 +67,7 @@ Diagram: viz/viz-packet-reliability-1730490000.png — open it alongside.
 
 Introduce the visual in a sentence, then let it carry the idea — don't narrate every element back in prose.
 
-If a `lesson.md` is open (see the `teach` skill's "Long or math-heavy lessons" section), also
+If a `lesson.md` is open (see the `learn` skill's "Long or math-heavy lessons" section), also
 append an Obsidian wikilink embed to that file, using the **filename** and a display width:
 
 ```
