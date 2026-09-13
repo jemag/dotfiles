@@ -105,7 +105,7 @@
     rocmPackages.rocblas
     rocmPackages.rocm-smi
     rocmPackages.rocminfo
-    llama-cpp-rocm
+    llama-cpp-vulkan
   ];
 
   # Fix for Dolphin lacking file associations
