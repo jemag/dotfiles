@@ -101,15 +101,29 @@
         "unsloth/gemma-4-12b-it-GGUF:UD-Q6_K_XL": {
           "name": "unsloth/gemma-4-12b-it-GGUF:UD-Q6_K_XL",
           "limit": {
-            "context": 128000,
-            "output": 65536
+            "context": 32768,
+            "output": 8192
           }
         },
         "unsloth/gemma-4-E4B-it-GGUF:Q8_0": {
           "name": "unsloth/gemma-4-E4B-it-GGUF:Q8_0",
           "limit": {
-            "context": 128000,
-            "output": 65536
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL": {
+          "name": "unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "qwen3-coder-30b-a3b": {
+          "name": "Qwen3-Coder-30B-A3B-Instruct-UD-Q3_K_XL",
+          "limit": {
+            "context": 65536,
+            "output": 8192
           }
         }
       }
