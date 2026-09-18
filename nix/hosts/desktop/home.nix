@@ -53,6 +53,7 @@
       wineWow64Packages.full
       winetricks
       ghostty
+      foot
       # # Adds the 'hello' command to your environment. It prints a friendly
       # # "Hello, world!" when run.
 
@@ -78,6 +79,9 @@
       };
       ".config/ghostty/config" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty/.config/ghostty/config";
+      };
+      ".config/foot/foot.ini" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/foot/.config/foot/foot.ini";
       };
       ".config/waybar" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar/.config/waybar";
