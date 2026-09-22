@@ -386,20 +386,22 @@ require("lazy").setup({
     end,
   },
   {
-    "brianhuster/live-preview.nvim",
+    "selimacerbas/markdown-preview.nvim",
+    dependencies = { "selimacerbas/live-server.nvim" },
     config = function()
-      require("livepreview.config").set({
-        picker = "vim.ui.select",
+      require("markdown_preview").setup({
+        -- all optional; sane defaults shown
+        instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
+        port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
+        open_browser = true,
+        default_theme = "dark", -- "dark" or "light"; initial preview theme
+        debounce_ms = 300,
       })
     end,
-    lazy = true,
-    cmd = { "LivePreview" },
     keys = {
-      { "<localleader>tmp", "<cmd>LivePreview start<cr>", desc = "Preview markdown" },
-      { "<localleader>tmP", "<cmd>LivePreview close<cr>", desc = "Stop markdown preview" },
-    },
-    dependencies = {
-      "folke/snacks.nvim",
+      { "<localleader>tmp", "<cmd>MarkdownPreview<cr>", desc = "Preview markdown" },
+      { "<localleader>tms", "<cmd>MarkdownPreviewStop<cr>", desc = "Stop markdown preview" },
+      { "<localleader>tmr", "<cmd>MarkdownPreviewRefresh<cr>", desc = "Refresh markdown preview" },
     },
   },
   {
