@@ -62,7 +62,7 @@ in
           lsof
           rust-analyzer
           terraform-ls
-          typescript-go
+          typescript
           typescript-language-server
           vscode-langservers-extracted
           yaml-language-server

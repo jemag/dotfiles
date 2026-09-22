@@ -232,7 +232,7 @@ in
         gtk3
         nerd-fonts.fira-code
         ksnip
-        libreoffice-fresh
+        libreoffice
         onlyoffice-desktopeditors
         python313Packages.pylatexenc
         kdePackages.gwenview
