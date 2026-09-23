@@ -1,89 +1,93 @@
 {
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "/home/jemag/dotfiles/claude-code/.claude/statusline.sh"
+  },
   "hooks": {
     "SessionStart": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' session-start",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "UserPromptSubmit": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' working",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PostToolUse": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' working",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "PreCompact": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' working",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "Notification": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' blocked",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "Stop": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' idle",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ],
     "SessionEnd": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' session-end",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ]
-  },
-  "model": "claude-opus-5"
+  }
 }
