@@ -1,4 +1,5 @@
 require("claudecode").setup({
+  track_selection = false,
   terminal = {
     split_width_percentage = 0.40
   },
