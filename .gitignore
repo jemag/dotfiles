@@ -33,3 +33,7 @@ kubie/.kube/kubens
 *profile*.log
 gh/.config/gh/hosts.yml
 AGENTS.md
+# Claude Code syncs claude.ai account skills into ~/.claude/skills/synced/, which
+# lands here because ~/.claude/skills is a whole-directory symlink to ai-agents/skills
+# (nix/modules/home-manager/cli.nix). Machine/account state, rewritten on each sync.
+ai-agents/skills/synced/
