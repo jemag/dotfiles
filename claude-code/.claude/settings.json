@@ -15,6 +15,15 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -27,6 +36,15 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -37,6 +55,15 @@
             "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' working",
             "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
           }
         ]
       }
@@ -63,6 +90,15 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
       }
     ],
     "Stop": [
@@ -75,6 +111,15 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
       }
     ],
     "SessionEnd": [
@@ -85,6 +130,81 @@
             "type": "command",
             "command": "sh '/home/jemag/dotfiles/claude-code/.claude/hooks/herdr-claude-shim.sh' session-end",
             "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 310,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PermissionDenied": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "ElicitationResult": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "command": "tuios agent-hook claude-code --integration 2",
+            "timeout": 5,
+            "type": "command"
           }
         ]
       }
