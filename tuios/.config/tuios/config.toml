@@ -179,10 +179,10 @@ cursor_bg = ''
 cursor_fg = ''
 
 [appearance.sidebar]
-position = 'right'
+position = 'left'
 width = 24
 workspaces = ''
-sections = 'sessions:25,terminals,agents:34'
+sections = 'sessions:40,agents,spacer'
 folder_click = ''
 file_delete = ''
 background = ''
@@ -278,7 +278,7 @@ toggle_tiling = ['t']
 unsnap = ['u']
 
 [keybindings.mode_control]
-enter_terminal_mode = ['i', 'enter']
+enter_terminal_mode = ['i', 'a', 'enter']
 enter_window_mode = ['esc']
 open_settings = [',']
 quit = ['q']
@@ -341,7 +341,7 @@ prefix_select_7 = ['7']
 prefix_select_8 = ['8']
 prefix_select_9 = ['9']
 prefix_selection = ['[']
-prefix_session_switcher = ['s', 'ctrl+s', 'S']
+prefix_session_switcher = ['f', 's', 'ctrl+s', 'S']
 prefix_settings = [',']
 prefix_split_horizontal = ['-']
 prefix_split_vertical = ['|', '\']
@@ -349,8 +349,8 @@ prefix_tape = ['T']
 prefix_toggle_sidebar = ['t', 'b']
 prefix_toggle_tiling = ['space']
 prefix_window = []
-prefix_workspace = ['w']
-prefix_workspace_switcher = ['f', 'W']
+prefix_workspace = ['ctrl+w']
+prefix_workspace_switcher = ['w', 'W']
 prev_session = ['(']
 resize_height_grow = ['J']
 resize_height_shrink = ['K']
