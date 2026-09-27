@@ -7,6 +7,7 @@ export alias kyg = kubectl-get-yaml-fzf
 export alias kdg = kubectl-describe-fzf
 export alias keg = kubectl-edit-fzf
 export alias kex = kubecolor explain
+export alias ker = kubecolor explain --recursive=true
 export alias kexp = kubecolor explore
 
 export alias kcx = kubectx
@@ -16,7 +17,7 @@ export alias kbs = kubie ns
 export alias ky = kyverno
 
 # Execute a kubecolor command against all namespaces
-# export alias kca='_kca(){ kubecolor "$@" --all-namespaces;  unset -f _kca; }; _kca'
+export def --wrapped kca [...args] { ^kubecolor ...$args --all-namespaces }
 
 # Generic ones
 export alias kd = kubecolor describe
@@ -105,7 +106,7 @@ export alias kdelsec = kubecolor delete secret
 # External secrets
 export alias kges = kubecolor get es
 export alias kgesa = kubecolor get es --all-namespaces
-export alias kees = kubecolor describe es
+export alias kees = kubecolor edit es
 export alias kdes = kubecolor describe es
 export alias kdeles = kubecolor delete es
 
@@ -234,3 +235,19 @@ export alias kgsc = kubecolor get storageclass
 export alias kesc = kubecolor edit storageclass
 export alias kdsc = kubecolor describe storageclass
 export alias kdelsc = kubecolor delete storageclass
+
+# grafana-operator
+export alias kggraf = kubecolor get grafanas.grafana.integreatly.org
+export alias kdelgraf = kubecolor delete grafanas.grafana.integreatly.org
+export alias kegraf = kubecolor edit grafanas.grafana.integreatly.org
+export alias kdgraf = kubecolor describe grafanas.grafana.integreatly.org
+
+export alias kgdash = kubecolor get grafanadashboards
+export alias kdeldash = kubecolor delete grafanadashboards
+export alias kedash = kubecolor edit grafanadashboards
+export alias kddash = kubecolor describe grafanadashboards
+
+export alias kgdata = kubecolor get grafanadatasources
+export alias kdeldata = kubecolor delete grafanadatasources
+export alias kedata = kubecolor edit grafanadatasources
+export alias kddata = kubecolor describe grafanadatasources
