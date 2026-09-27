@@ -178,6 +178,9 @@ in
         ".config/herdr/scripts" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/.config/herdr/scripts";
         };
+        ".config/tuios/config.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tuios/.config/tuios/config.toml";
+        };
         ".config/containers" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
         };
