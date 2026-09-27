@@ -24,10 +24,12 @@
     defaultUser = "jemag";
     startMenuLaunchers = true;
 
-    # Keep /mnt/c/... on PATH. clip.exe (tmux-wsl/.tmux.conf), wslview
-    # (zsh-wsl/.zshenv BROWSER) and neovim's powershell.exe paste provider
-    # (neovim/.config/nvim/lua/winclip.lua) all depend on this.
-    interop.includePath = true;
+    # Keep /mnt/c/... off PATH: listing those dirs over 9P takes ~11 s and
+    # stalls anything that scans PATH (tuios launcher, zsh). The Windows
+    # programs that are used (clip.exe for tmux-wsl, powershell.exe for
+    # neovim's winclip.lua, ...) are linked by windowsBin in ./home.nix;
+    # wslview calls Windows binaries by absolute path and needs neither.
+    interop.includePath = false;
 
     # Mirrors the hand-written /etc/wsl.conf from the Arch instance.
     wslConf = {
