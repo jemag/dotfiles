@@ -562,10 +562,13 @@ resume_agents = 'ask'
 
 [startup]
 open_default_window = false
-tiled = false
+# tuios never fills [startup] from its defaults, so a hand-written config got
+# daemon = false / tiled = false / layout = '' (standalone, floating, no agent
+# hooks). These restate the real defaults.
+tiled = true
 start_in_terminal_mode = true
-layout = ''
-daemon = false
+layout = 'bsp'
+daemon = true
 
 [tape]
 autorun = 'ask'
