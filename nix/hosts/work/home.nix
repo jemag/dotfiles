@@ -10,6 +10,29 @@
 
 let
   myPkgs = import ../../pkgs { inherit pkgs; };
+
+  # The few Windows programs used from WSL, linked into one directory so the
+  # Windows PATH can stay off (appendWindowsPath = false / interop.includePath =
+  # false). Listing the /mnt/c PATH dirs takes ~11 s over 9P, which stalled the
+  # tuios launcher and zsh command lookup. Add a line here for anything missing.
+  winUser = "/mnt/c/Users/brassarddesjardinsa";
+  windowsBin = pkgs.linkFarm "windows-bin" (
+    lib.mapAttrsToList
+      (name: path: {
+        name = "bin/${name}";
+        inherit path;
+      })
+      {
+        "clip.exe" = "/mnt/c/WINDOWS/system32/clip.exe";
+        "cmd.exe" = "/mnt/c/WINDOWS/system32/cmd.exe";
+        "wsl.exe" = "/mnt/c/WINDOWS/system32/wsl.exe";
+        "explorer.exe" = "/mnt/c/WINDOWS/explorer.exe";
+        "powershell.exe" = "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe";
+        "wt.exe" = "${winUser}/AppData/Local/Microsoft/WindowsApps/wt.exe";
+        "winget.exe" = "${winUser}/AppData/Local/Microsoft/WindowsApps/winget.exe";
+        "codium" = "${winUser}/scoop/apps/vscodium/current/bin/codium";
+      }
+  );
 in
 {
   imports = [
@@ -43,6 +66,7 @@ in
     # The home.packages option allows you to install Nix packages into your
     # environment.
     packages = with pkgs; [
+      windowsBin
       argocd
       argonaut
       (pkgs-c06b4ae3.azure-cli.withExtensions [
