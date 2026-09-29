@@ -140,6 +140,11 @@
         "--http-port",
         "3030"
       ],
+      // Project .npmrc files (e.g. kubernetes-platform → private Azure feed) would
+      // otherwise redirect npx and fail with E401 before the server starts.
+      "environment": {
+        "npm_config_registry": "https://registry.npmjs.org/"
+      },
       "enabled": false,
       "timeout": 60000
     },
