@@ -167,7 +167,7 @@ require("lazy").setup({
     end,
     lazy = true,
     keys = {
-      { "<leader>in", "<cmd>Neogen<cr>", mode = { "n", "x" }, desc = "Neogen" },
+      { "<localleader>in", "<cmd>Neogen<cr>", mode = { "n", "x" }, desc = "Neogen" },
     },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter" },
@@ -1040,11 +1040,11 @@ require("lazy").setup({
     "LudoPinelli/comment-box.nvim",
     lazy = true,
     keys = {
-      { "<leader>ibl", "<cmd>CBlcbox<cr>", desc = "Left aligned box" },
-      { "<leader>ibc", "<cmd>CBccbox<cr>", desc = "Centered box" },
-      { "<leader>ibr", "<cmd>CBrcbox<cr>", desc = "Right aligned box" },
-      { "<leader>ibd", "<cmd>CBd<cr>", desc = "Delete box" },
-      { "<leader>il", "<cmd>CBcline<cr>", desc = "Centered line" },
+      { "<localleader>ibl", "<cmd>CBlcbox<cr>", desc = "Left aligned box" },
+      { "<localleader>ibc", "<cmd>CBccbox<cr>", desc = "Centered box" },
+      { "<localleader>ibr", "<cmd>CBrcbox<cr>", desc = "Right aligned box" },
+      { "<localleader>ibd", "<cmd>CBd<cr>", desc = "Delete box" },
+      { "<localleader>il", "<cmd>CBcline<cr>", desc = "Centered line" },
     },
   },
   {
