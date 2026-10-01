@@ -39,6 +39,11 @@
         options = "metadata";
         mountFsTab = true;
       };
+      # includePath only strips the Windows entries from PATH in shell init
+      # (split-path in environment.extraInit); WSL still appends them for
+      # anything that skips /etc/profile (wsl.exe -e, systemd units). This
+      # stops WSL adding them at all.
+      interop.appendWindowsPath = false;
     };
   };
 
