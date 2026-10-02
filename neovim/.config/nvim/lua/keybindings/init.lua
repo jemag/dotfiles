@@ -180,6 +180,22 @@ vim.api.nvim_set_keymap("n", "<cr>P", '"+P', { noremap = true, silent = true, de
 vim.api.nvim_set_keymap("x", "<cr>p", '"+p', { noremap = true, silent = true, desc = "Paste after +reg" })
 vim.api.nvim_set_keymap("x", "<cr>P", '"+P', { noremap = true, silent = true, desc = "Paste before +reg" })
 
+local function copy_path(modifier, label)
+  local path = vim.fn.expand(modifier)
+  if path == "" then
+    vim.notify("Buffer has no file path", vim.log.levels.WARN)
+    return
+  end
+  vim.fn.setreg("+", path)
+  vim.notify("Copied " .. label .. " path: " .. path)
+end
+vim.keymap.set("n", "<leader>bY", function()
+  copy_path("%:.", "relative")
+end, { desc = "Yank relative path" })
+vim.keymap.set("n", "<leader>by", function()
+  copy_path("%:p", "absolute")
+end, { desc = "Yank absolute path" })
+
 vim.keymap.set({ "n", "x" }, "<localleader>nW", "<cmd>e ~/working-memory.md<cr>", { desc = "Working memory" })
 
 vim.keymap.set({ "n", "x" }, "<leader>1", "<cmd>tabn 1<cr>", { desc = "Tab 1" })
