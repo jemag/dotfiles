@@ -28,6 +28,7 @@ let
         "wsl.exe" = "/mnt/c/WINDOWS/system32/wsl.exe";
         "explorer.exe" = "/mnt/c/WINDOWS/explorer.exe";
         "powershell.exe" = "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe";
+        "rundll32.exe" = "/mnt/c/WINDOWS/system32/rundll32.exe";
         "wt.exe" = "${winUser}/AppData/Local/Microsoft/WindowsApps/wt.exe";
         "winget.exe" = "${winUser}/AppData/Local/Microsoft/WindowsApps/winget.exe";
         "codium" = "${winUser}/scoop/apps/vscodium/current/bin/codium";
