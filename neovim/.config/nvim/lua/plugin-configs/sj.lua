@@ -21,30 +21,46 @@ highlights = {
     SjOverlay =      { bold = false, italic = false, fg = "#345576",                 },
   },
 })
-vim.keymap.set({ "n", "x", "o" }, "/", function()
-  sj.run({
-    prompt_prefix = "/",
-  })
-  vim.opt.hls=true
-end, { desc = "SJ forward" })
-vim.keymap.set({ "n", "x", "o" }, "<leader>/", function()
-  sj.redo({
-    prompt_prefix = "/",
-    separator = ""
-  })
-end, { desc = "SJ forward" })
+-- sj fakes a cmdline with one nvim_echo per keystroke; with ui2 + cmdheight=0 each
+-- would be a new line in the message float. A shared id updates one message in place.
+local function single_echo(fn)
+  return function()
+    local echo = vim.api.nvim_echo
+    vim.api.nvim_echo = function(chunks, history, opts)
+      return echo(chunks, history, vim.tbl_extend("force", opts or {}, { id = "sj.prompt" }))
+    end
+    local ok, err = pcall(fn)
+    vim.api.nvim_echo = echo
+    if not ok then
+      error(err, 0)
+    end
+  end
+end
 
-vim.keymap.set({ "n", "x", "o" }, "?", function()
+vim.keymap.set({ "n", "x", "o" }, "/", single_echo(function()
+  sj.run({
+    prompt_prefix = "/",
+  })
+  vim.opt.hls=true
+end), { desc = "SJ forward" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>/", single_echo(function()
+  sj.redo({
+    prompt_prefix = "/",
+    separator = ""
+  })
+end), { desc = "SJ forward" })
+
+vim.keymap.set({ "n", "x", "o" }, "?", single_echo(function()
   sj.run({
     forward_search = false,
     prompt_prefix = "?",
   })
   vim.opt.hls=true
-end, { desc = "SJ backward" })
-vim.keymap.set({ "n", "x", "o" }, "<leader>?", function()
+end), { desc = "SJ backward" })
+vim.keymap.set({ "n", "x", "o" }, "<leader>?", single_echo(function()
   sj.redo({
     forward_search = false,
     prompt_prefix = "?",
     separator = ""
   })
-end, { desc = "SJ backward" })
+end), { desc = "SJ backward" })
