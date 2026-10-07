@@ -142,6 +142,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE                        		# prefix commands you don't want stored with a space
+setopt HIST_REDUCE_BLANKS
 setopt NO_HUP											# don't kill jobs
 setopt NO_CHECK_JOBS
 setopt autocd
