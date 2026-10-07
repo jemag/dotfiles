@@ -1,4 +1,11 @@
-require("vim._core.ui2").enable({ enable = true })
+require("vim._core.ui2").enable({
+  enable = true,
+  msg = {
+    -- With cmdheight=0 there is no cmdline row to print into; use the floating
+    -- "msg" window (auto-hides after msg.msg.timeout ms). History: g< / :messages
+    targets = "msg",
+  },
+})
 vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.backupdir = "/home/jemag/.local/state/nvim/backup//,."
@@ -56,7 +63,9 @@ vim.opt.history = 2000
 vim.opt.number = true
 vim.opt.timeout = true
 vim.opt.ttimeout = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
+vim.opt.showcmdloc = "statusline" -- default statusline renders %S when this is set
+require("ui.statusline").setup()
 -- Increased timeoutlen value for gx and wslview
 vim.opt.timeoutlen = 500
 -- keep same scroll view when jumping
