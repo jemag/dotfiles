@@ -8,6 +8,7 @@ require("devdocs").setup({
     "http",
     "lua~5.1",
     "nushell",
+    "nix",
     "openjdk~21",
   }
 })
