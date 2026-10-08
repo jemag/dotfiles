@@ -93,7 +93,10 @@
       homeConfigurations = {
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-stable;
+          };
           modules = [ ./hosts/laptop/home.nix ];
         };
         "jemag@WSQCIML9115246" = home-manager.lib.homeManagerConfiguration {
@@ -124,17 +127,26 @@
         };
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-stable;
+          };
           modules = [ ./hosts/thinkpad/home.nix ];
         };
         "jemag@nixvm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-stable;
+          };
           modules = [ ./hosts/nixvm/home.nix ];
         };
         "jemag@homelab" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit (inputs) llm-agents tuicr; };
+          extraSpecialArgs = {
+            inherit (inputs) llm-agents tuicr;
+            inherit pkgs-stable;
+          };
           modules = [ ./hosts/homelab/home.nix ];
         };
       };
