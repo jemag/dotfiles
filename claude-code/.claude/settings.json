@@ -1,5 +1,6 @@
 {
   "model": "opus",
+  "tui": "fullscreen",
   "statusLine": {
     "type": "command",
     "command": "/home/jemag/dotfiles/claude-code/.claude/statusline.sh"
