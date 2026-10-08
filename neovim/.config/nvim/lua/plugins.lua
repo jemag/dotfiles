@@ -720,6 +720,22 @@ require("lazy").setup({
     "utilyre/barbecue.nvim",
     name = "barbecue",
     config = function()
+      -- nvim-navic builds the documentSymbol URI from the current buffer rather than
+      -- the buffer being updated, which crashes nu-lsp. Run it in the target buffer.
+      -- see issue: https://github.com/SmiteshP/nvim-navic/issues/174 for the navic side,
+      -- awaiting fix to remove current workaround
+      local navic_lib = require("nvim-navic.lib")
+      local request_symbol = navic_lib.request_symbol
+      navic_lib.request_symbol = function(for_buf, ...)
+        if not vim.api.nvim_buf_is_loaded(for_buf) then
+          return
+        end
+        local args = { ... }
+        vim.api.nvim_buf_call(for_buf, function()
+          request_symbol(for_buf, unpack(args, 1, 4))
+        end)
+      end
+
       require("barbecue").setup({
         show_modified = true,
       })
