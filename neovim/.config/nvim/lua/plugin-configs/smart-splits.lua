@@ -1,6 +1,9 @@
 require('smart-splits').setup({
   -- enable or disable the tmux Integration
-  cursor_follows_swapped_bufs = true,
+ swap = {
+    -- follow the buffer into its new window
+    move_cursor = true,
+  },
 })
 -- moving between splits
 vim.keymap.set({"n", "t"}, "<C-h>", require("smart-splits").move_cursor_left, { desc = "Left pane" })
