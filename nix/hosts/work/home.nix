@@ -11,6 +11,12 @@
 let
   myPkgs = import ../../pkgs { inherit pkgs; };
 
+  azureCli = pkgs-c06b4ae3.azure-cli.withExtensions [
+    pkgs-c06b4ae3.azure-cli.extensions.azure-devops
+    pkgs-c06b4ae3.azure-cli.extensions.fzf
+    pkgs-c06b4ae3.azure-cli.extensions.resource-graph
+  ];
+
   # The few Windows programs used from WSL, linked into one directory so the
   # Windows PATH can stay off (appendWindowsPath = false / interop.includePath =
   # false). Listing the /mnt/c PATH dirs takes ~11 s over 9P, which stalled the
@@ -70,11 +76,9 @@ in
       windowsBin
       argocd
       argonaut
-      (pkgs-c06b4ae3.azure-cli.withExtensions [
-        pkgs-c06b4ae3.azure-cli.extensions.azure-devops
-        pkgs-c06b4ae3.azure-cli.extensions.fzf
-        pkgs-c06b4ae3.azure-cli.extensions.resource-graph
-      ])
+      azureCli
+      (aks-mcp-server.override { azure-cli = azureCli; })
+      myPkgs.mcp-whisker-go
       cyclonedx-cli
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli

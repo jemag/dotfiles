@@ -1,6 +1,7 @@
 { pkgs }:
 {
   javaLspScript = import ./java-lsp-script.nix { inherit pkgs; };
+  mcp-whisker-go = import ./mcp-whisker-go.nix { inherit pkgs; };
   network-doctor = import ./network-doctor.nix { inherit pkgs; };
   opencode-model-router = import ./opencode-model-router.nix { inherit pkgs; };
   tcping = import ./tcping.nix { inherit pkgs; };
