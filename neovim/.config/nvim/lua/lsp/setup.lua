@@ -31,10 +31,35 @@ local function configure_diagnostics()
   vim.diagnostic.config(config)
 end
 
+-- nu-lsp panics on documentSymbol for documents it hasn't opened (crates/nu-lsp/src/symbols.rs).
+-- Drop those requests regardless of which plugin sends them.
+local function guard_unopened_document_symbols(client)
+  local request = client.request
+  client.request = function(self, method, params, handler, bufnr)
+    if method == "textDocument/documentSymbol" then
+      local uri = params and params.textDocument and params.textDocument.uri
+      local target = uri and vim.fn.bufnr(vim.uri_to_fname(uri)) or -1
+      if target == -1 or not self.attached_buffers[target] then
+        vim.lsp.log.warn("dropped documentSymbol for unopened document", uri, debug.traceback())
+        if handler then
+          vim.schedule(function()
+            handler(nil, {}, { method = method, client_id = self.id, bufnr = bufnr })
+          end)
+        end
+        return true, nil
+      end
+    end
+    return request(self, method, params, handler, bufnr)
+  end
+end
+
 local function setup_default_lsp_config()
   local function on_init(client)
     if client.config.settings then
       client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+    if client.name == "nushell" then
+      guard_unopened_document_symbols(client)
     end
   end
 
