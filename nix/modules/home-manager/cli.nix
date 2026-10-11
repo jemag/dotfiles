@@ -180,8 +180,9 @@ in
         };
         # Whole directory: tuios watches ~/.config/tuios by name and doesn't
         # resolve symlinks, so a file link never triggers its live reload.
-        ".config/tuios" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tuios/.config/tuios";
+        ".config/tuios/config.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tuios/.config/tuios/config.toml";
+          force = true;
         };
         ".config/containers" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/containers/.config/containers";
