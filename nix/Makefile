@@ -13,7 +13,7 @@ home:
 # test current home-manager system setup
 .PHONY: test-home
 test-home:
-		nh home build . --show-activation-logs
+		nh home build . --show-activation-logs --no-build-output
 
 # build current nixos system setup
 .PHONY: os
@@ -23,7 +23,7 @@ os:
 # test current nixos system setup
 .PHONY: test-os
 test-os:
-		nh os build .
+		nh os build . --no-build-output
 
 # system then home
 .PHONY: all
