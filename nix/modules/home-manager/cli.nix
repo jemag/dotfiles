@@ -299,6 +299,7 @@ in
           imagemagick
           iotop-c
           jc # tool for converting popular bash clis output to json
+          just
           jq
           jqp
           k9s
