@@ -71,40 +71,40 @@ local function setup_markdown_keybinds()
   vim.keymap.set("n", "<leader>nfl", "<Plug>(MarkdownPlusFootnoteList)", { buffer = true, desc = "List all footnotes" })
 
   -- Tables - Basic Operations
-  vim.keymap.set("n", "<leader>zc", "<Plug>(markdown-plus-table-create)", { buffer = true, desc = "Create table interactively" })
-  vim.keymap.set("n", "<leader>zf", "<Plug>(markdown-plus-table-format)", { buffer = true, desc = "Format table at cursor" })
-  vim.keymap.set("n", "<leader>zn", "<Plug>(markdown-plus-table-normalize)", { buffer = true, desc = "Normalize malformed table" })
+  vim.keymap.set("n", "<leader>zc", "<Plug>(MarkdownPlusTableCreate)", { buffer = true, desc = "Create table interactively" })
+  vim.keymap.set("n", "<leader>zf", "<Plug>(MarkdownPlusTableFormat)", { buffer = true, desc = "Format table at cursor" })
+  vim.keymap.set("n", "<leader>zn", "<Plug>(MarkdownPlusTableNormalize)", { buffer = true, desc = "Normalize malformed table" })
 
   -- Tables - Row Operations
-  vim.keymap.set("n", "<leader>zir", "<Plug>(markdown-plus-table-insert-row-below)", { buffer = true, desc = "Insert row below current" })
-  vim.keymap.set("n", "<leader>ziR", "<Plug>(markdown-plus-table-insert-row-above)", { buffer = true, desc = "Insert row above current" })
-  vim.keymap.set("n", "<leader>zdr", "<Plug>(markdown-plus-table-delete-row)", { buffer = true, desc = "Delete current row" })
-  vim.keymap.set("n", "<leader>zyr", "<Plug>(markdown-plus-table-duplicate-row)", { buffer = true, desc = "Duplicate current row" })
+  vim.keymap.set("n", "<leader>zir", "<Plug>(MarkdownPlusTableInsertRowBelow)", { buffer = true, desc = "Insert row below current" })
+  vim.keymap.set("n", "<leader>ziR", "<Plug>(MarkdownPlusTableInsertRowAbove)", { buffer = true, desc = "Insert row above current" })
+  vim.keymap.set("n", "<leader>zdr", "<Plug>(MarkdownPlusTableDeleteRow)", { buffer = true, desc = "Delete current row" })
+  vim.keymap.set("n", "<leader>zyr", "<Plug>(MarkdownPlusTableDuplicateRow)", { buffer = true, desc = "Duplicate current row" })
 
   -- Tables - Column Operations
-  vim.keymap.set("n", "<leader>zic", "<Plug>(markdown-plus-table-insert-column-right)", { buffer = true, desc = "Insert column to right" })
-  vim.keymap.set("n", "<leader>ziC", "<Plug>(markdown-plus-table-insert-column-left)", { buffer = true, desc = "Insert column to left" })
-  vim.keymap.set("n", "<leader>zdc", "<Plug>(markdown-plus-table-delete-column)", { buffer = true, desc = "Delete current column" })
-  vim.keymap.set("n", "<leader>zyc", "<Plug>(markdown-plus-table-duplicate-column)", { buffer = true, desc = "Duplicate current column" })
+  vim.keymap.set("n", "<leader>zic", "<Plug>(MarkdownPlusTableInsertColumnRight)", { buffer = true, desc = "Insert column to right" })
+  vim.keymap.set("n", "<leader>ziC", "<Plug>(MarkdownPlusTableInsertColumnLeft)", { buffer = true, desc = "Insert column to left" })
+  vim.keymap.set("n", "<leader>zdc", "<Plug>(MarkdownPlusTableDeleteColumn)", { buffer = true, desc = "Delete current column" })
+  vim.keymap.set("n", "<leader>zyc", "<Plug>(MarkdownPlusTableDuplicateColumn)", { buffer = true, desc = "Duplicate current column" })
 
   -- Tables - Advanced Operations
-  vim.keymap.set("n", "<leader>za", "<Plug>(markdown-plus-table-toggle-cell-alignment)", { buffer = true, desc = "Toggle cell alignment (left/center/right)" })
-  vim.keymap.set("n", "<leader>zx", "<Plug>(markdown-plus-table-clear-cell)", { buffer = true, desc = "Clear current cell content" })
-  vim.keymap.set("n", "<leader>zmh", "<Plug>(markdown-plus-table-move-column-left)", { buffer = true, desc = "Move column left" })
-  vim.keymap.set("n", "<leader>zml", "<Plug>(markdown-plus-table-move-column-right)", { buffer = true, desc = "Move column right" })
-  vim.keymap.set("n", "<leader>zmk", "<Plug>(markdown-plus-table-move-row-up)", { buffer = true, desc = "Move row up" })
-  vim.keymap.set("n", "<leader>zmj", "<Plug>(markdown-plus-table-move-row-down)", { buffer = true, desc = "Move row down" })
-  vim.keymap.set("n", "<leader>zt", "<Plug>(markdown-plus-table-transpose)", { buffer = true, desc = "Transpose table (swap rows/columns)" })
-  vim.keymap.set("n", "<leader>zsa", "<Plug>(markdown-plus-table-sort-ascending)", { buffer = true, desc = "Sort table by column (ascending)" })
-  vim.keymap.set("n", "<leader>zsd", "<Plug>(markdown-plus-table-sort-descending)", { buffer = true, desc = "Sort table by column (descending)" })
-  vim.keymap.set("n", "<leader>zvx", "<Plug>(markdown-plus-table-to-csv)", { buffer = true, desc = "Convert table to CSV" })
-  vim.keymap.set("n", "<leader>zvi", "<Plug>(markdown-plus-table-from-csv)", { buffer = true, desc = "Convert CSV to table" })
+  vim.keymap.set("n", "<leader>za", "<Plug>(MarkdownPlusTableToggleCellAlignment)", { buffer = true, desc = "Toggle cell alignment (left/center/right)" })
+  vim.keymap.set("n", "<leader>zx", "<Plug>(MarkdownPlusTableClearCell)", { buffer = true, desc = "Clear current cell content" })
+  vim.keymap.set("n", "<leader>zmh", "<Plug>(MarkdownPlusTableMoveColumnLeft)", { buffer = true, desc = "Move column left" })
+  vim.keymap.set("n", "<leader>zml", "<Plug>(MarkdownPlusTableMoveColumnRight)", { buffer = true, desc = "Move column right" })
+  vim.keymap.set("n", "<leader>zmk", "<Plug>(MarkdownPlusTableMoveRowUp)", { buffer = true, desc = "Move row up" })
+  vim.keymap.set("n", "<leader>zmj", "<Plug>(MarkdownPlusTableMoveRowDown)", { buffer = true, desc = "Move row down" })
+  vim.keymap.set("n", "<leader>zt", "<Plug>(MarkdownPlusTableTranspose)", { buffer = true, desc = "Transpose table (swap rows/columns)" })
+  vim.keymap.set("n", "<leader>zsa", "<Plug>(MarkdownPlusTableSortAscending)", { buffer = true, desc = "Sort table by column (ascending)" })
+  vim.keymap.set("n", "<leader>zsd", "<Plug>(MarkdownPlusTableSortDescending)", { buffer = true, desc = "Sort table by column (descending)" })
+  vim.keymap.set("n", "<leader>zvx", "<Plug>(MarkdownPlusTableToCSV)", { buffer = true, desc = "Convert table to CSV" })
+  vim.keymap.set("n", "<leader>zvi", "<Plug>(MarkdownPlusTableFromCSV)", { buffer = true, desc = "Convert CSV to table" })
 
-  -- Tables - Insert Mode Navigation with proper override options
-  vim.keymap.set("i", "<C-Left>", "<Plug>(markdown-plus-table-nav-left)", { buffer = true, desc = "Move to cell on the left" })
-  vim.keymap.set("i", "<C-Right>", "<Plug>(markdown-plus-table-nav-right)", { buffer = true, desc = "Move to cell on the right" })
-  vim.keymap.set("i", "<C-Down>", "<Plug>(markdown-plus-table-nav-down)", { buffer = true, desc = "Move to cell below" })
-  vim.keymap.set("i", "<C-Up>", "<Plug>(markdown-plus-table-nav-up)", { buffer = true, desc = "Move to cell above" })
+  -- Tables - Insert Mode Navigation
+  vim.keymap.set("i", "<C-Left>", "<Plug>(MarkdownPlusTableNavLeft)", { buffer = true, desc = "Move to cell on the left" })
+  vim.keymap.set("i", "<C-Right>", "<Plug>(MarkdownPlusTableNavRight)", { buffer = true, desc = "Move to cell on the right" })
+  vim.keymap.set("i", "<C-Down>", "<Plug>(MarkdownPlusTableNavDown)", { buffer = true, desc = "Move to cell below" })
+  vim.keymap.set("i", "<C-Up>", "<Plug>(MarkdownPlusTableNavUp)", { buffer = true, desc = "Move to cell above" })
 end
 
 -- Set up autocommand to create buffer-local keybinds for markdown, text, and txt files
