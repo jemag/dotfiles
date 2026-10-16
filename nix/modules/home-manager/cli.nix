@@ -78,7 +78,6 @@ in
           editorconfig-checker
           gofumpt
           gotools
-          golangci-lint
           golines
           gomodifytags
           gotests
@@ -319,6 +318,7 @@ in
           kubie
           kustomize
           go-jsonnet
+          golangci-lint
           jsonnet-bundler
           tanka
           kyverno
