@@ -96,6 +96,7 @@ local ensure_installed = {
   "vue",
   "xml",
   "yaml",
+  "zig",
 } -- one of "all", "language", or a list of languages
 
 local parser_config = {
