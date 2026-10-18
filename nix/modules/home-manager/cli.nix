@@ -383,6 +383,7 @@ in
           zellij
           zoxide
           zsh-forgit
+          zigpkgs."0.17.0"
         ];
 
     };

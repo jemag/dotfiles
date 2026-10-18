@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zig-overlay = {
+      url = "github:mitchellh/zig-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +59,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = import ./overlays.nix;
+        overlays = import ./overlays.nix ++ [ inputs.zig-overlay.overlays.default ];
       };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
       pkgs-stable = import nixpkgs-stable { inherit system; };
