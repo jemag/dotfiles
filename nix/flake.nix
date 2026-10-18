@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zls = {
+      url = "github:zigtools/zls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +68,7 @@
       };
       pkgs-c06b4ae3 = import nixpkgs-c06b4ae3 { inherit system; };
       pkgs-stable = import nixpkgs-stable { inherit system; };
+      zlsPkg = inputs.zls.packages.${system}.zls;
     in
     {
       nixosConfigurations = {
@@ -100,7 +106,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-stable;
+            inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/laptop/home.nix ];
         };
@@ -108,7 +114,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-c06b4ae3 pkgs-stable;
+            inherit pkgs-c06b4ae3 pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/work/home.nix ];
         };
@@ -118,7 +124,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-c06b4ae3 pkgs-stable;
+            inherit pkgs-c06b4ae3 pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/work/home.nix ];
         };
@@ -126,7 +132,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-stable;
+            inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/desktop/home.nix ];
         };
@@ -134,7 +140,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-stable;
+            inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/thinkpad/home.nix ];
         };
@@ -142,7 +148,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-stable;
+            inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/nixvm/home.nix ];
         };
@@ -150,7 +156,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit (inputs) llm-agents tuicr;
-            inherit pkgs-stable;
+            inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/homelab/home.nix ];
         };

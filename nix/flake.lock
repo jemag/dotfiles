@@ -256,7 +256,8 @@
         "nixpkgs-c06b4ae3": "nixpkgs-c06b4ae3",
         "nixpkgs-stable": "nixpkgs-stable",
         "tuicr": "tuicr",
-        "zig-overlay": "zig-overlay"
+        "zig-overlay": "zig-overlay",
+        "zls": "zls"
       }
     },
     "rust-analyzer-src": {
@@ -383,6 +384,27 @@
         "type": "github"
       }
     },
+    "zig-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "zls",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790985140,
+        "narHash": "sha256-2soIfrlRmeSvZuHRNFojArInqEZRkPrzqiA3VEMla04=",
+        "owner": "silversquirl",
+        "repo": "zig-flake",
+        "rev": "392d312ade846f29ba8cf3fe3e82cc56cb40d11e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "silversquirl",
+        "repo": "zig-flake",
+        "type": "github"
+      }
+    },
     "zig-overlay": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -402,6 +424,27 @@
       "original": {
         "owner": "mitchellh",
         "repo": "zig-overlay",
+        "type": "github"
+      }
+    },
+    "zls": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zig-flake": "zig-flake"
+      },
+      "locked": {
+        "lastModified": 1792354809,
+        "narHash": "sha256-T9M+HveJagHY6EMvwpwlF9TrxmliefkuZ0NZ5Z1Ar90=",
+        "owner": "zigtools",
+        "repo": "zls",
+        "rev": "542462c4ddf045493fa9ca028ee6bc3f38b2754a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zigtools",
+        "repo": "zls",
         "type": "github"
       }
     }

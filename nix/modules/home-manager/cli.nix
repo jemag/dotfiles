@@ -5,6 +5,7 @@
   llm-agents,
   tuicr,
   pkgs-stable,
+  zlsPkg,
   ...
 }:
 let
@@ -384,6 +385,7 @@ in
           zoxide
           zsh-forgit
           zigpkgs."0.17.0"
+          zlsPkg
         ];
 
     };
