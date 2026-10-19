@@ -1,20 +1,14 @@
 command_timeout = 1000
-[rust]
-symbol = " "
-[python]
-symbol = " "
+add_newline = true
+
+format = """
+$kubernetes$directory$git_branch$git_state$git_status$nix_shell\
+$line_break$time$character"""
+
 [kubernetes]
 disabled = false
-[lua]
-symbol = " "
-[terraform]
-disabled = false
-symbol = "󱁢 "
-[java]
-disabled = false
+
 [time]
 disabled = false
 format = '[\[$time\]]($style) '
 time_format = "%T"
-[golang]
-symbol = " "
