@@ -40,7 +40,7 @@ local function restore_cursor()
   local line_count = vim.api.nvim_buf_line_count(0)
   if mark[1] > 0 and mark[1] <= line_count then
     pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    pcall(vim.cmd, "normal! zz")
+    pcall(function() vim.cmd("normal! zz") end)
   end
 end
 
@@ -55,7 +55,7 @@ vim.schedule(function()
   local unique_id = vim.fn.fnamemodify(workspace_path, ":t") .. "_" .. vim.fn.sha256(workspace_path):sub(1, 8) ---@type string
   local shadafile = cache_dir .. "/myshada/" .. unique_id .. ".shada"
   vim.opt.shadafile = shadafile
-  pcall(vim.cmd, "rshada!")
+  pcall(function() vim.cmd("rshada!") end)
   restore_cursor()
 end)
 
