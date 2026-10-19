@@ -100,6 +100,7 @@ local function enable_lsp_servers()
     "clangd",
     "bicep",
     "ansiblels",
+    "zls",
     -- "yamlls",
   }
 
