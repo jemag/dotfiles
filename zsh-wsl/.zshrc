@@ -289,8 +289,16 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
+# Source `cmd args...` output, cached per nix store version of the binary
+_cached_source() {
+  local name=$1; shift
+  local cache=${XDG_CACHE_HOME:-$HOME/.cache}/zsh-comp/$name-${${commands[$1]:A}:h:h:t}.zsh
+  [[ -s $cache ]] || { mkdir -p ${cache:h} && "$@" >| $cache }
+  source $cache
+}
+
 # Override carapace's kubecolor bridge with native kubectl completion
-source <(kubecolor completion zsh)
+_cached_source kubecolor kubecolor completion zsh
 compdef kubecolor=kubectl
 
 # This will be our new default `ctrl+w` command
@@ -397,8 +405,11 @@ _fzf_comprun() {
 }
 export RPS1="$(vi_mode_prompt_info)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
-export NODE_PATH="$(npm config get prefix)/lib/node_modules"
-export NODE_BIN="$(npm config get prefix)/bin"
+# npm prefix == node's install prefix (no ~/.npmrc override); avoids 2× ~70ms node startup
+_npm_prefix=${${commands[node]:A}:h:h}
+export NODE_PATH="$_npm_prefix/lib/node_modules"
+export NODE_BIN="$_npm_prefix/bin"
+unset _npm_prefix
 export JSONNET_PATH="lib/:vendor/"
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
@@ -409,8 +420,7 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
   # source <(kyverno completion zsh)
   # source <(trivy completion zsh)
   # source /usr/share/bash-completion/completions/az
-  source ~/.config/zsh/update-tags.sh.bash
-  source <(register-python-argcomplete checkov)
+  _cached_source checkov register-python-argcomplete checkov
   complete -o nospace -C tk tk
   # source <(kubectl completion zsh)
   # source <(kustomize completion zsh)

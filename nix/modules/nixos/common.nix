@@ -48,7 +48,14 @@
     packages = with pkgs; [ tree ];
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    # .zshrc runs compinit itself after zinit extends fpath; a second run here
+    # sees a different fpath and invalidates ~/.zcompdump on every shell start.
+    enableGlobalCompInit = false;
+    # starship sets the prompt; skip `promptinit && prompt suse`
+    promptInit = "";
+  };
   users.defaultUserShell = pkgs.zsh;
 
   nixpkgs.config.allowUnfree = true;

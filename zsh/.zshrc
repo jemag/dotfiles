@@ -343,8 +343,11 @@ _fzf_comprun() {
 export RPS1="$(vi_mode_prompt_info)"
 export RIPGREP_CONFIG_PATH="$HOME/.config/.ripgreprc"
 prepend_path "$HOME/.nix-profile/bin"
-export NODE_PATH="$(npm config get prefix)/lib/node_modules"
-export NODE_BIN="$(npm config get prefix)/bin"
+# npm prefix == node's install prefix (no ~/.npmrc override); avoids 2× ~70ms node startup
+_npm_prefix=${${commands[node]:A}:h:h}
+export NODE_PATH="$_npm_prefix/lib/node_modules"
+export NODE_BIN="$_npm_prefix/bin"
+unset _npm_prefix
 # source <(kubectl completion zsh)
 # source <(kustomize completion zsh)
 [ -f ~/.zshsecretenv ] && source ~/.zshsecretenv
