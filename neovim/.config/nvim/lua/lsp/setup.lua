@@ -69,8 +69,20 @@ local function setup_default_lsp_config()
       allow_incremental_sync = true,
     },
     capabilities = require("lsp.handlers").capabilities,
-    on_attach = require("lsp.handlers").on_attach,
     on_init = on_init,
+  })
+
+  -- Shared buffer setup runs from LspAttach rather than the "*" on_attach: configs merge by
+  -- replacement, so any server whose lspconfig defines on_attach (terraformls, clangd,
+  -- rust_analyzer, ts_ls, tinymist) would otherwise lose our keymaps.
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("user_lsp_attach", { clear = true }),
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client then
+        require("lsp.handlers").on_attach(client, args.buf)
+      end
+    end,
   })
 end
 

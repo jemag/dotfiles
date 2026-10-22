@@ -41,7 +41,6 @@ M.get_config = function()
     capabilities = require("lsp.handlers").capabilities,
     contentProvider = { preferred = "fernflower" },
     on_init = on_init,
-    on_attach = require("lsp.handlers").on_attach,
     init_options = {
       bundles = bundles,
       extendedClientCapabilities = extendedClientCapabilities,
