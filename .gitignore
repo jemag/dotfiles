@@ -19,7 +19,10 @@ node_modules/
 # host, unlike the per-directory .gitignore this replaces.
 opencode/.config/opencode/package*.json
 opencode/.config/opencode/bun.lock
-opencode/.config/opencode/plugins/
+# Plugins herdr or others install here are ignored; our own are tracked
+# explicitly (an untracked plugin here was lost once already).
+opencode/.config/opencode/plugins/*
+!opencode/.config/opencode/plugins/herdr-nvim-agent-state.js
 opencode/.config/opencode/*.bak
 **/packer_compiled.vim
 **/packer_compiled.lua

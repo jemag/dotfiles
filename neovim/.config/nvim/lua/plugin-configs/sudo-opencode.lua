@@ -264,8 +264,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 -- Release the herdr agent indicator when nvim exits.
 --
--- The opencode plugin at ~/.config/opencode/plugins/herdr-nvim-agent-state.js
--- reports lifecycle state to herdr, but it cannot release on its own: the server
+-- The opencode plugin at opencode/.config/opencode/plugins/herdr-nvim-agent-state.js
+-- (linked to ~/.config/opencode/plugins by home-manager) reports lifecycle state to herdr, but it cannot release on its own: the server
 -- is killed with SIGTERM immediately followed by SIGKILL (opencode.nvim's
 -- opencode_server.lua kill_pid), so no in-process exit handler ever runs. herdr
 -- keeps reported agent state forever with no TTL, so without this the pane stays
@@ -280,9 +280,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     if not bin or not pane then
       return
     end
-    -- The plugin stamps each report with Date.now() * 1000 (~microseconds).
-    -- herdr drops a release whose seq is not greater, so use epoch nanoseconds.
-    local seq = os.time() .. "000000000"
+    -- The plugin stamps reports with epoch microseconds. herdr drops a release
+    -- whose seq is not greater, so use the same unit, read now. Not nanoseconds:
+    -- a release that outranks every future report would make the next server in
+    -- this pane unable to report at all. "%d" because tostring() would give
+    -- "1.79e+15"; the value is below 2^53 so it is exact.
+    local sec, usec = vim.uv.gettimeofday()
+    local seq = string.format("%d", sec * 1000000 + usec + 1)
     pcall(function()
       vim
         .system({
@@ -293,7 +297,7 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
           "--source",
           "custom:opencode-nvim",
           "--agent",
-          "opencode",
+          "opencode-nvim",
           "--seq",
           seq,
         }, { text = true })

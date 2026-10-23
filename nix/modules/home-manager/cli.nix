@@ -196,6 +196,11 @@ in
         ".config/opencode/tui.json" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/tui.json";
         };
+        # Whole directory so new plugins need no nix change. Holds the herdr
+        # reporter for opencode.nvim (see herdr-nvim-agent-state.js).
+        ".config/opencode/plugins" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/plugins";
+        };
         ".claude/keybindings.json" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/keybindings.json";
         };
