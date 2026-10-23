@@ -283,6 +283,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
+# accept the selection with ctrl-y (like nvim completion)
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept'
 zstyle ':completion:*' ignored-patterns '*?.dll' '*?.DLL'
 zmodload zsh/complist
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
@@ -362,7 +364,7 @@ histrm() { LC_ALL=C sed --in-place '/$1/d' $HISTFILE }
 #
 eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS="
---extended --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down
+--extended --bind=ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,ctrl-y:accept
 "
 FD_OPTIONS="--follow --hidden --exclude .git --exclude node_modules"
 export FZF_DEFAULT_COMMAND="fd --type f $FD_OPTIONS"
