@@ -261,7 +261,7 @@ tooltip label {
   background: @bg;
 }
 
-#custom-media {
+#mpris {
   margin-top: 2px;
   margin-left: 8px;
   padding-left: 10px;
@@ -269,8 +269,10 @@ tooltip label {
   margin-bottom: 2px;
   border-radius: 10px;
   transition: none;
-  color: #161320;
-  background: @bright-orange;
+}
+
+#mpris.paused {
+  opacity: 0.5;
 }
 
 #pulseaudio {
