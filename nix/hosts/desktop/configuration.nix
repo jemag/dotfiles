@@ -81,6 +81,7 @@
     ];
   };
   programs.waybar.enable = true;
+  programs.kdeconnect.enable = true;
 
   virtualisation.docker.enable = true;
 

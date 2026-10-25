@@ -13,6 +13,7 @@
   ];
 
   gui.enable = true;
+  services.kdeconnect.enable = true;
   nixpkgs = {
     config = {
       allowUnfree = true;
