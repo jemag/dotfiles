@@ -43,6 +43,10 @@ tooltip label {
   background: @bg;
 }
 
+#language {
+  padding: 0 8px;
+}
+
 #window {
 	margin-top: 2px;
 	padding-left: 10px;
