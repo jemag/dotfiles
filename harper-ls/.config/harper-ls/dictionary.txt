@@ -35,6 +35,7 @@ KV
 LogQL
 MSTeams
 MiB
+Mullvad
 NAT
 OCI
 OS
