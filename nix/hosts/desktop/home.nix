@@ -6,6 +6,9 @@
   ...
 }:
 
+let
+  myPkgs = import ../../pkgs { inherit pkgs; };
+in
 {
   imports = [
     ../../modules/home-manager/cli.nix
@@ -47,6 +50,7 @@
       usbutils
       anki-bin
       brave
+      myPkgs.learn-harness
       mangohud
       qbittorrent
       protonup-qt
