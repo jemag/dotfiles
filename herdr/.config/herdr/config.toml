@@ -48,13 +48,10 @@ detach = "prefix+d"
 # Agents
 focus_agent = "alt+1..9"
 
-# Pane movement (your C-h/C-j/C-k/C-l select-pane binds)
-# Bound as arrays so both "prefix then h" and "prefix then ctrl+h" work,
-# matching how your tmux config responded to either variant.
-focus_pane_left  = ["prefix+h", "prefix+ctrl+h"]
-focus_pane_down  = ["prefix+j", "prefix+ctrl+j"]
-focus_pane_up    = ["prefix+k", "prefix+ctrl+k"]
-focus_pane_right = ["prefix+l", "prefix+ctrl+l"]
+focus_pane_left  = "prefix+ctrl+h"
+focus_pane_down  = "prefix+ctrl+j"
+focus_pane_up    = "prefix+ctrl+k"
+focus_pane_right = "prefix+ctrl+l"
 
 # Splits (your `bind | split-window -h` / `bind - split-window -v`)
 # split_vertical = side-by-side panes, split_horizontal = stacked panes
@@ -116,6 +113,14 @@ key = "prefix+b"
 type = "plugin_action"
 command = "jemag.last-workspace.toggle"
 description = "switch to last workspace"
+
+# Last-used tab in the current workspace -- tmux `last-window` (default
+# prefix+l). Same plugin.
+[[keys.command]]
+key = "prefix+l"
+type = "plugin_action"
+command = "jemag.last-workspace.toggle-tab"
+description = "switch to last tab"
 
 # Fuzzy workspace switcher -- only needed if you prefer this over the
 # built-in `goto` picker (prefix+g) above. Verify the output shape of

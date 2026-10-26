@@ -2,7 +2,7 @@ id = "jemag.last-workspace"
 name = "last-workspace"
 version = "0.1.0"
 min_herdr_version = "0.9.5"
-description = "tmux switch-client -l for herdr: toggle to the previously focused workspace"
+description = "tmux switch-client -l / last-window. For herdr: toggle to the previously focused workspace or tab"
 platforms = ["linux"]
 
 [[actions]]
@@ -11,6 +11,12 @@ title = "Last workspace"
 contexts = ["global", "workspace"]
 command = ["bash", "last-workspace.sh", "toggle"]
 
+[[actions]]
+id = "toggle-tab"
+title = "Last tab"
+contexts = ["global", "workspace"]
+command = ["bash", "last-workspace.sh", "toggle-tab"]
+
 [[events]]
 on = "workspace.focused"
 command = ["bash", "last-workspace.sh", "focused"]
@@ -18,3 +24,11 @@ command = ["bash", "last-workspace.sh", "focused"]
 [[events]]
 on = "workspace.closed"
 command = ["bash", "last-workspace.sh", "closed"]
+
+[[events]]
+on = "tab.focused"
+command = ["bash", "last-workspace.sh", "tab-focused"]
+
+[[events]]
+on = "tab.closed"
+command = ["bash", "last-workspace.sh", "tab-closed"]
