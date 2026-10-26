@@ -108,6 +108,9 @@ description = "reload herdr config"
 # Last-used workspace -- tmux `switch-client -l`. herdr has no built-in action
 # (upstream idea #4242); the local last-workspace plugin
 # (plugins/last-workspace) records focus history from workspace events.
+# One-time per host, after installing herdr (the link lives in herdr's own
+# ~/.config/herdr/plugins.json, not in dotfiles):
+#   herdr plugin link ~/dotfiles/herdr/.config/herdr/plugins/last-workspace
 [[keys.command]]
 key = "prefix+b"
 type = "plugin_action"
