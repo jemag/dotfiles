@@ -83,7 +83,7 @@ require("opencode").setup({
       }, -- Navigate to window on the right
     },
     output_window = {
-      -- ["<esc>"] = { "close" }, -- Close UI windows
+      ["<esc>"] = { false }, -- Close UI windows
       -- ["<C-c>"] = { "cancel" }, -- Cancel opencode request while it is running
       -- ["]]"] = { "next_message" }, -- Navigate to next message in the conversation
       -- ["[["] = { "prev_message" }, -- Navigate to previous message in the conversation
