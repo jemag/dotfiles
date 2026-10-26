@@ -20,8 +20,8 @@ end
 local bundles = {}
 local debug_bundles = vim.split(vim.fn.glob(vim.fn.getenv("JAVA_DEBUG_BUNDLE")), "\n")
 local test_bundles = vim.split(vim.fn.glob(vim.fn.getenv("JAVA_TEST_BUNDLE")), "\n")
-vim.list_extend(bundles, debug_bundles)
-vim.list_extend(bundles, test_bundles)
+vim.list_extend(bundles, vim.tbl_filter(function(b) return b ~= "" end, debug_bundles))
+vim.list_extend(bundles, vim.tbl_filter(function(b) return b ~= "" end, test_bundles))
 
 
 local extendedClientCapabilities = require("jdtls").extendedClientCapabilities
@@ -48,20 +48,21 @@ M.get_config = function()
     settings = {
       java = {
         signatureHelp = { enabled = true },
-        -- configuration = {
-        --   updateBuildConfiguration = "interactive",
-        --   runtimes = {
-        --     {
-        --       name = "JavaSE-11",
-        --       path = "/usr/lib/jvm/java-11-openjdk/",
-        --       default = true,
-        --     },
-        --     -- {
-        --     --   name = "JavaSE-17",
-        --     --   path = "/usr/lib/jvm/java-17-openjdk/",
-        --     -- },
-        --   },
-        -- },
+        -- jdtls itself runs on JDK 25 (see javaLspScript); projects build on JAVA_HOME (JDK 21)
+        configuration = {
+          runtimes = {
+            {
+              name = "JavaSE-21",
+              path = os.getenv("JAVA_HOME"),
+              default = true,
+            },
+          },
+        },
+        import = {
+          gradle = {
+            java = { home = os.getenv("JAVA_HOME") },
+          },
+        },
 
         eclipse = {
           downloadSources = true,

@@ -132,6 +132,11 @@ in
 
     home = {
 
+      sessionVariables = {
+        JAVA_DEBUG_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar";
+        JAVA_TEST_BUNDLE = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar";
+      };
+
       file = {
         ".config/.ripgreprc" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ripgrep/.config/.ripgreprc";

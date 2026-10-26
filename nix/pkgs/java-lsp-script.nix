@@ -7,7 +7,7 @@ pkgs.writeShellScriptBin "javaLspScript" ''
     cp -r ${pkgs.jdt-language-server}/share/java/jdtls/config_linux/* $JDTLS_CONFIG_DIR/
     chmod -R 755 $JDTLS_CONFIG_DIR
 
-    java \
+    ${pkgs.jdk25}/bin/java \
     -Declipse.application=org.eclipse.jdt.ls.core.id1 \
     -Dosgi.bundles.defaultStartLevel=4 \
     -Declipse.product=org.eclipse.jdt.ls.core.product \
