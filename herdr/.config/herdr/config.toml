@@ -44,7 +44,6 @@ directory = "~/.herdr/worktrees"
 prefix = "ctrl+a"
 settings = "prefix+shift+s"
 detach = "prefix+d"
-last_pane = "prefix+b"
 
 # Agents
 focus_agent = "alt+1..9"
@@ -105,6 +104,15 @@ key = "prefix+shift+r"
 type = "shell"
 command = "herdr server reload-config"
 description = "reload herdr config"
+
+# Last-used workspace -- tmux `switch-client -l`. herdr has no built-in action
+# (upstream idea #4242); the local last-workspace plugin
+# (plugins/last-workspace) records focus history from workspace events.
+[[keys.command]]
+key = "prefix+b"
+type = "plugin_action"
+command = "jemag.last-workspace.toggle"
+description = "switch to last workspace"
 
 # Fuzzy workspace switcher -- only needed if you prefer this over the
 # built-in `goto` picker (prefix+g) above. Verify the output shape of
