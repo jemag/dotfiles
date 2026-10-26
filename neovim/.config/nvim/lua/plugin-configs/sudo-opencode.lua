@@ -39,7 +39,7 @@ require("opencode").setup({
     },
     input_window = {
       ["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" } }, -- Submit prompt (normal mode and insert mode)
-      ["<esc>"] = { false }, -- Close UI windows
+      ["<esc>"] =  false , -- Close UI windows
       -- ["<C-c>"] = { "cancel" }, -- Cancel opencode request while it is running
       -- ["<localleader>os"] = { "select_session" }, -- Select and load a opencode session
       -- ["~"] = { "mention_file", mode = "i" }, -- Pick a file and add to context. See File Mentions section
@@ -83,7 +83,7 @@ require("opencode").setup({
       }, -- Navigate to window on the right
     },
     output_window = {
-      ["<esc>"] = { false }, -- Close UI windows
+      ["<esc>"] =  false , -- Close UI windows
       -- ["<C-c>"] = { "cancel" }, -- Cancel opencode request while it is running
       -- ["]]"] = { "next_message" }, -- Navigate to next message in the conversation
       -- ["[["] = { "prev_message" }, -- Navigate to previous message in the conversation
