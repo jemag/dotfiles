@@ -8,7 +8,14 @@
   // machine for Exa's hosted MCP service, so they are worth eyeballing.
   // Set to "allow" to stop prompting once comfortable.
   "permission": {
-    "websearch": "ask"
+    "websearch": "ask",
+    // These skills are on-demand only (/learn, /deep-research, /adversarial-review
+    // commands below). opencode ignores `disable-model-invocation`, so gate here.
+    "skill": {
+      "learn": "ask",
+      "deep-research": "ask",
+      "adversarial-review": "ask"
+    }
   },
   // Agents are defined here rather than as markdown files in agents/, because
   // `{file:...}` is only interpolated in this `prompt` field — in a markdown
@@ -88,6 +95,22 @@
           "date*": "allow"
         }
       }
+    }
+  },
+  // On-demand entry points for skills gated to "ask" above. Approving the
+  // permission prompt is the one confirmation step.
+  "command": {
+    "learn": {
+      "description": "Teach a topic with the learn skill",
+      "template": "Load the `learn` skill and use it to teach me: $ARGUMENTS"
+    },
+    "deep-research": {
+      "description": "Cited deep-research report",
+      "template": "Load the `deep-research` skill and research: $ARGUMENTS"
+    },
+    "adversarial-review": {
+      "description": "Adversarial regression analysis of a change",
+      "template": "Load the `adversarial-review` skill and run it on: $ARGUMENTS (default: working tree)"
     }
   },
   "provider": {

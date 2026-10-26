@@ -2,6 +2,7 @@
 name: adversarial-review
 description: "Adversarial regression analysis of a code change — not a review. Assumes the change is broken and demands proof of correctness for every hunk, comment, and commit-message claim. Categorizes the diff into fine-grained change classes, sweeps a pattern catalog per class, then puts every candidate finding through a false-positive gate with a hard evidence standard before reporting. Use when asked to: 'review my changes', 'adversarial review', 'regression analysis', 'what could break', 'find bugs in this diff/PR/branch', 'check this before I commit', 'tear this apart', 'red-team my change'. Also use before pushing or opening a PR when the user wants more than a style pass. Works on the working tree, staged changes, a commit, a git range, or a PR."
 user-invocable: true
+disable-model-invocation: true
 license: MIT
 compatibility: Works in any harness with read, grep, and shell. Uses subagents when available and degrades to sequential passes when not. Verified on Claude Code and opencode. See references/harness.md.
 metadata:
