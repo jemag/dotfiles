@@ -248,8 +248,13 @@ in
 
       packages =
         with pkgs;
-        builtins.attrValues myPkgs
-        ++ [
+        [
+          myPkgs.javaLspScript
+          myPkgs.leaf
+          myPkgs.network-doctor
+          myPkgs.tcping
+          myPkgs.terraform-ls-terragrunt-shim
+          myPkgs.terragrunt-ls
           bat
           bash
           btop

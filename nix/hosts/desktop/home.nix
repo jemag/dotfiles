@@ -51,6 +51,7 @@ in
       anki-bin
       brave
       myPkgs.learn-harness
+      myPkgs.tuios
       mangohud
       qbittorrent
       protonup-qt
