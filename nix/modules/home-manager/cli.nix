@@ -174,6 +174,9 @@ in
         ".config/stylua.toml" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/stylua/.config/stylua.toml";
         };
+        ".config/nu-lint.toml" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nu-lint/.config/nu-lint.toml";
+        };
         ".config/nvim" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/neovim/.config/nvim";
         };
@@ -358,6 +361,7 @@ in
           bun
           nushell
           nufmt
+          nu-lint
           llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
           # tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
           # tuicr removed: its flake builds with naersk, which fetches each crate from

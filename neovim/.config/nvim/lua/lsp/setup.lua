@@ -97,6 +97,7 @@ local function enable_lsp_servers()
     "marksman",
     "nixd",
     "nushell",
+    "nu_lint",
     "rust_analyzer",
     "solargraph",
     "terraformls",
