@@ -22,6 +22,9 @@ require("keybindings")
 require("globals")
 require("marks")
 require("winclip")
+if vim.env.OBSIDIAN_VAULT then
+  require("flashcards")
+end
 
 vim.opt.exrc = true
 vim.opt.secure = true

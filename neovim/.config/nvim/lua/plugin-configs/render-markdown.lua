@@ -25,5 +25,20 @@ require("render-markdown").setup({
     --  thin: when lines are empty overlay the above & below icons
     border = "thin",
   },
+  html = {
+    comment = {
+      -- flashcard markers (see lua/flashcards.lua) render as short labels; other comments stay concealed
+      text = function(ctx)
+        local text = vim.trim(ctx.text)
+        local id = text:match("^<!%-%-%s*card:%s*([%w_-]+)")
+        if id then
+          return "Q · " .. id
+        end
+        if text:match("^<!%-%-%s*answer%s*%-%->$") then
+          return "A"
+        end
+      end,
+    },
+  },
 })
 vim.keymap.set("n", "<localleader>tmV", require("render-markdown").toggle, { desc = "Toggle markdown render" })
