@@ -26,4 +26,4 @@ require("render-markdown").setup({
     border = "thin",
   },
 })
-vim.keymap.set("n", "<localleader>tmv", require("render-markdown").toggle, { desc = "Toggle markdown render" })
+vim.keymap.set("n", "<localleader>tmV", require("render-markdown").toggle, { desc = "Toggle markdown render" })
