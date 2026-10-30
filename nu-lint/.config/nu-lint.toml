@@ -4,4 +4,4 @@ string_may_be_bare = "off"          # quoting plain strings is fine
 merge_multiline_print = "off"       # consecutive prints are more readable
 single_call_command = "off"         # small helpers (log_*) are worth keeping even if used once
 catch_builtin_error_try = "off"     # in scripts, letting open/save error out is the right behaviour
-max_positional_params = "hint"      # sometimes worth fixing, not a warning
+max_positional_params = "off"      # sometimes worth fixing, not a warning
