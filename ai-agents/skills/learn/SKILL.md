@@ -152,21 +152,45 @@ it until it is concrete and checkable: "understand Kubernetes networking" is not
 "explain and debug why a pod can't reach a Service across namespaces under a default-deny
 NetworkPolicy" is. Write the goal into the log as a sentence the capstone task can test.
 
-**1b. Current level — `quiz`. A mapping job, not a spot-check.** Your goal is to locate the *edge* of their understanding — the frontier where what they reliably know turns into what they don't — along every strand the goal will depend on. Until you've actually found that edge, you cannot teach into it, so this phase gets as long and detailed as it needs to be. There is no rush.
+**1b. Current level — `quiz`. Measurement, not teaching.** Locate the *edge* of their
+understanding — where what they reliably know turns into what they don't — along each strand
+the goal rests on. The probe's only output is a map precise enough to choose starting rungs;
+every concept it doesn't settle, the ladder measures anyway.
 
-**The edge is only located when it's bracketed.** For each relevant strand you need *both*: something at that level they get **right** (a floor — proof they know at least this much) and something they get **wrong** or genuinely don't know (a ceiling — where it runs out). The edge sits between them. One side alone tells you almost nothing.
+**First, list the strands** — in your reasoning, then as one line in chat ("Probing: memcg
+charging, tmpfs sizing, emptyDir lifecycle"). A strand is a *prerequisite* the goal builds on,
+not each case the goal covers: "how memory cgroups account pages" is a strand; "what happens
+with a sidecar writer" is a concept the lesson teaches. Usually 2–4 strands. A strand that
+appears mid-probe goes on the list only if it is a prerequisite.
 
-- **Enter near the top, not the bottom.** Their goal and how they talk calibrate the strand. Open near the hardest thing the goal needs and let a miss walk you down. A warm-up question at textbook basics wastes a question that could have moved an edge.
-- **All-correct is not "done" — it means the questions were too easy.** Escalate until something breaks.
-- **Binary-search the edge, sized by confidence.** Correct + confident → jump sharply. Correct but hesitant → fragile; step up gently. Wrong → narrow back down.
-- **One wrong answer is not "done" either — and not a cue to start teaching.** A miss is one coordinate: a slip, a narrow gap, and a misconception all look the same. Probe around it, and dig into misconceptions in particular.
-- **Strands inform each other.** A strand crushed at height says its neighbours start high too.
-- **Every question moves an edge.** No filler, no re-asking what the last answer showed. One question at a time.
-- **Probe application, not just recall.** At least one question per strand asks them to *use* the idea (predict an output, spot the bug, pick the approach). Recall-only probes can't tell rung R2 from rung R3.
-- **Map every strand the goal rests on**, bounded by relevance.
+**The edge is located when it's bracketed:** a floor (right) and a ceiling (wrong, or "I don't
+know"). The **goal is the top of the scale**: a strand answered correctly and confidently *at
+goal level* is held — no ceiling needed, stop probing it.
+
+- **Enter at goal level.** Open each strand with a question at the difficulty the goal needs. Right and confident → held, done. Wrong → walk down to find the floor. Never warm up at basics.
+- **Binary-search below the goal, sized by confidence.** Correct + confident → jump up sharply. Correct but hesitant → fragile; step up gently. Wrong → narrow down.
+- **One question, several strands.** Prefer questions whose options are the predictions of *different* models: each option is what someone holding one specific misconception, on one specific strand, would answer. One pick can then bracket two strands. Multi-select "which of these happen" questions do the same for independent facts.
+- **A miss is one coordinate.** A slip, a gap and a misconception look the same; one question around it tells them apart. Then stop — the ladder digs into its extent.
+- **Strands inform each other.** A strand held at goal level says its neighbours start high too.
+- **Every question moves an edge.** No filler. Never re-test a strand right after revealing its answer — the next answer measures your explanation, not them.
+- **Budget: about two questions per strand, eight in total.** When it's spent, close the probe. A strand still unbracketed gets the lower plausible starting rung, and the plan's hypothesis gets corrected on the ladder.
+
+**Grading during the probe is one line.** The quiz protocol still applies (commit to the
+answer first, randomise, grade before anything else), but the grade is only:
+
+    ✓ Correct — <correct option>
+    ✗ Not quite — you picked <their pick>; the answer is <correct option>
+
+No explanation, no mechanism. Teaching it now contaminates the next probe answer and
+duplicates the ladder. Log the explanation you would have given as a **To teach** note. If
+they ask why, give one sentence and say it's coming in the lesson.
+
+**Ask for confidence on every probe question.** End each question's text with
+"(confidence % in a note)". Without it you can't size the jumps. If none is given, treat a
+correct answer as confident unless their wording hedges.
 
 **Close the probe with a strand summary** in chat and in the log — one line per strand:
-*holds* (floor) · *ends at* (ceiling) · *misconceptions* · *build from*.
+*holds* (floor) · *ends at* (ceiling, or "goal level") · *misconceptions* · *build from*.
 
 ### 2. Plan
 
@@ -268,6 +292,7 @@ discipline is now yours. Every quiz is exactly three beats, in this order, no ex
    ```
 
    Never bundle a grade and new material into the same message. Grade, let it land, then move.
+   During the probe, beat 3 is the one-line grade only (see **1b**).
 
 Multi-select is an exact-set match: correct only if they select every correct option and no
 incorrect one. Use the harness's multi-select mode and say in the question that more than one
@@ -325,6 +350,14 @@ graph TD
 - <strand>: holds … · ends at … · misconceptions … · build from …
 
 ## Log
+
+### 2026-10-30 14:02 · probe Q3 · lifecycle
+
+<the question>
+
+**Answer:** "volume empty, runs fine" ✗ (40%) · correct: files kept, OOM-killed
+**To teach:** emptyDir is pod-scoped; after a restart the charge moves to the pod cgroup
+**→** ceiling on lifecycle
 
 ### 2026-10-30 14:10 · R2 worked example · tcp-acks
 
