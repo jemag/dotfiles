@@ -44,7 +44,7 @@ you are unsure rather than asserting from memory.
 
 Companion files in this skill's directory:
 - `activities.md` — the exact format and grading of every activity. Read it at session start.
-- `wrap-up.md` — the wiki note and flashcards. Read it when the goal is reached.
+- `wrap-up.md` — the wrap-up offer, wiki note and flashcards. Read it when the goal is reached or the learner asks to stop.
 
 ## Voice
 
@@ -132,7 +132,7 @@ start ─┬─ log exists ──→ resume
               ↓ all mastered
           capstone task ── fail → demote failing concepts, back to ladder
               ↓ pass
-          wrap-up (wrap-up.md)
+          wrap-up (wrap-up.md) ←── learner says "wrap up", at any point
 ```
 
 ### 0. Start or resume
@@ -144,6 +144,9 @@ Resuming skips the probe, but the first activity on each concept is a retrieval 
 rung: time has passed, so verify the rung still holds and demote it if not.
 
 Otherwise create the log (see **Session log**) and go to 1.
+
+If the invocation says to wrap up (`/learn wrap up`, "write the note for emptydir"), find the
+matching `learning-*.md` (ask which one if there are several) and go straight to **5**.
 
 ### 1. Goal, then probe
 
@@ -185,9 +188,9 @@ No explanation, no mechanism. Teaching it now contaminates the next probe answer
 duplicates the ladder. Log the explanation you would have given as a **To teach** note. If
 they ask why, give one sentence and say it's coming in the lesson.
 
-**Ask for confidence on every probe question.** End each question's text with
-"(confidence % in a note)". Without it you can't size the jumps. If none is given, treat a
-correct answer as confident unless their wording hedges.
+**Confidence comes with every probe answer** — it's the second question in each quiz call (see
+the quiz protocol). It sizes the next jump: `Sure` + correct is the only answer that lets a
+strand stop at goal level.
 
 **Close the probe with a strand summary** in chat and in the log — one line per strand:
 *holds* (floor) · *ends at* (ceiling, or "goal level") · *misconceptions* · *build from*.
@@ -249,18 +252,22 @@ When every concept is mastered, set one task at the level of the goal sentence, 
 concepts (format in `activities.md`, R4). A pass means the goal is reached. A fail demotes the
 concepts it exposed to R3 and returns to the ladder.
 
-### 5. Wrap-up
+### 5. Wrap-up — on goal reached, or whenever they ask
 
-Read `wrap-up.md` and follow it: wiki reference note(s), the flashcard offer, the final log entry.
+The learner can stop at any point: "wrap up", "I'm good", "stop here" and the like. Finish
+grading the activity in flight (never leave an attempt ungraded), then read `wrap-up.md` and
+follow it. Don't argue them out of stopping. Say plainly what is and isn't solid, once, and
+let them choose.
 
 ## The learner's thinking and confidence — the primary data
 
-Invite them, once per session, to attach their reasoning and a rough confidence ("70%") to any
-answer: as a note on their pick, via "Other", or in the next message. It's optional for them
-and mandatory for you to read.
+Every quiz carries a confidence question (see the quiz protocol). Their reasoning comes through
+the confidence question's "Type something" field or "Chat about this". It's optional for them
+and mandatory for you to read. For free-reply activities (self-explanations, fades, tasks), the
+prompt ends with "add a confidence (sure / fairly / unsure / guessing)".
 
 - One pick is one bit; their reasoning is the picture. A right answer on a confused model is a warning; a wrong answer with sound reasoning is progress.
-- Confidence × verdict:
+- Confidence × verdict (`Sure`/`Fairly sure` = high, `Unsure`/`Guessing` = low):
   - correct + high → solid, counts fully
   - correct + low → fragile or lucky; counts half
   - wrong + high → a committed misconception; demote and dig in
@@ -275,10 +282,17 @@ discipline is now yours. Every quiz is exactly three beats, in this order, no ex
 1. **Before the call**, fix the correct option and the explanation in your own reasoning.
    Committing *before* they answer is what stops you rationalising whatever they picked into
    correctness afterwards. Never write the answer or the explanation on screen at this point.
-2. **Call `ask`** with the options in an order you deliberately randomise — do not habitually
-   put the correct one first or last. Always append a literal **"I don't know"** option. It is
-   never the answer, and picking it is *not wrong*: it's an honest gap, which is better
-   information than a lucky guess, and you teach into it rather than marking it.
+2. **Call `ask`** with two questions in the same call:
+   - **The quiz.** Options in an order you deliberately randomise — do not habitually put the
+     correct one first or last. Always append a literal **"I don't know"** option. It is never
+     the answer, and picking it is *not wrong*: it's an honest gap, which is better information
+     than a lucky guess, and you teach into it rather than marking it.
+   - **Confidence** (header `Confidence`, single-select), always these four, in this order:
+     `Sure (90%+)` · `Fairly sure (~70%)` · `Unsure (~50%)` · `Guessing`.
+     The question text says: "How sure are you? Use 'Type something' to add your reasoning."
+     If they picked "I don't know", ignore the confidence answer.
+   If the harness can't take two questions in one call, put the confidence choice in the next
+   `ask` — never fold it into the quiz options.
 3. **The very next thing you say is the grade**, before any other content:
 
    ```

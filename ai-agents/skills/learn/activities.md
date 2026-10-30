@@ -39,7 +39,7 @@ Result: <the answer / final state>
 Then the prompt (free reply):
 
 > Explain why each step is there: what it achieves and what makes it valid. Steps 2 and 4
-> matter most. Add a confidence if you like.
+> matter most. Add a confidence (sure / fairly / unsure / guessing).
 
 - For examples longer than ~5 steps, name the 2–3 steps that carry the schema instead of asking for all of them.
 - **Variant — comparison pair:** two short examples that differ in one feature, where the procedure diverges. Ask: "why does step 3 differ?" Use it when the concept's crux is *when* a rule applies.

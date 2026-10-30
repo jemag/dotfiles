@@ -1,6 +1,35 @@
-# Wrap-up — when the capstone passes
+# Wrap-up — goal reached, or the learner stops
 
-## 1. Wiki reference note(s)
+## 0. Where things stand, then one offer
+
+Show the state in a few lines, from the log's Concepts table:
+
+```
+Mastered: tcp-seq-numbers, tcp-acks
+In progress: tcp-window (R3) · not started: tcp-congestion
+Open misconceptions: <any still open>
+```
+
+If the capstone hasn't passed, say so in one line ("goal not verified — the capstone hasn't
+been run"). Don't push.
+
+Then one `ask`, multi-select:
+
+- **Wiki note** — a reference note in `~/obsidian` (§1)
+- **Flashcards** — for `:Flashcards` review (§2)
+- **Pause** — keep the log to resume later with `/learn <topic>`
+
+Run what they pick, in order. Picking nothing (or only Pause) writes nothing to the vault;
+go to §3.
+
+- **Flashcards without a note:** cards have to live in a vault note. Write a minimal one
+  under §1's naming and location rules: H1, a 1–3 bullet `## Overview`, then
+  `## Flashcards`. Say that's what you're doing.
+- **Stopped early:** the note covers only what was taught. Concepts not reached go in a
+  closing `## Not covered yet` list (one line each), so future-you knows the note's edge.
+  Cards come only from taught concepts.
+
+## 1. Wiki reference note(s) — if picked in §0
 
 **Read `~/obsidian/AGENTS.md` first and follow it.** It is authoritative over anything below.
 Key points it imposes:
@@ -24,11 +53,9 @@ Key points it imposes:
 5. **MOC:** if one in `3-mocs/` clearly fits, add the link in its most specific section, in the same change. Don't force one.
 6. Tell the learner the path(s) of what you wrote.
 
-## 2. Flashcards — offer once (`ask`)
+## 2. Flashcards — if picked in §0
 
-> "Add flashcards to the note(s) for `:Flashcards` review?"
-
-If yes, draft them **in chat first**; drop or edit on request; then append a `## Flashcards`
+Draft them **in chat first**; drop or edit on request; then append a `## Flashcards`
 section at the end of each note.
 
 ```markdown
@@ -51,9 +78,15 @@ Where cards come from:
 - each concept's key worked-example step → "In <problem>, why does step N <do X>?";
 - each procedure → a fade card: the problem plus the first steps on the front, the remaining steps and their whys on the back.
 
-Aim for 5–15 cards per note, weighted toward what was hard. If declined, don't ask again.
+Aim for 5–15 cards per note, weighted toward what was hard.
 
 ## 3. Close the log
 
-Set **Status: goal reached**, add the wiki note path(s), and list any Open doubts that are
-still unresolved. Leave the log in place; deleting it is the learner's call.
+Set **Status** to one of:
+- `goal reached` — the capstone passed;
+- `stopped — <date>` — they stopped before the capstone;
+- `paused — <date>` — they picked Pause.
+
+Add the wiki note path(s), if any, and list Open doubts that are still unresolved. A paused log
+is the resume point; §0 of SKILL.md picks it up. Leave the log in place; deleting it is the
+learner's call.
