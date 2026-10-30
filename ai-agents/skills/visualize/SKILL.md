@@ -11,7 +11,7 @@ You are the **creative director**. You decide the exact idea and distill it to i
 
 ## When to visualize (and when not to)
 
-This teaching system builds a **dependency graph in the learner's head** — axioms at the root, derived facts hanging off them. A visual is powerful exactly when it makes that structure (or a geometry) visible. Reach for one when:
+This teaching system builds a **dependency graph in the learner's head** — unconditional truths at the root, derived facts hanging off them. A visual is powerful exactly when it makes that structure (or a geometry) visible. Reach for one when:
 
 - The idea is a **structure or relationship**: dependencies, a system with parts and arrows, a flow/pipeline, a sequence of exchanges, a state machine, a tree/hierarchy, a comparison, a containment (what's inside vs outside).
 - The idea is **spatial or geometric**: coordinate geometry, a number line, vectors, a function's shape, a physical arrangement.
@@ -67,14 +67,10 @@ Diagram: viz/viz-packet-reliability-1730490000.png — open it alongside.
 
 Introduce the visual in a sentence, then let it carry the idea — don't narrate every element back in prose.
 
-If a `lesson.md` is open (see the `learn` skill's "Long or math-heavy lessons" section), also
-append an Obsidian wikilink embed to that file, using the **filename** and a display width:
-
-```
-![[viz-<slug>-<timestamp>.png|500]]
-```
-
-Obsidian resolves the embed by filename anywhere in the vault, so this renders inline as long as `viz/` sits inside it. Width `|500` is a good default; larger for dense diagrams.
+In a `learn` session, also embed it in the session log with a standard relative link:
+`![<alt>](viz/viz-<slug>-<timestamp>.png)`. The `learn` wrap-up copies the visuals worth keeping
+into the vault as `~/obsidian/_attachments/<kebab-name>.png`, embedded as
+`![<alt>](_attachments/<kebab-name>.png)` (vault rule: no `![[…]]` wikilinks).
 
 ## Why this is reliable
 
