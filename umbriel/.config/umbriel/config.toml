@@ -41,6 +41,11 @@ repeat_rate = 50
 accel_profile = "flat"
 sensitivity = 0.5
 
+[[input.device]]
+name = "Logitech G305"
+accel_profile = "flat"
+sensitivity = 0.5
+
 [input.focus]
 follows_mouse = true
 
