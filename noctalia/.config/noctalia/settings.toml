@@ -20,5 +20,8 @@ source = "community"
 community_palette = "Ayu Blue"
 mode = "dark"
 
-    [theme.templates]
-    builtin_ids = ["umbriel"]   # writes ~/.config/umbriel/noctalia.toml
+    # User copy of the umbriel template (see templates/umbriel.toml). Umbriel
+    # hot-reloads the include, so no post_hook is needed.
+    [theme.templates.user.umbriel]
+    input_path = "templates/umbriel.toml"
+    output_path = "$XDG_CONFIG_HOME/umbriel/noctalia.toml"
