@@ -13,4 +13,4 @@ if [ -e "$override" ]; then
 else
   printf '%b\n' "$toml" > "$override"
 fi
-umbriel msg config-reload
+# umbriel msg config-reload

@@ -56,7 +56,7 @@ default_extent_fraction = 1.0   # new windows open full width (sway stack feel)
 # sway "layout stacking" equivalent: one window visible per column, title bar above.
 # Mod+W flips a column between tabbed and normal (rows stacked vertically).
 [layout.tabs]
-default_display = "normal"
+default_display = "tabbed"
 new_tab_position = "after_active"
 middle_click_closes = true          # was: bindsym --release button2 kill
 
@@ -64,7 +64,6 @@ middle_click_closes = true          # was: bindsym --release button2 kill
 border_width = 3
 
 # Tab bar (title strip above each tab group). Two independent switches:
-#   Mod+Ctrl+W  - this tab group only (runtime; survives config reloads)
 #   Mod+Shift+W - global `visible` via tabbar-override.toml. It cannot re-show a
 #                 group hidden with Mod+Ctrl+W.
 [appearance.tab_bar]
@@ -116,7 +115,7 @@ name = "main"
 "Mod+V" = "window-consume-or-expel-left"     # was: split v
 "Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
-"Mod+Ctrl+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
+# "Mod+Ctrl+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
 "Mod+Shift+W" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
 "Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh gaps '[layout]\\ngap = 0'", repeat = false }  # gaps on/off
 "Mod+Shift+G" = { action = "window-toggle-maximize-to-edges", repeat = false }      # this window: no gaps/borders
