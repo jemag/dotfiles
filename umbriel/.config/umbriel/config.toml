@@ -65,7 +65,7 @@ border_width = 3
 # Tab bar (window title strip above a tabbed column): hidden while a column holds
 # a single window; Mod+Shift+W toggles it per column, Mod+Ctrl+W everywhere.
 [appearance.tab_bar]
-hide_when_single = true
+hide_when_single = false
 
 # ------------------------------------------------------------------ scratchpad
 [[scratchpad]]
@@ -112,8 +112,8 @@ name = "main"
 "Mod+V" = "window-consume-or-expel-left"     # was: split v
 "Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
-"Mod+Shift+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
-"Mod+Ctrl+W" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
+"Mod+Ctrl+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
+"Mod+Shift+W" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
 "Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh gaps '[layout]\\ngap = 0'", repeat = false }  # gaps on/off
 "Mod+Shift+G" = { action = "window-toggle-maximize-to-edges", repeat = false }      # this window: no gaps/borders
 "Mod+E" = "window-cycle-primary-extent"       # column width presets
