@@ -120,6 +120,7 @@ name = "main"
 
 # scratchpad
 "Mod+U" = "scratchpad-toggle:main"
+# move window to scratch pad
 "Mod+Shift+U" = { action = "window-toggle-scratchpad:main", repeat = false }
 
 # workspaces
