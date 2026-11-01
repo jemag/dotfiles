@@ -27,7 +27,7 @@ scale = 1.0
 workspaces = ["10"]
 
 [workspaces]
-back_and_forth = true
+back_and_forth = false   # Mod+N on the current workspace stays put; Mod+A = previous
 
 # ------------------------------------------------------------------ input
 [input.keyboard]
