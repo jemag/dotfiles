@@ -1,5 +1,6 @@
-# Noctalia v5 settings. Tracked in ~/dotfiles/noctalia; the settings UI and
-# `noctalia msg config-set` write back to this file.
+# Noctalia v5 declarative config, tracked in ~/dotfiles/noctalia. Settings-window
+# and `noctalia msg config-set` changes go to ~/.local/state/noctalia/settings.toml,
+# which loads last and overrides this file.
 
 [idle.behavior.lock]          # was: swayidle timeout 600 swaylock
 enabled = true

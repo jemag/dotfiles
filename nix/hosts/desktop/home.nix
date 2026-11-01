@@ -95,8 +95,16 @@ in
       ".config/sway" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
       };
-      ".config/umbriel" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/umbriel/.config/umbriel";
+      # Per-file so generated noctalia.toml and *-override.toml stay in the real
+      # ~/.config/umbriel instead of landing in the repo.
+      ".config/umbriel/config.toml" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/umbriel/.config/umbriel/config.toml";
+      };
+      ".config/umbriel/gaps.toml" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/umbriel/.config/umbriel/gaps.toml";
+      };
+      ".config/umbriel/toggle-override.sh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/umbriel/.config/umbriel/toggle-override.sh";
       };
       ".config/noctalia" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/noctalia/.config/noctalia";
