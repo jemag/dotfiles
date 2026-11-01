@@ -82,8 +82,10 @@ name = "main"
 
 # focus
 "Mod+H" = "window-focus-left"
-"Mod+J" = "window-focus-down"
-"Mod+K" = "window-focus-up"
+"Mod+J" = "column-focus-tab-next"        # tabs of the focused column (sway stack feel)
+"Mod+K" = "column-focus-tab-previous"
+"Mod+Alt+J" = "window-focus-down"        # rows of the column (stacked / multiple tab groups)
+"Mod+Alt+K" = "window-focus-up"
 "Mod+L" = "window-focus-right"
 "Mod+Left" = "window-focus-left"
 "Mod+Down" = "window-focus-down"
