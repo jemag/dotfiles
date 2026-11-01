@@ -5,6 +5,11 @@
 mod_key = "Super"
 autostart = ["noctalia"]
 
+# Colours come from Noctalia's "umbriel" theme template (Ayu palette), which
+# writes noctalia.toml next to this file. Optional so a fresh checkout still loads.
+[include.optional]
+files = ["noctalia.toml"]
+
 # ------------------------------------------------------------------ outputs
 # was sway/.config/sway/outputs (nwg-displays)
 [output.DP-2]
@@ -45,7 +50,7 @@ gap = 13
 extent_presets = [0.333, 0.5, 0.667, 1.0]
 
 [layout.scrolling]
-default_extent_fraction = 0.5
+default_extent_fraction = 1.0   # new windows open full width (sway stack feel)
 
 # sway "layout stacking" equivalent: one window visible per column, title bar above.
 # Mod+W flips a column between tabbed and normal (rows stacked vertically).
@@ -56,10 +61,6 @@ middle_click_closes = true          # was: bindsym --release button2 kill
 
 [appearance]
 border_width = 3
-
-[colors.border]
-focused = "#FF6666FF"    # sway client.focused child_border ($red)
-unfocused = "#1F2430FF"  # $bg
 
 # ------------------------------------------------------------------ scratchpad
 [[scratchpad]]

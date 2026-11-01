@@ -11,3 +11,14 @@ timeout = 700.0
 
 [lockscreen]                  # was: swaylock -i $darkwallpaper
 wallpaper = "/home/jemag/wallpapers/nix.png"
+
+[wallpaper]                   # picker shows ~/wallpapers; the active image is set once
+directory = "/home/jemag/wallpapers"   # with `noctalia msg wallpaper-set` (kept in ~/.local/state)
+
+[theme]                       # Ayu (dark) from the Noctalia community palettes
+source = "community"
+community_palette = "Ayu Blue"
+mode = "dark"
+
+    [theme.templates]
+    builtin_ids = ["umbriel"]   # writes ~/.config/umbriel/noctalia.toml
