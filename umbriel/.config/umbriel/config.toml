@@ -1,0 +1,202 @@
+# Umbriel config: translated from ~/dotfiles/sway/.config/sway/config
+# Reference: https://docs.noctalia.dev/umbriel/  ·  check: umbriel config validate
+
+[general]
+mod_key = "Super"
+autostart = ["noctalia"]
+
+# ------------------------------------------------------------------ outputs
+# was sway/.config/sway/outputs (nwg-displays)
+[output.DP-2]
+mode = "2560x1440@143.912"
+position = [0, 0]
+scale = 1.0
+tearing = true
+workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+focus_at_startup = true
+
+[output.HDMI-A-1]
+mode = "1920x1080@60"
+position = [323, 1440]
+scale = 1.0
+workspaces = ["10"]
+
+[workspaces]
+back_and_forth = true
+
+# ------------------------------------------------------------------ input
+[input.keyboard]
+layout = "us,ca"
+options = "grp:win_space_toggle"
+repeat_delay = 200
+repeat_rate = 50
+
+[input.mouse]
+accel_profile = "flat"
+sensitivity = 0.5
+
+[input.focus]
+follows_mouse = true
+
+# ------------------------------------------------------------------ look
+[layout]
+mode = "scrolling"
+gap = 13
+extent_presets = [0.333, 0.5, 0.667, 1.0]
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+
+# sway "layout stacking" equivalent: one window visible per column, title bar above.
+# Mod+W flips a column between tabbed and normal (rows stacked vertically).
+[layout.tabs]
+default_display = "tabbed"
+new_tab_position = "after_active"
+middle_click_closes = true          # was: bindsym --release button2 kill
+
+[appearance]
+border_width = 3
+
+[colors.border]
+focused = "#FF6666FF"    # sway client.focused child_border ($red)
+unfocused = "#1F2430FF"  # $bg
+
+# ------------------------------------------------------------------ scratchpad
+[[scratchpad]]
+name = "main"
+
+# ------------------------------------------------------------------ keybinds
+# Defining [keybinds] replaces Umbriel's built-in set entirely.
+[keybinds]
+# apps / session
+"Mod+Return" = { action = "spawn:ghostty", repeat = false }
+"Mod+P" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
+"Mod+O" = { action = "spawn:noctalia msg window-switcher", repeat = false }
+"Mod+Shift+Q" = { action = "window-close", repeat = false }
+"Mod+Shift+C" = "config-reload"
+"Mod+Shift+E" = "session-quit"
+"Mod+Shift+X" = { action = "spawn:noctalia msg session lock", repeat = false }
+"Mod+T" = { action = "spawn:noctalia msg bar-toggle", repeat = false }
+"Print" = { action = "spawn:noctalia msg screenshot-region", repeat = false }
+
+# focus
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+Tab" = "window-focus-last"          # replaces sway-switch-window-script.sh + _prev mark
+
+# move
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+J" = "window-move-down"
+"Mod+Shift+K" = "window-move-up"
+"Mod+Shift+L" = "column-move-right"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+
+# layout
+"Mod+V" = "window-consume-or-expel-left"     # was: split v
+"Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
+"Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
+"Mod+E" = "window-cycle-primary-extent"       # column width presets
+"Mod+C" = "column-center"
+"Mod+I" = { action = "overview-toggle", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false } # full-width column
+"Mod+MouseMiddle" = "layout-scroll-drag"
+"Mod+WheelUp" = "window-focus-left"
+"Mod+WheelDown" = "window-focus-right"
+"Mod+Shift+Space" = { action = "window-toggle-floating", repeat = false }
+"Mod+Space" = { action = "window-focus-switch-floating", repeat = false }
+
+# scratchpad
+"Mod+U" = "scratchpad-toggle:main"
+"Mod+Shift+U" = { action = "window-toggle-scratchpad:main", repeat = false }
+
+# workspaces
+"Mod+A" = "workspace-focus-last"
+"Mod+1" = "workspace-switch:1"
+"Mod+2" = "workspace-switch:2"
+"Mod+3" = "workspace-switch:3"
+"Mod+4" = "workspace-switch:4"
+"Mod+5" = "workspace-switch:5"
+"Mod+6" = "workspace-switch:6"
+"Mod+7" = "workspace-switch:7"
+"Mod+8" = "workspace-switch:8"
+"Mod+9" = "workspace-switch:9"
+"Mod+0" = "workspace-switch:10"
+"Mod+Shift+1" = "window-move-to-workspace:1"
+"Mod+Shift+2" = "window-move-to-workspace:2"
+"Mod+Shift+3" = "window-move-to-workspace:3"
+"Mod+Shift+4" = "window-move-to-workspace:4"
+"Mod+Shift+5" = "window-move-to-workspace:5"
+"Mod+Shift+6" = "window-move-to-workspace:6"
+"Mod+Shift+7" = "window-move-to-workspace:7"
+"Mod+Shift+8" = "window-move-to-workspace:8"
+"Mod+Shift+9" = "window-move-to-workspace:9"
+"Mod+Shift+0" = "window-move-to-workspace:10"
+
+# resize submap (was: mode "resize")
+"Mod+R" = { action = "submap:resize", repeat = false }
+"submap[resize],H" = "window-modify-primary-extent:-0.05"
+"submap[resize],L" = "window-modify-primary-extent:0.05"
+"submap[resize],K" = "window-modify-secondary-extent:-0.05"
+"submap[resize],J" = "window-modify-secondary-extent:0.05"
+"submap[resize],Left" = "window-modify-primary-extent:-0.05"
+"submap[resize],Right" = "window-modify-primary-extent:0.05"
+"submap[resize],Up" = "window-modify-secondary-extent:-0.05"
+"submap[resize],Down" = "window-modify-secondary-extent:0.05"
+"submap[resize],Return" = "submap:reset"
+"submap[resize],Escape" = "submap:reset"
+
+# audio / media (routed through Noctalia for OSDs)
+"XF86AudioRaiseVolume" = { action = "spawn:noctalia msg volume-up 3", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn:noctalia msg volume-down 3", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn:noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn:noctalia msg media previous", allow_when_locked = true }
+"Mod+F10" = { action = "spawn:noctalia msg volume-up 3", allow_when_locked = true }
+"Mod+F9" = { action = "spawn:noctalia msg volume-down 3", allow_when_locked = true }
+"Mod+F8" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"Mod+F6" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"Mod+F7" = { action = "spawn:noctalia msg media next", allow_when_locked = true }
+"Mod+F5" = { action = "spawn:noctalia msg media previous", allow_when_locked = true }
+
+# ------------------------------------------------------------------ window rules
+[[window_rule]]
+match.app_id = ["^nixnote2$", "^org.gnome.Calculator$"]
+default_scratchpad = "main"
+
+[[window_rule]]
+match.title = ["^Qalculate!$", "^Pebbles$", "^Uno Calculator$", "^Microsoft Teams Notification$"]
+default_floating = true
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1020, height = 900 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+blur_optimized = false

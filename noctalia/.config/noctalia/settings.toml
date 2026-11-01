@@ -1,0 +1,13 @@
+# Noctalia v5 settings. Tracked in ~/dotfiles/noctalia; the settings UI and
+# `noctalia msg config-set` write back to this file.
+
+[idle.behavior.lock]          # was: swayidle timeout 600 swaylock
+enabled = true
+timeout = 600.0
+
+[idle.behavior.screen-off]    # was: swayidle timeout 700 output * power off
+enabled = true
+timeout = 700.0
+
+[lockscreen]                  # was: swaylock -i $darkwallpaper
+wallpaper = "/home/jemag/wallpapers/nix.png"
