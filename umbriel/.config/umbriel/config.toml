@@ -80,6 +80,7 @@ name = "main"
 "Mod+P" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
 "Mod+O" = { action = "spawn:noctalia msg panel-toggle launcher '/win '", repeat = false }
 "Mod+Shift+Q" = { action = "window-close", repeat = false }
+"Mod+Shift+Slash" = { action = "cheatsheet-toggle", repeat = false }
 "Mod+Shift+C" = "config-reload"
 "Mod+Shift+E" = "session-quit"
 "Mod+Shift+X" = { action = "spawn:noctalia msg session lock", repeat = false }
