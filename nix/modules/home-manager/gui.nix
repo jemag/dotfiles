@@ -53,6 +53,9 @@ in
             "browser.tabs.warnOnQuit" = false;
             "browser.warnOnQuitShortcut" = false;
             "browser.sessionstore.resume_from_crash" = true;
+            # Keep toolbars (address bar) visible when the compositor fullscreens
+            # the window (Umbriel Mod+F) or on F11.
+            "browser.fullscreen.autohide" = false;
             "browser.display.background_color" = "#282828";
             "ui.context_menus.after_mouseup" = true;
             "signon.rememberSignons" = false;
