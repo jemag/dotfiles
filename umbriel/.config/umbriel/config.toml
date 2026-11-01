@@ -8,7 +8,8 @@ autostart = ["noctalia"]
 # Colours come from Noctalia's "umbriel" theme template (Ayu palette), which
 # writes noctalia.toml next to this file. Optional so a fresh checkout still loads.
 [include.optional]
-files = ["noctalia.toml"]
+# Later files win; config.toml itself is applied last, so `gap` lives in gaps.toml.
+files = ["gaps.toml", "noctalia.toml", "gaps-override.toml"]
 
 # ------------------------------------------------------------------ outputs
 # was sway/.config/sway/outputs (nwg-displays)
@@ -46,7 +47,6 @@ follows_mouse = true
 # ------------------------------------------------------------------ look
 [layout]
 mode = "scrolling"
-gap = 13
 extent_presets = [0.333, 0.5, 0.667, 1.0]
 
 [layout.scrolling]
@@ -61,6 +61,11 @@ middle_click_closes = true          # was: bindsym --release button2 kill
 
 [appearance]
 border_width = 3
+
+# Tab bar (window title strip above a tabbed column): hidden while a column holds
+# a single window; Mod+Shift+W toggles it per column.
+[appearance.tab_bar]
+hide_when_single = true
 
 # ------------------------------------------------------------------ scratchpad
 [[scratchpad]]
@@ -107,6 +112,9 @@ name = "main"
 "Mod+V" = "window-consume-or-expel-left"     # was: split v
 "Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
+"Mod+Shift+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
+"Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-gaps.sh", repeat = false }  # gaps on/off
+"Mod+Shift+G" = { action = "window-toggle-maximize-to-edges", repeat = false }      # this window: no gaps/borders
 "Mod+E" = "window-cycle-primary-extent"       # column width presets
 "Mod+C" = "column-center"
 "Mod+I" = { action = "overview-toggle", repeat = false }

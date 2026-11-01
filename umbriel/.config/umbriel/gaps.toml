@@ -1,0 +1,4 @@
+# Default gaps. Kept out of config.toml because the main file is applied last and
+# would beat gaps-override.toml (written by toggle-gaps.sh, gitignored).
+[layout]
+gap = 13
