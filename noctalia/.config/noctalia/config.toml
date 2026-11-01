@@ -37,3 +37,11 @@ validate = ["return", "kp_enter", "ctrl+y"]
 
 [widget.clock]                # bar clock: ISO date + time (default is {:%H:%M})
 format = "{:%F %H:%M}"
+
+[bar.default]                 # focused window title in the centre, clock at the far right
+center = ["active_window"]
+end = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume",
+       "brightness", "battery", "control-center", "session", "clock"]
+
+[widget.active_window]
+max_length = 600              # default 260 truncates most titles
