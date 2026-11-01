@@ -9,7 +9,7 @@ autostart = ["noctalia"]
 # writes noctalia.toml next to this file. Optional so a fresh checkout still loads.
 [include.optional]
 # Later files win; config.toml itself is applied last, so `gap` lives in gaps.toml.
-files = ["gaps.toml", "noctalia.toml", "gaps-override.toml"]
+files = ["gaps.toml", "noctalia.toml", "gaps-override.toml", "tabbar-override.toml"]
 
 # ------------------------------------------------------------------ outputs
 # was sway/.config/sway/outputs (nwg-displays)
@@ -63,7 +63,7 @@ middle_click_closes = true          # was: bindsym --release button2 kill
 border_width = 3
 
 # Tab bar (window title strip above a tabbed column): hidden while a column holds
-# a single window; Mod+Shift+W toggles it per column.
+# a single window; Mod+Shift+W toggles it per column, Mod+Ctrl+W everywhere.
 [appearance.tab_bar]
 hide_when_single = true
 
@@ -113,7 +113,8 @@ name = "main"
 "Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
 "Mod+Shift+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
-"Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-gaps.sh", repeat = false }  # gaps on/off
+"Mod+Ctrl+W" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
+"Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh gaps '[layout]\\ngap = 0'", repeat = false }  # gaps on/off
 "Mod+Shift+G" = { action = "window-toggle-maximize-to-edges", repeat = false }      # this window: no gaps/borders
 "Mod+E" = "window-cycle-primary-extent"       # column width presets
 "Mod+C" = "column-center"
