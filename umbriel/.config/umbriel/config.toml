@@ -78,7 +78,7 @@ name = "main"
 # apps / session
 "Mod+Return" = { action = "spawn:ghostty", repeat = false }
 "Mod+P" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
-"Mod+O" = { action = "spawn:noctalia msg window-switcher", repeat = false }
+"Mod+O" = { action = "spawn:noctalia msg panel-toggle launcher '/win '", repeat = false }
 "Mod+Shift+Q" = { action = "window-close", repeat = false }
 "Mod+Shift+C" = "config-reload"
 "Mod+Shift+E" = "session-quit"
