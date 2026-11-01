@@ -126,8 +126,8 @@ name = "main"
 "Mod+MouseMiddle" = "layout-scroll-drag"
 "Mod+WheelUp" = "window-focus-left"
 "Mod+WheelDown" = "window-focus-right"
-"Mod+Shift+Space" = { action = "window-toggle-floating", repeat = false }
-"Mod+Space" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+S" = { action = "window-focus-switch-floating", repeat = false }
 
 # scratchpad
 "Mod+U" = "scratchpad-toggle:main"
