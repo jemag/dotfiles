@@ -55,7 +55,7 @@ default_extent_fraction = 1.0   # new windows open full width (sway stack feel)
 # sway "layout stacking" equivalent: one window visible per column, title bar above.
 # Mod+W flips a column between tabbed and normal (rows stacked vertically).
 [layout.tabs]
-default_display = "tabbed"
+default_display = "normal"
 new_tab_position = "after_active"
 middle_click_closes = true          # was: bindsym --release button2 kill
 
