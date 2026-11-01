@@ -60,27 +60,22 @@
   };
 
   programs.steam.enable = true;
+  programs.umbriel.enable = true;
+  programs.noctalia.enable = true; # started from Umbriel's [general] autostart, not systemd
+  services.upower.enable = true; # Noctalia power/battery widgets
+
+  # Fallback session for stage 1 only, deleted in stage 2. It is deliberately bare:
+  # no mako, because its D-Bus activation file would compete with Noctalia for
+  # org.freedesktop.Notifications.
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     extraPackages = with pkgs; [
-      gnome-keyring
       swaylock
       swayidle
-      wl-clipboard
-      wf-recorder
-      xwayland
-      mako
-      libnotify
-      grim
-      slurp
-      dmenu
-      rofi
-      wmenu
       foot
     ];
   };
-  programs.waybar.enable = true;
   programs.kdeconnect.enable = true;
 
   virtualisation.docker.enable = true;
@@ -88,6 +83,11 @@
   environment.systemPackages = with pkgs; [
     dnsmasq
     killall
+    wl-clipboard
+    wf-recorder
+    grim
+    slurp
+    libnotify # notify-send; Noctalia is the notification server
     gnumake
     gcc
     autoconf
@@ -113,15 +113,20 @@
   environment.etc."xdg/menus/applications.menu".source =
     "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.sway}/bin/sway";
-        user = "greeter";
-      };
+  services.displayManager.noctalia-greeter = {
+    enable = true; # also enables greetd, accounts-daemon, polkit
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic"; # same theme as gui.nix
     };
+    settings = {
+      cursor.size = 22;
+      keyboard.layout = "us";
+    };
+    # lets `noctalia msg greeter-sync` push wallpaper/colours/monitor layout without a password
+    passwordlessSyncUsers = [ "jemag" ];
   };
+  services.displayManager.defaultSession = "umbriel";
   # services.mullvad-vpn.enable = true;
   # services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
@@ -191,18 +196,11 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   xdg.portal = {
-    config = {
-      sway = {
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-      };
-    };
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    wlr.enable = true;
+    # The umbriel module adds xdg-desktop-portal-umbriel and its umbriel-portals.conf
+    # through configPackages. Setting xdg.portal.config.umbriel here would replace
+    # that file, so it is left alone. gtk stays installed for the file chooser.
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   networking.firewall.enable = true;

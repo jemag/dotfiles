@@ -95,6 +95,12 @@ in
       ".config/sway" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/sway/.config/sway";
       };
+      ".config/umbriel" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/umbriel/.config/umbriel";
+      };
+      ".config/noctalia" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/noctalia/.config/noctalia";
+      };
       ".zshrc" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/zsh/.zshrc";
       };
@@ -135,7 +141,7 @@ in
     #  /etc/profiles/per-user/jemag/etc/profile.d/hm-session-vars.sh
     #
     sessionVariables = {
-      # EDITOR = "emacs";
+      XDG_CURRENT_DESKTOP = "Umbriel"; # matches DesktopNames in umbriel.desktop
     };
   };
 

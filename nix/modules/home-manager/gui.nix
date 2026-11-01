@@ -211,7 +211,7 @@ in
       };
     };
     home.sessionVariables = {
-      XDG_CURRENT_DESKTOP = "sway";
+      XDG_CURRENT_DESKTOP = lib.mkDefault "sway"; # desktop overrides to Umbriel
       GTK_THEME = "Ayu-Dark";
       XDG_THEME_PREFERENCE = "dark";
     };
