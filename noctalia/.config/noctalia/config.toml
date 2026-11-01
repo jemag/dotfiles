@@ -34,3 +34,6 @@ readline_shortcuts = true     # previous word, Ctrl+U kills to line start, Ctrl+
 up       = ["up", "ctrl+p"]
 down     = ["down", "ctrl+n"]
 validate = ["return", "kp_enter", "ctrl+y"]
+
+[widget.clock]                # bar clock: ISO date + time (default is {:%H:%M})
+format = "{:%F %H:%M}"
