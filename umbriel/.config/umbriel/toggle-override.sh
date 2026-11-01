@@ -4,7 +4,7 @@
 # Creates ~/.config/umbriel/<name>-override.toml with <toml>, or removes it if it
 # exists. Umbriel reloads when an optional include appears/disappears; the
 # explicit reload is just belt and braces.
-# Used by Mod+G (gaps) and Mod+Ctrl+W (tab bar) in config.toml.
+# Used by Mod+G (gaps) and Mod+Shift+W (tab bar) in config.toml.
 name="$1"
 toml="$2"
 override="${XDG_CONFIG_HOME:-$HOME/.config}/umbriel/${name}-override.toml"

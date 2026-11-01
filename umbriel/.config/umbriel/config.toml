@@ -63,8 +63,10 @@ middle_click_closes = true          # was: bindsym --release button2 kill
 [appearance]
 border_width = 3
 
-# Tab bar (window title strip above a tabbed column): hidden while a column holds
-# a single window; Mod+Shift+W toggles it per column, Mod+Ctrl+W everywhere.
+# Tab bar (title strip above each tab group). Two independent switches:
+#   Mod+Ctrl+W  - this tab group only (runtime; survives config reloads)
+#   Mod+Shift+W - global `visible` via tabbar-override.toml. It cannot re-show a
+#                 group hidden with Mod+Ctrl+W.
 [appearance.tab_bar]
 hide_when_single = false
 
