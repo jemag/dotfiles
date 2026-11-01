@@ -29,3 +29,8 @@ mode = "dark"
 
 [shell]                       # readline editing in every text field: Ctrl+W deletes the
 readline_shortcuts = true     # previous word, Ctrl+U kills to line start, Ctrl+A/E home/end
+
+[keybinds]                    # panel navigation; defaults kept, Ctrl chords added
+up       = ["up", "ctrl+p"]
+down     = ["down", "ctrl+n"]
+validate = ["return", "kp_enter", "ctrl+y"]
