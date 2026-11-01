@@ -25,3 +25,6 @@ mode = "dark"
     [theme.templates.user.umbriel]
     input_path = "templates/umbriel.toml"
     output_path = "$XDG_CONFIG_HOME/umbriel/noctalia.toml"
+
+[shell]                       # readline editing in every text field: Ctrl+W deletes the
+readline_shortcuts = true     # previous word, Ctrl+U kills to line start, Ctrl+A/E home/end
