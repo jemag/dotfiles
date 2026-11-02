@@ -1,14 +1,18 @@
 # Noctalia v5 declarative config, tracked in ~/dotfiles/noctalia. Settings-window
 # and `noctalia msg config-set` changes go to ~/.local/state/noctalia/settings.toml,
 # which loads last and overrides this file.
+[idle]
+behavior_order = ["lock", "screen-off"]
 
-[idle.behavior.lock]          # was: swayidle timeout 600 swaylock
+[idle.behavior.lock]
 enabled = true
-timeout = 600.0
+timeout = 600
+action = "lock"
 
-[idle.behavior.screen-off]    # was: swayidle timeout 700 output * power off
+[idle.behavior.screen-off]
 enabled = true
-timeout = 700.0
+timeout = 660
+action = "screen_off"
 
 [lockscreen]                  # was: swaylock -i $darkwallpaper
 wallpaper = "/home/jemag/wallpapers/nix.png"
