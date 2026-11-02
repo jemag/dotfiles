@@ -6,6 +6,9 @@ require("opencode").setup({
   default_system_prompt = nil, -- Custom system prompt to use for all sessions. If nil, uses the default built-in system prompt
   keymap_prefix = "<localleader>o", -- Default keymap prefix for global keymaps change to your preferred prefix and it will be applied to all keymaps starting with <leader>o
   opencode_executable = "opencode", -- Name of your opencode binary
+  -- OSC 7501 status output. herdr does not read it, and the tracker behind it
+  -- takes one listener, which plugin-configs/opencode-herdr.lua claims.
+  program_status = { enabled = false },
   keymap = {
     editor = {
       ["<f11>"] = { "toggle", mode = { "n", "i" } }, -- Open opencode. Close if opened
@@ -277,47 +280,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   desc = "Set relativenumber for opencode",
 })
 
--- Release the herdr agent indicator when nvim exits.
---
--- The opencode plugin at opencode/.config/opencode/plugins/herdr-nvim-agent-state.js
--- (linked to ~/.config/opencode/plugins by home-manager) reports lifecycle state to herdr, but it cannot release on its own: the server
--- is killed with SIGTERM immediately followed by SIGKILL (opencode.nvim's
--- opencode_server.lua kill_pid), so no in-process exit handler ever runs. herdr
--- keeps reported agent state forever with no TTL, so without this the pane stays
--- flagged as an opencode agent after nvim is gone.
-vim.api.nvim_create_autocmd("VimLeavePre", {
-  group = vim.api.nvim_create_augroup("OpencodeHerdrRelease", { clear = true }),
-  callback = function()
-    if vim.env.HERDR_ENV ~= "1" then
-      return
-    end
-    local bin, pane = vim.env.HERDR_BIN_PATH, vim.env.HERDR_PANE_ID
-    if not bin or not pane then
-      return
-    end
-    -- The plugin stamps reports with epoch microseconds. herdr drops a release
-    -- whose seq is not greater, so use the same unit, read now. Not nanoseconds:
-    -- a release that outranks every future report would make the next server in
-    -- this pane unable to report at all. "%d" because tostring() would give
-    -- "1.79e+15"; the value is below 2^53 so it is exact.
-    local sec, usec = vim.uv.gettimeofday()
-    local seq = string.format("%d", sec * 1000000 + usec + 1)
-    pcall(function()
-      vim
-        .system({
-          bin,
-          "pane",
-          "release-agent",
-          pane,
-          "--source",
-          "custom:opencode-nvim",
-          "--agent",
-          "opencode-nvim",
-          "--seq",
-          seq,
-        }, { text = true })
-        :wait(1000)
-    end)
-  end,
-  desc = "Clear herdr opencode agent state on exit",
-})
+-- Report session state to herdr (see opencode-herdr.lua). Must run after
+-- setup(), which resets opencode.nvim's status tracker.
+require("plugin-configs.opencode-herdr").setup()

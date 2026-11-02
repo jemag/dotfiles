@@ -201,14 +201,14 @@ in
         ".config/opencode/opencode.jsonc" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/opencode.jsonc";
         };
-        ".config/opencode/tui.json" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/tui.json";
+        # v2 client config (keybinds, preferences). Replaces v1's tui.json, which
+        # v2 migrated once into this file and no longer reads.
+        ".config/opencode/cli.json" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/cli.json";
         };
-        # Whole directory so new plugins need no nix change. Holds the herdr
-        # reporter for opencode.nvim (see herdr-nvim-agent-state.js).
-        ".config/opencode/plugins" = {
-          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/opencode/.config/opencode/plugins";
-        };
+        # ~/.config/opencode/plugins is deliberately not linked: it holds only
+        # herdr's managed integration (herdr integration install opencode), and a
+        # link into dotfiles dangles whenever the dotfiles dir is empty.
         ".claude/keybindings.json" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/claude-code/.claude/keybindings.json";
         };
@@ -362,7 +362,14 @@ in
           nushell
           nufmt
           nu-lint
-          llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
+          # opencode v2. llm-agents names the binary opencode2 so it can coexist
+          # with its v1 `opencode` package; we only run v2, so restore upstream's
+          # name (opencode.nvim, herdr and the `oc` alias all call `opencode`).
+          (pkgs.symlinkJoin {
+            name = "opencode";
+            paths = [ llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2 ];
+            postBuild = "ln -s $out/bin/opencode2 $out/bin/opencode";
+          })
           # tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
           # tuicr removed: its flake builds with naersk, which fetches each crate from
           # https://crates.io/api/v1/crates/<name>/<ver>/download. That endpoint now
