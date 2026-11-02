@@ -48,6 +48,8 @@ sensitivity = 0.5
 
 [input.focus]
 follows_mouse = true
+[input.cursor]
+follows_focus = true
 
 # ------------------------------------------------------------------ look
 [layout]
