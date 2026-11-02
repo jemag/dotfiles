@@ -14,6 +14,9 @@ enabled = true
 timeout = 660
 action = "screen_off"
 
+[shell.launcher]
+compact = true
+
 [lockscreen]                  # was: swaylock -i $darkwallpaper
 wallpaper = "/home/jemag/wallpapers/nix.png"
 
