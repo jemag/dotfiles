@@ -253,19 +253,14 @@ require("opencode").setup({
   },
 })
 
--- opencode.nvim defines its highlight groups once at setup, but our colorscheme
--- loads later (after/plugin/theme.lua) and `:hi clear` wipes them. Re-apply on
--- every ColorScheme, and make the dialog/question cursor row stand out against the
--- blue markdown code-block highlight the options are rendered in.
-local function set_opencode_highlights()
-  require("opencode.ui.highlight").setup()
+local function set_custom_opencode_highlights()
   vim.api.nvim_set_hl(0, "OpencodeDialogOptionHover", { bg = "#FFCC66", fg = "#1F2430", bold = true })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = vim.api.nvim_create_augroup("OpencodeHighlights", { clear = true }),
-  callback = set_opencode_highlights,
-  desc = "Restore opencode.nvim highlights after colorscheme change",
+  callback = set_custom_opencode_highlights,
+  desc = "Set custom opencode.nvim highlights after colorscheme change",
 })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
