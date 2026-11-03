@@ -6,3 +6,15 @@ single_call_command = "off"         # small helpers (log_*) are worth keeping ev
 catch_builtin_error_try = "off"     # in scripts, letting open/save error out is the right behaviour
 max_positional_params = "off"       # sometimes worth fixing, not a warning
 list_param_to_variadic = "off"      # don't care about variadics for our scripts
+
+# Rules whose auto-fix can change behaviour
+append_to_concat_assign = "off"     # wraps list values in [...] → nests lists (`append` flattens, `++` doesn't)
+get_optional_to_has = "off"         # `has` is true for null/"" values, unlike `get -o | is-not-empty`
+get_optional_to_not_has = "off"     # same semantics issue, inverted
+
+# Doesn't fit scripts
+add_label_to_error = "off"          # runtime summary errors have no meaningful span to label
+
+# nu-lint 1.2.1 flags record literals in `let x = {a: 1}` as blocks (false positive).
+# Re-check after upgrading (1.8.0 has a separate record_brace_spacing rule) before turning off.
+# block_brace_spacing = "off"
