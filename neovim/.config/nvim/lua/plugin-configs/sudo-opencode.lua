@@ -194,12 +194,15 @@ require("opencode").setup({
     },
   },
   context = {
-    enabled = false, -- Enable automatic context capturing
+    -- Must stay true: when false, every item reads as "off" and `#` toggles
+    -- have no effect. Sub-contexts below start disabled; toggle them via `#`.
+    enabled = true,
     cursor_data = {
       enabled = false, -- Include cursor position and line content in the context
       context_lines = 5, -- Number of lines before and after cursor to include in context
     },
     diagnostics = {
+      enabled = false,
       info = false, -- Include diagnostics info in the context (default to false
       warn = true, -- Include diagnostics warnings in the context
       error = true, -- Include diagnostics errors in the context
@@ -210,11 +213,17 @@ require("opencode").setup({
       show_full_path = true,
     },
     files = {
-      enabled = true,
+      enabled = true, -- Keep: shows @ file mentions (not toggleable via `#`)
       show_full_path = true,
     },
+    agents = {
+      enabled = true, -- Keep: shows @ agent mentions (not toggleable via `#`)
+    },
     selection = {
-      enabled = true, -- Include selected text in the context
+      enabled = false, -- Include selected text in the context
+    },
+    review_comments = {
+      enabled = false,
     },
     buffer = {
       enabled = false, -- Disable entire buffer context by default, only used in quick chat
