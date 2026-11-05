@@ -9,6 +9,7 @@ list_param_to_variadic = "off"      # don't care about variadics for our scripts
 remove_hat_not_builtin = "off"      # bad practice, what if external command becomes builtin...
 redundant_ignore = "off"            # does not work properly with external commands
 ignore_over_dev_null = "off"        # ignore can be dangerous in some cases because it by default ignores exit codes
+unhandled_external_error = "off"    # external binary errors still result in the script exiting with proper error
 
 # Rules whose auto-fix can change behaviour
 append_to_concat_assign = "off"     # wraps list values in [...] → nests lists (`append` flattens, `++` doesn't)
