@@ -6,6 +6,9 @@ single_call_command = "off"         # small helpers (log_*) are worth keeping ev
 catch_builtin_error_try = "off"     # in scripts, letting open/save error out is the right behaviour
 max_positional_params = "off"       # sometimes worth fixing, not a warning
 list_param_to_variadic = "off"      # don't care about variadics for our scripts
+remove_hat_not_builtin = "off"      # bad practice, what if external command becomes builtin...
+redundant_ignore = "off"            # does not work properly with external commands
+ignore_over_dev_null = "off"        # ignore can be dangerous in some cases because it by default ignores exit codes
 
 # Rules whose auto-fix can change behaviour
 append_to_concat_assign = "off"     # wraps list values in [...] → nests lists (`append` flattens, `++` doesn't)
