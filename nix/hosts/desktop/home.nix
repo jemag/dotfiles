@@ -49,7 +49,7 @@ in
       android-tools
       usbutils
       anki-bin
-      brave
+      herdr-desktop
       myPkgs.learn-harness
       myPkgs.tuios
       mangohud
