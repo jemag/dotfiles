@@ -2,6 +2,14 @@ local filter_windows = require("utils").filter_windows
 local isNotWSL = vim.fn.getenv("WSL_INTEROP") == vim.NIL
 local marks = require("marks")
 
+-- herdr-app's terminal (libghostty-vt) only accepts direct Kitty image
+-- transfers; Snacks otherwise sends a filename locally, which the app
+-- rejects. HC_TERMINAL_ID is set in every terminal herdr-core starts.
+if vim.env.HC_TERMINAL_ID then
+  vim.env.SNACKS_GHOSTTY = "true" -- skip the XTVERSION probe
+  vim.env.SNACKS_SSH = "true" -- force direct (t=d) image transfers
+end
+
 local snacks = require("snacks")
 snacks.setup({
   terminal = {

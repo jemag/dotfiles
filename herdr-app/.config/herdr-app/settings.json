@@ -1,0 +1,16 @@
+{
+  "zoom": 1,
+  "sounds": {
+    "enabled": false
+  },
+  "font": "FiraCode Nerd Font Mono",
+  "font_size": 12,
+  "minimum_contrast": 1,
+  "appearance": "dark",
+  "colors": {
+    "accent": "#fecb6e",
+    "blocked": "#f38ba8",
+    "done": "#5ccfe6",
+    "working": "#95e6cb"
+  }
+}

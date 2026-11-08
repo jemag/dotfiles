@@ -130,6 +130,14 @@ in
       ".config/nanocoder/agents.config.json" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nanocoder/.config/nanocoder/agents.config.json";
       };
+      ".config/herdr-app/keys.json" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr-app/.config/herdr-app/keys.json";
+        force = true;
+      };
+      ".config/herdr-app/settings.json" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr-app/.config/herdr-app/settings.json";
+        force = true;
+      };
     };
 
     # Home Manager can also manage your environment variables through
