@@ -3,7 +3,6 @@
   config,
   pkgs,
   llm-agents,
-  tuicr,
   pkgs-stable,
   zlsPkg,
   ...
@@ -370,11 +369,7 @@ in
             paths = [ llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2 ];
             postBuild = "ln -s $out/bin/opencode2 $out/bin/opencode";
           })
-          # tuicr.packages.${pkgs.stdenv.hostPlatform.system}.default
-          # tuicr removed: its flake builds with naersk, which fetches each crate from
-          # https://crates.io/api/v1/crates/<name>/<ver>/download. That endpoint now
-          # returns 403 for curl/* User-Agents, so every crate download fails and
-          # nothing is cached upstream. Re-add if naersk moves to static.crates.io.
+          tuicr
           parallel
           ripgrep
           ruby

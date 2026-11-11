@@ -45,10 +45,6 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tuicr = {
-      url = "github:agavra/tuicr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -105,7 +101,7 @@
         "jemag@jemag-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/laptop/home.nix ];
@@ -113,7 +109,7 @@
         "jemag@WSQCIML9115246" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-c06b4ae3 pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/work/home.nix ];
@@ -123,7 +119,7 @@
         "jemag@work" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-c06b4ae3 pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/work/home.nix ];
@@ -131,7 +127,7 @@
         "jemag@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/desktop/home.nix ];
@@ -139,7 +135,7 @@
         "jemag@thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/thinkpad/home.nix ];
@@ -147,7 +143,7 @@
         "jemag@nixvm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/nixvm/home.nix ];
@@ -155,7 +151,7 @@
         "jemag@homelab" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit (inputs) llm-agents tuicr;
+            inherit (inputs) llm-agents;
             inherit pkgs-stable zlsPkg;
           };
           modules = [ ./hosts/homelab/home.nix ];
