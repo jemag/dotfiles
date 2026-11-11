@@ -844,6 +844,25 @@ require("lazy").setup({
     },
   },
   {
+    "georgeguimaraes/review.nvim",
+    version = "*",
+    dependencies = {
+      "esmuellert/codediff.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    event = "VeryLazy",
+    keys = {
+      { "<localleader>rr", "<cmd>Review<cr>", desc = "Review working tree" },
+      { "<localleader>rc", "<cmd>Review commits<cr>", desc = "Review commits" },
+      { "<localleader>rb", "<cmd>Review branch<cr>", desc = "Review branch" },
+      { "<localleader>rn", ":Review note<cr>", mode = { "n", "v" }, desc = "Review: note here" },
+      { "<localleader>re", "<cmd>Review edit<cr>", desc = "Review: edit comment" },
+      { "<localleader>rd", "<cmd>Review delete<cr>", desc = "Review: delete comment" },
+      { "<localleader>rx", "<cmd>Review export<cr>", desc = "Review: export" },
+    },
+    opts = {},
+  },
+  {
     "sudo-tee/opencode.nvim",
     config = function()
       require("plugin-configs.sudo-opencode")

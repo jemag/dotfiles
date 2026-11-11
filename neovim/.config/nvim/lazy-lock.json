@@ -99,6 +99,7 @@
   "refactoring.nvim": { "branch": "master", "commit": "ea18f97c58276e213736c9f0193f7aa4c690693e" },
   "render-markdown.nvim": { "branch": "main", "commit": "9c235bedc4f96145e63fcad5b78cd78bce8822c4" },
   "resession.nvim": { "branch": "master", "commit": "0983fbdd3fe938c80fb7dd33817f08f428426ac8" },
+  "review.nvim": { "branch": "main", "commit": "46fa59f63d71c883baf1f0f89cf52f91b42eaeb0" },
   "schemastore.nvim": { "branch": "main", "commit": "fec0f4098b764f14eec5d8225f2b573e802c82fb" },
   "scope.nvim": { "branch": "main", "commit": "d7b7e315975dee119248b818ed6785180b27c1f0" },
   "screenkey.nvim": { "branch": "main", "commit": "16390931d847b1d5d77098daccac4e55654ac9e2" },
