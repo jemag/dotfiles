@@ -85,16 +85,16 @@ name = "main"
 # Defining [keybinds] replaces Umbriel's built-in set entirely.
 [keybinds]
 # apps / session
-"Mod+Return" = { action = "spawn:ghostty", repeat = false }
-"Mod+P" = { action = "spawn:noctalia msg panel-toggle launcher", repeat = false }
-"Mod+O" = { action = "spawn:noctalia msg panel-toggle launcher '/win '", repeat = false }
+"Mod+Return" = { action = "spawn ghostty", repeat = false }
+"Mod+P" = { action = "spawn noctalia msg panel-toggle launcher", repeat = false }
+"Mod+O" = { action = "spawn noctalia msg panel-toggle launcher '/win '", repeat = false }
 "Mod+Shift+Q" = { action = "window-close", repeat = false }
 "Mod+Shift+Slash" = { action = "cheatsheet-toggle", repeat = false }
 "Mod+Shift+C" = "config-reload"
 "Mod+Shift+E" = "session-quit"
-"Mod+Shift+X" = { action = "spawn:noctalia msg session lock", repeat = false }
-"Mod+T" = { action = "spawn:noctalia msg bar-toggle", repeat = false }
-"Print" = { action = "spawn:noctalia msg screenshot-region", repeat = false }
+"Mod+Shift+X" = { action = "spawn noctalia msg session lock", repeat = false }
+"Mod+T" = { action = "spawn noctalia msg bar-toggle", repeat = false }
+"Print" = { action = "spawn noctalia msg screenshot-region", repeat = false }
 
 # focus
 "Mod+H" = "window-focus-left"
@@ -124,8 +124,8 @@ name = "main"
 "Mod+Shift+V" = "window-consume-or-expel-right" # was: split h
 "Mod+W" = { action = "column-toggle-tabbed", repeat = false }        # tabbed <-> stacked rows
 # "Mod+Ctrl+W" = { action = "column-toggle-tab-bar", repeat = false } # show/hide this column's title bar
-"Mod+Shift+W" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
-"Mod+G" = { action = "spawn:sh ~/.config/umbriel/toggle-override.sh gaps '[layout]\\ngap = 0'", repeat = false }  # gaps on/off
+"Mod+Shift+W" = { action = "spawn sh ~/.config/umbriel/toggle-override.sh tabbar '[appearance.tab_bar]\\nvisible = false'", repeat = false } # tab bars on/off everywhere
+"Mod+G" = { action = "spawn sh ~/.config/umbriel/toggle-override.sh gaps '[layout]\\ngap = 0'", repeat = false }  # gaps on/off
 "Mod+Shift+G" = { action = "window-toggle-maximize-to-edges", repeat = false }      # this window: no gaps/borders
 "Mod+E" = "window-cycle-primary-extent"       # column width presets
 "Mod+C" = "column-center"
@@ -139,59 +139,59 @@ name = "main"
 "Mod+Shift+S" = { action = "window-focus-switch-floating", repeat = false }
 
 # scratchpad
-"Mod+U" = "scratchpad-toggle:main"
+"Mod+U" = "scratchpad-toggle main"
 # move window to scratch pad
-"Mod+Shift+U" = { action = "window-toggle-scratchpad:main", repeat = false }
+"Mod+Shift+U" = { action = "window-toggle-scratchpad main", repeat = false }
 
 # workspaces
 "Mod+A" = "workspace-focus-last"
-"Mod+1" = "workspace-switch:1/DP-2"
-"Mod+2" = "workspace-switch:2/DP-2"
-"Mod+3" = "workspace-switch:3/DP-2"
-"Mod+4" = "workspace-switch:4/DP-2"
-"Mod+5" = "workspace-switch:5/DP-2"
-"Mod+6" = "workspace-switch:6/DP-2"
-"Mod+7" = "workspace-switch:7/DP-2"
-"Mod+8" = "workspace-switch:8/DP-2"
-"Mod+9" = "workspace-switch:9/DP-2"
-"Mod+0" = "workspace-switch:1/HDMI-A-1"   # ws "10" = position 1 on HDMI; bare 10 = position 10 on DP-2 (none)
-"Mod+Shift+1" = "window-move-to-workspace-silent:1/DP-2"
-"Mod+Shift+2" = "window-move-to-workspace-silent:2/DP-2"
-"Mod+Shift+3" = "window-move-to-workspace-silent:3/DP-2"
-"Mod+Shift+4" = "window-move-to-workspace-silent:4/DP-2"
-"Mod+Shift+5" = "window-move-to-workspace-silent:5/DP-2"
-"Mod+Shift+6" = "window-move-to-workspace-silent:6/DP-2"
-"Mod+Shift+7" = "window-move-to-workspace-silent:7/DP-2"
-"Mod+Shift+8" = "window-move-to-workspace-silent:8/DP-2"
-"Mod+Shift+9" = "window-move-to-workspace-silent:9/DP-2"
-"Mod+Shift+0" = "window-move-to-workspace-silent:1/HDMI-A-1"
+"Mod+1" = "workspace-switch 1 --output DP-2"
+"Mod+2" = "workspace-switch 2 --output DP-2"
+"Mod+3" = "workspace-switch 3 --output DP-2"
+"Mod+4" = "workspace-switch 4 --output DP-2"
+"Mod+5" = "workspace-switch 5 --output DP-2"
+"Mod+6" = "workspace-switch 6 --output DP-2"
+"Mod+7" = "workspace-switch 7 --output DP-2"
+"Mod+8" = "workspace-switch 8 --output DP-2"
+"Mod+9" = "workspace-switch 9 --output DP-2"
+"Mod+0" = "workspace-switch 1 --output HDMI-A-1"   # ws "10" = position 1 on HDMI; bare 10 = position 10 on DP-2 (none)
+"Mod+Shift+1" = "window-move-to-workspace-silent 1 --output DP-2"
+"Mod+Shift+2" = "window-move-to-workspace-silent 2 --output DP-2"
+"Mod+Shift+3" = "window-move-to-workspace-silent 3 --output DP-2"
+"Mod+Shift+4" = "window-move-to-workspace-silent 4 --output DP-2"
+"Mod+Shift+5" = "window-move-to-workspace-silent 5 --output DP-2"
+"Mod+Shift+6" = "window-move-to-workspace-silent 6 --output DP-2"
+"Mod+Shift+7" = "window-move-to-workspace-silent 7 --output DP-2"
+"Mod+Shift+8" = "window-move-to-workspace-silent 8 --output DP-2"
+"Mod+Shift+9" = "window-move-to-workspace-silent 9 --output DP-2"
+"Mod+Shift+0" = "window-move-to-workspace-silent 1 --output HDMI-A-1"
 
 # resize submap (was: mode "resize")
-"Mod+R" = { action = "submap:resize", repeat = false }
-"submap[resize],H" = "window-modify-primary-extent:-0.05"
-"submap[resize],L" = "window-modify-primary-extent:0.05"
-"submap[resize],K" = "window-modify-secondary-extent:-0.05"
-"submap[resize],J" = "window-modify-secondary-extent:0.05"
-"submap[resize],Left" = "window-modify-primary-extent:-0.05"
-"submap[resize],Right" = "window-modify-primary-extent:0.05"
-"submap[resize],Up" = "window-modify-secondary-extent:-0.05"
-"submap[resize],Down" = "window-modify-secondary-extent:0.05"
-"submap[resize],Return" = "submap:reset"
-"submap[resize],Escape" = "submap:reset"
+"Mod+R" = { action = "submap resize", repeat = false }
+"submap[resize],H" = "window-modify-primary-extent -0.05"
+"submap[resize],L" = "window-modify-primary-extent 0.05"
+"submap[resize],K" = "window-modify-secondary-extent -0.05"
+"submap[resize],J" = "window-modify-secondary-extent 0.05"
+"submap[resize],Left" = "window-modify-primary-extent -0.05"
+"submap[resize],Right" = "window-modify-primary-extent 0.05"
+"submap[resize],Up" = "window-modify-secondary-extent -0.05"
+"submap[resize],Down" = "window-modify-secondary-extent 0.05"
+"submap[resize],Return" = "submap reset"
+"submap[resize],Escape" = "submap reset"
 
 # audio / media (routed through Noctalia for OSDs)
-"XF86AudioRaiseVolume" = { action = "spawn:noctalia msg volume-up 3", allow_when_locked = true }
-"XF86AudioLowerVolume" = { action = "spawn:noctalia msg volume-down 3", allow_when_locked = true }
-"XF86AudioMute" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
-"XF86AudioPlay" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
-"XF86AudioNext" = { action = "spawn:noctalia msg media next", allow_when_locked = true }
-"XF86AudioPrev" = { action = "spawn:noctalia msg media previous", allow_when_locked = true }
-"Mod+F10" = { action = "spawn:noctalia msg volume-up 3", allow_when_locked = true }
-"Mod+F9" = { action = "spawn:noctalia msg volume-down 3", allow_when_locked = true }
-"Mod+F8" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true, repeat = false }
-"Mod+F6" = { action = "spawn:noctalia msg media toggle", allow_when_locked = true, repeat = false }
-"Mod+F7" = { action = "spawn:noctalia msg media next", allow_when_locked = true }
-"Mod+F5" = { action = "spawn:noctalia msg media previous", allow_when_locked = true }
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up 3", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down 3", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"Mod+F10" = { action = "spawn noctalia msg volume-up 3", allow_when_locked = true }
+"Mod+F9" = { action = "spawn noctalia msg volume-down 3", allow_when_locked = true }
+"Mod+F8" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"Mod+F6" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"Mod+F7" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"Mod+F5" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
 
 # ------------------------------------------------------------------ window rules
 [[window_rule]]
