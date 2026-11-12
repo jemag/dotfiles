@@ -621,6 +621,29 @@ require("lazy").setup({
     },
   },
   {
+    "emrearmagan/atlas.nvim",
+    -- Azure DevOps support only lives on `dev` (merged 2026-11-11, PR #87).
+    -- Switch back to a release once it ships.
+    branch = "dev",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("plugin-configs.atlas")
+    end,
+    lazy = true,
+    cmd = "Atlas",
+    keys = {
+      { "<leader>gaa", "<cmd>Atlas<cr>", desc = "Atlas commands" },
+      { "<leader>gap", "<cmd>Atlas pulls .<cr>", desc = "Atlas PRs (current repo provider)" },
+      { "<leader>gai", "<cmd>Atlas issues .<cr>", desc = "Atlas issues (current repo provider)" },
+      { "<leader>gar", "<cmd>Atlas review<cr>", desc = "Atlas review PR" },
+      { "<leader>ga.", "<cmd>Atlas review .<cr>", desc = "Atlas review current branch PR" },
+      { "<leader>gaP", "<cmd>Atlas pipelines .<cr>", desc = "Atlas pipelines" },
+      { "<leader>gao", "<cmd>Atlas open .<cr>", desc = "Atlas open" },
+    },
+  },
+  {
     "linrongbin16/gitlinker.nvim",
     config = function()
       require("plugin-configs.gitlinker")
