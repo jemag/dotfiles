@@ -55,6 +55,4 @@ end = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "v
 max_length = 600              # default 260 truncates most titles
 
 [widget.taskbar]
-group_by_workspace = true
-show_all_outputs = false
 only_active_workspace = true   # or false to see everything
