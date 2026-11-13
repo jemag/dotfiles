@@ -46,9 +46,15 @@ validate = ["return", "kp_enter", "ctrl+y"]
 format = "{:%F %H:%M}"
 
 [bar.default]                 # focused window title in the centre, clock at the far right
+start  = ["launcher", "wallpaper", "workspaces", "taskbar"]
 center = ["active_window"]
 end = ["media", "tray", "notifications", "clipboard", "network", "bluetooth", "volume",
-       "brightness", "battery", "control-center", "session", "clock"]
+ "battery", "control-center", "session", "clock"]
 
 [widget.active_window]
 max_length = 600              # default 260 truncates most titles
+
+[widget.taskbar]
+group_by_workspace = true
+show_all_outputs = false
+only_active_workspace = true   # or false to see everything
