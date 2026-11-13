@@ -49,7 +49,7 @@ sensitivity = 0.5
 [input.focus]
 follows_mouse = true
 [input.cursor]
-follows_focus = true
+follows_focus = false
 hide_timeout_ms = 1000
 
 # ------------------------------------------------------------------ look
