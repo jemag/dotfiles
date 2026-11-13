@@ -343,6 +343,7 @@ in
           lazygit
           lua5_1
           luarocks
+          jwt-cli
           python3
           python3Packages.argcomplete
           manix # search nix options
