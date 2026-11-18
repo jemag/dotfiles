@@ -256,6 +256,7 @@ in
       packages =
         with pkgs;
         [
+          myPkgs.chainctl
           myPkgs.javaLspScript
           myPkgs.leaf
           myPkgs.network-doctor

@@ -1,5 +1,6 @@
 { pkgs }:
 {
+  chainctl = import ./chainctl.nix { inherit pkgs; };
   javaLspScript = import ./java-lsp-script.nix { inherit pkgs; };
   leaf = import ./leaf.nix { inherit pkgs; };
   learn-harness = import ./learnharness.nix { inherit pkgs; };
