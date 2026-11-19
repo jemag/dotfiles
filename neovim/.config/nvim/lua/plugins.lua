@@ -401,7 +401,7 @@ require("lazy").setup({
       require("plugin-configs.render-markdown")
     end,
     lazy = true,
-    ft = { "markdown", "rmd" },
+    ft = { "markdown", "rmd", "opencode_output" },
   },
   {
     "jbyuki/one-small-step-for-vimkind",
