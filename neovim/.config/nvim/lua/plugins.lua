@@ -622,7 +622,7 @@ require("lazy").setup({
   },
   {
     "emrearmagan/atlas.nvim",
-    -- Azure DevOps support only lives on `dev` (merged 2026-11-11, PR #87).
+    -- Azure DevOps support with CLI auth only lives on `dev`  for now
     -- Switch back to a release once it ships.
     branch = "dev",
     dependencies = {

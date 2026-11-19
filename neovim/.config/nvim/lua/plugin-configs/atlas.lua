@@ -1,6 +1,6 @@
 local azure_org = vim.env.AZURE_DEVOPS_ORG_URL -- e.g. https://dev.azure.com/<org>
-local azure_token = vim.env.AZURE_DEVOPS_TOKEN
-local has_azure = azure_org ~= nil and azure_org ~= "" and azure_token ~= nil and azure_token ~= ""
+-- Auth: no PAT configured -> atlas falls back to the Azure CLI (`az login`).
+local has_azure = azure_org ~= nil and azure_org ~= ""
 
 local providers = {
   github = {
@@ -52,8 +52,8 @@ local issues = {
 if has_azure then
   providers.azure = {
     base_url = azure_org,
-    token = azure_token,
-    cache_ttl = 300,
+    -- token unset on purpose: uses `az account get-access-token` (Entra token).
+    cache_ttl = 3000,
   }
 
   pulls.azure = {
