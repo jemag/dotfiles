@@ -257,6 +257,7 @@ in
         with pkgs;
         [
           myPkgs.chainctl
+          myPkgs.drawio-mcp-server
           myPkgs.javaLspScript
           myPkgs.leaf
           myPkgs.network-doctor
