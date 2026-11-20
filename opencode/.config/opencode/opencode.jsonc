@@ -1,105 +1,98 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  // "model": "github-copilot/claude-opus-4.6",
+  "model": "github-copilot/claude-opus-5.5",
+  // "model": "claude-agent/opus",
   // "plugin": [
   //   "/home/jemag/.local/share/opencode-plugins/opencode-model-router"
   // ],
   // Prompt before each websearch call. Queries are model-composed and leave the
   // machine for Exa's hosted MCP service, so they are worth eyeballing.
   // Set to "allow" to stop prompting once comfortable.
-  "permission": {
-    "websearch": "ask",
-    // These skills are on-demand only (/learn, /deep-research, /adversarial-review
-    // commands below). opencode ignores `disable-model-invocation`, so gate here.
-    "skill": {
-      "learn": "ask",
-      "deep-research": "ask",
-      "adversarial-review": "ask"
-    }
-  },
+  // These skills are on-demand only (/learn, /deep-research, /adversarial-review
+  // commands below). opencode ignores `disable-model-invocation`, so gate here.
+  "permissions": [
+    { "action": "websearch", "resource": "*", "effect": "ask" },
+    { "action": "skill", "resource": "learn", "effect": "ask" },
+    { "action": "skill", "resource": "deep-research", "effect": "ask" },
+    { "action": "skill", "resource": "adversarial-review", "effect": "ask" }
+  ],
   // Agents are defined here rather than as markdown files in agents/, because
-  // `{file:...}` is only interpolated in this `prompt` field — in a markdown
+  // `{file:...}` is only interpolated in this `system` field — in a markdown
   // agent the body is taken literally, so `{file:...}` silently yields an
   // empty system prompt. Bodies are shared with Claude Code via ai-agents/.
-  "agent": {
+  // Permission rules are ordered: the last matching rule wins.
+  "agents": {
     "teacher": {
       "description": "Explains concepts and reviews code without editing the repo",
       "mode": "primary",
-      "prompt": "{file:/home/jemag/dotfiles/ai-agents/prompts/teacher.md}",
-      "permission": {
-        "edit": "deny",
-        "bash": "ask"
-      }
+      "system": "{file:/home/jemag/dotfiles/ai-agents/prompts/teacher.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "ask" }
+      ]
     },
     "researcher": {
       "description": "Web researcher — searches the web and synthesizes a sourced brief. Use to verify any fact before teaching it, or to scope a topic before planning a lesson.",
       "mode": "subagent",
-      "temperature": 0.1,
-      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/researcher.md}",
-      "permission": {
-        "edit": "deny",
-        "bash": "deny",
-        "read": "deny",
-        "task": "deny",
-        "websearch": "allow",
-        "webfetch": "allow"
-      }
+      "system": "{file:/home/jemag/dotfiles/ai-agents/agents/researcher.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "read", "resource": "*", "effect": "deny" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "websearch", "resource": "*", "effect": "allow" },
+        { "action": "webfetch", "resource": "*", "effect": "allow" }
+      ]
     },
     "mermaid-maker": {
       "description": "Authors ONE Mermaid diagram from a brief, renders it to a PNG, LOOKS at the result, iterates until correct and clean, and returns the filename. For structural/relational visuals — dependency graphs, flows, sequences, state machines, trees, ER, timelines.",
       "mode": "subagent",
       "model": "github-copilot/claude-sonnet-5",
-      "temperature": 0.2,
-      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/mermaid-maker.md}",
-      "permission": {
-        "edit": "allow",
-        "read": "allow",
-        "task": "deny",
-        "websearch": "deny",
-        "webfetch": "deny",
-        "bash": {
-          "*": "deny",
-          "mkdir *": "allow",
-          "mmdc *": "allow",
-          "sed *": "allow",
-          "rsvg-convert *": "allow",
-          "mv *": "allow",
-          "rm viz/*": "allow",
-          "ls *": "allow",
-          "pwd": "allow",
-          "date*": "allow"
-        }
-      }
+      "system": "{file:/home/jemag/dotfiles/ai-agents/agents/mermaid-maker.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "websearch", "resource": "*", "effect": "deny" },
+        { "action": "webfetch", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "mkdir *", "effect": "allow" },
+        { "action": "shell", "resource": "mmdc *", "effect": "allow" },
+        { "action": "shell", "resource": "sed *", "effect": "allow" },
+        { "action": "shell", "resource": "rsvg-convert *", "effect": "allow" },
+        { "action": "shell", "resource": "mv *", "effect": "allow" },
+        { "action": "shell", "resource": "rm viz/*", "effect": "allow" },
+        { "action": "shell", "resource": "ls *", "effect": "allow" },
+        { "action": "shell", "resource": "pwd", "effect": "allow" },
+        { "action": "shell", "resource": "date*", "effect": "allow" }
+      ]
     },
     "svg-maker": {
       "description": "Authors ONE hand-written SVG from a brief, renders it to a PNG, LOOKS at the result, iterates until correct and clean, and returns the filename. For spatial/geometric visuals Mermaid can't express — coordinate geometry, number lines, vectors, function plots, physical layouts.",
       "mode": "subagent",
       "model": "github-copilot/claude-sonnet-5",
-      "temperature": 0.2,
-      "prompt": "{file:/home/jemag/dotfiles/ai-agents/agents/svg-maker.md}",
-      "permission": {
-        "edit": "allow",
-        "read": "allow",
-        "task": "deny",
-        "websearch": "deny",
-        "webfetch": "deny",
-        "bash": {
-          "*": "deny",
-          "mkdir *": "allow",
-          "rsvg-convert *": "allow",
-          "magick *": "allow",
-          "mv *": "allow",
-          "rm viz/*": "allow",
-          "ls *": "allow",
-          "pwd": "allow",
-          "date*": "allow"
-        }
-      }
+      "system": "{file:/home/jemag/dotfiles/ai-agents/agents/svg-maker.md}",
+      "permissions": [
+        { "action": "edit", "resource": "*", "effect": "allow" },
+        { "action": "read", "resource": "*", "effect": "allow" },
+        { "action": "subagent", "resource": "*", "effect": "deny" },
+        { "action": "websearch", "resource": "*", "effect": "deny" },
+        { "action": "webfetch", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "*", "effect": "deny" },
+        { "action": "shell", "resource": "mkdir *", "effect": "allow" },
+        { "action": "shell", "resource": "rsvg-convert *", "effect": "allow" },
+        { "action": "shell", "resource": "magick *", "effect": "allow" },
+        { "action": "shell", "resource": "mv *", "effect": "allow" },
+        { "action": "shell", "resource": "rm viz/*", "effect": "allow" },
+        { "action": "shell", "resource": "ls *", "effect": "allow" },
+        { "action": "shell", "resource": "pwd", "effect": "allow" },
+        { "action": "shell", "resource": "date*", "effect": "allow" }
+      ]
     }
   },
   // On-demand entry points for skills gated to "ask" above. Approving the
   // permission prompt is the one confirmation step.
-  "command": {
+  "commands": {
     "learn": {
       "description": "Teach a topic with the learn skill",
       "template": "Load the `learn` skill and use it to teach me: $ARGUMENTS"
@@ -113,11 +106,11 @@
       "template": "Load the `adversarial-review` skill and run it on: $ARGUMENTS (default: working tree)"
     }
   },
-  "provider": {
+  "providers": {
     "llama.cpp": {
-      "npm": "@ai-sdk/openai-compatible",
+      "package": "aisdk:@ai-sdk/openai-compatible",
       "name": "llama-server (local)",
-      "options": {
+      "settings": {
         "baseURL": "http://127.0.0.1:9931/v1"
       },
       "models": {
@@ -132,53 +125,55 @@
     }
   },
   "mcp": {
-    "drawio": {
-      "type": "local",
-      "command": [
-        "drawio-mcp-server",
-        "--editor",
-        "--http-port",
-        "3030"
-      ],
-      "enabled": false,
-      "timeout": 60000
-    },
-    "excalidraw": {
-      "type": "local",
-      "command": [
-        "node",
-        "/home/jemag/Projects/mcp_excalidraw/dist/index.js"
-      ],
-      "enabled": false,
-      "environment": {
-        "EXPRESS_SERVER_URL": "http://localhost:3000",
-        "ENABLE_CANVAS_SYNC": "true"
+    "servers": {
+      "drawio": {
+        "type": "local",
+        "command": [
+          "drawio-mcp-server",
+          "--editor",
+          "--http-port",
+          "3030"
+        ],
+        "disabled": true,
+        "timeout": { "catalog": 60000, "execution": 60000 }
       },
-      "timeout": 60000
-    },
-    "whisker": {
-      "type": "local",
-      "command": [
-        "mcp-whisker-go",
-        "server"
-      ],
-      "environment": {
-        "KUBECONFIG": "/home/jemag/.kube/config"
+      "excalidraw": {
+        "type": "local",
+        "command": [
+          "node",
+          "/home/jemag/Projects/mcp_excalidraw/dist/index.js"
+        ],
+        "disabled": true,
+        "environment": {
+          "EXPRESS_SERVER_URL": "http://localhost:3000",
+          "ENABLE_CANVAS_SYNC": "true"
+        },
+        "timeout": { "catalog": 60000, "execution": 60000 }
       },
-      "enabled": false
-    },
-    "aks": {
-      "type": "local",
-      "command": [
-        "/usr/local/bin/aks-mcp",
-        "--transport",
-        "stdio",
-        "--access-level",
-        "readonly",
-        "--enabled-components",
-        "az_cli,monitor,fleet,network,compute,detectors,advisor,inspektorgadget,kubectl"
-      ],
-      "enabled": false
+      "whisker": {
+        "type": "local",
+        "command": [
+          "mcp-whisker-go",
+          "server"
+        ],
+        "environment": {
+          "KUBECONFIG": "/home/jemag/.kube/config"
+        },
+        "disabled": true
+      },
+      "aks": {
+        "type": "local",
+        "command": [
+          "/usr/local/bin/aks-mcp",
+          "--transport",
+          "stdio",
+          "--access-level",
+          "readonly",
+          "--enabled-components",
+          "az_cli,monitor,fleet,network,compute,detectors,advisor,inspektorgadget,kubectl"
+        ],
+        "disabled": true
+      }
     }
   }
 }
