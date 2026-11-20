@@ -5,13 +5,86 @@
   // "plugin": [
   //   "/home/jemag/.local/share/opencode-plugins/opencode-model-router"
   // ],
-  // Prompt before each websearch call. Queries are model-composed and leave the
-  // machine for Exa's hosted MCP service, so they are worth eyeballing.
-  // Set to "allow" to stop prompting once comfortable.
+  // Websearch queries are model-composed and leave the machine for Exa's hosted
+  // MCP service.
   // These skills are on-demand only (/learn, /deep-research, /adversarial-review
   // commands below). opencode ignores `disable-model-invocation`, so gate here.
   "permissions": [
-    { "action": "websearch", "resource": "*", "effect": "ask" },
+    { "action": "websearch", "resource": "*", "effect": "allow" },
+    { "action": "shell", "resource": "git push *", "effect": "deny" },
+    { "action": "shell", "resource": "git commit *", "effect": "deny" },
+    // Credential files. Only gates the read tool; `cat` via shell is not covered.
+    { "action": "read", "resource": "~/.ssh/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.kube/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.azure/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.config/gh/*", "effect": "deny" },
+    { "action": "read", "resource": "~/.docker/config.json", "effect": "deny" },
+    { "action": "read", "resource": "~/.local/share/opencode/auth.json", "effect": "deny" },
+    { "action": "read", "resource": "~/.config/opencode/service.json", "effect": "deny" },
+    { "action": "read", "resource": "*.tfstate*", "effect": "ask" },
+    { "action": "read", "resource": "*.tfvars", "effect": "ask" },
+    // Privilege escalation, work-destroying git commands, system rebuilds.
+    { "action": "shell", "resource": "sudo *", "effect": "ask" },
+    { "action": "shell", "resource": "git reset --hard *", "effect": "ask" },
+    { "action": "shell", "resource": "git clean *", "effect": "ask" },
+    { "action": "shell", "resource": "git checkout -- *", "effect": "ask" },
+    { "action": "shell", "resource": "git restore *", "effect": "ask" },
+    { "action": "shell", "resource": "git stash drop *", "effect": "ask" },
+    { "action": "shell", "resource": "git branch -D *", "effect": "ask" },
+    { "action": "shell", "resource": "nixos-rebuild *", "effect": "ask" },
+    { "action": "shell", "resource": "home-manager switch *", "effect": "ask" },
+    // az: ask by default, allow list/show, re-gate credential-bearing commands.
+    { "action": "shell", "resource": "az *", "effect": "ask" },
+    { "action": "shell", "resource": "az * list *", "effect": "allow" },
+    { "action": "shell", "resource": "az * show *", "effect": "allow" },
+    { "action": "shell", "resource": "az *keyvault*", "effect": "ask" },
+    { "action": "shell", "resource": "az *get-credentials*", "effect": "ask" },
+    { "action": "shell", "resource": "az *get-access-token*", "effect": "ask" },
+    { "action": "shell", "resource": "az *list-keys*", "effect": "ask" },
+    { "action": "shell", "resource": "az *keys list*", "effect": "ask" },
+    { "action": "shell", "resource": "az *connection-string*", "effect": "ask" },
+    // helm: ask by default, allow read-only; `helm get values` can print secrets.
+    { "action": "shell", "resource": "helm *", "effect": "ask" },
+    { "action": "shell", "resource": "helm list *", "effect": "allow" },
+    { "action": "shell", "resource": "helm status *", "effect": "allow" },
+    { "action": "shell", "resource": "helm history *", "effect": "allow" },
+    { "action": "shell", "resource": "helm template *", "effect": "allow" },
+    { "action": "shell", "resource": "helm lint *", "effect": "allow" },
+    { "action": "shell", "resource": "helm show *", "effect": "allow" },
+    // kubectl: ask by default, allow read-only verbs, then re-gate anything that
+    // can expose secret values. Best effort only; RBAC is the real boundary.
+    { "action": "shell", "resource": "kubectl *", "effect": "ask" },
+    { "action": "shell", "resource": "kubectl get *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl describe *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl logs *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl events *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl top *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl explain *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl api-resources *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl api-versions *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl version *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl cluster-info", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl auth can-i *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl auth whoami *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl rollout status *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl rollout history *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl config current-context *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl config get-contexts *", "effect": "allow" },
+    { "action": "shell", "resource": "kubectl *secret*", "effect": "ask" },
+    { "action": "shell", "resource": "kubectl *Secret*", "effect": "ask" },
+    { "action": "shell", "resource": "kubectl *--raw*", "effect": "ask" },
+    // terraform/terragrunt: ask by default (apply, destroy, state, import...),
+    // allow plan only.
+    { "action": "shell", "resource": "terraform *", "effect": "ask" },
+    { "action": "shell", "resource": "terraform plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terraform -chdir=* plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terragrunt *", "effect": "ask" },
+    { "action": "shell", "resource": "terragrunt plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terragrunt run-all plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terragrunt run -- plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terragrunt run --all -- plan *", "effect": "allow" },
+    { "action": "shell", "resource": "terr* *apply*", "effect": "ask" },
+    { "action": "shell", "resource": "terr* *destroy*", "effect": "ask" },
     { "action": "skill", "resource": "learn", "effect": "ask" },
     { "action": "skill", "resource": "deep-research", "effect": "ask" },
     { "action": "skill", "resource": "adversarial-review", "effect": "ask" }
