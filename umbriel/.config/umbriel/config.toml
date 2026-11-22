@@ -47,7 +47,7 @@ accel_profile = "flat"
 sensitivity = 0.5
 
 [input.focus]
-follows_mouse = true
+follows_mouse = "sloppy"
 [input.cursor]
 follows_focus = false
 hide_timeout_ms = 1000
