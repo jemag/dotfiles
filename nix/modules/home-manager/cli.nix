@@ -47,6 +47,7 @@ in
         extraPackages = with pkgs; [
           # language servers
           angular-language-server
+          ctags
           bash-language-server
           bicep-lsp
           dockerfile-language-server
@@ -259,7 +260,6 @@ in
           myPkgs.chainctl
           myPkgs.drawio-mcp-server
           myPkgs.javaLspScript
-          myPkgs.leaf
           myPkgs.network-doctor
           myPkgs.tcping
           myPkgs.terraform-ls-terragrunt-shim
