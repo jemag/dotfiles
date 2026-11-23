@@ -622,9 +622,6 @@ require("lazy").setup({
   },
   {
     "emrearmagan/atlas.nvim",
-    -- Azure DevOps support with CLI auth only lives on `dev`  for now
-    -- Switch back to a release once it ships.
-    branch = "dev",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
