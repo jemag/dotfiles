@@ -52,6 +52,7 @@ in
       herdr-desktop
       myPkgs.learn-harness
       myPkgs.tuios
+      ladybird
       mangohud
       qbittorrent
       protonup-qt
