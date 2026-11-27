@@ -273,13 +273,22 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = vim.api.nvim_create_augroup("OpencodeRelativeNumber", { clear = true }),
   callback = function(ev)
-    if vim.bo[ev.buf].filetype == "opencode_output" then
-      local win = vim.api.nvim_get_current_win()
-      vim.defer_fn(function()
-        vim.api.nvim_set_option_value("relativenumber", true, { win = win })
-      end, 500)
+    if vim.bo[ev.buf].filetype ~= "opencode_output" then
+      return
     end
+    local win = vim.fn.bufwinid(ev.buf)
+    if win == -1 then
+      return
+    end
+    -- opencode applies its own window options after BufWinEnter, hence the delay.
+    -- The window may be gone by then if opencode was toggled off quickly.
+    vim.defer_fn(function()
+      if vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_buf(win) == ev.buf then
+        vim.wo[win].relativenumber = true
+      end
+    end, 500)
   end,
   desc = "Set relativenumber for opencode",
 })
