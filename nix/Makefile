@@ -24,6 +24,7 @@ os:
 .PHONY: test-os
 test-os:
 		nh os build . --no-build-output
+		rm -f result
 
 # system then home
 .PHONY: all

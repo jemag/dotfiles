@@ -29,10 +29,11 @@ Both targets pick the configuration matching the local hostname. To check anothe
 call nh directly with the same flags as the Makefile:
 
 - `nh home build . --show-activation-logs --no-build-output -c jemag@<host>`
-- `nh os build . --no-build-output -H <host>`
+- `nh os build . --no-build-output -H <host> && rm -f result`
 
-Do not pass `-o`/`--out-link` to these: without it nh links the result into a temp dir and
-leaves nothing behind.
+`nh home build` links its result into a temp dir and leaves nothing behind. `nh os build`
+(nh 4.5) does not: it writes `./result` like `nixos-rebuild build`, so remove it afterwards
+as shown (or as `make test-os` does).
 
 New files must be tracked by git before the flake can see them (`git add -N <file>` is
 enough). Otherwise evaluation fails with "path does not exist" or silently ignores the file.
