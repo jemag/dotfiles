@@ -83,6 +83,7 @@ in
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
       llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.copilot-cli
       prometheus-alertmanager
+      prometheus
       postgresql
       syft
       oras
